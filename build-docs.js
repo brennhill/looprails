@@ -137,6 +137,7 @@ function navHTML(currentKey) {
 function page(key, d, contentHTML, toc) {
   const title = `${stripTags(d.label).replace(/ ·.*/, "")} — LoopRails`;
   const url = `${SITE}/${d.out}`;
+  const ogimg = `${SITE}/og-${key}.png`;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -150,11 +151,11 @@ function page(key, d, contentHTML, toc) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(d.desc)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${SITE}/og.png">
+<meta property="og:image" content="${ogimg}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(d.desc)}">
-<meta name="twitter:image" content="${SITE}/og.png">
+<meta name="twitter:image" content="${ogimg}">
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">

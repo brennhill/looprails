@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1620"/><stop offset="1" stop-color="#16242e"/></linearGradient>
-    <radialGradient id="glow" cx="0.85" cy="0.0" r="0.85"><stop offset="0" stop-color="#13929e" stop-opacity="0.26"/><stop offset="1" stop-color="#13929e" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.0" r="0.85"><stop offset="0" stop-color="#3ddc97" stop-opacity="0.26"/><stop offset="1" stop-color="#3ddc97" stop-opacity="0"/></radialGradient>
     <pattern id="ties" width="74" height="40" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="4" height="40" fill="#22333d"/></pattern>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
@@ -12,11 +12,12 @@
     <line x1="90" y1="90" x2="134" y2="90"/><line x1="90" y1="106" x2="134" y2="106"/>
   </g>
   <text x="164" y="117" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="46" fill="#ffffff" letter-spacing="-1">LoopRails</text>
-  <text x="82" y="212" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="22" letter-spacing="4" fill="#5fd0d8">CALIBRATED OVERSIGHT FOR AI AGENTS</text>
-  <text x="80" y="296" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="54" fill="#ffffff" letter-spacing="-1">Decide how much human oversight</text>
-  <text x="80" y="358" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="54" fill="#ffffff" letter-spacing="-1">each AI action needs.</text>
+  <text x="82" y="212" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="22" letter-spacing="4" fill="#3ddc97">CONSEQUENCE GRADE</text>
+  <text x="80" y="326" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="66" fill="#ffffff" letter-spacing="-1">Trivial actions</text>
+  <text x="82" y="376" font-family="Inter, Arial, Helvetica, sans-serif" font-size="28" fill="#b9cdd2">Why a human in the loop is the wrong default here.</text>
   
-  <text x="82" y="466" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="28" letter-spacing="1" fill="#5fd0d8">Grade · Guard · Show · Prove</text>
+  <rect x="858" y="156" width="252" height="252" rx="30" fill="#3ddc97" fill-opacity="0.13" stroke="#3ddc97" stroke-width="3"/>
+  <text x="984" y="327.5" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="130" fill="#3ddc97" letter-spacing="-2">G0</text>
   <g>
     <rect x="80" y="512" width="1040" height="40" fill="url(#ties)"/>
     <rect x="80" y="512" width="1040" height="4" rx="2" fill="#2c4855"/>
