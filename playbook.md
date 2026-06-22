@@ -1,6 +1,8 @@
-# LOOP — A Practitioner's Playbook for Human-in-the-Loop Agentic AI
+# LoopRail — A Practitioner's Playbook for Human-in-the-Loop Agentic AI
 
-> **Calibrated oversight in four moves: Grade · Guard · Show · Prove.**
+> **Keep your AI agents on the rails.** Calibrated oversight in four moves —
+> **Grade · Guard · Show · Prove** — that keep every action on the **RAIL**:
+> **R**eversible · **A**uthorized · **I**nterruptible · **L**ogged.
 >
 > The quick, do-this tier. For the full reasoning see [`framework.md`](./framework.md); for the
 > evidence behind every claim see [`codex.md`](./codex.md). Bracket tags like `[A-17]` point to a
@@ -167,7 +169,7 @@ Fail Authority → **moral crumple zone**. Fail Awareness → **automation surpr
 ## How the three docs fit
 
 | [`playbook.md`](./playbook.md) | **this** — do-this field guide | practitioners |
-| [`framework.md`](./framework.md) | the full LOOP method + reasoning | designers/leads |
+| [`framework.md`](./framework.md) | the full LoopRail method + reasoning | designers/leads |
 | [`codex.md`](./codex.md) | 366-source research base | the evidence / skeptics |
 
-*LOOP · Grade · Guard · Show · Prove — 2026-06-22.*
+*LoopRail · Grade · Guard · Show · Prove — 2026-06-22.*

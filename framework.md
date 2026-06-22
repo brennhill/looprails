@@ -1,5 +1,5 @@
-# LOOP — Calibrated Oversight for Agentic AI
-## The framework (reference edition) · method: **Grade · Guard · Show · Prove**
+# LoopRail — Calibrated Oversight for Agentic AI
+## Keep your agents on the rails · the framework (reference edition) · method: **Grade · Guard · Show · Prove**
 
 > The full method and reasoning. For the quick do-this version see the
 > [`playbook.md`](./playbook.md); for the evidence behind every claim see [`codex.md`](./codex.md).
