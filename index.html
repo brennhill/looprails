@@ -10,6 +10,15 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://looprails.dev/">
 <link rel="canonical" href="https://looprails.dev/">
+<meta name="author" content="Brenn Hill">
+<meta property="og:image" content="https://looprails.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LoopRails — decide how much human oversight each AI action needs. Grade, Guard, Show, Prove.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LoopRails — decide how much human oversight each AI action needs">
+<meta name="twitter:description" content="See how human oversight of AI agents fails — and the loops that fix it.">
+<meta name="twitter:image" content="https://looprails.dev/og.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e7c86'/%3E%3Cg stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cline x1='9' y1='6' x2='9' y2='26'/%3E%3Cline x1='23' y1='6' x2='23' y2='26'/%3E%3Cline x1='6' y1='12' x2='26' y2='12'/%3E%3Cline x1='6' y1='20' x2='26' y2='20'/%3E%3C/g%3E%3C/svg%3E">
 <style>
 :root{
@@ -123,7 +132,8 @@ nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-f
 .fail-scene .statetag{background:var(--fail-tint);color:var(--fail)}
 .fix-scene .statetag{background:var(--good-tint);color:var(--good)}
 .fbody{padding:16px 17px 17px;display:flex;flex-direction:column;flex:1}
-.fbody h3{display:flex;align-items:center;gap:8px}
+.fbody h3{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.fbody h3 .sub{font-weight:500;color:var(--muted);font-size:.8em}
 .fbody .ftxt{font-size:.9rem;color:var(--ink-2);min-height:62px;margin:.5em 0 .7em}
 .fbody.is-fix .fail-txt{display:none}
 .fbody:not(.is-fix) .fix-txt{display:none}
@@ -443,12 +453,14 @@ footer a{color:#bfe0e4}
     <div>
       <div style="font-weight:800;color:#fff;font-size:1.05rem;letter-spacing:-.02em">LoopRails</div>
       <div style="margin-top:4px">Right-sized human oversight for AI agents · Grade · Guard · Show · Prove</div>
+      <div style="margin-top:10px;font-size:.85rem">© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</div>
     </div>
     <div style="display:flex;gap:20px;flex-wrap:wrap">
       <a href="docs.html?doc=playbook">Playbook</a>
       <a href="docs.html?doc=framework">Framework</a>
       <a href="docs.html?doc=codex">Codex</a>
       <a href="https://github.com/brennhill/looprails">GitHub</a>
+      <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a>
     </div>
   </div>
 </footer>
@@ -473,7 +485,7 @@ const FAILURES = [
       <div class="sc-label">decide first · inspect · then act</div>`
   },
   {
-    id:"alertfatigue", title:"Alert Fatigue", icon:"🟥",
+    id:"alertfatigue", title:"Alert-Fatigue Spiral", icon:"🟥",
     fail:"Too many low-value alerts and people start tuning them all out — including the one that actually mattered. In hospitals, clinicians dismiss 49 to 96% of safety alerts.",
     fix:"Treat the person's attention as a limited budget. Send few alerts, make them accurate, and aim each one at the person who can act on it. Keep most signals passive (visible if you look, not interrupting), and reserve a blocking prompt for when you need a specific decision now.",
     pattern:"Spend attention sparingly", cite:"H-10",
@@ -485,7 +497,7 @@ const FAILURES = [
       <div class="sc-label">one precise, blocking alert — seen</div>`
   },
   {
-    id:"handoff", title:"The Sudden Handoff", icon:"🟥",
+    id:"handoff", title:"The Sudden Handoff <span class='sub'>— the out-of-the-loop problem</span>", icon:"🟥",
     fail:"The agent runs on its own until something goes wrong, then hands control to a person who hasn't been paying attention — at the worst possible moment. Getting back up to speed takes time they don't have. (This is the classic out-of-the-loop problem from aviation.)",
     fix:"Hand off early, gradually, and with context — warn the person before they're needed and tell them what's going on. If a takeover has to happen fast, keep the person engaged the whole time; if you can't keep them engaged, don't design around a last-second takeover at all.",
     pattern:"Hand off early, with context", cite:"E-13 · H-19",
@@ -499,7 +511,7 @@ const FAILURES = [
       <div class="sc-label">gradual, warned, with context</div>`
   },
   {
-    id:"yolo", title:"No Safety Net", icon:"🟥",
+    id:"yolo", title:"The YOLO Cliff <span class='sub'>— no safety net</span>", icon:"🟥",
     fail:"The agent runs fully automatically with nothing to contain a mistake, so one bad step cascades into many. Knight Capital ran trading software with no way to stop it and lost $440M in 45 minutes.",
     fix:"Run the agent in a sandbox (an isolated, contained environment): no network access by default, credentials that are narrow and expire quickly, hard caps on spending and volume, and a kill switch that stops everything. Decide the worst case it can reach and contain it there.",
     pattern:"Sandbox-First + Kill Switch", cite:"O-4 · A-23",
@@ -529,7 +541,7 @@ const FAILURES = [
       <div class="sc-label">untrusted leg removed · no overlap</div>`
   },
   {
-    id:"denylist", title:"Blocklist Theater", icon:"🟥",
+    id:"denylist", title:"Denylist Theater <span class='sub'>— a blocklist that's easy to bypass</span>", icon:"🟥",
     fail:"A blocklist of forbidden commands feels safe, but it's easy to slip past — the same command, encoded or wrapped in a subshell, walks right through. Matching on text patterns is not a real security boundary.",
     fix:"Don't try to spot bad commands; remove the ability to run them. Take the capability away entirely, and enforce it in the sandbox (the runtime), not with pattern-matching. Tie any approval to the server so it can't be faked or replayed.",
     pattern:"Capability Lock + Runtime Shield", cite:"A-14",
@@ -544,7 +556,7 @@ const FAILURES = [
       <div class="sc-label">no shell capability to abuse</div>`
   },
   {
-    id:"crumple", title:"Set Up to Take the Blame", icon:"🟥",
+    id:"crumple", title:"Moral Crumple Zone <span class='sub'>— set up to take the blame</span>", icon:"🟥",
     fail:"A person is named as responsible but has no real power to change the outcome. They're positioned to absorb the blame when things go wrong, not to actually control the system. Researchers call this a moral crumple zone.",
     fix:"Check the action passes all four A's: the person has real <b>Authority</b> to act, <b>Awareness</b> of what's happening, the <b>Ability</b> to intervene in time, and clear <b>Accountability</b>. If any is missing, the oversight is for show — change the design rather than the name on the org chart.",
     pattern:"The four A's", cite:"D-16",
@@ -586,13 +598,13 @@ const PATTERNS = [
 ];
 const ANTI = [
   ["The Rubber Stamp","People click Approve without really checking. A review step is not the same as catching errors."],
-  ["Set Up to Take the Blame","A person is held responsible but has no real power to change the outcome."],
-  ["No Safety Net","Everything is auto-approved with nothing to contain a mistake."],
-  ["Alert Fatigue","So many low-value prompts that people tune them all out."],
+  ["Moral Crumple Zone","A person is held responsible but has no real power to change the outcome."],
+  ["The YOLO Cliff","Everything is auto-approved with nothing to contain a mistake."],
+  ["Alert-Fatigue Spiral","So many low-value prompts that people tune them all out."],
   ["Lethal Trifecta","Private data + untrusted content + a way to send data out — together they enable data leaks."],
-  ["Blocklist Theater","A blocklist of forbidden commands mistaken for real security."],
-  ["Stuck at Full Autonomy","Running at maximum autonomy with no easy way to dial it back down."],
-  ["Oversight in Name Only","A review is required on paper but does nothing in practice."],
+  ["Denylist Theater","A blocklist of forbidden commands mistaken for real security."],
+  ["Magenta-Line Lock-In","Running at maximum autonomy with no easy way to dial it back down."],
+  ["Phantom Oversight","A review is required on paper but does nothing in practice."],
   ["The Firehose","Dumping everything on the person at once, right when they're overloaded."],
 ];
 
