@@ -2,6 +2,8 @@
 
 **Right-sized human oversight for AI agents. Keep your agents on the rails.**
 
+**Live site → https://looprails.dev**
+
 LoopRails is a practical, research-grounded framework for deciding how much human oversight each
 action of an AI agent needs — and for designing that oversight so it actually works. It applies to
 agentic LLM systems: coding agents, copilots, computer-use agents, and autonomous assistants.
