@@ -1,34 +1,38 @@
 # LoopRails
 
-**Calibrated oversight for agentic AI. Keep your agents on the rails.**
+**Right-sized human oversight for AI agents. Keep your agents on the rails.**
 
-LoopRails is a research-grounded framework for designing *human-in-the-loop* behavior in agentic LLM
-systems (coding agents, copilots, computer-use agents, autonomous assistants). It replaces the
-useless binary — *"should there be a human in the loop?"* — with the questions that actually matter,
-asked **per action**: which actions need a human, at what level of control, shown to the human how,
-and how do we know the oversight actually works?
+LoopRails is a practical, research-grounded framework for deciding how much human oversight each
+action of an AI agent needs — and for designing that oversight so it actually works. It applies to
+agentic LLM systems: coding agents, copilots, computer-use agents, and autonomous assistants.
+
+Instead of the unhelpful yes/no question — *"should there be a human in the loop?"* — it asks the
+questions that actually matter, **one action at a time**: which actions need a human, how much control
+that human should have, what to show them so they can judge well, and how you confirm the oversight
+really catches mistakes.
 
 ## The method: Grade · Guard · Show · Prove
 
-- **Grade** every action by **blast radius × reversibility × stakes** (G0–G3).
-- **Guard** it by grade — and where a human can't reliably catch the error in time, **prevent, don't review** (sandbox, make reversible, or forbid).
-- **Show** the human a well-built oversight moment — clarity, consequences + reversibility, provenance ("how did this get to me?"), and detection affordances — within a respected attention budget.
-- **Prove** the oversight works: measure whether humans actually *catch* errors, and red-team the oversight, not just the agent.
+- **Grade** every action by how far harm could spread (its blast radius), whether it can be undone, and how bad it is if wrong. This gives a grade from G0 (trivial) to G3 (critical).
+- **Guard** it according to its grade — and where a person can't reliably catch the mistake in time, **prevent the bad outcome instead of asking for review** (run it in a sandbox, make it reversible, or block it).
+- **Show** the person a well-built oversight moment: make the action and its consequences clear, show where the request came from ("how did this get to me?"), help them spot problems — and don't spend more of their attention than the action is worth.
+- **Prove** the oversight works: measure whether people actually *catch* errors, and attack your own oversight the way you'd attack the agent — not just the agent alone.
 
 Every governed action stays on the **RAIL**: **R**eversible · **A**uthorized · **I**nterruptible · **L**ogged.
 
 ## The one rule that matters most
 
-A confirmation prompt does **not** make a human a good error-catcher. Approval gates cut *bad
-actions* but barely improve *catching* them. So when stakes are high and the human can't realistically
-catch the mistake in time, **prevention beats review** every time.
+Asking a person to click *Approve* does **not** turn them into a reliable error-catcher. Approval
+prompts stop some *bad actions*, but they barely improve a human's odds of *noticing* a bad one. So
+when the stakes are high and a person can't realistically catch the mistake in time, **prevention
+beats review** every time.
 
 ## The docs
 
 | File | What | For |
 |---|---|---|
-| [`index.html`](./index.html) | the **website** — animated landing (failure gallery, interactive Consequence×Controllability quadrant, action grader) + in-site docs reader (`docs.html`) | everyone |
-| [`playbook.md`](./playbook.md) | do-this field guide — cheat sheet, pattern + anti-pattern decks, smell tests, recipes | practitioners |
+| [`index.html`](./index.html) | the **website** — landing page (failure gallery, the interactive consequence-vs-controllability grid, and an action grader) plus the in-site docs reader (`docs.html`) | everyone |
+| [`playbook.md`](./playbook.md) | the hands-on field guide — cheat sheet, pattern and anti-pattern decks, questions to ask in standup, recipes | practitioners |
 | [`framework.md`](./framework.md) | the full method and reasoning (§0–§10) | designers / leads |
 | [`codex.md`](./codex.md) | 366-source annotated research base across 17 clusters (5 parts) | the evidence |
 

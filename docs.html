@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LoopRails — docs</title>
-<meta name="description" content="LoopRails playbook, framework, and 366-source research codex.">
+<title>LoopRails — documentation</title>
+<meta name="description" content="LoopRails documentation: the practitioner playbook, the full framework, and the 366-source research codex.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e7c86'/%3E%3Cg stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cline x1='9' y1='6' x2='9' y2='26'/%3E%3Cline x1='23' y1='6' x2='23' y2='26'/%3E%3Cline x1='6' y1='12' x2='26' y2='12'/%3E%3Cline x1='6' y1='20' x2='26' y2='20'/%3E%3C/g%3E%3C/svg%3E">
 <style>
 :root{
@@ -105,8 +105,8 @@ async function load(){
     mdEl.innerHTML=`<a class="gh-link" href="${REPO}${d.file}">View ${d.file} on GitHub ↗</a>`+marked.parse(text);
     addAnchors(); buildTOC(); scrollToHash();
   }catch(err){
-    mdEl.innerHTML=`<div class="fallback"><b>Couldn't render inline.</b> This reader needs to be served over http (e.g. GitHub Pages or a local server) — it can't fetch the markdown from <code>file://</code>.<br><br>
-      Read it directly on GitHub: <a href="${REPO}${d.file}">${d.file} ↗</a></div>`;
+    mdEl.innerHTML=`<div class="fallback"><b>This page can't load the document here.</b> The reader needs to be opened over http (for example via GitHub Pages or a local server); it can't read the markdown file when the page is opened directly from disk (a <code>file://</code> address).<br><br>
+      You can read it on GitHub instead: <a href="${REPO}${d.file}">${d.file} ↗</a></div>`;
     document.getElementById("toc").innerHTML="";
   }
 }

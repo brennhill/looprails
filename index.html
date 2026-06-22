@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LoopRails — keep your AI agents on the rails</title>
-<meta name="description" content="Calibrated oversight for agentic AI. See exactly how human-in-the-loop fails — and the good loops that fix it. Grade · Guard · Show · Prove.">
-<meta property="og:title" content="LoopRails — keep your AI agents on the rails">
-<meta property="og:description" content="See how human-in-the-loop fails, and the good loops that fix it. A practical framework: Grade · Guard · Show · Prove.">
+<title>LoopRails — decide how much human oversight each AI action needs</title>
+<meta name="description" content="LoopRails is a practical framework for deciding how much human oversight each AI agent action needs — and designing that oversight so it actually catches mistakes. Grade · Guard · Show · Prove.">
+<meta property="og:title" content="LoopRails — decide how much human oversight each AI action needs">
+<meta property="og:description" content="A practical framework for deciding how much human oversight each AI agent action needs, and designing oversight that actually works. Grade · Guard · Show · Prove.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e7c86'/%3E%3Cg stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cline x1='9' y1='6' x2='9' y2='26'/%3E%3Cline x1='23' y1='6' x2='23' y2='26'/%3E%3Cline x1='6' y1='12' x2='26' y2='12'/%3E%3Cline x1='6' y1='20' x2='26' y2='20'/%3E%3C/g%3E%3C/svg%3E">
 <style>
@@ -228,10 +228,10 @@ footer a{color:#bfe0e4}
       LoopRails
     </a>
     <div class="nav-links">
-      <a href="#fail">How loops fail</a>
-      <a href="#moves">The 4 moves</a>
+      <a href="#fail">How oversight fails</a>
+      <a href="#moves">The 4 steps</a>
       <a href="#grader">Grade an action</a>
-      <a href="#deep">Dive deep</a>
+      <a href="#deep">Read more</a>
       <a class="nav-cta" href="docs.html?doc=playbook">Read the playbook</a>
     </div>
   </div>
@@ -241,15 +241,15 @@ footer a{color:#bfe0e4}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">Calibrated oversight for agentic AI</div>
-        <h1>Keep your AI agents on the rails.</h1>
-        <p class="lead">Don't ask <em>“should there be a human in the loop?”</em> Ask it per action: <b>which</b> actions need a human, at <b>what</b> level of control, <b>shown</b> how — and <b>how you know</b> it actually works.</p>
+        <div class="eyebrow">A framework for human oversight of AI agents</div>
+        <h1>Decide how much human oversight each AI action needs.</h1>
+        <p class="lead">LoopRails helps teams building AI agents answer a practical question, one action at a time: which actions a human should review, how much control the human should have, what to show them so they can judge well, and how you confirm the oversight actually catches mistakes. For engineers, tech leads, PMs, and designers shipping agentic systems.</p>
         <div class="btnrow">
-          <a class="btn btn-primary" href="#fail">See how loops fail ↓</a>
+          <a class="btn btn-primary" href="#fail">See how oversight fails ↓</a>
           <a class="btn btn-ghost" href="#grader">Grade an action →</a>
         </div>
         <div class="onerule">
-          <b>The one rule that matters most:</b> a confirmation prompt does <b>not</b> make a human a good error-catcher. Gates cut <em>bad actions</em> but barely improve <em>catching</em> them. <span class="cite">A-17</span>
+          <b>Start with this one rule:</b> asking a person to click <em>Approve</em> does not turn them into a reliable error-catcher. Approval prompts stop some bad actions, but they barely improve a human's odds of <em>noticing</em> a bad one. When a human can't realistically catch the mistake, prevent the action instead of reviewing it. <span class="cite">A-17</span>
         </div>
       </div>
       <div class="railbox">
@@ -268,31 +268,31 @@ footer a{color:#bfe0e4}
 <!-- QUADRANT -->
 <section id="why">
   <div class="wrap">
-    <div class="eyebrow reveal">The core insight</div>
-    <h2 class="reveal">Most oversight fails in one quadrant.</h2>
-    <p class="lead reveal" style="margin-bottom:34px">Two things decide your strategy: how <b>bad</b> it is if the action goes wrong, and whether a human can <b>actually catch</b> the error in time. Tap a quadrant.</p>
+    <div class="eyebrow reveal">The core idea</div>
+    <h2 class="reveal">Most oversight breaks down in one corner.</h2>
+    <p class="lead reveal" style="margin-bottom:34px">Two questions decide how to oversee any action: how <b>bad</b> it is if the action goes wrong (the consequence), and whether a person can <b>actually catch and stop</b> the mistake in time (the controllability). The hardest corner is high consequence plus low controllability — where asking a human to review just gives you a rubber stamp. Tap a corner to see what to do.</p>
     <div class="quad-wrap">
       <div class="quad reveal">
         <span class="axis y">Consequence →</span>
         <span class="axis x">Controllability →</span>
         <div class="cell trap pulse sel" data-q="trap">
-          <span class="t">Review is a trap</span><span class="d">High stakes · humans can't catch it</span>
+          <span class="t">Review is a trap</span><span class="d">High stakes · a human can't catch it in time</span>
         </div>
         <div class="cell good" data-q="good">
-          <span class="t">Genuine oversight</span><span class="d">High stakes · humans can catch it</span>
+          <span class="t">Review pays off</span><span class="d">High stakes · a human can catch it in time</span>
         </div>
         <div class="cell run" data-q="run">
-          <span class="t">Let it run</span><span class="d">Low stakes · low control</span>
+          <span class="t">Let it run</span><span class="d">Low stakes · a human can't add much</span>
         </div>
         <div class="cell light" data-q="light">
-          <span class="t">Light touch</span><span class="d">Low stakes · easy to catch</span>
+          <span class="t">Light touch</span><span class="d">Low stakes · easy to catch and undo</span>
         </div>
       </div>
       <div class="quad-readout reveal">
         <span class="badge" id="q-badge" style="background:var(--fail-tint);color:var(--fail)">Danger zone</span>
-        <h3 id="q-title" style="margin-top:12px">Review is a trap → prevent, don't review</h3>
-        <p id="q-body" style="color:#c4d6da">When stakes are high but a human can't reliably catch the error in time, a confirmation gate just creates a rubber stamp and a scapegoat. Don't review — <b>prevent</b>: make it reversible, shrink the blast radius, sandbox it, force a real decision, or forbid the action and escalate.</p>
-        <p id="q-do" class="mono" style="color:#7fd6dd;font-size:.85rem;margin:0">→ Sandbox-First · Capability Lock · Make it reversible · Escalate</p>
+        <h3 id="q-title" style="margin-top:12px">Review is a trap: prevent, don't review</h3>
+        <p id="q-body" style="color:#c4d6da">When the stakes are high but a person can't reliably catch the mistake in time, a confirmation prompt only produces a rubber stamp — and a scapegoat when it goes wrong. So don't rely on review. <b>Prevent the bad outcome</b>: make the action reversible, limit how far the damage can spread (the blast radius), run it in a sandbox (an isolated, contained environment), force a deliberate decision, or block the action and hand it to someone who can decide.</p>
+        <p id="q-do" class="mono" style="color:#7fd6dd;font-size:.85rem;margin:0">Do: Sandbox-First · Capability Lock · make it reversible · escalate</p>
       </div>
     </div>
   </div>
@@ -302,8 +302,8 @@ footer a{color:#bfe0e4}
 <section id="fail" class="band">
   <div class="wrap">
     <div class="eyebrow reveal">The failure gallery</div>
-    <h2 class="reveal">Every way human-in-the-loop fails — and the loop that fixes it.</h2>
-    <p class="lead reveal" style="margin-bottom:34px">These aren't hypothetical. Each one is documented across aviation, medicine, finance, and 2026 coding-agent studies. Hit <b>“See the fix”</b> on any card.</p>
+    <h2 class="reveal">The common ways human oversight fails — and how to fix each one.</h2>
+    <p class="lead reveal" style="margin-bottom:34px">These failures are real and well-documented — in aviation, medicine, finance, and 2026 studies of AI coding agents. Each card shows what goes wrong and the design change that prevents it. Press <b>“See the fix”</b> on any card.</p>
     <div class="gal" id="gallery"></div>
   </div>
 </section>
@@ -312,13 +312,13 @@ footer a{color:#bfe0e4}
 <section id="moves">
   <div class="wrap">
     <div class="eyebrow reveal">The method</div>
-    <h2 class="reveal">Four moves: Grade · Guard · Show · Prove.</h2>
-    <p class="lead reveal" style="margin-bottom:30px">Per action, not per system. Natural standup questions: did you grade it? how's it guarded? what do we show the human? have we proven it works?</p>
+    <h2 class="reveal">Four steps: Grade · Guard · Show · Prove.</h2>
+    <p class="lead reveal" style="margin-bottom:30px">Apply these to each action your agent can take, not to the system as a whole. They double as four questions for standup: Did we grade this action? How is it guarded? What do we show the person reviewing it? Have we checked the oversight actually works?</p>
     <div class="moves">
-      <div class="move reveal"><span class="bar"></span><div class="n">MOVE 1</div><h3>Grade</h3><p>Score every action by <b>blast radius × reversibility × stakes</b> → G0–G3.</p></div>
-      <div class="move reveal"><span class="bar"></span><div class="n">MOVE 2</div><h3>Guard</h3><p>Match control to grade. Where a human can't catch it, <b>prevent</b> — don't review.</p></div>
-      <div class="move reveal"><span class="bar"></span><div class="n">MOVE 3</div><h3>Show</h3><p>Design the moment: clarity, consequences, provenance, detection — within an attention budget.</p></div>
-      <div class="move reveal"><span class="bar"></span><div class="n">MOVE 4</div><h3>Prove</h3><p>Measure whether humans actually <b>catch</b> errors. Red-team the oversight, not just the agent.</p></div>
+      <div class="move reveal"><span class="bar"></span><div class="n">STEP 1</div><h3>Grade</h3><p>Rate each action by how far harm could spread, whether it can be undone, and how bad it is if wrong. That gives a grade from G0 (trivial) to G3 (critical).</p></div>
+      <div class="move reveal"><span class="bar"></span><div class="n">STEP 2</div><h3>Guard</h3><p>Match the controls to the grade. Where a person can't realistically catch the mistake in time, prevent the bad outcome instead of asking them to review it.</p></div>
+      <div class="move reveal"><span class="bar"></span><div class="n">STEP 3</div><h3>Show</h3><p>Design the review moment well: make the action and its consequences clear, show where the request came from, help the person spot problems — and don't spend more of their attention than the action is worth.</p></div>
+      <div class="move reveal"><span class="bar"></span><div class="n">STEP 4</div><h3>Prove</h3><p>Test whether people actually catch errors, not just whether a review step exists. Attack your own oversight the way you'd attack the agent.</p></div>
     </div>
   </div>
 </section>
@@ -326,30 +326,30 @@ footer a{color:#bfe0e4}
 <!-- GRADER -->
 <section id="grader">
   <div class="wrap">
-    <div class="eyebrow reveal">Try it · 20 seconds</div>
+    <div class="eyebrow reveal">Try it · about 20 seconds</div>
     <h2 class="reveal">Grade an action.</h2>
-    <p class="lead reveal" style="margin-bottom:26px">Pick what your agent is about to do. LoopRails tells you the grade, the right level of control, and whether review is a trap.</p>
+    <p class="lead reveal" style="margin-bottom:26px">Answer four questions about an action your agent is about to take. LoopRails gives you its grade, the right level of control, and a warning if asking a human to review it would just be a rubber stamp.</p>
     <div class="grader reveal">
       <div class="grader-grid">
         <div class="grader-in">
           <div class="qrow" data-axis="rev">
-            <label>Reversibility <span class="hint">— can it be undone?</span></label>
+            <label>Reversibility <span class="hint">— if it goes wrong, can you undo it?</span></label>
             <div class="opts">
-              <div class="opt" data-v="0">Reversible</div>
-              <div class="opt" data-v="1">Recoverable</div>
-              <div class="opt" data-v="2">Irreversible</div>
+              <div class="opt" data-v="0">Fully reversible</div>
+              <div class="opt" data-v="1">Recoverable with effort</div>
+              <div class="opt" data-v="2">Can't be undone</div>
             </div>
           </div>
           <div class="qrow" data-axis="blast">
-            <label>Blast radius <span class="hint">— who does it touch?</span></label>
+            <label>Blast radius <span class="hint">— how far could the damage spread?</span></label>
             <div class="opts">
               <div class="opt" data-v="0">Just me / local</div>
-              <div class="opt" data-v="1">Team / shared</div>
-              <div class="opt" data-v="2">External / public</div>
+              <div class="opt" data-v="1">My team / shared systems</div>
+              <div class="opt" data-v="2">Customers / the public</div>
             </div>
           </div>
           <div class="qrow" data-axis="stakes">
-            <label>Stakes <span class="hint">— how bad if wrong?</span></label>
+            <label>Stakes <span class="hint">— how bad is it if this is wrong?</span></label>
             <div class="opts">
               <div class="opt" data-v="0">Trivial</div>
               <div class="opt" data-v="1">Meaningful</div>
@@ -357,10 +357,10 @@ footer a{color:#bfe0e4}
             </div>
           </div>
           <div class="qrow" data-axis="ctrl">
-            <label>Can a human realistically catch a mistake here, in time? <span class="hint">— controllability</span></label>
+            <label>Could a person realistically catch and stop a mistake here, in time? <span class="hint">— this is the controllability</span></label>
             <div class="opts">
               <div class="opt" data-v="2">Yes</div>
-              <div class="opt" data-v="1">Unsure</div>
+              <div class="opt" data-v="1">Not sure</div>
               <div class="opt" data-v="0">No</div>
             </div>
           </div>
@@ -372,7 +372,7 @@ footer a{color:#bfe0e4}
           </div>
           <div class="kv"><div class="k">Recommended control</div><div class="v" id="rec-mode">—</div></div>
           <div class="kv"><div class="k">Patterns to reach for</div><div class="recpatterns" id="rec-patterns"><span>—</span></div></div>
-          <div class="trapwarn" id="trapwarn">⚠️ <b>Review is a trap here.</b> High consequence + a human who can't reliably catch the error = a rubber stamp. <b>Prevent, don't review.</b></div>
+          <div class="trapwarn" id="trapwarn">⚠️ <b>Don't rely on review here.</b> The stakes are high, but a person can't reliably catch the mistake in time — so a review step would just be a rubber stamp. <b>Prevent the bad outcome instead.</b></div>
         </div>
       </div>
     </div>
@@ -382,14 +382,14 @@ footer a{color:#bfe0e4}
 <!-- RAIL -->
 <section id="rail" class="band">
   <div class="wrap">
-    <div class="eyebrow reveal">The guarantees</div>
-    <h2 class="reveal">Every governed action stays on the RAIL.</h2>
-    <p class="lead reveal" style="margin-bottom:28px">Four rails keep an agent on track — the properties a well-governed action always keeps.</p>
+    <div class="eyebrow reveal">The four properties to keep</div>
+    <h2 class="reveal">Keep every governed action on the RAIL.</h2>
+    <p class="lead reveal" style="margin-bottom:28px">RAIL is a checklist of four properties any well-governed action should keep: Reversible, Authorized, Interruptible, Logged.</p>
     <div class="rail-strip">
-      <div class="rl reveal"><div class="big">R</div><h3>Reversible</h3><p>Undo by default, or the blast radius is contained. Reserve hard gates for the truly irreversible.</p></div>
-      <div class="rl reveal"><div class="big">A</div><h3>Authorized</h3><p>Permission scaled to the grade. Least privilege; the proposer isn't the approver for high-stakes acts.</p></div>
-      <div class="rl reveal"><div class="big">I</div><h3>Interruptible</h3><p>A real override — anyone can pull the andon cord; a kill switch stops everything without diagnosing.</p></div>
-      <div class="rl reveal"><div class="big">L</div><h3>Logged</h3><p>An observable, provable trail — so you can validate the oversight actually works, not just exists.</p></div>
+      <div class="rl reveal"><div class="big">R</div><h3>Reversible</h3><p>You can undo it, or the damage is contained. Save hard stop-and-ask gates for the few actions that truly can't be undone.</p></div>
+      <div class="rl reveal"><div class="big">A</div><h3>Authorized</h3><p>The agent has only the permissions it needs for this grade — no more. For high-stakes actions, whoever proposes the action isn't the one who approves it.</p></div>
+      <div class="rl reveal"><div class="big">I</div><h3>Interruptible</h3><p>Anyone can stop it. An andon cord (a no-blame way to halt the agent) lets a teammate pause it; a kill switch stops everything at once, no questions asked.</p></div>
+      <div class="rl reveal"><div class="big">L</div><h3>Logged</h3><p>It leaves a record you can inspect later — so you can prove the oversight actually catches mistakes, not just that it exists.</p></div>
     </div>
   </div>
 </section>
@@ -397,12 +397,12 @@ footer a{color:#bfe0e4}
 <!-- PATTERNS -->
 <section id="patterns">
   <div class="wrap">
-    <div class="eyebrow reveal">The decks</div>
-    <h2 class="reveal">Reach for these. Kill these.</h2>
-    <p class="lead reveal" style="margin-bottom:22px">Named patterns you can say in a meeting (most borrowed from industries that hardened them) — and the anti-patterns to name and stop.</p>
-    <h3 class="reveal" style="margin-bottom:12px;color:var(--good)">✓ Patterns</h3>
+    <div class="eyebrow reveal">A shared vocabulary</div>
+    <h2 class="reveal">Patterns to use, and anti-patterns to avoid.</h2>
+    <p class="lead reveal" style="margin-bottom:22px">Named designs you can point to in a meeting — most borrowed from industries that have already learned these lessons the hard way — plus the recurring mistakes you want to be able to name and stop.</p>
+    <h3 class="reveal" style="margin-bottom:12px;color:var(--good)">✓ Patterns to use</h3>
     <div class="deck reveal" style="margin-bottom:34px" id="patterns-good"></div>
-    <h3 class="reveal" style="margin-bottom:12px;color:var(--fail)">✗ Anti-patterns</h3>
+    <h3 class="reveal" style="margin-bottom:12px;color:var(--fail)">✗ Anti-patterns to avoid</h3>
     <div class="deck reveal" id="patterns-bad"></div>
   </div>
 </section>
@@ -410,26 +410,26 @@ footer a{color:#bfe0e4}
 <!-- DEEP DIVE -->
 <section id="deep" class="band">
   <div class="wrap">
-    <div class="eyebrow reveal">Go as deep as you want</div>
-    <h2 class="reveal">Ultra-practical up top. Rigorous all the way down.</h2>
-    <p class="lead reveal" style="margin-bottom:30px">Three tiers, each one click away. Start with the playbook; follow the citations as far as you like.</p>
+    <div class="eyebrow reveal">Read as much as you need</div>
+    <h2 class="reveal">Practical at the top, fully sourced underneath.</h2>
+    <p class="lead reveal" style="margin-bottom:30px">Three levels of depth, each one click away. Start with the playbook; follow the citations as far down as you want to go.</p>
     <div class="doors">
       <a class="door reveal" href="docs.html?doc=playbook">
-        <div class="dn">Tier 1 · practitioners</div>
+        <div class="dn">Level 1 · for practitioners</div>
         <h3>The Playbook</h3>
-        <p>The do-this field guide: cheat sheet, the pattern &amp; anti-pattern decks, the standup smell-test, and ready recipes.</p>
+        <p>The hands-on field guide: a cheat sheet, the pattern and anti-pattern decks, questions to ask in standup, and ready-made recipes.</p>
         <span class="go">Open the playbook →</span>
       </a>
       <a class="door reveal" href="docs.html?doc=framework">
-        <div class="dn">Tier 2 · designers &amp; leads</div>
+        <div class="dn">Level 2 · for designers &amp; leads</div>
         <h3>The Framework</h3>
-        <p>The full method (§0–§10): the Consequence×Controllability model, grades, the autonomy ladder, the loop-episode anatomy, validation.</p>
+        <p>The full method (sections 0–10): the consequence-vs-controllability model, the grades, the autonomy ladder, how a single oversight moment is structured, and how to validate it.</p>
         <span class="go">Open the framework →</span>
       </a>
       <a class="door reveal" href="docs.html?doc=codex">
-        <div class="dn">Tier 3 · the evidence</div>
+        <div class="dn">Level 3 · the evidence</div>
         <h3>The Codex</h3>
-        <p>366 annotated sources across 17 clusters — aviation, medicine, finance, AI safety, HCI. Every claim on the site traces here.</p>
+        <p>366 annotated sources across 17 topics — aviation, medicine, finance, AI safety, and human-computer interaction. Every claim on this site traces back here.</p>
         <span class="go">Open the codex →</span>
       </a>
     </div>
@@ -440,7 +440,7 @@ footer a{color:#bfe0e4}
   <div class="wrap foot-grid">
     <div>
       <div style="font-weight:800;color:#fff;font-size:1.05rem;letter-spacing:-.02em">LoopRails</div>
-      <div style="margin-top:4px">Calibrated oversight for agentic AI · Grade · Guard · Show · Prove</div>
+      <div style="margin-top:4px">Right-sized human oversight for AI agents · Grade · Guard · Show · Prove</div>
     </div>
     <div style="display:flex;gap:20px;flex-wrap:wrap">
       <a href="docs.html?doc=playbook">Playbook</a>
@@ -456,9 +456,9 @@ footer a{color:#bfe0e4}
 const FAILURES = [
   {
     id:"rubberstamp", title:"The Rubber Stamp", icon:"🟥",
-    fail:"Approvals fly past; the human clicks <b>Approve</b> on autopilot. Adding a gate cuts bad actions but barely improves catching them.",
-    fix:"Force a real decision (decide-first / a microboundary) and show <b>verifiable evidence</b>, not a persuasive rationale. Reserve gates for the irreversible.",
-    pattern:"Microboundary + verify-don't-trust", cite:"A-17",
+    fail:"After enough prompts, people click <b>Approve</b> without really looking — this is automation bias, our tendency to trust whatever the system proposes. Adding an approval step stops some bad actions, but barely improves the odds anyone <em>notices</em> a bad one.",
+    fix:"Make the person take a real action before approving (for example, ask them to make the call themselves rather than just confirm the agent's). Show evidence they can check, not a tidy explanation that's easy to nod along to. Save mandatory approvals for actions that truly can't be undone.",
+    pattern:"Force a real decision; verify, don't trust", cite:"A-17",
     failScene:`<span class="statetag">Failing</span>
       <div class="chip" style="top:34px;left:18px;width:54px;height:30px;background:#8895a1;animation:fxFlash .5s infinite">APPROVE</div>
       <div class="chip" style="top:34px;left:84px;width:54px;height:30px;background:#8895a1;animation:fxFlash .5s .15s infinite">APPROVE</div>
@@ -471,10 +471,10 @@ const FAILURES = [
       <div class="sc-label">decide first · inspect · then act</div>`
   },
   {
-    id:"alertfatigue", title:"Alert-Fatigue Spiral", icon:"🟥",
-    fail:"A flood of low-value alerts → the human mutes everything, including the one that mattered. Clinicians override 49–96% of alerts.",
-    fix:"Budget interruptions: high-precision, role-targeted, most signals passive. Every blocking prompt must demand a specific action.",
-    pattern:"Attention budget", cite:"H-10",
+    id:"alertfatigue", title:"Alert Fatigue", icon:"🟥",
+    fail:"Too many low-value alerts and people start tuning them all out — including the one that actually mattered. In hospitals, clinicians dismiss 49 to 96% of safety alerts.",
+    fix:"Treat the person's attention as a limited budget. Send few alerts, make them accurate, and aim each one at the person who can act on it. Keep most signals passive (visible if you look, not interrupting), and reserve a blocking prompt for when you need a specific decision now.",
+    pattern:"Spend attention sparingly", cite:"H-10",
     failScene:`<span class="statetag">Failing</span>
       ${[0,1,2,3,4,5,6].map(i=>`<div class="chip" style="bottom:-20px;left:${12+i*26}px;width:18px;height:18px;border-radius:50%;background:${i===3?'var(--fail)':'#f0b429'};color:#222;animation:fxDrift ${1.6+i*0.12}s linear ${i*0.18}s infinite">!</div>`).join("")}
       <div class="sc-label">all dismissed — incl. the red one</div>`,
@@ -483,10 +483,10 @@ const FAILURES = [
       <div class="sc-label">one precise, blocking alert — seen</div>`
   },
   {
-    id:"handoff", title:"Out-of-the-Loop Handoff", icon:"🟥",
-    fail:"The agent runs smoothly, then dumps control on a disengaged human at the worst moment. Re-engagement takes seconds you don't have.",
-    fix:"Anticipatory, gradual, context-rich handoff. Keep the human warm where takeover has to be fast — or don't rely on takeover.",
-    pattern:"Escalation handoff", cite:"E-13 · H-19",
+    id:"handoff", title:"The Sudden Handoff", icon:"🟥",
+    fail:"The agent runs on its own until something goes wrong, then hands control to a person who hasn't been paying attention — at the worst possible moment. Getting back up to speed takes time they don't have. (This is the classic out-of-the-loop problem from aviation.)",
+    fix:"Hand off early, gradually, and with context — warn the person before they're needed and tell them what's going on. If a takeover has to happen fast, keep the person engaged the whole time; if you can't keep them engaged, don't design around a last-second takeover at all.",
+    pattern:"Hand off early, with context", cite:"E-13 · H-19",
     failScene:`<span class="statetag">Failing</span>
       <div style="position:absolute;top:40px;left:16px;right:16px;height:14px;border-radius:8px;background:#d9e0e4;overflow:hidden"><div style="position:absolute;left:0;top:0;bottom:0;width:80%;background:var(--rail)"></div></div>
       <div class="chip" style="top:78px;left:50%;margin-left:-60px;width:120px;height:28px;background:var(--fail);animation:fxShake .25s infinite">YOU HAVE CONTROL</div>
@@ -497,9 +497,9 @@ const FAILURES = [
       <div class="sc-label">gradual, warned, with context</div>`
   },
   {
-    id:"yolo", title:"The YOLO Cliff", icon:"🟥",
-    fail:"Full auto with no containment → one bad step cascades. Knight Capital lost $440M in 45 minutes with no kill switch.",
-    fix:"Sandbox-First: no-network container, scoped & expiring credentials, budget caps, and a kill switch. Contain the worst case.",
+    id:"yolo", title:"No Safety Net", icon:"🟥",
+    fail:"The agent runs fully automatically with nothing to contain a mistake, so one bad step cascades into many. Knight Capital ran trading software with no way to stop it and lost $440M in 45 minutes.",
+    fix:"Run the agent in a sandbox (an isolated, contained environment): no network access by default, credentials that are narrow and expire quickly, hard caps on spending and volume, and a kill switch that stops everything. Decide the worst case it can reach and contain it there.",
     pattern:"Sandbox-First + Kill Switch", cite:"O-4 · A-23",
     failScene:`<span class="statetag">Failing</span>
       <div style="position:absolute;bottom:24px;left:0;width:55%;height:10px;background:#3a4750"></div>
@@ -512,8 +512,8 @@ const FAILURES = [
   },
   {
     id:"trifecta", title:"The Lethal Trifecta", icon:"🟥",
-    fail:"Private data + untrusted content + external comms = data exfiltration via prompt injection. All three legs together is the danger.",
-    fix:"Break a leg: make it read-only, cut the network, or keep untrusted input out of a privileged session.",
+    fail:"Three capabilities are dangerous together: access to private data, exposure to untrusted content (web pages, emails, files the agent didn't write), and a way to send data outside. With all three, hidden instructions in that untrusted content can trick the agent into leaking your data — an attack called prompt injection.",
+    fix:"Remove any one of the three legs. Make the agent read-only, cut its network access, or keep untrusted content out of any session that also holds private data. Take away just one capability and the attack can't complete.",
     pattern:"Capability Lock", cite:"A-23",
     failScene:`<span class="statetag">Failing</span>
       <div class="chip" style="top:30px;left:28px;width:64px;height:64px;border-radius:50%;background:rgba(214,34,70,.5);font-size:.56rem">private</div>
@@ -527,9 +527,9 @@ const FAILURES = [
       <div class="sc-label">untrusted leg removed · no overlap</div>`
   },
   {
-    id:"denylist", title:"Denylist Theater", icon:"🟥",
-    fail:"A blocked command sneaks through as base64 or a subshell. String-matching denylists aren't a security boundary.",
-    fix:"Capability Lock: remove the capability entirely; enforce in the sandbox, not in pattern-matching. Approvals must be server-bound.",
+    id:"denylist", title:"Blocklist Theater", icon:"🟥",
+    fail:"A blocklist of forbidden commands feels safe, but it's easy to slip past — the same command, encoded or wrapped in a subshell, walks right through. Matching on text patterns is not a real security boundary.",
+    fix:"Don't try to spot bad commands; remove the ability to run them. Take the capability away entirely, and enforce it in the sandbox (the runtime), not with pattern-matching. Tie any approval to the server so it can't be faked or replayed.",
     pattern:"Capability Lock + Runtime Shield", cite:"A-14",
     failScene:`<span class="statetag">Failing</span>
       <div style="position:absolute;top:24px;left:50%;margin-left:-2px;width:4px;height:96px;background:#8895a1"></div>
@@ -542,9 +542,9 @@ const FAILURES = [
       <div class="sc-label">no shell capability to abuse</div>`
   },
   {
-    id:"crumple", title:"Moral Crumple Zone", icon:"🟥",
-    fail:"A human is nominally responsible but powerless — positioned to absorb the blame, not exercise the control.",
-    fix:"Pass the four A's: real <b>Authority</b> + <b>Awareness</b> + <b>Ability</b> + <b>Accountability</b>. If you can't, it's theater — change the design.",
+    id:"crumple", title:"Set Up to Take the Blame", icon:"🟥",
+    fail:"A person is named as responsible but has no real power to change the outcome. They're positioned to absorb the blame when things go wrong, not to actually control the system. Researchers call this a moral crumple zone.",
+    fix:"Check the action passes all four A's: the person has real <b>Authority</b> to act, <b>Awareness</b> of what's happening, the <b>Ability</b> to intervene in time, and clear <b>Accountability</b>. If any is missing, the oversight is for show — change the design rather than the name on the org chart.",
     pattern:"The four A's", cite:"D-16",
     failScene:`<span class="statetag">Failing</span>
       <div class="chip" style="top:40px;left:18px;width:46px;height:46px;border-radius:8px;background:#445;font-size:.5rem">system</div>
@@ -559,8 +559,8 @@ const FAILURES = [
   },
   {
     id:"firehose", title:"The Firehose", icon:"🟥",
-    fail:"At the moment of crisis everything is dumped on the operator at once. Three Mile Island fired 100+ alarms in minutes.",
-    fix:"Prioritize, aggregate, and interpret for the human; circuit-break the flood. Surface the few things that need a defined response.",
+    fail:"When things go wrong, everything is dumped on the person at once and they can't tell what matters. During the Three Mile Island accident, more than 100 alarms fired within minutes, hiding the real problem.",
+    fix:"Do the sorting for the person: group related signals, rank them, and explain what they mean. When the rate spikes, automatically throttle it (a circuit breaker). Surface only the few things that need a clear, defined response.",
     pattern:"Circuit Breaker", cite:"H-20",
     failScene:`<span class="statetag">Failing</span>
       ${Array.from({length:18}).map((_,i)=>`<div class="chip" style="top:${10+(i%6)*20}px;left:${14+Math.floor(i/6)*30}px;width:14px;height:14px;border-radius:3px;background:var(--fail);animation:fxBlink ${0.4+(i%5)*0.1}s infinite"></div>`).join("")}
@@ -572,26 +572,26 @@ const FAILURES = [
 ];
 
 const PATTERNS = [
-  ["🏰","Sandbox-First","Contain the blast radius in the environment before trusting the agent."],
-  ["💥","Blast-Radius Cap","Limit any single action's magnitude; throttle the rate."],
-  ["🔒","Capability Lock","Make bad actions impossible, not discouraged (least privilege)."],
-  ["🛡️","Runtime Shield","A verified monitor that vetoes the agent — even under injection."],
-  ["🪢","Andon Cord","Anyone can halt the agent — cheaply, blamelessly."],
-  ["🛑","Kill Switch","One command stops all + revokes in-flight work."],
-  ["⚡","Circuit Breaker","Auto-halt on a threshold breach; re-authorize to resume."],
-  ["👥","Maker-Checker","Proposer ≠ approver for irreversible actions."],
-  ["🎯","Brief-by-Intent","Purpose + limits, not step-by-step. Pre-authorize the routine."],
+  ["🏰","Sandbox-First","Run the agent in an isolated, contained environment before you trust it, so a mistake can't reach far."],
+  ["💥","Blast-Radius Cap","Limit how big any single action can be, and slow the rate, so damage stays small."],
+  ["🔒","Capability Lock","Take away the ability to do harm instead of just discouraging it. Give only the permissions the task needs."],
+  ["🛡️","Runtime Shield","A trusted monitor that can veto the agent's actions as they run — even if the agent is tricked by injected instructions."],
+  ["🪢","Andon Cord","A no-blame way for anyone to halt the agent the moment something looks off (named after the factory stop-cord)."],
+  ["🛑","Kill Switch","One command that stops everything at once and cancels work already in flight."],
+  ["⚡","Circuit Breaker","Automatically pause when a threshold is crossed; a person has to re-authorize before it resumes."],
+  ["👥","Maker-Checker","For actions that can't be undone, whoever proposes the action is not the one who approves it."],
+  ["🎯","Brief-by-Intent","Give the agent a goal and limits rather than step-by-step orders, and pre-approve the routine, low-risk parts."],
 ];
 const ANTI = [
-  ["The Rubber Stamp","Gates clicked through; gating ≠ catching."],
-  ["Moral Crumple Zone","A human blamed without real control."],
-  ["The YOLO Cliff","Global auto-approve with no containment."],
-  ["Alert-Fatigue Spiral","Too many low-value prompts → all ignored."],
-  ["Lethal Trifecta","Private data + untrusted input + external comms."],
-  ["Denylist Theater","String-match denylists mistaken for security."],
-  ["Magenta-Line Lock-In","Riding max autonomy with no easy step-down."],
-  ["Phantom Oversight","Mandated review that's illusory in practice."],
-  ["The Firehose","Dumping everything on the human at overload."],
+  ["The Rubber Stamp","People click Approve without really checking. A review step is not the same as catching errors."],
+  ["Set Up to Take the Blame","A person is held responsible but has no real power to change the outcome."],
+  ["No Safety Net","Everything is auto-approved with nothing to contain a mistake."],
+  ["Alert Fatigue","So many low-value prompts that people tune them all out."],
+  ["Lethal Trifecta","Private data + untrusted content + a way to send data out — together they enable data leaks."],
+  ["Blocklist Theater","A blocklist of forbidden commands mistaken for real security."],
+  ["Stuck at Full Autonomy","Running at maximum autonomy with no easy way to dial it back down."],
+  ["Oversight in Name Only","A review is required on paper but does nothing in practice."],
+  ["The Firehose","Dumping everything on the person at once, right when they're overloaded."],
 ];
 
 /* ---------- render gallery ---------- */
@@ -631,18 +631,18 @@ document.getElementById("patterns-bad").innerHTML = ANTI.map(p=>`
 
 /* ---------- quadrant ---------- */
 const QDATA={
-  trap:{badge:["Danger zone","var(--fail-tint)","var(--fail)"],title:"Review is a trap → prevent, don't review",
-    body:"When stakes are high but a human can't reliably catch the error in time, a confirmation gate just creates a rubber stamp and a scapegoat. Don't review — <b>prevent</b>: make it reversible, shrink the blast radius, sandbox it, force a real decision, or forbid the action and escalate.",
-    do:"→ Sandbox-First · Capability Lock · Make it reversible · Escalate"},
-  good:{badge:["Invest here","var(--good-tint)","var(--good)"],title:"Genuine oversight → real review pays off",
-    body:"High stakes, and the human <em>can</em> catch the error in time. This is where review actually works — so invest in it: plan-approve before execution, co-execution, forcing functions, and strong awareness displays so the human sees what matters.",
-    do:"→ Plan-Then-Go · Maker-Checker · Strong provenance + detection"},
-  run:{badge:["Don't spend attention","var(--bg-3)","var(--ink-2)"],title:"Let it run → log, don't gate",
-    body:"Low stakes and low controllability — there's nothing useful a human adds here, and prompting just breeds fatigue that erodes the alerts that matter. Run autonomously and keep a log.",
-    do:"→ Autonomous + logged · budget interruptions"},
-  light:{badge:["Light touch","var(--rail-tint)","var(--rail-2)"],title:"Light touch → notify + undo",
-    body:"Low stakes and easy to catch. Cheap reversibility is enough: act, notify after, and make undo trivial. No blocking gate required.",
-    do:"→ Notify-after · Checkpoint &amp; Rewind"}
+  trap:{badge:["Danger zone","var(--fail-tint)","var(--fail)"],title:"Review is a trap: prevent, don't review",
+    body:"When the stakes are high but a person can't reliably catch the mistake in time, a confirmation prompt only produces a rubber stamp — and a scapegoat when it goes wrong. So don't rely on review. <b>Prevent the bad outcome</b>: make the action reversible, limit how far the damage can spread (the blast radius), run it in a sandbox (an isolated, contained environment), force a deliberate decision, or block the action and hand it to someone who can decide.",
+    do:"Do: Sandbox-First · Capability Lock · make it reversible · escalate"},
+  good:{badge:["Invest here","var(--good-tint)","var(--good)"],title:"Review pays off: invest in it",
+    body:"The stakes are high and a person <em>can</em> realistically catch the mistake in time. This is the corner where review actually works, so make it good: have the agent get its plan approved before acting, do the risky step together with the person, and show clear, useful information so they can see what matters.",
+    do:"Do: approve the plan first · Maker-Checker · show where requests came from + help spot problems"},
+  run:{badge:["Don't spend attention","var(--bg-3)","var(--ink-2)"],title:"Let it run: log it, don't gate it",
+    body:"Low stakes, and a person couldn't reliably catch a mistake anyway. There's little a human adds here, and extra prompts just cause fatigue that dulls the alerts that do matter. Let it run on its own and keep a record.",
+    do:"Do: run automatically + keep a log · don't interrupt people"},
+  light:{badge:["Light touch","var(--rail-tint)","var(--rail-2)"],title:"Light touch: act, notify, allow undo",
+    body:"Low stakes and easy to catch and undo. Easy reversibility is enough: let the agent act, tell the person afterward, and make undo a single step. No need to block and wait for approval.",
+    do:"Do: notify after acting · Checkpoint &amp; Rewind (save a point you can roll back to)"}
 };
 function selQuad(q){
   document.querySelectorAll(".cell").forEach(c=>c.classList.toggle("sel",c.dataset.q===q));
@@ -678,16 +678,16 @@ function computeGrade(){
   else grade="G0";
   const names={G0:"Trivial",G1:"Low",G2:"High",G3:"Critical"};
   const modes={
-    G0:"L0–L1 · run silently / log. Don't spend attention here.",
-    G1:"L1–L2 · act + notify, with cheap undo. Undo beats confirmation.",
-    G2:"L3–L4 · confirm-before or plan-approve, with a real preview.",
-    G3:"L4–L5 + prevention — or L6 (escalate / forbid) if a human can't catch it."
+    G0:"Let it run on its own and log it (autonomy L0–L1). Don't spend anyone's attention here.",
+    G1:"Let it act, then notify, with easy undo (autonomy L1–L2). Easy undo beats a confirmation prompt.",
+    G2:"Confirm before acting, or have the plan approved first, with a real preview of what will happen (autonomy L3–L4).",
+    G3:"Approve before acting plus real prevention (autonomy L4–L5) — or, if a person can't reliably catch the mistake, block it and escalate (L6)."
   };
   const pats={
-    G0:["Autonomous + logged","Budget interruptions"],
-    G1:["Checkpoint & Rewind","Notify-after"],
-    G2:["Preview / diff","Plan-Then-Go","Maker-Checker"],
-    G3:["Sandbox-First","Capability Lock","Kill Switch","Escalation handoff"]
+    G0:["Run automatically + log","Don't interrupt people"],
+    G1:["Checkpoint & Rewind","Notify after acting"],
+    G2:["Show a preview / diff","Approve the plan first","Maker-Checker"],
+    G3:["Sandbox-First","Capability Lock","Kill Switch","Hand off early, with context"]
   };
   const chip=document.getElementById("grade-chip");
   chip.textContent=grade; chip.className="gradechip g-"+grade;
@@ -697,7 +697,7 @@ function computeGrade(){
   const highCons = (grade==="G2"||grade==="G3");
   const trap = highCons && ctrl<=1;
   let recPats = pats[grade].slice();
-  if(trap) recPats = ["Prevent — don't review","Sandbox-First","Capability Lock","Make it reversible","Escalate"];
+  if(trap) recPats = ["Prevent, don't review","Sandbox-First","Capability Lock","Make it reversible","Escalate"];
   document.getElementById("rec-patterns").innerHTML = recPats.map(p=>`<span>${p}</span>`).join("");
   document.getElementById("trapwarn").classList.toggle("show",trap);
 }
