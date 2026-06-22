@@ -1,0 +1,7 @@
+# Tooling caches (machine-local, not part of the work)
+.serena/
+.claude/
+
+# OS / editor cruft
+.DS_Store
+*.swp
