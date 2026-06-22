@@ -94,7 +94,15 @@ const DOCS={
   playbook:{file:"playbook.md",label:"Playbook"},
   framework:{file:"framework.md",label:"Framework"},
   codex:{file:"codex.md",label:"Codex"},
-  readme:{file:"README.md",label:"Overview"}
+  readme:{file:"README.md",label:"Overview"},
+  g0:{file:"guide-g0.md",label:"G0 · Trivial"},
+  g1:{file:"guide-g1.md",label:"G1 · Low"},
+  g2:{file:"guide-g2.md",label:"G2 · High"},
+  g3:{file:"guide-g3.md",label:"G3 · Critical"},
+  "rail-r":{file:"rail-reversible.md",label:"Reversible"},
+  "rail-a":{file:"rail-authorized.md",label:"Authorized"},
+  "rail-i":{file:"rail-interruptible.md",label:"Interruptible"},
+  "rail-l":{file:"rail-logged.md",label:"Logged"}
 };
 const REPO="https://github.com/brennhill/looprails/blob/main/";
 const params=new URLSearchParams(location.search);
@@ -102,7 +110,7 @@ let current=DOCS[params.get("doc")]?params.get("doc"):"playbook";
 
 // build doc switcher
 document.getElementById("docpick").innerHTML=Object.entries(DOCS)
-  .filter(([k])=>k!=="readme")
+  .filter(([k])=>["playbook","framework","codex"].includes(k))
   .map(([k,d])=>`<a href="?doc=${k}" class="${k===current?'on':''}">${d.label}</a>`).join("");
 
 function slug(s){return s.toLowerCase().replace(/[^\w\s-]/g,"").trim().replace(/\s+/g,"-").slice(0,60)}

@@ -192,6 +192,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-f
 .kv .v{font-size:1rem;color:#fff;font-weight:600}
 .trapwarn{margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(214,34,70,.14);border:1px solid rgba(214,34,70,.4);color:#ffd7df;font-size:.9rem;display:none}
 .trapwarn.show{display:block}
+.guide-link{color:#7fd6dd;font-weight:650;font-size:.95rem}
 .recpatterns{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
 .recpatterns span{font-size:.78rem;background:rgba(255,255,255,.08);padding:4px 9px;border-radius:7px;color:#dbe9ec}
 
@@ -201,6 +202,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-f
 .rl{border:1px solid var(--line);border-left:4px solid var(--rail);border-radius:12px;padding:16px;background:#fff}
 .rl .big{font-family:var(--mono);font-weight:800;font-size:1.5rem;color:var(--rail)}
 .rl p{font-size:.85rem;color:var(--ink-2);margin:.3em 0 0}
+.rl-link{display:inline-block;margin-top:12px;color:var(--rail);font-weight:600;font-size:.85rem}
 
 /* patterns + anti */
 .deck{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -387,6 +389,7 @@ footer a{color:#bfe0e4}
             <div><div class="kv" style="margin:0"><div class="k">Consequence grade</div><div class="v" id="grade-name">Answer the four questions →</div></div></div>
           </div>
           <div class="kv"><div class="k">Recommended control</div><div class="v" id="rec-mode">—</div></div>
+          <div class="kv"><a id="rec-guide" class="guide-link" href="docs.html?doc=g0" style="display:none">Read the full guide for this grade →</a></div>
           <div class="kv"><div class="k">Patterns to reach for</div><div class="recpatterns" id="rec-patterns"><span>—</span></div></div>
           <div class="trapwarn" id="trapwarn">⚠️ <b>Don't rely on review here.</b> The stakes are high, but a person can't reliably catch the mistake in time — so a review step would just be a rubber stamp. <b>Prevent the bad outcome instead.</b></div>
         </div>
@@ -402,10 +405,10 @@ footer a{color:#bfe0e4}
     <h2 class="reveal">Keep every governed action on the RAIL.</h2>
     <p class="lead reveal" style="margin-bottom:28px">RAIL is a checklist of four properties any well-governed action should keep: Reversible, Authorized, Interruptible, Logged.</p>
     <div class="rail-strip">
-      <div class="rl reveal"><div class="big">R</div><h3>Reversible</h3><p>You can undo it, or the damage is contained. Save hard stop-and-ask gates for the few actions that truly can't be undone.</p></div>
-      <div class="rl reveal"><div class="big">A</div><h3>Authorized</h3><p>The agent has only the permissions it needs for this grade — no more. For high-stakes actions, whoever proposes the action isn't the one who approves it.</p></div>
-      <div class="rl reveal"><div class="big">I</div><h3>Interruptible</h3><p>Anyone can stop it — a teammate, an automated monitor, even the end user — and a single kill switch halts everything at once, no questions asked. Make stopping cheap and blame-free so people actually do it.</p></div>
-      <div class="rl reveal"><div class="big">L</div><h3>Logged</h3><p>It leaves a record you can inspect later — so you can prove the oversight actually catches mistakes, not just that it exists.</p></div>
+      <div class="rl reveal"><div class="big">R</div><h3>Reversible</h3><p>You can undo it, or the damage is contained. Save hard stop-and-ask gates for the few actions that truly can't be undone.</p><a class="rl-link" href="docs.html?doc=rail-r">Read in depth →</a></div>
+      <div class="rl reveal"><div class="big">A</div><h3>Authorized</h3><p>The agent has only the permissions it needs for this grade — no more. For high-stakes actions, whoever proposes the action isn't the one who approves it.</p><a class="rl-link" href="docs.html?doc=rail-a">Read in depth →</a></div>
+      <div class="rl reveal"><div class="big">I</div><h3>Interruptible</h3><p>Anyone can stop it — a teammate, an automated monitor, even the end user — and a single kill switch halts everything at once, no questions asked. Make stopping cheap and blame-free so people actually do it.</p><a class="rl-link" href="docs.html?doc=rail-i">Read in depth →</a></div>
+      <div class="rl reveal"><div class="big">L</div><h3>Logged</h3><p>It leaves a record you can inspect later — so you can prove the oversight actually catches mistakes, not just that it exists.</p><a class="rl-link" href="docs.html?doc=rail-l">Read in depth →</a></div>
     </div>
   </div>
 </section>
@@ -718,6 +721,7 @@ function computeGrade(){
   if(trap) recPats = ["Prevent, don't review","Sandbox-First","Capability Lock","Make it reversible","Escalate"];
   document.getElementById("rec-patterns").innerHTML = recPats.map(p=>`<span>${p}</span>`).join("");
   document.getElementById("trapwarn").classList.toggle("show",trap);
+  const gl=document.getElementById("rec-guide"); gl.href="docs.html?doc="+grade.toLowerCase(); gl.style.display="inline-block";
 }
 
 /* ---------- reveal on scroll ---------- */
