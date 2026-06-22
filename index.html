@@ -19,7 +19,11 @@
 <meta name="twitter:title" content="LoopRails — decide how much human oversight each AI action needs">
 <meta name="twitter:description" content="See how human oversight of AI agents fails — and the loops that fix it.">
 <meta name="twitter:image" content="https://looprails.dev/og.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e7c86'/%3E%3Cg stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cline x1='9' y1='6' x2='9' y2='26'/%3E%3Cline x1='23' y1='6' x2='23' y2='26'/%3E%3Cline x1='6' y1='12' x2='26' y2='12'/%3E%3Cline x1='6' y1='20' x2='26' y2='20'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0e7c86">
 <style>
 :root{
   --ink:#0d1117; --ink-2:#33404d; --muted:#5b6b7a; --line:#e3e6ea;
@@ -400,7 +404,7 @@ footer a{color:#bfe0e4}
     <div class="rail-strip">
       <div class="rl reveal"><div class="big">R</div><h3>Reversible</h3><p>You can undo it, or the damage is contained. Save hard stop-and-ask gates for the few actions that truly can't be undone.</p></div>
       <div class="rl reveal"><div class="big">A</div><h3>Authorized</h3><p>The agent has only the permissions it needs for this grade — no more. For high-stakes actions, whoever proposes the action isn't the one who approves it.</p></div>
-      <div class="rl reveal"><div class="big">I</div><h3>Interruptible</h3><p>Anyone can stop it. An andon cord (a no-blame way to halt the agent) lets a teammate pause it; a kill switch stops everything at once, no questions asked.</p></div>
+      <div class="rl reveal"><div class="big">I</div><h3>Interruptible</h3><p>Anyone can stop it — a teammate, an automated monitor, even the end user — and a single kill switch halts everything at once, no questions asked. Make stopping cheap and blame-free so people actually do it.</p></div>
       <div class="rl reveal"><div class="big">L</div><h3>Logged</h3><p>It leaves a record you can inspect later — so you can prove the oversight actually catches mistakes, not just that it exists.</p></div>
     </div>
   </div>
