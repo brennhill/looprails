@@ -27,6 +27,7 @@ catch the mistake in time, **prevention beats review** every time.
 
 | File | What | For |
 |---|---|---|
+| [`index.html`](./index.html) | the **website** — animated landing (failure gallery, interactive Consequence×Controllability quadrant, action grader) + in-site docs reader (`docs.html`) | everyone |
 | [`playbook.md`](./playbook.md) | do-this field guide — cheat sheet, pattern + anti-pattern decks, smell tests, recipes | practitioners |
 | [`framework.md`](./framework.md) | the full method and reasoning (§0–§10) | designers / leads |
 | [`codex.md`](./codex.md) | 366-source annotated research base across 17 clusters (5 parts) | the evidence |
