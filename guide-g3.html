@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>G3 — LoopRails</title>
+<meta name="description" content="G3 (critical) AI actions: irreversible, high-blast-radius operations — why review degrades into a rubber stamp, and what to prevent-by-design instead.">
+<meta name="author" content="Brenn Hill">
+<link rel="canonical" href="https://looprails.dev/guide-g3.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="G3 — LoopRails">
+<meta property="og:description" content="G3 (critical) AI actions: irreversible, high-blast-radius operations — why review degrades into a rubber stamp, and what to prevent-by-design instead.">
+<meta property="og:url" content="https://looprails.dev/guide-g3.html">
+<meta property="og:image" content="https://looprails.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="G3 — LoopRails">
+<meta name="twitter:description" content="G3 (critical) AI actions: irreversible, high-blast-radius operations — why review degrades into a rubber stamp, and what to prevent-by-design instead.">
+<meta name="twitter:image" content="https://looprails.dev/og.png">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0e7c86">
+<style>
+:root{
+  --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
+  --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:11px 20px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.docpick{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.docpick a{font-size:.88rem;font-weight:600;color:var(--ink-2);padding:6px 12px;border-radius:8px;border:1px solid transparent}
+.docpick a.on{background:var(--rail);color:#fff}
+.docpick a:hover{text-decoration:none;border-color:var(--line)}
+.layout{display:grid;grid-template-columns:270px 1fr;gap:0;max-width:1280px;margin:0 auto}
+@media(max-width:920px){.layout{grid-template-columns:1fr}.toc{display:none}}
+.toc{position:sticky;top:53px;align-self:start;height:calc(100vh - 53px);overflow:auto;padding:24px 14px 60px 22px;border-right:1px solid var(--line)}
+.toc .tt{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.toc a{display:block;font-size:.85rem;color:var(--ink-2);padding:3px 0;border-left:2px solid transparent;padding-left:10px;margin-left:-2px}
+.toc a:hover{color:var(--rail);text-decoration:none}
+.toc a.h3{padding-left:22px;font-size:.8rem;color:var(--muted)}
+.toc a.active{color:var(--rail);border-left-color:var(--rail);font-weight:600}
+.content{padding:34px 40px 120px;min-width:0;max-width:860px}
+@media(max-width:640px){.content{padding:24px 20px 90px}}
+.md h1{font-size:2rem;letter-spacing:-.02em;margin:.2em 0 .5em;line-height:1.15}
+.md h2{font-size:1.5rem;letter-spacing:-.01em;margin:1.7em 0 .5em;padding-top:.4em;border-top:1px solid var(--line)}
+.md h3{font-size:1.16rem;margin:1.4em 0 .4em}
+.md h4{font-size:1rem;margin:1.2em 0 .3em;color:var(--ink-2)}
+.md p{margin:0 0 1em}
+.md ul,.md ol{padding-left:1.3em;margin:0 0 1em}
+.md li{margin:.25em 0}
+.md blockquote{margin:1em 0;padding:.6em 1em;border-left:3px solid var(--rail);background:var(--rail-tint);border-radius:0 8px 8px 0;color:var(--ink-2)}
+.md blockquote p{margin:.3em 0}
+.md code{font-family:var(--mono);font-size:.86em;background:var(--bg-2);padding:2px 6px;border-radius:5px;border:1px solid var(--line)}
+.md pre{background:#0c1620;color:#dfeef0;padding:16px;border-radius:10px;overflow:auto;font-size:.82rem;line-height:1.45}
+.md pre code{background:none;border:none;padding:0;color:inherit}
+.md a{font-weight:500}
+.md hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.md table{border-collapse:collapse;width:100%;margin:0 0 1.3em;font-size:.9rem;display:block;overflow-x:auto}
+.md th,.md td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+.md th{background:var(--bg-2);font-weight:700}
+.md tr:nth-child(even) td{background:#fafbfc}
+.md img{max-width:100%}
+.md strong{font-weight:700}
+.md strong[id]{scroll-margin-top:64px}
+.md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
+.md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
+.crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
+footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-size:.85rem;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;max-width:1280px;margin:0 auto}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="index.html"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
+  <nav class="docpick"><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="codex.html" class="">Codex</a></nav>
+</div>
+<div class="layout">
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#tldr-what-makes-an-action-g3" class="" data-id="tldr-what-makes-an-action-g3">TL;DR — what makes an action G3</a><a href="#is-a-human-in-the-loop-the-answer-here-almost-never-on-its-o" class="" data-id="is-a-human-in-the-loop-the-answer-here-almost-never-on-its-o">s a human in the loop the answer here? Almost never on its own.</a><a href="#how-to-design-it-properly-prevention-first-defense-in-depth" class="" data-id="how-to-design-it-properly-prevention-first-defense-in-depth">How to design it properly — prevention-first, defense in depth</a><a href="#the-four-a39s-gate" class="" data-id="the-four-a39s-gate">The four A&amp;#39;s gate</a><a href="#worked-examples" class="" data-id="worked-examples">Worked examples</a><a href="#anti-patterns" class="" data-id="anti-patterns">Anti-patterns</a><a href="#sources" class="" data-id="sources">Sources</a></div></aside>
+  <main class="content">
+    <div class="crumb"><a href="index.html">LoopRails</a> · G3 · Critical</div>
+    <div id="md" class="md">
+      <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/guide-g3.md">View guide-g3.md on GitHub ↗</a>
+      <h1 id="designing-for-a-g3-critical-action">Designing for a G3 (Critical) Action</h1>
+<blockquote>
+<p>A LoopRails in-depth guide. Companion to the <a href="./framework.md">framework</a> and the
+<a href="./codex.md">codex</a>. Bracketed tags like <code>[A-17]</code> point to the annotated evidence in the codex.</p>
+</blockquote>
+<h2 id="tldr-what-makes-an-action-g3">TL;DR — what makes an action G3</h2>
+<p>A <strong>G3 (critical)</strong> action is one that is <strong>irreversible AND (external or severe)</strong>. Concretely:
+delete prod data, deploy to prod, execute a payment, post publicly, send an external email, or run
+<code>rm -rf</code>. In the framework&#39;s grading scheme, consequence is driven by the <em>highest</em> of three
+dimensions — reversibility, blast radius, and stakes — and a single action that is irreversible <em>and</em>
+reaches third parties (external) <em>or</em> carries severe stakes (safety, legal, security, finance,
+reputation) is critical regardless of how the others score.</p>
+<p>One trap dominates: <strong>grade by <em>real</em> reversibility, not by whether your tool has an &quot;undo&quot; button.</strong>
+Checkpoint/undo typically covers an agent&#39;s structured edits but not shell side-effects (<code>rm</code>, <code>mv</code>,
+network calls), so a Bash <code>rm -rf</code> is G3 even if your editor has rewind [A-4].</p>
+<p>The headline guidance for G3: <strong>prevent, don&#39;t merely review.</strong> A confirmation gate at this grade is
+usually a rubber stamp and a scapegoat, not a safeguard. Everything below explains why, and what to
+build instead.</p>
+<h2 id="is-a-human-in-the-loop-the-answer-here-almost-never-on-its-o">Is a human in the loop the answer here? Almost never on its own.</h2>
+<p>The intuitive design — &quot;it&#39;s critical, so make a human approve it&quot; — is, at G3, usually the <em>wrong</em>
+primary safeguard. Two well-evidenced facts make a lone human approver close to worthless as the
+main line of defense.</p>
+<p><strong>1. The recognition bottleneck.</strong> Approval gates reliably reduce the <em>occurrence</em> of bad actions but
+barely improve the human&#39;s ability to <em>catch</em> one once it surfaces. The cleanest evidence is a
+within-subjects study of computer-use-agent oversight strategies: plan-approval cut problematic-action
+occurrence to 60–74% (from ~88–90%), yet <strong>intervention success — actually catching a problem once it
+appeared — stayed at just 9–26% across every strategy tested</strong> [A-17]. The failure mode was not
+inattention; it was <em>rationalization and normalization</em>. A confident, fluent, wrong agent gets its
+action approved because the human talks themselves into it.</p>
+<p><strong>2. Automation bias.</strong> People use a reliable-but-imperfect aid as a <em>heuristic shortcut for vigilant
+processing</em> — they commit &quot;commission errors,&quot; following the automated directive even when reliable
+contradictory information is in front of them [F-9]. Experimentally, participants <em>with</em> an aid
+performed <em>worse</em> than those without it [F-9]. Bias gets <em>worse</em> as the agent gets more reliable.
+This is the empirical floor under every &quot;a human will catch the model&#39;s mistakes&quot; claim.</p>
+<p><strong>3. The moral crumple zone.</strong> A human placed in the loop without authority, awareness, ability, and
+time becomes a <em>moral crumple zone</em> — a liability sponge who absorbs blame for failures they could
+not have prevented, protecting the system and its makers rather than improving outcomes [D-16]. An
+&quot;approver&quot; who clicks Yes on a one-line &quot;Execute payment of $40,000?&quot; prompt with no way to verify it
+is nominally responsible and actually powerless. That is theater, and worse than theater: it
+manufactures the <em>appearance</em> of control while removing the pressure to build the real thing.</p>
+<p>So for a G3 action, treat &quot;there is a human in the loop&quot; as the <em>last</em> layer, not the first — and
+only if that human meets the four A&#39;s below. The design question is not &quot;who approves?&quot; but &quot;how do
+we make the worst case impossible, contained, or recoverable <em>before</em> anyone is asked to approve?&quot;</p>
+<h2 id="how-to-design-it-properly-prevention-first-defense-in-depth">How to design it properly — prevention-first, defense in depth</h2>
+<p>The mistake-proofing hierarchy from manufacturing ranks controls bluntly:
+<strong>elimination/prevention &gt; detection/warning &gt; reliance on human vigilance</strong> (the weakest) [N-17 lineage].
+G3 design should lean on the top of that hierarchy. Layer the following; none is sufficient alone.</p>
+<p><strong>1. Contain it — move the safety boundary off the per-action prompt.</strong> Run high-autonomy work in a
+sandbox with no production network, <strong>scoped and expiring credentials</strong>, and <strong>blast-radius caps</strong>
+(max spend, max deletions, max recipients) plus rate throttles [A-23, O-3]. <em>Why:</em> this makes the
+worst case <em>contained rather than reviewed</em> — the single highest-leverage and most underused control.
+Pre-action admission control beats post-hoc review because a fast autonomous actor outruns a human
+and the logs [O-2]. Grant privilege <strong>just-in-time</strong>, never standing (a permit-to-work: scoped,
+time-boxed, named approver, explicit hand-back to a safe state) [N-13].</p>
+<p><strong>2. Make it reversible wherever at all possible — so it stops being G3.</strong> Reversibility <em>beats</em>
+confirmation: confirmation dialogs habituate users into reflexive click-through and don&#39;t prevent
+errors; undo is the superior safety net. Engineer reversibility in: deploy to <strong>staging</strong> first;
+prefer <strong>soft-delete</strong> over hard delete; use <strong>delayed execution</strong> with a cancel window. <em>Why:</em> a
+reversible action drops a grade, and a delay buys the one thing review modes need and rarely have —
+<em>time to intervene before harm lands</em>. The Knight Capital deploy cost ~$440M in 45 minutes because a
+fast autonomous actor had no kill switch and no staged rollout [O-4].</p>
+<p><strong>3. Add a verified runtime shield that can veto even under prompt injection.</strong> You cannot formally
+verify an LLM, but you can verify a <em>small guard</em>. The Simplex / runtime-assurance pattern pairs the
+complex unverifiable agent with a simple, formally verified safe controller that intercepts each
+action and overrides only those that would breach a hard constraint — &quot;never delete prod,&quot; &quot;never
+send funds &gt; $X&quot; — enforced regardless of what the LLM &quot;decides,&quot; <strong>including under prompt injection</strong>
+[O-17, O-18]. <em>Why:</em> the confused-deputy problem <em>is</em> prompt injection — an agent with ambient
+authority is weaponized when untrusted content shares the inference pathway with legitimate
+instructions. A soft human gate can be talked around; a verified shield cannot.</p>
+<p><strong>4. Require two-party approval (maker-checker) — proposer ≠ approver.</strong> For irreversible actions,
+require two independent authorizers; the party that <em>proposed</em> the action must not be the party that
+<em>approves</em> it (segregation of duties / four-eyes) [O-1, N-15]. <strong>Independence is everything:</strong> an
+agent re-reading its own work just confirms its own bias; a genuinely independent second check
+(different model, prompt, and context, or a different human) catches materially more errors but only
+as a <em>backstop</em>, never the primary control [N-15]. <em>Why:</em> it breaks the single-point rationalization
+that the recognition bottleneck exploits.</p>
+<p><strong>5. Keep a break-glass path for genuine emergencies.</strong> Default to zero standing privilege; sensitive
+scopes are elevated just-in-time behind approval and revoked after. Emergency elevation (&quot;break
+glass&quot;) must be possible, but <strong>auditable, alarmed, and reviewed after the fact</strong> [O-14]. <em>Why:</em> if
+the only options are &quot;blocked forever&quot; or &quot;always open,&quot; people prop the door open. A loud, logged
+emergency path keeps the safe default safe.</p>
+<p><strong>6. Escalate or forbid when a human can&#39;t be a real safeguard.</strong> If controllability is low — the
+human can&#39;t detect right from wrong from what&#39;s shown, or there&#39;s no time to intervene — do <em>not</em>
+fall back to L3/L4 review. Escalate to a decision owner with full provenance, or forbid the action
+outright (L6) [framework §3]. <em>Why:</em> review you know the human can&#39;t do well is a rubber stamp by
+construction.</p>
+<blockquote>
+<p><strong>The mature G3 stack:</strong> sandbox + scoped/expiring credentials + blast-radius caps → make it
+reversible (staging / soft-delete / delay) → verified runtime shield → maker-checker (proposer ≠
+approver) → break-glass for emergencies → escalate/forbid when the human can&#39;t really catch it.</p>
+</blockquote>
+<h2 id="the-four-a39s-gate">The four A&#39;s gate</h2>
+<p>If — after all the prevention above — you <em>keep</em> a human in the loop on a G3 action, that human must
+have all four of the following, or the oversight is theater. (Synthesized from tracking + tracing
+[C-20, D-13], Billings&#39; &quot;informed, involved, in command,&quot; and the requirement for &quot;authority and
+competence to change the decision.&quot;)</p>
+<ul>
+<li><strong>Authority</strong> — the human can actually stop, change, or reverse the action. <em>Absent → moral crumple
+zone</em> [D-16].</li>
+<li><strong>Awareness</strong> — the human comprehends what the agent is doing and why: real situation awareness, not
+a log dump. <em>Absent → automation surprise.</em></li>
+<li><strong>Ability (and time)</strong> — the competence <em>and the time budget</em> to evaluate before it&#39;s too late.
+<em>Absent → out-of-the-loop failure.</em></li>
+<li><strong>Accountability</strong> — responsibility is traceable to an informed human, not diffused [C-20]; felt
+accountability also reduces automation bias. <em>Absent → responsibility gap.</em></li>
+</ul>
+<p>Fail any one and you have a name for the failure, not a safeguard.</p>
+<h2 id="worked-examples">Worked examples</h2>
+<p><strong>Delete prod data.</strong> <em>Prevent first:</em> the agent runs with credentials that have no <code>DELETE</code>/<code>DROP</code>
+on prod; deletes are implemented as <strong>soft-delete</strong> with a retention window, so the action is
+recoverable and no longer truly G3. A verified shield blocks any hard-delete on a prod resource
+outright [O-18]. <em>If a real purge is needed:</em> maker-checker — the agent proposes, an independent human
+approves, behind a just-in-time, time-boxed grant [O-1, N-13]; blast-radius cap on row/object count
+[O-3]. Never rely on the agent confirming its own destructive SQL.</p>
+<p><strong>Execute a payment.</strong> <em>Prevent first:</em> hard per-transaction and per-window caps enforced by the
+shield, not by a prompt the agent can rationalize past (&quot;never send funds &gt; $X&quot;) [O-18, O-3]. Payments
+execute on a <strong>delay</strong> with a cancel window (reversibility). For anything above a low threshold:
+maker-checker with proposer ≠ approver [O-1]. The confused-deputy risk is acute — an injected
+instruction in an invoice or email could direct the funds — so the shield enforces the cap regardless
+of instruction source [O-11/O-12 lineage].</p>
+<p><strong>Deploy to prod.</strong> <em>Prevent first:</em> deploy to <strong>staging</strong> with smoke tests; promote to prod via a
+<strong>staged/canary rollout</strong> behind a feature flag, with an automatic kill switch on error-rate or
+cost-burn thresholds (circuit breaker) [O-4, O-6/O-7 lineage]. A short pre-deploy gate covers only the
+<em>killer items</em> (feature flags verified, dead code checked, rollback tested) — concise, because bloated
+gates induce rubber-stamping [N-11]. Knight Capital is the cautionary tale: never deploy a fast
+autonomous actor without a staged rollout and an emergency stop [O-4].</p>
+<h2 id="anti-patterns">Anti-patterns</h2>
+<ul>
+<li><strong>The rubber stamp.</strong> A bare &quot;Approve / Reject&quot; on an action the human can&#39;t actually verify. The
+recognition bottleneck guarantees ~9–26% catch rate [A-17]; you&#39;ve built a scapegoat, not a control.</li>
+<li><strong>The YOLO cliff.</strong> A single global autonomy switch flipped to &quot;act on everything&quot; with no sandbox,
+no caps, no shield. The maturity-0 failure: one config error in a fast actor and there&#39;s no kill
+switch [O-4]. Prevention and containment are not optional at G3.</li>
+<li><strong>Gameable engagement checks.</strong> Mandatory-but-ritual gates — the kind that get clicked through
+reflexively. A <em>mandated</em> surgical checklist with thin engagement delivered <strong>zero benefit</strong> in a
+101-hospital study [N-12]; habituation to a repeated warning sets in neurologically by the <em>second</em>
+exposure [O-16]. A gate is only as good as the attention it commands. Don&#39;t measure &quot;a human
+approved&quot;; measure whether they <em>catch</em> planted errors [A-17].</li>
+</ul>
+<h2 id="sources">Sources</h2>
+<p>Codex tags used in this guide:</p>
+<ul>
+<li><strong>A-17</strong> — exposure-vs-correction gap / recognition bottleneck; gates reduce bad actions but
+intervention success stays 9–26%.</li>
+<li><strong>F-9</strong> — automation bias; commission errors; aided users can do worse than unaided.</li>
+<li><strong>D-16</strong> — the moral crumple zone (human as liability sponge without real control).</li>
+<li><strong>C-20, D-13</strong> — meaningful human control as tracking + tracing; basis for the four A&#39;s and
+Accountability.</li>
+<li><strong>A-23</strong> — sandbox + scoped/ephemeral credentials + budget caps; the lethal trifecta.</li>
+<li><strong>O-1, N-15</strong> — two-party approval / maker-checker / two-person rule; proposer ≠ approver.</li>
+<li><strong>N-17</strong> — lockout-tagout: positively disable, don&#39;t politely pause (capability revocation).</li>
+<li><strong>O-17, O-18</strong> — Simplex / runtime shield: a verified monitor that vetoes the agent, even under
+injection.</li>
+<li><strong>O-4</strong> — Knight Capital: no kill switch on a fast autonomous actor → ~$440M in 45 minutes.</li>
+</ul>
+
+    </div>
+  </main>
+</div>
+<footer>
+  <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
+  <span><a href="index.html">Home</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
+</footer>
+<script>
+(function(){
+  var heads=[].slice.call(document.querySelectorAll("#md h2[id],#md h3[id]"));
+  var links=[].slice.call(document.querySelectorAll("#toc a"));
+  if(!heads.length||!links.length) return;
+  var spy=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("data-id")===e.target.id);});}
+  });},{rootMargin:"-60px 0px -75% 0px"});
+  heads.forEach(function(h){spy.observe(h);});
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "43e10ad738e241ab93d08ec0cee965e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

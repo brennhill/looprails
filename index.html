@@ -231,6 +231,64 @@ footer{background:var(--slate);color:#9fb4ba;padding:42px 0;font-size:.9rem}
 footer a{color:#bfe0e4}
 .foot-grid{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
 
+/* clickable citations */
+a.cite{text-decoration:none;cursor:pointer;transition:.12s}
+a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
+
+/* scenario library */
+.scn-wrap{margin:0 0 26px}
+.scn-lab{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.scn-grid{display:flex;flex-wrap:wrap;gap:9px}
+.scn{display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 7px 7px 13px;font-size:.86rem;font-weight:600;color:var(--ink);transition:.12s}
+.scn:hover{border-color:var(--rail);color:var(--rail);transform:translateY(-1px)}
+.scn .gb{font-family:var(--mono);font-weight:800;font-size:.68rem;padding:2px 7px;border-radius:6px}
+.scn .gb.G0{background:var(--good-tint);color:var(--good)}
+.scn .gb.G1{background:#dff0e8;color:#0f6b41}
+.scn .gb.G2{background:#fdeede;color:var(--warn)}
+.scn .gb.G3{background:var(--fail-tint);color:var(--fail)}
+
+/* stack map */
+.stack-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+.stack-tbl{width:100%;border-collapse:collapse;font-size:.9rem;background:#fff}
+.stack-tbl th,.stack-tbl td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.stack-tbl thead th{background:var(--bg-2);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
+.stack-tbl tbody tr:last-child td{border-bottom:none}
+.stack-tbl td:first-child,.stack-tbl thead th:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+.stack-tbl td .sub{display:block;color:var(--muted);font-size:.82rem;margin-top:2px}
+@media(max-width:760px){.stack-tbl{min-width:760px}}
+.disclaim{font-size:.82rem;color:var(--muted);margin-top:12px}
+
+/* maturity self-assessment (reuses .qrow/.opt from grader) */
+.mat{background:var(--slate);color:#e7eff1;border-radius:20px;overflow:hidden}
+.mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:820px){.mat-grid{grid-template-columns:1fr}}
+.mat-in{padding:28px}
+.mat-out{padding:28px;background:var(--slate-2);border-left:1px solid rgba(255,255,255,.07)}
+.mat .levelchip{font-family:var(--mono);font-weight:800;font-size:1.8rem;letter-spacing:-.02em;padding:6px 16px;border-radius:12px;display:inline-block;background:rgba(255,255,255,.08);color:#fff}
+.mat .bars{margin:18px 0 4px}
+.mat .barrow{display:flex;align-items:center;gap:10px;margin:9px 0;font-size:.8rem}
+.mat .barrow .lab{flex:0 0 132px;color:#cfe0e3}
+.mat .barrow .track{flex:1;height:8px;border-radius:6px;background:rgba(255,255,255,.1);overflow:hidden}
+.mat .barrow .fill{height:100%;width:0;background:var(--rail);border-radius:6px;transition:width .45s}
+.mat .nextstep{margin-top:16px;padding:13px 15px;border-radius:10px;background:rgba(95,208,216,.1);border:1px solid rgba(95,208,216,.3);color:#dfeef0;font-size:.9rem;display:none}
+.mat .nextstep.show{display:block}
+.mat .nextstep b{color:#fff}
+
+/* take it with you — artifacts */
+.art-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.art-tab{cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 15px;font-weight:650;font-size:.9rem;color:var(--ink-2);transition:.12s}
+.art-tab:hover{border-color:var(--rail);color:var(--rail)}
+.art-tab.on{background:var(--rail);color:#fff;border-color:var(--rail)}
+.art-panel{display:none}
+.art-panel.on{display:block}
+.art-desc{font-size:.95rem;color:var(--ink-2);margin:0 0 14px;max-width:64ch}
+.codebox{position:relative;background:var(--slate);border-radius:14px;overflow:hidden;border:1px solid #16242e}
+.codebox pre{margin:0;padding:20px;color:#dfeef0;font-family:var(--mono);font-size:.8rem;line-height:1.55;overflow:auto;max-height:440px;white-space:pre}
+.copybtn{position:absolute;top:11px;right:11px;cursor:pointer;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#eef4f5;border-radius:8px;padding:6px 13px;font-size:.8rem;font-weight:650;font-family:var(--sans);transition:.12s}
+.copybtn:hover{background:rgba(255,255,255,.18)}
+.copybtn.done{background:var(--good);border-color:var(--good);color:#fff}
+.art-extra{margin-top:14px;font-size:.9rem}
+
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important}
   html{scroll-behavior:auto}
@@ -246,11 +304,11 @@ footer a{color:#bfe0e4}
       LoopRails
     </a>
     <div class="nav-links">
-      <a href="#fail">How oversight fails</a>
-      <a href="#moves">The 4 steps</a>
+      <a href="#fail">How it fails</a>
       <a href="#grader">Grade an action</a>
-      <a href="#deep">Read more</a>
-      <a class="nav-cta" href="docs.html?doc=playbook">Read the playbook</a>
+      <a href="#stack">Your stack</a>
+      <a href="#take">Take it with you</a>
+      <a class="nav-cta" href="playbook.html">Read the playbook</a>
     </div>
   </div>
 </nav>
@@ -267,7 +325,7 @@ footer a{color:#bfe0e4}
           <a class="btn btn-ghost" href="#grader">Grade an action →</a>
         </div>
         <div class="onerule">
-          <b>Start with this one rule:</b> asking a person to click <em>Approve</em> does not turn them into a reliable error-catcher. Approval prompts stop some bad actions, but they barely improve a human's odds of <em>noticing</em> a bad one. When a human can't realistically catch the mistake, prevent the action instead of reviewing it. <span class="cite">A-17</span>
+          <b>Start with this one rule:</b> asking a person to click <em>Approve</em> does not turn them into a reliable error-catcher. Approval prompts stop some bad actions, but they barely improve a human's odds of <em>noticing</em> a bad one. When a human can't realistically catch the mistake, prevent the action instead of reviewing it. <a class="cite" href="codex.html#ref-A-17" title="Open the source in the codex">A-17</a>
         </div>
       </div>
       <div class="railbox">
@@ -347,6 +405,10 @@ footer a{color:#bfe0e4}
     <div class="eyebrow reveal">Try it · about 20 seconds</div>
     <h2 class="reveal">Grade an action.</h2>
     <p class="lead reveal" style="margin-bottom:26px">Answer four questions about an action your agent is about to take. LoopRails gives you its grade, the right level of control, and a warning if asking a human to review it would just be a rubber stamp.</p>
+    <div class="scn-wrap reveal">
+      <div class="scn-lab">New to it? Tap a real example to load it into the grader ↓</div>
+      <div class="scn-grid" id="scn-grid"></div>
+    </div>
     <div class="grader reveal">
       <div class="grader-grid">
         <div class="grader-in">
@@ -405,11 +467,71 @@ footer a{color:#bfe0e4}
     <h2 class="reveal">Keep every governed action on the RAIL.</h2>
     <p class="lead reveal" style="margin-bottom:28px">RAIL is a checklist of four properties any well-governed action should keep: Reversible, Authorized, Interruptible, Logged.</p>
     <div class="rail-strip">
-      <div class="rl reveal"><div class="big">R</div><h3>Reversible</h3><p>You can undo it, or the damage is contained. Save hard stop-and-ask gates for the few actions that truly can't be undone.</p><a class="rl-link" href="docs.html?doc=rail-r">Read in depth →</a></div>
-      <div class="rl reveal"><div class="big">A</div><h3>Authorized</h3><p>The agent has only the permissions it needs for this grade — no more. For high-stakes actions, whoever proposes the action isn't the one who approves it.</p><a class="rl-link" href="docs.html?doc=rail-a">Read in depth →</a></div>
-      <div class="rl reveal"><div class="big">I</div><h3>Interruptible</h3><p>Anyone can stop it — a teammate, an automated monitor, even the end user — and a single kill switch halts everything at once, no questions asked. Make stopping cheap and blame-free so people actually do it.</p><a class="rl-link" href="docs.html?doc=rail-i">Read in depth →</a></div>
-      <div class="rl reveal"><div class="big">L</div><h3>Logged</h3><p>It leaves a record you can inspect later — so you can prove the oversight actually catches mistakes, not just that it exists.</p><a class="rl-link" href="docs.html?doc=rail-l">Read in depth →</a></div>
+      <div class="rl reveal"><div class="big">R</div><h3>Reversible</h3><p>You can undo it, or the damage is contained. Save hard stop-and-ask gates for the few actions that truly can't be undone.</p><a class="rl-link" href="rail-reversible.html">Read in depth →</a></div>
+      <div class="rl reveal"><div class="big">A</div><h3>Authorized</h3><p>The agent has only the permissions it needs for this grade — no more. For high-stakes actions, whoever proposes the action isn't the one who approves it.</p><a class="rl-link" href="rail-authorized.html">Read in depth →</a></div>
+      <div class="rl reveal"><div class="big">I</div><h3>Interruptible</h3><p>Anyone can stop it — a teammate, an automated monitor, even the end user — and a single kill switch halts everything at once, no questions asked. Make stopping cheap and blame-free so people actually do it.</p><a class="rl-link" href="rail-interruptible.html">Read in depth →</a></div>
+      <div class="rl reveal"><div class="big">L</div><h3>Logged</h3><p>It leaves a record you can inspect later — so you can prove the oversight actually catches mistakes, not just that it exists.</p><a class="rl-link" href="rail-logged.html">Read in depth →</a></div>
     </div>
+  </div>
+</section>
+
+<!-- STACK MAP -->
+<section id="stack">
+  <div class="wrap">
+    <div class="eyebrow reveal">Make it concrete</div>
+    <h2 class="reveal">Map LoopRails onto the tools you already use.</h2>
+    <p class="lead reveal" style="margin-bottom:30px">The method is tool-agnostic, but the controls are real settings. Here's where each step lives in common agent platforms — so "prevent, don't review" becomes a specific switch to flip, not a slogan.</p>
+    <div class="stack-wrap reveal">
+      <table class="stack-tbl">
+        <thead>
+          <tr>
+            <th>Platform</th>
+            <th>Grade <span class="sub" style="font-weight:400;text-transform:none;letter-spacing:0">decide what to gate</span></th>
+            <th>Guard <span class="sub" style="font-weight:400;text-transform:none;letter-spacing:0">prevent / sandbox</span></th>
+            <th>Interrupt <span class="sub" style="font-weight:400;text-transform:none;letter-spacing:0">stop it in time</span></th>
+            <th>Log <span class="sub" style="font-weight:400;text-transform:none;letter-spacing:0">prove it</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Claude Code</td>
+            <td>Permission rules <code>allow/ask/deny</code> per tool; gate by risk in hooks <a class="cite" href="codex.html#ref-A-2">A-2</a></td>
+            <td>Sandboxed bash, no-network containers, <code>plan</code> mode; <code>/rewind</code> checkpoints <span class="sub">undo covers edits, not bash side-effects <a class="cite" href="codex.html#ref-A-4">A-4</a></span></td>
+            <td>Esc interrupts mid-run; kill the session</td>
+            <td>Session transcript; a hook can log every tool call</td>
+          </tr>
+          <tr>
+            <td>Cursor</td>
+            <td>Command allowlist + auto-run toggle <span class="sub">the denylist is a UX affordance, not a boundary <a class="cite" href="codex.html#ref-A-14">A-14</a></span></td>
+            <td>Run in a devcontainer/sandbox; keep auto-run off for writes &amp; shell</td>
+            <td>Stop button; revert through git</td>
+            <td>Lean on git history as the audit trail</td>
+          </tr>
+          <tr>
+            <td>GitHub Copilot agent</td>
+            <td>Tool/command approval prompts; org &amp; repo policies</td>
+            <td>Runs in an ephemeral Actions sandbox; <b>PR review before merge</b> is built-in maker-checker</td>
+            <td>Cancel the workflow run</td>
+            <td>Actions logs + PR &amp; commit history</td>
+          </tr>
+          <tr>
+            <td>Bedrock Agents + Guardrails</td>
+            <td>Action groups with <em>require confirmation</em>; Guardrails policies per topic/PII</td>
+            <td>IAM least-privilege on action Lambdas; VPC isolation; Guardrails block denied content</td>
+            <td>Stop the invocation; disable the agent alias</td>
+            <td>CloudTrail + CloudWatch model-invocation logging</td>
+          </tr>
+          <tr>
+            <td>LangGraph / LangChain</td>
+            <td><code>interrupt()</code> before chosen tool calls; route by risk in the graph <a class="cite" href="codex.html#ref-A-8">A-8</a></td>
+            <td>Checkpointer gives durable pause/resume + a human-approval node; run tools in sandboxed executors</td>
+            <td>Interrupt and don't resume; cancel the run</td>
+            <td>LangSmith tracing + checkpoint history</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="disclaim reveal">Platform features as of mid-2026 and they change often — verify against current docs. The pattern that survives every release: a denylist of commands is not a sandbox <a class="cite" href="codex.html#ref-A-14">A-14</a>.</p>
   </div>
 </section>
 
@@ -426,6 +548,42 @@ footer a{color:#bfe0e4}
   </div>
 </section>
 
+<!-- MATURITY -->
+<section id="maturity" class="band">
+  <div class="wrap">
+    <div class="eyebrow reveal">Where do you stand?</div>
+    <h2 class="reveal">Score your oversight maturity.</h2>
+    <p class="lead reveal" style="margin-bottom:26px">Five questions, about a minute. You'll get a level from 0 to 4 — and the single change that would move you up fastest.</p>
+    <div class="mat reveal">
+      <div class="mat-grid">
+        <div class="mat-in" id="mat-in"></div>
+        <div class="mat-out">
+          <div class="outline-row">
+            <span class="levelchip" id="mat-chip">—</span>
+            <div><div class="kv" style="margin:0"><div class="k">Maturity level</div><div class="v" id="mat-name">Answer the five questions →</div></div></div>
+          </div>
+          <div class="bars" id="mat-bars"></div>
+          <div class="nextstep" id="mat-next"></div>
+          <button class="copybtn" id="mat-copy" style="position:static;margin-top:16px;display:none">Copy my scorecard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAKE IT WITH YOU -->
+<section id="take">
+  <div class="wrap">
+    <div class="eyebrow reveal">Take it with you</div>
+    <h2 class="reveal">Drop LoopRails into your workflow.</h2>
+    <p class="lead reveal" style="margin-bottom:24px">Copy-paste artifacts so the framework leaves this page with you — one for your agents, one for your pull requests, one for the wall.</p>
+    <div class="reveal">
+      <div class="art-tabs" id="art-tabs"></div>
+      <div id="art-panels"></div>
+    </div>
+  </div>
+</section>
+
 <!-- DEEP DIVE -->
 <section id="deep" class="band">
   <div class="wrap">
@@ -433,19 +591,19 @@ footer a{color:#bfe0e4}
     <h2 class="reveal">Practical at the top, fully sourced underneath.</h2>
     <p class="lead reveal" style="margin-bottom:30px">Three levels of depth, each one click away. Start with the playbook; follow the citations as far down as you want to go.</p>
     <div class="doors">
-      <a class="door reveal" href="docs.html?doc=playbook">
+      <a class="door reveal" href="playbook.html">
         <div class="dn">Level 1 · for practitioners</div>
         <h3>The Playbook</h3>
         <p>The hands-on field guide: a cheat sheet, the pattern and anti-pattern decks, questions to ask in standup, and ready-made recipes.</p>
         <span class="go">Open the playbook →</span>
       </a>
-      <a class="door reveal" href="docs.html?doc=framework">
+      <a class="door reveal" href="framework.html">
         <div class="dn">Level 2 · for designers &amp; leads</div>
         <h3>The Framework</h3>
         <p>The full method (sections 0–10): the consequence-vs-controllability model, the grades, the autonomy ladder, how a single oversight moment is structured, and how to validate it.</p>
         <span class="go">Open the framework →</span>
       </a>
-      <a class="door reveal" href="docs.html?doc=codex">
+      <a class="door reveal" href="codex.html">
         <div class="dn">Level 3 · the evidence</div>
         <h3>The Codex</h3>
         <p>366 annotated sources across 17 topics — aviation, medicine, finance, AI safety, and human-computer interaction. Every claim on this site traces back here.</p>
@@ -463,9 +621,9 @@ footer a{color:#bfe0e4}
       <div style="margin-top:10px;font-size:.85rem">© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</div>
     </div>
     <div style="display:flex;gap:20px;flex-wrap:wrap">
-      <a href="docs.html?doc=playbook">Playbook</a>
-      <a href="docs.html?doc=framework">Framework</a>
-      <a href="docs.html?doc=codex">Codex</a>
+      <a href="playbook.html">Playbook</a>
+      <a href="framework.html">Framework</a>
+      <a href="codex.html">Codex</a>
       <a href="https://github.com/brennhill/looprails">GitHub</a>
       <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a>
     </div>
@@ -615,6 +773,14 @@ const ANTI = [
   ["The Firehose","Dumping everything on the person at once, right when they're overloaded."],
 ];
 
+/* ---------- clickable citations ---------- */
+// "E-13 · H-19" -> two links into the codex's [ref] anchors
+function linkCite(str){
+  return str.split(/\s*·\s*/).map(tag=>
+    `<a class="cite" href="codex.html#ref-${tag}" title="Open source ${tag} in the codex">${tag}</a>`
+  ).join(" ");
+}
+
 /* ---------- render gallery ---------- */
 const gal = document.getElementById("gallery");
 gal.innerHTML = FAILURES.map(f=>`
@@ -625,7 +791,7 @@ gal.innerHTML = FAILURES.map(f=>`
     </div>
     <div class="fbody">
       <h3>${f.icon} ${f.title}</h3>
-      <div class="ftxt fail-txt">${f.fail} <span class="cite">${f.cite}</span></div>
+      <div class="ftxt fail-txt">${f.fail} ${linkCite(f.cite)}</div>
       <div class="ftxt fix-txt">${f.fix}</div>
       <span class="pattern-badge" style="display:none">✓ ${f.pattern}</span>
       <button class="toggle">See the fix →</button>
@@ -721,12 +887,213 @@ function computeGrade(){
   if(trap) recPats = ["Prevent, don't review","Sandbox-First","Capability Lock","Make it reversible","Escalate"];
   document.getElementById("rec-patterns").innerHTML = recPats.map(p=>`<span>${p}</span>`).join("");
   document.getElementById("trapwarn").classList.toggle("show",trap);
-  const gl=document.getElementById("rec-guide"); gl.href="docs.html?doc="+grade.toLowerCase(); gl.style.display="inline-block";
+  const gl=document.getElementById("rec-guide"); gl.href="guide-"+grade.toLowerCase()+".html"; gl.style.display="inline-block";
 }
 
 /* ---------- reveal on scroll ---------- */
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll(".reveal").forEach((el,i)=>{el.style.transitionDelay=(Math.min(i,4)*40)+"ms";io.observe(el)});
+
+/* ---------- shared: grade logic + clipboard ---------- */
+function gradeOf(rev,blast,stakes){
+  const meds=[rev,blast,stakes].filter(v=>v===1).length;
+  const anyHigh=[rev,blast,stakes].some(v=>v===2);
+  if(rev===2 && (blast===2||stakes===2)) return "G3";
+  if(anyHigh || meds>=2) return "G2";
+  if(meds>=1) return "G1";
+  return "G0";
+}
+function fallbackCopy(text,cb){
+  const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";
+  document.body.appendChild(ta);ta.select();try{document.execCommand("copy");}catch(e){}document.body.removeChild(ta);cb&&cb();
+}
+function copyText(text,btn,reset){
+  const done=()=>{btn.textContent="Copied ✓";btn.classList.add("done");setTimeout(()=>{btn.textContent=reset;btn.classList.remove("done");},1600);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text,done));}
+  else fallbackCopy(text,done);
+}
+
+/* ---------- scenario library ---------- */
+const SCN=[
+  {t:"Fix a typo in a comment", r:0,b:0,s:0,c:2},
+  {t:"Read a file or run a search", r:0,b:0,s:0,c:2},
+  {t:"Open a draft PR", r:0,b:1,s:0,c:2},
+  {t:"Commit to a feature branch", r:0,b:0,s:1,c:2},
+  {t:"Email a customer", r:1,b:2,s:1,c:2},
+  {t:"Merge a PR to main", r:1,b:1,s:1,c:2},
+  {t:"Deploy to production", r:1,b:2,s:2,c:1},
+  {t:"Issue a $5,000 refund", r:1,b:1,s:2,c:2},
+  {t:"Force-push over main's history", r:2,b:1,s:2,c:1},
+  {t:"Drop a prod database table", r:2,b:2,s:2,c:1},
+  {t:"Delete production data (rm -rf)", r:2,b:2,s:2,c:0},
+  {t:"Execute a wire transfer", r:2,b:2,s:2,c:0}
+];
+document.getElementById("scn-grid").innerHTML=SCN.map((s,i)=>{
+  const g=gradeOf(s.r,s.b,s.s);
+  return `<button class="scn" data-i="${i}"><span class="gb ${g}">${g}</span>${s.t}</button>`;
+}).join("");
+function applyScenario(s){
+  [["rev",s.r],["blast",s.b],["stakes",s.s],["ctrl",s.c]].forEach(([ax,v])=>{
+    const opt=document.querySelector('.grader .qrow[data-axis="'+ax+'"] .opt[data-v="'+v+'"]');
+    if(opt) opt.click();
+  });
+  document.getElementById("grader").scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.querySelectorAll(".scn").forEach(btn=>btn.addEventListener("click",()=>applyScenario(SCN[+btn.dataset.i])));
+
+/* ---------- maturity self-assessment ---------- */
+const MATQ=[
+  {key:"grade",lab:"Grade",href:"playbook.html",
+   q:"Before deciding oversight, do you grade each action by consequence — reversibility, blast radius, and stakes?",
+   advice:"Grade every new agent action G0–G3. Until you do, you're spending the same oversight on a typo and a wire transfer."},
+  {key:"guard",lab:"Guard",href:"guide-g3.html",
+   q:"For high-consequence actions a human can't reliably catch in time, do you prevent the bad outcome (sandbox, capability limits, reversibility) — not just prompt for approval?",
+   advice:"Replace rubber-stamp approvals on your riskiest actions with prevention: sandboxing, capability limits, and reversibility."},
+  {key:"interrupt",lab:"Interrupt",href:"rail-interruptible.html",
+   q:"Can anyone — a teammate, a monitor, or the user — stop a running agent instantly and blame-free, with one kill switch?",
+   advice:"Add a single, blame-free kill switch that halts everything in flight — and make stopping cheap so people actually use it."},
+  {key:"log",lab:"Log",href:"rail-logged.html",
+   q:"Is every governed action logged well enough to reconstruct what happened and who — or which sub-agent — was responsible?",
+   advice:"Log actions with enough identity and provenance to reconstruct the chain, sub-agents included."},
+  {key:"prove",lab:"Prove",href:"framework.html",
+   q:"Do you test that humans actually catch seeded or injected bad actions — not just that a review step exists?",
+   advice:"Red-team your own oversight: seed a bad action and measure whether the human actually catches it."}
+];
+const MA={};
+document.getElementById("mat-in").innerHTML=MATQ.map(d=>`
+  <div class="qrow" data-axis="${d.key}">
+    <label>${d.q}</label>
+    <div class="opts">
+      <div class="opt" data-v="0">No</div>
+      <div class="opt" data-v="1">Starting</div>
+      <div class="opt" data-v="2">Mostly</div>
+      <div class="opt" data-v="3">Yes</div>
+    </div>
+  </div>`).join("");
+document.querySelectorAll("#mat-in .qrow").forEach(row=>{
+  const key=row.dataset.axis;
+  row.querySelectorAll(".opt").forEach(opt=>opt.addEventListener("click",()=>{
+    row.querySelectorAll(".opt").forEach(o=>o.classList.remove("on"));
+    opt.classList.add("on"); MA[key]=+opt.dataset.v; computeMaturity();
+  }));
+});
+const LEVELS=[{n:"L0",name:"Ad hoc"},{n:"L1",name:"Aware"},{n:"L2",name:"Managed"},{n:"L3",name:"Calibrated"},{n:"L4",name:"Proven"}];
+function levelFor(sum){ if(sum<=2)return 0; if(sum<=5)return 1; if(sum<=8)return 2; if(sum<=11)return 3; return 4; }
+function computeMaturity(){
+  if(MATQ.some(d=>MA[d.key]==null)) return;
+  const sum=MATQ.reduce((a,d)=>a+MA[d.key],0);
+  const lv=levelFor(sum);
+  document.getElementById("mat-chip").textContent=LEVELS[lv].n;
+  document.getElementById("mat-name").textContent=LEVELS[lv].name+" · "+sum+"/15";
+  document.getElementById("mat-bars").innerHTML=MATQ.map(d=>`
+    <div class="barrow"><span class="lab">${d.lab}</span><span class="track"><span class="fill" style="width:${(MA[d.key]/3*100)}%"></span></span></div>`).join("");
+  let weak=MATQ[0]; MATQ.forEach(d=>{ if(MA[d.key]<MA[weak.key]) weak=d; });
+  const ns=document.getElementById("mat-next");
+  ns.innerHTML=`<b>Fastest win — ${weak.lab}:</b> ${weak.advice} <a href="${weak.href}" style="color:#7fd6dd;font-weight:650">Read how →</a>`;
+  ns.classList.add("show");
+  const cp=document.getElementById("mat-copy"); cp.style.display="inline-block";
+  cp.onclick=()=>{
+    const txt="My LoopRails oversight maturity: "+LEVELS[lv].n+" "+LEVELS[lv].name+" ("+sum+"/15)\n"+
+      MATQ.map(d=>"  "+d.lab+": "+MA[d.key]+"/3").join("\n")+
+      "\nFastest win: "+weak.lab+". Score yours at https://looprails.dev/#maturity";
+    copyText(txt,cp,"Copy my scorecard");
+  };
+}
+
+/* ---------- take it with you: artifacts ---------- */
+const ARTIFACTS=[
+  {id:"agents",tab:"AGENTS.md / CLAUDE.md",
+   desc:"Paste into your agent's instructions file (AGENTS.md, CLAUDE.md, a system prompt) so it grades its own actions and asks for the right level of oversight.",
+   code:`## Oversight rules (LoopRails)
+
+Before any tool call with side effects, grade the action by its worst case, then act accordingly.
+
+Grade on three axes:
+- Reversible?     undo easily | undo with effort | cannot undo
+- Blast radius?   just me/local | my team/shared | customers/public
+- Stakes?         trivial | meaningful | severe
+
+| Grade | When | What you do |
+|-------|------|-------------|
+| G0 trivial  | reversible, local, low stakes        | Act on your own. Log it. Don't ask. |
+| G1 low      | one axis is moderate                 | Act, then report what you did. Keep an undo. |
+| G2 high     | any axis severe, or two moderate     | Show a real diff/preview and get approval BEFORE acting. |
+| G3 critical | irreversible AND (wide blast OR severe) | Do not proceed alone. Stop and ask a human; for the worst cases, refuse and escalate. |
+
+Hard rules:
+- If you can't undo it and a human can't realistically catch the mistake in time,
+  PREVENT it (narrow the action, sandbox it) — don't just ask for confirmation.
+- Never bypass a guardrail: no encoding tricks, subshells, or editing config to widen your own permissions.
+- Keep every governed action Reversible, Authorized, Interruptible, Logged (RAIL).
+- When unsure of the grade, round UP.
+
+Reference: https://looprails.dev`},
+  {id:"pr",tab:"PR / review checklist",
+   desc:"Add to your pull-request template or design-doc review so oversight is a checklist item, not an afterthought.",
+   code:`### LoopRails review checklist
+
+Grade
+- [ ] Each new agent action is graded G0–G3 (reversibility x blast radius x stakes).
+
+Guard
+- [ ] G2/G3 actions a human can't catch in time are PREVENTED (sandbox, capability limits, reversibility) — not just gated behind an approval prompt.
+- [ ] Irreversible actions use maker-checker: the proposer is not the approver.
+
+Show
+- [ ] The review moment shows the real action + consequences (a diff/preview), not a tidy summary.
+- [ ] No alert fatigue: only the few decisions that truly need a human interrupt; the rest are passive and logged.
+
+RAIL
+- [ ] Reversible — undoable, or the blast radius is contained.
+- [ ] Authorized — least privilege; high-stakes actions are two-party.
+- [ ] Interruptible — one kill switch stops everything, blame-free.
+- [ ] Logged — enough to reconstruct what happened and who/what was responsible.
+
+Prove
+- [ ] We tested that a human actually catches a seeded bad action — not just that a review step exists.
+
+Reference: https://looprails.dev`},
+  {id:"cheat",tab:"One-page cheat sheet",
+   desc:"The whole method on one screen. There's also a print-optimized version for your wall or your team channel.",
+   extra:`<a href="cheatsheet.html">Open the printable one-pager →</a>`,
+   code:`LoopRails — Grade · Guard · Show · Prove
+
+GRADE each action by its worst case:
+   reversibility  x  blast radius  x  stakes   ->   G0  G1  G2  G3
+
+GUARD to match the grade:
+   G0  run + log
+   G1  act, notify, easy undo
+   G2  show a real preview, approve before acting
+   G3  prevent by design; stop & ask; worst case, refuse + escalate
+
+THE TRAP: high stakes + a human can't catch it in time
+   =>  prevent the outcome; don't add a review (it's just a rubber stamp).
+
+RAIL — keep every governed action:
+   Reversible · Authorized · Interruptible · Logged
+
+SHOW well:  a real diff, not a summary  ·  spend attention sparingly
+PROVE it:   test that humans CATCH seeded errors, not that a review step exists
+
+looprails.dev`}
+];
+document.getElementById("art-tabs").innerHTML=ARTIFACTS.map((a,i)=>`<button class="art-tab ${i===0?'on':''}" data-tab="${a.id}">${a.tab}</button>`).join("");
+document.getElementById("art-panels").innerHTML=ARTIFACTS.map((a,i)=>`
+  <div class="art-panel ${i===0?'on':''}" data-panel="${a.id}">
+    <p class="art-desc">${a.desc}</p>
+    <div class="codebox"><button class="copybtn">Copy</button><pre data-code="${i}"></pre></div>
+    ${a.extra?`<p class="art-extra">${a.extra}</p>`:""}
+  </div>`).join("");
+ARTIFACTS.forEach((a,i)=>{document.querySelector('pre[data-code="'+i+'"]').textContent=a.code;});
+document.querySelectorAll(".art-tab").forEach(tab=>tab.addEventListener("click",()=>{
+  const id=tab.dataset.tab;
+  document.querySelectorAll(".art-tab").forEach(t=>t.classList.toggle("on",t===tab));
+  document.querySelectorAll(".art-panel").forEach(p=>p.classList.toggle("on",p.dataset.panel===id));
+}));
+document.querySelectorAll(".codebox .copybtn").forEach(btn=>btn.addEventListener("click",()=>{
+  const pre=btn.parentElement.querySelector("pre"); copyText(pre.textContent,btn,"Copy");
+}));
 
 /* hero: occasionally show a near-derail caught by the guardrail */
 </script>

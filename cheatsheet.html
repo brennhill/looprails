@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LoopRails — one-page cheat sheet</title>
+<meta name="description" content="The LoopRails method on one page: Grade · Guard · Show · Prove, the grades G0–G3, the review trap, and the RAIL checklist. Print it for your wall.">
+<meta name="author" content="Brenn Hill">
+<link rel="canonical" href="https://looprails.dev/cheatsheet.html">
+<meta property="og:title" content="LoopRails — one-page cheat sheet">
+<meta property="og:description" content="The whole method on one page: Grade · Guard · Show · Prove. Print it for your wall.">
+<meta property="og:image" content="https://looprails.dev/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://looprails.dev/og.png">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0e7c86">
+<style>
+:root{
+  --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#dde2e6;
+  --rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
+  --fail:#d62246;--fail-tint:#fde7eb;--good:#138a52;--good-tint:#e3f5ec;--warn:#c2740a;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#eef2f3;font-family:var(--sans);color:var(--ink);line-height:1.45;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.bar{max-width:840px;margin:0 auto;padding:16px 22px;display:flex;gap:14px;align-items:center}
+.bar a{color:var(--rail);font-weight:600;text-decoration:none}
+.btn{margin-left:auto;cursor:pointer;border:1px solid var(--rail);background:var(--rail);color:#fff;border-radius:9px;padding:9px 16px;font-weight:650;font-size:.9rem;font-family:var(--sans)}
+.btn:hover{background:var(--rail-2)}
+.sheet{max-width:840px;margin:0 auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px 34px;box-shadow:0 20px 50px -30px rgba(13,17,23,.4)}
+.head{display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--rail);padding-bottom:12px;margin-bottom:16px}
+.head svg{display:block}
+.head h1{font-size:1.5rem;margin:0;letter-spacing:-.02em}
+.head .tag{margin-left:auto;font-family:var(--mono);font-size:.78rem;color:var(--rail-2);font-weight:700;letter-spacing:.04em}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+h2{font-size:.78rem;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--rail-2);margin:0 0 8px}
+.full{grid-column:1 / -1}
+table{border-collapse:collapse;width:100%;font-size:.82rem}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:#f6f8f9;font-size:.72rem;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-2)}
+.g{font-family:var(--mono);font-weight:800;padding:1px 6px;border-radius:5px;font-size:.74rem}
+.g0{background:var(--good-tint);color:var(--good)}.g1{background:#dff0e8;color:#0f6b41}
+.g2{background:#fdeede;color:var(--warn)}.g3{background:var(--fail-tint);color:var(--fail)}
+ul{margin:0;padding-left:1.1em}
+li{margin:.18em 0;font-size:.86rem}
+.trap{background:var(--fail-tint);border:1px solid #f6c9d2;border-radius:10px;padding:12px 14px;font-size:.86rem}
+.trap b{color:var(--fail)}
+.rail{display:flex;flex-wrap:wrap;gap:8px}
+.rail .r{flex:1;min-width:150px;border:1px solid var(--line);border-left:4px solid var(--rail);border-radius:8px;padding:8px 10px;font-size:.82rem}
+.rail .r b{font-family:var(--mono);color:var(--rail);font-size:.9rem}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid var(--line);margin-top:18px;padding-top:12px;font-size:.78rem;color:var(--muted)}
+.foot a{color:var(--rail);text-decoration:none}
+@media print{
+  body{background:#fff}
+  .bar{display:none}
+  .sheet{box-shadow:none;border:none;border-radius:0;margin:0;max-width:100%;padding:0}
+  @page{margin:14mm}
+}
+</style>
+</head>
+<body>
+<div class="bar">
+  <a href="index.html">← LoopRails</a>
+  <span style="color:var(--muted);font-size:.9rem">One-page cheat sheet</span>
+  <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="sheet">
+  <div class="head">
+    <svg width="30" height="30" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg>
+    <h1>LoopRails</h1>
+    <span class="tag">GRADE · GUARD · SHOW · PROVE</span>
+  </div>
+
+  <div class="grid">
+    <div class="full">
+      <h2>1 · Grade each action by its worst case</h2>
+      <table>
+        <tr><th>Grade</th><th>When</th><th>What you do</th></tr>
+        <tr><td><span class="g g0">G0</span> trivial</td><td>reversible, local, low stakes</td><td>Act on your own. Log it. Don't ask.</td></tr>
+        <tr><td><span class="g g1">G1</span> low</td><td>one axis is moderate</td><td>Act, then report. Keep an undo.</td></tr>
+        <tr><td><span class="g g2">G2</span> high</td><td>any axis severe, or two moderate</td><td>Show a real diff/preview; approve before acting.</td></tr>
+        <tr><td><span class="g g3">G3</span> critical</td><td>irreversible AND (wide blast or severe)</td><td>Don't proceed alone. Stop &amp; ask; worst case, refuse + escalate.</td></tr>
+      </table>
+      <p style="font-size:.8rem;color:var(--muted);margin:6px 0 0">Three axes: <b>reversibility</b> (undo easily / with effort / never) × <b>blast radius</b> (me / team / public) × <b>stakes</b> (trivial / meaningful / severe). Unsure? Round up.</p>
+    </div>
+
+    <div>
+      <h2>2 · Guard — match controls to grade</h2>
+      <ul>
+        <li><b>G0</b> run automatically + log</li>
+        <li><b>G1</b> act, notify, one-step undo</li>
+        <li><b>G2</b> preview + approve before acting</li>
+        <li><b>G3</b> prevent by design; stop &amp; ask; refuse + escalate</li>
+      </ul>
+      <div class="trap" style="margin-top:10px">
+        <b>The trap:</b> high stakes + a human can't catch it in time → <b>prevent the outcome</b>; don't add a review. A confirmation prompt there is just a rubber stamp.
+      </div>
+    </div>
+
+    <div>
+      <h2>3 · Show — design the review moment</h2>
+      <ul>
+        <li>Show the <b>real action + consequences</b> (a diff), not a tidy summary.</li>
+        <li>Show where the request came from (provenance).</li>
+        <li>Spend attention sparingly — few, precise interrupts.</li>
+        <li>Don't ask for a decision a person can't actually make.</li>
+      </ul>
+      <h2 style="margin-top:12px">4 · Prove — validate the oversight</h2>
+      <ul>
+        <li>Test that humans <b>catch seeded bad actions</b> — not just that a review step exists.</li>
+        <li>Attack your own oversight the way you'd attack the agent.</li>
+      </ul>
+    </div>
+
+    <div class="full">
+      <h2>Keep every governed action on the RAIL</h2>
+      <div class="rail">
+        <div class="r"><b>R</b> Reversible<br><span style="color:var(--muted)">undoable, or blast contained</span></div>
+        <div class="r"><b>A</b> Authorized<br><span style="color:var(--muted)">least privilege; high-stakes = two-party</span></div>
+        <div class="r"><b>I</b> Interruptible<br><span style="color:var(--muted)">one blame-free kill switch</span></div>
+        <div class="r"><b>L</b> Logged<br><span style="color:var(--muted)">reconstruct what happened &amp; who</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>© 2026 Brenn Hill · all rights reserved</span>
+    <span><a href="https://looprails.dev">looprails.dev</a> · Grade · Guard · Show · Prove</span>
+  </div>
+</div>
+</body>
+</html>
