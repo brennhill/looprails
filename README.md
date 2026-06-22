@@ -1,8 +1,8 @@
-# LoopRail
+# LoopRails
 
 **Calibrated oversight for agentic AI. Keep your agents on the rails.**
 
-LoopRail is a research-grounded framework for designing *human-in-the-loop* behavior in agentic LLM
+LoopRails is a research-grounded framework for designing *human-in-the-loop* behavior in agentic LLM
 systems (coding agents, copilots, computer-use agents, autonomous assistants). It replaces the
 useless binary — *"should there be a human in the loop?"* — with the questions that actually matter,
 asked **per action**: which actions need a human, at what level of control, shown to the human how,

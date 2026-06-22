@@ -1,4 +1,4 @@
-# LoopRail — A Practitioner's Playbook for Human-in-the-Loop Agentic AI
+# LoopRails — A Practitioner's Playbook for Human-in-the-Loop Agentic AI
 
 > **Keep your AI agents on the rails.** Calibrated oversight in four moves —
 > **Grade · Guard · Show · Prove** — that keep every action on the **RAIL**:
@@ -169,7 +169,7 @@ Fail Authority → **moral crumple zone**. Fail Awareness → **automation surpr
 ## How the three docs fit
 
 | [`playbook.md`](./playbook.md) | **this** — do-this field guide | practitioners |
-| [`framework.md`](./framework.md) | the full LoopRail method + reasoning | designers/leads |
+| [`framework.md`](./framework.md) | the full LoopRails method + reasoning | designers/leads |
 | [`codex.md`](./codex.md) | 366-source research base | the evidence / skeptics |
 
-*LoopRail · Grade · Guard · Show · Prove — 2026-06-22.*
+*LoopRails · Grade · Guard · Show · Prove — 2026-06-22.*

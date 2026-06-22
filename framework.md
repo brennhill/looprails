@@ -1,4 +1,4 @@
-# LoopRail — Calibrated Oversight for Agentic AI
+# LoopRails — Calibrated Oversight for Agentic AI
 ## Keep your agents on the rails · the framework (reference edition) · method: **Grade · Guard · Show · Prove**
 
 > The full method and reasoning. For the quick do-this version see the
