@@ -35,11 +35,11 @@ const PUBLISH = args.includes("--publish");
 const ALL = args.includes("--all");
 const SCHEDULE = args.includes("--schedule");
 const SCHEDULE_FIRST = args.includes("--schedule-first"); // don't publish item 0 immediately
-const REST = args.includes("--rest"); // every article not yet on dev.to (per state file)
+const REST = args.includes("--rest"); // every non-cornerstone article (the long tail), alphabetical
 const flagVal = (name, def) => { const i = args.indexOf(name); return i >= 0 && args[i + 1] ? args[i + 1] : def; };
 const EVERY = parseInt(flagVal("--every", "4"), 10);
 const START = flagVal("--start", new Date().toISOString().slice(0, 10));
-const POST_HOUR = "T14:00:00Z"; // ~10am US Eastern, decent dev.to posting time
+const POST_HOUR = "T12:00:00Z"; // 12:00 UTC = 2pm Berlin (CEST, UTC+2)
 
 // schedule slot for the i-th article: i=0 publishes now (null) unless --schedule-first, else START + i*EVERY days
 function slotISO(i) {
@@ -79,10 +79,9 @@ const allArticleKeys = fs.readdirSync(__dirname)
   .map(f => f.replace(/\.md$/, ""))
   .sort();
 
-const stateNow = (() => { try { return JSON.parse(fs.readFileSync(STATE_FILE, "utf8")); } catch { return {}; } })();
 let keys;
 if (explicitKeys.length) keys = explicitKeys;
-else if (REST) keys = allArticleKeys.filter(k => !stateNow[k]); // not yet on dev.to
+else if (REST) keys = allArticleKeys.filter(k => !CORNERSTONE.includes(k)); // long tail, alphabetical
 else if (ALL) keys = allArticleKeys;
 else keys = CORNERSTONE;
 keys = keys.filter(k => { const ok = allArticleKeys.includes(k); if (!ok) console.warn("skip (no .md):", k); return ok; });
@@ -118,51 +117,80 @@ function convert(key) {
     description: desc, tags: TAG_OVERRIDES[key] || DEFAULT_TAGS };
 }
 
-async function send(method, url, payload) {
-  const res = await fetch(url, {
-    method,
-    headers: { "api-key": KEY, "Content-Type": "application/json", "Accept": "application/vnd.forem.api-v1+json" },
-    body: JSON.stringify(payload),
-  });
-  const text = await res.text();
-  let json; try { json = JSON.parse(text); } catch { json = { raw: text }; }
-  return { status: res.status, ok: res.ok, json };
+// YAML-quote a scalar (Forem parses frontmatter as YAML; bare timestamps and
+// colon-bearing titles must be quoted or it throws)
+const yq = (s) => '"' + String(s).replace(/\\/g, "\\\\").replace(/"/g, '\\"') + '"';
+
+// wrap the converted article in a dev.to frontmatter top block. Scheduling lives
+// here: published: true + a future (quoted) published_at — dev.to publishes it then.
+function withFrontmatter(a, { published, publishedAt }) {
+  const fm = [`title: ${yq(a.title)}`, `published: ${published ? "true" : "false"}`];
+  if (publishedAt) fm.push(`published_at: ${yq(publishedAt)}`);
+  fm.push(`tags: ${a.tags.join(", ")}`);
+  fm.push(`canonical_url: ${a.canonical_url}`);
+  fm.push(`cover_image: ${a.main_image}`);
+  fm.push(`description: ${yq(a.description)}`);
+  fm.push(`series: ${yq("Human-in-the-Loop for AI Agents")}`);
+  return `---\n${fm.join("\n")}\n---\n\n${a.body_markdown}`;
 }
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+async function send(method, url, payload) {
+  for (let attempt = 0; attempt < 8; attempt++) {
+    let res, text;
+    try {
+      res = await fetch(url, {
+        method,
+        headers: { "api-key": KEY, "Content-Type": "application/json", "Accept": "application/vnd.forem.api-v1+json" },
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(60000),
+      });
+      text = await res.text();
+    } catch (e) { console.log(`    network error (${e.cause?.code || e.name}); retry in 10s (attempt ${attempt + 1})`); await sleep(10000); continue; }
+    if (res.status === 429) { console.log(`    429; waiting 30s (attempt ${attempt + 1})`); await sleep(30000); continue; }
+    let json; try { json = JSON.parse(text); } catch { json = { raw: text }; }
+    return { status: res.status, ok: res.ok, json };
+  }
+  return { status: 0, ok: false, json: { error: "failed after retries" } };
+}
 
 async function main() {
   console.log(`${DRY ? "DRY-RUN" : PUBLISH ? "PUBLISH (LIVE)" : "PUBLISH (DRAFT)"} · ${keys.length} article(s)`);
 
   if (DRY) {
     fs.mkdirSync(PREVIEW_DIR, { recursive: true });
-    for (const key of keys) {
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
       const a = convert(key);
-      fs.writeFileSync(path.join(PREVIEW_DIR, key + ".md"), a.body_markdown);
-      console.log(`  ✓ ${key}\n      title: ${a.title}\n      tags:  ${a.tags.join(", ")}\n      canon: ${a.canonical_url}\n      desc:  ${a.description}`);
+      const slot = SCHEDULE ? slotISO(i) : undefined;
+      const md = withFrontmatter(a, { published: SCHEDULE || PUBLISH, publishedAt: slot });
+      fs.writeFileSync(path.join(PREVIEW_DIR, key + ".md"), md);
+      console.log(`  ✓ ${key}\n      title: ${a.title}\n      tags:  ${a.tags.join(", ")}\n      when:  ${slot || (SCHEDULE ? "LIVE now" : PUBLISH ? "LIVE now" : "draft")}`);
     }
-    console.log(`\nPreviews written to devto-preview/ — open them to review, then re-run without --dry.`);
+    console.log(`\nPreviews (with frontmatter) written to devto-preview/ — open them to review, then re-run without --dry.`);
     return;
   }
 
   if (!KEY) { console.error("ERROR: set DEVTO_API_KEY (dev.to → Settings → Extensions → API Keys)."); process.exit(1); }
 
-  if (SCHEDULE) console.log(`  cadence: #1 now, then every ${EVERY} day(s) from ${START}${POST_HOUR}`);
+  if (SCHEDULE) console.log(`  cadence: ${SCHEDULE_FIRST ? "first" : "#1"} ${SCHEDULE_FIRST ? "at " + START : "now"}, then every ${EVERY} day(s) at ${POST_HOUR.slice(1)} (2pm Berlin)`);
   const state = loadState();
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
     const a = convert(key);
-    const article = { ...a, series: "Human-in-the-Loop for AI Agents" };
-    let when = "draft";
+    let published, publishedAt, when;
     if (SCHEDULE) {
-      article.published = true;
+      published = true;
       const slot = slotISO(i);
-      if (slot) { article.published_at = slot; when = "→ " + slot; } else when = "→ LIVE now";
+      publishedAt = slot || undefined;
+      when = slot ? "→ " + slot : "→ LIVE now";
     } else {
-      article.published = PUBLISH;
+      published = PUBLISH;
       when = PUBLISH ? "→ LIVE now" : "draft";
     }
-    const payload = { article };
+    // scheduling + all metadata live in the frontmatter top block
+    const payload = { article: { body_markdown: withFrontmatter(a, { published, publishedAt }) } };
     const existing = state[key];
     let r;
     if (existing && existing.id) {
