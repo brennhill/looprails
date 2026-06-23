@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LoopRails — decide how much human oversight each AI action needs</title>
-<meta name="description" content="LoopRails is a practical framework for deciding how much human oversight each AI agent action needs — and designing that oversight so it actually catches mistakes. Grade · Guard · Show · Prove.">
-<meta property="og:title" content="LoopRails — decide how much human oversight each AI action needs">
-<meta property="og:description" content="A practical framework for deciding how much human oversight each AI agent action needs, and designing oversight that actually works. Grade · Guard · Show · Prove.">
+<title>Human-in-the-Loop Framework for AI Agents — LoopRails</title>
+<meta name="description" content="LoopRails is a practical human-in-the-loop (HITL) framework for AI agents: decide how much human oversight each action needs and design AI safety controls that actually catch mistakes — instead of rubber-stamping them. Free and fully sourced.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="keywords" content="human in the loop, human-in-the-loop, HITL, AI safety, AI agent safety, AI agents, agentic AI, AI agent oversight, human oversight of AI, LLM agents, AI guardrails, approval gates">
+<meta property="og:title" content="LoopRails — Human-in-the-Loop Framework for AI Agents">
+<meta property="og:description" content="A practical human-in-the-loop framework for AI agents: decide how much oversight each action needs and design AI safety controls that actually catch mistakes. Grade · Guard · Show · Prove.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://looprails.dev/">
 <link rel="canonical" href="https://looprails.dev/">
@@ -16,7 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="LoopRails — decide how much human oversight each AI action needs. Grade, Guard, Show, Prove.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="LoopRails — decide how much human oversight each AI action needs">
+<meta name="twitter:title" content="LoopRails — Human-in-the-Loop Framework for AI Agents">
 <meta name="twitter:description" content="See how human oversight of AI agents fails — and the loops that fix it.">
 <meta name="twitter:image" content="https://looprails.dev/og.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
@@ -24,6 +26,13 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#0e7c86">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebSite","@id":"https://looprails.dev/#website","url":"https://looprails.dev/","name":"LoopRails","alternateName":"LoopRails — Human-in-the-Loop Framework for AI Agents","description":"A practical human-in-the-loop (HITL) framework for deciding how much human oversight each AI agent action needs and designing AI safety controls that catch mistakes.","inLanguage":"en-US","publisher":{"@id":"https://looprails.dev/#person"}},
+{"@type":"Person","@id":"https://looprails.dev/#person","name":"Brenn Hill","url":"https://looprails.dev/","sameAs":["https://www.linkedin.com/in/brennhill/","https://github.com/brennhill"]},
+{"@type":"TechArticle","@id":"https://looprails.dev/#article","headline":"Human-in-the-Loop Framework for AI Agents","about":["human-in-the-loop","AI safety","AI agents","agentic AI","AI agent oversight"],"inLanguage":"en-US","isPartOf":{"@id":"https://looprails.dev/#website"},"author":{"@id":"https://looprails.dev/#person"},"publisher":{"@id":"https://looprails.dev/#person"},"mainEntityOfPage":"https://looprails.dev/"}
+]}
+</script>
 <style>
 :root{
   --ink:#0d1117; --ink-2:#33404d; --muted:#5b6b7a; --line:#e3e6ea;
@@ -289,6 +298,16 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
 .copybtn.done{background:var(--good);border-color:var(--good);color:#fff}
 .art-extra{margin-top:14px;font-size:.9rem}
 
+/* FAQ */
+.faq{max-width:820px}
+.faq details{border:1px solid var(--line);border-radius:12px;margin:0 0 10px;background:#fff;overflow:hidden}
+.faq summary{cursor:pointer;padding:15px 18px;font-weight:700;font-size:1.02rem;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--rail);font-weight:700;font-size:1.3rem;line-height:1}
+.faq details[open] summary::after{content:"\2013"}
+.faq .fa{padding:0 18px 16px;color:var(--ink-2);font-size:.96rem}
+.faq .fa p{margin:0 0 .6em}
+
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important}
   html{scroll-behavior:auto}
@@ -307,7 +326,8 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
       <a href="#fail">How it fails</a>
       <a href="#grader">Grade an action</a>
       <a href="#stack">Your stack</a>
-      <a href="#take">Take it with you</a>
+      <a href="articles.html">Articles</a>
+      <a href="#faq">FAQ</a>
       <a class="nav-cta" href="playbook.html">Read the playbook</a>
     </div>
   </div>
@@ -317,9 +337,9 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">A framework for human oversight of AI agents</div>
+        <div class="eyebrow">Human-in-the-loop framework for AI agents</div>
         <h1>Decide how much human oversight each AI action needs.</h1>
-        <p class="lead">LoopRails helps teams building AI agents answer a practical question, one action at a time: which actions a human should review, how much control the human should have, what to show them so they can judge well, and how you confirm the oversight actually catches mistakes. For engineers, tech leads, PMs, and designers shipping agentic systems.</p>
+        <p class="lead">LoopRails is a human-in-the-loop (HITL) framework for AI agents. It helps teams answer a practical AI-safety question, one action at a time: which actions a human should review, how much control the human should have, what to show them so they can judge well, and how you confirm the oversight actually catches mistakes. For engineers, tech leads, PMs, and designers shipping agentic systems.</p>
         <div class="btnrow">
           <a class="btn btn-primary" href="#fail">See how oversight fails ↓</a>
           <a class="btn btn-ghost" href="#grader">Grade an action →</a>
@@ -612,6 +632,73 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
     </div>
   </div>
 </section>
+
+<!-- ARTICLES -->
+<section id="articles">
+  <div class="wrap">
+    <div class="eyebrow reveal">Articles</div>
+    <h2 class="reveal">Read up on human-in-the-loop &amp; AI agent safety</h2>
+    <p class="lead reveal" style="margin-bottom:30px">Practical, sourced deep-dives on overseeing AI agents — what to gate, what to prevent, and how to make oversight actually work.</p>
+    <div class="doors">
+      <a class="door reveal" href="article-what-is-human-in-the-loop.html"><div class="dn">Guide</div><h3>What is human-in-the-loop (HITL)?</h3><p>What HITL means for AI agents, the three forms it takes, and when it's the wrong tool.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-hitl-ai-safety.html"><div class="dn">Evidence</div><h3>Does HITL improve AI safety?</h3><p>When a human in the loop actually adds safety — and when it's false comfort.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-ai-agent-approval.html"><div class="dn">How-to</div><h3>When should an AI agent ask for approval?</h3><p>How to decide what to gate — and build approval gates that aren't rubber stamps.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-lethal-trifecta.html"><div class="dn">Security</div><h3>The lethal trifecta</h3><p>How prompt injection turns three capabilities into a data leak — and how to break it.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-ai-agent-guardrails.html"><div class="dn">Checklist</div><h3>AI agent guardrails</h3><p>Sandboxes, kill switches, least privilege, and more — matched to the risk.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-in-the-loop-vs-on-the-loop.html"><div class="dn">Concepts</div><h3>In-the-loop vs on-the-loop</h3><p>Three oversight modes, their tradeoffs, and the sudden-handoff trap.</p><span class="go">Read →</span></a>
+    </div>
+    <p class="reveal" style="margin-top:20px"><a href="articles.html" style="font-weight:650">See all articles →</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="eyebrow reveal">FAQ</div>
+    <h2 class="reveal">Human-in-the-loop &amp; AI agent oversight — common questions</h2>
+    <div class="faq reveal" style="margin-top:26px">
+      <details>
+        <summary>What is human-in-the-loop (HITL) in AI?</summary>
+        <div class="fa"><p>Human-in-the-loop (HITL) means a person reviews, approves, or can intervene in an AI system's actions before or while they take effect. For AI agents it usually appears as an approval prompt before a risky action, an edit/review step, or an interrupt-and-resume control. LoopRails argues the key question isn't whether a human is "in the loop," but whether they can realistically catch a mistake in time. <a href="article-what-is-human-in-the-loop.html">Read the full guide →</a></p></div>
+      </details>
+      <details>
+        <summary>Does human-in-the-loop actually improve AI safety?</summary>
+        <div class="fa"><p>Not automatically. In a 2026 study of AI coding agents, requiring plan approval reduced risky actions, but humans still caught a bad action only ~9–26% of the time. An approval click stops some mistakes but barely improves a person's odds of noticing one. Real AI safety comes from matching the control to the action and preventing outcomes a human can't catch. <a href="article-hitl-ai-safety.html">See the evidence →</a></p></div>
+      </details>
+      <details>
+        <summary>When should an AI agent require human approval?</summary>
+        <div class="fa"><p>When the action is high-consequence and a human can realistically catch the mistake in time. If the stakes are high but a person can't catch it — because it's too fast, too subtle, or too frequent — an approval gate becomes a rubber stamp. In that case, prevent the action instead: make it reversible, sandbox it, or cap its blast radius. <a href="index.html#grader">Grade an action →</a></p></div>
+      </details>
+      <details>
+        <summary>What's the difference between human-in-the-loop and human-on-the-loop?</summary>
+        <div class="fa"><p>Human-in-the-loop means the person is part of each action (review/approve before it proceeds). Human-on-the-loop means the system runs autonomously while a human monitors and can intervene or stop it. LoopRails treats the human as the escalation tier and reserves in-the-loop approval for actions where review genuinely catches errors. <a href="article-in-the-loop-vs-on-the-loop.html">Compare the modes →</a></p></div>
+      </details>
+      <details>
+        <summary>How do you design human oversight for autonomous AI agents?</summary>
+        <div class="fa"><p>LoopRails uses four steps: <b>Grade</b> each action by consequence (G0–G3), <b>Guard</b> it with controls that match the grade, <b>Show</b> the reviewer the real action and consequences (not a tidy summary), and <b>Prove</b> the oversight catches seeded errors. Every governed action should stay Reversible, Authorized, Interruptible, and Logged (RAIL). <a href="framework.html">Read the framework →</a></p></div>
+      </details>
+      <details>
+        <summary>What is the "lethal trifecta" for AI agents?</summary>
+        <div class="fa"><p>The lethal trifecta is when an AI agent has all three of: access to private data, exposure to untrusted content, and a way to send data out. Together they enable data exfiltration via prompt injection. Removing any one leg — for example, making the agent read-only or cutting its network access — is the cheapest guardrail. <a href="article-lethal-trifecta.html">How it works →</a></p></div>
+      </details>
+      <details>
+        <summary>Is LoopRails free?</summary>
+        <div class="fa"><p>Yes. LoopRails is a free, openly published framework with a practitioner <a href="playbook.html">playbook</a>, the full <a href="framework.html">method</a>, and a 366-source research <a href="codex.html">codex</a> covering human-in-the-loop, AI safety, and human-factors research.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is human-in-the-loop (HITL) in AI?","acceptedAnswer":{"@type":"Answer","text":"Human-in-the-loop (HITL) means a person reviews, approves, or can intervene in an AI system's actions before or while they take effect. For AI agents it usually appears as an approval prompt before a risky action, an edit/review step, or an interrupt-and-resume control. LoopRails argues the key question isn't whether a human is in the loop, but whether they can realistically catch a mistake in time."}},
+{"@type":"Question","name":"Does human-in-the-loop actually improve AI safety?","acceptedAnswer":{"@type":"Answer","text":"Not automatically. In a 2026 study of AI coding agents, requiring plan approval reduced risky actions, but humans still caught a bad action only about 9 to 26 percent of the time. An approval click stops some mistakes but barely improves a person's odds of noticing one. Real AI safety comes from matching the control to the action and preventing outcomes a human cannot catch."}},
+{"@type":"Question","name":"When should an AI agent require human approval?","acceptedAnswer":{"@type":"Answer","text":"When the action is high-consequence and a human can realistically catch the mistake in time. If the stakes are high but a person cannot catch it because it is too fast, too subtle, or too frequent, an approval gate becomes a rubber stamp. In that case, prevent the action instead: make it reversible, sandbox it, or cap its blast radius."}},
+{"@type":"Question","name":"What is the difference between human-in-the-loop and human-on-the-loop?","acceptedAnswer":{"@type":"Answer","text":"Human-in-the-loop means the person is part of each action and approves before it proceeds. Human-on-the-loop means the system runs autonomously while a human monitors and can intervene or stop it. LoopRails treats the human as the escalation tier and reserves in-the-loop approval for actions where review genuinely catches errors."}},
+{"@type":"Question","name":"How do you design human oversight for autonomous AI agents?","acceptedAnswer":{"@type":"Answer","text":"LoopRails uses four steps: Grade each action by consequence (G0 to G3), Guard it with controls that match the grade, Show the reviewer the real action and consequences rather than a tidy summary, and Prove the oversight catches seeded errors. Every governed action should stay Reversible, Authorized, Interruptible, and Logged (RAIL)."}},
+{"@type":"Question","name":"What is the lethal trifecta for AI agents?","acceptedAnswer":{"@type":"Answer","text":"The lethal trifecta is when an AI agent has all three of: access to private data, exposure to untrusted content, and a way to send data out. Together they enable data exfiltration via prompt injection. Removing any one leg, for example making the agent read-only or cutting its network access, is the cheapest guardrail."}},
+{"@type":"Question","name":"Is LoopRails free?","acceptedAnswer":{"@type":"Answer","text":"Yes. LoopRails is a free, openly published framework with a practitioner playbook, the full method, and a 366-source research codex covering human-in-the-loop, AI safety, and human-factors research."}}
+]}
+</script>
 
 <footer>
   <div class="wrap foot-grid">

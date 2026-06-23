@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://looprails.dev/</loc></url>
-  <url><loc>https://looprails.dev/cheatsheet.html</loc></url>
-  <url><loc>https://looprails.dev/playbook.html</loc></url>
-  <url><loc>https://looprails.dev/framework.html</loc></url>
-  <url><loc>https://looprails.dev/codex.html</loc></url>
-  <url><loc>https://looprails.dev/guide-g0.html</loc></url>
-  <url><loc>https://looprails.dev/guide-g1.html</loc></url>
-  <url><loc>https://looprails.dev/guide-g2.html</loc></url>
-  <url><loc>https://looprails.dev/guide-g3.html</loc></url>
-  <url><loc>https://looprails.dev/rail-reversible.html</loc></url>
-  <url><loc>https://looprails.dev/rail-authorized.html</loc></url>
-  <url><loc>https://looprails.dev/rail-interruptible.html</loc></url>
-  <url><loc>https://looprails.dev/rail-logged.html</loc></url>
+  <url><loc>https://looprails.dev/</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/articles.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/cheatsheet.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/playbook.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/framework.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/codex.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/guide-g0.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/guide-g1.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/guide-g2.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/guide-g3.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/rail-reversible.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/rail-authorized.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/rail-interruptible.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/rail-logged.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/article-what-is-human-in-the-loop.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/article-hitl-ai-safety.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/article-in-the-loop-vs-on-the-loop.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/article-ai-agent-approval.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/article-lethal-trifecta.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://looprails.dev/article-ai-agent-guardrails.html</loc><lastmod>2026-06-23</lastmod></url>
 </urlset>

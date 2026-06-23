@@ -31,6 +31,12 @@ const CARDS = {
   "rail-authorized": { eyebrow: "RAIL · THE FOUR PROPERTIES", head: ["Authorized"], size: 74, sub: "Least privilege, and maker-checker for high-stakes actions.", accent: TEAL, badge: "A" },
   "rail-interruptible": { eyebrow: "RAIL · THE FOUR PROPERTIES", head: ["Interruptible"], size: 70, sub: "Kill switches and blame-free stops so anyone can halt an agent.", accent: TEAL, badge: "I" },
   "rail-logged": { eyebrow: "RAIL · THE FOUR PROPERTIES", head: ["Logged"], size: 74, sub: "Identity, sub-agent provenance, tamper-evident proof of oversight.", accent: TEAL, badge: "L" },
+  "article-what-is-human-in-the-loop": { eyebrow: "LOOPRAILS · ARTICLE", head: ["What is", "human-in-the-loop?"], size: 60, sub: "A practical guide to HITL for AI agents.", method: false, accent: TEAL },
+  "article-hitl-ai-safety": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Does human-in-the-loop", "improve AI safety?"], size: 52, sub: "What the evidence actually says.", method: false, accent: TEAL },
+  "article-in-the-loop-vs-on-the-loop": { eyebrow: "LOOPRAILS · ARTICLE", head: ["In-the-loop vs", "on-the-loop"], size: 58, sub: "…and out-of-the-loop, explained.", method: false, accent: TEAL },
+  "article-ai-agent-approval": { eyebrow: "LOOPRAILS · ARTICLE", head: ["When should an agent", "ask for approval?"], size: 50, sub: "Build gates that aren't rubber stamps.", method: false, accent: TEAL },
+  "article-lethal-trifecta": { eyebrow: "LOOPRAILS · ARTICLE", head: ["The lethal trifecta"], size: 64, sub: "How AI agents leak data — and how to stop it.", method: false, accent: G3 },
+  "article-ai-agent-guardrails": { eyebrow: "LOOPRAILS · ARTICLE", head: ["AI agent guardrails"], size: 62, sub: "A practical checklist.", method: false, accent: TEAL },
 };
 
 function svg(c) {

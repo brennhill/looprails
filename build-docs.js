@@ -12,31 +12,74 @@ const { parse } = require("./vendor/marked.min.js");
 const SITE = "https://looprails.dev";
 const BEACON = `<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "43e10ad738e241ab93d08ec0cee965e6"}'></script><!-- End Cloudflare Web Analytics -->`;
 
-// key -> source md, output html, nav label, per-page description
+const TODAY = new Date().toISOString().slice(0, 10);
+
+// key -> source md, output html, nav label, SEO title, per-page description
 const DOCS = {
   playbook:           { md: "playbook.md",            out: "playbook.html",            label: "Playbook",      nav: true,
-    desc: "The LoopRails practitioner field guide: grade each AI agent action, guard it, design the review moment, and prove the oversight actually catches mistakes." },
+    title: "Human-in-the-Loop Playbook for AI Agents — LoopRails",
+    desc: "The LoopRails practitioner field guide: grade each AI agent action, guard it, design the review moment, and prove the human-in-the-loop oversight actually catches mistakes." },
   framework:          { md: "framework.md",           out: "framework.html",           label: "Framework",     nav: true,
-    desc: "The full LoopRails framework: the consequence-vs-controllability model, grades G0–G3, the autonomy ladder, the anatomy of an oversight moment, and how to validate it." },
+    title: "Human-in-the-Loop Framework for AI Agents — LoopRails",
+    desc: "The full LoopRails framework: the consequence-vs-controllability model, grades G0–G3, the autonomy ladder, the anatomy of an oversight moment, and how to validate human-in-the-loop oversight of AI agents." },
   codex:              { md: "codex.md",               out: "codex.html",               label: "Codex",         nav: true,
-    desc: "366 annotated sources on human oversight of automation and AI — aviation, medicine, finance, AI safety, and HCI. The evidence base behind LoopRails." },
+    title: "Human-in-the-Loop & AI Safety Research Codex (366 Sources) — LoopRails",
+    desc: "366 annotated sources on human-in-the-loop oversight and AI safety — aviation, medicine, finance, AI safety, and HCI. The evidence base behind LoopRails." },
   "guide-g0":         { md: "guide-g0.md",            out: "guide-g0.html",            label: "G0 · Trivial",
+    title: "G0 Trivial AI Actions: When Human-in-the-Loop Is Overkill — LoopRails",
     desc: "G0 (trivial) AI agent actions: why putting a human in the loop is the wrong default here, and how to let low-stakes actions run safely and logged." },
   "guide-g1":         { md: "guide-g1.md",            out: "guide-g1.html",            label: "G1 · Low",
+    title: "G1 Low-Risk AI Actions: Act, Notify, Undo — LoopRails",
     desc: "G1 (low-consequence) AI actions: act-then-notify with easy undo — why reversibility beats a confirmation prompt, and how to design it." },
   "guide-g2":         { md: "guide-g2.md",            out: "guide-g2.html",            label: "G2 · High",
+    title: "G2 High-Risk AI Actions: When Human Review Works — LoopRails",
     desc: "G2 (high-consequence) AI actions: when human review actually pays off, and how to design the review so it catches mistakes instead of rubber-stamping." },
   "guide-g3":         { md: "guide-g3.md",            out: "guide-g3.html",            label: "G3 · Critical",
+    title: "G3 Critical AI Actions: Beyond the Rubber Stamp — LoopRails",
     desc: "G3 (critical) AI actions: irreversible, high-blast-radius operations — why review degrades into a rubber stamp, and what to prevent-by-design instead." },
   "rail-reversible":  { md: "rail-reversible.md",     out: "rail-reversible.html",     label: "Reversible",
+    title: "Reversible AI Agent Actions (the R in RAIL) — LoopRails",
     desc: "Reversible — the R in RAIL: make AI agent actions undoable or contained so you rarely need a stop-and-ask gate." },
   "rail-authorized":  { md: "rail-authorized.md",     out: "rail-authorized.html",     label: "Authorized",
+    title: "Least-Privilege & Maker-Checker for AI Agents (RAIL) — LoopRails",
     desc: "Authorized — the A in RAIL: least-privilege permissions and maker-checker separation for AI agent actions." },
   "rail-interruptible":{ md: "rail-interruptible.md", out: "rail-interruptible.html",  label: "Interruptible",
+    title: "Kill Switches & Interruptible AI Agents (RAIL) — LoopRails",
     desc: "Interruptible — the I in RAIL: kill switches, monitors, and blame-free stops so anyone can halt an AI agent in time." },
   "rail-logged":      { md: "rail-logged.md",         out: "rail-logged.html",         label: "Logged",
+    title: "AI Agent Logging, Identity & Provenance (RAIL) — LoopRails",
     desc: "Logged — the L in RAIL: identity providers, sub-agent provenance, and tamper-evident records that let you prove oversight works." },
 };
+
+// long-form SEO articles — generated with Article schema and listed on articles.html
+const ARTICLES = {
+  "article-what-is-human-in-the-loop": { md: "article-what-is-human-in-the-loop.md", out: "article-what-is-human-in-the-loop.html",
+    label: "What Is Human-in-the-Loop (HITL) in AI?",
+    title: "What Is Human-in-the-Loop (HITL) in AI? A Guide — LoopRails",
+    desc: "Human-in-the-loop (HITL) means a person reviews or can intervene in an AI system's actions. A practical guide to HITL for AI agents — what it is, when it works, and when to prevent instead." },
+  "article-hitl-ai-safety": { md: "article-hitl-ai-safety.md", out: "article-hitl-ai-safety.html",
+    label: "Does Human-in-the-Loop Improve AI Safety?",
+    title: "Does Human-in-the-Loop Improve AI Safety? — LoopRails",
+    desc: "Does keeping a human in the loop actually make AI agents safer? The evidence, when HITL helps, when it's false safety, and what real AI agent safety looks like." },
+  "article-in-the-loop-vs-on-the-loop": { md: "article-in-the-loop-vs-on-the-loop.md", out: "article-in-the-loop-vs-on-the-loop.html",
+    label: "In-the-Loop vs On-the-Loop vs Out-of-the-Loop",
+    title: "Human-in-the-Loop vs On-the-Loop vs Out-of-the-Loop — LoopRails",
+    desc: "Human-in-the-loop, human-on-the-loop, and out-of-the-loop explained: definitions, tradeoffs, the sudden-handoff problem, and how to choose oversight for AI agents." },
+  "article-ai-agent-approval": { md: "article-ai-agent-approval.md", out: "article-ai-agent-approval.html",
+    label: "When Should an AI Agent Ask for Approval?",
+    title: "When Should an AI Agent Ask for Human Approval? — LoopRails",
+    desc: "When AI agents should ask for human approval — and how to build approval gates that catch mistakes instead of becoming rubber stamps. Graded examples G0–G3." },
+  "article-lethal-trifecta": { md: "article-lethal-trifecta.md", out: "article-lethal-trifecta.html",
+    label: "The Lethal Trifecta: How AI Agents Leak Data",
+    title: "The Lethal Trifecta: How AI Agents Leak Data — LoopRails",
+    desc: "The lethal trifecta — private data + untrusted content + an exfiltration channel — lets prompt injection steal data from AI agents. How it works and how to stop it." },
+  "article-ai-agent-guardrails": { md: "article-ai-agent-guardrails.md", out: "article-ai-agent-guardrails.html",
+    label: "AI Agent Guardrails: A Practical Checklist",
+    title: "AI Agent Guardrails: A Practical Checklist — LoopRails",
+    desc: "A practical AI agent guardrails checklist: sandboxing, least privilege, blast-radius caps, kill switches, circuit breakers, logging, and maker-checker — matched to risk." },
+};
+
+const ALL = { ...DOCS, ...ARTICLES };
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const stripTags = (s) => s.replace(/<[^>]+>/g, "");
@@ -135,9 +178,28 @@ function navHTML(currentKey) {
 }
 
 function page(key, d, contentHTML, toc) {
-  const title = `${stripTags(d.label).replace(/ ·.*/, "")} — LoopRails`;
+  const title = d.title || `${stripTags(d.label).replace(/ ·.*/, "")} — LoopRails`;
   const url = `${SITE}/${d.out}`;
   const ogimg = `${SITE}/og-${key}.png`;
+  const isArticle = key.startsWith("article-");
+  const crumbHTML = isArticle
+    ? `<a href="index.html">LoopRails</a> · <a href="articles.html">Articles</a> · ${esc(stripTags(d.label))}`
+    : `<a href="index.html">LoopRails</a> · ${esc(stripTags(d.label))}`;
+  const breadcrumb = isArticle
+    ? [["LoopRails", SITE + "/"], ["Articles", SITE + "/articles.html"], [stripTags(d.label), url]]
+    : [["LoopRails", SITE + "/"], [stripTags(d.label), url]];
+  const jsonld = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": isArticle ? "Article" : "TechArticle", "headline": stripTags(d.label), "name": title,
+        "description": d.desc, "inLanguage": "en-US", "url": url, "mainEntityOfPage": url, "image": ogimg,
+        "datePublished": isArticle ? "2026-06-23" : "2026-06-22", "dateModified": TODAY,
+        "author": { "@type": "Person", "name": "Brenn Hill", "url": "https://www.linkedin.com/in/brennhill/" },
+        "publisher": { "@type": "Person", "name": "Brenn Hill" },
+        "isPartOf": { "@type": "WebSite", "name": "LoopRails", "url": SITE + "/" } },
+      { "@type": "BreadcrumbList", "itemListElement": breadcrumb.map((b, i) => ({ "@type": "ListItem", "position": i + 1, "name": b[0], "item": b[1] })) }
+    ]
+  });
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -145,6 +207,7 @@ function page(key, d, contentHTML, toc) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(d.desc)}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="article">
@@ -161,6 +224,7 @@ function page(key, d, contentHTML, toc) {
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#0e7c86">
+<script type="application/ld+json">${jsonld}</script>
 ${styleBlock()}
 </head>
 <body>
@@ -171,7 +235,7 @@ ${styleBlock()}
 <div class="layout">
   <aside class="toc"><div class="tt">On this page</div><div id="toc">${toc}</div></aside>
   <main class="content">
-    <div class="crumb"><a href="index.html">LoopRails</a> · ${esc(stripTags(d.label))}</div>
+    <div class="crumb">${crumbHTML}</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/${d.md}">View ${d.md} on GitHub ↗</a>
       ${contentHTML}
@@ -199,8 +263,82 @@ ${BEACON}
 `;
 }
 
+function articlesIndexPage() {
+  const url = `${SITE}/articles.html`;
+  const title = "Articles on Human-in-the-Loop & AI Agent Safety — LoopRails";
+  const desc = "Practical articles on human-in-the-loop oversight and AI agent safety: HITL explained, when agents should ask for approval, the lethal trifecta, AI agent guardrails, and more.";
+  const items = Object.values(ARTICLES);
+  const cards = items.map(a => `
+      <a class="acard" href="${a.out}">
+        <h2>${esc(a.label)}</h2>
+        <p>${esc(a.desc)}</p>
+        <span class="go">Read →</span>
+      </a>`).join("");
+  const itemList = JSON.stringify({
+    "@context": "https://schema.org", "@type": "ItemList",
+    "itemListElement": items.map((a, i) => ({ "@type": "ListItem", "position": i + 1, "url": `${SITE}/${a.out}`, "name": a.label }))
+  });
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Brenn Hill">
+<link rel="canonical" href="${url}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${SITE}/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${SITE}/og.png">
+<link rel="icon" href="favicon.ico?v=2" sizes="32x32">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0e7c86">
+<script type="application/ld+json">${itemList}</script>
+${styleBlock()}
+<style>
+.alist{max-width:820px;margin:0 auto;padding:8px 0 40px}
+.acard{display:block;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:0 0 14px;background:#fff;transition:.15s}
+.acard:hover{transform:translateY(-2px);box-shadow:0 16px 36px -22px rgba(13,17,23,.35);text-decoration:none}
+.acard h2{font-size:1.16rem;margin:0 0 6px;border:none;padding:0;color:var(--ink)}
+.acard p{margin:0 0 8px;color:var(--ink-2);font-size:.95rem}
+.acard .go{color:var(--rail);font-weight:650;font-size:.9rem}
+.intro{max-width:820px;margin:0 auto;padding:8px 0 4px;color:var(--ink-2)}
+.intro h1{font-size:1.9rem;letter-spacing:-.02em;margin:0 0 .3em;color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="index.html">${BRAND_SVG} LoopRails</a>
+  <nav class="docpick">${navHTML(null)}</nav>
+</div>
+<main class="content" style="max-width:900px;margin:0 auto">
+  <div class="crumb"><a href="index.html">LoopRails</a> · Articles</div>
+  <div class="intro">
+    <h1>Articles: human-in-the-loop &amp; AI agent safety</h1>
+    <p>Practical, sourced writing on how to oversee AI agents — when a human in the loop helps, when it's just a rubber stamp, and how to design oversight that actually catches mistakes.</p>
+  </div>
+  <div class="alist">${cards}
+  </div>
+</main>
+<footer>
+  <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
+  <span><a href="index.html">Home</a> · <a href="playbook.html">Playbook</a> · <a href="https://github.com/brennhill/looprails">GitHub</a></span>
+</footer>
+${BEACON}
+</body>
+</html>
+`;
+}
+
 let built = [];
-for (const [key, d] of Object.entries(DOCS)) {
+for (const [key, d] of Object.entries(ALL)) {
   const src = fs.readFileSync(path.join(__dirname, d.md), "utf8");
   let html = parse(src, { gfm: true, breaks: false });
   html = injectHeadingIds(html);
@@ -210,11 +348,14 @@ for (const [key, d] of Object.entries(DOCS)) {
   built.push(d.out);
 }
 
+fs.writeFileSync(path.join(__dirname, "articles.html"), articlesIndexPage());
+built.push("articles.html");
+
 // sitemap + robots
-const urls = ["", "cheatsheet.html", ...Object.values(DOCS).map(d => d.out)];
+const urls = ["", "articles.html", "cheatsheet.html", ...Object.values(ALL).map(d => d.out)];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(u => `  <url><loc>${SITE}/${u}</loc></url>`).join("\n")}
+${urls.map(u => `  <url><loc>${SITE}/${u}</loc><lastmod>${TODAY}</lastmod></url>`).join("\n")}
 </urlset>
 `;
 fs.writeFileSync(path.join(__dirname, "sitemap.xml"), sitemap);
