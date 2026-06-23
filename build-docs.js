@@ -381,12 +381,27 @@ function articlesIndexPage() {
   const title = "Articles on Human-in-the-Loop & AI Agent Safety — LoopRails";
   const desc = "Practical articles on human-in-the-loop oversight and AI agent safety: HITL explained, when agents should ask for approval, the lethal trifecta, AI agent guardrails, and more.";
   const items = Object.values(ARTICLES);
-  const cards = items.map(a => `
+  const CATS = [
+    ["Start here & concepts", ["article-what-is-agentic-ai", "article-what-is-human-in-the-loop", "article-hitl-ai-safety", "article-in-the-loop-vs-on-the-loop", "article-ai-agent-autonomy-levels", "article-automation-bias"]],
+    ["Patterns & controls", ["article-ai-agent-approval", "article-ai-agent-guardrails", "article-lethal-trifecta", "article-prompt-injection-prevention", "article-maker-checker-ai", "article-ai-kill-switch", "article-circuit-breaker-ai-agents", "article-ai-agent-sandboxing", "article-least-privilege-ai-agents"]],
+    ["Use cases — human-in-the-loop for…", ["article-hitl-coding-agents", "article-hitl-customer-support", "article-hitl-financial-transactions", "article-hitl-database-operations", "article-hitl-email-agents", "article-hitl-deployments", "article-hitl-content-moderation", "article-hitl-machine-learning", "article-hitl-healthcare", "article-hitl-legal-contracts", "article-hitl-hiring", "article-hitl-browser-agents", "article-hitl-voice-agents", "article-hitl-multi-agent-systems"]],
+    ["Studies", ["article-llm-agent-skills-credential-leak"]],
+  ];
+  const card = a => `
       <a class="acard" href="${a.out}">
-        <h2>${esc(a.label)}</h2>
+        <h3>${esc(a.label)}</h3>
         <p>${esc(a.desc)}</p>
         <span class="go">Read →</span>
-      </a>`).join("");
+      </a>`;
+  const placed = new Set();
+  let sections = CATS.map(([name, keys]) => {
+    const present = keys.filter(k => ARTICLES[k]);
+    present.forEach(k => placed.add(k));
+    if (!present.length) return "";
+    return `  <h2 class="cathead">${esc(name)} <span class="catcount">${present.length}</span></h2>\n  <div class="alist">${present.map(k => card(ARTICLES[k])).join("")}\n  </div>`;
+  }).filter(Boolean).join("\n");
+  const leftover = Object.keys(ARTICLES).filter(k => !placed.has(k));
+  if (leftover.length) sections += `\n  <h2 class="cathead">More</h2>\n  <div class="alist">${leftover.map(k => card(ARTICLES[k])).join("")}\n  </div>`;
   const itemList = JSON.stringify({
     "@context": "https://schema.org", "@type": "ItemList",
     "itemListElement": items.map((a, i) => ({ "@type": "ListItem", "position": i + 1, "url": `${SITE}/${a.out}`, "name": a.label }))
@@ -419,9 +434,11 @@ ${styleBlock()}
 .alist{max-width:820px;margin:0 auto;padding:8px 0 40px}
 .acard{display:block;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:0 0 14px;background:#fff;transition:.15s}
 .acard:hover{transform:translateY(-2px);box-shadow:0 16px 36px -22px rgba(13,17,23,.35);text-decoration:none}
-.acard h2{font-size:1.16rem;margin:0 0 6px;border:none;padding:0;color:var(--ink)}
+.acard h3{font-size:1.12rem;margin:0 0 6px;border:none;padding:0;color:var(--ink);font-weight:700}
 .acard p{margin:0 0 8px;color:var(--ink-2);font-size:.95rem}
 .acard .go{color:var(--rail);font-weight:650;font-size:.9rem}
+.cathead{max-width:820px;margin:34px auto 12px;font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rail-2);border-top:1px solid var(--line);padding-top:20px}
+.cathead .catcount{color:var(--muted);font-weight:400}
 .intro{max-width:820px;margin:0 auto;padding:8px 0 4px;color:var(--ink-2)}
 .intro h1{font-size:1.9rem;letter-spacing:-.02em;margin:0 0 .3em;color:var(--ink)}
 </style>
@@ -437,8 +454,7 @@ ${styleBlock()}
     <h1>Articles: human-in-the-loop &amp; AI agent safety</h1>
     <p>Practical, sourced writing on how to oversee AI agents — when a human in the loop helps, when it's just a rubber stamp, and how to design oversight that actually catches mistakes.</p>
   </div>
-  <div class="alist">${cards}
-  </div>
+${sections}
 </main>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>

@@ -86,9 +86,11 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 .alist{max-width:820px;margin:0 auto;padding:8px 0 40px}
 .acard{display:block;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:0 0 14px;background:#fff;transition:.15s}
 .acard:hover{transform:translateY(-2px);box-shadow:0 16px 36px -22px rgba(13,17,23,.35);text-decoration:none}
-.acard h2{font-size:1.16rem;margin:0 0 6px;border:none;padding:0;color:var(--ink)}
+.acard h3{font-size:1.12rem;margin:0 0 6px;border:none;padding:0;color:var(--ink);font-weight:700}
 .acard p{margin:0 0 8px;color:var(--ink-2);font-size:.95rem}
 .acard .go{color:var(--rail);font-weight:650;font-size:.9rem}
+.cathead{max-width:820px;margin:34px auto 12px;font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rail-2);border-top:1px solid var(--line);padding-top:20px}
+.cathead .catcount{color:var(--muted);font-weight:400}
 .intro{max-width:820px;margin:0 auto;padding:8px 0 4px;color:var(--ink-2)}
 .intro h1{font-size:1.9rem;letter-spacing:-.02em;margin:0 0 .3em;color:var(--ink)}
 </style>
@@ -104,155 +106,165 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <h1>Articles: human-in-the-loop &amp; AI agent safety</h1>
     <p>Practical, sourced writing on how to oversee AI agents — when a human in the loop helps, when it's just a rubber stamp, and how to design oversight that actually catches mistakes.</p>
   </div>
+  <h2 class="cathead">Start here &amp; concepts <span class="catcount">6</span></h2>
   <div class="alist">
+      <a class="acard" href="article-what-is-agentic-ai.html">
+        <h3>What Is Agentic AI?</h3>
+        <p>Agentic AI explained: how AI agents plan and take actions with tools — what makes them powerful and risky, and why overseeing them means governing actions, not outputs.</p>
+        <span class="go">Read →</span>
+      </a>
       <a class="acard" href="article-what-is-human-in-the-loop.html">
-        <h2>What Is Human-in-the-Loop (HITL) in AI?</h2>
+        <h3>What Is Human-in-the-Loop (HITL) in AI?</h3>
         <p>Human-in-the-loop (HITL) means a person reviews or can intervene in an AI system's actions. A practical guide to HITL for AI agents — what it is, when it works, and when to prevent instead.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-ai-safety.html">
-        <h2>Does Human-in-the-Loop Improve AI Safety?</h2>
+        <h3>Does Human-in-the-Loop Improve AI Safety?</h3>
         <p>Does keeping a human in the loop actually make AI agents safer? The evidence, when HITL helps, when it's false safety, and what real AI agent safety looks like.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-in-the-loop-vs-on-the-loop.html">
-        <h2>In-the-Loop vs On-the-Loop vs Out-of-the-Loop</h2>
+        <h3>In-the-Loop vs On-the-Loop vs Out-of-the-Loop</h3>
         <p>Human-in-the-loop, human-on-the-loop, and out-of-the-loop explained: definitions, tradeoffs, the sudden-handoff problem, and how to choose oversight for AI agents.</p>
         <span class="go">Read →</span>
       </a>
-      <a class="acard" href="article-ai-agent-approval.html">
-        <h2>When Should an AI Agent Ask for Approval?</h2>
-        <p>When AI agents should ask for human approval — and how to build approval gates that catch mistakes instead of becoming rubber stamps. Graded examples G0–G3.</p>
-        <span class="go">Read →</span>
-      </a>
-      <a class="acard" href="article-lethal-trifecta.html">
-        <h2>The Lethal Trifecta: How AI Agents Leak Data</h2>
-        <p>The lethal trifecta — private data + untrusted content + an exfiltration channel — lets prompt injection steal data from AI agents. How it works and how to stop it.</p>
-        <span class="go">Read →</span>
-      </a>
-      <a class="acard" href="article-ai-agent-guardrails.html">
-        <h2>AI Agent Guardrails: A Practical Checklist</h2>
-        <p>A practical AI agent guardrails checklist: sandboxing, least privilege, blast-radius caps, kill switches, circuit breakers, logging, and maker-checker — matched to risk.</p>
-        <span class="go">Read →</span>
-      </a>
       <a class="acard" href="article-ai-agent-autonomy-levels.html">
-        <h2>AI Agent Autonomy Levels (L0–L6)</h2>
+        <h3>AI Agent Autonomy Levels (L0–L6)</h3>
         <p>AI agent autonomy levels explained: the L0–L6 ladder from silent autonomy to escalate-or-forbid, and how to pick the right level for each action by risk.</p>
         <span class="go">Read →</span>
       </a>
+      <a class="acard" href="article-automation-bias.html">
+        <h3>Automation Bias: Why People Rubber-Stamp AI</h3>
+        <p>Automation bias is why human-in-the-loop oversight of AI fails: people over-trust the system and approve without scrutiny. The evidence, and how to design against it.</p>
+        <span class="go">Read →</span>
+      </a>
+  </div>
+  <h2 class="cathead">Patterns &amp; controls <span class="catcount">9</span></h2>
+  <div class="alist">
+      <a class="acard" href="article-ai-agent-approval.html">
+        <h3>When Should an AI Agent Ask for Approval?</h3>
+        <p>When AI agents should ask for human approval — and how to build approval gates that catch mistakes instead of becoming rubber stamps. Graded examples G0–G3.</p>
+        <span class="go">Read →</span>
+      </a>
+      <a class="acard" href="article-ai-agent-guardrails.html">
+        <h3>AI Agent Guardrails: A Practical Checklist</h3>
+        <p>A practical AI agent guardrails checklist: sandboxing, least privilege, blast-radius caps, kill switches, circuit breakers, logging, and maker-checker — matched to risk.</p>
+        <span class="go">Read →</span>
+      </a>
+      <a class="acard" href="article-lethal-trifecta.html">
+        <h3>The Lethal Trifecta: How AI Agents Leak Data</h3>
+        <p>The lethal trifecta — private data + untrusted content + an exfiltration channel — lets prompt injection steal data from AI agents. How it works and how to stop it.</p>
+        <span class="go">Read →</span>
+      </a>
       <a class="acard" href="article-prompt-injection-prevention.html">
-        <h2>Prompt Injection Prevention</h2>
+        <h3>Prompt Injection Prevention</h3>
         <p>How to prevent prompt injection in AI agents: why filtering fails, and a defense-in-depth approach — least privilege, runtime shields, sandboxing, and removing a lethal-trifecta leg.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-maker-checker-ai.html">
-        <h2>Maker-Checker (Four-Eyes) for AI Agents</h2>
+        <h3>Maker-Checker (Four-Eyes) for AI Agents</h3>
         <p>Maker-checker and the four-eyes principle for AI agents: why the proposer shouldn't be the approver, which actions need it, and how to implement it without rubber-stamping.</p>
         <span class="go">Read →</span>
       </a>
-      <a class="acard" href="article-automation-bias.html">
-        <h2>Automation Bias: Why People Rubber-Stamp AI</h2>
-        <p>Automation bias is why human-in-the-loop oversight of AI fails: people over-trust the system and approve without scrutiny. The evidence, and how to design against it.</p>
-        <span class="go">Read →</span>
-      </a>
       <a class="acard" href="article-ai-kill-switch.html">
-        <h2>How to Build an AI Kill Switch</h2>
+        <h3>How to Build an AI Kill Switch</h3>
         <p>What an AI kill switch is, why every agent needs one, and how to design one that stops everything in flight — fast, reachable by anyone, and blame-free.</p>
         <span class="go">Read →</span>
       </a>
-      <a class="acard" href="article-llm-agent-skills-credential-leak.html">
-        <h2>Study: How AI Agent Skills Leak Credentials</h2>
-        <p>A 2026 study analyzed 17,022 AI agent skills and found rampant credential leaks — mostly via debug logging, during routine use. What it found and how to prevent it.</p>
+      <a class="acard" href="article-circuit-breaker-ai-agents.html">
+        <h3>The Circuit Breaker Pattern for AI Agents</h3>
+        <p>A circuit breaker auto-pauses an AI agent when error rate, spend, or volume crosses a threshold — and requires human re-authorization to resume. How to build one.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-ai-agent-sandboxing.html">
-        <h2>AI Agent Sandboxing</h2>
+        <h3>AI Agent Sandboxing</h3>
         <p>What AI agent sandboxing is and why it beats per-action approval prompts: no-network containers, scoped credentials, resource caps, and disposable environments.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-least-privilege-ai-agents.html">
-        <h2>Least Privilege for AI Agents</h2>
+        <h3>Least Privilege for AI Agents</h3>
         <p>Least privilege for AI agents: give an agent only the tools, data, and credentials it needs — and why removing a capability beats forbidding its use.</p>
         <span class="go">Read →</span>
       </a>
-      <a class="acard" href="article-circuit-breaker-ai-agents.html">
-        <h2>The Circuit Breaker Pattern for AI Agents</h2>
-        <p>A circuit breaker auto-pauses an AI agent when error rate, spend, or volume crosses a threshold — and requires human re-authorization to resume. How to build one.</p>
-        <span class="go">Read →</span>
-      </a>
-      <a class="acard" href="article-what-is-agentic-ai.html">
-        <h2>What Is Agentic AI?</h2>
-        <p>Agentic AI explained: how AI agents plan and take actions with tools — what makes them powerful and risky, and why overseeing them means governing actions, not outputs.</p>
-        <span class="go">Read →</span>
-      </a>
+  </div>
+  <h2 class="cathead">Use cases — human-in-the-loop for… <span class="catcount">14</span></h2>
+  <div class="alist">
       <a class="acard" href="article-hitl-coding-agents.html">
-        <h2>Human-in-the-Loop for AI Coding Agents</h2>
+        <h3>Human-in-the-Loop for AI Coding Agents</h3>
         <p>How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0–G3, and match the right control to each.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-customer-support.html">
-        <h2>Human-in-the-Loop for AI Customer Support</h2>
+        <h3>Human-in-the-Loop for AI Customer Support</h3>
         <p>How to build human-in-the-loop oversight for AI customer support agents: value-conditional approval for refunds, review for outbound replies, and escalation done right.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-financial-transactions.html">
-        <h2>Human-in-the-Loop for AI Financial Transactions</h2>
+        <h3>Human-in-the-Loop for AI Financial Transactions</h3>
         <p>How to build human-in-the-loop oversight for AI agents that move money: maker-checker, value thresholds, circuit breakers, and kill switches for irreversible payments.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-database-operations.html">
-        <h2>Human-in-the-Loop for AI Database Operations</h2>
+        <h3>Human-in-the-Loop for AI Database Operations</h3>
         <p>How to build human-in-the-loop oversight for AI agents that run SQL: read-only by default, dry-runs, least privilege, backups, and maker-checker for prod schema changes.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-email-agents.html">
-        <h2>Human-in-the-Loop for AI Email &amp; Messaging</h2>
+        <h3>Human-in-the-Loop for AI Email &amp; Messaging</h3>
         <p>How to build human-in-the-loop oversight for AI agents that send email and messages: undo-send windows, previews, rate caps, and approval for external or bulk sends.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-deployments.html">
-        <h2>Human-in-the-Loop for AI Deployments</h2>
+        <h3>Human-in-the-Loop for AI Deployments</h3>
         <p>How to build human-in-the-loop oversight for AI-driven deployments: canary plus automatic rollback, circuit breakers, and a kill switch instead of a rubber-stamp approval.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-content-moderation.html">
-        <h2>Human-in-the-Loop for AI Content Moderation</h2>
+        <h3>Human-in-the-Loop for AI Content Moderation</h3>
         <p>How to build human-in-the-loop oversight for AI content moderation: confidence-based routing, reversible removals, appeals as escalation, and avoiding reviewer fatigue.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-machine-learning.html">
-        <h2>Human-in-the-Loop for Machine Learning</h2>
+        <h3>Human-in-the-Loop for Machine Learning</h3>
         <p>Human-in-the-loop machine learning explained: labeling, active learning, low-confidence review, and RLHF — how to route human effort by uncertainty and keep label quality high.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-healthcare.html">
-        <h2>Human-in-the-Loop for AI in Healthcare</h2>
+        <h3>Human-in-the-Loop for AI in Healthcare</h3>
         <p>How to design human-in-the-loop oversight for clinical AI: keep a licensed clinician in command, fight alert fatigue, and reserve autonomy for low-stakes actions.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-legal-contracts.html">
-        <h2>Human-in-the-Loop for AI Legal Work</h2>
+        <h3>Human-in-the-Loop for AI Legal Work</h3>
         <p>How to design human-in-the-loop oversight for AI legal and contract work: verify citations, attorney sign-off, maker-checker for execution, and treating documents as untrusted.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-hiring.html">
-        <h2>Human-in-the-Loop for AI Hiring</h2>
+        <h3>Human-in-the-Loop for AI Hiring</h3>
         <p>How to design human-in-the-loop oversight for AI hiring: keep a human deciding advance/reject, audit for bias, and never auto-reject candidates at scale.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-browser-agents.html">
-        <h2>Human-in-the-Loop for Browser &amp; Computer-Use Agents</h2>
+        <h3>Human-in-the-Loop for Browser &amp; Computer-Use Agents</h3>
         <p>How to design human-in-the-loop oversight for browser and computer-use agents: sandboxing, breaking the lethal trifecta, spend caps, and prompt-injection defense.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-voice-agents.html">
-        <h2>Human-in-the-Loop for AI Voice Agents</h2>
+        <h3>Human-in-the-Loop for AI Voice Agents</h3>
         <p>How to design human-in-the-loop oversight for real-time AI voice agents: limit capabilities, verbal confirmation, and warm handoff to a human for high-stakes calls.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-multi-agent-systems.html">
-        <h2>Human-in-the-Loop for Multi-Agent Systems</h2>
+        <h3>Human-in-the-Loop for Multi-Agent Systems</h3>
         <p>How to design human-in-the-loop oversight for multi-agent systems: least privilege per sub-agent, provenance logging, one kill switch, and clear human accountability.</p>
+        <span class="go">Read →</span>
+      </a>
+  </div>
+  <h2 class="cathead">Studies <span class="catcount">1</span></h2>
+  <div class="alist">
+      <a class="acard" href="article-llm-agent-skills-credential-leak.html">
+        <h3>Study: How AI Agent Skills Leak Credentials</h3>
+        <p>A 2026 study analyzed 17,022 AI agent skills and found rampant credential leaks — mostly via debug logging, during routine use. What it found and how to prevent it.</p>
         <span class="go">Read →</span>
       </a>
   </div>
