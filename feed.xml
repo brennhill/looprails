@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LoopRails — Human-in-the-Loop &amp; AI Agent Safety</title>
+    <link>https://looprails.dev/</link>
+    <atom:link href="https://looprails.dev/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Practical, sourced writing on human-in-the-loop oversight of AI agents — when review helps, when it's a rubber stamp, and how to design oversight that actually catches mistakes.</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Jun 2026 13:00:31 GMT</lastBuildDate>
+    <item>
+      <title>What Is Human-in-the-Loop (HITL) in AI?</title>
+      <link>https://looprails.dev/article-what-is-human-in-the-loop.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-what-is-human-in-the-loop.html</guid>
+      <description>Human-in-the-loop (HITL) means a person reviews or can intervene in an AI system's actions. A practical guide to HITL for AI agents — what it is, when it works, and when to prevent instead.</description>
+      <pubDate>Tue, 23 Jun 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Does Human-in-the-Loop Improve AI Safety?</title>
+      <link>https://looprails.dev/article-hitl-ai-safety.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-ai-safety.html</guid>
+      <description>Does keeping a human in the loop actually make AI agents safer? The evidence, when HITL helps, when it's false safety, and what real AI agent safety looks like.</description>
+      <pubDate>Tue, 23 Jun 2026 11:59:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>In-the-Loop vs On-the-Loop vs Out-of-the-Loop</title>
+      <link>https://looprails.dev/article-in-the-loop-vs-on-the-loop.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-in-the-loop-vs-on-the-loop.html</guid>
+      <description>Human-in-the-loop, human-on-the-loop, and out-of-the-loop explained: definitions, tradeoffs, the sudden-handoff problem, and how to choose oversight for AI agents.</description>
+      <pubDate>Tue, 23 Jun 2026 11:58:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>When Should an AI Agent Ask for Approval?</title>
+      <link>https://looprails.dev/article-ai-agent-approval.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-ai-agent-approval.html</guid>
+      <description>When AI agents should ask for human approval — and how to build approval gates that catch mistakes instead of becoming rubber stamps. Graded examples G0–G3.</description>
+      <pubDate>Tue, 23 Jun 2026 11:57:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Lethal Trifecta: How AI Agents Leak Data</title>
+      <link>https://looprails.dev/article-lethal-trifecta.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-lethal-trifecta.html</guid>
+      <description>The lethal trifecta — private data + untrusted content + an exfiltration channel — lets prompt injection steal data from AI agents. How it works and how to stop it.</description>
+      <pubDate>Tue, 23 Jun 2026 11:56:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI Agent Guardrails: A Practical Checklist</title>
+      <link>https://looprails.dev/article-ai-agent-guardrails.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-ai-agent-guardrails.html</guid>
+      <description>A practical AI agent guardrails checklist: sandboxing, least privilege, blast-radius caps, kill switches, circuit breakers, logging, and maker-checker — matched to risk.</description>
+      <pubDate>Tue, 23 Jun 2026 11:55:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI Agent Autonomy Levels (L0–L6)</title>
+      <link>https://looprails.dev/article-ai-agent-autonomy-levels.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-ai-agent-autonomy-levels.html</guid>
+      <description>AI agent autonomy levels explained: the L0–L6 ladder from silent autonomy to escalate-or-forbid, and how to pick the right level for each action by risk.</description>
+      <pubDate>Tue, 23 Jun 2026 11:54:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Prompt Injection Prevention</title>
+      <link>https://looprails.dev/article-prompt-injection-prevention.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-prompt-injection-prevention.html</guid>
+      <description>How to prevent prompt injection in AI agents: why filtering fails, and a defense-in-depth approach — least privilege, runtime shields, sandboxing, and removing a lethal-trifecta leg.</description>
+      <pubDate>Tue, 23 Jun 2026 11:53:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Maker-Checker (Four-Eyes) for AI Agents</title>
+      <link>https://looprails.dev/article-maker-checker-ai.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-maker-checker-ai.html</guid>
+      <description>Maker-checker and the four-eyes principle for AI agents: why the proposer shouldn't be the approver, which actions need it, and how to implement it without rubber-stamping.</description>
+      <pubDate>Tue, 23 Jun 2026 11:52:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Automation Bias: Why People Rubber-Stamp AI</title>
+      <link>https://looprails.dev/article-automation-bias.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-automation-bias.html</guid>
+      <description>Automation bias is why human-in-the-loop oversight of AI fails: people over-trust the system and approve without scrutiny. The evidence, and how to design against it.</description>
+      <pubDate>Tue, 23 Jun 2026 11:51:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Build an AI Kill Switch</title>
+      <link>https://looprails.dev/article-ai-kill-switch.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-ai-kill-switch.html</guid>
+      <description>What an AI kill switch is, why every agent needs one, and how to design one that stops everything in flight — fast, reachable by anyone, and blame-free.</description>
+      <pubDate>Tue, 23 Jun 2026 11:50:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Study: How AI Agent Skills Leak Credentials</title>
+      <link>https://looprails.dev/article-llm-agent-skills-credential-leak.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-llm-agent-skills-credential-leak.html</guid>
+      <description>A 2026 study analyzed 17,022 AI agent skills and found rampant credential leaks — mostly via debug logging, during routine use. What it found and how to prevent it.</description>
+      <pubDate>Tue, 23 Jun 2026 11:49:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI Agent Sandboxing</title>
+      <link>https://looprails.dev/article-ai-agent-sandboxing.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-ai-agent-sandboxing.html</guid>
+      <description>What AI agent sandboxing is and why it beats per-action approval prompts: no-network containers, scoped credentials, resource caps, and disposable environments.</description>
+      <pubDate>Tue, 23 Jun 2026 11:48:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Least Privilege for AI Agents</title>
+      <link>https://looprails.dev/article-least-privilege-ai-agents.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-least-privilege-ai-agents.html</guid>
+      <description>Least privilege for AI agents: give an agent only the tools, data, and credentials it needs — and why removing a capability beats forbidding its use.</description>
+      <pubDate>Tue, 23 Jun 2026 11:47:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Circuit Breaker Pattern for AI Agents</title>
+      <link>https://looprails.dev/article-circuit-breaker-ai-agents.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-circuit-breaker-ai-agents.html</guid>
+      <description>A circuit breaker auto-pauses an AI agent when error rate, spend, or volume crosses a threshold — and requires human re-authorization to resume. How to build one.</description>
+      <pubDate>Tue, 23 Jun 2026 11:46:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>What Is Agentic AI?</title>
+      <link>https://looprails.dev/article-what-is-agentic-ai.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-what-is-agentic-ai.html</guid>
+      <description>Agentic AI explained: how AI agents plan and take actions with tools — what makes them powerful and risky, and why overseeing them means governing actions, not outputs.</description>
+      <pubDate>Tue, 23 Jun 2026 11:45:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for AI Coding Agents</title>
+      <link>https://looprails.dev/article-hitl-coding-agents.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-coding-agents.html</guid>
+      <description>How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0–G3, and match the right control to each.</description>
+      <pubDate>Tue, 23 Jun 2026 11:44:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for AI Customer Support</title>
+      <link>https://looprails.dev/article-hitl-customer-support.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-customer-support.html</guid>
+      <description>How to build human-in-the-loop oversight for AI customer support agents: value-conditional approval for refunds, review for outbound replies, and escalation done right.</description>
+      <pubDate>Tue, 23 Jun 2026 11:43:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for AI Financial Transactions</title>
+      <link>https://looprails.dev/article-hitl-financial-transactions.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-financial-transactions.html</guid>
+      <description>How to build human-in-the-loop oversight for AI agents that move money: maker-checker, value thresholds, circuit breakers, and kill switches for irreversible payments.</description>
+      <pubDate>Tue, 23 Jun 2026 11:42:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for AI Database Operations</title>
+      <link>https://looprails.dev/article-hitl-database-operations.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-database-operations.html</guid>
+      <description>How to build human-in-the-loop oversight for AI agents that run SQL: read-only by default, dry-runs, least privilege, backups, and maker-checker for prod schema changes.</description>
+      <pubDate>Tue, 23 Jun 2026 11:41:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for AI Email &amp; Messaging</title>
+      <link>https://looprails.dev/article-hitl-email-agents.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-email-agents.html</guid>
+      <description>How to build human-in-the-loop oversight for AI agents that send email and messages: undo-send windows, previews, rate caps, and approval for external or bulk sends.</description>
+      <pubDate>Tue, 23 Jun 2026 11:40:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for AI Deployments</title>
+      <link>https://looprails.dev/article-hitl-deployments.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-deployments.html</guid>
+      <description>How to build human-in-the-loop oversight for AI-driven deployments: canary plus automatic rollback, circuit breakers, and a kill switch instead of a rubber-stamp approval.</description>
+      <pubDate>Tue, 23 Jun 2026 11:39:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for AI Content Moderation</title>
+      <link>https://looprails.dev/article-hitl-content-moderation.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-content-moderation.html</guid>
+      <description>How to build human-in-the-loop oversight for AI content moderation: confidence-based routing, reversible removals, appeals as escalation, and avoiding reviewer fatigue.</description>
+      <pubDate>Tue, 23 Jun 2026 11:38:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for Machine Learning</title>
+      <link>https://looprails.dev/article-hitl-machine-learning.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-machine-learning.html</guid>
+      <description>Human-in-the-loop machine learning explained: labeling, active learning, low-confidence review, and RLHF — how to route human effort by uncertainty and keep label quality high.</description>
+      <pubDate>Tue, 23 Jun 2026 11:37:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for AI in Healthcare</title>
+      <link>https://looprails.dev/article-hitl-healthcare.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-healthcare.html</guid>
+      <description>How to design human-in-the-loop oversight for clinical AI: keep a licensed clinician in command, fight alert fatigue, and reserve autonomy for low-stakes actions.</description>
+      <pubDate>Tue, 23 Jun 2026 11:36:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for AI Legal Work</title>
+      <link>https://looprails.dev/article-hitl-legal-contracts.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-legal-contracts.html</guid>
+      <description>How to design human-in-the-loop oversight for AI legal and contract work: verify citations, attorney sign-off, maker-checker for execution, and treating documents as untrusted.</description>
+      <pubDate>Tue, 23 Jun 2026 11:35:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for AI Hiring</title>
+      <link>https://looprails.dev/article-hitl-hiring.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-hiring.html</guid>
+      <description>How to design human-in-the-loop oversight for AI hiring: keep a human deciding advance/reject, audit for bias, and never auto-reject candidates at scale.</description>
+      <pubDate>Tue, 23 Jun 2026 11:34:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for Browser &amp; Computer-Use Agents</title>
+      <link>https://looprails.dev/article-hitl-browser-agents.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-browser-agents.html</guid>
+      <description>How to design human-in-the-loop oversight for browser and computer-use agents: sandboxing, breaking the lethal trifecta, spend caps, and prompt-injection defense.</description>
+      <pubDate>Tue, 23 Jun 2026 11:33:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for AI Voice Agents</title>
+      <link>https://looprails.dev/article-hitl-voice-agents.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-voice-agents.html</guid>
+      <description>How to design human-in-the-loop oversight for real-time AI voice agents: limit capabilities, verbal confirmation, and warm handoff to a human for high-stakes calls.</description>
+      <pubDate>Tue, 23 Jun 2026 11:32:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Human-in-the-Loop for Multi-Agent Systems</title>
+      <link>https://looprails.dev/article-hitl-multi-agent-systems.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-multi-agent-systems.html</guid>
+      <description>How to design human-in-the-loop oversight for multi-agent systems: least privilege per sub-agent, provenance logging, one kill switch, and clear human accountability.</description>
+      <pubDate>Tue, 23 Jun 2026 11:31:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

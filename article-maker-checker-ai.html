@@ -21,6 +21,7 @@
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="manifest" href="site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Maker-Checker (Four-Eyes) for AI Agents","name":"Maker-Checker (Four-Eyes) for AI Agents — LoopRails","description":"Maker-checker and the four-eyes principle for AI agents: why the proposer shouldn't be the approver, which actions need it, and how to implement it without rubber-stamping.","inLanguage":"en-US","url":"https://looprails.dev/article-maker-checker-ai.html","mainEntityOfPage":"https://looprails.dev/article-maker-checker-ai.html","image":"https://looprails.dev/og-article-maker-checker-ai.png","datePublished":"2026-06-23","dateModified":"2026-06-23","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles.html"},{"@type":"ListItem","position":3,"name":"Maker-Checker (Four-Eyes) for AI Agents","item":"https://looprails.dev/article-maker-checker-ai.html"}]}]}</script>
 <style>
@@ -76,6 +77,8 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
 .gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
 .crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
+.byline{font-size:.92rem;color:var(--muted);margin:-.2em 0 1.6em}
+.byline a{font-weight:600;color:var(--ink-2)}
 .related{margin:8px 0 0;border-top:1px solid var(--line);padding-top:22px}
 .related h2{font-size:1.15rem;margin:0 0 12px;border:none;padding:0}
 .related ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
@@ -97,6 +100,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-maker-checker-ai.md">View article-maker-checker-ai.md on GitHub ↗</a>
       <h1 id="maker-checker-four-eyes-for-ai-agents">Maker-Checker (Four-Eyes) for AI Agents</h1>
+<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time></p>
 <p>Maker-checker (also called the four-eyes principle) for AI agents is a control where one party proposes an action and a different, independent party must approve it before it takes effect. For AI agents, the agent is the maker: it drafts the change, the transaction, the deletion. A human or a second, independent system is the checker: it reviews and either approves or rejects before anything happens in the real world. The point is structural, not procedural. No single actor, human or machine, can both originate a high-stakes action and put it into effect.</p>
 <p>This article covers where maker-checker comes from, why proposer ≠ approver matters specifically for AI, which agent actions actually need it, how to implement it without it becoming theater, and the failure modes that quietly turn a two-person control back into a one-person rubber stamp.</p>
 <h2 id="what-maker-checker-is-and-where-it-comes-from">What maker-checker is, and where it comes from</h2>

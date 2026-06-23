@@ -177,6 +177,15 @@ const ARTICLES = {
 
 const ALL = { ...DOCS, ...ARTICLES };
 
+const ARTICLE_PUB = "2026-06-23";
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const humanDate = (iso) => { const [y, m, d] = iso.split("-").map(Number); return `${MONTHS[m - 1]} ${d}, ${y}`; };
+// inject an author byline directly under the article's <h1>
+function injectByline(html, dateISO) {
+  const byline = `<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="${dateISO}">${humanDate(dateISO)}</time></p>`;
+  return html.replace(/<\/h1>/, (m) => m + "\n" + byline);
+}
+
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const stripTags = (s) => s.replace(/<[^>]+>/g, "");
 const slug = (s) => stripTags(s).toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-").slice(0, 60);
@@ -235,6 +244,8 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
 .gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
 .crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
+.byline{font-size:.92rem;color:var(--muted);margin:-.2em 0 1.6em}
+.byline a{font-weight:600;color:var(--ink-2)}
 .related{margin:8px 0 0;border-top:1px solid var(--line);padding-top:22px}
 .related h2{font-size:1.15rem;margin:0 0 12px;border:none;padding:0}
 .related ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
@@ -293,6 +304,7 @@ function page(key, d, contentHTML, toc) {
   const url = `${SITE}/${d.out}`;
   const ogimg = `${SITE}/og-${key}.png`;
   const isArticle = key.startsWith("article-");
+  if (isArticle) contentHTML = injectByline(contentHTML, ARTICLE_PUB);
   const relatedBlock = isArticle ? relatedReading(key) : "";
   const crumbHTML = isArticle
     ? `<a href="index.html">LoopRails</a> · <a href="articles.html">Articles</a> · ${esc(stripTags(d.label))}`
@@ -305,7 +317,7 @@ function page(key, d, contentHTML, toc) {
     "@graph": [
       { "@type": isArticle ? "Article" : "TechArticle", "headline": stripTags(d.label), "name": title,
         "description": d.desc, "inLanguage": "en-US", "url": url, "mainEntityOfPage": url, "image": ogimg,
-        "datePublished": isArticle ? "2026-06-23" : "2026-06-22", "dateModified": TODAY,
+        "datePublished": isArticle ? ARTICLE_PUB : "2026-06-22", "dateModified": TODAY,
         "author": { "@type": "Person", "name": "Brenn Hill", "url": "https://www.linkedin.com/in/brennhill/" },
         "publisher": { "@type": "Person", "name": "Brenn Hill" },
         "isPartOf": { "@type": "WebSite", "name": "LoopRails", "url": SITE + "/" } },
@@ -335,6 +347,7 @@ function page(key, d, contentHTML, toc) {
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="manifest" href="site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="${SITE}/feed.xml">
 <meta name="theme-color" content="#0e7c86">
 <script type="application/ld+json">${jsonld}</script>
 ${styleBlock()}
@@ -373,6 +386,42 @@ ${styleBlock()}
 ${BEACON}
 </body>
 </html>
+`;
+}
+
+// RSS 2.0 feed of all articles, newest-listed first. pubDate staggered by list
+// order so readers get a stable ordering even though articles share a publish date.
+function rfc822(dateStr, offsetMin) {
+  const d = new Date(dateStr + "T12:00:00Z");
+  d.setMinutes(d.getMinutes() - offsetMin);
+  return d.toUTCString();
+}
+
+function rssFeed() {
+  const items = Object.values(ARTICLES);
+  const lastBuild = new Date().toUTCString();
+  const entries = items.map((a, i) => {
+    const link = `${SITE}/${a.out}`;
+    return `    <item>
+      <title>${esc(a.label)}</title>
+      <link>${link}</link>
+      <guid isPermaLink="true">${link}</guid>
+      <description>${esc(a.desc)}</description>
+      <pubDate>${rfc822("2026-06-23", i)}</pubDate>
+    </item>`;
+  }).join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LoopRails — Human-in-the-Loop &amp; AI Agent Safety</title>
+    <link>${SITE}/</link>
+    <atom:link href="${SITE}/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Practical, sourced writing on human-in-the-loop oversight of AI agents — when review helps, when it's a rubber stamp, and how to design oversight that actually catches mistakes.</description>
+    <language>en-us</language>
+    <lastBuildDate>${lastBuild}</lastBuildDate>
+${entries}
+  </channel>
+</rss>
 `;
 }
 
@@ -427,6 +476,7 @@ function articlesIndexPage() {
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="manifest" href="site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="${SITE}/feed.xml">
 <meta name="theme-color" content="#0e7c86">
 <script type="application/ld+json">${itemList}</script>
 ${styleBlock()}
@@ -452,7 +502,7 @@ ${styleBlock()}
   <div class="crumb"><a href="index.html">LoopRails</a> · Articles</div>
   <div class="intro">
     <h1>Articles: human-in-the-loop &amp; AI agent safety</h1>
-    <p>Practical, sourced writing on how to oversee AI agents — when a human in the loop helps, when it's just a rubber stamp, and how to design oversight that actually catches mistakes.</p>
+    <p>Practical, sourced writing on how to oversee AI agents — when a human in the loop helps, when it's just a rubber stamp, and how to design oversight that actually catches mistakes. <a href="feed.xml">Subscribe via RSS ↗</a></p>
   </div>
 ${sections}
 </main>
@@ -479,6 +529,9 @@ for (const [key, d] of Object.entries(ALL)) {
 
 fs.writeFileSync(path.join(__dirname, "articles.html"), articlesIndexPage());
 built.push("articles.html");
+
+fs.writeFileSync(path.join(__dirname, "feed.xml"), rssFeed());
+built.push("feed.xml");
 
 // sitemap + robots
 const urls = ["", "articles.html", "cheatsheet.html", ...Object.values(ALL).map(d => d.out)];
