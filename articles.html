@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://looprails.dev/article-what-is-human-in-the-loop.html","name":"What Is Human-in-the-Loop (HITL) in AI?"},{"@type":"ListItem","position":2,"url":"https://looprails.dev/article-hitl-ai-safety.html","name":"Does Human-in-the-Loop Improve AI Safety?"},{"@type":"ListItem","position":3,"url":"https://looprails.dev/article-in-the-loop-vs-on-the-loop.html","name":"In-the-Loop vs On-the-Loop vs Out-of-the-Loop"},{"@type":"ListItem","position":4,"url":"https://looprails.dev/article-ai-agent-approval.html","name":"When Should an AI Agent Ask for Approval?"},{"@type":"ListItem","position":5,"url":"https://looprails.dev/article-lethal-trifecta.html","name":"The Lethal Trifecta: How AI Agents Leak Data"},{"@type":"ListItem","position":6,"url":"https://looprails.dev/article-ai-agent-guardrails.html","name":"AI Agent Guardrails: A Practical Checklist"},{"@type":"ListItem","position":7,"url":"https://looprails.dev/article-ai-agent-autonomy-levels.html","name":"AI Agent Autonomy Levels (L0–L6)"},{"@type":"ListItem","position":8,"url":"https://looprails.dev/article-prompt-injection-prevention.html","name":"Prompt Injection Prevention"},{"@type":"ListItem","position":9,"url":"https://looprails.dev/article-maker-checker-ai.html","name":"Maker-Checker (Four-Eyes) for AI Agents"},{"@type":"ListItem","position":10,"url":"https://looprails.dev/article-automation-bias.html","name":"Automation Bias: Why People Rubber-Stamp AI"},{"@type":"ListItem","position":11,"url":"https://looprails.dev/article-ai-kill-switch.html","name":"How to Build an AI Kill Switch"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://looprails.dev/article-what-is-human-in-the-loop.html","name":"What Is Human-in-the-Loop (HITL) in AI?"},{"@type":"ListItem","position":2,"url":"https://looprails.dev/article-hitl-ai-safety.html","name":"Does Human-in-the-Loop Improve AI Safety?"},{"@type":"ListItem","position":3,"url":"https://looprails.dev/article-in-the-loop-vs-on-the-loop.html","name":"In-the-Loop vs On-the-Loop vs Out-of-the-Loop"},{"@type":"ListItem","position":4,"url":"https://looprails.dev/article-ai-agent-approval.html","name":"When Should an AI Agent Ask for Approval?"},{"@type":"ListItem","position":5,"url":"https://looprails.dev/article-lethal-trifecta.html","name":"The Lethal Trifecta: How AI Agents Leak Data"},{"@type":"ListItem","position":6,"url":"https://looprails.dev/article-ai-agent-guardrails.html","name":"AI Agent Guardrails: A Practical Checklist"},{"@type":"ListItem","position":7,"url":"https://looprails.dev/article-ai-agent-autonomy-levels.html","name":"AI Agent Autonomy Levels (L0–L6)"},{"@type":"ListItem","position":8,"url":"https://looprails.dev/article-prompt-injection-prevention.html","name":"Prompt Injection Prevention"},{"@type":"ListItem","position":9,"url":"https://looprails.dev/article-maker-checker-ai.html","name":"Maker-Checker (Four-Eyes) for AI Agents"},{"@type":"ListItem","position":10,"url":"https://looprails.dev/article-automation-bias.html","name":"Automation Bias: Why People Rubber-Stamp AI"},{"@type":"ListItem","position":11,"url":"https://looprails.dev/article-ai-kill-switch.html","name":"How to Build an AI Kill Switch"},{"@type":"ListItem","position":12,"url":"https://looprails.dev/article-llm-agent-skills-credential-leak.html","name":"Study: How AI Agent Skills Leak Credentials"},{"@type":"ListItem","position":13,"url":"https://looprails.dev/article-ai-agent-sandboxing.html","name":"AI Agent Sandboxing"},{"@type":"ListItem","position":14,"url":"https://looprails.dev/article-least-privilege-ai-agents.html","name":"Least Privilege for AI Agents"},{"@type":"ListItem","position":15,"url":"https://looprails.dev/article-circuit-breaker-ai-agents.html","name":"The Circuit Breaker Pattern for AI Agents"},{"@type":"ListItem","position":16,"url":"https://looprails.dev/article-what-is-agentic-ai.html","name":"What Is Agentic AI?"}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -158,6 +158,31 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
       <a class="acard" href="article-ai-kill-switch.html">
         <h2>How to Build an AI Kill Switch</h2>
         <p>What an AI kill switch is, why every agent needs one, and how to design one that stops everything in flight — fast, reachable by anyone, and blame-free.</p>
+        <span class="go">Read →</span>
+      </a>
+      <a class="acard" href="article-llm-agent-skills-credential-leak.html">
+        <h2>Study: How AI Agent Skills Leak Credentials</h2>
+        <p>A 2026 study analyzed 17,022 AI agent skills and found rampant credential leaks — mostly via debug logging, during routine use. What it found and how to prevent it.</p>
+        <span class="go">Read →</span>
+      </a>
+      <a class="acard" href="article-ai-agent-sandboxing.html">
+        <h2>AI Agent Sandboxing</h2>
+        <p>What AI agent sandboxing is and why it beats per-action approval prompts: no-network containers, scoped credentials, resource caps, and disposable environments.</p>
+        <span class="go">Read →</span>
+      </a>
+      <a class="acard" href="article-least-privilege-ai-agents.html">
+        <h2>Least Privilege for AI Agents</h2>
+        <p>Least privilege for AI agents: give an agent only the tools, data, and credentials it needs — and why removing a capability beats forbidding its use.</p>
+        <span class="go">Read →</span>
+      </a>
+      <a class="acard" href="article-circuit-breaker-ai-agents.html">
+        <h2>The Circuit Breaker Pattern for AI Agents</h2>
+        <p>A circuit breaker auto-pauses an AI agent when error rate, spend, or volume crosses a threshold — and requires human re-authorization to resume. How to build one.</p>
+        <span class="go">Read →</span>
+      </a>
+      <a class="acard" href="article-what-is-agentic-ai.html">
+        <h2>What Is Agentic AI?</h2>
+        <p>Agentic AI explained: how AI agents plan and take actions with tools — what makes them powerful and risky, and why overseeing them means governing actions, not outputs.</p>
         <span class="go">Read →</span>
       </a>
   </div>

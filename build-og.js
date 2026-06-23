@@ -42,6 +42,11 @@ const CARDS = {
   "article-maker-checker-ai": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Maker-checker", "for AI agents"], size: 58, sub: "Four-eyes for irreversible actions.", method: false, accent: TEAL },
   "article-automation-bias": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Automation bias"], size: 64, sub: "Why people rubber-stamp AI.", method: false, accent: G2 },
   "article-ai-kill-switch": { eyebrow: "LOOPRAILS · ARTICLE", head: ["The AI kill switch"], size: 64, sub: "Stop everything — fast and blame-free.", method: false, accent: G3 },
+  "article-llm-agent-skills-credential-leak": { eyebrow: "LOOPRAILS · STUDY", head: ["How agent skills", "leak credentials"], size: 54, sub: "A 2026 study of 17,022 skills.", method: false, accent: G3 },
+  "article-ai-agent-sandboxing": { eyebrow: "LOOPRAILS · ARTICLE", head: ["AI agent", "sandboxing"], size: 58, sub: "Contain the blast radius.", method: false, accent: TEAL },
+  "article-least-privilege-ai-agents": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Least privilege", "for AI agents"], size: 56, sub: "Grant only what the task needs.", method: false, accent: TEAL },
+  "article-circuit-breaker-ai-agents": { eyebrow: "LOOPRAILS · ARTICLE", head: ["The circuit breaker", "pattern for AI"], size: 52, sub: "Auto-pause before damage cascades.", method: false, accent: G2 },
+  "article-what-is-agentic-ai": { eyebrow: "LOOPRAILS · ARTICLE", head: ["What is", "agentic AI?"], size: 62, sub: "And why oversight has to change.", method: false, accent: TEAL },
 };
 
 function svg(c) {
