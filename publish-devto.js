@@ -13,6 +13,10 @@
  *   node publish-devto.js --all --publish       # all articles, LIVE
  *   node publish-devto.js article-lethal-trifecta article-ai-kill-switch   # specific keys
  *
+ *   node publish-devto.js --schedule                 # #1 live now, rest every 4 days (dev.to native scheduling)
+ *   node publish-devto.js --all --schedule --every 4 # full drip: one article every 4 days
+ *   node publish-devto.js --schedule --start 2026-07-01 --every 7  # custom start/cadence
+ *
  * Re-running updates the existing dev.to post (tracked in devto-state.json) instead
  * of creating a duplicate — so edit a .md, re-run, and the dev.to copy updates too.
  */
@@ -29,6 +33,21 @@ const args = process.argv.slice(2);
 const DRY = args.includes("--dry");
 const PUBLISH = args.includes("--publish");
 const ALL = args.includes("--all");
+const SCHEDULE = args.includes("--schedule");
+const SCHEDULE_FIRST = args.includes("--schedule-first"); // don't publish item 0 immediately
+const REST = args.includes("--rest"); // every article not yet on dev.to (per state file)
+const flagVal = (name, def) => { const i = args.indexOf(name); return i >= 0 && args[i + 1] ? args[i + 1] : def; };
+const EVERY = parseInt(flagVal("--every", "4"), 10);
+const START = flagVal("--start", new Date().toISOString().slice(0, 10));
+const POST_HOUR = "T14:00:00Z"; // ~10am US Eastern, decent dev.to posting time
+
+// schedule slot for the i-th article: i=0 publishes now (null) unless --schedule-first, else START + i*EVERY days
+function slotISO(i) {
+  if (i === 0 && !SCHEDULE_FIRST) return null;
+  const d = new Date(START + POST_HOUR);
+  d.setUTCDate(d.getUTCDate() + i * EVERY);
+  return d.toISOString().replace(/\.\d{3}Z$/, "Z");
+}
 const explicitKeys = args.filter(a => a.startsWith("article-")).map(a => a.replace(/\.(md|html)$/, ""));
 
 // strongest top-of-funnel pieces to seed dev.to with first (avoids a 30-post dump
@@ -60,8 +79,10 @@ const allArticleKeys = fs.readdirSync(__dirname)
   .map(f => f.replace(/\.md$/, ""))
   .sort();
 
+const stateNow = (() => { try { return JSON.parse(fs.readFileSync(STATE_FILE, "utf8")); } catch { return {}; } })();
 let keys;
 if (explicitKeys.length) keys = explicitKeys;
+else if (REST) keys = allArticleKeys.filter(k => !stateNow[k]); // not yet on dev.to
 else if (ALL) keys = allArticleKeys;
 else keys = CORNERSTONE;
 keys = keys.filter(k => { const ok = allArticleKeys.includes(k); if (!ok) console.warn("skip (no .md):", k); return ok; });
@@ -126,25 +147,38 @@ async function main() {
 
   if (!KEY) { console.error("ERROR: set DEVTO_API_KEY (dev.to → Settings → Extensions → API Keys)."); process.exit(1); }
 
+  if (SCHEDULE) console.log(`  cadence: #1 now, then every ${EVERY} day(s) from ${START}${POST_HOUR}`);
   const state = loadState();
-  for (const key of keys) {
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
     const a = convert(key);
-    const payload = { article: { ...a, published: PUBLISH, series: "Human-in-the-Loop for AI Agents" } };
+    const article = { ...a, series: "Human-in-the-Loop for AI Agents" };
+    let when = "draft";
+    if (SCHEDULE) {
+      article.published = true;
+      const slot = slotISO(i);
+      if (slot) { article.published_at = slot; when = "→ " + slot; } else when = "→ LIVE now";
+    } else {
+      article.published = PUBLISH;
+      when = PUBLISH ? "→ LIVE now" : "draft";
+    }
+    const payload = { article };
     const existing = state[key];
     let r;
     if (existing && existing.id) {
       r = await send("PUT", `${API}/${existing.id}`, payload);
-      console.log(`  ${r.ok ? "↻ updated" : "✗ FAILED"} ${key} (${r.status})${r.ok ? " " + r.json.url : " " + JSON.stringify(r.json).slice(0, 200)}`);
+      console.log(`  ${r.ok ? "↻ updated" : "✗ FAILED"} ${key} ${when} (${r.status})${r.ok ? " " + r.json.url : " " + JSON.stringify(r.json).slice(0, 200)}`);
     } else {
       r = await send("POST", API, payload);
       if (r.ok) { state[key] = { id: r.json.id, url: r.json.url }; saveState(state); }
-      console.log(`  ${r.ok ? "＋ created" : "✗ FAILED"} ${key} (${r.status})${r.ok ? " " + r.json.url : " " + JSON.stringify(r.json).slice(0, 200)}`);
+      console.log(`  ${r.ok ? "＋ created" : "✗ FAILED"} ${key} ${when} (${r.status})${r.ok ? " " + r.json.url : " " + JSON.stringify(r.json).slice(0, 200)}`);
     }
     if (r.status === 429) { console.log("    rate-limited; waiting 35s…"); await sleep(35000); }
     await sleep(3000); // be polite to the API
   }
   console.log("\nDone. State saved to devto-state.json (re-runs update instead of duplicating).");
-  if (!PUBLISH) console.log("These are DRAFTS — review on dev.to, then re-run with --publish to go live.");
+  if (SCHEDULE) console.log("Scheduled posts are server-side on dev.to — nothing needs to keep running locally.");
+  else if (!PUBLISH) console.log("These are DRAFTS — review on dev.to, then re-run with --publish to go live.");
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
