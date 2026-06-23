@@ -5,3 +5,5 @@
 # OS / editor cruft
 .DS_Store
 *.swp
+devto-preview/
+devto-state.json
