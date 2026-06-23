@@ -548,6 +548,13 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
             <td>Interrupt and don't resume; cancel the run</td>
             <td>LangSmith tracing + checkpoint history</td>
           </tr>
+          <tr>
+            <td>n8n</td>
+            <td>Toggle <em>Human review</em> per tool (v2.6+) — gate high-risk tools (send / modify / delete), auto-run the rest</td>
+            <td>Scope each tool's credentials; isolate the instance <span class="sub">the gate is approve/deny, so prevent irreversible actions — don't just review</span></td>
+            <td>Workflow pauses for approval via Slack / Telegram / Chat; Deny cancels; stop the execution</td>
+            <td>Per-execution run history</td>
+          </tr>
         </tbody>
       </table>
     </div>

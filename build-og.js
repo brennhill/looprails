@@ -55,6 +55,12 @@ const CARDS = {
   "article-hitl-deployments": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "deployments"], size: 56, sub: "Canary + auto-rollback over approval.", method: false, accent: G2 },
   "article-hitl-content-moderation": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for content", "moderation"], size: 52, sub: "Route by confidence; appeals.", method: false, accent: TEAL },
   "article-hitl-machine-learning": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "machine learning"], size: 54, sub: "Labeling, active learning, RLHF.", method: false, accent: TEAL },
+  "article-hitl-healthcare": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for AI in", "healthcare"], size: 54, sub: "Keep the clinician in command.", method: false, accent: G2 },
+  "article-hitl-legal-contracts": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "legal & contracts"], size: 54, sub: "Verify citations; attorney signs off.", method: false, accent: TEAL },
+  "article-hitl-hiring": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "AI hiring"], size: 58, sub: "A human owns the decision.", method: false, accent: TEAL },
+  "article-hitl-browser-agents": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for browser", "& computer use"], size: 50, sub: "Sandbox the open web.", method: false, accent: G3 },
+  "article-hitl-voice-agents": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "AI voice agents"], size: 54, sub: "Limit, confirm, hand off.", method: false, accent: TEAL },
+  "article-hitl-multi-agent-systems": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for multi-", "agent systems"], size: 52, sub: "Scope sub-agents; one kill switch.", method: false, accent: G2 },
 };
 
 function svg(c) {
