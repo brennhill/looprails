@@ -76,6 +76,11 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
 .gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
 .crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
+.related{margin:8px 0 0;border-top:1px solid var(--line);padding-top:22px}
+.related h2{font-size:1.15rem;margin:0 0 12px;border:none;padding:0}
+.related ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.related li a{font-weight:600;font-size:1rem}
+.related .related-all{margin:14px 0 0;font-size:.9rem}
 footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-size:.85rem;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;max-width:1280px;margin:0 auto}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -169,6 +174,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <p>Stop guessing which mode an action needs. Grade it. Run your real actions through the <a href="./index.html#grader">LoopRails grader</a> to get a G0–G3 grade and matched controls, read the full method in the <a href="./framework.html">framework</a>, and use the <a href="./playbook.html">playbook</a> and <a href="./cheatsheet.html">cheatsheet</a> to put it into practice today. Keep your agents on the rails — and keep the human in the one loop where they can actually help.</p>
 
     </div>
+    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-ai-agent-approval.html">When Should an AI Agent Ask for Approval?</a></li><li><a href="article-lethal-trifecta.html">The Lethal Trifecta: How AI Agents Leak Data</a></li><li><a href="article-ai-agent-guardrails.html">AI Agent Guardrails: A Practical Checklist</a></li><li><a href="article-ai-agent-autonomy-levels.html">AI Agent Autonomy Levels (L0–L6)</a></li><li><a href="article-prompt-injection-prevention.html">Prompt Injection Prevention</a></li></ul><p class="related-all"><a href="articles.html">All articles →</a></p></aside>
   </main>
 </div>
 <footer>

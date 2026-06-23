@@ -77,6 +77,26 @@ const ARTICLES = {
     label: "AI Agent Guardrails: A Practical Checklist",
     title: "AI Agent Guardrails: A Practical Checklist — LoopRails",
     desc: "A practical AI agent guardrails checklist: sandboxing, least privilege, blast-radius caps, kill switches, circuit breakers, logging, and maker-checker — matched to risk." },
+  "article-ai-agent-autonomy-levels": { md: "article-ai-agent-autonomy-levels.md", out: "article-ai-agent-autonomy-levels.html",
+    label: "AI Agent Autonomy Levels (L0–L6)",
+    title: "AI Agent Autonomy Levels: From Logged to Locked Down — LoopRails",
+    desc: "AI agent autonomy levels explained: the L0–L6 ladder from silent autonomy to escalate-or-forbid, and how to pick the right level for each action by risk." },
+  "article-prompt-injection-prevention": { md: "article-prompt-injection-prevention.md", out: "article-prompt-injection-prevention.html",
+    label: "Prompt Injection Prevention",
+    title: "Prompt Injection Prevention: A Defense-in-Depth Guide — LoopRails",
+    desc: "How to prevent prompt injection in AI agents: why filtering fails, and a defense-in-depth approach — least privilege, runtime shields, sandboxing, and removing a lethal-trifecta leg." },
+  "article-maker-checker-ai": { md: "article-maker-checker-ai.md", out: "article-maker-checker-ai.html",
+    label: "Maker-Checker (Four-Eyes) for AI Agents",
+    title: "Maker-Checker (Four-Eyes) for AI Agents — LoopRails",
+    desc: "Maker-checker and the four-eyes principle for AI agents: why the proposer shouldn't be the approver, which actions need it, and how to implement it without rubber-stamping." },
+  "article-automation-bias": { md: "article-automation-bias.md", out: "article-automation-bias.html",
+    label: "Automation Bias: Why People Rubber-Stamp AI",
+    title: "Automation Bias: Why People Rubber-Stamp AI — LoopRails",
+    desc: "Automation bias is why human-in-the-loop oversight of AI fails: people over-trust the system and approve without scrutiny. The evidence, and how to design against it." },
+  "article-ai-kill-switch": { md: "article-ai-kill-switch.md", out: "article-ai-kill-switch.html",
+    label: "How to Build an AI Kill Switch",
+    title: "How to Build an AI Kill Switch — LoopRails",
+    desc: "What an AI kill switch is, why every agent needs one, and how to design one that stops everything in flight — fast, reachable by anyone, and blame-free." },
 };
 
 const ALL = { ...DOCS, ...ARTICLES };
@@ -139,6 +159,11 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
 .gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
 .crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
+.related{margin:8px 0 0;border-top:1px solid var(--line);padding-top:22px}
+.related h2{font-size:1.15rem;margin:0 0 12px;border:none;padding:0}
+.related ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.related li a{font-weight:600;font-size:1rem}
+.related .related-all{margin:14px 0 0;font-size:.9rem}
 footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-size:.85rem;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;max-width:1280px;margin:0 auto}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>`;
@@ -177,11 +202,22 @@ function navHTML(currentKey) {
     .map(([k, d]) => `<a href="${d.out}" class="${k === currentKey ? "on" : ""}">${d.label}</a>`).join("");
 }
 
+// "Related reading" — link each article to up to 5 others (rotated so link equity spreads)
+function relatedReading(currentKey) {
+  const all = Object.keys(ARTICLES);
+  const idx = all.indexOf(currentKey);
+  const pick = [];
+  for (let i = 1; i < all.length && pick.length < 5; i++) pick.push(all[(idx + i) % all.length]);
+  const items = pick.map(k => `<li><a href="${ARTICLES[k].out}">${esc(ARTICLES[k].label)}</a></li>`).join("");
+  return `<aside class="related"><h2>Related reading</h2><ul>${items}</ul><p class="related-all"><a href="articles.html">All articles →</a></p></aside>`;
+}
+
 function page(key, d, contentHTML, toc) {
   const title = d.title || `${stripTags(d.label).replace(/ ·.*/, "")} — LoopRails`;
   const url = `${SITE}/${d.out}`;
   const ogimg = `${SITE}/og-${key}.png`;
   const isArticle = key.startsWith("article-");
+  const relatedBlock = isArticle ? relatedReading(key) : "";
   const crumbHTML = isArticle
     ? `<a href="index.html">LoopRails</a> · <a href="articles.html">Articles</a> · ${esc(stripTags(d.label))}`
     : `<a href="index.html">LoopRails</a> · ${esc(stripTags(d.label))}`;
@@ -240,6 +276,7 @@ ${styleBlock()}
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/${d.md}">View ${d.md} on GitHub ↗</a>
       ${contentHTML}
     </div>
+    ${relatedBlock}
   </main>
 </div>
 <footer>

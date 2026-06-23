@@ -37,6 +37,11 @@ const CARDS = {
   "article-ai-agent-approval": { eyebrow: "LOOPRAILS · ARTICLE", head: ["When should an agent", "ask for approval?"], size: 50, sub: "Build gates that aren't rubber stamps.", method: false, accent: TEAL },
   "article-lethal-trifecta": { eyebrow: "LOOPRAILS · ARTICLE", head: ["The lethal trifecta"], size: 64, sub: "How AI agents leak data — and how to stop it.", method: false, accent: G3 },
   "article-ai-agent-guardrails": { eyebrow: "LOOPRAILS · ARTICLE", head: ["AI agent guardrails"], size: 62, sub: "A practical checklist.", method: false, accent: TEAL },
+  "article-ai-agent-autonomy-levels": { eyebrow: "LOOPRAILS · ARTICLE", head: ["AI agent", "autonomy levels"], size: 58, sub: "The L0–L6 ladder, and how to choose.", method: false, accent: TEAL },
+  "article-prompt-injection-prevention": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Prompt injection", "prevention"], size: 58, sub: "Defense in depth for AI agents.", method: false, accent: G3 },
+  "article-maker-checker-ai": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Maker-checker", "for AI agents"], size: 58, sub: "Four-eyes for irreversible actions.", method: false, accent: TEAL },
+  "article-automation-bias": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Automation bias"], size: 64, sub: "Why people rubber-stamp AI.", method: false, accent: G2 },
+  "article-ai-kill-switch": { eyebrow: "LOOPRAILS · ARTICLE", head: ["The AI kill switch"], size: 64, sub: "Stop everything — fast and blame-free.", method: false, accent: G3 },
 };
 
 function svg(c) {
