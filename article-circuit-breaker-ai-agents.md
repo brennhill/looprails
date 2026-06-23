@@ -44,19 +44,19 @@ The whole point of the pattern is governed resumption, so the state machine matt
 - **Open (tripped).** A threshold crossed. The agent is halted and consequential actions are blocked. The breaker stays open — it does **not** quietly retry on a timer.
 - **Half-open (probing).** A limited, supervised trial: a small number of actions are allowed through so a human can see whether the problem is resolved before fully reopening.
 
-The non-negotiable rule for agents: **resuming requires human re-authorization.** A standard software breaker may auto-close after a cooldown because the only cost of a wrong guess is a few more failed calls. An agent acting in the real world is different — resuming into an unresolved problem can be irreversible. So an open breaker does not auto-close on a timeout, and "resume" is a deliberate, logged human decision, not the default outcome of waiting. The half-open state is a tool for *that human* to confirm the fix under a cap — not a license for the system to reopen itself.
+The non-negotiable rule for agents: **resuming requires human re-authorization.** A software breaker may auto-close after a cooldown because the only cost of a wrong guess is a few more failed calls. An agent acting in the real world is different — resuming into an unresolved problem can be irreversible. So an open breaker does not auto-close on a timeout; "resume" is a deliberate, logged human decision. The half-open state is a tool for *that human* to confirm the fix under a cap — not a license for the system to reopen itself.
 
-This is why the trip and the resume must both be **Logged**: you need a record of what crossed the threshold, what was in flight when it opened, and who re-authorized it and why.
+This is why the trip and the resume must both be **Logged**: a record of what crossed the threshold, what was in flight when it opened, and who re-authorized it and why.
 
 ## Circuit breaker vs kill switch vs rate limit
 
 These three get conflated constantly. They are complementary, and a mature agent uses all three. The difference is the trigger and the job.
 
-**Circuit Breaker — automatic, threshold-triggered, requires re-authorization to resume.** It fires on its own when a measured condition crosses a line, then holds the agent stopped until a human re-authorizes. Its job is to catch *known* failure modes automatically, because the threshold is watching when no human is. See the [Circuit Breaker pattern](framework.html) in the framework.
+**Circuit Breaker — automatic, threshold-triggered, requires re-authorization to resume.** It fires on its own when a measured condition crosses a line, then holds the agent stopped until a human re-authorizes. Its job is to catch *known* failure modes automatically, because the threshold is watching when no human is.
 
-**[Kill Switch](article-ai-kill-switch.html) — human-triggered, stops everything now, used in an emergency.** A person (or a monitor acting for one) decides something is wrong and halts the whole agent immediately, including in-flight work, without first diagnosing it. The difference from a breaker is the trigger: the kill switch is *pulled by a person*; the breaker *fires by itself*.
+**[Kill Switch](article-ai-kill-switch.html) — human-triggered, stops everything now, in an emergency.** A person (or a monitor acting for one) halts the whole agent immediately, including in-flight work, without first diagnosing it. The difference from a breaker is the trigger: the kill switch is *pulled by a person*; the breaker *fires by itself*.
 
-**Rate limit / Blast-Radius Cap — always-on, per-action ceiling.** A rate limit caps how fast or how much any single action can do — max spend per action, max recipients, max requests per minute. It does not stop the agent; it shrinks each action so a mistake stays small. The [Blast-Radius Cap](article-ai-agent-guardrails.html) is prevention by design, running continuously. The circuit breaker sits on top: when the *aggregate* of those capped actions still trends wrong, the breaker pulls the plug.
+**Rate limit / Blast-Radius Cap — always-on, per-action ceiling.** A rate limit caps how fast or how much any single action can do — max spend, max recipients, max requests per minute. It does not stop the agent; it shrinks each action so a mistake stays small. The [Blast-Radius Cap](article-ai-agent-guardrails.html) runs continuously. The circuit breaker sits on top: when the *aggregate* of those capped actions still trends wrong, the breaker pulls the plug.
 
 The clean mental model: a **rate limit** keeps every action small, a **circuit breaker** automatically stops the whole agent when a threshold trips, and a **kill switch** is the human override for when neither caught it.
 
@@ -64,9 +64,9 @@ The clean mental model: a **rate limit** keeps every action small, a **circuit b
 
 In LoopRails, every governed action should keep four properties — **RAIL**: **R**eversible, **A**uthorized, **I**nterruptible, **L**ogged. The circuit breaker is a core expression of **I — [Interruptible](rail-interruptible.html)**: an agent that cannot be stopped automatically when it crosses a danger threshold is not truly interruptible, because the only stop you have depends on a human happening to be watching. The breaker makes interruptibility *automatic*.
 
-It leans just as hard on **L — [Logged](rail-logged.html)**. The trip, the in-flight state, the half-open probe, and the re-authorization all need to be recorded — both to resume safely and to learn what tripped it and why. And resumption is an **Authorized** act: the human's "yes" to reopen has to be informed and deliberate.
+It leans just as hard on **L — [Logged](rail-logged.html)**: the trip, the in-flight state, the half-open probe, and the re-authorization all need to be recorded — to resume safely and to learn what tripped it. And resumption is an **Authorized** act: the human's "yes" to reopen has to be informed.
 
-How much breaker you need scales with the **grade** of the actions your agent can take. Grade each action by reversibility, blast radius, and stakes — the [interactive grader](index.html#grader) does this for you:
+How much breaker you need scales with the **grade** of the actions your agent can take. Grade each by reversibility, blast radius, and stakes — the [interactive grader](index.html#grader) does this for you:
 
 - **G0–G1 (trivial / low):** counters and logging are good hygiene; a breaker is rarely the headline control.
 - **[G2 (high)](guide-g2.html):** a circuit breaker is **expected**. Actions like `git push`, spending within a budget, or modifying shared state move faster than per-action review, so automatic thresholds earn their keep.

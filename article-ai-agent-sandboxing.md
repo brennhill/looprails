@@ -2,15 +2,15 @@
 
 **AI agent sandboxing** is the practice of running an autonomous AI agent inside an isolated, contained environment — no network by default, scoped and short-lived credentials, a locked-down filesystem, resource and budget caps, and disposable infrastructure — so that whatever the agent does, including a mistake or a hijacked instruction, stays inside the box. It matters because the alternative is to bet your safety on a human noticing the wrong action and clicking "deny" in time, and agents act faster, more often, and more opaquely than any human can review. A sandbox moves the safety boundary off the per-action prompt and onto the environment, where it holds even when the agent is wrong. When you **sandbox AI agents**, the worst case is a contained one.
 
-This article explains what sandboxing means for agents, why it beats approval prompts, what a real sandbox includes, how it differs from a denylist, and how it maps to action grades and the RAIL properties. It is built on one question from [the LoopRails framework](framework.html): can a human realistically catch this mistake in time? When the honest answer is no, you prevent the outcome instead of gating it — and a sandbox is the most reliable way to prevent.
+This is built on one question from [the LoopRails framework](framework.html): can a human realistically catch this mistake in time? When the honest answer is no, you prevent the outcome instead of gating it — and a sandbox is the most reliable way to prevent.
 
 ## What AI agent sandboxing is for
 
 An autonomous agent decides its own next action: it reads, writes, runs shell commands, calls APIs, spends money, and talks to the network. Each is a capability, and any capability can be misused — by a buggy plan, a hallucinated step, or an attacker who slipped instructions into content the agent read. A sandbox bounds those capabilities so misuse cannot escape.
 
-The point is not to make the agent behave. You cannot reliably make an LLM behave under adversarial input, because it has no hard boundary between data and instructions. The point is to make misbehavior *not matter*: with no network egress it cannot exfiltrate; with read-only expiring credentials it cannot corrupt shared state; in a disposable VM a wrecked environment is rebuilt, not recovered. This is the **Sandbox-First** pattern in LoopRails — run the agent contained before you trust it — and it is the highest-leverage control you have, because it works regardless of what the agent decides to do.
+The point is not to make the agent behave. You cannot reliably make an LLM behave under adversarial input, because it has no hard boundary between data and instructions. The point is to make misbehavior *not matter*: with no network egress it cannot exfiltrate; with read-only expiring credentials it cannot corrupt shared state; in a disposable VM a wrecked environment is rebuilt, not recovered. This is the **Sandbox-First** pattern in LoopRails — run the agent contained before you trust it — the highest-leverage control you have, because it works regardless of what the agent decides to do.
 
-It is the opposite of the **YOLO Cliff** anti-pattern: full autonomy with nothing containing a mistake, where the first bad action is the last thing that happens before damage lands. A sandbox turns a fall into a contained one.
+It is the opposite of the **YOLO Cliff** anti-pattern: full autonomy with nothing containing a mistake, where the first bad action is the last thing before damage lands. A sandbox turns a fall into a contained one.
 
 ## Why sandboxing beats per-action approval prompts
 
@@ -28,17 +28,17 @@ This is the core LoopRails move: stop putting the safety check on the prompt, wh
 
 A sandbox is not one switch; it is a stack of constraints. To **sandbox AI agents** properly, include all of these, because each closes a different escape route.
 
-**No network by default.** The single highest-value control. An agent with no egress cannot send your data anywhere, reach an attacker's server, or call unknown APIs. Open network per task, to an explicit allowlist, with everything else denied. Default-deny egress removes the network leg of the lethal trifecta (below).
+**No network by default.** The single highest-value control. With no egress the agent cannot send your data anywhere, reach an attacker's server, or call unknown APIs. Open network per task to an explicit allowlist, everything else denied. Default-deny egress removes the network leg of the lethal trifecta (below).
 
-**Scoped, short-lived credentials.** The agent holds the least privilege the task needs and no more — read-only where writes aren't required, narrow tokens, no standing production access — and credentials expire on a short clock, so a leaked token is worthless minutes later. A credential the agent doesn't have cannot be misused; one that has expired cannot be replayed. This is the [Authorized RAIL](rail-authorized.html) and the **Capability Lock** pattern enforced at the boundary.
+**Scoped, short-lived credentials.** The agent holds the least privilege the task needs and no more — read-only where writes aren't required, narrow tokens, no standing production access — and credentials expire on a short clock. A credential the agent doesn't have cannot be misused; one that has expired cannot be replayed. This is the [Authorized RAIL](rail-authorized.html) and the **Capability Lock** pattern enforced at the boundary.
 
 **Filesystem isolation.** Confine the agent to a workspace it cannot escape — no home directory, SSH keys, other projects, or host secrets. A scoped container or VM filesystem means a destructive command, `rm -rf` or an overzealous "cleanup," destroys only the disposable workspace, not your machine.
 
 **Resource and budget caps.** Cap CPU, memory, runtime, API spend, and action rate. Caps convert a runaway from a catastrophe into a small, bounded event. This is the **Blast-Radius Cap** pattern: the 2012 Knight Capital incident — faulty trading software that ran unchecked and lost roughly $440M in about 45 minutes with no way to stop it — is what an uncapped agent in production looks like.
 
-**Ephemeral, disposable environments.** Treat the sandbox as cattle, not pets: a fresh container or VM per task, run, then torn down. There is no accumulated state for an attacker to persist in, and recovery from a bad run is "destroy and recreate," not "investigate and repair." A disposable VM with no path back to real infrastructure is one of the cleanest containment moves available.
+**Ephemeral, disposable environments.** Treat the sandbox as cattle, not pets: a fresh container or VM per task, run, then torn down. No accumulated state for an attacker to persist in, and recovery from a bad run is "destroy and recreate," not "investigate and repair." A disposable VM with no path back to real infrastructure is one of the cleanest containment moves available.
 
-**Egress control.** Beyond on/off, control *where* the agent can talk. An allowlist of destinations — plus proxying or logging what passes through — turns the network from an open exit into a narrow, auditable door, so a task that needs one external API can still keep every other destination closed.
+**Egress control.** Beyond on/off, control *where* the agent can talk. An allowlist of destinations — plus proxying or logging what passes — turns the network from an open exit into a narrow, auditable door, so a task that needs one external API can still keep every other destination closed.
 
 Layer these. No single constraint is sufficient; together they mean an agent that is wrong, confused, or hijacked still cannot reach anything worth reaching. For the consequence-by-consequence version, see the [G3 critical-action guide](guide-g3.html).
 
@@ -57,7 +57,7 @@ This is the **Denylist Theater** anti-pattern. A denylist enumerates the bad thi
 
 ### Sandboxing and the lethal trifecta
 
-Sandboxing is the cleanest fix for the **lethal trifecta**: an agent that combines (1) access to private data, (2) exposure to untrusted content it did not author, and (3) a channel to communicate externally can be prompt-injected into exfiltrating that data — and no approval prompt reliably catches it, because the malicious instruction is buried in content the human will never read. Remove any one leg and the attack breaks. A no-network sandbox removes the external-communication leg outright; scoped credentials remove the private-data leg. See [the lethal trifecta](article-lethal-trifecta.html) and [prompt injection prevention](article-prompt-injection-prevention.html) for the full mechanism, and [the broader guardrails checklist](article-ai-agent-guardrails.html) for how this sits alongside other controls.
+Sandboxing is the cleanest fix for the **lethal trifecta**: an agent that combines private-data access, exposure to untrusted content it did not author, and an external-communication channel can be prompt-injected into exfiltrating that data — and no approval prompt reliably catches it, because the malicious instruction is buried in content the human will never read. Remove any one leg and the attack breaks. A no-network sandbox removes the external-communication leg outright; scoped credentials remove the private-data leg. See [the lethal trifecta](article-lethal-trifecta.html) and [prompt injection prevention](article-prompt-injection-prevention.html) for the mechanism, and [the broader guardrails checklist](article-ai-agent-guardrails.html) for how this sits alongside other controls.
 
 ## How sandboxing maps to grades and RAIL
 

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Build a Good Human-in-the-Loop for AI Financial Transactions — LoopRails</title>
+<meta name="description" content="How to build human-in-the-loop oversight for AI agents that move money: maker-checker, value thresholds, circuit breakers, and kill switches for irreversible payments.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Brenn Hill">
+<link rel="canonical" href="https://looprails.dev/article-hitl-financial-transactions.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Build a Good Human-in-the-Loop for AI Financial Transactions — LoopRails">
+<meta property="og:description" content="How to build human-in-the-loop oversight for AI agents that move money: maker-checker, value thresholds, circuit breakers, and kill switches for irreversible payments.">
+<meta property="og:url" content="https://looprails.dev/article-hitl-financial-transactions.html">
+<meta property="og:image" content="https://looprails.dev/og-article-hitl-financial-transactions.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Build a Good Human-in-the-Loop for AI Financial Transactions — LoopRails">
+<meta name="twitter:description" content="How to build human-in-the-loop oversight for AI agents that move money: maker-checker, value thresholds, circuit breakers, and kill switches for irreversible payments.">
+<meta name="twitter:image" content="https://looprails.dev/og-article-hitl-financial-transactions.png">
+<link rel="icon" href="favicon.ico?v=2" sizes="32x32">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0e7c86">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Human-in-the-Loop for AI Financial Transactions","name":"How to Build a Good Human-in-the-Loop for AI Financial Transactions — LoopRails","description":"How to build human-in-the-loop oversight for AI agents that move money: maker-checker, value thresholds, circuit breakers, and kill switches for irreversible payments.","inLanguage":"en-US","url":"https://looprails.dev/article-hitl-financial-transactions.html","mainEntityOfPage":"https://looprails.dev/article-hitl-financial-transactions.html","image":"https://looprails.dev/og-article-hitl-financial-transactions.png","datePublished":"2026-06-23","dateModified":"2026-06-23","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles.html"},{"@type":"ListItem","position":3,"name":"Human-in-the-Loop for AI Financial Transactions","item":"https://looprails.dev/article-hitl-financial-transactions.html"}]}]}</script>
+<style>
+:root{
+  --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
+  --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:11px 20px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.docpick{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.docpick a{font-size:.88rem;font-weight:600;color:var(--ink-2);padding:6px 12px;border-radius:8px;border:1px solid transparent}
+.docpick a.on{background:var(--rail);color:#fff}
+.docpick a:hover{text-decoration:none;border-color:var(--line)}
+.layout{display:grid;grid-template-columns:270px 1fr;gap:0;max-width:1280px;margin:0 auto}
+@media(max-width:920px){.layout{grid-template-columns:1fr}.toc{display:none}}
+.toc{position:sticky;top:53px;align-self:start;height:calc(100vh - 53px);overflow:auto;padding:24px 14px 60px 22px;border-right:1px solid var(--line)}
+.toc .tt{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.toc a{display:block;font-size:.85rem;color:var(--ink-2);padding:3px 0;border-left:2px solid transparent;padding-left:10px;margin-left:-2px}
+.toc a:hover{color:var(--rail);text-decoration:none}
+.toc a.h3{padding-left:22px;font-size:.8rem;color:var(--muted)}
+.toc a.active{color:var(--rail);border-left-color:var(--rail);font-weight:600}
+.content{padding:34px 40px 120px;min-width:0;max-width:860px}
+@media(max-width:640px){.content{padding:24px 20px 90px}}
+.md h1{font-size:2rem;letter-spacing:-.02em;margin:.2em 0 .5em;line-height:1.15}
+.md h2{font-size:1.5rem;letter-spacing:-.01em;margin:1.7em 0 .5em;padding-top:.4em;border-top:1px solid var(--line)}
+.md h3{font-size:1.16rem;margin:1.4em 0 .4em}
+.md h4{font-size:1rem;margin:1.2em 0 .3em;color:var(--ink-2)}
+.md p{margin:0 0 1em}
+.md ul,.md ol{padding-left:1.3em;margin:0 0 1em}
+.md li{margin:.25em 0}
+.md blockquote{margin:1em 0;padding:.6em 1em;border-left:3px solid var(--rail);background:var(--rail-tint);border-radius:0 8px 8px 0;color:var(--ink-2)}
+.md blockquote p{margin:.3em 0}
+.md code{font-family:var(--mono);font-size:.86em;background:var(--bg-2);padding:2px 6px;border-radius:5px;border:1px solid var(--line)}
+.md pre{background:#0c1620;color:#dfeef0;padding:16px;border-radius:10px;overflow:auto;font-size:.82rem;line-height:1.45}
+.md pre code{background:none;border:none;padding:0;color:inherit}
+.md a{font-weight:500}
+.md hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.md table{border-collapse:collapse;width:100%;margin:0 0 1.3em;font-size:.9rem;display:block;overflow-x:auto}
+.md th,.md td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+.md th{background:var(--bg-2);font-weight:700}
+.md tr:nth-child(even) td{background:#fafbfc}
+.md img{max-width:100%}
+.md strong{font-weight:700}
+.md strong[id]{scroll-margin-top:64px}
+.md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
+.md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
+.crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
+.related{margin:8px 0 0;border-top:1px solid var(--line);padding-top:22px}
+.related h2{font-size:1.15rem;margin:0 0 12px;border:none;padding:0}
+.related ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.related li a{font-weight:600;font-size:1rem}
+.related .related-all{margin:14px 0 0;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-size:.85rem;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;max-width:1280px;margin:0 auto}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="index.html"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
+  <nav class="docpick"><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="codex.html" class="">Codex</a></nav>
+</div>
+<div class="layout">
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-scenario-an-agent-that-moves-money" class="" data-id="the-scenario-an-agent-that-moves-money">The scenario: an agent that moves money</a><a href="#grade-the-actions" class="" data-id="grade-the-actions">Grade the actions</a><a href="#match-the-controls" class="" data-id="match-the-controls">Match the controls</a><a href="#prevent-don39t-review" class="" data-id="prevent-don39t-review">Prevent, don&amp;#39;t review</a><a href="#common-mistakes" class="" data-id="common-mistakes">Common mistakes</a><a href="#key-takeaways" class="" data-id="key-takeaways">Key takeaways</a><a href="#get-started" class="" data-id="get-started">Get started</a></div></aside>
+  <main class="content">
+    <div class="crumb"><a href="index.html">LoopRails</a> · <a href="articles.html">Articles</a> · Human-in-the-Loop for AI Financial Transactions</div>
+    <div id="md" class="md">
+      <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-hitl-financial-transactions.md">View article-hitl-financial-transactions.md on GitHub ↗</a>
+      <h1 id="how-to-build-a-good-human-in-the-loop-for-ai-financial-trans">How to Build a Good Human-in-the-Loop for AI Financial Transactions</h1>
+<p>A good <strong>human in the loop for AI payments</strong> is not a person clicking &quot;approve&quot; on every transfer the agent proposes. It is a structure that grades each money action by how reversible and how costly it is, then prevents the irreversible high-stakes ones from ever firing without two independent parties, hard limits, and an automatic stop. The core test is blunt: can a human realistically catch this mistake in time? For a bad wire that clears in seconds, the answer is no. So you do not rely on review. You build controls that make the wrong action impossible to execute alone, not merely visible after it executes.</p>
+<p>This article walks through that for agents that touch money. We grade the actions, match each grade to a control, and cover the three mistakes that turn AI financial transactions oversight into theater: a single rubber-stamping approver, no spending caps, and no kill switch.</p>
+<h2 id="the-scenario-an-agent-that-moves-money">The scenario: an agent that moves money</h2>
+<p>Picture an agent wired into your finance stack. It can read balances and generate reports. It reconciles invoices against payments. It issues refunds when a customer support ticket warrants one. On the riskier end, it can initiate vendor payouts and wire transfers, and in a trading context it can place market orders. Each of these is a different animal, and treating them the same is the first error. Reading a balance is harmless. A six-figure wire to the wrong account is not recoverable by Tuesday. Effective agent payments approval starts by refusing to flatten that difference.</p>
+<h2 id="grade-the-actions">Grade the actions</h2>
+<p>LoopRails grades each action G0 to G3 by three factors: reversibility, blast radius, and stakes. The <a href="index.html#grader">interactive grader</a> does this for you, and the <a href="guide-g3.html">G3 guide</a> covers the top of the scale in depth. Here is how a financial agent&#39;s actions typically grade.</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Grade</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Read balances, pull reports</td>
+<td>G0</td>
+<td>Reversible, no money moves, trivial blast radius.</td>
+</tr>
+<tr>
+<td>Categorize, reconcile transactions</td>
+<td>G1</td>
+<td>Recoverable; a wrong category is a quick fix, not a loss.</td>
+</tr>
+<tr>
+<td>Issue a small refund</td>
+<td>G2</td>
+<td>Real money, but bounded and recoverable within a known cap.</td>
+</tr>
+<tr>
+<td>Issue a large refund</td>
+<td>G3</td>
+<td>Same as a payout once the amount is high enough to hurt.</td>
+</tr>
+<tr>
+<td>Move money, wire, vendor payout</td>
+<td>G3</td>
+<td>Irreversible once it clears; high stakes; blast radius is the full amount.</td>
+</tr>
+<tr>
+<td>Place a market or trade order</td>
+<td>G3</td>
+<td>Irreversible at execution and fast; needs a circuit breaker, not just review.</td>
+</tr>
+</tbody></table>
+<p>The line that matters most is reversibility. A refund you can claw back is not a wire you cannot. The dollar amount turns the same action type from G2 into G3, which is why a single global rule for &quot;payments&quot; is wrong. You grade by what the specific action does, then attach controls to the grade.</p>
+<h2 id="match-the-controls">Match the controls</h2>
+<p>Once an action is graded, the control follows. The method is Grade · Guard · Show · Prove: grade the action, guard it with the right pattern, show the human the real thing they are approving, and prove what happened with a log. For G0 and G1, let the agent run and log it. The interesting work is at G2 and G3.</p>
+<p><strong>Maker-checker (two-party) for irreversible payments.</strong> For any G3 money movement — a wire, a payout, a large refund — the agent proposes and a separate, independent party approves before it executes. Proposer is never approver. This is the four-eyes principle, borrowed from finance and other high-consequence settings where no single person can both originate and authorize a critical action. The agent is the maker; a human (or a genuinely independent system) is the checker. See the <a href="article-maker-checker-ai.html">maker-checker pattern for AI</a> for how to implement it without it collapsing into a rubber stamp, and the <a href="rail-authorized.html">Authorized rail</a> for where it sits in the framework.</p>
+<p><strong>Value-conditional approval.</strong> You do not put two people on a $3 refund; you do on a $30,000 wire. Set explicit thresholds per action type so the control fires exactly where the cost of being wrong exceeds the cost of a second pair of eyes. Below the line, the agent acts under guardrails and logging. Above it, two-party approval is mandatory. This is what keeps the heavy control from firing so often that approvers stop reading it.</p>
+<p><strong>Hard per-transaction and daily caps.</strong> A blast-radius cap is an always-on ceiling: a maximum any single transfer can be, and a maximum the agent can move in a day, enforced server-side where the money actually moves. Caps shrink every mistake to a survivable size before any human is involved. A misconfigured agent that tries to send $2M against a $5,000 per-transaction and $25,000 daily cap simply cannot. The cap does not depend on anyone noticing.</p>
+<p><strong>Circuit breaker on volume or anomaly.</strong> A <a href="article-circuit-breaker-ai-agents.html">circuit breaker</a> automatically halts the agent when a measured condition crosses a threshold — spend rate spiking, payment volume jumping, an anomaly in recipients or timing — and holds it stopped until a human re-authorizes. Financial markets do exactly this with trading halts: when prices move too far, too fast, the exchange pauses trading to break the feedback loop. An agent placing trades or firing payouts in a loop needs the same automatic brake, because the loop runs faster than anyone can watch it.</p>
+<p><strong>Kill switch.</strong> A <a href="article-ai-kill-switch.html">kill switch</a> is the human-triggered emergency stop: one action halts the whole agent now, including in-flight work, without first diagnosing the problem. The circuit breaker fires by itself on a threshold; the kill switch is the override for when something is wrong that no threshold caught. This is the <a href="rail-interruptible.html">Interruptible rail</a> in practice — an agent that cannot be stopped on demand is not safe to give a payment rail.</p>
+<p><strong>Full audit log.</strong> Every proposal, approval, rejection, cap hit, and breaker trip is recorded: who, what, when, the exact amount, the exact recipient. The log is what lets you reconstruct an incident, prove the control worked, and satisfy auditors. Without it, you cannot prove any of the above ever ran.</p>
+<h2 id="prevent-don39t-review">Prevent, don&#39;t review</h2>
+<p>Here is the part teams get wrong, so it gets its own callout.</p>
+<p>A human cannot catch a bad wire in time. Once the agent submits it and it clears, the money is gone; there is no window in which an attentive person stops it. So the control for an irreversible payment is not &quot;show it to a human and let them confirm.&quot; That is rubber-stamping with extra steps, and under automation bias the lone human will approve a fluent, fast, usually-right agent&#39;s proposal almost every time.</p>
+<p>The control is prevention. The agent physically cannot move large money alone: a hard cap bounds the amount, two independent parties must both authorize anything above the threshold, and a circuit breaker plus kill switch can stop the whole thing. When you cannot catch the mistake, you make the mistake unable to execute. The <a href="playbook.html">playbook</a> and <a href="cheatsheet.html">cheatsheet</a> walk through wiring these in.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<p><strong>The single-approver rubber stamp.</strong> One human approving every payment looks like oversight and functions like a pass-through. Automation bias means the lone approver drifts to &quot;looks fine, approve,&quot; and if that person is measured on throughput, they have no real authority to say no. One approver on irreversible money is not maker-checker; it is one set of eyes with an approve button. Use two independent parties for G3, and show the checker the literal transaction — exact amount, exact recipient — not the agent&#39;s summary of it.</p>
+<p><strong>No caps.</strong> An agent with payment access and no per-transaction or daily ceiling has an unbounded blast radius. The first misconfiguration, prompt injection, or runaway loop is not capped at a survivable number; it is capped at whatever the account holds. Caps are the cheapest control here and the one most often skipped because nothing has gone wrong yet.</p>
+<p><strong>No kill switch.</strong> In 2012, Knight Capital deployed trading software that began firing orders it could not effectively stop, and lost roughly $440 million in about 45 minutes. There was no working way to halt it in time. That is the canonical failure of an agent that touches money with no kill switch and no automatic breaker. If your agent can move money or place orders and you cannot answer &quot;how do we stop it right now,&quot; you have the same gap Knight Capital had.</p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>A good <strong>human in the loop for AI payments</strong> prevents irreversible high-stakes actions rather than rubber-stamping them, because a human cannot catch a bad wire in time.</li>
+<li>Grade every money action by reversibility, blast radius, and stakes: reading is G0, reconciling is G1, small refunds are G2, and wires, payouts, large refunds, and trade orders are G3.</li>
+<li>Match controls to grade: maker-checker (two-party) for irreversible payments, value-conditional thresholds, hard per-transaction and daily caps, a circuit breaker on volume or anomaly, a kill switch, and a full audit log.</li>
+<li>For AI financial transactions oversight at G3, prevent — do not review. Make the wrong action impossible to execute alone.</li>
+<li>The three failures that break agent payments approval: a single rubber-stamping approver, no caps, and no kill switch. Knight Capital is what the last one looks like at scale.</li>
+</ul>
+<h2 id="get-started">Get started</h2>
+<p>Grade your agent&#39;s money actions with the <a href="index.html#grader">interactive grader</a>, then put real separation of duties and caps around the G3 ones using the <a href="guide-g3.html">G3 guide</a> and the <a href="playbook.html">playbook</a>. LoopRails is free and built for practitioners. Grade · Guard · Show · Prove.</p>
+
+    </div>
+    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-hitl-database-operations.html">Human-in-the-Loop for AI Database Operations</a></li><li><a href="article-hitl-email-agents.html">Human-in-the-Loop for AI Email &amp; Messaging</a></li><li><a href="article-hitl-deployments.html">Human-in-the-Loop for AI Deployments</a></li><li><a href="article-hitl-content-moderation.html">Human-in-the-Loop for AI Content Moderation</a></li><li><a href="article-hitl-machine-learning.html">Human-in-the-Loop for Machine Learning</a></li></ul><p class="related-all"><a href="articles.html">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
+  </main>
+</div>
+<footer>
+  <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
+  <span><a href="index.html">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
+</footer>
+<script>
+(function(){
+  var heads=[].slice.call(document.querySelectorAll("#md h2[id],#md h3[id]"));
+  var links=[].slice.call(document.querySelectorAll("#toc a"));
+  if(!heads.length||!links.length) return;
+  var spy=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("data-id")===e.target.id);});}
+  });},{rootMargin:"-60px 0px -75% 0px"});
+  heads.forEach(function(h){spy.observe(h);});
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "43e10ad738e241ab93d08ec0cee965e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

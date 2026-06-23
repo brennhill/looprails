@@ -52,7 +52,7 @@ In every case the pattern is the same: a goal, a loop, and tools that change som
 
 Here's the shift that trips up most teams. We learned to oversee AI by reviewing outputs — read the generated text, decide if it's good, use it or don't. That works for a chatbot because the output *is* the product and nothing happens until you act.
 
-It breaks for agents, because the agent's product is *actions*, and they take effect whether or not you read them. Reviewing the final summary doesn't help if the agent already deleted the wrong files getting there. Oversight has to move from reviewing outputs to **governing actions** — the things the agent does along the way, while it can still be stopped or undone.
+It breaks for agents, because the agent's product is *actions* that take effect whether or not you read them. Reviewing the final summary doesn't help if the agent already deleted the wrong files getting there. Oversight has to move from reviewing outputs to **governing actions** — the things the agent does along the way, while it can still be stopped or undone.
 
 LoopRails frames that as a simple method: **Grade, Guard, Show, Prove.** First, *grade* each action an agent can take on three axes — reversibility, blast radius, and stakes — and let the worst axis set the grade from G0 (trivial, reversible, local) to G3 (irreversible and external or severe). Reading a file is G0; deleting production data or sending money is G3. Then *guard* each grade with a matching control instead of treating every action the same. Try this on your own agent's actions with the [interactive grader](index.html#grader); the full method lives in the [LoopRails framework](framework.html).
 

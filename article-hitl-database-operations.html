@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Build a Good Human-in-the-Loop for AI Database Operations — LoopRails</title>
+<meta name="description" content="How to build human-in-the-loop oversight for AI agents that run SQL: read-only by default, dry-runs, least privilege, backups, and maker-checker for prod schema changes.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Brenn Hill">
+<link rel="canonical" href="https://looprails.dev/article-hitl-database-operations.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Build a Good Human-in-the-Loop for AI Database Operations — LoopRails">
+<meta property="og:description" content="How to build human-in-the-loop oversight for AI agents that run SQL: read-only by default, dry-runs, least privilege, backups, and maker-checker for prod schema changes.">
+<meta property="og:url" content="https://looprails.dev/article-hitl-database-operations.html">
+<meta property="og:image" content="https://looprails.dev/og-article-hitl-database-operations.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Build a Good Human-in-the-Loop for AI Database Operations — LoopRails">
+<meta name="twitter:description" content="How to build human-in-the-loop oversight for AI agents that run SQL: read-only by default, dry-runs, least privilege, backups, and maker-checker for prod schema changes.">
+<meta name="twitter:image" content="https://looprails.dev/og-article-hitl-database-operations.png">
+<link rel="icon" href="favicon.ico?v=2" sizes="32x32">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0e7c86">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Human-in-the-Loop for AI Database Operations","name":"How to Build a Good Human-in-the-Loop for AI Database Operations — LoopRails","description":"How to build human-in-the-loop oversight for AI agents that run SQL: read-only by default, dry-runs, least privilege, backups, and maker-checker for prod schema changes.","inLanguage":"en-US","url":"https://looprails.dev/article-hitl-database-operations.html","mainEntityOfPage":"https://looprails.dev/article-hitl-database-operations.html","image":"https://looprails.dev/og-article-hitl-database-operations.png","datePublished":"2026-06-23","dateModified":"2026-06-23","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles.html"},{"@type":"ListItem","position":3,"name":"Human-in-the-Loop for AI Database Operations","item":"https://looprails.dev/article-hitl-database-operations.html"}]}]}</script>
+<style>
+:root{
+  --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
+  --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:11px 20px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.docpick{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.docpick a{font-size:.88rem;font-weight:600;color:var(--ink-2);padding:6px 12px;border-radius:8px;border:1px solid transparent}
+.docpick a.on{background:var(--rail);color:#fff}
+.docpick a:hover{text-decoration:none;border-color:var(--line)}
+.layout{display:grid;grid-template-columns:270px 1fr;gap:0;max-width:1280px;margin:0 auto}
+@media(max-width:920px){.layout{grid-template-columns:1fr}.toc{display:none}}
+.toc{position:sticky;top:53px;align-self:start;height:calc(100vh - 53px);overflow:auto;padding:24px 14px 60px 22px;border-right:1px solid var(--line)}
+.toc .tt{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.toc a{display:block;font-size:.85rem;color:var(--ink-2);padding:3px 0;border-left:2px solid transparent;padding-left:10px;margin-left:-2px}
+.toc a:hover{color:var(--rail);text-decoration:none}
+.toc a.h3{padding-left:22px;font-size:.8rem;color:var(--muted)}
+.toc a.active{color:var(--rail);border-left-color:var(--rail);font-weight:600}
+.content{padding:34px 40px 120px;min-width:0;max-width:860px}
+@media(max-width:640px){.content{padding:24px 20px 90px}}
+.md h1{font-size:2rem;letter-spacing:-.02em;margin:.2em 0 .5em;line-height:1.15}
+.md h2{font-size:1.5rem;letter-spacing:-.01em;margin:1.7em 0 .5em;padding-top:.4em;border-top:1px solid var(--line)}
+.md h3{font-size:1.16rem;margin:1.4em 0 .4em}
+.md h4{font-size:1rem;margin:1.2em 0 .3em;color:var(--ink-2)}
+.md p{margin:0 0 1em}
+.md ul,.md ol{padding-left:1.3em;margin:0 0 1em}
+.md li{margin:.25em 0}
+.md blockquote{margin:1em 0;padding:.6em 1em;border-left:3px solid var(--rail);background:var(--rail-tint);border-radius:0 8px 8px 0;color:var(--ink-2)}
+.md blockquote p{margin:.3em 0}
+.md code{font-family:var(--mono);font-size:.86em;background:var(--bg-2);padding:2px 6px;border-radius:5px;border:1px solid var(--line)}
+.md pre{background:#0c1620;color:#dfeef0;padding:16px;border-radius:10px;overflow:auto;font-size:.82rem;line-height:1.45}
+.md pre code{background:none;border:none;padding:0;color:inherit}
+.md a{font-weight:500}
+.md hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.md table{border-collapse:collapse;width:100%;margin:0 0 1.3em;font-size:.9rem;display:block;overflow-x:auto}
+.md th,.md td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+.md th{background:var(--bg-2);font-weight:700}
+.md tr:nth-child(even) td{background:#fafbfc}
+.md img{max-width:100%}
+.md strong{font-weight:700}
+.md strong[id]{scroll-margin-top:64px}
+.md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
+.md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
+.crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
+.related{margin:8px 0 0;border-top:1px solid var(--line);padding-top:22px}
+.related h2{font-size:1.15rem;margin:0 0 12px;border:none;padding:0}
+.related ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.related li a{font-weight:600;font-size:1rem}
+.related .related-all{margin:14px 0 0;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-size:.85rem;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;max-width:1280px;margin:0 auto}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="index.html"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
+  <nav class="docpick"><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="codex.html" class="">Codex</a></nav>
+</div>
+<div class="layout">
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#grade-the-actions-not-the-agent" class="" data-id="grade-the-actions-not-the-agent">Grade the actions, not the agent</a><a href="#match-the-controls-to-the-grade" class="" data-id="match-the-controls-to-the-grade">Match the controls to the grade</a><a href="#prevent-don39t-review" class="" data-id="prevent-don39t-review">Prevent, don&amp;#39;t review</a><a href="#common-mistakes-in-ai-sql-agent-safety" class="" data-id="common-mistakes-in-ai-sql-agent-safety">Common mistakes in AI SQL agent safety</a><a href="#key-takeaways" class="" data-id="key-takeaways">Key takeaways</a><a href="#get-started" class="" data-id="get-started">Get started</a></div></aside>
+  <main class="content">
+    <div class="crumb"><a href="index.html">LoopRails</a> · <a href="articles.html">Articles</a> · Human-in-the-Loop for AI Database Operations</div>
+    <div id="md" class="md">
+      <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-hitl-database-operations.md">View article-hitl-database-operations.md on GitHub ↗</a>
+      <h1 id="how-to-build-a-good-human-in-the-loop-for-ai-database-operat">How to Build a Good Human-in-the-Loop for AI Database Operations</h1>
+<p>A good human in the loop for AI database operations does not put a person in front of every query to approve it. It asks one question first: can a human realistically catch this mistake in time? For most database work the honest answer is no. Generated SQL looks correct at a glance, a bad <code>DELETE</code> runs in milliseconds, and a tired reviewer rubber-stamps the tenth migration of the day. So the right design prevents the dangerous outcome instead of reviewing it. You grade each kind of database action by how reversible it is, how wide its blast radius reaches, and how high the stakes are; then you match controls to the grade. A read-only role, scoped credentials granted just in time, a forced dry-run that shows the affected-row count, and verified backups do more to keep your data safe than any approval prompt. This article shows how to build that loop for an AI SQL agent.</p>
+<p>The scenario is now common. You have given an agent the ability to query and modify a database: an analytics assistant that writes SQL from natural language, a support bot that updates records, a coding agent that runs migrations. The agent is useful precisely because it acts. The problem is that a database is one of the least forgiving surfaces an agent can touch, and &quot;let a human approve the SQL&quot; is the control everyone reaches for and the one that fails most quietly.</p>
+<p>This article shows how to grade database actions, match controls to each grade, and why prevention beats review for an AI SQL agent.</p>
+<h2 id="grade-the-actions-not-the-agent">Grade the actions, not the agent</h2>
+<p>The unit of risk is the action, not the agent. The same agent issuing a <code>SELECT</code> against a read replica and a <code>DROP TABLE</code> against production are two completely different risk profiles, and they need different controls. Grade each class of database operation by reversibility, blast radius, and stakes. LoopRails uses four grades, G0 through G3; you can run a specific action through the <a href="index.html#grader">LoopRails grader</a> to place it.</p>
+<table>
+<thead>
+<tr>
+<th>Database action</th>
+<th>Typical grade</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>SELECT</code> / read on a read replica</td>
+<td>G0–G1</td>
+<td>No state change, small blast radius, fully reversible</td>
+</tr>
+<tr>
+<td><code>INSERT</code> / <code>UPDATE</code> with a <code>WHERE</code> on non-critical tables</td>
+<td>G2</td>
+<td>Changes state but is scoped and recoverable from backup</td>
+</tr>
+<tr>
+<td><code>DELETE</code>, or <code>UPDATE</code> without a <code>WHERE</code></td>
+<td>G2–G3</td>
+<td>Can hit every row; recoverable only if backups exist</td>
+</tr>
+<tr>
+<td><code>DROP</code> / <code>TRUNCATE</code> / <code>ALTER</code> / schema migration</td>
+<td>G3</td>
+<td>Structural, often irreversible, wide blast radius</td>
+</tr>
+<tr>
+<td>Any of the above on <strong>prod</strong> vs <strong>staging</strong></td>
+<td>shift up</td>
+<td>Same query, higher stakes and blast radius</td>
+</tr>
+</tbody></table>
+<p>Two things drive the grade more than the verb itself. The first is the missing <code>WHERE</code>: an <code>UPDATE accounts SET status = &#39;closed&#39;</code> with no predicate is a different animal from the same statement scoped to one row. The second is the target environment. Running exploratory queries against staging or a copy is low-grade by construction; the identical statement against production carries every customer&#39;s data with it. When you grade, grade the action <em>and</em> where it lands. This is the <a href="guide-g2.html">G2</a> and <a href="guide-g3.html">G3</a> boundary in practice: G2 is recoverable with effort, G3 is the action you cannot take back.</p>
+<h2 id="match-the-controls-to-the-grade">Match the controls to the grade</h2>
+<p>Once an action is graded, the controls follow. The goal is not to make a human approve more; it is to make the dangerous version of the action impossible or trivially reversible. These are the LoopRails patterns applied to a database.</p>
+<p><strong>Read-only role by default (Capability Lock).</strong> The agent connects through a database role that can <code>SELECT</code> and nothing else. This is the single highest-leverage control. It is not a rule the agent is asked to follow; it is a permission the agent does not have. A read-only role makes every G2 and G3 write physically impossible in the default session, which is exactly what <a href="article-least-privilege-ai-agents.html">least privilege for AI agents</a> buys you.</p>
+<p><strong>Separate, scoped prod credentials granted just in time.</strong> When a write genuinely is needed, do not hand the agent a standing write account. Issue a separate credential, scoped to the specific tables and operations the task requires, valid only for that task, and revoked after. Prod credentials are never the agent&#39;s resting state. This keeps the <a href="rail-authorized.html">Authorized rail</a> honest: the agent holds exactly the authority the action needs and no more.</p>
+<p><strong>Dry-run and show the affected-row count before executing.</strong> For any write, run the statement in a transaction or against the query planner first and surface what it <em>would</em> touch: &quot;this <code>DELETE</code> will affect 48,219 rows.&quot; A human cannot read SQL and predict its blast radius, but a human can notice that a one-customer cleanup is about to delete forty-eight thousand rows. Showing the count is the &quot;Show&quot; in Grade · Guard · Show · Prove, and it turns a blind approval into a real decision.</p>
+<p><strong>Require <code>WHERE</code> and cap rows.</strong> Enforce, at the execution layer, that <code>UPDATE</code> and <code>DELETE</code> statements carry a <code>WHERE</code> clause, and impose a row-count cap above which the statement refuses to run without explicit elevation. This is the Blast-Radius Cap pattern: even a wrong query can only reach so far.</p>
+<p><strong>Transactions and verified backups for reversibility.</strong> Wrap writes in transactions so they can be rolled back, and ensure backups exist and have been test-restored before any G2+ work. Reversibility is what lets you downgrade the stakes of a mistake; an action you can undo is one a human does not have to catch in time. This is the <a href="rail-reversible.html">Reversible rail</a>.</p>
+<p><strong>Maker-checker for prod DDL and migrations.</strong> Schema changes are G3 and frequently irreversible. For these, the party that proposes the change is not the party that authorizes it. The agent drafts the migration; a human with separate prod credentials reviews the diff, the rollback plan, and the affected objects, then applies it. This is the one place a human approval genuinely belongs, because the action is rare, high-stakes, and reviewed with real context.</p>
+<p><strong>Run exploratory work against staging or a copy (Sandbox-First).</strong> Default the agent&#39;s environment to staging, a read replica, or a restored copy. Most agent database work is exploration and proposal, none of which need production, so a wrong query hits a throwaway, not your customers. See <a href="article-ai-agent-sandboxing.html">AI agent sandboxing</a> for the general pattern.</p>
+<h2 id="prevent-don39t-review">Prevent, don&#39;t review</h2>
+<p>Here is the callout worth stopping on. A human eyeballing generated SQL will not reliably catch a bad <code>DELETE</code>. The statement is syntactically clean, the table name is right, and the only flaw is a <code>WHERE</code> clause that is too broad or absent entirely. Nothing about reading the text tells you it will hit every row instead of one. By the time the result comes back, the rows are gone.</p>
+<p>So do not build your loop around approval. Build it around prevention. Constrain the privileges so the destructive version cannot run in the default session, force a dry-run that shows the affected-row count, require a <code>WHERE</code>, and keep verified backups. Then the worst outcome is bounded by controls rather than by someone&#39;s attention. The core LoopRails test applies directly: if a person cannot realistically catch the mistake in time, prevent it, do not rubber-stamp it.</p>
+<h2 id="common-mistakes-in-ai-sql-agent-safety">Common mistakes in AI SQL agent safety</h2>
+<p>These are the failure modes that show up again and again when teams wire an agent to a database.</p>
+<p><strong>Giving the agent a superuser or admin account.</strong> This is the most common and most damaging. An admin connection means the agent can drop tables, alter schemas, and read every record, and so can anyone who manages to steer the agent through a prompt injection. The fix is structural: connect through the narrowest role the task needs, and treat agent database access as something you grant, not something the agent has by default.</p>
+<p><strong>Trusting an SQL denylist.</strong> Blocking strings like <code>DROP TABLE</code> or <code>DELETE</code> and treating that as a boundary is Denylist Theater. Pattern-matching on SQL is bypassable: comments split a keyword (<code>DR/**/OP</code>), case and whitespace vary, alternate syntax reaches the same effect, and dynamic SQL assembles the forbidden statement at runtime. A denylist enumerates the dangerous queries you thought of; the agent needs only one you missed. Removing the capability — a read-only role — is strictly stronger than forbidding a query, because there is nothing to phrase around. The principle of least authority limits damage in a way a blocklist cannot.</p>
+<p><strong>No backups and no dry-run.</strong> If you cannot show what a write will affect before it runs, and cannot restore after it runs, every write is a leap of faith. Verify backups by restoring them, and make dry-run the default path to execution.</p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Start from the core question: can a human realistically catch this database mistake in time? For generated SQL, usually not — so prevent the bad outcome instead of approving the query.</li>
+<li>Grade actions by reversibility, blast radius, and stakes. Reads are G0–G1; scoped writes are G2; unscoped <code>DELETE</code>/<code>UPDATE</code> and all DDL trend G3; running against prod shifts the grade up.</li>
+<li>A read-only role by default is the highest-leverage control. It is a capability the agent lacks, not a rule it is asked to follow.</li>
+<li>Grant separate, scoped prod credentials just in time, force a dry-run with an affected-row count, require <code>WHERE</code>, cap rows, wrap writes in transactions, and keep verified backups.</li>
+<li>Reserve human approval for what it is good at: maker-checker review of rare, high-stakes prod schema changes, with full context and a rollback plan.</li>
+<li>A human will not catch a bad <code>DELETE</code> by reading SQL, and an SQL denylist is bypassable. Constrain privileges and force dry-runs instead of trusting a review.</li>
+</ul>
+<h2 id="get-started">Get started</h2>
+<p>Building a human in the loop for AI database operations is one application of a general method. Start with the <a href="framework.html">LoopRails framework</a> to grade your agent&#39;s database actions, then use the <a href="playbook.html">playbook</a> to put read-only roles, dry-runs, and just-in-time credentials around them. If you have five minutes, the <a href="cheatsheet.html">cheatsheet</a> is the fastest way in.</p>
+<p>LoopRails is free and built for practitioners. Grade · Guard · Show · Prove.</p>
+
+    </div>
+    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-hitl-email-agents.html">Human-in-the-Loop for AI Email &amp; Messaging</a></li><li><a href="article-hitl-deployments.html">Human-in-the-Loop for AI Deployments</a></li><li><a href="article-hitl-content-moderation.html">Human-in-the-Loop for AI Content Moderation</a></li><li><a href="article-hitl-machine-learning.html">Human-in-the-Loop for Machine Learning</a></li><li><a href="article-what-is-human-in-the-loop.html">What Is Human-in-the-Loop (HITL) in AI?</a></li></ul><p class="related-all"><a href="articles.html">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
+  </main>
+</div>
+<footer>
+  <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
+  <span><a href="index.html">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
+</footer>
+<script>
+(function(){
+  var heads=[].slice.call(document.querySelectorAll("#md h2[id],#md h3[id]"));
+  var links=[].slice.call(document.querySelectorAll("#toc a"));
+  if(!heads.length||!links.length) return;
+  var spy=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("data-id")===e.target.id);});}
+  });},{rootMargin:"-60px 0px -75% 0px"});
+  heads.forEach(function(h){spy.observe(h);});
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "43e10ad738e241ab93d08ec0cee965e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

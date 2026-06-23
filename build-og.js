@@ -47,6 +47,14 @@ const CARDS = {
   "article-least-privilege-ai-agents": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Least privilege", "for AI agents"], size: 56, sub: "Grant only what the task needs.", method: false, accent: TEAL },
   "article-circuit-breaker-ai-agents": { eyebrow: "LOOPRAILS · ARTICLE", head: ["The circuit breaker", "pattern for AI"], size: 52, sub: "Auto-pause before damage cascades.", method: false, accent: G2 },
   "article-what-is-agentic-ai": { eyebrow: "LOOPRAILS · ARTICLE", head: ["What is", "agentic AI?"], size: 62, sub: "And why oversight has to change.", method: false, accent: TEAL },
+  "article-hitl-coding-agents": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "coding agents"], size: 56, sub: "Reads → merges → shell, graded.", method: false, accent: TEAL },
+  "article-hitl-customer-support": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "customer support"], size: 54, sub: "Refunds, replies, escalation.", method: false, accent: TEAL },
+  "article-hitl-financial-transactions": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "AI payments"], size: 56, sub: "Two-party approval for moving money.", method: false, accent: G3 },
+  "article-hitl-database-operations": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "database ops"], size: 56, sub: "Read-only by default; dry-run prod.", method: false, accent: G2 },
+  "article-hitl-email-agents": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "AI email"], size: 58, sub: "Undo-send, previews, rate caps.", method: false, accent: TEAL },
+  "article-hitl-deployments": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "deployments"], size: 56, sub: "Canary + auto-rollback over approval.", method: false, accent: G2 },
+  "article-hitl-content-moderation": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for content", "moderation"], size: 52, sub: "Route by confidence; appeals.", method: false, accent: TEAL },
+  "article-hitl-machine-learning": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "machine learning"], size: 54, sub: "Labeling, active learning, RLHF.", method: false, accent: TEAL },
 };
 
 function svg(c) {

@@ -117,6 +117,38 @@ const ARTICLES = {
     label: "What Is Agentic AI?",
     title: "What Is Agentic AI? And Why Oversight Has to Change — LoopRails",
     desc: "Agentic AI explained: how AI agents plan and take actions with tools — what makes them powerful and risky, and why overseeing them means governing actions, not outputs." },
+  "article-hitl-coding-agents": { md: "article-hitl-coding-agents.md", out: "article-hitl-coding-agents.html",
+    label: "Human-in-the-Loop for AI Coding Agents",
+    title: "How to Build a Good Human-in-the-Loop for AI Coding Agents — LoopRails",
+    desc: "How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0–G3, and match the right control to each." },
+  "article-hitl-customer-support": { md: "article-hitl-customer-support.md", out: "article-hitl-customer-support.html",
+    label: "Human-in-the-Loop for AI Customer Support",
+    title: "How to Build a Good Human-in-the-Loop for AI Customer Support — LoopRails",
+    desc: "How to build human-in-the-loop oversight for AI customer support agents: value-conditional approval for refunds, review for outbound replies, and escalation done right." },
+  "article-hitl-financial-transactions": { md: "article-hitl-financial-transactions.md", out: "article-hitl-financial-transactions.html",
+    label: "Human-in-the-Loop for AI Financial Transactions",
+    title: "How to Build a Good Human-in-the-Loop for AI Financial Transactions — LoopRails",
+    desc: "How to build human-in-the-loop oversight for AI agents that move money: maker-checker, value thresholds, circuit breakers, and kill switches for irreversible payments." },
+  "article-hitl-database-operations": { md: "article-hitl-database-operations.md", out: "article-hitl-database-operations.html",
+    label: "Human-in-the-Loop for AI Database Operations",
+    title: "How to Build a Good Human-in-the-Loop for AI Database Operations — LoopRails",
+    desc: "How to build human-in-the-loop oversight for AI agents that run SQL: read-only by default, dry-runs, least privilege, backups, and maker-checker for prod schema changes." },
+  "article-hitl-email-agents": { md: "article-hitl-email-agents.md", out: "article-hitl-email-agents.html",
+    label: "Human-in-the-Loop for AI Email & Messaging",
+    title: "How to Build a Good Human-in-the-Loop for AI Email & Outbound Messaging — LoopRails",
+    desc: "How to build human-in-the-loop oversight for AI agents that send email and messages: undo-send windows, previews, rate caps, and approval for external or bulk sends." },
+  "article-hitl-deployments": { md: "article-hitl-deployments.md", out: "article-hitl-deployments.html",
+    label: "Human-in-the-Loop for AI Deployments",
+    title: "How to Build a Good Human-in-the-Loop for AI-Driven Deployments — LoopRails",
+    desc: "How to build human-in-the-loop oversight for AI-driven deployments: canary plus automatic rollback, circuit breakers, and a kill switch instead of a rubber-stamp approval." },
+  "article-hitl-content-moderation": { md: "article-hitl-content-moderation.md", out: "article-hitl-content-moderation.html",
+    label: "Human-in-the-Loop for AI Content Moderation",
+    title: "How to Build a Good Human-in-the-Loop for AI Content Moderation — LoopRails",
+    desc: "How to build human-in-the-loop oversight for AI content moderation: confidence-based routing, reversible removals, appeals as escalation, and avoiding reviewer fatigue." },
+  "article-hitl-machine-learning": { md: "article-hitl-machine-learning.md", out: "article-hitl-machine-learning.html",
+    label: "Human-in-the-Loop for Machine Learning",
+    title: "Human-in-the-Loop for Machine Learning (Labeling & Active Learning) — LoopRails",
+    desc: "Human-in-the-loop machine learning explained: labeling, active learning, low-confidence review, and RLHF — how to route human effort by uncertainty and keep label quality high." },
 };
 
 const ALL = { ...DOCS, ...ARTICLES };
@@ -229,7 +261,7 @@ function relatedReading(currentKey) {
   const pick = [];
   for (let i = 1; i < all.length && pick.length < 5; i++) pick.push(all[(idx + i) % all.length]);
   const items = pick.map(k => `<li><a href="${ARTICLES[k].out}">${esc(ARTICLES[k].label)}</a></li>`).join("");
-  return `<aside class="related"><h2>Related reading</h2><ul>${items}</ul><p class="related-all"><a href="articles.html">All articles →</a></p></aside>`;
+  return `<aside class="related"><h2>Related reading</h2><ul>${items}</ul><p class="related-all"><a href="articles.html">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>`;
 }
 
 function page(key, d, contentHTML, toc) {
@@ -301,7 +333,7 @@ ${styleBlock()}
 </div>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
-  <span><a href="index.html">Home</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
+  <span><a href="index.html">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
 </footer>
 <script>
 (function(){
@@ -386,7 +418,7 @@ ${styleBlock()}
 </main>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
-  <span><a href="index.html">Home</a> · <a href="playbook.html">Playbook</a> · <a href="https://github.com/brennhill/looprails">GitHub</a></span>
+  <span><a href="index.html">Home</a> · <a href="playbook.html">Playbook</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a></span>
 </footer>
 ${BEACON}
 </body>

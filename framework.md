@@ -532,5 +532,16 @@ human-factors / HCI / AI-safety base (Parts I–II), it now draws on:
 
 ---
 
+## Related: the BRACE Framework
+
+LoopRails governs *human oversight* — which actions to gate, which to prevent, and how to design the
+review moment. It pairs with the **[BRACE Framework](https://braceframework.org)**, a security
+framework for autonomous AI agents that hardens the agent's *configuration and infrastructure*
+(environment/network isolation, capability-scoped tokens, signed/minimal containers, and
+observability — nine controls plus three observability requirements). LoopRails sits on top (when and
+how a human is in the loop); BRACE is the security baseline underneath. Use them together.
+
+---
+
 *Companion to [`codex.md`](./codex.md) (the research foundation). Assembled 2026-06-22; expanded with
 Parts III–V and the loop-episode section after the initial draft.*
