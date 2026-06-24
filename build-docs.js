@@ -12,6 +12,9 @@ const { parse } = require("./vendor/marked.min.js");
 const SITE = "https://looprails.dev";
 const BEACON = `<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "43e10ad738e241ab93d08ec0cee965e6"}'></script><!-- End Cloudflare Web Analytics -->`;
 
+// email capture (ConvertKit / Kit) shown near the foot of every generated page
+const NEWSLETTER = `<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:30px 22px;text-align:center"><div style="max-width:560px;margin:0 auto"><div style="font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:4px">Get new LoopRails essays by email</div><p style="color:var(--ink-2);font-size:.92rem;margin:0 0 14px">Loop engineering, verifiers, and human oversight. No spam, unsubscribe anytime.</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script></div></section>`;
+
 const TODAY = new Date().toISOString().slice(0, 10);
 
 // key -> source md, output html, nav label, SEO title, per-page description
@@ -22,6 +25,9 @@ const DOCS = {
   framework:          { md: "framework.md",           out: "framework.html",           label: "Framework",     nav: true,
     title: "Human-in-the-Loop Framework for AI Agents · LoopRails",
     desc: "The full LoopRails framework: the consequence-vs-controllability model, grades G0-G3, the autonomy ladder, the anatomy of an oversight moment, and how to validate human-in-the-loop oversight of AI agents." },
+  kit:                { md: "kit.md",                 out: "kit.html",                 label: "Kit",           nav: true,
+    title: "The LoopRails Kit: Templates for Building Safe Agent Loops · LoopRails",
+    desc: "Copy-paste artifacts for building agent loops: a done-condition spec, a Loop Card, a guardrails checklist, and a model-adaptation worksheet. Fill them in before you let a loop run." },
   codex:              { md: "codex.md",               out: "codex.html",               label: "Codex",         nav: true,
     title: "Human-in-the-Loop & AI Safety Research Codex (366 Sources) · LoopRails",
     desc: "366 annotated sources on human-in-the-loop oversight and AI safety, aviation, medicine, finance, AI safety, and HCI. The evidence base behind LoopRails." },
@@ -173,6 +179,10 @@ const ARTICLES = {
     label: "Human-in-the-Loop for Multi-Agent Systems",
     title: "How to Build a Good Human-in-the-Loop for Multi-Agent Systems · LoopRails",
     desc: "How to design human-in-the-loop oversight for multi-agent systems: least privilege per sub-agent, provenance logging, one kill switch, and clear human accountability." },
+  "article-loop-engineering-doctrine": { md: "article-loop-engineering-doctrine.md", out: "article-loop-engineering-doctrine.html",
+    label: "The LoopRails Doctrine",
+    title: "The LoopRails Doctrine: Principles of Loop Engineering · LoopRails",
+    desc: "Ten principles for building agent loops that are fast to build and safe to run: a checkable done-condition, an independent verifier, caps, memory in a file, maker-checker, action grading, and guardrails on by default." },
   "article-loop-engineering": { md: "article-loop-engineering.md", out: "article-loop-engineering.html",
     label: "What Is Loop Engineering?",
     title: "What Is Loop Engineering? From Prompts to Loops · LoopRails",
@@ -193,6 +203,14 @@ const ARTICLES = {
     label: "Oversight for Autonomous Loops",
     title: "How to Keep an Autonomous Loop on the Rails · LoopRails",
     desc: "Loop engineering moves oversight from per-step prompts to the goal, the verifier, and a few human checkpoints. How to grade a loop's actions, cap its blast radius, and stop it when it runs away." },
+  "article-lora-vs-fine-tuning-vs-pre-training": { md: "article-lora-vs-fine-tuning-vs-pre-training.md", out: "article-lora-vs-fine-tuning-vs-pre-training.html",
+    label: "LoRA vs Fine-Tuning vs Pre-Training",
+    title: "LoRA vs Fine-Tuning vs Pre-Training: When Each Makes Sense · LoopRails",
+    desc: "What LoRA, full fine-tuning, and pre-training each change in a model, what they cost, and when to reach for each when adapting a model for an agent loop. Plus why retrieval often beats fine-tuning." },
+  "article-adapting-models-you-dont-control": { md: "article-adapting-models-you-dont-control.md", out: "article-adapting-models-you-dont-control.html",
+    label: "What You Can & Can't Do With Models You Don't Control",
+    title: "What You Can and Can't Do With Models You Don't Control · LoopRails",
+    desc: "Closed API models (Claude, GPT, Gemini) versus open-weight models (Llama, Mistral, Gemma): what each lets you change, what it takes off the table, and how that choice shapes the loop you build." },
 };
 
 const ALL = { ...DOCS, ...ARTICLES };
@@ -305,8 +323,16 @@ function buildTOC(html) {
 }
 
 function navHTML(currentKey) {
-  return Object.entries(DOCS).filter(([, d]) => d.nav)
-    .map(([k, d]) => `<a href="${d.out}" class="${k === currentKey ? "on" : ""}">${d.label}</a>`).join("");
+  // curated lifecycle nav: principles -> how-to -> model -> tools -> evidence -> library
+  const items = [
+    ["article-loop-engineering-doctrine", "article-loop-engineering-doctrine.html", "Doctrine"],
+    ["playbook", "playbook.html", "Playbook"],
+    ["framework", "framework.html", "Framework"],
+    ["kit", "kit.html", "Kit"],
+    ["codex", "codex.html", "Codex"],
+    ["__articles", "articles.html", "Articles"],
+  ];
+  return items.map(([k, href, label]) => `<a href="${href}" class="${k === currentKey ? "on" : ""}">${label}</a>`).join("");
 }
 
 // "Related reading", link each article to up to 5 others (rotated so link equity spreads)
@@ -388,6 +414,7 @@ ${styleBlock()}
     ${relatedBlock}
   </main>
 </div>
+${NEWSLETTER}
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="index.html">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
@@ -451,9 +478,11 @@ function articlesIndexPage() {
   const desc = "Practical articles on human-in-the-loop oversight and AI agent safety: HITL explained, when agents should ask for approval, the lethal trifecta, AI agent guardrails, and more.";
   const items = Object.values(ARTICLES);
   const CATS = [
+    ["The LoopRails Doctrine", ["article-loop-engineering-doctrine"]],
+    ["Build a loop", ["article-loop-engineering", "article-build-agent-loop", "article-loop-patterns", "article-evaluation-driven-development", "article-loop-engineering-oversight"]],
+    ["Choosing & adapting models", ["article-lora-vs-fine-tuning-vs-pre-training", "article-adapting-models-you-dont-control"]],
     ["Start here & concepts", ["article-what-is-agentic-ai", "article-what-is-human-in-the-loop", "article-hitl-ai-safety", "article-in-the-loop-vs-on-the-loop", "article-ai-agent-autonomy-levels", "article-automation-bias"]],
     ["Patterns & controls", ["article-ai-agent-approval", "article-ai-agent-guardrails", "article-lethal-trifecta", "article-prompt-injection-prevention", "article-maker-checker-ai", "article-ai-kill-switch", "article-circuit-breaker-ai-agents", "article-ai-agent-sandboxing", "article-least-privilege-ai-agents"]],
-    ["Loop engineering", ["article-loop-engineering", "article-build-agent-loop", "article-loop-patterns", "article-evaluation-driven-development", "article-loop-engineering-oversight"]],
     ["Use cases, human-in-the-loop for…", ["article-hitl-coding-agents", "article-hitl-customer-support", "article-hitl-financial-transactions", "article-hitl-database-operations", "article-hitl-email-agents", "article-hitl-deployments", "article-hitl-content-moderation", "article-hitl-machine-learning", "article-hitl-healthcare", "article-hitl-legal-contracts", "article-hitl-hiring", "article-hitl-browser-agents", "article-hitl-voice-agents", "article-hitl-multi-agent-systems"]],
     ["Studies", ["article-llm-agent-skills-credential-leak"]],
   ];
@@ -517,7 +546,7 @@ ${styleBlock()}
 <body>
 <div class="topbar">
   <a class="brand" href="index.html">${BRAND_SVG} LoopRails</a>
-  <nav class="docpick">${navHTML(null)}</nav>
+  <nav class="docpick">${navHTML("__articles")}</nav>
 </div>
 <main class="content" style="max-width:900px;margin:0 auto">
   <div class="crumb"><a href="index.html">LoopRails</a> · Articles</div>
@@ -527,6 +556,7 @@ ${styleBlock()}
   </div>
 ${sections}
 </main>
+${NEWSLETTER}
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="index.html">Home</a> · <a href="playbook.html">Playbook</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a></span>

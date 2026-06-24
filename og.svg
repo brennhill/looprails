@@ -12,10 +12,10 @@
     <line x1="90" y1="90" x2="134" y2="90"/><line x1="90" y1="106" x2="134" y2="106"/>
   </g>
   <text x="164" y="117" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="46" fill="#ffffff" letter-spacing="-1">LoopRails</text>
-  <text x="82" y="212" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="22" letter-spacing="4" fill="#5fd0d8">CALIBRATED OVERSIGHT FOR AI AGENTS</text>
-  <text x="80" y="296" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="54" fill="#ffffff" letter-spacing="-1">Decide how much human oversight</text>
-  <text x="80" y="358" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="54" fill="#ffffff" letter-spacing="-1">each AI action needs.</text>
-  
+  <text x="82" y="212" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="22" letter-spacing="4" fill="#5fd0d8">AI LOOPS ON RAILS</text>
+  <text x="80" y="296" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="60" fill="#ffffff" letter-spacing="-1">Build AI loops</text>
+  <text x="80" y="364" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="60" fill="#ffffff" letter-spacing="-1">you can ship.</text>
+  <text x="82" y="482" font-family="Inter, Arial, Helvetica, sans-serif" font-size="28" fill="#b9cdd2">Fast to build, safe to run. With a human where it counts.</text>
   <text x="82" y="466" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="28" letter-spacing="1" fill="#5fd0d8">Grade · Guard · Show · Prove</text>
   <g>
     <rect x="80" y="512" width="1040" height="40" fill="url(#ties)"/>

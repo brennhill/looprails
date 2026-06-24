@@ -5,6 +5,7 @@
   <url><loc>https://looprails.dev/cheatsheet.html</loc><lastmod>2026-06-24</lastmod></url>
   <url><loc>https://looprails.dev/playbook.html</loc><lastmod>2026-06-24</lastmod></url>
   <url><loc>https://looprails.dev/framework.html</loc><lastmod>2026-06-24</lastmod></url>
+  <url><loc>https://looprails.dev/kit.html</loc><lastmod>2026-06-24</lastmod></url>
   <url><loc>https://looprails.dev/codex.html</loc><lastmod>2026-06-24</lastmod></url>
   <url><loc>https://looprails.dev/guide-g0.html</loc><lastmod>2026-06-24</lastmod></url>
   <url><loc>https://looprails.dev/guide-g1.html</loc><lastmod>2026-06-24</lastmod></url>
@@ -44,9 +45,12 @@
   <url><loc>https://looprails.dev/article-hitl-browser-agents.html</loc><lastmod>2026-06-24</lastmod></url>
   <url><loc>https://looprails.dev/article-hitl-voice-agents.html</loc><lastmod>2026-06-24</lastmod></url>
   <url><loc>https://looprails.dev/article-hitl-multi-agent-systems.html</loc><lastmod>2026-06-24</lastmod></url>
+  <url><loc>https://looprails.dev/article-loop-engineering-doctrine.html</loc><lastmod>2026-06-24</lastmod></url>
   <url><loc>https://looprails.dev/article-loop-engineering.html</loc><lastmod>2026-06-24</lastmod></url>
   <url><loc>https://looprails.dev/article-build-agent-loop.html</loc><lastmod>2026-06-24</lastmod></url>
   <url><loc>https://looprails.dev/article-loop-patterns.html</loc><lastmod>2026-06-24</lastmod></url>
   <url><loc>https://looprails.dev/article-evaluation-driven-development.html</loc><lastmod>2026-06-24</lastmod></url>
   <url><loc>https://looprails.dev/article-loop-engineering-oversight.html</loc><lastmod>2026-06-24</lastmod></url>
+  <url><loc>https://looprails.dev/article-lora-vs-fine-tuning-vs-pre-training.html</loc><lastmod>2026-06-24</lastmod></url>
+  <url><loc>https://looprails.dev/article-adapting-models-you-dont-control.html</loc><lastmod>2026-06-24</lastmod></url>
 </urlset>

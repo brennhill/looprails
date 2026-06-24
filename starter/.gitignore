@@ -1,0 +1,7 @@
+# LoopRails runtime: memory, audit log, and the kill-switch file.
+# These are produced by a run; they are not source.
+.looprails/
+
+# Python bytecode cache.
+__pycache__/
+*.pyc

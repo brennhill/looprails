@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Human-in-the-Loop Framework for AI Agents · LoopRails</title>
-<meta name="description" content="LoopRails is a practical human-in-the-loop (HITL) framework for AI agents: decide how much human oversight each action needs and design AI safety controls that actually catch mistakes, instead of rubber-stamping them. Free and fully sourced.">
+<title>Build AI Agent Loops, with Human-in-the-Loop Guardrails · LoopRails</title>
+<meta name="description" content="LoopRails is a framework for building AI agent loops end to end: conventions and a working scaffold to build them fast, and human-in-the-loop (HITL) guardrails to run them safely. Rails for your loops, in both senses. Free and fully sourced.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="keywords" content="human in the loop, human-in-the-loop, HITL, AI safety, AI agent safety, AI agents, agentic AI, AI agent oversight, human oversight of AI, LLM agents, AI guardrails, approval gates">
-<meta property="og:title" content="LoopRails, Human-in-the-Loop Framework for AI Agents">
-<meta property="og:description" content="A practical human-in-the-loop framework for AI agents: decide how much oversight each action needs and design AI safety controls that actually catch mistakes. Grade · Guard · Show · Prove.">
+<meta property="og:title" content="LoopRails: Build AI Agent Loops, Fast to Build and Safe to Run">
+<meta property="og:description" content="Build AI agent loops the way Rails made web apps fast, with conventions and a working scaffold, then run them safely with human-in-the-loop guardrails. Rails for your loops, in both senses.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://looprails.dev/">
 <link rel="canonical" href="https://looprails.dev/">
@@ -18,8 +18,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="LoopRails, decide how much human oversight each AI action needs. Grade, Guard, Show, Prove.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="LoopRails, Human-in-the-Loop Framework for AI Agents">
-<meta name="twitter:description" content="See how human oversight of AI agents fails, and the loops that fix it.">
+<meta name="twitter:title" content="LoopRails: Build AI Agent Loops, Fast to Build and Safe to Run">
+<meta name="twitter:description" content="Rails for your AI loops, in both senses: build them fast with conventions and a scaffold, run them safely with human-in-the-loop guardrails.">
 <meta name="twitter:image" content="https://looprails.dev/og.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -324,12 +324,12 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
       LoopRails
     </a>
     <div class="nav-links">
-      <a href="#fail">How it fails</a>
+      <a href="#loops">Build a loop</a>
       <a href="#grader">Grade an action</a>
-      <a href="#stack">Your stack</a>
+      <a href="kit.html">Kit</a>
       <a href="articles.html">Articles</a>
-      <a href="#faq">FAQ</a>
-      <a class="nav-cta" href="playbook.html">Read the playbook</a>
+      <a href="article-loop-engineering-doctrine.html">Doctrine</a>
+      <a class="nav-cta" href="article-loop-engineering-doctrine.html">Read the Doctrine</a>
     </div>
   </div>
 </nav>
@@ -338,12 +338,12 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">Human-in-the-loop framework for AI agents</div>
-        <h1>Decide how much human oversight each AI action needs.</h1>
-        <p class="lead">LoopRails is a human-in-the-loop (HITL) framework for AI agents. It helps teams answer a practical AI-safety question, one action at a time: which actions a human should review, how much control the human should have, what to show them so they can judge well, and how you confirm the oversight actually catches mistakes. For engineers, tech leads, PMs, and designers shipping agentic systems.</p>
+        <div class="eyebrow">AI loops on rails</div>
+        <h1>Build AI loops you can actually ship.</h1>
+        <p class="lead">The best engineers have stopped writing one-off prompts and started writing loops: systems that prompt an agent, check the output, and decide the next step until the work is done. LoopRails is rails for those loops in two senses. Like Ruby on Rails, it gives you conventions and a working scaffold so you build a loop fast. Like guardrails, it keeps the loop safe to run unattended, with a human at the decisions that actually matter. Fast to build, safe to run.</p>
         <div class="btnrow">
-          <a class="btn btn-primary" href="#fail">See how oversight fails ↓</a>
-          <a class="btn btn-ghost" href="#grader">Grade an action →</a>
+          <a class="btn btn-primary" href="article-loop-engineering-doctrine.html">Read the Doctrine →</a>
+          <a class="btn btn-ghost" href="https://github.com/brennhill/looprails/tree/main/starter">Get the starter ↗</a>
         </div>
         <div class="onerule">
           <b>Start with this one rule:</b> asking a person to click <em>Approve</em> does not turn them into a reliable error-catcher. Approval prompts stop some bad actions, but they barely improve a human's odds of <em>noticing</em> a bad one. When a human can't realistically catch the mistake, prevent the action instead of reviewing it. <a class="cite" href="codex.html#ref-A-17" title="Open the source in the codex">A-17</a>
@@ -643,16 +643,46 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
 
 <!-- ARTICLES -->
 <!-- Loop engineering -->
+<style>
+.buildcta{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 30px}
+@media(max-width:780px){.buildcta{grid-template-columns:1fr}}
+.bcard{display:block;border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--bg-2);transition:.15s}
+.bcard:hover{transform:translateY(-2px);box-shadow:0 16px 36px -22px rgba(13,17,23,.35);text-decoration:none;border-color:var(--rail)}
+.bcard .dn{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rail-2)}
+.bcard h3{margin:.3em 0 .3em;color:var(--ink);font-size:1.08rem}
+.bcard p{margin:0;color:var(--ink-2);font-size:.9rem}
+.lifecycle{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:6px 0}
+.lcstep{padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:.82rem;color:var(--ink-2);background:#fff}
+.lcstep.hinge{border-color:var(--rail);color:var(--rail-2);font-weight:700;background:var(--rail-tint)}
+.lcsep{color:var(--muted)}
+</style>
 <section id="loops">
   <div class="wrap">
-    <div class="eyebrow reveal">Loop engineering</div>
-    <h2 class="reveal">Rails for your agent loops, in both senses</h2>
-    <p class="lead reveal" style="margin-bottom:30px">The strongest engineers are writing loops: systems that prompt an agent, check the output, and decide the next step until a goal is met. LoopRails is rails for those loops two ways. It helps you build them, the way Ruby on Rails made web apps fast with conventions and sensible defaults, and it gives you the guardrails to run them unattended without getting hurt.</p>
+    <div class="eyebrow reveal">Loops on rails, in both senses</div>
+    <h2 class="reveal">Build your agent loop end to end</h2>
+    <p class="lead reveal" style="margin-bottom:26px">The loop is the unit of work now. LoopRails helps you build one the way Ruby on Rails made web apps fast, with conventions and a working scaffold, and it gives you the guardrails to run it unattended without getting hurt. Start with the principles, grab the starter, keep the templates close.</p>
+    <div class="buildcta reveal">
+      <a class="bcard" href="article-loop-engineering-doctrine.html"><div class="dn">Principles</div><h3>The LoopRails Doctrine →</h3><p>Ten principles for loops that are fast to build and safe to run.</p></a>
+      <a class="bcard" href="https://github.com/brennhill/looprails/tree/main/starter"><div class="dn">Scaffold</div><h3>The starter ↗</h3><p>A real, runnable guarded loop: verifier, caps, action grades, kill switch. Python, no dependencies.</p></a>
+      <a class="bcard" href="kit.html"><div class="dn">Templates</div><h3>The Kit →</h3><p>Done-condition spec, Loop Card, guardrails checklist, model-adaptation worksheet.</p></a>
+    </div>
+    <div class="lifecycle reveal">
+      <span class="lcstep">Define</span><span class="lcsep">→</span>
+      <span class="lcstep">Build</span><span class="lcsep">→</span>
+      <span class="lcstep">Verify</span><span class="lcsep">→</span>
+      <span class="lcstep hinge">Grade</span><span class="lcsep">→</span>
+      <span class="lcstep">Guard</span><span class="lcsep">→</span>
+      <span class="lcstep">Run</span><span class="lcsep">→</span>
+      <span class="lcstep">Learn</span>
+    </div>
+    <p class="reveal" style="color:var(--muted);font-size:.9rem;margin:.6em 0 30px;text-align:center">Build the loop (Define, Build, Verify), then keep a human at the end (Grade, Guard, Run, Learn). The grade is the hinge that lets a loop be fast and safe at once.</p>
     <div class="doors">
       <a class="door reveal" href="article-loop-engineering.html"><div class="dn">Start here</div><h3>What is loop engineering?</h3><p>From prompts to context to harnesses to loops, and why the verifier is the hard part.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-build-agent-loop.html"><div class="dn">Build</div><h3>Build your first agent loop</h3><p>Goal and done-conditions, the verifier, memory in a file, subagents, and guardrails on by default.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-loop-patterns.html"><div class="dn">Recipes</div><h3>Loop patterns for engineering &amp; data science</h3><p>Test-fixing, refactor, data-cleaning, and experiment loops, each with a done-condition and a verifier.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-evaluation-driven-development.html"><div class="dn">The verifier</div><h3>Evaluation-driven development</h3><p>An automated check, not your gut, decides whether each change improved things.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-lora-vs-fine-tuning-vs-pre-training.html"><div class="dn">The model</div><h3>LoRA vs fine-tuning vs pre-training</h3><p>How to adapt the model under your loop, and when each option is worth the cost.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-adapting-models-you-dont-control.html"><div class="dn">The model</div><h3>Models you don't control</h3><p>What you can and can't change on a closed API model versus an open-weight one.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-loop-engineering-oversight.html"><div class="dn">Guardrails</div><h3>Keep a loop on the rails</h3><p>Grade what the loop can do, cap the blast radius, and stop it when it runs away.</p><span class="go">Read →</span></a>
     </div>
     <p class="reveal" style="margin-top:20px"><a href="articles.html" style="font-weight:650">See all articles →</a></p>
@@ -735,18 +765,31 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
 ]}
 </script>
 
+<!-- Newsletter -->
+<section class="band" id="subscribe" style="padding:54px 0">
+  <div class="wrap" style="max-width:680px;text-align:center">
+    <div class="eyebrow reveal" style="justify-content:center">Stay in the loop</div>
+    <h2 class="reveal" style="font-size:clamp(1.4rem,3vw,2rem)">New essays on building and guarding AI loops</h2>
+    <p class="reveal" style="color:var(--ink-2);margin:10px auto 22px">Get new LoopRails writing on loop engineering, verifiers, and human oversight by email. No spam, unsubscribe anytime.</p>
+    <div class="reveal"><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script></div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap foot-grid">
     <div>
       <div style="font-weight:800;color:#fff;font-size:1.05rem;letter-spacing:-.02em">LoopRails</div>
-      <div style="margin-top:4px">Right-sized human oversight for AI agents · Grade · Guard · Show · Prove</div>
+      <div style="margin-top:4px">Build AI loops you can ship · fast to build, safe to run</div>
       <div style="margin-top:10px;font-size:.85rem">© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</div>
     </div>
     <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="article-loop-engineering-doctrine.html">Doctrine</a>
+      <a href="kit.html">Kit</a>
       <a href="playbook.html">Playbook</a>
       <a href="framework.html">Framework</a>
       <a href="articles.html">Articles</a>
       <a href="codex.html">Codex</a>
+      <a href="https://github.com/brennhill/looprails/tree/main/starter">Starter ↗</a>
       <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE ↗</a>
       <a href="https://github.com/brennhill/looprails">GitHub</a>
       <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a>

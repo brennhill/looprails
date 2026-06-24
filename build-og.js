@@ -18,7 +18,7 @@ const G3 = { line: "#ff5d77", fill: "#ff5d77", text: "#ff5d77" };
 
 // key -> card. head = 1-2 headline lines; size = headline font px; badge = big glyph (optional)
 const CARDS = {
-  home: { eyebrow: "CALIBRATED OVERSIGHT FOR AI AGENTS", head: ["Decide how much human oversight", "each AI action needs."], size: 54, sub: "", method: true, accent: TEAL },
+  home: { eyebrow: "AI LOOPS ON RAILS", head: ["Build AI loops", "you can ship."], size: 60, sub: "Fast to build, safe to run. With a human where it counts.", method: true, accent: TEAL },
   playbook: { eyebrow: "THE PLAYBOOK · FOR PRACTITIONERS", head: ["The hands-on field guide"], size: 66, sub: "Grade each AI action, guard it, design the review, prove it works.", method: true, accent: TEAL },
   framework: { eyebrow: "THE FRAMEWORK · SECTIONS 0-10", head: ["The full method"], size: 70, sub: "Consequence × controllability, grades, the autonomy ladder, validation.", method: true, accent: TEAL },
   codex: { eyebrow: "THE CODEX · THE EVIDENCE", head: ["366 annotated sources"], size: 66, sub: "Aviation, medicine, finance, AI safety, HCI, every claim, traced.", method: false, accent: TEAL, badge: "366", badgeSize: 92 },
@@ -66,6 +66,10 @@ const CARDS = {
   "article-loop-patterns": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["Loop patterns"], size: 62, sub: "For engineering and data science.", method: false, accent: TEAL },
   "article-evaluation-driven-development": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["Evaluation-driven", "development"], size: 52, sub: "The verifier is the point.", method: false, accent: TEAL },
   "article-loop-engineering-oversight": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["Keep a loop", "on the rails"], size: 56, sub: "Grade it, cap it, stop it.", method: false, accent: G2 },
+  "article-loop-engineering-doctrine": { eyebrow: "LOOPRAILS · THE DOCTRINE", head: ["The LoopRails", "Doctrine"], size: 62, sub: "Ten principles for loops you can ship.", method: true, accent: TEAL },
+  "article-lora-vs-fine-tuning-vs-pre-training": { eyebrow: "LOOPRAILS · BUILD A LOOP", head: ["LoRA, fine-tuning,", "or pre-training?"], size: 50, sub: "When each one makes sense.", method: false, accent: TEAL },
+  "article-adapting-models-you-dont-control": { eyebrow: "LOOPRAILS · BUILD A LOOP", head: ["Models you", "don't control"], size: 56, sub: "What you can and can't change.", method: false, accent: TEAL },
+  kit: { eyebrow: "THE KIT · TAKE IT WITH YOU", head: ["The LoopRails Kit"], size: 60, sub: "Templates you fill in before a loop runs.", method: true, accent: TEAL },
 };
 
 function svg(c) {
