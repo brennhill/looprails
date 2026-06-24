@@ -99,113 +99,113 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <div class="crumb"><a href="index.html">LoopRails</a> · Logged</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/rail-logged.md">View rail-logged.md on GitHub ↗</a>
-      <h1 id="l-logged-the-deep-dive">L — Logged: the deep dive</h1>
-<p><em>Part of the <strong>RAIL</strong> standard — every governed agent action should stay Reversible · Authorized · Interruptible · <strong>Logged</strong>. This page goes deep on the last one. It is the property that makes the other three auditable: without a trustworthy record you cannot tell whether your reversibility, authorization, or interruptibility ever actually worked.</em></p>
+      <h1 id="l-is-for-logged-the-deep-dive">L is for Logged: the deep dive</h1>
+<p><em>Part of the <strong>RAIL</strong> standard. Every governed agent action should stay Reversible · Authorized · Interruptible · <strong>Logged</strong>. This page goes deep on the last one. It is the property that makes the other three auditable: without a trustworthy record you cannot tell whether your reversibility, authorization, or interruptibility ever actually worked.</em></p>
 <hr>
 <h2 id="what-quotloggedquot-really-means">What &quot;Logged&quot; really means</h2>
-<p>Not a dump of model outputs. <strong>Logged</strong> means an inspectable, trustworthy record of <em>what happened, who or what did it, on whose authority, why, and what resulted</em> — detailed enough to <strong>prove the oversight catches mistakes, not merely that a human was nominally present</strong> [D-14].</p>
-<p>A confirmation click is not oversight if you can&#39;t later answer: <em>which</em> identity approved <em>what</em> action, on <em>whose</em> behalf, based on <em>what</em> the agent showed them, and whether the outcome was correct. &quot;Logged&quot; is what turns &quot;we have a human in the loop&quot; from a claim into something you can verify [C-20, D-13].</p>
+<p>A dump of model outputs does not count. <strong>Logged</strong> means an inspectable, trustworthy record of <em>what happened, who or what did it, on whose authority, why, and what resulted</em>, detailed enough to <strong>prove the oversight catches mistakes rather than merely that a human was nominally present</strong> [D-14].</p>
+<p>A confirmation click is not oversight if you can&#39;t later answer: <em>which</em> identity approved <em>what</em> action, on <em>whose</em> behalf, based on <em>what</em> the agent showed them, and whether the outcome was correct. &quot;Logged&quot; turns &quot;we have a human in the loop&quot; from a claim into something you can verify [C-20, D-13].</p>
 <h2 id="why-a-human-in-the-loop-is-worthless-without-a-real-record">Why a human in the loop is worthless without a real record</h2>
 <p>Four things become impossible without it:</p>
 <ul>
-<li><strong>You can&#39;t validate it.</strong> The only honest test of oversight is whether humans actually <em>catch and correct</em> errors — the intervention-success rate. Gates reduce bad actions but barely improve catching them [A-17]; you only find out which is happening by measuring it, and you can only measure it from the record.</li>
+<li><strong>You can&#39;t validate it.</strong> The only honest test of oversight is whether humans actually <em>catch and correct</em> errors, which is the intervention-success rate. Gates reduce bad actions but barely improve catching them [A-17]. You only find out which is happening by measuring it, and you can only measure it from the record.</li>
 <li><strong>You can&#39;t attribute it.</strong> &quot;The agent did it&quot; is not an answer when something goes wrong. You need to trace the action to an identity and, ultimately, to an accountable human.</li>
 <li><strong>You can&#39;t learn from it.</strong> Incident review, evals, and policy updates all feed on the trail.</li>
-<li><strong>You can&#39;t be accountable.</strong> Meaningful human control requires <em>tracing</em> — outcomes that trace back to an informed human [C-20, D-13] — and felt accountability itself measurably reduces automation bias [F-11]. Regulation is catching up too: the EU AI Act&#39;s human-oversight duties presume records exist to oversee against [D-1].</li>
+<li><strong>You can&#39;t be accountable.</strong> Meaningful human control requires <em>tracing</em>, meaning outcomes that trace back to an informed human [C-20, D-13], and felt accountability itself measurably reduces automation bias [F-11]. Regulation is catching up too: the EU AI Act&#39;s human-oversight duties presume records exist to oversee against [D-1].</li>
 </ul>
 <h2 id="what-to-log-per-consequential-action">What to log (per consequential action)</h2>
 <p>For every action that matters (roughly G1 and up), capture:</p>
 <ul>
-<li><strong>Actor identity</strong> — who or what performed it (see below).</li>
-<li><strong>Authority used</strong> — which permission/scope/grant authorized it.</li>
-<li><strong>Inputs and outputs</strong> — what it acted on and produced.</li>
-<li><strong>Rationale + confidence</strong> — why the agent chose it, and how certain it was.</li>
-<li><strong>Approval, if any</strong> — and <em>which identity</em> gave it (proposer ≠ approver for high grades).</li>
-<li><strong>Outcome/effect</strong> — what actually changed.</li>
-<li><strong>Correlation / trace IDs</strong> — to stitch the above into one story.</li>
+<li><strong>Actor identity</strong>: who or what performed it (see below).</li>
+<li><strong>Authority used</strong>: which permission/scope/grant authorized it.</li>
+<li><strong>Inputs and outputs</strong>: what it acted on and produced.</li>
+<li><strong>Rationale + confidence</strong>: why the agent chose it, and how certain it was.</li>
+<li><strong>Approval, if any</strong>: and <em>which identity</em> gave it (proposer ≠ approver for high grades).</li>
+<li><strong>Outcome/effect</strong>: what actually changed.</li>
+<li><strong>Correlation / trace IDs</strong>: to stitch the above into one story.</li>
 </ul>
 <p>The classic failure is logging only final outputs. Log the <strong>authority and the chain</strong>, not just the result.</p>
 <h2 id="identity-tie-every-action-to-an-authenticated-principal">Identity: tie every action to an authenticated principal</h2>
 <p>&quot;The agent did it&quot; is unattributable. Make every consequential action carry an <strong>authenticated identity</strong>:</p>
 <ul>
 <li>Authenticate through an <strong>identity provider</strong> (SSO / OIDC), not ad-hoc keys. Every action is stamped with a real principal.</li>
-<li><strong>Distinguish the principals</strong>: the human user, the agent&#39;s own <strong>workload/service-account identity</strong>, and <em>each individual sub-agent</em> — not one shared &quot;assistant&quot; identity.</li>
+<li><strong>Distinguish the principals</strong>: the human user, the agent&#39;s own <strong>workload/service-account identity</strong>, and <em>each individual sub-agent</em>. Not one shared &quot;assistant&quot; identity.</li>
 <li>Record <strong>&quot;on behalf of&quot;</strong>: the human the agent is acting for (delegated authority), e.g. via OAuth on-behalf-of / token exchange. An action has both an <em>actor</em> (the agent) and a <em>principal</em> (the human whose authority it borrows).</li>
 <li>This is the audit-time face of <strong>zero-trust</strong>: authorize and identify <strong>per request</strong>, in context, not once at session start [O-13].</li>
 </ul>
-<p>With identity in place you can answer <em>who acted</em> and <em>on whose behalf</em> — the precondition for everything else.</p>
+<p>With identity in place you can answer <em>who acted</em> and <em>on whose behalf</em>, the precondition for everything else.</p>
 <h2 id="sub-agent-provenance-and-delegation-chains-the-hard-part">Sub-agent provenance and delegation chains (the hard part)</h2>
 <p>Multi-agent systems are where logging usually breaks. When an orchestrator spawns sub-agents, a flat list of tool calls tells you nothing about <em>who did what under whose authority</em>. You need <strong>provenance</strong>:</p>
 <ul>
-<li><strong>Record the delegation tree</strong> — who spawned whom — and <strong>propagate a correlation/trace ID plus the authorizing principal down the chain.</strong> A sub-agent&#39;s actions inherit the trace, not a fresh anonymous context.</li>
-<li><strong>Don&#39;t let sub-agents inherit authority silently.</strong> Each delegation is an explicit, logged, scoped grant. (An agent acting on ambient authority it was handed implicitly is the confused-deputy problem — the same structural flaw behind prompt-injection data exfiltration [O-11, O-12]. The log should show exactly which scoped grant each sub-agent held.)</li>
+<li><strong>Record the delegation tree</strong> (who spawned whom) and <strong>propagate a correlation/trace ID plus the authorizing principal down the chain.</strong> A sub-agent&#39;s actions inherit the trace, not a fresh anonymous context.</li>
+<li><strong>Don&#39;t let sub-agents inherit authority silently.</strong> Each delegation is an explicit, logged, scoped grant. (An agent acting on ambient authority it was handed implicitly is the confused-deputy problem, the same structural flaw behind prompt-injection data exfiltration [O-11, O-12]. The log should show exactly which scoped grant each sub-agent held.)</li>
 <li><strong>Model it with W3C PROV</strong> [Q-11, Q-13]. PROV&#39;s three node types map cleanly onto agentic systems:<ul>
-<li><strong>Entities</strong> — artifacts, data, files, messages.</li>
-<li><strong>Activities</strong> — steps, tool calls, model invocations.</li>
-<li><strong>Agents</strong> — the identities (human, orchestrator, sub-agent) responsible.</li>
+<li><strong>Entities</strong>: artifacts, data, files, messages.</li>
+<li><strong>Activities</strong>: steps, tool calls, model invocations.</li>
+<li><strong>Agents</strong>: the identities (human, orchestrator, sub-agent) responsible.</li>
 <li>and the relations that make it queryable: <code>used</code>, <code>wasGeneratedBy</code>, <code>wasAttributedTo</code>, <code>wasAssociatedWith</code>, <code>wasDerivedFrom</code>.
 So you can answer a real question: <em>&quot;this pull request was generated by sub-agent X, acting on user U&#39;s delegated authority, derived from issue #42 and the repo at commit abc.&quot;</em></li>
 </ul>
 </li>
-<li><strong>Distinguish provenance types</strong> [Q-12]: <em>data lineage</em> (where the data came from) vs <em>interaction history</em> (what the agent did) vs <em>decision rationale</em> (why) — an overseer needs all three, kept separable.</li>
-<li><strong>Practical backbone: distributed tracing.</strong> Use something like OpenTelemetry — one <strong>trace per task</strong>, a <strong>span per agent / tool call</strong>, with the principal, the authority/scope, and the grade as span attributes. Correlation IDs then link the structured trace to the human-readable logs, the approval record, and the final outcome.</li>
+<li><strong>Distinguish provenance types</strong> [Q-12]: <em>data lineage</em> (where the data came from) vs <em>interaction history</em> (what the agent did) vs <em>decision rationale</em> (why). An overseer needs all three, kept separable.</li>
+<li><strong>Practical backbone: distributed tracing.</strong> Use something like OpenTelemetry, with one <strong>trace per task</strong> and a <strong>span per agent / tool call</strong>, carrying the principal, the authority/scope, and the grade as span attributes. Correlation IDs then link the structured trace to the human-readable logs, the approval record, and the final outcome.</li>
 </ul>
 <h2 id="make-the-record-trustworthy">Make the record trustworthy</h2>
-<p>A log you can quietly edit is not evidence — and for G2/G3 actions you may need evidence.</p>
+<p>A log you can quietly edit is not evidence, and for G2/G3 actions you may need evidence.</p>
 <ul>
-<li><strong>Append-only / immutable / WORM storage</strong> — you can add, never silently rewrite.</li>
-<li><strong>Tamper-evidence</strong> — sign each entry, or hash-chain entries to the previous one, so any alteration is detectable.</li>
-<li><strong>Reliable ordering and clocks</strong> — so the timeline can be reconstructed and trusted.</li>
+<li><strong>Append-only / immutable / WORM storage</strong>: you can add, never silently rewrite.</li>
+<li><strong>Tamper-evidence</strong>: sign each entry, or hash-chain entries to the previous one, so any alteration is detectable.</li>
+<li><strong>Reliable ordering and clocks</strong>: so the timeline can be reconstructed and trusted.</li>
 </ul>
-<p>The bar scales with consequence: a G0 read needs a cheap audit line; a G3 production action needs a signed, append-only entry tying the act to an identity, an authority, and an approval.</p>
+<p>The bar scales with consequence. A G0 read needs a cheap audit line; a G3 production action needs a signed, append-only entry tying the act to an identity, an authority, and an approval.</p>
 <h2 id="close-the-loop-logs-are-how-you-prove-oversight-works">Close the loop: logs are how you <em>prove</em> oversight works</h2>
-<p>&quot;Logged&quot; exists to power the framework&#39;s fourth move — <strong>Prove</strong>. From the record you compute the metrics that tell you whether oversight is real or theater:</p>
+<p>&quot;Logged&quot; exists to power the framework&#39;s fourth move, <strong>Prove</strong>. From the record you compute the metrics that tell you whether oversight is real or theater:</p>
 <ul>
-<li><strong>Intervention-success rate</strong> — when the agent was wrong, how often did the human actually catch <em>and fix</em> it? (Not approval rate — correctness of approvals.) This is the number [A-17] shows is usually poor, and you can only get it from the log.</li>
+<li><strong>Intervention-success rate</strong>: when the agent was wrong, how often did the human actually catch <em>and fix</em> it? (Correctness of approvals, not approval rate.) This is the number [A-17] shows is usually poor, and you can only get it from the log.</li>
 <li><strong>Override rate + override correctness</strong>, and <strong>time-to-detect vs. time-to-harm</strong>.</li>
-<li><strong>Red-team through the record</strong> — plant errors and adversarial actions, then check the log to see whether the human or monitor caught them.</li>
+<li><strong>Red-team through the record</strong>: plant errors and adversarial actions, then check the log to see whether the human or monitor caught them.</li>
 </ul>
-<p>Without logs you can only <em>assert</em> oversight exists; with them you can <em>demonstrate</em> it catches mistakes — exactly the evidence good governance demands [D-14].</p>
+<p>Without logs you can only <em>assert</em> oversight exists. With them you can <em>demonstrate</em> it catches mistakes, which is exactly the evidence good governance demands [D-14].</p>
 <h2 id="privacy-access-control-and-retention">Privacy, access control, and retention</h2>
-<p>The log is itself a sensitive, high-value asset — treat it like one:</p>
+<p>The log is itself a sensitive, high-value asset, so treat it like one:</p>
 <ul>
-<li><strong>Redact secrets and PII</strong> at write time; never log credentials; consider field-level redaction for sensitive inputs/outputs.</li>
-<li><strong>Access-control the logs</strong> — who can read them is its own permission. An audit trail that anyone can read (or alter) is a liability.</li>
-<li><strong>Set retention windows</strong> that balance audit/learning needs against privacy and regulation — don&#39;t keep everything forever, and don&#39;t make the record so noisy no one can use it. A queryable, prioritized trail beats an un-searchable firehose [H-20].</li>
+<li><strong>Redact secrets and PII</strong> at write time, never log credentials, and consider field-level redaction for sensitive inputs/outputs.</li>
+<li><strong>Access-control the logs.</strong> Who can read them is its own permission. An audit trail that anyone can read (or alter) is a liability.</li>
+<li><strong>Set retention windows</strong> that balance audit/learning needs against privacy and regulation. Don&#39;t keep everything forever, and don&#39;t make the record so noisy no one can use it. A queryable, prioritized trail beats an un-searchable firehose [H-20].</li>
 </ul>
 <h2 id="maturity-checklist">Maturity checklist</h2>
 <ul>
-<li><input disabled="" type="checkbox"> <strong>L0</strong> — raw text logs of outputs only.</li>
-<li><input disabled="" type="checkbox"> <strong>L1</strong> — every consequential action logged with an <strong>authenticated actor identity</strong> + inputs/outputs.</li>
-<li><input disabled="" type="checkbox"> <strong>L2</strong> — <strong>authority used + approvals (and who approved) + outcomes</strong> recorded; <strong>correlation IDs</strong> link them into one story.</li>
-<li><input disabled="" type="checkbox"> <strong>L3</strong> — <strong>sub-agent provenance</strong>: delegation chains, propagated principal + trace, a PROV-style graph, distributed tracing across agents.</li>
-<li><input disabled="" type="checkbox"> <strong>L4</strong> — <strong>tamper-evident</strong> (append-only + signed/hash-chained), <strong>access-controlled</strong>, retention-policied — and you compute oversight-effectiveness metrics from it.</li>
+<li><input disabled="" type="checkbox"> <strong>L0</strong>: raw text logs of outputs only.</li>
+<li><input disabled="" type="checkbox"> <strong>L1</strong>: every consequential action logged with an <strong>authenticated actor identity</strong> + inputs/outputs.</li>
+<li><input disabled="" type="checkbox"> <strong>L2</strong>: <strong>authority used + approvals (and who approved) + outcomes</strong> recorded; <strong>correlation IDs</strong> link them into one story.</li>
+<li><input disabled="" type="checkbox"> <strong>L3</strong>: <strong>sub-agent provenance</strong>, meaning delegation chains, propagated principal + trace, a PROV-style graph, distributed tracing across agents.</li>
+<li><input disabled="" type="checkbox"> <strong>L4</strong>: <strong>tamper-evident</strong> (append-only + signed/hash-chained), <strong>access-controlled</strong>, retention-policied, and you compute oversight-effectiveness metrics from it.</li>
 </ul>
 <h2 id="common-mistakes">Common mistakes</h2>
 <ul>
 <li><strong>Outputs only.</strong> Logging what the agent produced, not the authority it used or the decision it made.</li>
-<li><strong>No identity.</strong> &quot;The agent did it&quot; — unattributable to any human principal.</li>
+<li><strong>No identity.</strong> &quot;The agent did it,&quot; unattributable to any human principal.</li>
 <li><strong>No cross-agent provenance.</strong> A flat blob of tool calls with no who-spawned-whom or on-whose-authority.</li>
 <li><strong>Mutable logs.</strong> Editable records aren&#39;t evidence.</li>
 <li><strong>Leaky logs.</strong> Secrets/PII logged unredacted, or no access control on the trail.</li>
-<li><strong>The firehose.</strong> Everything logged, nothing queryable — so no one can actually reconstruct what happened.</li>
+<li><strong>The firehose.</strong> Everything logged, nothing queryable, so no one can actually reconstruct what happened.</li>
 </ul>
 <hr>
 <h2 id="sources">Sources</h2>
 <ul>
-<li><strong>[Q-11]</strong> Moreau et al. — provenance confers authority/interpretability; the case for queryable provenance-aware systems.</li>
-<li><strong>[Q-12]</strong> Ragan et al. — provenance <em>types</em> (data lineage vs interaction history vs rationale) and purposes.</li>
-<li><strong>[Q-13]</strong> Moreau &amp; Groth — the W3C <strong>PROV</strong> model (entities / activities / agents; wasGeneratedBy, wasAttributedTo, wasDerivedFrom).</li>
-<li><strong>[C-20] / [D-13]</strong> Santoni de Sio &amp; van den Hoven — <em>meaningful human control</em> = tracking + <strong>tracing</strong> (outcomes trace to an informed human).</li>
-<li><strong>[D-14]</strong> Green — treat oversight as a claim to <strong>prove with evidence</strong>, not a checkbox.</li>
-<li><strong>[A-17]</strong> Chen et al. — the recognition bottleneck; <strong>intervention-success</strong> is the metric that matters, and it must be measured.</li>
-<li><strong>[F-11]</strong> Skitka et al. — <strong>felt accountability</strong> measurably reduces automation bias.</li>
-<li><strong>[O-13]</strong> NIST Zero Trust — authorize/identify <strong>per request</strong>, in context.</li>
-<li><strong>[O-11] / [O-12]</strong> Hardy; CSA — the <strong>confused-deputy</strong> problem = prompt injection; sub-agents must not inherit ambient authority.</li>
-<li><strong>[D-1]</strong> EU AI Act, Article 14 — human-oversight duties presuppose records to oversee against.</li>
-<li><strong>[H-20]</strong> Three Mile Island — the firehose: an unprioritized flood disables oversight.</li>
+<li><strong>[Q-11]</strong> Moreau et al.: provenance confers authority/interpretability; the case for queryable provenance-aware systems.</li>
+<li><strong>[Q-12]</strong> Ragan et al.: provenance <em>types</em> (data lineage vs interaction history vs rationale) and purposes.</li>
+<li><strong>[Q-13]</strong> Moreau &amp; Groth: the W3C <strong>PROV</strong> model (entities / activities / agents; wasGeneratedBy, wasAttributedTo, wasDerivedFrom).</li>
+<li><strong>[C-20] / [D-13]</strong> Santoni de Sio &amp; van den Hoven: <em>meaningful human control</em> = tracking + <strong>tracing</strong> (outcomes trace to an informed human).</li>
+<li><strong>[D-14]</strong> Green: treat oversight as a claim to <strong>prove with evidence</strong>, not a checkbox.</li>
+<li><strong>[A-17]</strong> Chen et al.: the recognition bottleneck; <strong>intervention-success</strong> is the metric that matters, and it must be measured.</li>
+<li><strong>[F-11]</strong> Skitka et al.: <strong>felt accountability</strong> measurably reduces automation bias.</li>
+<li><strong>[O-13]</strong> NIST Zero Trust: authorize/identify <strong>per request</strong>, in context.</li>
+<li><strong>[O-11] / [O-12]</strong> Hardy; CSA: the <strong>confused-deputy</strong> problem = prompt injection; sub-agents must not inherit ambient authority.</li>
+<li><strong>[D-1]</strong> EU AI Act, Article 14: human-oversight duties presuppose records to oversee against.</li>
+<li><strong>[H-20]</strong> Three Mile Island: the firehose, an unprioritized flood disables oversight.</li>
 </ul>
-<p><em>LoopRails · RAIL series · L — Logged. Companion to <a href="framework.md"><code>framework.md</code></a> and <a href="codex.md"><code>codex.md</code></a>.</em></p>
+<p><em>LoopRails · RAIL series · L is for Logged. Companion to <a href="framework.md"><code>framework.md</code></a> and <a href="codex.md"><code>codex.md</code></a>.</em></p>
 
     </div>
     

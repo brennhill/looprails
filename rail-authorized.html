@@ -94,15 +94,15 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="codex.html" class="">Codex</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#what-quotauthorizedquot-means" class="" data-id="what-quotauthorizedquot-means">What &amp;quot;Authorized&amp;quot; means</a><a href="#why-quota-human-approved-itquot-is-not-the-same-as-quotit-wa" class="" data-id="why-quota-human-approved-itquot-is-not-the-same-as-quotit-wa">Why &amp;quot;a human approved it&amp;quot; is not the same as &amp;quot;it was authorized&amp;quot;</a><a href="#how-to-implement-authorization-properly-concrete-mechanisms" class="" data-id="how-to-implement-authorization-properly-concrete-mechanisms">How to implement authorization properly — concrete mechanisms</a><a href="#why-blocklistsdenylists-and-client-side-approvals-are-not-au" class="" data-id="why-blocklistsdenylists-and-client-side-approvals-are-not-au">Why blocklists/denylists and client-side approvals are NOT authorization</a><a href="#the-legal-mirror" class="" data-id="the-legal-mirror">The legal mirror</a><a href="#a-maturity-checklist-for-authorization" class="" data-id="a-maturity-checklist-for-authorization">A maturity checklist for authorization</a><a href="#common-mistakes" class="" data-id="common-mistakes">Common mistakes</a><a href="#sources" class="" data-id="sources">Sources</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#what-quotauthorizedquot-means" class="" data-id="what-quotauthorizedquot-means">What &amp;quot;Authorized&amp;quot; means</a><a href="#why-quota-human-approved-itquot-is-not-the-same-as-quotit-wa" class="" data-id="why-quota-human-approved-itquot-is-not-the-same-as-quotit-wa">Why &amp;quot;a human approved it&amp;quot; is not the same as &amp;quot;it was authorized&amp;quot;</a><a href="#how-to-implement-authorization-properly-concrete-mechanisms" class="" data-id="how-to-implement-authorization-properly-concrete-mechanisms">How to implement authorization properly: concrete mechanisms</a><a href="#why-blocklistsdenylists-and-client-side-approvals-are-not-au" class="" data-id="why-blocklistsdenylists-and-client-side-approvals-are-not-au">Why blocklists/denylists and client-side approvals are NOT authorization</a><a href="#the-legal-mirror" class="" data-id="the-legal-mirror">The legal mirror</a><a href="#a-maturity-checklist-for-authorization" class="" data-id="a-maturity-checklist-for-authorization">A maturity checklist for authorization</a><a href="#common-mistakes" class="" data-id="common-mistakes">Common mistakes</a><a href="#sources" class="" data-id="sources">Sources</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="index.html">LoopRails</a> · Authorized</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/rail-authorized.md">View rail-authorized.md on GitHub ↗</a>
-      <h1 id="a-authorized">A — Authorized</h1>
+      <h1 id="a-authorized">A: Authorized</h1>
 <blockquote>
 <p>Part of the <strong>RAIL</strong> series. Every governed agent action should be <strong>R</strong>eversible, <strong>A</strong>uthorized,
-<strong>I</strong>nterruptible, and <strong>L</strong>ogged. This page goes deep on <strong>A — Authorized</strong>.</p>
+<strong>I</strong>nterruptible, and <strong>L</strong>ogged. This page goes deep on <strong>A</strong>, Authorized.</p>
 <p>See the <a href="./framework.md"><code>framework.md</code></a> for the full LoopRails method (Grade · Guard · Show ·
 Prove) and <a href="./codex.md"><code>codex.md</code></a> for the evidence. Bracket tags like <code>[O-11]</code> point to the codex.</p>
 </blockquote>
@@ -110,56 +110,56 @@ Prove) and <a href="./codex.md"><code>codex.md</code></a> for the evidence. Brac
 <h2 id="what-quotauthorizedquot-means">What &quot;Authorized&quot; means</h2>
 <p>An action is <strong>authorized</strong> when two things are true at the moment it executes:</p>
 <ol>
-<li><strong>The agent holds exactly the permissions this action&#39;s grade requires — and no more.</strong> A G0 read
+<li><strong>The agent holds exactly the permissions this action&#39;s grade requires, and no more.</strong> A G0 read
 needs read scope; a G3 payment needs a payment capability that the agent should not be carrying
 around the rest of the time. Authority is matched to consequence (see the grading model in
 <a href="./framework.md"><code>framework.md</code></a> §2), enforced as <em>least privilege</em> and <em>deny-by-default</em> [O-10].</li>
-<li><strong>For high-stakes (G2–G3) actions, the proposer is not the approver.</strong> The party that decides to
-take an irreversible step must not be the same party that authorizes it — <em>separation of duties</em>,
-the maker-checker rule [O-1, N-15].</li>
+<li><strong>For high-stakes (G2 to G3) actions, the proposer is not the approver.</strong> The party that decides to
+take an irreversible step must not be the same party that authorizes it. This is <em>separation of
+duties</em>, the maker-checker rule [O-1, N-15].</li>
 </ol>
 <p>Authorized is not &quot;the agent felt confident&quot; or &quot;a human clicked yes.&quot; It is a property of the
 system&#39;s permission state: <em>can this principal, in this context, legitimately do this thing?</em> If the
-answer would be &quot;no&quot; had the request been scrutinized, then the action was never authorized — it was
+answer would be &quot;no&quot; had the request been scrutinized, then the action was never authorized. It was
 merely <em>unblocked</em>.</p>
 <hr>
 <h2 id="why-quota-human-approved-itquot-is-not-the-same-as-quotit-wa">Why &quot;a human approved it&quot; is not the same as &quot;it was authorized&quot;</h2>
 <p>A click is an <em>event</em>. Authorization is a <em>standing, enforced property</em>.</p>
-<p>The codex&#39;s central oversight finding is that humans are unreliable approvers: approval gates cut bad
-<em>actions</em> but barely improve a human&#39;s ability to <em>catch</em> a bad one — the exposure-vs-correction gap
-[A-17], and habituation to a repeated prompt sets in neurologically by the <em>second</em> exposure [O-16].
-So &quot;a human approved it&quot; is a weak signal: it can be rubber-stamped, fatigued through, or — worse —
+<p>The codex&#39;s central oversight finding is that humans are unreliable approvers. Approval gates cut bad
+<em>actions</em> but barely improve a human&#39;s ability to <em>catch</em> a bad one (the exposure-vs-correction gap
+[A-17]), and habituation to a repeated prompt sets in neurologically by the <em>second</em> exposure [O-16].
+So &quot;a human approved it&quot; is a weak signal. It can be rubber-stamped, fatigued through, or, worse,
 forged. Several production HITL gates are, by their own documentation, <em>UX affordances and not
 security boundaries</em>: the Vercel AI SDK warns that its default <code>needsApproval</code> is forgeable by
 replaying message history unless bound with a server-side secret [A-12].</p>
-<p>Authorization, by contrast, is the answer to a different question: <em>was the capability to do this
+<p>Authorization answers a different question: <em>was the capability to do this
 ever in the agent&#39;s hands, and was it scoped to this task?</em> That property holds (or fails) whether or
 not anyone looked. A correctly authorized system can be safe even when the human glazes over, because
 the agent simply never possessed the authority to do the dangerous thing. An approval-only system is
-safe only as long as every human stays sharp forever — which the research says they will not [F-9,
+safe only as long as every human stays sharp forever, which the research says they will not [F-9,
 A-21, D-18].</p>
-<p>Put plainly: <strong>a click that grants ambient, lasting, broad power is a security hole with a human
+<p>To state it directly: <strong>a click that grants ambient, lasting, broad power is a security hole with a human
 attached. A scoped, short-lived, revocable grant is authorization even if no human watched it.</strong></p>
 <hr>
-<h2 id="how-to-implement-authorization-properly-concrete-mechanisms">How to implement authorization properly — concrete mechanisms</h2>
-<p><strong>1. Least privilege + deny-by-default + complete mediation.</strong> The Saltzer–Schroeder charter [O-10]:
+<h2 id="how-to-implement-authorization-properly-concrete-mechanisms">How to implement authorization properly: concrete mechanisms</h2>
+<p><strong>1. Least privilege + deny-by-default + complete mediation.</strong> The Saltzer-Schroeder charter [O-10]:
 grant only the scopes the task needs, deny by default (fail-safe defaults), and <strong>mediate <em>every</em>
-action</strong> — not the first one in a session, every one. &quot;Complete mediation&quot; is the load-bearing part:
-a check that runs once and then trusts the rest of the session is not mediation, it&#39;s a turnstile.
+action</strong>, not the first one in a session but every one. &quot;Complete mediation&quot; is the load-bearing part.
+A check that runs once and then trusts the rest of the session is not mediation, it&#39;s a turnstile.
 Keep the guard small enough to audit (economy of mechanism) and require two conditions for the most
 dangerous actions (separation of privilege).</p>
 <p><strong>2. Scoped, short-lived credentials.</strong> Replace standing API keys with capabilities that are narrow
 (this bucket, read-only), time-boxed (minutes, not forever), and audience-bound: OAuth scopes,
-workload identity, signed per-task tokens. The economic mirror is exact — control is exercised
+workload identity, signed per-task tokens. The economic mirror is exact. Control is exercised
 through <em>selective intervention</em> (the ability to halt or withdraw access), not an exhaustive rulebook
 [J-9]. A credential you can revoke mid-task is authorization; a key the agent memorized is not.</p>
-<p><strong>3. Capability-based security vs ambient authority — and why ambient authority <em>is</em> prompt
+<p><strong>3. Capability-based security versus ambient authority, and why ambient authority <em>is</em> prompt
 injection.</strong> <em>Ambient authority</em> means the agent can act on anything its identity is allowed to
 touch, and authority is selected by <em>naming</em> a target (&quot;delete that file&quot;). <em>Capability-based
 security</em> means authority travels <em>bound to the request</em>: you can only act on a resource if you were
 handed the unforgeable capability (token/handle) for it [O-11]. This distinction is the whole game
-for agents. The <strong>confused deputy</strong> [O-11] — a privileged program tricked by a less-privileged caller
-into misusing its ambient authority — is <em>structurally identical to prompt injection</em> [O-12]: because
+for agents. The <strong>confused deputy</strong> [O-11], a privileged program tricked by a less-privileged caller
+into misusing its ambient authority, is <em>structurally identical to prompt injection</em> [O-12]: because
 operator instructions and untrusted retrieved content flow through one inference pathway, an attacker
 who can write to an inbox, an issue, a README, or a fetched page executes with the <em>agent&#39;s</em>
 authority. The fix is not &quot;detect the bad instruction&quot; (you can&#39;t reliably). The fix is
@@ -173,28 +173,28 @@ rather than scattering <code>if</code> statements through tool handlers. Be warn
 inheritance are subtle and <em>load-bearing</em>: in the Claude Agent SDK the pipeline is
 <code>Hooks → Deny → Ask → Mode → Allow → canUseTool</code>, an allow-list does <strong>not</strong> constrain a bypass
 mode, and subagents silently inherit a parent&#39;s bypass/acceptEdits [A-2]. Order and scope change the
-safety semantics; treat the policy as the artifact you review.</p>
-<p><strong>5. Zero trust — authorize every request in context, not once per session.</strong> No implicit trust from
+safety semantics, so treat the policy as the artifact you review.</p>
+<p><strong>5. Zero trust: authorize every request in context, not once per session.</strong> No implicit trust from
 location or prior auth; make per-request, per-step decisions on identity, posture, and context, and
 continuously re-verify [O-13]. For an agent this means a hijacked or <em>drifting</em> agent is re-checked
-at every tool call — the action that was fine at step 3 is re-evaluated at step 30 against current
+at every tool call. The action that was fine at step 3 is re-evaluated at step 30 against current
 context. Session-level trust is exactly the assumption injection exploits.</p>
-<p><strong>6. Just-in-time elevation and break-glass — no standing high privilege.</strong> Agents run low-privilege
+<p><strong>6. Just-in-time elevation and break-glass: no standing high privilege.</strong> Agents run low-privilege
 by default. Sensitive scopes are granted JIT, time-boxed, behind approval, and revoked after (zero
-standing privilege); genuine emergencies use <em>break-glass</em> — auditable, alarmed, post-hoc reviewed
+standing privilege); genuine emergencies use <em>break-glass</em>, which is auditable, alarmed, post-hoc reviewed
 elevation [O-14]. The industrial twin is permit-to-work: scoped, time-boxed, <em>named</em> privilege
 elevation [N-13]. A high-privilege token sitting in the agent&#39;s environment &quot;just in case&quot; is the
 opposite of authorization.</p>
 <p><strong>7. Two-party approval / separation of duties for irreversible actions.</strong> For G3, the proposer must
 not be the approver [O-1, N-15]. Split planning, approval, and execution across distinct principals,
 and make the second check <em>genuinely independent</em> (a different model/prompt/context, not the agent
-re-reading itself) — an independent double-check catches more errors only when it is actually
+re-reading itself). An independent double-check catches more errors only when it is actually
 independent [N-16]. The nuclear two-person rule [N-15] is the limiting case.</p>
 <p><strong>8. Sub-agents must NOT inherit the orchestrator&#39;s authority.</strong> This is the single most violated
 rule in real systems and the codex calls it out directly: subagents inherit bypass/acceptEdits and
 <em>cannot be re-tightened</em> [A-2], and the confused-deputy mitigation explicitly requires that
 sub-agents do <strong>not</strong> auto-inherit authority [O-12]. Each delegation must be an <strong>explicit, scoped,
-revocable grant</strong> — the orchestrator hands down a narrow capability for the sub-task, not a copy of
+revocable grant</strong>, where the orchestrator hands down a narrow capability for the sub-task, not a copy of
 its own keyring. An orchestrator with payment authority spawning a &quot;summarize this webpage&quot; sub-agent
 that inherits payment authority is a confused deputy waiting for a poisoned page.</p>
 <blockquote>
@@ -207,15 +207,15 @@ glass loudly when you must (6).</p>
 <h2 id="why-blocklistsdenylists-and-client-side-approvals-are-not-au">Why blocklists/denylists and client-side approvals are NOT authorization</h2>
 <p>A <strong>denylist forbids a string; authorization removes a capability.</strong> The difference is whether the
 agent <em>could</em> do the bad thing if it tried a synonym.</p>
-<p>The empirical case is decisive. Cursor&#39;s YOLO mode shipped a <code>command_denylist</code>; security researchers
-found at least four trivial bypasses — base64-piped commands, a <code>bash -c</code> subshell, executing a
-generated script, and quote variations — with the malice arriving through poisoned <code>rules.mdc</code>,
+<p>The empirical case is decisive. Cursor&#39;s YOLO mode shipped a <code>command_denylist</code>, and security researchers
+found at least four trivial bypasses (base64-piped commands, a <code>bash -c</code> subshell, executing a
+generated script, and quote variations) with the malice arriving through poisoned <code>rules.mdc</code>,
 READMEs, or fetched content; the denylist was reportedly deprecated [A-14]. Pattern-matching command
 guards are not a sandbox. This is <strong>denylist theater</strong>: it <em>looks</em> like a control, produces no
-boundary, and (worse) manufactures a moral crumple zone by implying safety that isn&#39;t there.</p>
+boundary, and worse, manufactures a moral crumple zone by implying safety that isn&#39;t there.</p>
 <p>Client-side approvals fail the same way for a different reason: they&#39;re <em>forgeable</em>. The Vercel SDK
 documents that its default approval is bypassable by replaying message history unless the approval is
-bound with a server-side secret [A-12]. An approval enforced in the UI is a suggestion; an approval
+bound with a server-side secret [A-12]. An approval enforced in the UI is a suggestion. An approval
 verified server-side, against the actual request, is a control.</p>
 <p>Two rules follow:</p>
 <ul>
@@ -239,13 +239,13 @@ result [J-13]. The lesson for builders: a too-broad standing grant, or routinely
 out-of-scope agent actions, can bind the operator beyond what they intended.</li>
 <li><strong>Liability for in-scope acts.</strong> Under <em>respondeat superior</em>, the principal is generally liable for
 the agent&#39;s wrongful acts within the scope of agency [J-14]. Because an AI has no intent, the law
-routes responsibility to the human principal — so <strong>narrowing scope is simultaneously a safety
+routes responsibility to the human principal, so <strong>narrowing scope is simultaneously a safety
 control and the primary liability lever</strong> [J-14].</li>
-<li><strong>Non-delegable duties.</strong> Some duties cannot be offloaded at all; the principal stays liable
-regardless of who performs the act [J-15]. This is a hard legal floor under &quot;a human must decide&quot; —
+<li><strong>Non-delegable duties.</strong> Some duties cannot be offloaded at all, and the principal stays liable
+regardless of who performs the act [J-15]. This is a hard legal floor under &quot;a human must decide&quot;:
 certain actions are non-delegable to an AI as a matter of law, no matter how good the model is.</li>
 </ul>
-<p>The takeaway: scope is not just a config setting. It is the boundary of what you will be answerable
+<p>Scope is not just a config setting. It is the boundary of what you will be answerable
 for.</p>
 <hr>
 <h2 id="a-maturity-checklist-for-authorization">A maturity checklist for authorization</h2>
@@ -263,7 +263,7 @@ agent is caught mid-run. [O-13]</li>
 and tested. [A-2, A-6]</li>
 <li><input disabled="" type="checkbox"> <strong>Two parties</strong> for every G3 / irreversible action; the second check is genuinely independent.
 [O-1, N-15, N-16]</li>
-<li><input disabled="" type="checkbox"> Sub-agents receive <strong>explicit, scoped, revocable grants</strong> — they do not inherit the
+<li><input disabled="" type="checkbox"> Sub-agents receive <strong>explicit, scoped, revocable grants</strong>; they do not inherit the
 orchestrator&#39;s keyring. [A-2, O-12]</li>
 <li><input disabled="" type="checkbox"> Elevation is <strong>just-in-time</strong>; break-glass is auditable, alarmed, and post-hoc reviewed. [O-14]</li>
 <li><input disabled="" type="checkbox"> Approvals are <strong>bound server-side</strong>, not enforced client-side. [A-12]</li>
@@ -278,7 +278,7 @@ decision-maker. [J-13, J-15]</li>
 <li><strong>Broad standing tokens.</strong> A long-lived, wide-scope credential the agent carries everywhere. The
 moment of injection, that&#39;s the attacker&#39;s credential too. Scope it down and time-box it [O-14, J-9].</li>
 <li><strong>One big API key.</strong> A single key with every scope, shared across every tool, is ambient authority
-by another name — and turns any confused-deputy moment into total compromise [O-11, O-12]. Split
+by another name, and it turns any confused-deputy moment into total compromise [O-11, O-12]. Split
 capabilities per tool / per task.</li>
 <li><strong>Sub-agents inheriting everything.</strong> The orchestrator&#39;s authority silently flowing into every
 helper agent [A-2]. A web-fetch helper does not need the parent&#39;s deploy or payment rights; hand it
@@ -287,21 +287,21 @@ a narrow grant [O-12].</li>
 boundary when both are trivially bypassed or forged [A-14, A-12]. Remove the capability and bind the
 approval server-side.</li>
 <li><strong>Approval mistaken for authorization.</strong> Believing that &quot;a human clicked yes&quot; means the action was
-authorized, when the underlying capability was never scoped — a rubber-stampable, fatigue-prone,
+authorized, when the underlying capability was never scoped. It&#39;s a rubber-stampable, fatigue-prone,
 sometimes forgeable click [A-17, O-16, A-12].</li>
 </ul>
 <hr>
 <h2 id="sources">Sources</h2>
 <p>Codex tags used: <strong>O-10</strong> (least privilege, fail-safe defaults, complete mediation, separation of
-privilege — Saltzer &amp; Schroeder), <strong>O-11</strong> (the confused deputy; capability-based security vs ambient
-authority — Hardy), <strong>O-12</strong> (confused deputy = prompt injection; scoped credentials, sub-agents not
-inheriting authority — CSA), <strong>O-13</strong> (zero-trust, per-request/per-session authorization — NIST SP
+privilege, Saltzer &amp; Schroeder), <strong>O-11</strong> (the confused deputy; capability-based security vs ambient
+authority, Hardy), <strong>O-12</strong> (confused deputy = prompt injection; scoped credentials, sub-agents not
+inheriting authority, CSA), <strong>O-13</strong> (zero-trust, per-request/per-session authorization, NIST SP
 800-207), <strong>O-14</strong> (just-in-time access, zero standing privilege, break-glass), <strong>N-15</strong> (the
-two-person rule — nuclear surety), <strong>J-13</strong> (actual vs apparent authority, ratification — Restatement
+two-person rule, nuclear surety), <strong>J-13</strong> (actual vs apparent authority, ratification, Restatement
 (Third) of Agency), <strong>J-14</strong> (respondeat superior / vicarious liability for in-scope acts), <strong>J-15</strong>
 (non-delegable duty), <strong>A-2</strong> (permission-rule precedence/inheritance; subagents inherit
-bypass/acceptEdits — Claude Agent SDK), <strong>A-14</strong> (denylist bypasses; string-matching guards are not a
-sandbox — Cursor / The Register).</p>
+bypass/acceptEdits, Claude Agent SDK), <strong>A-14</strong> (denylist bypasses; string-matching guards are not a
+sandbox, Cursor / The Register).</p>
 <p>Supporting tags: <strong>O-1</strong> (maker-checker / four-eyes), <strong>N-16</strong> (independent double-checks), <strong>N-6 /
 N-13</strong> (poka-yoke; permit-to-work), <strong>O-17 / O-18</strong> (runtime shields / Simplex), <strong>A-6</strong> (risk-tier
 your tools), <strong>A-12</strong> (client-side approvals are forgeable unless bound server-side), <strong>A-17</strong>

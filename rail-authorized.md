@@ -1,7 +1,7 @@
-# A — Authorized
+# A: Authorized
 
 > Part of the **RAIL** series. Every governed agent action should be **R**eversible, **A**uthorized,
-> **I**nterruptible, and **L**ogged. This page goes deep on **A — Authorized**.
+> **I**nterruptible, and **L**ogged. This page goes deep on **A**, Authorized.
 >
 > See the [`framework.md`](./framework.md) for the full LoopRails method (Grade · Guard · Show ·
 > Prove) and [`codex.md`](./codex.md) for the evidence. Bracket tags like `[O-11]` point to the codex.
@@ -12,17 +12,17 @@
 
 An action is **authorized** when two things are true at the moment it executes:
 
-1. **The agent holds exactly the permissions this action's grade requires — and no more.** A G0 read
+1. **The agent holds exactly the permissions this action's grade requires, and no more.** A G0 read
    needs read scope; a G3 payment needs a payment capability that the agent should not be carrying
    around the rest of the time. Authority is matched to consequence (see the grading model in
    [`framework.md`](./framework.md) §2), enforced as *least privilege* and *deny-by-default* [O-10].
-2. **For high-stakes (G2–G3) actions, the proposer is not the approver.** The party that decides to
-   take an irreversible step must not be the same party that authorizes it — *separation of duties*,
-   the maker-checker rule [O-1, N-15].
+2. **For high-stakes (G2 to G3) actions, the proposer is not the approver.** The party that decides to
+   take an irreversible step must not be the same party that authorizes it. This is *separation of
+   duties*, the maker-checker rule [O-1, N-15].
 
 Authorized is not "the agent felt confident" or "a human clicked yes." It is a property of the
 system's permission state: *can this principal, in this context, legitimately do this thing?* If the
-answer would be "no" had the request been scrutinized, then the action was never authorized — it was
+answer would be "no" had the request been scrutinized, then the action was never authorized. It was
 merely *unblocked*.
 
 ---
@@ -31,48 +31,48 @@ merely *unblocked*.
 
 A click is an *event*. Authorization is a *standing, enforced property*.
 
-The codex's central oversight finding is that humans are unreliable approvers: approval gates cut bad
-*actions* but barely improve a human's ability to *catch* a bad one — the exposure-vs-correction gap
-[A-17], and habituation to a repeated prompt sets in neurologically by the *second* exposure [O-16].
-So "a human approved it" is a weak signal: it can be rubber-stamped, fatigued through, or — worse —
+The codex's central oversight finding is that humans are unreliable approvers. Approval gates cut bad
+*actions* but barely improve a human's ability to *catch* a bad one (the exposure-vs-correction gap
+[A-17]), and habituation to a repeated prompt sets in neurologically by the *second* exposure [O-16].
+So "a human approved it" is a weak signal. It can be rubber-stamped, fatigued through, or, worse,
 forged. Several production HITL gates are, by their own documentation, *UX affordances and not
 security boundaries*: the Vercel AI SDK warns that its default `needsApproval` is forgeable by
 replaying message history unless bound with a server-side secret [A-12].
 
-Authorization, by contrast, is the answer to a different question: *was the capability to do this
+Authorization answers a different question: *was the capability to do this
 ever in the agent's hands, and was it scoped to this task?* That property holds (or fails) whether or
 not anyone looked. A correctly authorized system can be safe even when the human glazes over, because
 the agent simply never possessed the authority to do the dangerous thing. An approval-only system is
-safe only as long as every human stays sharp forever — which the research says they will not [F-9,
+safe only as long as every human stays sharp forever, which the research says they will not [F-9,
 A-21, D-18].
 
-Put plainly: **a click that grants ambient, lasting, broad power is a security hole with a human
+To state it directly: **a click that grants ambient, lasting, broad power is a security hole with a human
 attached. A scoped, short-lived, revocable grant is authorization even if no human watched it.**
 
 ---
 
-## How to implement authorization properly — concrete mechanisms
+## How to implement authorization properly: concrete mechanisms
 
-**1. Least privilege + deny-by-default + complete mediation.** The Saltzer–Schroeder charter [O-10]:
+**1. Least privilege + deny-by-default + complete mediation.** The Saltzer-Schroeder charter [O-10]:
 grant only the scopes the task needs, deny by default (fail-safe defaults), and **mediate *every*
-action** — not the first one in a session, every one. "Complete mediation" is the load-bearing part:
-a check that runs once and then trusts the rest of the session is not mediation, it's a turnstile.
+action**, not the first one in a session but every one. "Complete mediation" is the load-bearing part.
+A check that runs once and then trusts the rest of the session is not mediation, it's a turnstile.
 Keep the guard small enough to audit (economy of mechanism) and require two conditions for the most
 dangerous actions (separation of privilege).
 
 **2. Scoped, short-lived credentials.** Replace standing API keys with capabilities that are narrow
 (this bucket, read-only), time-boxed (minutes, not forever), and audience-bound: OAuth scopes,
-workload identity, signed per-task tokens. The economic mirror is exact — control is exercised
+workload identity, signed per-task tokens. The economic mirror is exact. Control is exercised
 through *selective intervention* (the ability to halt or withdraw access), not an exhaustive rulebook
 [J-9]. A credential you can revoke mid-task is authorization; a key the agent memorized is not.
 
-**3. Capability-based security vs ambient authority — and why ambient authority *is* prompt
+**3. Capability-based security versus ambient authority, and why ambient authority *is* prompt
 injection.** *Ambient authority* means the agent can act on anything its identity is allowed to
 touch, and authority is selected by *naming* a target ("delete that file"). *Capability-based
 security* means authority travels *bound to the request*: you can only act on a resource if you were
 handed the unforgeable capability (token/handle) for it [O-11]. This distinction is the whole game
-for agents. The **confused deputy** [O-11] — a privileged program tricked by a less-privileged caller
-into misusing its ambient authority — is *structurally identical to prompt injection* [O-12]: because
+for agents. The **confused deputy** [O-11], a privileged program tricked by a less-privileged caller
+into misusing its ambient authority, is *structurally identical to prompt injection* [O-12]: because
 operator instructions and untrusted retrieved content flow through one inference pathway, an attacker
 who can write to an inbox, an issue, a README, or a fetched page executes with the *agent's*
 authority. The fix is not "detect the bad instruction" (you can't reliably). The fix is
@@ -87,17 +87,17 @@ rather than scattering `if` statements through tool handlers. Be warned that pre
 inheritance are subtle and *load-bearing*: in the Claude Agent SDK the pipeline is
 `Hooks → Deny → Ask → Mode → Allow → canUseTool`, an allow-list does **not** constrain a bypass
 mode, and subagents silently inherit a parent's bypass/acceptEdits [A-2]. Order and scope change the
-safety semantics; treat the policy as the artifact you review.
+safety semantics, so treat the policy as the artifact you review.
 
-**5. Zero trust — authorize every request in context, not once per session.** No implicit trust from
+**5. Zero trust: authorize every request in context, not once per session.** No implicit trust from
 location or prior auth; make per-request, per-step decisions on identity, posture, and context, and
 continuously re-verify [O-13]. For an agent this means a hijacked or *drifting* agent is re-checked
-at every tool call — the action that was fine at step 3 is re-evaluated at step 30 against current
+at every tool call. The action that was fine at step 3 is re-evaluated at step 30 against current
 context. Session-level trust is exactly the assumption injection exploits.
 
-**6. Just-in-time elevation and break-glass — no standing high privilege.** Agents run low-privilege
+**6. Just-in-time elevation and break-glass: no standing high privilege.** Agents run low-privilege
 by default. Sensitive scopes are granted JIT, time-boxed, behind approval, and revoked after (zero
-standing privilege); genuine emergencies use *break-glass* — auditable, alarmed, post-hoc reviewed
+standing privilege); genuine emergencies use *break-glass*, which is auditable, alarmed, post-hoc reviewed
 elevation [O-14]. The industrial twin is permit-to-work: scoped, time-boxed, *named* privilege
 elevation [N-13]. A high-privilege token sitting in the agent's environment "just in case" is the
 opposite of authorization.
@@ -105,14 +105,14 @@ opposite of authorization.
 **7. Two-party approval / separation of duties for irreversible actions.** For G3, the proposer must
 not be the approver [O-1, N-15]. Split planning, approval, and execution across distinct principals,
 and make the second check *genuinely independent* (a different model/prompt/context, not the agent
-re-reading itself) — an independent double-check catches more errors only when it is actually
+re-reading itself). An independent double-check catches more errors only when it is actually
 independent [N-16]. The nuclear two-person rule [N-15] is the limiting case.
 
 **8. Sub-agents must NOT inherit the orchestrator's authority.** This is the single most violated
 rule in real systems and the codex calls it out directly: subagents inherit bypass/acceptEdits and
 *cannot be re-tightened* [A-2], and the confused-deputy mitigation explicitly requires that
 sub-agents do **not** auto-inherit authority [O-12]. Each delegation must be an **explicit, scoped,
-revocable grant** — the orchestrator hands down a narrow capability for the sub-task, not a copy of
+revocable grant**, where the orchestrator hands down a narrow capability for the sub-task, not a copy of
 its own keyring. An orchestrator with payment authority spawning a "summarize this webpage" sub-agent
 that inherits payment authority is a confused deputy waiting for a poisoned page.
 
@@ -128,16 +128,16 @@ that inherits payment authority is a confused deputy waiting for a poisoned page
 A **denylist forbids a string; authorization removes a capability.** The difference is whether the
 agent *could* do the bad thing if it tried a synonym.
 
-The empirical case is decisive. Cursor's YOLO mode shipped a `command_denylist`; security researchers
-found at least four trivial bypasses — base64-piped commands, a `bash -c` subshell, executing a
-generated script, and quote variations — with the malice arriving through poisoned `rules.mdc`,
+The empirical case is decisive. Cursor's YOLO mode shipped a `command_denylist`, and security researchers
+found at least four trivial bypasses (base64-piped commands, a `bash -c` subshell, executing a
+generated script, and quote variations) with the malice arriving through poisoned `rules.mdc`,
 READMEs, or fetched content; the denylist was reportedly deprecated [A-14]. Pattern-matching command
 guards are not a sandbox. This is **denylist theater**: it *looks* like a control, produces no
-boundary, and (worse) manufactures a moral crumple zone by implying safety that isn't there.
+boundary, and worse, manufactures a moral crumple zone by implying safety that isn't there.
 
 Client-side approvals fail the same way for a different reason: they're *forgeable*. The Vercel SDK
 documents that its default approval is bypassable by replaying message history unless the approval is
-bound with a server-side secret [A-12]. An approval enforced in the UI is a suggestion; an approval
+bound with a server-side secret [A-12]. An approval enforced in the UI is a suggestion. An approval
 verified server-side, against the actual request, is a control.
 
 Two rules follow:
@@ -164,13 +164,13 @@ Authorization has a precise legal twin, and it sets real liability.
   out-of-scope agent actions, can bind the operator beyond what they intended.
 - **Liability for in-scope acts.** Under *respondeat superior*, the principal is generally liable for
   the agent's wrongful acts within the scope of agency [J-14]. Because an AI has no intent, the law
-  routes responsibility to the human principal — so **narrowing scope is simultaneously a safety
+  routes responsibility to the human principal, so **narrowing scope is simultaneously a safety
   control and the primary liability lever** [J-14].
-- **Non-delegable duties.** Some duties cannot be offloaded at all; the principal stays liable
-  regardless of who performs the act [J-15]. This is a hard legal floor under "a human must decide" —
+- **Non-delegable duties.** Some duties cannot be offloaded at all, and the principal stays liable
+  regardless of who performs the act [J-15]. This is a hard legal floor under "a human must decide":
   certain actions are non-delegable to an AI as a matter of law, no matter how good the model is.
 
-The takeaway: scope is not just a config setting. It is the boundary of what you will be answerable
+Scope is not just a config setting. It is the boundary of what you will be answerable
 for.
 
 ---
@@ -190,7 +190,7 @@ for.
       and tested. [A-2, A-6]
 - [ ] **Two parties** for every G3 / irreversible action; the second check is genuinely independent.
       [O-1, N-15, N-16]
-- [ ] Sub-agents receive **explicit, scoped, revocable grants** — they do not inherit the
+- [ ] Sub-agents receive **explicit, scoped, revocable grants**; they do not inherit the
       orchestrator's keyring. [A-2, O-12]
 - [ ] Elevation is **just-in-time**; break-glass is auditable, alarmed, and post-hoc reviewed. [O-14]
 - [ ] Approvals are **bound server-side**, not enforced client-side. [A-12]
@@ -206,7 +206,7 @@ for.
 - **Broad standing tokens.** A long-lived, wide-scope credential the agent carries everywhere. The
   moment of injection, that's the attacker's credential too. Scope it down and time-box it [O-14, J-9].
 - **One big API key.** A single key with every scope, shared across every tool, is ambient authority
-  by another name — and turns any confused-deputy moment into total compromise [O-11, O-12]. Split
+  by another name, and it turns any confused-deputy moment into total compromise [O-11, O-12]. Split
   capabilities per tool / per task.
 - **Sub-agents inheriting everything.** The orchestrator's authority silently flowing into every
   helper agent [A-2]. A web-fetch helper does not need the parent's deploy or payment rights; hand it
@@ -215,7 +215,7 @@ for.
   boundary when both are trivially bypassed or forged [A-14, A-12]. Remove the capability and bind the
   approval server-side.
 - **Approval mistaken for authorization.** Believing that "a human clicked yes" means the action was
-  authorized, when the underlying capability was never scoped — a rubber-stampable, fatigue-prone,
+  authorized, when the underlying capability was never scoped. It's a rubber-stampable, fatigue-prone,
   sometimes forgeable click [A-17, O-16, A-12].
 
 ---
@@ -223,15 +223,15 @@ for.
 ## Sources
 
 Codex tags used: **O-10** (least privilege, fail-safe defaults, complete mediation, separation of
-privilege — Saltzer & Schroeder), **O-11** (the confused deputy; capability-based security vs ambient
-authority — Hardy), **O-12** (confused deputy = prompt injection; scoped credentials, sub-agents not
-inheriting authority — CSA), **O-13** (zero-trust, per-request/per-session authorization — NIST SP
+privilege, Saltzer & Schroeder), **O-11** (the confused deputy; capability-based security vs ambient
+authority, Hardy), **O-12** (confused deputy = prompt injection; scoped credentials, sub-agents not
+inheriting authority, CSA), **O-13** (zero-trust, per-request/per-session authorization, NIST SP
 800-207), **O-14** (just-in-time access, zero standing privilege, break-glass), **N-15** (the
-two-person rule — nuclear surety), **J-13** (actual vs apparent authority, ratification — Restatement
+two-person rule, nuclear surety), **J-13** (actual vs apparent authority, ratification, Restatement
 (Third) of Agency), **J-14** (respondeat superior / vicarious liability for in-scope acts), **J-15**
 (non-delegable duty), **A-2** (permission-rule precedence/inheritance; subagents inherit
-bypass/acceptEdits — Claude Agent SDK), **A-14** (denylist bypasses; string-matching guards are not a
-sandbox — Cursor / The Register).
+bypass/acceptEdits, Claude Agent SDK), **A-14** (denylist bypasses; string-matching guards are not a
+sandbox, Cursor / The Register).
 
 Supporting tags: **O-1** (maker-checker / four-eyes), **N-16** (independent double-checks), **N-6 /
 N-13** (poka-yoke; permit-to-work), **O-17 / O-18** (runtime shields / Simplex), **A-6** (risk-tier

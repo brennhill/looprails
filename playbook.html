@@ -94,17 +94,17 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="playbook.html" class="on">Playbook</a><a href="framework.html" class="">Framework</a><a href="codex.html" class="">Codex</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-30-second-version" class="" data-id="the-30-second-version">The 30-second version</a><a href="#move-1-grade-what39s-it-worth" class="" data-id="move-1-grade-what39s-it-worth">Move 1 — GRADE (what&amp;#39;s it worth?)</a><a href="#move-2-guard-how-much-control-and-what-kind" class="" data-id="move-2-guard-how-much-control-and-what-kind">Move 2 — GUARD (how much control, and what kind?)</a><a href="#move-3-show-design-the-oversight-moment" class="" data-id="move-3-show-design-the-oversight-moment">Move 3 — SHOW (design the oversight moment)</a><a href="#move-4-prove-does-the-oversight-actually-work" class="" data-id="move-4-prove-does-the-oversight-actually-work">Move 4 — PROVE (does the oversight actually work?)</a><a href="#the-four-a39s-the-meaningful-control-test" class="" data-id="the-four-a39s-the-meaningful-control-test">The four A&amp;#39;s — the meaningful-control test</a><a href="#the-anti-pattern-deck-name-them-kill-them" class="" data-id="the-anti-pattern-deck-name-them-kill-them">The anti-pattern deck — name them, kill them</a><a href="#maturity-ladder-where-are-you" class="" data-id="maturity-ladder-where-are-you">Maturity ladder — where are you?</a><a href="#the-standup-smell-test-ask-these-in-any-agent-review" class="" data-id="the-standup-smell-test-ask-these-in-any-agent-review">The standup smell-test (ask these in any agent review)</a><a href="#recipes-condensed" class="" data-id="recipes-condensed">Recipes (condensed)</a><a href="#how-the-three-docs-fit" class="" data-id="how-the-three-docs-fit">How the three docs fit</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-30-second-version" class="" data-id="the-30-second-version">The 30-second version</a><a href="#move-1-grade-what39s-it-worth" class="" data-id="move-1-grade-what39s-it-worth">Move 1: GRADE (what&amp;#39;s it worth?)</a><a href="#move-2-guard-how-much-control-and-what-kind" class="" data-id="move-2-guard-how-much-control-and-what-kind">Move 2: GUARD (how much control, and what kind?)</a><a href="#move-3-show-design-the-oversight-moment" class="" data-id="move-3-show-design-the-oversight-moment">Move 3: SHOW (design the oversight moment)</a><a href="#move-4-prove-does-the-oversight-actually-work" class="" data-id="move-4-prove-does-the-oversight-actually-work">Move 4: PROVE (does the oversight actually work?)</a><a href="#the-four-a39s-the-meaningful-control-test" class="" data-id="the-four-a39s-the-meaningful-control-test">The four A&amp;#39;s: the meaningful-control test</a><a href="#the-anti-pattern-deck-name-them-kill-them" class="" data-id="the-anti-pattern-deck-name-them-kill-them">The anti-pattern deck: name them, kill them</a><a href="#maturity-ladder-where-are-you" class="" data-id="maturity-ladder-where-are-you">Maturity ladder: where are you?</a><a href="#the-standup-smell-test-ask-these-in-any-agent-review" class="" data-id="the-standup-smell-test-ask-these-in-any-agent-review">The standup smell-test (ask these in any agent review)</a><a href="#recipes-condensed" class="" data-id="recipes-condensed">Recipes (condensed)</a><a href="#how-the-three-docs-fit" class="" data-id="how-the-three-docs-fit">How the three docs fit</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="index.html">LoopRails</a> · Playbook</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/playbook.md">View playbook.md on GitHub ↗</a>
-      <h1 id="looprails-a-practitioner39s-playbook-for-human-in-the-loop-a">LoopRails — A Practitioner&#39;s Playbook for Human-in-the-Loop Agentic AI</h1>
+      <h1 id="looprails-a-practitioner39s-playbook-for-human-in-the-loop-a">LoopRails: A Practitioner&#39;s Playbook for Human-in-the-Loop Agentic AI</h1>
 <blockquote>
-<p><strong>Keep your AI agents on the rails.</strong> Calibrated oversight in four moves —
-<strong>Grade · Guard · Show · Prove</strong> — that keep every action on the <strong>RAIL</strong>:
+<p><strong>Keep your AI agents on the rails.</strong> Calibrated oversight in four moves,
+<strong>Grade · Guard · Show · Prove</strong>, that keep every action on the <strong>RAIL</strong>:
 <strong>R</strong>eversible · <strong>A</strong>uthorized · <strong>I</strong>nterruptible · <strong>L</strong>ogged.</p>
-<p>The quick, do-this tier. For the full reasoning see <a href="./framework.md"><code>framework.md</code></a>; for the
+<p>The quick, do-this tier. For the full reasoning see <a href="./framework.md"><code>framework.md</code></a>. For the
 evidence behind every claim see <a href="./codex.md"><code>codex.md</code></a>. Bracket tags like <code>[A-17]</code> point to a
 source there.</p>
 </blockquote>
@@ -112,16 +112,16 @@ source there.</p>
 <h2 id="the-30-second-version">The 30-second version</h2>
 <ol>
 <li><strong>Don&#39;t ask &quot;is there a human in the loop?&quot;</strong> Ask it <strong>per action</strong>.</li>
-<li><strong>Grade</strong> each action by <strong>blast radius × reversibility × stakes</strong> → G0–G3.</li>
-<li><strong>Guard</strong> by grade: let trivial stuff run; gate the consequential; <strong>where a human can&#39;t reliably catch the error, <em>prevent</em> — don&#39;t review</strong> (sandbox, make reversible, or forbid).</li>
-<li><strong>Show</strong> the human a well-built moment when you do pull them in: <em>what&#39;s being asked, what happens if they approve, how it got here, and what to check</em> — without drowning them.</li>
-<li><strong>Prove</strong> it works: measure whether humans actually <em>catch</em> errors, and red-team the oversight — not just the agent.</li>
+<li><strong>Grade</strong> each action by <strong>blast radius × reversibility × stakes</strong> → G0 to G3.</li>
+<li><strong>Guard</strong> by grade: let trivial stuff run; gate the consequential; <strong>where a human can&#39;t reliably catch the error, <em>prevent</em> instead of review</strong> (sandbox, make reversible, or forbid).</li>
+<li><strong>Show</strong> the human a well-built moment when you do pull them in: <em>what&#39;s being asked, what happens if they approve, how it got here, and what to check</em>, without drowning them.</li>
+<li><strong>Prove</strong> it works: measure whether humans actually <em>catch</em> errors, and red-team the oversight, not just the agent.</li>
 </ol>
 <blockquote>
-<p><strong>The one rule that matters most:</strong> a confirmation prompt does <strong>not</strong> make a human a good error-catcher. Gates cut <em>bad actions</em>, but barely improve <em>catching</em> them [A-17]. So when stakes are high and the human can&#39;t realistically catch the mistake in time, <strong>prevention beats review every time.</strong></p>
+<p><strong>The one rule that matters most:</strong> a confirmation prompt does <strong>not</strong> make a human a good error-catcher. Gates cut <em>bad actions</em> but barely improve <em>catching</em> them [A-17]. When stakes are high and the human can&#39;t realistically catch the mistake in time, <strong>prevention beats review every time.</strong></p>
 </blockquote>
 <hr>
-<h2 id="move-1-grade-what39s-it-worth">Move 1 — GRADE (what&#39;s it worth?)</h2>
+<h2 id="move-1-grade-what39s-it-worth">Move 1: GRADE (what&#39;s it worth?)</h2>
 <p>Score every action the agent can take on three axes; the <strong>highest</strong> axis sets the grade.</p>
 <table>
 <thead>
@@ -181,10 +181,10 @@ source there.</p>
 </tr>
 </tbody></table>
 <blockquote>
-<p>⚠️ <strong>Grade by <em>real</em> reversibility, not by whether you have an &quot;undo&quot; button.</strong> A Bash <code>rm</code> is G3 even if your editor has rewind — checkpoint/undo usually doesn&#39;t cover shell side-effects [A-4].</p>
+<p>⚠️ <strong>Grade by <em>real</em> reversibility, not by whether you have an &quot;undo&quot; button.</strong> A Bash <code>rm</code> is G3 even if your editor has rewind. Checkpoint/undo doesn&#39;t cover shell side-effects [A-4].</p>
 </blockquote>
 <hr>
-<h2 id="move-2-guard-how-much-control-and-what-kind">Move 2 — GUARD (how much control, and what kind?)</h2>
+<h2 id="move-2-guard-how-much-control-and-what-kind">Move 2: GUARD (how much control, and what kind?)</h2>
 <p><strong>Pick a mode on the autonomy ladder, by grade:</strong></p>
 <table>
 <thead>
@@ -196,28 +196,28 @@ source there.</p>
 </thead>
 <tbody><tr>
 <td><strong>G0</strong></td>
-<td><strong>L0–L1</strong> run silently / log</td>
+<td><strong>L0 to L1</strong> run silently / log</td>
 <td>spending attention here just breeds fatigue</td>
 </tr>
 <tr>
 <td><strong>G1</strong></td>
-<td><strong>L1–L2</strong> act + notify, cheap undo</td>
+<td><strong>L1 to L2</strong> act + notify, cheap undo</td>
 <td>undo beats confirmation [G-14]</td>
 </tr>
 <tr>
 <td><strong>G2</strong></td>
-<td><strong>L3–L4</strong> confirm-before / plan-approve, with a preview</td>
+<td><strong>L3 to L4</strong> confirm-before / plan-approve, with a preview</td>
 <td></td>
 </tr>
 <tr>
 <td><strong>G3</strong></td>
-<td><strong>L4–L5 + prevention</strong>, or <strong>L6</strong> (escalate/forbid) if a human can&#39;t catch it</td>
+<td><strong>L4 to L5 + prevention</strong>, or <strong>L6</strong> (escalate/forbid) if a human can&#39;t catch it</td>
 <td>review alone is a trap here</td>
 </tr>
 </tbody></table>
 <p><code>L0 silent · L1 logged · L2 notify-after · L3 confirm-before · L4 plan-approve · L5 co-execute · L6 escalate/forbid</code></p>
 <p><strong>Then escalate dynamically</strong> on: low agent confidence · novelty/scope-drift · <strong>lethal-trifecta exposure</strong> · accumulated blast radius. And make <strong>stepping <em>down</em> to manual easy</strong> (don&#39;t get locked into max autonomy).</p>
-<p><strong>The pattern deck — reach for these (most are borrowed from industries that hardened them):</strong></p>
+<p><strong>The pattern deck. Reach for these. Most are borrowed from industries that hardened them:</strong></p>
 <table>
 <thead>
 <tr>
@@ -229,7 +229,7 @@ source there.</p>
 <tbody><tr>
 <td>🏰 <strong>Sandbox-First</strong></td>
 <td>contain blast radius in the <em>environment</em> (no-net container, scoped creds, budget cap) before trusting the agent</td>
-<td>highest-leverage control [A-23]</td>
+<td>the highest-payoff control [A-23]</td>
 </tr>
 <tr>
 <td>💥 <strong>Blast-Radius Cap</strong></td>
@@ -248,7 +248,7 @@ source there.</p>
 </tr>
 <tr>
 <td>🪢 <strong>Andon Cord</strong></td>
-<td>anyone (human, monitor, user) can halt the agent — cheaply, blamelessly</td>
+<td>anyone (human, monitor, user) can halt the agent, cheaply and blamelessly</td>
 <td>[N-4]</td>
 </tr>
 <tr>
@@ -288,39 +288,39 @@ source there.</p>
 </tr>
 </tbody></table>
 <hr>
-<h2 id="move-3-show-design-the-oversight-moment">Move 3 — SHOW (design the oversight moment)</h2>
+<h2 id="move-3-show-design-the-oversight-moment">Move 3: SHOW (design the oversight moment)</h2>
 <p>When you <em>do</em> bring a human in, the moment usually fails for lack of four things. Build them in.</p>
 <p><strong>The four things usually missing:</strong></p>
 <ol>
-<li>🔭 <strong>Consequences + reversibility, up front.</strong> What approving <em>does</em>, side effects, and whether it can be undone — <em>before</em> they click (feedforward) [Q-3, Q-4].</li>
-<li>🧭 <strong>Provenance — &quot;how did this get to me?&quot;</strong> What the agent saw, considered, rejected, and <em>why it escalated</em>. Without it the human is out-of-the-loop and can&#39;t really judge [Q-7, Q-10].</li>
-<li>🔍 <strong>Detection affordances.</strong> Contrastive <em>why / why-not</em>, diffs, surfaced <strong>uncertainty</strong> — framed to help them <em>check</em>, not to <em>sell</em> the answer (persuasive rationale increases blind acceptance) [Q-16, Q-20, F-20].</li>
-<li>⏳ <strong>An attention budget.</strong> Interrupt rarely, at task breakpoints, batched, high-precision. Over-prompting gets tuned out by the <em>second</em> identical prompt [Q-28, O-16]; low-precision alerting is how oversight dies (clinicians override 49–96% of alerts) [H-10].</li>
+<li>🔭 <strong>Consequences + reversibility, up front.</strong> What approving <em>does</em>, side effects, and whether it can be undone, <em>before</em> they click (feedforward) [Q-3, Q-4].</li>
+<li>🧭 <strong>Provenance: &quot;how did this get to me?&quot;</strong> What the agent saw, considered, rejected, and <em>why it escalated</em>. Without it the human is out-of-the-loop and can&#39;t really judge [Q-7, Q-10].</li>
+<li>🔍 <strong>Detection affordances.</strong> Contrastive <em>why / why-not</em>, diffs, surfaced <strong>uncertainty</strong>, framed to help them <em>check</em> rather than <em>sell</em> the answer (persuasive rationale increases blind acceptance) [Q-16, Q-20, F-20].</li>
+<li>⏳ <strong>An attention budget.</strong> Interrupt rarely, at task breakpoints, batched, high-precision. Over-prompting gets tuned out by the <em>second</em> identical prompt [Q-28, O-16]. Low-precision alerting is how oversight dies (clinicians override 49% to 96% of alerts) [H-10].</li>
 </ol>
 <p><strong>Full anatomy of a good loop episode (ordered):</strong> ① decide whether to interrupt at all → ② state the request clearly → ③ show consequences + reversibility → ④ surface calibrated confidence → ⑤ give the provenance trail → ⑥ provide detection affordances → ⑦ add proportionate friction (a <em>microboundary</em>, not sludge) → ⑧ bias-safe choice architecture (safe default, <strong>no auto-approve-on-timeout</strong>, no dark patterns) → ⑨ log the decision for accountability.</p>
 <blockquote>
-<p>🎛️ <strong>Safe Default + Microboundary:</strong> the default option is always the safe/reversible one, and for irreversible actions add one beat of forced reflection (e.g., decide-before-seeing) — but <em>only</em> there, or it becomes sludge [Q-19, Q-32, Q-35].</p>
+<p>🎛️ <strong>Safe Default + Microboundary:</strong> the default option is always the safe/reversible one, and for irreversible actions add one beat of forced reflection (e.g., decide-before-seeing). Add it <em>only</em> there, or it becomes sludge [Q-19, Q-32, Q-35].</p>
 </blockquote>
 <hr>
-<h2 id="move-4-prove-does-the-oversight-actually-work">Move 4 — PROVE (does the oversight actually work?)</h2>
+<h2 id="move-4-prove-does-the-oversight-actually-work">Move 4: PROVE (does the oversight actually work?)</h2>
 <p>Treat &quot;a human reviews it&quot; as a <strong>claim to validate, not a checkbox</strong> [D-14].</p>
 <ul>
-<li><strong>Intervention-success rate</strong> — when the agent is wrong, how often does the human actually <em>catch and fix</em> it? (Not approval rate.) If you measure one thing, measure this [A-17].</li>
-<li><strong>Override rate + correctness</strong> — uniform approval = rubber-stamping; lopsided overrides = a new bias [D-24].</li>
-<li><strong>Time-to-detect vs. time-to-harm</strong> — is there even time to intervene? [H-19]</li>
-<li><strong>Interrupt / false-alarm rate</strong> — is the signal economy healthy or breeding fatigue? [F-17]</li>
-<li><strong>Red-team the oversight</strong> — plant errors and attacks; see if the human (or monitor AI) catches them. Untested oversight is unvalidated.</li>
+<li><strong>Intervention-success rate.</strong> When the agent is wrong, how often does the human actually <em>catch and fix</em> it? (Not approval rate.) If you measure one thing, measure this [A-17].</li>
+<li><strong>Override rate + correctness.</strong> Uniform approval means rubber-stamping; lopsided overrides mean a new bias [D-24].</li>
+<li><strong>Time-to-detect vs. time-to-harm.</strong> Is there even time to intervene? [H-19]</li>
+<li><strong>Interrupt / false-alarm rate.</strong> Is the signal economy healthy, or breeding fatigue? [F-17]</li>
+<li><strong>Red-team the oversight.</strong> Plant errors and attacks; see if the human (or monitor AI) catches them. Untested oversight is unvalidated.</li>
 </ul>
 <hr>
-<h2 id="the-four-a39s-the-meaningful-control-test">The four A&#39;s — the meaningful-control test</h2>
+<h2 id="the-four-a39s-the-meaningful-control-test">The four A&#39;s: the meaningful-control test</h2>
 <p>Every oversight point must pass all four, or it&#39;s theater [C-20, D-4, E-21]:</p>
 <p>| <strong>Authority</strong> | the human can actually stop/change/reverse it |
 | <strong>Awareness</strong> | they comprehend what&#39;s happening (not a log dump) |
-| <strong>Ability</strong> | they have the competence <em>and the time</em> to judge |
+| <strong>Ability</strong> | they have the competence <em>and the time</em> to judge it |
 | <strong>Accountability</strong> | responsibility traces to an informed human |</p>
 <p>Fail Authority → <strong>moral crumple zone</strong>. Fail Awareness → <strong>automation surprise</strong>. Fail Ability → <strong>out-of-the-loop</strong>. Fail Accountability → <strong>responsibility gap</strong>.</p>
 <hr>
-<h2 id="the-anti-pattern-deck-name-them-kill-them">The anti-pattern deck — name them, kill them</h2>
+<h2 id="the-anti-pattern-deck-name-them-kill-them">The anti-pattern deck: name them, kill them</h2>
 <table>
 <thead>
 <tr>
@@ -381,8 +381,8 @@ source there.</p>
 </tr>
 </tbody></table>
 <hr>
-<h2 id="maturity-ladder-where-are-you">Maturity ladder — where are you?</h2>
-<p>| 0 <strong>Binary</strong> | one global switch (ask-everything or YOLO) — fatigue or blind risk |
+<h2 id="maturity-ladder-where-are-you">Maturity ladder: where are you?</h2>
+<p>| 0 <strong>Binary</strong> | one global switch (ask-everything or YOLO): fatigue or blind risk |
 | 1 <strong>Graded</strong> | actions risk-tiered; gates match consequence |
 | 2 <strong>Reversible &amp; sandboxed</strong> | undo-by-default + environment containment |
 | 3 <strong>Calibrated &amp; dynamic</strong> | autonomy adapts; loop episodes designed (clarity/provenance/detection) |
@@ -391,7 +391,7 @@ source there.</p>
 <h2 id="the-standup-smell-test-ask-these-in-any-agent-review">The standup smell-test (ask these in any agent review)</h2>
 <ul>
 <li>What&#39;s the <strong>blast radius</strong> of the worst single action? Is it <strong>reversible</strong>?</li>
-<li>For G3 actions, are we <strong>preventing or just reviewing</strong>? (If reviewing — can the human really catch it?)</li>
+<li>For G3 actions, are we <strong>preventing or just reviewing</strong>? (If reviewing, can the human really catch it?)</li>
 <li>Is high-autonomy work in a <strong>sandbox</strong>? Is the <strong>lethal trifecta</strong> possible?</li>
 <li>When we ask the human, do we <strong>show consequences + provenance</strong>, or just &quot;Approve?&quot;</li>
 <li>Are we <strong>measuring catch-rate</strong>, or assuming the human catches things?</li>
@@ -399,15 +399,15 @@ source there.</p>
 </ul>
 <hr>
 <h2 id="recipes-condensed">Recipes (condensed)</h2>
-<p><strong>Coding agent</strong> — reads/edits run+log with undo (L1–L2); <code>git push</code> → confirm + diff (L3); prod ops → plan-approve + escalate (L4/L6). Sandbox/branch, no prod creds. SHOW: diff + what&#39;s affected + reversibility + why-now. PROVE: catch-rate vs. merge rate, planted-regression red-team.</p>
-<p><strong>Computer-use / web agent</strong> — browse autonomously (L1); <strong>confirm every side-effect</strong> (purchase/send/delete, L3); credentials via human takeover with vision blanked. The lethal trifecta is live → detect &amp; gate; <strong>escalate, don&#39;t review</strong>, when the human can&#39;t catch it.</p>
-<p><strong>Support agent (high fan-out)</strong> — answer with deterministic guardrails it can&#39;t cross; in-policy refunds L1–L2; out-of-policy → escalate to human with a summary. Human is the <strong>escalation tier</strong>, not the per-turn approver (span limits [H-22]); AI monitors watch the autonomous body, humans review the escalated tail.</p>
+<p><strong>Coding agent.</strong> Reads/edits run+log with undo (L1 to L2); <code>git push</code> → confirm + diff (L3); prod ops → plan-approve + escalate (L4/L6). Sandbox/branch, no prod creds. SHOW: diff + what&#39;s affected + reversibility + why-now. PROVE: catch-rate vs. merge rate, planted-regression red-team.</p>
+<p><strong>Computer-use / web agent.</strong> Browse autonomously (L1); <strong>confirm every side-effect</strong> (purchase/send/delete, L3); credentials via human takeover with vision blanked. The lethal trifecta is live → detect &amp; gate; <strong>escalate, don&#39;t review</strong>, when the human can&#39;t catch it.</p>
+<p><strong>Support agent (high fan-out).</strong> Answer with deterministic guardrails it can&#39;t cross; in-policy refunds L1 to L2; out-of-policy → escalate to human with a summary. The human is the <strong>escalation tier</strong>, not the per-turn approver (span limits [H-22]). AI monitors watch the autonomous body; humans review the escalated tail.</p>
 <hr>
 <h2 id="how-the-three-docs-fit">How the three docs fit</h2>
-<p>| <a href="./playbook.md"><code>playbook.md</code></a> | <strong>this</strong> — do-this field guide | practitioners |
+<p>| <a href="./playbook.md"><code>playbook.md</code></a> | <strong>this</strong>, the do-this field guide | practitioners |
 | <a href="./framework.md"><code>framework.md</code></a> | the full LoopRails method + reasoning | designers/leads |
 | <a href="./codex.md"><code>codex.md</code></a> | 366-source research base | the evidence / skeptics |</p>
-<p><em>LoopRails · Grade · Guard · Show · Prove — 2026-06-22.</em></p>
+<p><em>LoopRails · Grade · Guard · Show · Prove · 2026-06-22.</em></p>
 
     </div>
     

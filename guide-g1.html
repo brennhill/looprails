@@ -94,7 +94,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="codex.html" class="">Codex</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#1-tldr-what-makes-an-action-g1" class="" data-id="1-tldr-what-makes-an-action-g1">TL;DR — what makes an action G1</a><a href="#2-is-a-human-in-the-loop-the-answer-here" class="" data-id="2-is-a-human-in-the-loop-the-answer-here">Is a human in the loop the answer here?</a><a href="#3-how-to-design-it-properly" class="" data-id="3-how-to-design-it-properly">How to design it properly</a><a href="#4-worked-example-a-coding-agent-editing-local-files" class="" data-id="4-worked-example-a-coding-agent-editing-local-files">Worked example: a coding agent editing local files</a><a href="#5-anti-patterns" class="" data-id="5-anti-patterns">Anti-patterns</a><a href="#6-sources-codex-tags-used" class="" data-id="6-sources-codex-tags-used">Sources (codex tags used)</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#1-tldr-what-makes-an-action-g1" class="" data-id="1-tldr-what-makes-an-action-g1">TL;DR: what makes an action G1</a><a href="#2-is-a-human-in-the-loop-the-answer-here" class="" data-id="2-is-a-human-in-the-loop-the-answer-here">Is a human in the loop the answer here?</a><a href="#3-how-to-design-it-properly" class="" data-id="3-how-to-design-it-properly">How to design it properly</a><a href="#4-worked-example-a-coding-agent-editing-local-files" class="" data-id="4-worked-example-a-coding-agent-editing-local-files">Worked example: a coding agent editing local files</a><a href="#5-anti-patterns" class="" data-id="5-anti-patterns">Anti-patterns</a><a href="#6-sources-codex-tags-used" class="" data-id="6-sources-codex-tags-used">Sources (codex tags used)</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="index.html">LoopRails</a> · G1 · Low</div>
     <div id="md" class="md">
@@ -102,14 +102,14 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
       <h1 id="designing-for-a-g1-low-action">Designing for a G1 (Low) Action</h1>
 <p><em>A LoopRails in-depth guide · companion to <a href="./framework.md"><code>framework.md</code></a>, <a href="./playbook.md"><code>playbook.md</code></a>, and <a href="./codex.md"><code>codex.md</code></a></em></p>
 <hr>
-<h2 id="1-tldr-what-makes-an-action-g1">1. TL;DR — what makes an action G1</h2>
+<h2 id="1-tldr-what-makes-an-action-g1">1. TL;DR: what makes an action G1</h2>
 <p><strong>The short version:</strong> For a G1 action, do <strong>not</strong> stop the agent to ask permission. Let it
-act, tell the human what it did, and make the undo cheap. Reversibility — not confirmation — is
-the safety net. A blocking approval gate here buys you almost nothing and trains the human to
+act, tell the human what it did, and make the undo cheap. Reversibility is the safety net, not
+confirmation. A blocking approval gate here buys you almost nothing and trains the human to
 rubber-stamp, which costs you later when the stakes are real.</p>
 <p>A <strong>G1 (low) action</strong> is reversible but slightly more than trivial. In LoopRails&#39;
-consequence grading, every action is scored on three dimensions — <em>reversibility × blast radius ×
-stakes</em> — and the <strong>highest</strong> dimension sets the grade. G1 means <strong>at most one medium dimension,
+consequence grading, every action is scored on three dimensions, <em>reversibility × blast radius ×
+stakes</em>, and the <strong>highest</strong> dimension sets the grade. G1 means <strong>at most one medium dimension,
 and none high</strong> (framework §2):</p>
 <ul>
 <li><strong>Reversibility:</strong> one-click undo / checkpointed.</li>
@@ -117,36 +117,36 @@ and none high</strong> (framework §2):</p>
 <li><strong>Stakes:</strong> trivial to minor.</li>
 </ul>
 <p>Canonical examples: <strong>editing a local file, installing a dev dependency, running tests.</strong> Contrast
-with G0 (purely trivial — read a file, run a read-only query) and G2 (something <em>high</em> on one
-axis — <code>git push</code>, sending an internal message, spending within a budget).</p>
+with G0 (purely trivial: read a file, run a read-only query) and G2 (something <em>high</em> on one
+axis: <code>git push</code>, sending an internal message, spending within a budget).</p>
 <blockquote>
 <p><strong>The grading trap that turns a G1 into a G3.</strong> Grade by <em>actual</em> reversibility, not by whether
 your framework has a &quot;rewind&quot; button. Checkpoint/undo typically covers an agent&#39;s <em>structured</em>
-edits but <strong>not</strong> shell side-effects. A Bash <code>rm</code>, <code>mv</code>, or <code>cp</code> is G2–G3 even if your editor has
-undo, because the destructive operation sits outside the recovery net [A-4]. &quot;Edit a local file&quot;
-is G1; &quot;let the agent run arbitrary Bash that touches files&quot; is not.</p>
+edits but <strong>not</strong> shell side-effects. A Bash <code>rm</code>, <code>mv</code>, or <code>cp</code> is G2 to G3 even if your editor
+has undo, because the destructive operation sits outside the recovery net [A-4]. &quot;Edit a local
+file&quot; is G1; &quot;let the agent run arbitrary Bash that touches files&quot; is not.</p>
 </blockquote>
 <hr>
 <h2 id="2-is-a-human-in-the-loop-the-answer-here">2. Is a human in the loop the answer here?</h2>
 <p>For a G1 action, a <strong>blocking approval gate is the wrong answer.</strong> The right answer is
 <strong>act, notify, allow undo.</strong></p>
-<p>This sounds counterintuitive — surely <em>more</em> human oversight is <em>safer</em>? The codex says no, for two
+<p>This sounds counterintuitive. Surely <em>more</em> human oversight is <em>safer</em>? The codex says no, for two
 reasons that compound.</p>
 <p><strong>First, confirmation gates don&#39;t make humans good at catching errors.</strong> This is the single
 strongest empirical finding in the evidence base. Plan-approval gates cut bad <em>actions</em>
-substantially (attack occurrence dropped from ~90% to 60–74%) yet the human&#39;s <strong>intervention
-success rate stayed at 9–26%</strong> across every strategy tested — the failure is rationalization and
+substantially (attack occurrence dropped from ~90% to 60-74%) yet the human&#39;s <strong>intervention
+success rate stayed at 9-26%</strong> across every strategy tested. The failure is rationalization and
 normalization, a <em>recognition bottleneck</em>, not inattention [A-8, A-17]. A gate changes whether the
 action pauses; it does not change whether the human can tell right from wrong. At G1, where the
 action is low-stakes and reversible anyway, you are paying the full cost of a gate to catch
 errors the human can&#39;t catch and that wouldn&#39;t hurt much if they slipped through.</p>
 <p><strong>Second, gates at G1 actively <em>damage</em> your oversight everywhere else.</strong> A flood of low-value
 prompts is how oversight dies. Habituation to a repeated prompt sets in neurologically by the
-<em>second</em> identical repetition [O-16]; clinicians override <strong>49–96%</strong> of drug-safety alerts under
-exactly this kind of barrage [H-10]. False-alarm-prone signals are uniquely corrosive — they damage
-<em>both</em> compliance and reliance, so a human trained to click through your dependency-install prompts
-will also click through the <code>git push</code> prompt that mattered [F-17]. Every G1 gate you add spends
-down the attention budget you need for G2/G3.</p>
+<em>second</em> identical repetition [O-16]; clinicians override <strong>49-96%</strong> of drug-safety alerts under
+exactly this kind of barrage [H-10]. False-alarm-prone signals are corrosive in a way teams
+underestimate. They damage <em>both</em> compliance and reliance, so a human trained to click through your
+dependency-install prompts will also click through the <code>git push</code> prompt that mattered [F-17].
+Every G1 gate you add spends down the attention budget you need for G2/G3.</p>
 <p><strong>Why reversibility beats confirmation (undo &gt; warnings).</strong> This is a 20-year-old, well-settled
 HCI result. A warning asks the user to predict a consequence <em>before</em> acting and trains reflexive
 click-through; <strong>undo lets them act and recover, which is both lower-friction and more reliable</strong>
@@ -155,7 +155,7 @@ interface needs [G-13], and Tognazzini&#39;s &quot;protect users&#39; work&quot;
 principles say the same: keep operations reversible, never a dead end [G-15]. Modern agents
 implement this directly as checkpointing/rewind [A-4]. The framework states the rule plainly:</p>
 <blockquote>
-<p>&quot;Prefer reversibility over confirmation. Undo beats warnings — confirmations habituate users into
+<p>&quot;Prefer reversibility over confirmation. Undo beats warnings. Confirmations habituate users into
 clicking through. Make agent actions reversible by default; reserve confirmation gates for
 genuinely irreversible, high-stakes operations.&quot; [G-14, G-13, G-15]</p>
 </blockquote>
@@ -163,114 +163,114 @@ genuinely irreversible, high-stakes operations.&quot; [G-14, G-13, G-15]</p>
 available and confirmation is wasteful.</p>
 <hr>
 <h2 id="3-how-to-design-it-properly">3. How to design it properly</h2>
-<p><strong>Autonomy level: L1–L2 (act, then notify).</strong> LoopRails separates two dials — <em>which</em> stage of the
-agent&#39;s processing is gated (acquire → analyze → decide → <strong>act</strong>) and <em>how much</em> the human is in
-control at that stage [E-6]. For G1 the default mapping is <strong>L1–L2</strong> on the <em>act</em> stage
+<p><strong>Autonomy level: L1 to L2 (act, then notify).</strong> LoopRails separates two dials: <em>which</em> stage of
+the agent&#39;s processing is gated (acquire → analyze → decide → <strong>act</strong>) and <em>how much</em> the human is
+in control at that stage [E-6]. For G1 the default mapping is <strong>L1 to L2</strong> on the <em>act</em> stage
 (framework §3):</p>
 <ul>
-<li><strong>L1 — Autonomous, logged:</strong> agent acts; recorded for audit; human role is post-hoc.</li>
-<li><strong>L2 — Notify-after:</strong> agent acts; actively surfaces what it did; cheap undo; human reacts/undoes.</li>
+<li><strong>L1, Autonomous, logged:</strong> agent acts; recorded for audit; human role is post-hoc.</li>
+<li><strong>L2, Notify-after:</strong> agent acts; actively surfaces what it did; cheap undo; human reacts/undoes.</li>
 </ul>
 <p>No L3 (confirm-before). The agent is never blocked waiting for a &quot;yes.&quot;</p>
-<p><strong>Checkpoint/undo is the safety net — not a gate.</strong> The control surface that makes L2 safe is
+<p><strong>Checkpoint/undo is the safety net, not a gate.</strong> The control surface that makes L2 safe is
 <em>checkpoint / undo / rollback</em>: snapshot state, one-click revert [A-4]. This is what lets you drop
 the action a grade and prefer undo over confirmation [G-14]. Make it the <em>default</em>: every edit is
 checkpointed automatically, so reversal is always one keystroke away.</p>
 <p><strong>Know the hard boundary of undo.</strong> This is the part teams skip. Checkpoint/undo covers the agent&#39;s
-<em>structured</em> edits but <strong>does not cover shell side-effects</strong> — <code>rm</code>, <code>mv</code>, <code>cp</code>, network calls,
+<em>structured</em> edits but <strong>does not cover shell side-effects</strong>: <code>rm</code>, <code>mv</code>, <code>cp</code>, network calls,
 and anything that mutated state outside the editor&#39;s snapshot [A-4]. You must know <em>precisely</em> what
-your undo does not cover, because anything outside it is not actually a G1: a Bash deletion is
-G2–G3 no matter how good your rewind button is. So:</p>
+your undo does not cover, because anything outside it is not actually a G1. A Bash deletion is
+G2 to G3 no matter how good your rewind button is. So:</p>
 <ul>
 <li>Auto-checkpoint structured edits → genuinely G1 → L1/L2.</li>
 <li>Route shell side-effects through a different, higher gate (or sandbox them, §below).</li>
 <li>Never let the existence of a &quot;rewind&quot; button silently re-grade an irreversible action.</li>
 </ul>
 <p><strong>What to surface in the notification.</strong> L2 is &quot;notify-after,&quot; but a notification that&#39;s just a log
-dump leaves the human out-of-the-loop — awareness is <em>comprehension</em>, not perception [E-6, E-12].
+dump leaves the human out-of-the-loop. Awareness is <em>comprehension</em>, not perception [E-6, E-12].
 Even after the fact, the notification should carry the lightweight version of the loop episode:</p>
 <ul>
-<li><strong>What changed + that it&#39;s reversible</strong> — the concrete effect and a one-click undo affordance
-(consequence + reversibility, the feedforward principle, here as feedback) [Q-3, Q-4].</li>
-<li><strong>Provenance, briefly</strong> — why the agent did this, so a human scanning the change can reconstruct
+<li><strong>What changed + that it&#39;s reversible:</strong> the concrete effect and a one-click undo affordance
+(consequence plus reversibility, the feedforward principle, here as feedback) [Q-3, Q-4].</li>
+<li><strong>Provenance, briefly:</strong> why the agent did this, so a human scanning the change can reconstruct
 &quot;how did this get here?&quot; without spelunking [Q-7].</li>
-<li><strong>Detection affordance</strong> — a diff framed to help the human <em>check</em>, not a rationale framed to
+<li><strong>Detection affordance:</strong> a diff framed to help the human <em>check</em>, not a rationale framed to
 <em>sell</em> the change (persuasive explanations increase blind acceptance) [F-20].</li>
 </ul>
 <p>The accountable human stays the initiator, and the action is logged for audit [G-6, C-20].</p>
-<p><strong>Keep interruptions within budget.</strong> The whole point of L1–L2 is to <em>not</em> spend attention here.
+<p><strong>Keep interruptions within budget.</strong> The whole point of L1 to L2 is to <em>not</em> spend attention here.
 Treat interruptions as a scarce budget [H-21]: most G1 signals should be <strong>passive/logged</strong>, and
 anything that does surface should be <strong>batched</strong> and deferred to a natural task breakpoint rather
-than firing mid-flow [Q-28]. EEMUA&#39;s discipline transfers directly — every interruptive alert must
+than firing mid-flow [Q-28]. EEMUA&#39;s discipline transfers directly: every interruptive alert must
 demand a <em>specific</em> response, and the interruptive rate must be capped; everything else is a passive
 log [H-21]. Do <strong>not</strong> notify per-file; aggregate. (And note the model-capability caveat: agents are
 weak at honoring mid-task steering [A-19], which is another reason to prefer act+undo over
 interrupt-and-confirm at this grade.)</p>
 <hr>
 <h2 id="4-worked-example-a-coding-agent-editing-local-files">4. Worked example: a coding agent editing local files</h2>
-<p>A Claude Code–style coding agent is asked to refactor a module across several files.</p>
+<p>A Claude Code-style coding agent is asked to refactor a module across several files.</p>
 <ul>
 <li><strong>Grade.</strong> Reading files is G0; <strong>editing a local file is G1</strong> (reversible via checkpoint, local
-blast radius); <strong>running tests is G1</strong>. (<code>git push</code> would be G2 — shared, hard to reverse — and
-<code>rm -rf</code> G3; those get gates and escalation, not this treatment.)</li>
-<li><strong>Match.</strong> Edits and test runs are <strong>autonomous + logged with undo (L1–L2)</strong>. The agent does not
-ask before each edit. It <em>does</em> auto-escalate if an edit reaches outside the approved scope (e.g.,
-files the task never mentioned) [A-18] — dynamic, not static, autonomy.</li>
+blast radius); <strong>running tests is G1</strong>. (<code>git push</code> would be G2, since it&#39;s shared and hard to
+reverse, and <code>rm -rf</code> G3; those get gates and escalation, not this treatment.)</li>
+<li><strong>Match.</strong> Edits and test runs are <strong>autonomous + logged with undo (L1 to L2)</strong>. The agent does
+not ask before each edit. It <em>does</em> auto-escalate if an edit reaches outside the approved scope
+(e.g., files the task never mentioned) [A-18]: dynamic, not static, autonomy.</li>
 <li><strong>Instrument.</strong> Run on a branch with no prod credentials [A-23]; <strong>checkpoint every edit</strong>, and
 <strong>explicitly flag that Bash deletions are not covered</strong> by rewind [A-4]. The undo is one keystroke
 (<code>/rewind</code>).</li>
 <li><strong>Episode (the after-the-fact notification).</strong> When the refactor lands, the agent surfaces: a
 <strong>diff</strong> of what changed, the <strong>test results</strong> as verification evidence, a one-line <strong>why</strong>
-(provenance), and a <strong>one-click rewind</strong>. It is <strong>batched</strong> — one summary at the task breakpoint,
+(provenance), and a <strong>one-click rewind</strong>. It is <strong>batched</strong>: one summary at the task breakpoint,
 not a prompt per file [Q-28, H-21].</li>
 <li><strong>Defend.</strong> Because nothing blocked, there&#39;s no gate to rubber-stamp; the human reviews a
 focused diff <em>with passing tests as evidence</em>, which supports checking rather than trusting [F-20].</li>
 <li><strong>Validate.</strong> Track how often human review of these diffs catches a real bug versus merge rate
 [A-16], and red-team with planted regressions [A-17].</li>
 </ul>
-<p>The human never approved an edit. They got a clean, reviewable summary and a rewind button — and
+<p>The human never approved an edit. They got a clean, reviewable summary and a rewind button, and
 their attention is still fresh for the <code>git push</code>.</p>
 <hr>
 <h2 id="5-anti-patterns">5. Anti-patterns</h2>
-<p>🟥 <strong>The Confirmation Reflex</strong> — putting a blocking &quot;Approve this edit?&quot; prompt on a reversible,
-local action. It feels responsible; it&#39;s the opposite. Gates barely improve catching [A-17], and the
-habituation they breed gets you tuned out by the second prompt [O-16], spending the attention budget
-you need for real decisions. <strong>Antidote:</strong> Checkpoint &amp; Rewind — act, notify, undo [G-14, A-4].</p>
-<p>🟥 <strong>Warnings instead of undo</strong> — surfacing a scary &quot;are you sure?&quot; <em>warning</em> in place of a cheap
+<p>🟥 <strong>The Confirmation Reflex:</strong> putting a blocking &quot;Approve this edit?&quot; prompt on a reversible,
+local action. It feels responsible and does the opposite. Gates barely improve catching [A-17], and
+the habituation they breed gets you tuned out by the second prompt [O-16], spending the attention
+budget you need for real decisions. <strong>Antidote:</strong> Checkpoint &amp; Rewind, act, notify, undo [G-14, A-4].</p>
+<p>🟥 <strong>Warnings instead of undo:</strong> surfacing a scary &quot;are you sure?&quot; <em>warning</em> in place of a cheap
 revert. The 20-year-old result stands: warnings train click-through and don&#39;t prevent errors; undo
 is the superior pattern [G-14, G-13]. <strong>Antidote:</strong> make the action reversible by default; reserve
 confirmation for the genuinely irreversible.</p>
-<p>🟥 <strong>The &quot;rewind button&quot; re-grade</strong> — assuming undo exists, so treating shell side-effects as G1.
+<p>🟥 <strong>The &quot;rewind button&quot; re-grade:</strong> assuming undo exists, so treating shell side-effects as G1.
 A Bash <code>rm</code> is not covered by checkpointing and is not reversible [A-4]. <strong>Antidote:</strong> grade by real
 reversibility; gate or sandbox shell side-effects separately.</p>
-<p>🟥 <strong>The per-file firehose</strong> — notifying on every individual edit instead of batching at a
+<p>🟥 <strong>The per-file firehose:</strong> notifying on every individual edit instead of batching at a
 breakpoint. This recreates alert fatigue under a friendly name [H-21, Q-28]. <strong>Antidote:</strong> batch;
 make most signals passive; cap the interruptive rate.</p>
 <hr>
 <h2 id="6-sources-codex-tags-used">6. Sources (codex tags used)</h2>
 <ul>
-<li><strong>[G-14]</strong> Raskin, <em>Never Use a Warning When You Mean Undo</em> — undo beats confirmation; warnings
+<li><strong>[G-14]</strong> Raskin, <em>Never Use a Warning When You Mean Undo</em>: undo beats confirmation; warnings
 train click-through. The core &quot;reversibility &gt; confirmation&quot; claim.</li>
-<li><strong>[G-13]</strong> Nielsen, <em>10 Usability Heuristics</em> — user control/freedom; undo as the emergency exit.</li>
-<li><strong>[G-15]</strong> Tognazzini, <em>First Principles of Interaction Design</em> — protect users&#39; work; explorable,
+<li><strong>[G-13]</strong> Nielsen, <em>10 Usability Heuristics</em>: user control/freedom; undo as the emergency exit.</li>
+<li><strong>[G-15]</strong> Tognazzini, <em>First Principles of Interaction Design</em>: protect users&#39; work; explorable,
 reversible interfaces.</li>
-<li><strong>[A-4]</strong> Anthropic, <em>Checkpointing (Claude Code) — /rewind</em> — per-edit snapshots and the <strong>hard
+<li><strong>[A-4]</strong> Anthropic, <em>Checkpointing (Claude Code), /rewind</em>: per-edit snapshots and the <strong>hard
 shell boundary</strong>: Bash <code>rm</code>/<code>mv</code>/<code>cp</code> side-effects are not undoable.</li>
-<li><strong>[A-8]</strong> LangGraph, <em>Human-in-the-Loop</em> — the interrupt → approve/edit/reject/respond primitive;
+<li><strong>[A-8]</strong> LangGraph, <em>Human-in-the-Loop</em>: the interrupt → approve/edit/reject/respond primitive;
 evidence that gates cut bad actions but not error-catching.</li>
-<li><strong>[A-17]</strong> Empirical HITL study — the <strong>recognition bottleneck</strong>: gates cut bad actions (~90%→60–74%)
-but intervention success stays 9–26%.</li>
-<li><strong>[F-17]</strong> Dixon et al. — false alarms are uniquely corrosive to both compliance and reliance.</li>
-<li><strong>[H-21]</strong> EEMUA Publication 191 — interruptions are a budget; every alert must demand a specific
+<li><strong>[A-17]</strong> Empirical HITL study: the <strong>recognition bottleneck</strong>, gates cut bad actions (~90% to
+60-74%) but intervention success stays 9-26%.</li>
+<li><strong>[F-17]</strong> Dixon et al.: false alarms are uniquely corrosive to both compliance and reliance.</li>
+<li><strong>[H-21]</strong> EEMUA Publication 191: interruptions are a budget; every alert must demand a specific
 response; cap the interruptive rate.</li>
-<li><strong>[H-10]</strong> Alert-fatigue evidence — clinicians override 49–96% of alerts.</li>
-<li><strong>[O-16]</strong> Anderson et al. — warning habituation sets in by the <em>second</em> repetition.</li>
-<li><strong>[E-6]</strong> Parasuraman, Sheridan &amp; Wickens — stages × levels of automation; gate the <em>act</em> stage,
+<li><strong>[H-10]</strong> Alert-fatigue evidence: clinicians override 49-96% of alerts.</li>
+<li><strong>[O-16]</strong> Anderson et al.: warning habituation sets in by the <em>second</em> repetition.</li>
+<li><strong>[E-6]</strong> Parasuraman, Sheridan &amp; Wickens: stages × levels of automation; gate the <em>act</em> stage,
 automate earlier stages freely.</li>
-<li><strong>[Q-3, Q-4]</strong> Vermeulen et al.; Shneiderman et al. — consequence/feedforward preview and undo as
+<li><strong>[Q-3, Q-4]</strong> Vermeulen et al.; Shneiderman et al.: consequence/feedforward preview and undo as
 first-class safety affordances.</li>
-<li><strong>[Q-28]</strong> Iqbal &amp; Bailey — defer/batch interruptions to task breakpoints.</li>
-<li><strong>[F-20]</strong> Bansal et al. — explanations framed to persuade increase blind acceptance; design for
+<li><strong>[Q-28]</strong> Iqbal &amp; Bailey: defer/batch interruptions to task breakpoints.</li>
+<li><strong>[F-20]</strong> Bansal et al.: explanations framed to persuade increase blind acceptance; design for
 <em>verification</em>, not selling.</li>
 <li>Supporting: <strong>[E-12]</strong> awareness as comprehension; <strong>[A-18]</strong> escalate on scope drift; <strong>[A-19]</strong>
 models are weak at mid-task steering; <strong>[A-23]</strong> sandbox the environment; <strong>[A-16]</strong> measure

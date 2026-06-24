@@ -94,12 +94,12 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="codex.html" class="">Codex</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#what-quotinterruptiblequot-means" class="" data-id="what-quotinterruptiblequot-means">What &amp;quot;Interruptible&amp;quot; means</a><a href="#why-interruptibility-is-a-real-engineering-property-not-a-pr" class="" data-id="why-interruptibility-is-a-real-engineering-property-not-a-pr">Why interruptibility is a real engineering property, not a promise</a><a href="#how-to-implement-it-properly-concrete-mechanisms" class="" data-id="how-to-implement-it-properly-concrete-mechanisms">How to implement it properly — concrete mechanisms</a><a href="#cooperative-cancellation-graceful-stop" class="h3" data-id="cooperative-cancellation-graceful-stop">Cooperative cancellation (graceful stop)</a><a href="#preemptive-hard-stop" class="h3" data-id="preemptive-hard-stop">Preemptive / hard stop</a><a href="#the-kill-switch" class="h3" data-id="the-kill-switch">The kill switch</a><a href="#circuit-breakers-automatic-halt" class="h3" data-id="circuit-breakers-automatic-halt">Circuit breakers (automatic halt)</a><a href="#graceful-vs-hard-stop-choosing" class="h3" data-id="graceful-vs-hard-stop-choosing">Graceful vs. hard stop — choosing</a><a href="#the-handoff-problem" class="h3" data-id="the-handoff-problem">The handoff problem</a><a href="#multi-agent-fleet-halt" class="h3" data-id="multi-agent-fleet-halt">Multi-agent / fleet halt</a><a href="#a-maturity-checklist-for-interruptibility" class="" data-id="a-maturity-checklist-for-interruptibility">A maturity checklist for interruptibility</a><a href="#common-mistakes" class="" data-id="common-mistakes">Common mistakes</a><a href="#sources" class="" data-id="sources">Sources</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#what-quotinterruptiblequot-means" class="" data-id="what-quotinterruptiblequot-means">What &amp;quot;Interruptible&amp;quot; means</a><a href="#why-interruptibility-is-a-real-engineering-property-not-a-pr" class="" data-id="why-interruptibility-is-a-real-engineering-property-not-a-pr">Why interruptibility is a real engineering property, not a promise</a><a href="#how-to-implement-it-properly-concrete-mechanisms" class="" data-id="how-to-implement-it-properly-concrete-mechanisms">How to implement it properly: concrete mechanisms</a><a href="#cooperative-cancellation-graceful-stop" class="h3" data-id="cooperative-cancellation-graceful-stop">Cooperative cancellation (graceful stop)</a><a href="#preemptive-hard-stop" class="h3" data-id="preemptive-hard-stop">Preemptive / hard stop</a><a href="#the-kill-switch" class="h3" data-id="the-kill-switch">The kill switch</a><a href="#circuit-breakers-automatic-halt" class="h3" data-id="circuit-breakers-automatic-halt">Circuit breakers (automatic halt)</a><a href="#graceful-vs-hard-stop-choosing" class="h3" data-id="graceful-vs-hard-stop-choosing">Graceful vs. hard stop: choosing</a><a href="#the-handoff-problem" class="h3" data-id="the-handoff-problem">The handoff problem</a><a href="#multi-agent-fleet-halt" class="h3" data-id="multi-agent-fleet-halt">Multi-agent / fleet halt</a><a href="#a-maturity-checklist-for-interruptibility" class="" data-id="a-maturity-checklist-for-interruptibility">A maturity checklist for interruptibility</a><a href="#common-mistakes" class="" data-id="common-mistakes">Common mistakes</a><a href="#sources" class="" data-id="sources">Sources</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="index.html">LoopRails</a> · Interruptible</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/rail-interruptible.md">View rail-interruptible.md on GitHub ↗</a>
-      <h1 id="i-is-for-interruptible-stopping-an-agent-should-be-cheap-fas">I is for Interruptible — Stopping an Agent Should Be Cheap, Fast, and Blame-Free</h1>
+      <h1 id="i-is-for-interruptible-stopping-an-agent-should-be-cheap-fas">I is for Interruptible: Stopping an Agent Should Be Cheap, Fast, and Blame-Free</h1>
 <blockquote>
 <p>Part of the <strong>RAIL</strong> series. Every governed agent action should stay on the rail:
 <strong>R</strong>eversible · <strong>A</strong>uthorized · <strong>I</strong>nterruptible · <strong>L</strong>ogged. This page goes deep on <strong>I</strong>.
@@ -109,80 +109,80 @@ point there).</p>
 </blockquote>
 <hr>
 <h2 id="what-quotinterruptiblequot-means">What &quot;Interruptible&quot; means</h2>
-<p>An agent is <strong>interruptible</strong> when anyone with a stake in what it&#39;s doing can stop it — quickly,
-cheaply, and without having to justify themselves first. &quot;Anyone&quot; is literal: a teammate watching
-over a shoulder, an automated monitor that trips on an anomaly, or the end user who realizes
-mid-run &quot;that&#39;s not what I meant.&quot; Each of them needs a low-friction, blameless authority to halt
-the agent before it does the next thing.</p>
-<p>Two properties make this real:</p>
+<p>An agent is <strong>interruptible</strong> when anyone with a stake in what it&#39;s doing can stop it quickly,
+cheaply, and without having to justify themselves first. &quot;Anyone&quot; is literal here. A teammate
+watching over a shoulder, an automated monitor that trips on an anomaly, or the end user who
+realizes mid-run &quot;that&#39;s not what I meant.&quot; Each of them needs a low-friction, blameless authority
+to halt the agent before it does the next thing.</p>
+<p>Two properties make this real.</p>
 <ol>
 <li><p><strong>A blameless, universal stop.</strong> Stopping costs nothing socially. Nobody has to be <em>sure</em> the
 agent is wrong to pause it; &quot;I&#39;m not comfortable, hold on&quot; is a complete and acceptable reason.
-Toyota built this into the factory floor as the <em>andon cord</em> — a literal cord any worker can pull
-to stop the production line the instant they see a defect, and they are <em>rewarded</em> for pulling it,
-not punished [N-4]. The cord works because pulling it is cheap and carries no blame; a stop
+Toyota built this into the factory floor as the <em>andon cord</em>, a literal cord any worker can pull
+to stop the production line the instant they see a defect. Workers are <em>rewarded</em> for pulling it,
+not punished [N-4]. The cord works because pulling it is cheap and carries no blame. A stop
 mechanism that makes the stopper look foolish or costs them an argument will not get pulled when
 it matters.</p>
 </li>
 <li><p><strong>One kill switch that halts everything at once.</strong> Beyond the per-action pause, there is a single
 decisive control that stops <em>all</em> in-flight work without anyone first having to diagnose what went
 wrong. Finance calls this the kill switch: a risk admin can immediately block all new orders and
-cancel working orders, no root-cause analysis required — stop first, investigate later [O-7].</p>
+cancel working orders with no root-cause analysis required. Stop first, investigate later [O-7].</p>
 </li>
 </ol>
 <p>Interruptibility is the <strong>Authority</strong> leg of meaningful control made concrete. Without it, a human
-&quot;in the loop&quot; is a moral crumple zone: positioned to be blamed but unable to actually stop the thing
+&quot;in the loop&quot; is a moral crumple zone, positioned to be blamed but unable to actually stop the thing
 [framework §0].</p>
 <hr>
 <h2 id="why-interruptibility-is-a-real-engineering-property-not-a-pr">Why interruptibility is a real engineering property, not a promise</h2>
-<p>It is tempting to treat &quot;you can always stop it&quot; as self-evidently true — there&#39;s a Ctrl-C, there&#39;s
-a stop button, the agent is <em>told</em> to obey interruptions. That confidence is misplaced for one hard,
-empirical reason:</p>
+<p>People assume &quot;you can always stop it&quot; is self-evidently true. There&#39;s a Ctrl-C, there&#39;s a stop
+button, the agent is <em>told</em> to obey interruptions. That confidence is misplaced, and the reason is
+empirical.</p>
 <p><strong>Today&#39;s models are weak at honoring mid-task interruption, cancellation, and re-planning.</strong> This
-is not a UI gap; it is a model capability gap. The InterruptBench benchmark tested six frontier LLMs
-on long-horizon web tasks across three interruption types — <em>adding</em> a goal, <em>revising</em> the current
-goal, and <em>retracting</em> it entirely — and found that even the best models struggle to adapt and
-recover when the user changes their mind mid-flight [A-19]. Field evidence agrees: coding agents
-degrade sharply on iterative problem-solving and mid-task scope changes [A-16], and the dominant
-real-world failure mode is the agent continuing on its own trajectory while the developer pushes back
-[A-18].</p>
+is a model capability gap, not a UI gap. The InterruptBench benchmark tested six frontier LLMs on
+long-horizon web tasks across three interruption types: <em>adding</em> a goal, <em>revising</em> the current
+goal, and <em>retracting</em> it entirely. Even the best models struggled to adapt and recover when the
+user changed their mind mid-flight [A-19]. Field evidence agrees. Coding agents degrade sharply on
+iterative problem-solving and mid-task scope changes [A-16], and the dominant real-world failure
+mode is the agent continuing on its own trajectory while the developer pushes back [A-18].</p>
 <p>So a &quot;steer it mid-run&quot; affordance that <em>routes the new instruction back into the same model</em> is not
-a reliable stop. The model may acknowledge the interruption, then keep doing roughly what it was
-doing. Interruptibility therefore has to be <strong>engineered around the model, not delegated to it.</strong> The
-guaranteed stops live <em>outside</em> the agent&#39;s reasoning — in the orchestrator, the process supervisor,
-the credential broker, the network. The model&#39;s cooperation is a convenience on the happy path, not
-the safety mechanism. Treat steerability as a capability you must <em>test</em> per model, and never build a
+a reliable stop. The model may acknowledge the interruption and then keep doing roughly what it was
+doing. Interruptibility has to be <strong>engineered around the model, not delegated to it.</strong> The
+guaranteed stops live <em>outside</em> the agent&#39;s reasoning, in the orchestrator, the process supervisor,
+the credential broker, the network. The model&#39;s cooperation helps on the happy path but is not the
+safety mechanism. Treat steerability as a capability you must <em>test</em> per model, and never build a
 high-consequence stop on the assumption that the agent will gracefully comply when told [framework
 §4 surface 3].</p>
 <hr>
-<h2 id="how-to-implement-it-properly-concrete-mechanisms">How to implement it properly — concrete mechanisms</h2>
-<p>Interruptibility is a layered stack, from polite to brutal. Build all the layers; rely on the lower,
-model-independent ones for anything consequential.</p>
+<h2 id="how-to-implement-it-properly-concrete-mechanisms">How to implement it properly: concrete mechanisms</h2>
+<p>Interruptibility is a layered stack, running from polite to brutal. Build all the layers, and rely
+on the lower, model-independent ones for anything consequential.</p>
 <h3 id="cooperative-cancellation-graceful-stop">Cooperative cancellation (graceful stop)</h3>
 <p>The agent stops itself at a safe seam. Mechanisms:</p>
 <ul>
 <li><strong>Cancellation tokens.</strong> Every step checks a shared token before it acts. On cancel, the loop exits
-at the <em>next</em> checkpoint rather than mid-write, leaving state consistent. This is the pattern the
-major SDKs expose: a run pauses, surfaces an interruption, and resumes from saved state once
-resolved [A-7, A-8].</li>
+at the <em>next</em> checkpoint rather than mid-write, leaving state consistent. The major SDKs expose
+this pattern: a run pauses, surfaces an interruption, and resumes from saved state once resolved
+[A-7, A-8].</li>
 <li><strong>Checkpointing between steps.</strong> Snapshot durable state at each step boundary so a stop never lands
 in the middle of a half-finished mutation. Approve / edit / reject / respond on the next step is
-built on a checkpointer — HITL <em>requires</em> durable persistence underneath [A-8].</li>
+built on a checkpointer, since HITL <em>requires</em> durable persistence underneath [A-8].</li>
 <li><strong>Pausable / resumable runs.</strong> A paused run holds its full context durably and resumes minutes or
-hours later — across processes and machine restarts — when a human (or webhook, or queue) responds
-[A-10]. This makes &quot;pause and come back&quot; a normal state, not a crash.</li>
+hours later, across processes and machine restarts, when a human (or webhook, or queue) responds
+[A-10]. This makes &quot;pause and come back&quot; a normal state rather than a crash.</li>
 </ul>
-<p>Graceful stop is the right default for low- and medium-grade work: it preserves a clean,
-resumable state. Its limit is <em>latency</em> — it only stops at the next seam, which is too slow when the
+<p>Graceful stop is the right default for low- and medium-grade work, because it preserves a clean,
+resumable state. Its limit is <em>latency</em>. It only stops at the next seam, which is too slow when the
 next action is the dangerous one.</p>
 <h3 id="preemptive-hard-stop">Preemptive / hard stop</h3>
-<p>When you cannot wait for a safe seam, you stop the agent from the <em>outside</em>, accepting that you may
+<p>When you cannot wait for a safe seam, you stop the agent from the <em>outside</em> and accept that you may
 leave state messy:</p>
 <ul>
 <li><strong>Kill the process.</strong> Terminate the agent&#39;s execution. Cooperation not required.</li>
 <li><strong>Revoke the credentials.</strong> Invalidate the scoped, short-lived tokens the agent acts through so its
 <em>next</em> tool call fails even if the process is still alive. This is lockout/tagout from industrial
-safety: positively de-energize the system&#39;s ability to act, don&#39;t merely ask it to stop [N-17].</li>
+safety: positively de-energize the system&#39;s ability to act rather than merely asking it to stop
+[N-17].</li>
 <li><strong>Cut the network.</strong> Drop the agent into a no-egress state so it can compute but cannot <em>touch</em>
 anything external. If high-autonomy work already runs in a no-network, scoped-credential sandbox,
 the hard stop is mostly already armed [framework §4 surface 5].</li>
@@ -191,35 +191,35 @@ the hard stop is mostly already armed [framework §4 surface 5].</li>
 the polite cancel and even under prompt injection.</p>
 <h3 id="the-kill-switch">The kill switch</h3>
 <p>A kill switch is the <em>single decisive control</em> that does the hard stop across the board: stop all
-agents, cancel all in-flight work, revoke all live credentials — invoked <strong>without needing to
+agents, cancel all in-flight work, revoke all live credentials, invoked <strong>without needing to
 diagnose</strong> what went wrong. The design rules borrowed from finance [O-7]:</p>
 <ul>
 <li><strong>Usable mid-panic.</strong> One command, no parameters to reason about, no &quot;are you sure this is really
 the problem?&quot; gate. You pull it <em>because</em> you don&#39;t yet know what&#39;s wrong.</li>
 <li><strong>Cancels working actions, not just new ones.</strong> Blocking new tool calls while letting in-flight
-ones complete is a half-stop; the canonical algorithmic kill switch cancels the orders already
+ones complete is a half-stop. The canonical algorithmic kill switch cancels the orders already
 resting.</li>
-<li><strong>Both manual and automatic.</strong> A human can pull it; a limit breach can also pull it (see circuit
-breakers).</li>
+<li><strong>Both manual and automatic.</strong> A human can pull it, and a limit breach can also pull it (see
+circuit breakers).</li>
 </ul>
-<p>The cautionary tale is <strong>Knight Capital</strong>: dormant code reactivated on one server fired ~4 million
+<p>The cautionary tale is <strong>Knight Capital</strong>. Dormant code reactivated on one server fired ~4 million
 unintended orders in ~45 minutes, ~$440M in losses, with <strong>no kill switch</strong> to halt the runaway
-[O-4]. The absence of a single decisive stop turned a small config error into an extinction event.</p>
+[O-4]. The absence of a single decisive stop turned a small config error into a company-ending event.</p>
 <h3 id="circuit-breakers-automatic-halt">Circuit breakers (automatic halt)</h3>
 <p>A circuit breaker auto-halts the agent when a threshold trips, then <strong>requires explicit
 re-authorization to resume</strong>. Markets use exactly this: threshold-triggered automatic halts that
 inject a cool-down so humans can reassess before trading restarts [O-6]. For agents, wire breakers to:</p>
 <ul>
-<li><strong>error rate</strong> — repeated tool failures or retries (a stuck loop);</li>
-<li><strong>spend</strong> — cumulative cost or per-window burn exceeding a cap;</li>
-<li><strong>anomaly / volume</strong> — action rate or output volume outside the learned band;</li>
-<li><strong>blast-radius accumulation</strong> — many small actions composing into a large effect.</li>
+<li><strong>error rate</strong>: repeated tool failures or retries (a stuck loop);</li>
+<li><strong>spend</strong>: cumulative cost or per-window burn exceeding a cap;</li>
+<li><strong>anomaly / volume</strong>: action rate or output volume outside the learned band;</li>
+<li><strong>blast-radius accumulation</strong>: many small actions composing into a large effect.</li>
 </ul>
-<p>The breaker&#39;s value is that it stops <em>before</em> a human notices, and the mandatory re-authorization
-makes resuming a deliberate human re-entry point rather than a silent restart [O-6]. This mirrors the
-factory <em>jidoka</em> primitive: full speed on the happy path, automatic hard stop on anomaly, escalate to
-a human [N-4].</p>
-<h3 id="graceful-vs-hard-stop-choosing">Graceful vs. hard stop — choosing</h3>
+<p>The breaker stops <em>before</em> a human notices, and the mandatory re-authorization makes resuming a
+deliberate human re-entry point rather than a silent restart [O-6]. This mirrors the factory
+<em>jidoka</em> primitive: full speed on the happy path, automatic hard stop on anomaly, escalate to a
+human [N-4].</p>
+<h3 id="graceful-vs-hard-stop-choosing">Graceful vs. hard stop: choosing</h3>
 <table>
 <thead>
 <tr>
@@ -245,34 +245,36 @@ a human [N-4].</p>
 </tr>
 <tr>
 <td><strong>Use for</strong></td>
-<td>routine pause/redirect, low–medium grade</td>
+<td>routine pause/redirect, low-to-medium grade</td>
 <td>high grade, runaway, injection, panic</td>
 </tr>
 </tbody></table>
-<p>Offer graceful as the default; keep hard always armed underneath. Never let &quot;graceful&quot; be the <em>only</em>
-option for a consequential action — that re-introduces the model dependency you were trying to escape.</p>
+<p>Offer graceful as the default and keep hard always armed underneath. Never let &quot;graceful&quot; be the
+<em>only</em> option for a consequential action. That re-introduces the model dependency you were trying to
+escape.</p>
 <h3 id="the-handoff-problem">The handoff problem</h3>
 <p>An interruption that hands control back to a person is itself a failure point, because the person
 being handed to is, by construction, <em>out of the loop</em>. Pulling a human off the task degrades their
-<strong>comprehension</strong> — not just their data — and that comprehension is what they need to take over;
-out-of-the-loop performance is measurably worse under full automation than under intermediate
+<strong>comprehension</strong>, not just their data, and that comprehension is what they need to take over.
+Out-of-the-loop performance is measurably worse under full automation than under intermediate
 automation that kept them engaged [E-13]. A sudden dump on a disengaged human is the classic
 failure: Air France 447&#39;s startled, out-of-the-loop crew got an abrupt handoff at the worst possible
 moment and stalled a working aircraft into the ocean [H-7].</p>
 <p>So engineer the handoff:</p>
 <ul>
-<li><strong>Early and gradual.</strong> Hand back <em>before</em> the cliff, not at it; step authority down in stages.
-The crisis is exactly when a firehose hurts most — prioritize and interpret <em>for</em> the human, don&#39;t
-dump everything [H-7].</li>
-<li><strong>Context-rich.</strong> Carry the provenance: what the agent saw, what it tried, <em>why</em> it stopped or
-escalated — situation awareness, not a log dump [framework §5; E-13].</li>
+<li><strong>Early and gradual.</strong> Hand back <em>before</em> the cliff, not at it, and step authority down in stages.
+A firehose hurts most during a crisis, so prioritize and interpret <em>for</em> the human instead of
+dumping everything [H-7].</li>
+<li><strong>Context-rich.</strong> Carry the provenance: what the agent saw, what it tried, and <em>why</em> it stopped or
+escalated. That is situation awareness, not a log dump [framework §5; E-13].</li>
 <li><strong>Budget the re-engagement latency.</strong> Takeover is not instantaneous. Driving-automation studies put
-human takeover at ~1.5–3.5 seconds, longer under secondary-task load, and longer still to rebuild
-the <em>competence</em> to act well [H-19]. For time-critical failures, the human fallback may simply not
-arrive in time — so don&#39;t architect safety around a handoff that can&#39;t re-engage fast enough [H-19].</li>
+human takeover at ~1.5 to 3.5 seconds, longer under secondary-task load, and longer still to
+rebuild the <em>competence</em> to act well [H-19]. For time-critical failures, the human fallback may
+simply not arrive in time, so don&#39;t architect safety around a handoff that can&#39;t re-engage fast
+enough [H-19].</li>
 </ul>
 <h3 id="multi-agent-fleet-halt">Multi-agent / fleet halt</h3>
-<p>With a fleet, &quot;stop it&quot; must mean <strong>stop them all</strong> — including subagents that inherited authority —
+<p>With a fleet, &quot;stop it&quot; must mean <strong>stop them all</strong>, including subagents that inherited authority,
 in one action. A per-agent stop that leaves siblings running is not a halt. Two hard limits shape
 fleet interruptibility:</p>
 <ul>
@@ -288,7 +290,7 @@ pooling oversight guarantees unmonitored failures [H-22].</li>
 <hr>
 <h2 id="a-maturity-checklist-for-interruptibility">A maturity checklist for interruptibility</h2>
 <ul>
-<li><input disabled="" type="checkbox"> Anyone — teammate, automated monitor, end user — can stop the agent, and stopping is cheap and
+<li><input disabled="" type="checkbox"> Anyone (teammate, automated monitor, end user) can stop the agent, and stopping is cheap and
 <strong>blameless</strong> (the andon-cord property [N-4]).</li>
 <li><input disabled="" type="checkbox"> A <strong>single kill switch</strong> stops everything and cancels in-flight work, usable <strong>without first
 diagnosing</strong> the problem [O-7].</li>
@@ -310,29 +312,29 @@ and no time-critical safety relies on a handoff that can&#39;t arrive in time [H
 <h2 id="common-mistakes">Common mistakes</h2>
 <ul>
 <li><p><strong>No kill switch (the Knight Capital runaway).</strong> Trusting that &quot;we can always pull the plug&quot; without
-building the plug. Knight had a fast autonomous actor and no decisive stop; ~4M bad orders and
+building the plug. Knight had a fast autonomous actor and no decisive stop, and ~4M bad orders and
 ~$440M in 45 minutes was the result [O-4]. If you cannot name the one command that stops everything
 <em>right now</em>, you do not have a kill switch.</p>
 </li>
-<li><p><strong>Gameable &quot;are you still there?&quot; engagement checks.</strong> Token engagement nags — a hands-on-wheel ping,
-a periodic &quot;click to continue&quot; — feel like oversight but verify nothing. Tesla&#39;s gore-point fatality
-involved a driver playing a game past a non-effective engagement-monitoring design [H-18], and the
-Uber/Tempe fatality involved a safety driver on her phone behind a system reliable enough to induce
-disengagement but not to trust [framework §6]. An interruption check that a disengaged human can
-satisfy without re-engaging is theater. Verify <em>meaningful</em> engagement, or budget for the fact that
-the human is out of the loop.</p>
+<li><p><strong>Gameable &quot;are you still there?&quot; engagement checks.</strong> Token engagement nags, a hands-on-wheel ping
+or a periodic &quot;click to continue,&quot; feel like oversight but verify nothing. Tesla&#39;s gore-point
+fatality involved a driver playing a game past a non-effective engagement-monitoring design [H-18],
+and the Uber/Tempe fatality involved a safety driver on her phone behind a system reliable enough
+to induce disengagement but not to trust [framework §6]. An interruption check that a disengaged
+human can satisfy without re-engaging is theater. Verify <em>meaningful</em> engagement, or budget for the
+fact that the human is out of the loop.</p>
 </li>
-<li><p><strong>Assuming the model will just stop when told.</strong> The most seductive mistake: wiring &quot;interrupt&quot; to a
-message back into the same model and calling it done. The benchmark says frontier models are weak at
-honoring mid-task changes [A-19], the field data says agents keep going until the human forcibly
+<li><p><strong>Assuming the model will just stop when told.</strong> The most seductive mistake is wiring &quot;interrupt&quot; to
+a message back into the same model and calling it done. The benchmark says frontier models are weak
+at honoring mid-task changes [A-19], the field data says agents keep going until the human forcibly
 pushes back [A-18], and a polite cancel is worthless under prompt injection. Build the guaranteed
-stop outside the model; let the model&#39;s cooperation be a bonus, never the mechanism.</p>
+stop outside the model, and let the model&#39;s cooperation be a bonus rather than the mechanism.</p>
 </li>
 </ul>
 <hr>
 <h2 id="sources">Sources</h2>
 <p>Codex tags cited on this page: <strong>[A-8]</strong> approve/edit/reject/respond on a durable checkpointer ·
-<strong>[A-19]</strong> InterruptBench — models weak at mid-task interruption/cancellation/re-planning ·
+<strong>[A-19]</strong> InterruptBench, models weak at mid-task interruption/cancellation/re-planning ·
 <strong>[N-4]</strong> the andon cord (universal, blameless line-stop authority) · <strong>[O-6]</strong> circuit breakers
 (threshold-triggered auto-halt + re-authorization to resume) · <strong>[O-7]</strong> kill switches (decisive
 manual + automatic stop; cancel working actions) · <strong>[H-7]</strong> Air France 447 (startle + sudden handoff
@@ -345,7 +347,7 @@ supervisory-span ceiling (how many agents one human can watch).</p>
 monitoring · <strong>[N-17]</strong> lockout/tagout (positively disable the ability to act) · <strong>[O-4]</strong> Knight
 Capital (no kill switch) · <strong>[O-5]</strong> Flash Crash (system-level emergent failure).</p>
 <hr>
-<p><em>LoopRails · RAIL series · I — Interruptible. See also: R (Reversible), A (Authorized), L (Logged).</em></p>
+<p><em>LoopRails · RAIL series · I is for Interruptible. See also: R (Reversible), A (Authorized), L (Logged).</em></p>
 
     </div>
     

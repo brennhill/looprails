@@ -94,7 +94,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="codex.html" class="">Codex</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#tldr-what-a-g0-action-is" class="" data-id="tldr-what-a-g0-action-is">TL;DR — what a G0 action is</a><a href="#is-a-human-in-the-loop-the-answer-here" class="" data-id="is-a-human-in-the-loop-the-answer-here">s a human in the loop the answer here?</a><a href="#how-to-design-it-properly" class="" data-id="how-to-design-it-properly">How to design it properly</a><a href="#worked-example-a-coding-agent-reading-files-and-running-read" class="" data-id="worked-example-a-coding-agent-reading-files-and-running-read">Worked example — a coding agent reading files and running read-only queries</a><a href="#anti-patterns" class="" data-id="anti-patterns">Anti-patterns</a><a href="#sources" class="" data-id="sources">Sources</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#tldr-what-a-g0-action-is" class="" data-id="tldr-what-a-g0-action-is">TL;DR: what a G0 action is</a><a href="#is-a-human-in-the-loop-the-answer-here" class="" data-id="is-a-human-in-the-loop-the-answer-here">s a human in the loop the answer here?</a><a href="#how-to-design-it-properly" class="" data-id="how-to-design-it-properly">How to design it properly</a><a href="#worked-example-a-coding-agent-reading-files-and-running-read" class="" data-id="worked-example-a-coding-agent-reading-files-and-running-read">Worked example: a coding agent reading files and running read-only queries</a><a href="#anti-patterns" class="" data-id="anti-patterns">Anti-patterns</a><a href="#sources" class="" data-id="sources">Sources</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="index.html">LoopRails</a> · G0 · Trivial</div>
     <div id="md" class="md">
@@ -105,11 +105,11 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 for the field-guide version see <a href="./playbook.md"><code>playbook.md</code></a>; for the evidence behind every
 claim see <a href="./codex.md"><code>codex.md</code></a>. Bracket tags like <code>[A-17]</code> point to the annotated source.</p>
 </blockquote>
-<h2 id="tldr-what-a-g0-action-is">TL;DR — what a G0 action is</h2>
-<p><strong>A G0 action runs autonomously and gets logged. It does not get a human gate — gating it is
-the wrong move and actively makes your system worse.</strong></p>
+<h2 id="tldr-what-a-g0-action-is">TL;DR: what a G0 action is</h2>
+<p><strong>A G0 action runs autonomously and gets logged. Don&#39;t gate it. Gating it is the wrong move and
+actively makes your system worse.</strong></p>
 <p>G0 is the lowest consequence grade in LoopRails. You earn it by passing a three-part test on the
-action&#39;s <em>consequence</em> — <strong>reversibility × blast radius × stakes</strong> — where every dimension scores
+action&#39;s <em>consequence</em>, <strong>reversibility × blast radius × stakes</strong>, where every dimension scores
 low:</p>
 <table>
 <thead>
@@ -124,7 +124,7 @@ low:</p>
 </tr>
 <tr>
 <td><strong>Blast radius</strong></td>
-<td>Effect stays in <em>your</em> local workspace — not shared state, not third parties, not the public.</td>
+<td>Effect stays in <em>your</em> local workspace, not shared state, not third parties, not the public.</td>
 </tr>
 <tr>
 <td><strong>Stakes</strong></td>
@@ -136,133 +136,131 @@ Canonical G0 examples: reading a file, running a read-only query, drafting text 
 <em>blast radius</em> = how far the effect reaches if it goes wrong; <em>reversibility</em> = how cheaply you
 can undo it.)</p>
 <h2 id="is-a-human-in-the-loop-the-answer-here">Is a human in the loop the answer here?</h2>
-<p>No — and this is the section that matters most, because the instinct to &quot;just add a confirmation
-to be safe&quot; is exactly backwards for G0.</p>
-<p><strong>A human adds essentially nothing at G0.</strong> There is nothing to catch: the action is reversible,
-local, and trivial, so the worst case is already contained. Worse, the evidence says a human
-placed in front of a low-stakes prompt is <em>not</em> a good detector even when it counts. Approval
-gates cut the <em>occurrence</em> of bad actions but barely improve a human&#39;s ability to <em>catch</em> one —
-the &quot;recognition bottleneck&quot;: plan-approval drove attack occurrence down to 60–74% from ~90%,
-yet intervention success stayed at <strong>9–26%</strong> across every strategy tried [A-17]. Even motivated
+<p>No. This is the section that matters most, because the instinct to &quot;just add a confirmation to be
+safe&quot; is exactly backwards for G0.</p>
+<p><strong>A human adds essentially nothing at G0.</strong> There is nothing to catch. The action is reversible,
+local, and trivial, so the worst case is already contained. The evidence is worse than neutral: a
+human placed in front of a low-stakes prompt is <em>not</em> a good detector even when it counts. Approval
+gates cut the <em>occurrence</em> of bad actions but barely improve a human&#39;s ability to <em>catch</em> one. Call
+it the &quot;recognition bottleneck.&quot; Plan-approval drove attack occurrence down to 60-74% from ~90%,
+yet intervention success stayed at <strong>9-26%</strong> across every strategy tried [A-17]. Even motivated
 expert developers default to shallow, heuristic review under productivity pressure and
 rubber-stamp [A-18, A-21]. If a human can&#39;t reliably catch a <em>real</em> error, asking them to
-&quot;approve&quot; a file read is pure ceremony — it manufactures accountability without producing
+&quot;approve&quot; a file read is pure ceremony. It manufactures accountability without producing
 control [C-21].</p>
-<p><strong>Prompting at G0 manufactures alert fatigue, and that erodes the alerts that do matter.</strong> This
-is the real harm, and it is quantified. Clinicians override <strong>49–96%</strong> of drug-safety alerts,
+<p><strong>Prompting at G0 manufactures alert fatigue, and that erodes the alerts that do matter.</strong> This is
+the real harm, and we can put numbers on it. Clinicians override <strong>49-96%</strong> of drug-safety alerts,
 driven by poor signal-to-noise [H-10]. Indiscriminate flagging trains people to dismiss
-<em>everything</em>, including the rare valid signal. The aviation/process-control discipline is blunt:
-an alarm must demand a <em>specific</em> operator response, and the interruptive rate must be capped
-(EEMUA targets roughly ≤10 alarms per 10 minutes per operator) [H-21]. False-alarm-prone systems
-are uniquely corrosive — they damage both <em>compliance</em> (acting on alarms) and <em>reliance</em>
-(trusting silence), driving the &quot;cry wolf&quot; desensitization that makes people override even
-critical alerts [F-17]. Every G0 prompt you add is a false alarm in disguise: it spends a slice
-of a scarce, finite attention budget on something with no consequence, and it teaches the human
-to click through the next prompt reflexively — including the G3 one where catching the error was
-the whole point.</p>
-<p>So the framework&#39;s default mapping puts G0 at <strong>L0–L1</strong> (autonomous, silent or logged): &quot;spending
-attention here is waste; it manufactures alert fatigue&quot; [H-21, F-17]. The right posture is
-<strong>management by exception</strong> — handle the routine autonomously and surface only deviations [K-1].
-Human review combined with AI is not free benefit either: human–AI teams often <em>underperform</em> the
+<em>everything</em>, including the rare valid signal. The aviation and process-control discipline is
+blunt: an alarm must demand a <em>specific</em> operator response, and the interruptive rate must be
+capped (EEMUA targets roughly ≤10 alarms per 10 minutes per operator) [H-21]. False-alarm-prone
+systems are corrosive in a way most teams underestimate. They damage both <em>compliance</em> (acting on
+alarms) and <em>reliance</em> (trusting silence), driving the &quot;cry wolf&quot; desensitization that makes people
+override even critical alerts [F-17]. Every G0 prompt you add is a false alarm in disguise. It
+spends a slice of a scarce, finite attention budget on something with no consequence, and it
+teaches the human to click through the next prompt reflexively, including the G3 one where catching
+the error was the whole point.</p>
+<p>So the framework&#39;s default mapping puts G0 at <strong>L0 to L1</strong> (autonomous, silent or logged):
+&quot;spending attention here is waste; it manufactures alert fatigue&quot; [H-21, F-17]. The right posture
+is <strong>management by exception</strong>: handle the routine autonomously and surface only deviations [K-1].
+Pairing human review with AI is not free benefit either. Human-AI teams often <em>underperform</em> the
 better of human-or-AI alone, especially in decision tasks [C-19]. At G0, the human is the weaker,
 costlier party. Leave them out.</p>
 <h2 id="how-to-design-it-properly">How to design it properly</h2>
-<p><strong>Run autonomously; log, don&#39;t prompt.</strong> G0 actions execute without a gate. The control surface
-is a passive log, not a dialog. Borrow the staged-automation view: automate perception and
-analysis (read, query, retrieve) freely, and reserve gates for the <em>act</em> stage where over-trust
-and lost authority bite — and a G0 action barely touches the act stage at all [E-6].</p>
+<p><strong>Run autonomously; log, don&#39;t prompt.</strong> G0 actions execute without a gate. The control surface is
+a passive log, not a dialog. Borrow the staged-automation view: automate perception and analysis
+(read, query, retrieve) freely, and reserve gates for the <em>act</em> stage where over-trust and lost
+authority bite. A G0 action barely touches the act stage at all [E-6].</p>
 <p><strong>Budget interruptions as a scarce resource.</strong> Treat your interruptive capacity like a quota you
-can overspend. The G0 contribution to that quota should be zero blocking prompts. Most signals
-passive/logged; blocking interventions reserved for high-severity, high-precision cases [H-21,
-F-17]. This is the principal–agent bargain: oversight is <em>costly monitoring</em>, so monitor the
+can overspend. The G0 contribution to that quota should be zero blocking prompts. Most signals stay
+passive and logged; reserve blocking interventions for high-severity, high-precision cases [H-21,
+F-17]. This is the principal-agent bargain: oversight is <em>costly monitoring</em>, so monitor the
 exceptions, not everything [K-1].</p>
 <p><strong>What to record.</strong> Keep a queryable, append-only trace so post-hoc audit and accountability are
 possible without a live human in the loop:</p>
 <ul>
 <li>the action taken, with timestamp and the tool/capability used;</li>
 <li>inputs/parameters (e.g., which file, which query) and the result or a digest of it;</li>
-<li>the <em>cumulative</em> tally per session — counts and rates of G0 actions, so composition is visible;</li>
+<li>the <em>cumulative</em> tally per session: counts and rates of G0 actions, so composition is visible;</li>
 <li>enough provenance that, <em>if</em> an action later escalates, you can answer &quot;how did this get here?&quot;
 [C-20].</li>
 </ul>
-<p><strong>Keep G0 truly G0 — watch for hidden blast radius and mis-grading.</strong> The danger is an action
-that <em>looks</em> trivial but composes into something bigger. Guard against it:</p>
+<p><strong>Keep G0 truly G0; watch for hidden blast radius and mis-grading.</strong> The danger is an action that
+<em>looks</em> trivial but composes into something bigger. Guard against it:</p>
 <ul>
 <li><strong>The shell-boundary trap [A-4].</strong> Checkpoint/undo typically covers an agent&#39;s <em>structured</em>
 edits but <strong>not</strong> shell side effects. A &quot;read&quot; that is actually a Bash command with side effects,
 or a &quot;query&quot; that hits a write endpoint, is not G0. Grade by <em>actual</em> reversibility, not by
 whether your framework has a rewind button.</li>
 <li><strong>The lethal trifecta [A-23].</strong> A read becomes dangerous the moment it combines private-data
-access + untrusted content + an external-communication path — that combination is near-guaranteed
-exfiltration via prompt injection. Reading a file is G0; reading a file <em>and</em> then being able to
-send it externally is not. Detect the combination and escalate/forbid.</li>
+access plus untrusted content plus an external-communication path. That combination is
+near-guaranteed exfiltration via prompt injection. Reading a file is G0; reading a file <em>and</em>
+then being able to send it externally is not. Detect the combination and escalate or forbid.</li>
 <li><strong>Accumulated blast radius.</strong> Many small G0 reads can compose into a G2-scale effect (e.g.,
 scraping an entire private codebase). Escalate the level automatically when accumulated reach
-crosses a threshold — that is the same dynamic trigger the framework applies to scope creep.</li>
+crosses a threshold. That is the same dynamic trigger the framework applies to scope creep.</li>
 </ul>
-<p>If any of these fires, the action was never G0. Re-grade it; don&#39;t paper over it with a prompt
-the human will rubber-stamp anyway.</p>
-<h2 id="worked-example-a-coding-agent-reading-files-and-running-read">Worked example — a coding agent reading files and running read-only queries</h2>
-<p>A Claude Code–style agent exploring a repo before making changes:</p>
+<p>If any of these fires, the action was never G0. Re-grade it. Don&#39;t paper over it with a prompt the
+human will rubber-stamp anyway.</p>
+<h2 id="worked-example-a-coding-agent-reading-files-and-running-read">Worked example: a coding agent reading files and running read-only queries</h2>
+<p>A Claude Code-style agent exploring a repo before making changes:</p>
 <ul>
 <li><strong>Map / Grade.</strong> <code>read file</code>, <code>grep</code>/search, <code>git log</code>, <code>git diff</code> (no write), a <code>SELECT</code>
-against a read replica — all G0: nothing changed, local workspace only, trivial stakes.</li>
-<li><strong>Match the mode.</strong> L0–L1: the agent reads and queries freely and silently; each action lands
-in the run log. No confirmation dialog, ever. (Contrast: an <em>edit</em> to a local file is G1 — act<ul>
-<li>notify with cheap undo; <code>git push</code> is G2 — confirm-before with a diff. G0 sits below all of
-that.) [E-6, K-1]</li>
-</ul>
-</li>
+against a read replica are all G0: nothing changed, local workspace only, trivial stakes.</li>
+<li><strong>Match the mode.</strong> L0 to L1: the agent reads and queries freely and silently; each action lands
+in the run log. No confirmation dialog, ever. (Contrast: an <em>edit</em> to a local file is G1, which
+is act plus notify with cheap undo; <code>git push</code> is G2, which is confirm-before with a diff. G0
+sits below all of that.) [E-6, K-1]</li>
 <li><strong>Instrument.</strong> Run in a sandbox/branch with <strong>no prod credentials</strong>, so even a mis-graded read
 can&#39;t reach anything that matters [A-23]. The log records every file touched and every query
 run, with a running count.</li>
 <li><strong>Keep it G0.</strong> Two tripwires: (1) the read replica is genuinely read-only at the <em>database</em>
-level, not just by the agent&#39;s intent — a &quot;read-only query&quot; that can mutate is mis-graded
+level, not just by the agent&#39;s intent, since a &quot;read-only query&quot; that can mutate is mis-graded
 [A-4]; (2) if the agent gains the ability to send what it reads anywhere external, the trifecta
 fires and the action class is re-graded and gated [A-23].</li>
-<li><strong>What you get.</strong> The agent does the high-volume, low-stakes work — exploring, grokking,
-drafting — with zero interruptions, and your human&#39;s attention is preserved intact for the
+<li><strong>What you get.</strong> The agent does the high-volume, low-stakes work: exploring, grokking,
+drafting, with zero interruptions, and your human&#39;s attention is preserved intact for the
 <code>git push</code> and the prod migration, where catching a mistake is real and possible.</li>
 </ul>
 <h2 id="anti-patterns">Anti-patterns</h2>
-<p><strong>Over-gating trivial actions → alert fatigue.</strong> Putting a &quot;Allow read of <code>config.json</code>?&quot; prompt
-in front of a G0 read is the single most common way oversight dies in practice. It is the
-<strong>Alert-Fatigue Spiral</strong>: too many low-value prompts, so the human dismisses all of them —
-including the valid ones [H-10, F-17]. You cannot fix this later by muting the noisiest category,
-because rare-but-critical cases hide in high-override buckets — the only safe fix is to not
-over-alert in the first place, by tiering [H-10/H-11]. Symptom to watch for: a global &quot;ask
-everything&quot; switch (maturity level 0 — &quot;Binary&quot;). The cure is grading, so trivial work just runs.</p>
-<p><strong>Phantom oversight.</strong> Mandating a review step that is illusory in practice — the human &quot;approves&quot;
-G0 actions they can&#39;t and needn&#39;t evaluate — legitimizes the system with a façade of
-accountability while delivering no control [C-21]. At G0 this is pure theater: there is no error
-to catch and no authority that&#39;s meaningfully exercised. It also quietly creates a <strong>moral crumple
+<p><strong>Over-gating trivial actions, leading to alert fatigue.</strong> Putting a &quot;Allow read of <code>config.json</code>?&quot;
+prompt in front of a G0 read is the single most common way oversight dies in practice. It&#39;s the
+<strong>Alert-Fatigue Spiral</strong>: too many low-value prompts, so the human dismisses all of them, including
+the valid ones [H-10, F-17]. You cannot fix this later by muting the noisiest category, because
+rare-but-critical cases hide in high-override buckets. The only safe fix is to not over-alert in the
+first place, by tiering [H-10/H-11]. Symptom to watch for: a global &quot;ask everything&quot; switch
+(maturity level 0, &quot;Binary&quot;). The cure is grading, so trivial work just runs.</p>
+<p><strong>Phantom oversight.</strong> Mandating a review step that is illusory in practice, where the human
+&quot;approves&quot; G0 actions they can&#39;t and needn&#39;t evaluate, legitimizes the system with a façade of
+accountability while delivering no control [C-21]. At G0 this is pure theater: there is no error to
+catch and no authority that&#39;s meaningfully exercised. It also quietly creates a <strong>moral crumple
 zone</strong> if anything ever does go wrong, because a human&#39;s name is on an approval they never truly
 made. The antidote is honesty: if oversight here can&#39;t pass the four A&#39;s (Authority, Awareness,
-Ability, Accountability), don&#39;t claim it — change the design and log instead.</p>
+Ability, Accountability), don&#39;t claim it. Change the design and log instead.</p>
 <p><strong>The Confirmation Reflex.</strong> Reaching for a warning prompt where cheap reversibility would do.
 Habituation sets in by the <em>second</em> identical prompt; undo beats confirmation. For G0 there isn&#39;t
-even anything to undo — so the only correct amount of confirmation is none.</p>
+even anything to undo, so the only correct amount of confirmation is none.</p>
 <h2 id="sources">Sources</h2>
 <ul>
-<li><strong>[H-10]</strong> van der Sijs et al. (2006), <em>Overriding of Drug Safety Alerts in CPOE</em> — clinicians
-override 49–96% of alerts; the empirical heart of alert fatigue.</li>
-<li><strong>[F-17]</strong> Dixon, Wickens &amp; McCarley (2007), <em>On the Independence of Compliance and Reliance</em> —
+<li><strong>[H-10]</strong> van der Sijs et al. (2006), <em>Overriding of Drug Safety Alerts in CPOE</em>: clinicians
+override 49-96% of alerts; the empirical heart of alert fatigue.</li>
+<li><strong>[F-17]</strong> Dixon, Wickens &amp; McCarley (2007), <em>On the Independence of Compliance and Reliance</em>:
 false alarms uniquely corrosive; alert volume/precision are safety parameters.</li>
-<li><strong>[H-21]</strong> EEMUA Publication 191 — every alarm must demand a defined response; cap the
+<li><strong>[H-21]</strong> EEMUA Publication 191: every alarm must demand a defined response; cap the
 interruptive rate; everything else is a passive log.</li>
 <li><strong>[E-6]</strong> Parasuraman, Sheridan &amp; Wickens (2000), <em>Types and Levels of Human Interaction with
-Automation</em> — automate perception/analysis freely; gate the act stage.</li>
-<li><strong>[A-2]</strong> Anthropic (2026), <em>Configure Permissions (Claude Agent SDK)</em> — risk-tier tools;
+Automation</em>: automate perception/analysis freely; gate the act stage.</li>
+<li><strong>[A-2]</strong> Anthropic (2026), <em>Configure Permissions (Claude Agent SDK)</em>: risk-tier tools;
 auto-run the trivial, gate the consequential.</li>
-<li><strong>[K-1]</strong> Taylor (1903/1911), <em>Scientific Management</em> — management by exception: handle the
+<li><strong>[K-1]</strong> Taylor (1903/1911), <em>Scientific Management</em>: management by exception, handle the
 routine autonomously, surface only deviations.</li>
-<li><strong>[C-19]</strong> Vaccaro, Almaatouq &amp; Malone (2024), <em>When Combinations of Humans and AI Are Useful</em> —
-human–AI teams often underperform the better of either alone.</li>
+<li><strong>[C-19]</strong> Vaccaro, Almaatouq &amp; Malone (2024), <em>When Combinations of Humans and AI Are Useful</em>:
+human-AI teams often underperform the better of either alone.</li>
 </ul>
 <p><em>Also drawn on:</em> [A-17] recognition bottleneck (gates cut occurrence, not catching); [A-18, A-21]
 rubber-stamping under pressure; [A-4] the shell-boundary / undo trap; [A-23] the lethal trifecta;
 [C-21] illusory oversight / moral crumple zone.</p>
-<p><em>LoopRails guide — G0 (Trivial). Companion to <a href="./framework.md"><code>framework.md</code></a>, 2026-06-22.</em></p>
+<p><em>LoopRails guide, G0 (Trivial). Companion to <a href="./framework.md"><code>framework.md</code></a>, 2026-06-22.</em></p>
 
     </div>
     

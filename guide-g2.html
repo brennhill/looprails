@@ -94,7 +94,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="codex.html" class="">Codex</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#tldr-what-makes-an-action-g2" class="" data-id="tldr-what-makes-an-action-g2">TL;DR — what makes an action G2</a><a href="#is-a-human-in-the-loop-the-answer-here-it-depends-and-that39" class="" data-id="is-a-human-in-the-loop-the-answer-here-it-depends-and-that39">s a human in the loop the answer here? It depends — and that&amp;#39;s the whole point.</a><a href="#how-to-design-the-review-when-review-works" class="" data-id="how-to-design-the-review-when-review-works">How to design the review when review works</a><a href="#how-to-prevent-when-review-won39t-work" class="" data-id="how-to-prevent-when-review-won39t-work">How to prevent when review won&amp;#39;t work</a><a href="#worked-example-git-push" class="" data-id="worked-example-git-push">Worked example — git push</a><a href="#anti-patterns" class="" data-id="anti-patterns">Anti-patterns</a><a href="#sources" class="" data-id="sources">Sources</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#tldr-what-makes-an-action-g2" class="" data-id="tldr-what-makes-an-action-g2">TL;DR: what makes an action G2</a><a href="#is-a-human-in-the-loop-the-answer-here-depends-and-that-depe" class="" data-id="is-a-human-in-the-loop-the-answer-here-depends-and-that-depe">s a human in the loop the answer here? Depends, and that dependence is the whole point.</a><a href="#how-to-design-the-review-when-review-works" class="" data-id="how-to-design-the-review-when-review-works">How to design the review when review works</a><a href="#how-to-prevent-when-review-won39t-work" class="" data-id="how-to-prevent-when-review-won39t-work">How to prevent when review won&amp;#39;t work</a><a href="#worked-example-git-push" class="" data-id="worked-example-git-push">Worked example: git push</a><a href="#anti-patterns" class="" data-id="anti-patterns">Anti-patterns</a><a href="#sources" class="" data-id="sources">Sources</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="index.html">LoopRails</a> · G2 · High</div>
     <div id="md" class="md">
@@ -105,65 +105,65 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 Consequence×Controllability model, §5 the loop episode, §3 the grade→mode mapping) and
 <a href="./codex.md"><code>codex.md</code></a> (bracket tags like <code>[A-17]</code> point to the source there).</p>
 </blockquote>
-<h2 id="tldr-what-makes-an-action-g2">TL;DR — what makes an action G2</h2>
+<h2 id="tldr-what-makes-an-action-g2">TL;DR: what makes an action G2</h2>
 <p>A <strong>G2 (high) action</strong> is one where exactly one consequence dimension scores <em>high</em>, or two
-score <em>medium</em>. LoopRails grades every agent action on three axes — <strong>reversibility × blast radius
-× stakes</strong> — and the <em>highest</em> axis sets the grade. So a <code>git push</code> is G2 because it touches shared
-state and is hard to reverse; sending an internal Slack message is G2 because the blast radius is
-your team; spending $40 inside a $200 budget is G2 because real money moves. None of these is
-catastrophic (that would be G3 — irreversible <em>and</em> external-or-severe, like deploying to prod or
-paying a vendor), but none is free either.</p>
-<p>The default LoopRails mode for G2 is <strong>L3–L4</strong>: confirm-before with a real preview, or
-plan-approve for multi-step work. But &quot;default&quot; is not &quot;answer.&quot; <strong>The right design for a G2 action
-depends entirely on whether a human can actually catch the mistake in time.</strong> That is the whole
-point of this page.</p>
+score <em>medium</em>. LoopRails grades every agent action on three axes (<strong>reversibility × blast radius
+× stakes</strong>), and the <em>highest</em> axis sets the grade. A <code>git push</code> lands at G2 because it touches shared
+state and is hard to reverse. An internal Slack message is G2 because the blast radius is
+your team. Spending $40 inside a $200 budget is G2 because real money moves. None of these is
+catastrophic. Catastrophic would be G3 (irreversible <em>and</em> external-or-severe, like deploying to prod or
+paying a vendor). None of them is free either.</p>
+<p>The default LoopRails mode for G2 is <strong>L3 to L4</strong>: confirm-before with a real preview, or
+plan-approve for multi-step work. A default is not an answer, though. The right design for a G2 action
+depends entirely on whether a human can actually catch the mistake in time, and working that out is what
+this page is for.</p>
 <blockquote>
-<p>One caveat before anything else: grade by <em>real</em> reversibility, not by whether your tool has an
+<p>One caveat up front: grade by <em>real</em> reversibility, not by whether your tool has an
 &quot;undo&quot; button. Checkpoint/undo usually covers an agent&#39;s structured edits but <strong>not</strong> shell side
-effects — a Bash command that deletes files is G2–G3 even if your editor can rewind. This is the
+effects. A Bash command that deletes files is G2 or G3 even if your editor can rewind, which is the
 shell-boundary trap <code>[A-4]</code>.</p>
 </blockquote>
-<h2 id="is-a-human-in-the-loop-the-answer-here-it-depends-and-that39">Is a human in the loop the answer here? It depends — and that&#39;s the whole point.</h2>
+<h2 id="is-a-human-in-the-loop-the-answer-here-depends-and-that-depe">Is a human in the loop the answer here? Depends, and that dependence is the whole point.</h2>
 <p>LoopRails refuses the binary question &quot;should there be a human in the loop?&quot; and replaces it with
 two independent axes (<code>framework.md</code> §1):</p>
 <ul>
-<li><strong>Consequence</strong> — how much oversight is <em>warranted</em> (reversibility × blast radius × stakes). For
+<li><strong>Consequence</strong> is how much oversight is <em>warranted</em> (reversibility × blast radius × stakes). For
 a G2 action this is, by definition, meaningful.</li>
-<li><strong>Controllability</strong> — how much oversight can actually be <em>effective</em>. Can a person <strong>detect</strong> the
+<li><strong>Controllability</strong> is how much oversight can actually be <em>effective</em>. Can a person <strong>detect</strong> the
 problem from what&#39;s surfaced and <strong>correct</strong> it <strong>in time</strong>?</li>
 </ul>
-<p>For a G2 action the consequence axis is fixed at &quot;high enough to care.&quot; The <em>controllability</em> axis
-is the swing variable, and it decides everything:</p>
-<p><strong>If controllability is HIGH — a human can realistically catch the mistake in time — then a human
-gate genuinely works. Invest in it.</strong> A <code>git push</code> where the developer reads a clear, focused diff,
-sees the failing test, and rejects: that is real oversight. Detectability is high (a diff is
-verifiable), and there is time to act before harm lands. Build the gate, and build it well.</p>
-<p><strong>If controllability is LOW — the human <em>cannot</em> reliably detect or correct in time — then a review
-step is not safety. It is a rubber stamp and a scapegoat.</strong> Two forces guarantee this:</p>
+<p>For a G2 action the consequence axis is fixed at &quot;high enough to care.&quot; Controllability
+is the swing variable, and it decides everything.</p>
+<p><strong>If controllability is HIGH, meaning a human can realistically catch the mistake in time, then a human
+gate genuinely works. Invest in it.</strong> Take a <code>git push</code> where the developer reads a clear, focused diff,
+sees the failing test, and rejects: that is real oversight. Detectability is high, since a diff is
+verifiable, and there is time to act before harm lands. Build the gate, and build it well.</p>
+<p><strong>If controllability is LOW, where the human <em>cannot</em> reliably detect or correct in time, then a review
+step is not safety.</strong> It is a rubber stamp and a scapegoat. Two forces guarantee this:</p>
 <ul>
 <li><strong>The recognition bottleneck <code>[A-17]</code>.</strong> In a within-subjects study (n=48) of oversight
-strategies for computer-use agents, plan-approval cut problematic-action <em>occurrence</em> from ~88–90%
-down to 60–74% — but once a problem actually surfaced, <strong>intervention success stayed at 9–26%
+strategies for computer-use agents, plan-approval cut problematic-action <em>occurrence</em> from ~88-90%
+down to 60-74%. But once a problem actually surfaced, <strong>intervention success stayed at 9-26%
 across every strategy</strong>. Adding a gate reduced bad <em>actions</em> yet barely improved the human&#39;s
-ability to <em>catch</em> one. The failure was not inattention; it was rationalization and normalization
-— people talked themselves into the agent&#39;s answer. This is the <strong>exposure-vs-correction gap</strong>.</li>
+ability to <em>catch</em> one. The failure was not inattention. It was rationalization and normalization:
+people talked themselves into the agent&#39;s answer. Call it the <strong>exposure-vs-correction gap</strong>.</li>
 <li><strong>Automation bias.</strong> Even motivated experts default to shallow review under productivity pressure
-<code>[A-20]</code> (professional developers, asked how they oversee coding agents, rely on informal
-heuristics, not systematic verification). A human told to &quot;review the output&quot; rubber-stamps it.</li>
+<code>[A-20]</code>. Professional developers, asked how they oversee coding agents, rely on informal
+heuristics rather than systematic verification. A human told to &quot;review the output&quot; rubber-stamps it.</li>
 </ul>
 <p>A human placed in a low-controllability loop without the real ability to intervene becomes a
-<strong>moral crumple zone</strong> — a liability sponge who absorbs blame for a system they could never actually
-control. The takeover-time literature is blunt about the &quot;time&quot; half: drivers in automated cars need
+<strong>moral crumple zone</strong>: a liability sponge who absorbs blame for a system they could never actually
+control. The takeover-time literature is blunt about the &quot;time&quot; half. Drivers in automated cars need
 seconds-to-tens-of-seconds to re-engage <code>[H-19]</code>, and disengaged supervisors hit the
-out-of-the-loop performance problem <code>[E-13]</code>. If there is no time to intervene, the gate is theater.</p>
-<p>So the rule for G2 is: <strong>where review works, design the review (next section). Where it doesn&#39;t,
-prevent — don&#39;t review (the section after).</strong></p>
+out-of-the-loop performance problem <code>[E-13]</code>. With no time to intervene, the gate is theater.</p>
+<p>So the rule for G2 is straightforward: where review works, design the review (next section); where it
+doesn&#39;t, prevent rather than review (the section after).</p>
 <h2 id="how-to-design-the-review-when-review-works">How to design the review when review works</h2>
-<p>This is the high-controllability path: the human <em>can</em> catch the error, so spend the friction
+<p>This is the high-controllability path. The human <em>can</em> catch the error, so spend the friction
 well. Use autonomy <strong>L3 (confirm-before)</strong> for a single action or <strong>L4 (plan-approve)</strong> for
-multi-step work, and engineer the <strong>loop episode</strong> — the single oversight moment — so the human
-actually succeeds (<code>framework.md</code> §5). Putting a human in the loop does <em>not</em> make them a good
-detector; the episode has to be built to give them one.</p>
+multi-step work, and engineer the <strong>loop episode</strong>, the single oversight moment, so the human
+actually succeeds (<code>framework.md</code> §5). Putting a human in the loop does not by itself make them a good
+detector. The episode has to be built to give them one.</p>
 <p>A well-designed G2 episode contains, in order:</p>
 <ol>
 <li><strong>State the request clearly.</strong> Exactly what is being asked, in the user&#39;s terms, with what the
@@ -171,117 +171,117 @@ agent can and can&#39;t do made explicit.</li>
 <li><strong>Show the consequences <em>before</em> the human acts (feedforward <code>[Q-3]</code>).</strong> Preview the concrete
 effect of approving, the downstream side effects, and <strong>crucially whether it is reversible</strong>.
 &quot;What happens if I approve&quot; is a named HCI principle, not decoration.</li>
-<li><strong>Surface calibrated uncertainty.</strong> Show the agent&#39;s confidence — calibrated and carefully
-framed, since raw numbers are misread; uncertainty is a stronger detection signal than a
+<li><strong>Surface calibrated uncertainty.</strong> Show the agent&#39;s confidence, calibrated and carefully
+framed, since raw numbers are misread. Uncertainty is a stronger detection signal than a
 rationale <code>[Q-20]</code>, and low confidence is itself an escalation trigger.</li>
-<li><strong>Give the provenance — &quot;how did this even get to me?&quot;</strong> The upstream trail that restores
+<li><strong>Give the provenance, the &quot;how did this even get to me?&quot;</strong> The upstream trail that restores
 situation awareness: what the agent perceived, what it considered and rejected, <em>why</em> it is
 asking now, and the tool-calls that led here. Without it the human is out-of-the-loop <code>[E-13]</code>
 and cannot competently intervene.</li>
-<li><strong>Build detection affordances — support <em>checking</em>, not <em>trusting</em>.</strong> Contrastive <strong>why / why-not</strong>
+<li><strong>Build detection affordances that support <em>checking</em>, not <em>trusting</em>.</strong> Contrastive <strong>why / why-not</strong>
 explanations <code>[Q-16]</code> and diffs framed for verification; surface disagreement, counter-evidence,
 and the agent&#39;s own doubts.</li>
-<li><strong>Add proportionate friction — a microboundary, not sludge</strong> — <em>only</em> before the consequential
+<li><strong>Add proportionate friction, a microboundary rather than sludge,</strong> <em>only</em> before the consequential
 beat, never indiscriminately.</li>
 <li><strong>Bias-safe choice architecture.</strong> The safe/reversible option is the default; <strong>never
 auto-approve on timeout</strong>; no dark patterns.</li>
-<li><strong>Preserve accountability after the act</strong> — keep the human the accountable initiator and log the
+<li><strong>Preserve accountability after the act.</strong> Keep the human the accountable initiator and log the
 decision.</li>
 </ol>
 <p>Three concrete tools carry most of the weight for G2:</p>
 <ul>
 <li><strong>Preview / diff / dry-run.</strong> Show the concrete effect before committing. This is the workhorse
-for G2 <em>only when the human can actually read the result</em>. A diff nobody can evaluate is decorative.</li>
+for G2, but <em>only when the human can actually read the result</em>. A diff nobody can evaluate is decorative.</li>
 <li><strong>Plan-then-go (L4).</strong> Approve a plan <em>before</em> execution, with checkpoints between steps. This is
-what expert developers actually do — upfront planning plus staged approval checkpoints <code>[A-20]</code> —
-and it is essential when the model can&#39;t be steered reliably mid-task.</li>
+what expert developers actually do: upfront planning plus staged approval checkpoints <code>[A-20]</code>. You
+need it when the model can&#39;t be steered reliably mid-task.</li>
 <li><strong>Maker-checker (proposer ≠ approver).</strong> For the upper edge of G2, borrow the four-eyes principle
-<code>[O-1]</code> and the two-person concept <code>[N-15]</code>: a second, <em>independent</em> party approves. Independence
-is the whole value — an agent re-reading its own work just confirms its own bias.</li>
+<code>[O-1]</code> and the two-person concept <code>[N-15]</code>, where a second, <em>independent</em> party approves. Independence
+is the whole value. An agent re-reading its own work just confirms its own bias.</li>
 </ul>
 <h2 id="how-to-prevent-when-review-won39t-work">How to prevent when review won&#39;t work</h2>
-<p>If controllability is low — the human can&#39;t tell right from wrong from what&#39;s shown, or there&#39;s no
-time to intervene — adding a confirmation gate produces a rubber stamp, not safety. The valid moves
+<p>When controllability is low, where the human can&#39;t tell right from wrong from what&#39;s shown, or there&#39;s no
+time to intervene, adding a confirmation gate produces a rubber stamp rather than safety. The valid moves
 are prevention strategies that <strong>don&#39;t depend on the human being a good detector</strong> (<code>framework.md</code>
 §1):</p>
 <ul>
-<li><strong>Shrink the consequence — make it reversible.</strong> Undo beats confirmation <code>[G-14]</code>. If you can make
+<li><strong>Shrink the consequence by making it reversible.</strong> Undo beats confirmation <code>[G-14]</code>. If you can make
 the action one-click-reversible (push to a branch instead of <code>main</code>; a refund that can be clawed
-back), it drops a grade and the whole problem dissolves. Reversibility is a first-class safety
+back), it drops a grade and the whole problem dissolves. Treat reversibility as a first-class safety
 affordance, not an afterthought.</li>
-<li><strong>Shrink the blast radius.</strong> Cap the magnitude of any single action — max spend, max recipients,
-max files — and rate-throttle. A budget <em>cap</em> enforced in code beats a human eyeballing each charge.</li>
+<li><strong>Shrink the blast radius.</strong> Cap the magnitude of any single action (max spend, max recipients,
+max files) and rate-throttle. A budget <em>cap</em> enforced in code beats a human eyeballing each charge.</li>
 <li><strong>Sandbox.</strong> Move the safety boundary off the per-action prompt and into the environment:
-no-network containers, scoped/ephemeral credentials, budget caps <code>[A-23]</code>. The worst case is then
-<em>contained</em>, not <em>reviewed</em> — the highest-leverage and most under-used control.</li>
+no-network containers, scoped/ephemeral credentials, budget caps <code>[A-23]</code>. Now the worst case is
+<em>contained</em> rather than <em>reviewed</em>, which is the highest-leverage and most under-used control.</li>
 <li><strong>Force a real decision (cognitive forcing).</strong> Where you must keep a human, make them engage
 <em>before</em> seeing the agent&#39;s answer. Cognitive forcing functions measurably reduce over-reliance
-<code>[F-21]</code> — users dislike the friction that helps most, so reserve it for the irreversible beat.</li>
+<code>[F-21]</code>. Users dislike the friction that helps most, so reserve it for the irreversible beat.</li>
 <li><strong>Escalate or forbid (L6).</strong> Hand off to a human decision-owner with a context-rich summary, or
 don&#39;t let the agent take the action at all.</li>
 </ul>
 <p>Build detection evidence to <em>verify</em>, never to persuade. Explanations framed to sell the answer
-<strong>increase acceptance regardless of correctness</strong> <code>[F-20]</code> — they deepen over-reliance. Show
-verifiable evidence (test results, the actual diff, the actual recipient list), not a confident
+<strong>increase acceptance regardless of correctness</strong> <code>[F-20]</code>, deepening over-reliance. Show
+verifiable evidence (test results, the actual diff, the actual recipient list) rather than a confident
 rationale.</p>
-<h2 id="worked-example-git-push">Worked example — <code>git push</code></h2>
+<h2 id="worked-example-git-push">Worked example: <code>git push</code></h2>
 <p><code>git push</code> is the canonical G2 action: shared blast radius, hard to reverse, meaningful (not
 severe) stakes.</p>
-<p><strong>Is review the answer?</strong> Usually yes — controllability is high. A diff is verifiable, tests give
+<p><strong>Is review the answer?</strong> Usually yes, because controllability is high. A diff is verifiable, tests give
 external evidence, and there is time to reject before downstream consumers pull. So design the
 review:</p>
 <ul>
 <li><strong>Mode:</strong> L3 confirm-before, with the diff shown; L4 plan-approve if the push is part of a larger
 multi-commit workflow <code>[A-20]</code>.</li>
 <li><strong>Episode:</strong> show the diff and exactly which branch/remote it affects; state whether it&#39;s
-reversible (a force-push to a shared branch is <em>not</em> — that re-grades toward G3); surface test
+reversible (a force-push to a shared branch is <em>not</em>, which re-grades toward G3); surface test
 results as detection evidence <code>[F-20]</code>; explain <em>why now</em> (provenance); default to the safe option;
 and <strong>batch</strong> so the developer isn&#39;t prompted per-file (respect the attention budget).</li>
-<li><strong>Prevent where review weakens:</strong> if the diff is enormous, the human will rubber-stamp it — the
-recognition bottleneck bites <code>[A-17]</code>. So shrink the consequence: push to a feature branch behind a
+<li><strong>Prevent where review weakens:</strong> if the diff is enormous, the human will rubber-stamp it, because
+the recognition bottleneck bites <code>[A-17]</code>. So shrink the consequence: push to a feature branch behind a
 PR (reversible, no direct effect on <code>main</code>), split into focused reviewable chunks, and let CI be
-the verification layer. A force-push to <code>main</code> should not be a G2 confirm-before at all; it&#39;s a
+the verification layer. A force-push to <code>main</code> should not be a G2 confirm-before at all. It&#39;s a
 G3 prevent-and-escalate.</li>
 </ul>
 <p>The same logic applies to a <strong>budgeted spend</strong>: an individual charge inside the budget is G2 and
 reviewable when the human can see what&#39;s being bought and why. But if charges arrive faster than a
-human can evaluate, <em>prevent</em> instead — enforce the budget cap and per-transaction limit in code,
+human can evaluate, <em>prevent</em> instead. Enforce the budget cap and per-transaction limit in code,
 and escalate only the over-budget tail.</p>
 <h2 id="anti-patterns">Anti-patterns</h2>
 <ul>
 <li><strong>The rubber stamp.</strong> A gate clicked through without comprehension. Gating reduces bad actions but
 does <strong>not</strong> make humans catch them <code>[A-17]</code>; uniform high approval is the signature. Antidote:
-forcing functions, verification-oriented evidence, and <em>measuring</em> intervention-success rate — not
+forcing functions, verification-oriented evidence, and <em>measuring</em> intervention-success rate, not
 approval rate.</li>
 <li><strong>Explanations that persuade instead of helping verification.</strong> A polished rationale that sells
 the agent&#39;s answer raises acceptance whether the answer is right or wrong <code>[F-20]</code>. Design the
-explanation to help the human <em>find the error</em> — contrastive why/why-not <code>[Q-16]</code>, surfaced
-uncertainty <code>[Q-20]</code>, the actual diff — not to win the argument.</li>
+explanation to help the human <em>find the error</em> with contrastive why/why-not <code>[Q-16]</code>, surfaced
+uncertainty <code>[Q-20]</code>, and the actual diff, not to win the argument.</li>
 <li><strong>The phantom gate / moral crumple zone.</strong> A mandated review on a low-controllability action: the
 human can&#39;t realistically catch the mistake but takes the blame. If you can&#39;t give real authority,
-awareness, ability, and time, <em>don&#39;t claim oversight</em> — prevent instead.</li>
-<li><strong>Friction as sludge.</strong> Indiscriminate confirmations breed approval fatigue and habituation —
+awareness, ability, and time, <em>don&#39;t claim oversight</em>. Prevent instead.</li>
+<li><strong>Friction as sludge.</strong> Indiscriminate confirmations breed approval fatigue and habituation, and
 users tune out by the second identical prompt. Add friction only at the consequential, irreversible
 beat.</li>
 </ul>
 <h2 id="sources">Sources</h2>
 <p>Codex tags used on this page:</p>
 <ul>
-<li><code>[A-17]</code> — Chen et al. (2026), oversight strategies for computer-use agents: the
-exposure-vs-correction gap and the recognition bottleneck (intervention success 9–26%).</li>
-<li><code>[A-20]</code> — Huang et al. (2025), professional developers control via upfront planning + staged
+<li><code>[A-17]</code>: Chen et al. (2026), oversight strategies for computer-use agents: the
+exposure-vs-correction gap and the recognition bottleneck (intervention success 9-26%).</li>
+<li><code>[A-20]</code>: Huang et al. (2025), professional developers control via upfront planning + staged
 approval checkpoints + mid-execution interruption.</li>
-<li><code>[F-20]</code> — Bansal et al. (2021), explanations increase acceptance regardless of correctness;
+<li><code>[F-20]</code>: Bansal et al. (2021), explanations increase acceptance regardless of correctness;
 prefer verification-oriented evidence over persuasion.</li>
-<li><code>[F-21]</code> — Buçinca et al. (2021), cognitive forcing functions reduce over-reliance (and users
+<li><code>[F-21]</code>: Buçinca et al. (2021), cognitive forcing functions reduce over-reliance (and users
 dislike the friction that helps most).</li>
-<li><code>[E-13]</code> — Endsley &amp; Kiris (1995), the out-of-the-loop performance problem.</li>
-<li><code>[H-19]</code> — Zhang et al. (2019), take-over time meta-analysis (the &quot;time to intervene&quot; evidence).</li>
-<li><code>[Q-3]</code> — Vermeulen et al. (2013), feedforward — a consequence preview in an approval gate.</li>
-<li><code>[Q-16]</code> — Lim et al. (2009), why / why-not explanations improve intelligibility (detection).</li>
-<li><code>[Q-20]</code> — Zhang et al. (2020), confidence/uncertainty as a detection signal; raw numbers misread.</li>
-<li><code>[O-1]</code> — Segregation of duties / four-eyes (maker-checker): proposer ≠ approver.</li>
-<li><code>[N-15]</code> — USAF two-person concept: two independent authorizers for high-grade actions.</li>
+<li><code>[E-13]</code>: Endsley &amp; Kiris (1995), the out-of-the-loop performance problem.</li>
+<li><code>[H-19]</code>: Zhang et al. (2019), take-over time meta-analysis (the &quot;time to intervene&quot; evidence).</li>
+<li><code>[Q-3]</code>: Vermeulen et al. (2013), feedforward, a consequence preview in an approval gate.</li>
+<li><code>[Q-16]</code>: Lim et al. (2009), why / why-not explanations improve intelligibility (detection).</li>
+<li><code>[Q-20]</code>: Zhang et al. (2020), confidence/uncertainty as a detection signal; raw numbers misread.</li>
+<li><code>[O-1]</code>: Segregation of duties / four-eyes (maker-checker): proposer ≠ approver.</li>
+<li><code>[N-15]</code>: USAF two-person concept: two independent authorizers for high-grade actions.</li>
 </ul>
 <p>Also referenced: <code>[A-4]</code> shell-boundary trap, <code>[A-23]</code> sandboxing / lethal trifecta, <code>[G-14]</code> undo
 beats confirmation.</p>
