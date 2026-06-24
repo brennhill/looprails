@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How to Build a Good Human-in-the-Loop for AI Coding Agents — LoopRails</title>
-<meta name="description" content="How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0–G3, and match the right control to each.">
+<title>How to Build a Good Human-in-the-Loop for AI Coding Agents · LoopRails</title>
+<meta name="description" content="How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0-G3, and match the right control to each.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="https://looprails.dev/article-hitl-coding-agents.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to Build a Good Human-in-the-Loop for AI Coding Agents — LoopRails">
-<meta property="og:description" content="How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0–G3, and match the right control to each.">
+<meta property="og:title" content="How to Build a Good Human-in-the-Loop for AI Coding Agents · LoopRails">
+<meta property="og:description" content="How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0-G3, and match the right control to each.">
 <meta property="og:url" content="https://looprails.dev/article-hitl-coding-agents.html">
 <meta property="og:image" content="https://looprails.dev/og-article-hitl-coding-agents.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How to Build a Good Human-in-the-Loop for AI Coding Agents — LoopRails">
-<meta name="twitter:description" content="How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0–G3, and match the right control to each.">
+<meta name="twitter:title" content="How to Build a Good Human-in-the-Loop for AI Coding Agents · LoopRails">
+<meta name="twitter:description" content="How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0-G3, and match the right control to each.">
 <meta name="twitter:image" content="https://looprails.dev/og-article-hitl-coding-agents.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Human-in-the-Loop for AI Coding Agents","name":"How to Build a Good Human-in-the-Loop for AI Coding Agents — LoopRails","description":"How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0–G3, and match the right control to each.","inLanguage":"en-US","url":"https://looprails.dev/article-hitl-coding-agents.html","mainEntityOfPage":"https://looprails.dev/article-hitl-coding-agents.html","image":"https://looprails.dev/og-article-hitl-coding-agents.png","datePublished":"2026-06-23","dateModified":"2026-06-23","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles.html"},{"@type":"ListItem","position":3,"name":"Human-in-the-Loop for AI Coding Agents","item":"https://looprails.dev/article-hitl-coding-agents.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Human-in-the-Loop for AI Coding Agents","name":"How to Build a Good Human-in-the-Loop for AI Coding Agents · LoopRails","description":"How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0-G3, and match the right control to each.","inLanguage":"en-US","url":"https://looprails.dev/article-hitl-coding-agents.html","mainEntityOfPage":"https://looprails.dev/article-hitl-coding-agents.html","image":"https://looprails.dev/og-article-hitl-coding-agents.png","datePublished":"2026-06-23","dateModified":"2026-06-24","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles.html"},{"@type":"ListItem","position":3,"name":"Human-in-the-Loop for AI Coding Agents","item":"https://looprails.dev/article-hitl-coding-agents.html"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -101,13 +101,13 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-hitl-coding-agents.md">View article-hitl-coding-agents.md on GitHub ↗</a>
       <h1 id="how-to-build-a-good-human-in-the-loop-for-ai-coding-agents">How to Build a Good Human-in-the-Loop for AI Coding Agents</h1>
 <p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time></p>
-<p>A good <strong>human in the loop for coding agents</strong> is not a wall of &quot;approve?&quot; prompts. It is a system where the human only has to catch the mistakes they can realistically catch in time, and everything else is prevented by design. The way to build one is to grade each action the agent takes by how much damage it can do, then match the control to the grade: let trivial actions run, make low-risk edits notify-and-undoable, require a real review for risky merges, and outright prevent the high-stakes actions a human could never catch fast enough — destructive shell commands, untrusted dependency installs, production deploys. Approval prompts are for the narrow band where a human can actually see the problem and stop it. For the rest, prevention beats review.</p>
-<p>This article walks through that build: the actions a typical coding agent takes, the grade each one earns, and the controls that fit. It rests on one question from <a href="framework.html">the LoopRails framework</a>: can a human realistically catch this mistake in time? When the honest answer is no, you prevent the outcome instead of gating it behind a prompt nobody can meaningfully read.</p>
+<p>A good <strong>human in the loop for coding agents</strong> is more than a wall of &quot;approve?&quot; prompts. It is a system where the human only has to catch the mistakes they can realistically catch in time, and everything else is prevented by design. The way to build one is to grade each action the agent takes by how much damage it can do, then match the control to the grade: let trivial actions run, make low-risk edits notify-and-undoable, require a real review for risky merges, and outright prevent the high-stakes actions a human could never catch fast enough, like destructive shell commands, untrusted dependency installs, and production deploys. Approval prompts are for the narrow band where a human can actually see the problem and stop it. For the rest, prevention beats review.</p>
+<p>This article walks through that build: the actions a typical coding agent takes, the grade each one earns, and the controls that fit. It rests on one question from <a href="framework.html">the LoopRails framework</a>. Can a human realistically catch this mistake in time? When the honest answer is no, you prevent the outcome instead of gating it behind a prompt nobody can meaningfully read.</p>
 <h2 id="why-approval-prompts-fail-for-coding-agents">Why approval prompts fail for coding agents</h2>
-<p>The reflex is to wrap a coding agent in confirmations: &quot;ask me before you edit,&quot; &quot;ask me before you run anything.&quot; It feels like oversight, but for most of what a coding agent does it is theater. Research on AI coding agents (see the LoopRails codex) found that requiring up-front plan approval did reduce attacks — yet when a human was given the chance to intervene mid-task, their success at actually catching and stopping the bad action stayed in the 9–26% range. People rubber-stamp: the harmful action looks like the helpful ones, scrolls past in a wall of diffs and shell output, and is often done the instant it fires.</p>
-<p>That is the whole problem with <strong>AI code review with a human in the loop</strong> done naively — you put the human where they are a weak detector. The worst action a coding agent takes (<code>rm -rf</code> on the wrong path, a typosquatted dependency, a deploy of broken code) is irreversible by the time the prompt is read. Good <strong>coding agent oversight</strong> moves the safety boundary off the per-action prompt for everything the human can&#39;t catch, and reserves the prompt for the cases where they genuinely can.</p>
+<p>The reflex is to wrap a coding agent in confirmations: &quot;ask me before you edit,&quot; &quot;ask me before you run anything.&quot; It feels like oversight, but for most of what a coding agent does it is theater. Research on AI coding agents (see the LoopRails codex) found that requiring up-front plan approval did reduce attacks, yet when a human was given the chance to intervene mid-task, their success at actually catching and stopping the bad action stayed in the 9 to 26% range. People rubber-stamp. The harmful action looks like the helpful ones, scrolls past in a wall of diffs and shell output, and is often done the instant it fires.</p>
+<p>That is the whole problem with <strong>AI code review with a human in the loop</strong> done naively: you put the human where they are a weak detector. The worst action a coding agent takes (<code>rm -rf</code> on the wrong path, a typosquatted dependency, a deploy of broken code) is irreversible by the time the prompt is read. Good <strong>coding agent oversight</strong> moves the safety boundary off the per-action prompt for everything the human can&#39;t catch, and reserves the prompt for the cases where they genuinely can.</p>
 <h2 id="grade-the-actions">Grade the actions</h2>
-<p>Grade each action by reversibility × blast radius × stakes — G0 trivial, G3 critical. Use the <a href="index.html#grader">LoopRails grader</a> and the <a href="cheatsheet.html">grading cheatsheet</a> to set these for your own stack; here is where a coding agent&#39;s typical actions usually land.</p>
+<p>Grade each action by reversibility × blast radius × stakes, from G0 trivial to G3 critical. Use the <a href="index.html#grader">LoopRails grader</a> and the <a href="cheatsheet.html">grading cheatsheet</a> to set these for your own stack. Here is where a coding agent&#39;s typical actions usually land.</p>
 <table>
 <thead>
 <tr>
@@ -124,7 +124,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <tr>
 <td>Edit code in the working tree</td>
 <td>G1</td>
-<td>Real change, but undoable — version control reverts it.</td>
+<td>Real change, but undoable; version control reverts it.</td>
 </tr>
 <tr>
 <td>Run tests in a sandbox</td>
@@ -138,7 +138,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 </tr>
 <tr>
 <td>Push a branch / open a PR</td>
-<td>G1–G2</td>
+<td>G1 to G2</td>
 <td>Shares work, but nothing ships yet; PR adds a review gate.</td>
 </tr>
 <tr>
@@ -148,39 +148,39 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 </tr>
 <tr>
 <td>Install dependencies</td>
-<td>G2–G3</td>
+<td>G2 to G3</td>
 <td>Supply-chain risk; runs untrusted code, often outside undo.</td>
 </tr>
 <tr>
 <td>Deploy</td>
-<td>G2–G3</td>
+<td>G2 to G3</td>
 <td>Hits production; blast radius is real users.</td>
 </tr>
 <tr>
 <td>Shell side-effects (<code>rm</code>, <code>mv</code>, <code>cp</code>, file deletion)</td>
 <td>G3</td>
-<td>Irreversible and <em>outside the undo boundary</em> — see below.</td>
+<td>Irreversible and <em>outside the undo boundary</em>. See below.</td>
 </tr>
 </tbody></table>
-<p>The grade that matters most is the last row. Most coding agents ship a checkpoint or undo feature, and it lulls teams into thinking everything is recoverable. It is not. Checkpoint and undo typically cover <em>structured file edits</em> — the diffs the agent makes through its editing tools — but they do <strong>not</strong> cover shell side-effects. An <code>rm</code>, <code>mv</code>, or <code>cp</code> run in a terminal sits <em>outside</em> the undo boundary. The most destructive operations a coding agent can perform are exactly the ones the undo button does not reach. That is what pushes them to G3, out of &quot;just let it run, we can revert.&quot;</p>
+<p>The last row is the grade that matters most. Most coding agents ship a checkpoint or undo feature, and it lulls teams into thinking everything is recoverable. It is not. Checkpoint and undo typically cover <em>structured file edits</em>, the diffs the agent makes through its editing tools, but they do <strong>not</strong> cover shell side-effects. An <code>rm</code>, <code>mv</code>, or <code>cp</code> run in a terminal sits <em>outside</em> the undo boundary. The most destructive operations a coding agent can perform are exactly the ones the undo button does not reach. That is what pushes them to G3, out of &quot;just let it run, we can revert.&quot;</p>
 <h2 id="match-the-controls">Match the controls</h2>
 <p>Once each action has a grade, the controls follow. The method is Grade · Guard · Show · Prove: grade the action, guard it with the right constraint, show the human what they need to see, and prove what happened with a log. Each grade gets a different control, because a control that fits G3 would be intolerable friction on G0.</p>
-<p><strong>G0 — run and log.</strong> Reads and searches change nothing. Let the agent run them freely; just keep an audit trail so you can reconstruct the session.</p>
-<p><strong>G1 — act, notify, undo.</strong> Edits, sandboxed test runs, branch commits. Let the agent act, surface what it did, and make sure it is reversible. This is where checkpoints earn their keep: keep them for structured edits so any code change can be rolled back, and run the agent in a sandbox so test execution stays contained. See the <a href="guide-g1.html">G1 guide</a> and the <a href="rail-reversible.html">Reversible RAIL</a> for why undoability is the whole game at this grade.</p>
-<p><strong>Sandbox-first, by default.</strong> Underneath all of this, run the agent with <strong>no network egress by default</strong> and <strong>scoped, short-lived credentials</strong>. This is the single highest-leverage control, because it constrains every action at once instead of one prompt at a time: no network means the agent cannot exfiltrate your repo secrets even if it is prompt-injected, and scoped credentials mean a hijacked agent cannot reach production. Open the network per task to an explicit allowlist. The full setup is in <a href="article-ai-agent-sandboxing.html">AI agent sandboxing</a>.</p>
-<p><strong>G2 — preview and approve.</strong> Merges to main, lower-risk installs and deploys. Here a human <em>can</em> catch the problem, so a prompt is worth it — but make it a real review, not a rubber stamp. For merges to main, require <strong>maker-checker</strong>: the agent proposes, an independent reviewer approves, proposer ≠ approver. The agent does not merge its own work. For risky steps generally, require a <strong>plan or diff approval</strong> before the action fires, so the human reviews the actual change, not a vague &quot;proceed?&quot; See the <a href="guide-g2.html">G2 guide</a> and <a href="article-ai-agent-approval.html">getting AI agent approval right</a>.</p>
-<p><strong>G3 — prevent, stop and ask, or refuse.</strong> Shell side-effects, untrusted dependency installs, high-end production deploys. The control here is different in kind: you do not review them, you prevent them — covered next.</p>
+<p><strong>G0, run and log.</strong> Reads and searches change nothing. Let the agent run them freely; just keep an audit trail so you can reconstruct the session.</p>
+<p><strong>G1, act, notify, undo.</strong> Edits, sandboxed test runs, branch commits. Let the agent act, surface what it did, and make sure it is reversible. This is where checkpoints earn their keep: keep them for structured edits so any code change can be rolled back, and run the agent in a sandbox so test execution stays contained. See the <a href="guide-g1.html">G1 guide</a> and the <a href="rail-reversible.html">Reversible RAIL</a> for why undoability is the whole game at this grade.</p>
+<p><strong>Sandbox-first, by default.</strong> Underneath all of this, run the agent with <strong>no network egress by default</strong> and <strong>scoped, short-lived credentials</strong>. This is the single highest-impact control, because it constrains every action at once instead of one prompt at a time: no network means the agent cannot exfiltrate your repo secrets even if it is prompt-injected, and scoped credentials mean a hijacked agent cannot reach production. Open the network per task to an explicit allowlist. The full setup is in <a href="article-ai-agent-sandboxing.html">AI agent sandboxing</a>.</p>
+<p><strong>G2, preview and approve.</strong> Merges to main, lower-risk installs and deploys. Here a human <em>can</em> catch the problem, so a prompt is worth it, but make it a real review rather than a rubber stamp. For merges to main, require <strong>maker-checker</strong>: the agent proposes, an independent reviewer approves, proposer ≠ approver. The agent does not merge its own work. For risky steps generally, require a <strong>plan or diff approval</strong> before the action fires, so the human reviews the actual change, not a vague &quot;proceed?&quot; See the <a href="guide-g2.html">G2 guide</a> and <a href="article-ai-agent-approval.html">getting AI agent approval right</a>.</p>
+<p><strong>G3, prevent, stop and ask, or refuse.</strong> Shell side-effects, untrusted dependency installs, high-end production deploys. The control here is different in kind: you do not review them, you prevent them, covered next.</p>
 <h2 id="prevent-don39t-review-the-uncatchable-actions">Prevent, don&#39;t review: the uncatchable actions</h2>
-<p>For the high-stakes actions a human cannot realistically catch in time, an approval prompt is the wrong tool. Prevent the bad outcome instead — make it impossible or contained, not gated.</p>
-<p><strong>Shell side-effects (<code>rm</code>, <code>mv</code>, <code>cp</code>).</strong> Because these live outside the undo boundary, &quot;preview and approve&quot; is a trap: the human okays a command they cannot truly evaluate, with no rewind if they get it wrong. Prevent instead. Run the agent in a sandboxed, disposable workspace with no access to your real home directory, SSH keys, or other projects, so a destructive command destroys only throwaway state. If a real deletion is needed, route it through an explicit, narrow, reversible operation — not a raw shell call.</p>
+<p>For the high-stakes actions a human cannot realistically catch in time, an approval prompt is the wrong tool. Prevent the bad outcome instead. Make it impossible or contained, not gated.</p>
+<p><strong>Shell side-effects (<code>rm</code>, <code>mv</code>, <code>cp</code>).</strong> Because these live outside the undo boundary, &quot;preview and approve&quot; is a trap: the human okays a command they cannot truly evaluate, with no rewind if they get it wrong. Prevent instead. Run the agent in a sandboxed, disposable workspace with no access to your real home directory, SSH keys, or other projects, so a destructive command destroys only throwaway state. If a real deletion is needed, route it through an explicit, narrow, reversible operation rather than a raw shell call.</p>
 <p><strong>Dependency installs.</strong> Installing a package runs untrusted code and pulls in a supply chain you did not vet; a typosquatted or compromised package is not something a human catches by reading an install prompt. Prevent: install in the sandbox first, pin and lock versions, and vet new dependencies out of band.</p>
 <p><strong>Production deploys.</strong> Treat deploy as G3 with a hard stop: required independent approval (maker-checker), the ability to interrupt mid-deploy, and a tested rollback. A kill switch and a reversible deploy matter more than a confirmation dialog. The <a href="guide-g3.html">G3 guide</a> covers prevention for the critical tier.</p>
-<p>This is also how you defuse the <strong>lethal trifecta</strong> for coding agents. A coding agent often has all three legs at once: access to repo secrets and private code, exposure to untrusted content (a dependency&#39;s README, an issue, a fetched web page, a pasted log), and a network path out. That combination is an exfiltration risk via prompt injection — and no approval prompt catches it, because the malicious instruction is buried in content the human will never read. Remove a leg: no network egress by default kills the exfiltration path; scoped credentials shrink what can leak. See <a href="article-lethal-trifecta.html">the lethal trifecta</a> for the mechanism and the <a href="rail-authorized.html">Authorized RAIL</a> for scoping credentials to least privilege.</p>
-<p>Across all of this, hold to RAIL: every action should be <strong>R</strong>eversible, <strong>A</strong>uthorized, <strong>I</strong>nterruptible, and <strong>L</strong>ogged. Where an action cannot be made reversible — shell side-effects, deploys — that is your signal to prevent it, not to prompt about it.</p>
+<p>This is also how you defuse the <strong>lethal trifecta</strong> for coding agents. A coding agent often has all three legs at once: access to repo secrets and private code, exposure to untrusted content (a dependency&#39;s README, an issue, a fetched web page, a pasted log), and a network path out. That combination is an exfiltration risk via prompt injection, and no approval prompt catches it, because the malicious instruction is buried in content the human will never read. Remove a leg: no network egress by default kills the exfiltration path; scoped credentials shrink what can leak. See <a href="article-lethal-trifecta.html">the lethal trifecta</a> for the mechanism and the <a href="rail-authorized.html">Authorized RAIL</a> for scoping credentials to least privilege.</p>
+<p>Across all of this, hold to RAIL: every action should be <strong>R</strong>eversible, <strong>A</strong>uthorized, <strong>I</strong>nterruptible, and <strong>L</strong>ogged. Where an action cannot be made reversible, like shell side-effects and deploys, that is your signal to prevent it, not to prompt about it.</p>
 <h2 id="common-mistakes">Common mistakes</h2>
 <ul>
 <li><strong>Trusting checkpoints for everything.</strong> Undo covers structured edits, not <code>rm</code>/<code>mv</code>/<code>cp</code>. Treating shell side-effects as recoverable is the most common and most expensive error.</li>
-<li><strong>Approval prompts as the main control.</strong> A wall of confirmations trains rubber-stamping; intervention success was only 9–26% in the research. Reserve prompts for cases the human can actually evaluate.</li>
+<li><strong>Approval prompts as the main control.</strong> A wall of confirmations trains rubber-stamping; intervention success was only 9 to 26% in the research. Reserve prompts for cases the human can actually evaluate.</li>
 <li><strong>Letting the agent merge its own PRs.</strong> Self-approval is not maker-checker; the proposer must not be the approver.</li>
 <li><strong>Network on by default.</strong> A coding agent with secrets, untrusted input, and open egress is the lethal trifecta. Default-deny egress.</li>
 <li><strong>Broad, long-lived credentials.</strong> A standing production token in the agent&#39;s environment is a blast radius waiting to happen. Scope and expire.</li>
@@ -189,10 +189,10 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 </ul>
 <h2 id="key-takeaways">Key takeaways</h2>
 <ul>
-<li>The right question is &quot;can a human realistically catch this mistake in time?&quot; For most coding-agent actions, no — so prevent, don&#39;t prompt.</li>
-<li>Grade every action G0–G3 by reversibility, blast radius, and stakes, then match the control: run+log, act-notify-undo, preview+approve, or prevent.</li>
+<li>The right question is &quot;can a human realistically catch this mistake in time?&quot; For most coding-agent actions, no, so prevent rather than prompt.</li>
+<li>Grade every action G0 to G3 by reversibility, blast radius, and stakes, then match the control: run+log, act-notify-undo, preview+approve, or prevent.</li>
 <li>Checkpoint/undo covers structured edits but not shell side-effects; <code>rm</code>/<code>mv</code>/<code>cp</code> are G3 and live outside the undo boundary.</li>
-<li>Sandbox-first with no egress and scoped credentials is the highest-leverage control, and it defuses the lethal trifecta.</li>
+<li>Sandbox-first with no egress and scoped credentials is the highest-impact control, and it defuses the lethal trifecta.</li>
 <li>Require maker-checker for merges to main and a hard stop for deploys; reserve prompts for the band where a human can truly evaluate the change.</li>
 </ul>
 <p>Ready to build it? Start with the LoopRails <a href="playbook.html">playbook</a> and grade your agent&#39;s actions with the <a href="index.html#grader">grader</a>. LoopRails is free and practitioner-focused, no signup required.</p>

@@ -1,6 +1,6 @@
 # Maker-Checker (Four-Eyes) for AI Agents
 
-Maker-checker (also called the four-eyes principle) for AI agents is a control where one party proposes an action and a different, independent party must approve it before it takes effect. For AI agents, the agent is the maker: it drafts the change, the transaction, the deletion. A human or a second, independent system is the checker: it reviews and either approves or rejects before anything happens in the real world. The point is structural, not procedural. No single actor, human or machine, can both originate a high-stakes action and put it into effect.
+Maker-checker (also called the four-eyes principle) for AI agents is a control where one party proposes an action and a different, independent party must approve it before it takes effect. For AI agents, the agent is the maker: it drafts the change, the transaction, the deletion. A human or a second, independent system is the checker: it reviews and either approves or rejects before anything happens in the real world. The point is structural. No single actor, human or machine, can both originate a high-stakes action and put it into effect.
 
 This article covers where maker-checker comes from, why proposer ≠ approver matters specifically for AI, which agent actions actually need it, how to implement it without it becoming theater, and the failure modes that quietly turn a two-person control back into a one-person rubber stamp.
 
@@ -14,9 +14,9 @@ In LoopRails terms, maker-checker is a named pattern. It is the concrete shape t
 
 ## Why proposer ≠ approver matters for AI agents
 
-With a human worker, separation of duties guards against error and fraud. With an AI agent, it guards against something additional: the agent has no skin in the game, no fear of consequences, and a well-documented tendency to be confidently wrong. An agent that proposes and executes its own actions is a single point of failure with superhuman speed.
+With a human worker, separation of duties guards against error and fraud. With an AI agent, it guards against something additional. The agent has no skin in the game, no fear of consequences, and a well-documented tendency to be confidently wrong. An agent that proposes and executes its own actions is a single point of failure with superhuman speed.
 
-The core LoopRails question is simple: can a human realistically catch this mistake in time? If the agent both decides and acts, the answer for fast, irreversible actions is no. There is no window. Maker-checker manufactures that window. It forces the agent to stop at "here is what I want to do" and hand the decision to an independent checker before the action becomes real.
+The core LoopRails question is simple: can a human realistically catch this mistake in time? When the agent both decides and acts, the answer for fast, irreversible actions is no. There is no window. Maker-checker manufactures that window. It forces the agent to stop at "here is what I want to do" and hand the decision to an independent checker before the action becomes real.
 
 This is also why the checker should be independent of the maker. If the same model, same context, and same prompt that produced the action also reviews it, you have not added eyes, you have added a mirror. Independence means a different identity, ideally different reasoning, and a human with authority in the loop for the highest stakes.
 
@@ -26,13 +26,13 @@ You do not put four eyes on everything. That is how you train people to click "a
 
 Use the [LoopRails grader](index.html#grader) to assign each action a grade by reversibility, blast radius, and stakes:
 
-- **G0–G1:** Low risk, reversible, small blast radius. Let the agent run. No checker needed.
+- **G0 to G1:** Low risk, reversible, small blast radius. Let the agent run. No checker needed.
 - **G2:** Meaningful but recoverable. Often handled with guardrails, logging, and post-hoc review rather than a blocking second approval. See the [G2 playbook](guide-g2.html).
 - **G3:** Irreversible, high blast radius, or high stakes. This is where maker-checker is recommended. See the [G3 playbook](guide-g3.html).
 
 Concrete G3 examples that warrant a separate checker: deleting production data, sending money or moving funds above a value threshold, deploying to production, sending external communications on behalf of the organization, modifying access controls or credentials, and signing or submitting anything legally binding.
 
-Value thresholds make this practical. You do not need a human to approve a $2 refund; you do need one for a $20,000 wire. Set explicit thresholds per action type so the control fires exactly where the cost of being wrong exceeds the cost of a second pair of eyes. The [framework overview](framework.html) and the [grading cheatsheet](cheatsheet.html) walk through setting these lines.
+Value thresholds make this practical. You do not need a human to approve a $2 refund. You do need one for a $20,000 wire. Set explicit thresholds per action type so the control fires exactly where the cost of being wrong exceeds the cost of a second pair of eyes. The [framework overview](framework.html) and the [grading cheatsheet](cheatsheet.html) walk through setting these lines.
 
 ## How to implement maker-checker for agents
 
@@ -54,15 +54,15 @@ Maker-checker is easy to implement badly. These are the ways it reverts to a one
 
 **The checker lacks real authority: the moral crumple zone.** If the human can technically reject but is measured on throughput, has no time to actually review, or will be blamed when they block a deployment but never credited for catching a problem, you have built a moral crumple zone. The human absorbs accountability for a decision the system did not really let them make. That is worse than no checker, because it launders the agent's actions through a person who could not meaningfully refuse. A checker without genuine authority is a liability shield, not a control.
 
-**AI-checks-AI collusion.** Using a second AI as the checker is tempting and sometimes appropriate for lower grades, but it is fragile at G3. Two models drawn from similar training, given similar context, tend to make correlated errors and miss the same things. They can also be jointly manipulated by the same crafted input. AI-checks-AI is not independence; it is two instances of the same failure mode. For irreversible actions, the checker should be a human with authority, or at minimum a genuinely independent system with different inputs and assumptions.
+**AI-checks-AI collusion.** Using a second AI as the checker is tempting and sometimes appropriate for lower grades, but it is fragile at G3. Two models drawn from similar training, given similar context, tend to make correlated errors and miss the same things. They can also be jointly manipulated by the same crafted input. AI-checks-AI gives you two instances of the same failure mode, not independence. For irreversible actions, the checker should be a human with authority, or at minimum a genuinely independent system with different inputs and assumptions.
 
 None of these are hypothetical. Research on AI coding agents found that plan-approval steps reduced attacks, but human intervention success stayed only 9 to 26 percent (see the [LoopRails codex](codex.html)). In other words, even when a human was placed in the loop, they caught the bad action only a small fraction of the time. That is the gap maker-checker has to overcome through real authority and real diffs, not through the mere existence of an approve button.
 
 ## Key takeaways
 
 - **Maker-checker (four-eyes) for AI agents** means the agent proposes and a separate, independent party approves before the action takes effect. Proposer ≠ approver is the whole point.
-- It descends from the four-eyes principle, the two-person rule, and separation of duties; it works because it does not rely on any single actor being careful.
-- Apply it to G3 actions: irreversible, high blast radius, or high stakes, plus value thresholds for money. Skip it for G0–G1; use lighter controls for G2.
+- It descends from the four-eyes principle, the two-person rule, and separation of duties. It works because it does not rely on any single actor being careful.
+- Apply it to G3 actions: irreversible, high blast radius, or high stakes, plus value thresholds for money. Skip it for G0 to G1; use lighter controls for G2.
 - Implement with separate identities, server-bound single-use approvals that cannot be forged or replayed, and the real diff shown to the checker, never the agent's own summary.
 - Watch the failure modes: mutual rubber-stamping driven by automation bias, a checker without real authority (the moral crumple zone), and AI-checks-AI collusion that only looks like independence.
 - A checker needs the four A's: authority, awareness, ability, and accountability. Without them, four eyes see nothing.

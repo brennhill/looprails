@@ -1,14 +1,14 @@
 # Least Privilege for AI Agents: Grant Only What the Task Needs
 
-Least privilege for AI agents means giving an agent only the permissions it needs to do the task in front of it, and nothing more: the minimum tools, the narrowest data scope, short-lived credentials, and no network access unless the task requires it. It is the principle of least privilege (POLA) applied to autonomous software that can act on its own. It matters because an AI agent will eventually be tricked, confused, or simply wrong, and when that happens the only thing standing between the mistake and the damage is what the agent was actually able to do. If the agent never had the capability to delete the database, send the wire, or exfiltrate the customer list, then no prompt, no jailbreak, and no injected instruction can make it happen. You do not have to predict the attack. You remove the ability.
+Least privilege for AI agents means giving an agent only the permissions it needs for the task in front of it, and nothing more. The minimum set of tools, the narrowest data scope, short-lived credentials, and no network access unless the task requires it. It is the principle of least privilege (POLA) applied to autonomous software that can act on its own. It matters because an AI agent will eventually be tricked, confused, or simply wrong, and when that happens the only thing standing between the mistake and the damage is what the agent was actually able to do. If the agent never had the capability to delete the database, send the wire, or exfiltrate the customer list, then no prompt, no jailbreak, and no injected instruction can make it happen. You do not have to predict the attack. You remove the ability.
 
 This article covers what least privilege means concretely for agents, why it beats trusting the model or an approval prompt, how to apply it in practice, how it differs from a denylist, and how it maps to the LoopRails grades and the RAIL model.
 
 ## What least privilege means for AI agents
 
-For a human employee, least privilege is an IT discipline: you do not give the new hire root on production. For an AI agent the same idea applies, but the surface is wider and the stakes sharper, because the agent acts at machine speed and can be steered by content it reads. **AI agent permissions** live across four dimensions, and least privilege has to be enforced in all of them.
+For a human employee, least privilege is an IT discipline. You do not give the new hire root on production. The same idea applies to an AI agent, but the surface is wider and the stakes are sharper, because the agent acts at machine speed and can be steered by content it reads. **AI agent permissions** live across four dimensions, and least privilege has to be enforced in all of them.
 
-**Tools.** An agent can only call the tools you wire up. A research agent that summarizes documents does not need a `delete_file` tool, a `send_email` tool, or a shell. Every tool you expose is a capability the agent might be talked into using, so the default tool surface should be the smallest set that completes the task.
+**Tools.** An agent can only call the tools you wire up. A research agent that summarizes documents has no use for a `delete_file` tool, a `send_email` tool, or a shell. Every tool you expose is a capability the agent might be talked into using, so the default tool surface should be the smallest set that completes the task.
 
 **Data scopes.** Read access is a permission, not a freebie. An agent triaging support tickets needs the current ticket, not the entire customer database. Scope data to the specific records the task touches, and prefer read-only over read-write wherever the work allows.
 
@@ -22,17 +22,17 @@ These four are not independent. They combine into the [lethal trifecta](article-
 
 The tempting alternatives to least privilege are "the model is well-aligned, it won't do that" and "we'll ask a human to approve risky actions." Both fail under adversarial conditions, and adversarial conditions are the ones that matter.
 
-Trusting the model fails because an LLM-based agent cannot reliably separate instructions from data. The same web page, email, or document it reads to do its job can carry hidden instructions, and the model has no dependable way to know those words came from an attacker rather than from you. See [prompt injection prevention](article-prompt-injection-prevention.html) for why this is structural, not a tuning problem. A capability the agent does not have cannot be prompt-injected into use; a capability it does have can.
+Trusting the model fails because an LLM-based agent cannot reliably separate instructions from data. The same web page, email, or document it reads to do its job can carry hidden instructions, and the model has no dependable way to know those words came from an attacker rather than from you. See [prompt injection prevention](article-prompt-injection-prevention.html) for why this is structural and not a tuning problem. A capability the agent does not have cannot be prompt-injected into use. A capability it does have can.
 
-Trusting an approval prompt fails for a different reason: humans are not reliable approvers at machine speed. Research on AI coding agents found that even with a human in the loop, human intervention success stayed only 9 to 26 percent (see the [LoopRails codex](codex.html)). The action being approved usually looks benign, the volume invites rubber-stamping, and many harmful actions are irreversible the instant they fire, before anyone reads the prompt. An approval prompt is an event; least privilege is a standing, enforced property of the system. The [Authorized RAIL](rail-authorized.html) draws this distinction directly: a human clicking "yes" is not the same as the action being authorized.
+Trusting an approval prompt fails for a different reason. Humans are not reliable approvers at machine speed. Research on AI coding agents found that even with a human in the loop, human intervention success stayed only 9 to 26 percent (see the [LoopRails codex](codex.html)). The action being approved usually looks benign, the volume invites rubber-stamping, and many harmful actions are irreversible the instant they fire, before anyone reads the prompt. An approval prompt is an event. Least privilege is a standing, enforced property of the system. The [Authorized RAIL](rail-authorized.html) draws this distinction directly: a human clicking "yes" is not the same as the action being authorized.
 
-Least privilege does not ask the model to behave or the human to be vigilant. It changes what is possible, which is why it is the foundation the other controls sit on, not a substitute for them.
+Least privilege does not ask the model to behave or the human to stay vigilant. It changes what is possible, which is why it is the foundation the other controls sit on rather than a substitute for them.
 
 ## How to apply least privilege for AI agents
 
 Least privilege is a set of concrete engineering decisions, not a posture. Here is how to put the principle of least privilege for AI into practice.
 
-**Scoped, short-lived credentials.** Issue credentials that are narrow in scope and brief in lifetime. A token that grants one capability and expires in minutes is far harder to abuse than a broad key that lives for months. If a credential leaks, a short TTL caps the blast radius.
+**Scoped, short-lived credentials.** Issue credentials that are narrow in scope and brief in lifetime. A token that grants one capability and expires in minutes is far harder to abuse than a broad key that lives for months. When a credential leaks, a short TTL caps the blast radius.
 
 **Read-only by default.** Start every data scope at read-only and grant write only where the task provably needs it. Most agent work is analysis, summarization, and proposal, none of which require write access. Write, delete, and admin should be the deliberate exception.
 
@@ -44,7 +44,7 @@ Least privilege is a set of concrete engineering decisions, not a posture. Here 
 
 **Deny network egress by default.** Make no-network the baseline for any session that touches sensitive data. An agent that can read your secrets but has no way to send anything out cannot exfiltrate. Where egress is required, allowlist specific hosts rather than the open internet.
 
-The throughline is deny-by-default: the agent gets nothing until you grant it, and you grant only what the task in front of it needs.
+The throughline is deny-by-default. The agent gets nothing until you grant it, and you grant only what the task in front of it needs.
 
 ## Least privilege vs denylists: the Capability Lock
 
@@ -57,7 +57,7 @@ LoopRails calls the denylist failure mode **Denylist Theater**: maintaining a bl
 - **Generated scripts.** The agent writes a script containing the forbidden action and runs the script, one level removed from the filter.
 - **Quoting.** Splitting or quoting a command defeats naive string matching.
 
-A denylist enumerates the bad things you thought of; an attacker needs only one you did not. The structural answer is the **Capability Lock** pattern: remove the ability to do harm rather than discourage it, and grant only what the task needs. If the agent has no shell, it does not matter how cleverly someone phrases a shell command, because the capability is absent. If egress is cut, no encoding trick smuggles data out. Capability Lock is least privilege enforced at the boundary, not in the prompt, and it is durable precisely because it does not depend on anticipating the attack.
+A denylist enumerates the bad things you thought of. An attacker needs only one you did not. The structural answer is the **Capability Lock** pattern: remove the ability to do harm rather than discourage it, and grant only what the task needs. If the agent has no shell, it does not matter how cleverly someone phrases a shell command, because the capability is absent. If egress is cut, no encoding trick smuggles data out. Capability Lock is least privilege enforced at the boundary instead of in the prompt, and it holds up precisely because it does not depend on anticipating the attack.
 
 ## Mapping least privilege to grades and the RAIL model
 
@@ -69,7 +69,7 @@ Use the [LoopRails grader](index.html#grader) to set the right permission floor 
 - **G2.** Meaningful but recoverable. Scoped credentials, per-task grants, and guardrails plus logging. See the [G2 guide](guide-g2.html).
 - **G3.** Irreversible, high blast radius, or high stakes. Just-in-time elevation only, separation of duties so the proposer is not the approver, and every grant logged. See the [G3 guide](guide-g3.html).
 
-Because least privilege limits what the agent could possibly do, it also makes the other rails meaningful: logging is more useful when the universe of possible actions is small and known; see the [Logged RAIL](rail-logged.html). And recall the core LoopRails test that drives all of this: can a human realistically catch this mistake in time? If the answer is no, you do not gate the action, you prevent the outcome by removing the capability. The full method is laid out in the [framework](framework.html).
+Because least privilege limits what the agent could possibly do, it also makes the other rails meaningful. Logging is more useful when the universe of possible actions is small and known; see the [Logged RAIL](rail-logged.html). And recall the core LoopRails test that drives all of this: can a human realistically catch this mistake in time? When the answer is no, you do not gate the action, you prevent the outcome by removing the capability. The full method is laid out in the [framework](framework.html).
 
 ## A least-privilege checklist
 
@@ -88,7 +88,7 @@ Before you ship an agent, walk the four dimensions:
 - **Least privilege for AI agents** means granting only the tools, data scopes, credentials, and network access the task in front of the agent needs, and nothing more. It is the principle of least privilege applied to software that acts on its own.
 - It beats trusting the model, which cannot separate instructions from data, and beats approval prompts, where human intervention success stayed only 9 to 26 percent in research on AI coding agents. A capability the agent lacks cannot be prompt-injected into use.
 - Apply it with scoped short-lived credentials, read-only by default, per-task grants, separate identities for sub-agents, just-in-time elevation, and deny-by-default network egress.
-- Least privilege is an allowlist; a denylist is the opposite and is bypassable via encoding, subshells, generated scripts, and quoting. Use the Capability Lock pattern: remove the ability to do harm rather than forbid its use.
+- Least privilege is an allowlist. A denylist is the opposite and is bypassable via encoding, subshells, generated scripts, and quoting. Use the Capability Lock pattern: remove the ability to do harm rather than forbid its use.
 - It is the Authorized rail in action, with the permission floor matched to each grade, and it is what makes the other RAIL controls meaningful.
 
 ## Get started
