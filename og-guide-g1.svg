@@ -15,7 +15,7 @@
   <text x="82" y="212" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="22" letter-spacing="4" fill="#2bb673">CONSEQUENCE GRADE</text>
   <text x="80" y="296" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="60" fill="#ffffff" letter-spacing="-1">Low-consequence</text>
   <text x="80" y="364" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="60" fill="#ffffff" letter-spacing="-1">actions</text>
-  <text x="82" y="482" font-family="Inter, Arial, Helvetica, sans-serif" font-size="28" fill="#b9cdd2">Act, then notify — reversibility beats a confirmation prompt.</text>
+  <text x="82" y="482" font-family="Inter, Arial, Helvetica, sans-serif" font-size="28" fill="#b9cdd2">Act, then notify, reversibility beats a confirmation prompt.</text>
   
   <rect x="858" y="156" width="252" height="252" rx="30" fill="#2bb673" fill-opacity="0.13" stroke="#2bb673" stroke-width="3"/>
   <text x="984" y="327.5" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="130" fill="#2bb673" letter-spacing="-2">G1</text>

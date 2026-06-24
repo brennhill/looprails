@@ -16,17 +16,17 @@ const G1 = { line: "#2bb673", fill: "#2bb673", text: "#2bb673" };
 const G2 = { line: "#f0a830", fill: "#f0a830", text: "#f0a830" };
 const G3 = { line: "#ff5d77", fill: "#ff5d77", text: "#ff5d77" };
 
-// key -> card. head = 1–2 headline lines; size = headline font px; badge = big glyph (optional)
+// key -> card. head = 1-2 headline lines; size = headline font px; badge = big glyph (optional)
 const CARDS = {
   home: { eyebrow: "CALIBRATED OVERSIGHT FOR AI AGENTS", head: ["Decide how much human oversight", "each AI action needs."], size: 54, sub: "", method: true, accent: TEAL },
   playbook: { eyebrow: "THE PLAYBOOK · FOR PRACTITIONERS", head: ["The hands-on field guide"], size: 66, sub: "Grade each AI action, guard it, design the review, prove it works.", method: true, accent: TEAL },
-  framework: { eyebrow: "THE FRAMEWORK · SECTIONS 0–10", head: ["The full method"], size: 70, sub: "Consequence × controllability, grades, the autonomy ladder, validation.", method: true, accent: TEAL },
-  codex: { eyebrow: "THE CODEX · THE EVIDENCE", head: ["366 annotated sources"], size: 66, sub: "Aviation, medicine, finance, AI safety, HCI — every claim, traced.", method: false, accent: TEAL, badge: "366", badgeSize: 92 },
+  framework: { eyebrow: "THE FRAMEWORK · SECTIONS 0-10", head: ["The full method"], size: 70, sub: "Consequence × controllability, grades, the autonomy ladder, validation.", method: true, accent: TEAL },
+  codex: { eyebrow: "THE CODEX · THE EVIDENCE", head: ["366 annotated sources"], size: 66, sub: "Aviation, medicine, finance, AI safety, HCI, every claim, traced.", method: false, accent: TEAL, badge: "366", badgeSize: 92 },
   cheatsheet: { eyebrow: "ONE-PAGE CHEAT SHEET", head: ["The whole method,", "on one page."], size: 58, sub: "Print it for your wall or your team channel.", method: true, accent: TEAL },
   "guide-g0": { eyebrow: "CONSEQUENCE GRADE", head: ["Trivial actions"], size: 66, sub: "Why a human in the loop is the wrong default here.", accent: G0, badge: "G0" },
-  "guide-g1": { eyebrow: "CONSEQUENCE GRADE", head: ["Low-consequence", "actions"], size: 60, sub: "Act, then notify — reversibility beats a confirmation prompt.", accent: G1, badge: "G1" },
-  "guide-g2": { eyebrow: "CONSEQUENCE GRADE", head: ["High-consequence", "actions"], size: 60, sub: "When review actually pays off — and how to make it catch mistakes.", accent: G2, badge: "G2" },
-  "guide-g3": { eyebrow: "CONSEQUENCE GRADE", head: ["Critical actions"], size: 66, sub: "When review becomes a rubber stamp — what to prevent instead.", accent: G3, badge: "G3" },
+  "guide-g1": { eyebrow: "CONSEQUENCE GRADE", head: ["Low-consequence", "actions"], size: 60, sub: "Act, then notify, reversibility beats a confirmation prompt.", accent: G1, badge: "G1" },
+  "guide-g2": { eyebrow: "CONSEQUENCE GRADE", head: ["High-consequence", "actions"], size: 60, sub: "When review actually pays off, and how to make it catch mistakes.", accent: G2, badge: "G2" },
+  "guide-g3": { eyebrow: "CONSEQUENCE GRADE", head: ["Critical actions"], size: 66, sub: "When review becomes a rubber stamp, what to prevent instead.", accent: G3, badge: "G3" },
   "rail-reversible": { eyebrow: "RAIL · THE FOUR PROPERTIES", head: ["Reversible"], size: 74, sub: "Make actions undoable or contained, so stop-and-ask stays rare.", accent: TEAL, badge: "R" },
   "rail-authorized": { eyebrow: "RAIL · THE FOUR PROPERTIES", head: ["Authorized"], size: 74, sub: "Least privilege, and maker-checker for high-stakes actions.", accent: TEAL, badge: "A" },
   "rail-interruptible": { eyebrow: "RAIL · THE FOUR PROPERTIES", head: ["Interruptible"], size: 70, sub: "Kill switches and blame-free stops so anyone can halt an agent.", accent: TEAL, badge: "I" },
@@ -35,13 +35,13 @@ const CARDS = {
   "article-hitl-ai-safety": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Does human-in-the-loop", "improve AI safety?"], size: 52, sub: "What the evidence actually says.", method: false, accent: TEAL },
   "article-in-the-loop-vs-on-the-loop": { eyebrow: "LOOPRAILS · ARTICLE", head: ["In-the-loop vs", "on-the-loop"], size: 58, sub: "…and out-of-the-loop, explained.", method: false, accent: TEAL },
   "article-ai-agent-approval": { eyebrow: "LOOPRAILS · ARTICLE", head: ["When should an agent", "ask for approval?"], size: 50, sub: "Build gates that aren't rubber stamps.", method: false, accent: TEAL },
-  "article-lethal-trifecta": { eyebrow: "LOOPRAILS · ARTICLE", head: ["The lethal trifecta"], size: 64, sub: "How AI agents leak data — and how to stop it.", method: false, accent: G3 },
+  "article-lethal-trifecta": { eyebrow: "LOOPRAILS · ARTICLE", head: ["The lethal trifecta"], size: 64, sub: "How AI agents leak data, and how to stop it.", method: false, accent: G3 },
   "article-ai-agent-guardrails": { eyebrow: "LOOPRAILS · ARTICLE", head: ["AI agent guardrails"], size: 62, sub: "A practical checklist.", method: false, accent: TEAL },
-  "article-ai-agent-autonomy-levels": { eyebrow: "LOOPRAILS · ARTICLE", head: ["AI agent", "autonomy levels"], size: 58, sub: "The L0–L6 ladder, and how to choose.", method: false, accent: TEAL },
+  "article-ai-agent-autonomy-levels": { eyebrow: "LOOPRAILS · ARTICLE", head: ["AI agent", "autonomy levels"], size: 58, sub: "The L0-L6 ladder, and how to choose.", method: false, accent: TEAL },
   "article-prompt-injection-prevention": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Prompt injection", "prevention"], size: 58, sub: "Defense in depth for AI agents.", method: false, accent: G3 },
   "article-maker-checker-ai": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Maker-checker", "for AI agents"], size: 58, sub: "Four-eyes for irreversible actions.", method: false, accent: TEAL },
   "article-automation-bias": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Automation bias"], size: 64, sub: "Why people rubber-stamp AI.", method: false, accent: G2 },
-  "article-ai-kill-switch": { eyebrow: "LOOPRAILS · ARTICLE", head: ["The AI kill switch"], size: 64, sub: "Stop everything — fast and blame-free.", method: false, accent: G3 },
+  "article-ai-kill-switch": { eyebrow: "LOOPRAILS · ARTICLE", head: ["The AI kill switch"], size: 64, sub: "Stop everything, fast and blame-free.", method: false, accent: G3 },
   "article-llm-agent-skills-credential-leak": { eyebrow: "LOOPRAILS · STUDY", head: ["How agent skills", "leak credentials"], size: 54, sub: "A 2026 study of 17,022 skills.", method: false, accent: G3 },
   "article-ai-agent-sandboxing": { eyebrow: "LOOPRAILS · ARTICLE", head: ["AI agent", "sandboxing"], size: 58, sub: "Contain the blast radius.", method: false, accent: TEAL },
   "article-least-privilege-ai-agents": { eyebrow: "LOOPRAILS · ARTICLE", head: ["Least privilege", "for AI agents"], size: 56, sub: "Grant only what the task needs.", method: false, accent: TEAL },
@@ -61,6 +61,11 @@ const CARDS = {
   "article-hitl-browser-agents": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for browser", "& computer use"], size: 50, sub: "Sandbox the open web.", method: false, accent: G3 },
   "article-hitl-voice-agents": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for", "AI voice agents"], size: 54, sub: "Limit, confirm, hand off.", method: false, accent: TEAL },
   "article-hitl-multi-agent-systems": { eyebrow: "LOOPRAILS · USE CASE", head: ["HITL for multi-", "agent systems"], size: 52, sub: "Scope sub-agents; one kill switch.", method: false, accent: G2 },
+  "article-loop-engineering": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["What is", "loop engineering?"], size: 56, sub: "From prompts to loops.", method: false, accent: TEAL },
+  "article-build-agent-loop": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["Build your first", "agent loop"], size: 54, sub: "Scaffolding plus guardrails.", method: false, accent: TEAL },
+  "article-loop-patterns": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["Loop patterns"], size: 62, sub: "For engineering and data science.", method: false, accent: TEAL },
+  "article-evaluation-driven-development": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["Evaluation-driven", "development"], size: 52, sub: "The verifier is the point.", method: false, accent: TEAL },
+  "article-loop-engineering-oversight": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["Keep a loop", "on the rails"], size: 56, sub: "Grade it, cap it, stop it.", method: false, accent: G2 },
 };
 
 function svg(c) {

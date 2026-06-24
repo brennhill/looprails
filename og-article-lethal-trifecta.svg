@@ -14,7 +14,7 @@
   <text x="164" y="117" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="46" fill="#ffffff" letter-spacing="-1">LoopRails</text>
   <text x="82" y="212" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="22" letter-spacing="4" fill="#ff5d77">LOOPRAILS · ARTICLE</text>
   <text x="80" y="326" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="bold" font-size="64" fill="#ffffff" letter-spacing="-1">The lethal trifecta</text>
-  <text x="82" y="376" font-family="Inter, Arial, Helvetica, sans-serif" font-size="28" fill="#b9cdd2">How AI agents leak data — and how to stop it.</text>
+  <text x="82" y="376" font-family="Inter, Arial, Helvetica, sans-serif" font-size="28" fill="#b9cdd2">How AI agents leak data, and how to stop it.</text>
   
   <g>
     <rect x="80" y="512" width="1040" height="40" fill="url(#ties)"/>

@@ -6,7 +6,7 @@
     <atom:link href="https://looprails.dev/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical, sourced writing on human-in-the-loop oversight of AI agents, when review helps, when it's a rubber stamp, and how to design oversight that actually catches mistakes.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jun 2026 10:26:42 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2026 13:12:58 GMT</lastBuildDate>
     <item>
       <title>What Is Human-in-the-Loop (HITL) in AI?</title>
       <link>https://looprails.dev/article-what-is-human-in-the-loop.html</link>
@@ -216,6 +216,41 @@
       <guid isPermaLink="true">https://looprails.dev/article-hitl-multi-agent-systems.html</guid>
       <description>How to design human-in-the-loop oversight for multi-agent systems: least privilege per sub-agent, provenance logging, one kill switch, and clear human accountability.</description>
       <pubDate>Tue, 23 Jun 2026 11:31:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>What Is Loop Engineering?</title>
+      <link>https://looprails.dev/article-loop-engineering.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-loop-engineering.html</guid>
+      <description>Loop engineering means building a system that prompts an AI agent, checks its output, and decides the next step until a goal is met. The prompts-to-loops ladder, and why the verifier is the hard part.</description>
+      <pubDate>Tue, 23 Jun 2026 11:30:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Build Your First Agent Loop</title>
+      <link>https://looprails.dev/article-build-agent-loop.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-build-agent-loop.html</guid>
+      <description>A practical guide to building your first AI agent loop: goal and done-conditions, the verifier, memory in a file, writer and reviewer subagents, and guardrails on by default.</description>
+      <pubDate>Tue, 23 Jun 2026 11:29:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Loop Patterns for Engineering &amp; Data Science</title>
+      <link>https://looprails.dev/article-loop-patterns.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-loop-patterns.html</guid>
+      <description>Reusable agent-loop recipes for software and data science: test-fixing, refactor, dependency-upgrade, data-cleaning, and experiment loops, each with a goal, a done-condition, and a verifier.</description>
+      <pubDate>Tue, 23 Jun 2026 11:28:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Evaluation-Driven Development</title>
+      <link>https://looprails.dev/article-evaluation-driven-development.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-evaluation-driven-development.html</guid>
+      <description>In an autonomous loop, an automated check, not your gut, decides whether each change improved things. How evaluation-driven development works and how to build a verifier you can trust.</description>
+      <pubDate>Tue, 23 Jun 2026 11:27:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Oversight for Autonomous Loops</title>
+      <link>https://looprails.dev/article-loop-engineering-oversight.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-loop-engineering-oversight.html</guid>
+      <description>Loop engineering moves oversight from per-step prompts to the goal, the verifier, and a few human checkpoints. How to grade a loop's actions, cap its blast radius, and stop it when it runs away.</description>
+      <pubDate>Tue, 23 Jun 2026 11:26:00 GMT</pubDate>
     </item>
   </channel>
 </rss>

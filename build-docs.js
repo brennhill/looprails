@@ -173,6 +173,26 @@ const ARTICLES = {
     label: "Human-in-the-Loop for Multi-Agent Systems",
     title: "How to Build a Good Human-in-the-Loop for Multi-Agent Systems · LoopRails",
     desc: "How to design human-in-the-loop oversight for multi-agent systems: least privilege per sub-agent, provenance logging, one kill switch, and clear human accountability." },
+  "article-loop-engineering": { md: "article-loop-engineering.md", out: "article-loop-engineering.html",
+    label: "What Is Loop Engineering?",
+    title: "What Is Loop Engineering? From Prompts to Loops · LoopRails",
+    desc: "Loop engineering means building a system that prompts an AI agent, checks its output, and decides the next step until a goal is met. The prompts-to-loops ladder, and why the verifier is the hard part." },
+  "article-build-agent-loop": { md: "article-build-agent-loop.md", out: "article-build-agent-loop.html",
+    label: "How to Build Your First Agent Loop",
+    title: "How to Build Your First Agent Loop · LoopRails",
+    desc: "A practical guide to building your first AI agent loop: goal and done-conditions, the verifier, memory in a file, writer and reviewer subagents, and guardrails on by default." },
+  "article-loop-patterns": { md: "article-loop-patterns.md", out: "article-loop-patterns.html",
+    label: "Loop Patterns for Engineering & Data Science",
+    title: "Loop Patterns for Engineering and Data Science · LoopRails",
+    desc: "Reusable agent-loop recipes for software and data science: test-fixing, refactor, dependency-upgrade, data-cleaning, and experiment loops, each with a goal, a done-condition, and a verifier." },
+  "article-evaluation-driven-development": { md: "article-evaluation-driven-development.md", out: "article-evaluation-driven-development.html",
+    label: "Evaluation-Driven Development",
+    title: "Evaluation-Driven Development: The Verifier Is the Point · LoopRails",
+    desc: "In an autonomous loop, an automated check, not your gut, decides whether each change improved things. How evaluation-driven development works and how to build a verifier you can trust." },
+  "article-loop-engineering-oversight": { md: "article-loop-engineering-oversight.md", out: "article-loop-engineering-oversight.html",
+    label: "Oversight for Autonomous Loops",
+    title: "How to Keep an Autonomous Loop on the Rails · LoopRails",
+    desc: "Loop engineering moves oversight from per-step prompts to the goal, the verifier, and a few human checkpoints. How to grade a loop's actions, cap its blast radius, and stop it when it runs away." },
 };
 
 const ALL = { ...DOCS, ...ARTICLES };
@@ -433,6 +453,7 @@ function articlesIndexPage() {
   const CATS = [
     ["Start here & concepts", ["article-what-is-agentic-ai", "article-what-is-human-in-the-loop", "article-hitl-ai-safety", "article-in-the-loop-vs-on-the-loop", "article-ai-agent-autonomy-levels", "article-automation-bias"]],
     ["Patterns & controls", ["article-ai-agent-approval", "article-ai-agent-guardrails", "article-lethal-trifecta", "article-prompt-injection-prevention", "article-maker-checker-ai", "article-ai-kill-switch", "article-circuit-breaker-ai-agents", "article-ai-agent-sandboxing", "article-least-privilege-ai-agents"]],
+    ["Loop engineering", ["article-loop-engineering", "article-build-agent-loop", "article-loop-patterns", "article-evaluation-driven-development", "article-loop-engineering-oversight"]],
     ["Use cases, human-in-the-loop for…", ["article-hitl-coding-agents", "article-hitl-customer-support", "article-hitl-financial-transactions", "article-hitl-database-operations", "article-hitl-email-agents", "article-hitl-deployments", "article-hitl-content-moderation", "article-hitl-machine-learning", "article-hitl-healthcare", "article-hitl-legal-contracts", "article-hitl-hiring", "article-hitl-browser-agents", "article-hitl-voice-agents", "article-hitl-multi-agent-systems"]],
     ["Studies", ["article-llm-agent-skills-credential-leak"]],
   ];
