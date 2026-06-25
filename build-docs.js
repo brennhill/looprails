@@ -31,6 +31,9 @@ const DOCS = {
   codex:              { md: "codex.md",               out: "codex.html",               label: "Codex",         nav: true,
     title: "Human-in-the-Loop & AI Safety Research Codex (366 Sources) · LoopRails",
     desc: "366 annotated sources on human-in-the-loop oversight and AI safety, aviation, medicine, finance, AI safety, and HCI. The evidence base behind LoopRails." },
+  "codex-loops":      { md: "codex-loops.md",         out: "codex-loops.html",         label: "Loop Engineering Codex",
+    title: "The Loop Engineering Codex: Failure Recovery & Multi-Agent Research · LoopRails",
+    desc: "An annotated, sourced evidence base for building and operating AI agent loops: durable execution, retries, idempotency, rollback, checkpoint and resume, and multi-agent coordination, from distributed systems and recent LLM-agent research." },
   "guide-g0":         { md: "guide-g0.md",            out: "guide-g0.html",            label: "G0 · Trivial",
     title: "G0 Trivial AI Actions: When Human-in-the-Loop Is Overkill · LoopRails",
     desc: "G0 (trivial) AI agent actions: why putting a human in the loop is the wrong default here, and how to let low-stakes actions run safely and logged." },
@@ -211,6 +214,18 @@ const ARTICLES = {
     label: "Loop Health: What to Monitor in a Running Loop",
     title: "Loop Health: What to Monitor in a Running Agent Loop · LoopRails",
     desc: "Which signals tell you an agent loop is working, stuck, or burning money: turns, spend per successful outcome, the verifier-score trend, the no-progress streak, and the thresholds that feed the circuit breaker and kill switch." },
+  "article-world-models-agent-loops": { md: "article-world-models-agent-loops.md", out: "article-world-models-agent-loops.html",
+    label: "World Models for Agent Loops",
+    title: "World Models for Agent Loops: Simulate Before You Act · LoopRails",
+    desc: "A world model predicts what an action will do before the loop runs it. How to use simulation as a consequence preview, a planning aid, and an offline eval, and why a prediction is a claim to verify, not proof." },
+  "article-failure-recovery-agent-loops": { md: "article-failure-recovery-agent-loops.md", out: "article-failure-recovery-agent-loops.html",
+    label: "Failure Recovery for Agent Loops",
+    title: "Failure Recovery for Agent Loops: Retries, Rollback, Resuming a Crashed Run · LoopRails",
+    desc: "How to make an agent loop survive its own failures: durable checkpoints and resume, idempotent retries with backoff, a circuit breaker, verifier-gated retries, and saga-style rollback for irreversible actions." },
+  "article-multi-agent-loops": { md: "article-multi-agent-loops.md", out: "article-multi-agent-loops.html",
+    label: "Multi-Agent Loops: When More Agents Help",
+    title: "Multi-Agent Loops: When More Agents Help, and How They Break · LoopRails",
+    desc: "When splitting a loop across multiple agents helps and when it just adds failure surface: the patterns that work, the MAST failure taxonomy, the reviewer-agent trap, and the oversight each sub-agent needs." },
   "article-lora-vs-fine-tuning-vs-pre-training": { md: "article-lora-vs-fine-tuning-vs-pre-training.md", out: "article-lora-vs-fine-tuning-vs-pre-training.html",
     label: "LoRA vs Fine-Tuning vs Pre-Training",
     title: "LoRA vs Fine-Tuning vs Pre-Training: When Each Makes Sense · LoopRails",
@@ -487,9 +502,9 @@ function articlesIndexPage() {
   const items = Object.values(ARTICLES);
   const CATS = [
     ["The LoopRails Doctrine", ["article-loop-engineering-doctrine"]],
-    ["Build a loop", ["article-loop-engineering", "article-build-agent-loop", "article-context-engineering-agent-loops", "article-loop-patterns", "article-evaluation-driven-development"]],
+    ["Build a loop", ["article-loop-engineering", "article-build-agent-loop", "article-context-engineering-agent-loops", "article-loop-patterns", "article-evaluation-driven-development", "article-world-models-agent-loops", "article-multi-agent-loops"]],
     ["Choosing & adapting models", ["article-lora-vs-fine-tuning-vs-pre-training", "article-adapting-models-you-dont-control"]],
-    ["Run & observe loops", ["article-loop-engineering-oversight", "article-loop-health-monitoring"]],
+    ["Run & observe loops", ["article-loop-engineering-oversight", "article-loop-health-monitoring", "article-failure-recovery-agent-loops"]],
     ["Start here & concepts", ["article-what-is-agentic-ai", "article-what-is-human-in-the-loop", "article-hitl-ai-safety", "article-in-the-loop-vs-on-the-loop", "article-ai-agent-autonomy-levels", "article-automation-bias"]],
     ["Patterns & controls", ["article-ai-agent-approval", "article-ai-agent-guardrails", "article-lethal-trifecta", "article-prompt-injection-prevention", "article-maker-checker-ai", "article-ai-kill-switch", "article-circuit-breaker-ai-agents", "article-ai-agent-sandboxing", "article-least-privilege-ai-agents"]],
     ["Use cases, human-in-the-loop for…", ["article-hitl-coding-agents", "article-hitl-customer-support", "article-hitl-financial-transactions", "article-hitl-database-operations", "article-hitl-email-agents", "article-hitl-deployments", "article-hitl-content-moderation", "article-hitl-machine-learning", "article-hitl-healthcare", "article-hitl-legal-contracts", "article-hitl-hiring", "article-hitl-browser-agents", "article-hitl-voice-agents", "article-hitl-multi-agent-systems"]],
@@ -581,7 +596,7 @@ for (const [key, d] of Object.entries(ALL)) {
   const src = fs.readFileSync(path.join(__dirname, d.md), "utf8");
   let html = parse(src, { gfm: true, breaks: false });
   html = injectHeadingIds(html);
-  if (key === "codex") html = injectRefAnchors(html);
+  if (key === "codex" || key === "codex-loops") html = injectRefAnchors(html);
   const toc = buildTOC(html);
   fs.writeFileSync(path.join(__dirname, d.out), page(key, d, html, toc));
   built.push(d.out);

@@ -38,6 +38,16 @@ Two ideas recur, so I will say them once up front. The done-condition is what ma
 
 **Guardrail:** one dependency at a time, in an isolated worktree. This is the rule people skip and regret. If you let the loop bump five packages at once and the build breaks, you cannot tell which bump caused it, and neither can the agent, so it flails. One dependency per run gives a clean attribution: this version, this break, this fix, or this version is not viable yet, revert and move on. The isolated worktree keeps a failed upgrade from contaminating your working tree or another run in parallel. Cap the loop on spend, because some upgrades cascade (a major version pulls a peer dependency that pulls another) and you want it to stop and ask rather than chase the chain to the bottom.
 
+### Plan-in-simulation loop
+
+**What it does:** before it commits to a consequential action, the loop predicts the outcome with a model of the environment (a world model) or a dry-run, compares a few candidate actions, and runs the one with the best predicted result.
+
+**Done when:** the chosen action runs and the real check confirms the predicted outcome held.
+
+**Verifier:** the real environment, after the fact. The prediction only picks the candidate; the actual check still decides whether the step counts. Compare the predicted outcome against the observed one and log the gap, because a widening gap means the predictor is drifting and the preview is getting less trustworthy.
+
+**Guardrail:** the world model is a model, so its prediction is a claim, not a result you can bank. Never let a predicted-good outcome auto-approve an irreversible action. A simulation lowers how often a reversible action needs a human; it does not remove the human at a G3 action. Cap how far ahead the loop plans, since prediction error compounds over a long rollout. For the full treatment see [world models for agent loops](article-world-models-agent-loops.html).
+
 ## Data science loops
 
 The engineering loops above lean on tests most teams already have. Data science loops need verifiers you usually have to build on purpose, and the temptation to skip them is stronger because the work feels exploratory. Resist that. An exploratory loop with no verifier is an expensive way to fool yourself. This is the heart of [evaluation-driven development](article-evaluation-driven-development.html): the check comes first, and the loop runs against it.

@@ -7,6 +7,7 @@
   <url><loc>https://looprails.dev/framework.html</loc><lastmod>2026-06-25</lastmod></url>
   <url><loc>https://looprails.dev/kit.html</loc><lastmod>2026-06-25</lastmod></url>
   <url><loc>https://looprails.dev/codex.html</loc><lastmod>2026-06-25</lastmod></url>
+  <url><loc>https://looprails.dev/codex-loops.html</loc><lastmod>2026-06-25</lastmod></url>
   <url><loc>https://looprails.dev/guide-g0.html</loc><lastmod>2026-06-25</lastmod></url>
   <url><loc>https://looprails.dev/guide-g1.html</loc><lastmod>2026-06-25</lastmod></url>
   <url><loc>https://looprails.dev/guide-g2.html</loc><lastmod>2026-06-25</lastmod></url>
@@ -53,6 +54,9 @@
   <url><loc>https://looprails.dev/article-loop-engineering-oversight.html</loc><lastmod>2026-06-25</lastmod></url>
   <url><loc>https://looprails.dev/article-context-engineering-agent-loops.html</loc><lastmod>2026-06-25</lastmod></url>
   <url><loc>https://looprails.dev/article-loop-health-monitoring.html</loc><lastmod>2026-06-25</lastmod></url>
+  <url><loc>https://looprails.dev/article-world-models-agent-loops.html</loc><lastmod>2026-06-25</lastmod></url>
+  <url><loc>https://looprails.dev/article-failure-recovery-agent-loops.html</loc><lastmod>2026-06-25</lastmod></url>
+  <url><loc>https://looprails.dev/article-multi-agent-loops.html</loc><lastmod>2026-06-25</lastmod></url>
   <url><loc>https://looprails.dev/article-lora-vs-fine-tuning-vs-pre-training.html</loc><lastmod>2026-06-25</lastmod></url>
   <url><loc>https://looprails.dev/article-adapting-models-you-dont-control.html</loc><lastmod>2026-06-25</lastmod></url>
 </urlset>

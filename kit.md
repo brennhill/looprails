@@ -113,6 +113,7 @@ At the consequential edges
 - [ ] Every action the loop can take has a grade (G0-G3)
 - [ ] G2 and G3 actions require a human in the loop
 - [ ] No irreversible action runs without explicit approval
+- [ ] Consequential actions are previewed (dry-run or simulated) before they run, where possible
 
 After it runs
 

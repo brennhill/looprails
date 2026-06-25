@@ -660,7 +660,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
   <div class="wrap">
     <div class="eyebrow reveal">Loops on rails, in both senses</div>
     <h2 class="reveal">Build your agent loop end to end</h2>
-    <p class="lead reveal" style="margin-bottom:26px">The loop is the unit of work now. LoopRails helps you build one the way Ruby on Rails made web apps fast, with conventions and a working scaffold, and it gives you the guardrails to run it unattended without getting hurt. Start with the principles, grab the starter, keep the templates close.</p>
+    <p class="lead reveal" style="margin-bottom:26px">The loop is the unit of work now. LoopRails helps you build one the way Ruby on Rails made web apps fast, with conventions and a working scaffold, and it gives you the guardrails to run it unattended without getting hurt. Start with the principles, grab the starter, keep the templates close. The patterns here are grounded in research, collected in the <a href="codex-loops.html">Loop Engineering Codex</a>.</p>
     <div class="buildcta reveal">
       <a class="bcard" href="article-loop-engineering-doctrine.html"><div class="dn">Principles</div><h3>The LoopRails Doctrine →</h3><p>Ten principles for loops that are fast to build and safe to run.</p></a>
       <a class="bcard" href="https://github.com/brennhill/looprails/tree/main/starter"><div class="dn">Scaffold</div><h3>The starter ↗</h3><p>A real, runnable guarded loop: verifier, caps, action grades, kill switch. Python, no dependencies.</p></a>
@@ -682,10 +682,13 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
       <a class="door reveal" href="article-loop-patterns.html"><div class="dn">Recipes</div><h3>Loop patterns for engineering &amp; data science</h3><p>Test-fixing, refactor, data-cleaning, and experiment loops, each with a done-condition and a verifier.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-evaluation-driven-development.html"><div class="dn">The verifier</div><h3>Evaluation-driven development</h3><p>An automated check, not your gut, decides whether each change improved things.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-context-engineering-agent-loops.html"><div class="dn">Context</div><h3>Context engineering for loops</h3><p>What goes in the window each turn, and how to keep a loop effective instead of drifting.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-world-models-agent-loops.html"><div class="dn">The model</div><h3>World models: simulate before you act</h3><p>Predict what an action will do before the loop commits to it, as a preview, a planner, and an offline eval.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-multi-agent-loops.html"><div class="dn">Scale</div><h3>Multi-agent loops</h3><p>When more agents help, when they just add failure surface, and the oversight each one needs.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-lora-vs-fine-tuning-vs-pre-training.html"><div class="dn">The model</div><h3>LoRA vs fine-tuning vs pre-training</h3><p>How to adapt the model under your loop, and when each option is worth the cost.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-adapting-models-you-dont-control.html"><div class="dn">The model</div><h3>Models you don't control</h3><p>What you can and can't change on a closed API model versus an open-weight one.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-loop-engineering-oversight.html"><div class="dn">Guardrails</div><h3>Keep a loop on the rails</h3><p>Grade what the loop can do, cap the blast radius, and stop it when it runs away.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-loop-health-monitoring.html"><div class="dn">Run &amp; observe</div><h3>Loop health: what to monitor</h3><p>Turns, spend, score trend, and the signals that trip the circuit breaker.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-failure-recovery-agent-loops.html"><div class="dn">Run &amp; observe</div><h3>Failure recovery</h3><p>Retries, rollback, checkpoints, and resuming a crashed run, from durable execution and agent research.</p><span class="go">Read →</span></a>
     </div>
     <p class="reveal" style="margin-top:20px"><a href="articles.html" style="font-weight:650">See all articles →</a></p>
   </div>
@@ -791,6 +794,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
       <a href="framework.html">Framework</a>
       <a href="articles.html">Articles</a>
       <a href="codex.html">Codex</a>
+      <a href="codex-loops.html">Loop Codex</a>
       <a href="https://github.com/brennhill/looprails/tree/main/starter">Starter ↗</a>
       <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE ↗</a>
       <a href="https://github.com/brennhill/looprails">GitHub</a>

@@ -72,6 +72,10 @@ const CARDS = {
   kit: { eyebrow: "THE KIT · TAKE IT WITH YOU", head: ["The LoopRails Kit"], size: 60, sub: "Templates you fill in before a loop runs.", method: true, accent: TEAL },
   "article-context-engineering-agent-loops": { eyebrow: "LOOPRAILS · BUILD A LOOP", head: ["Context", "engineering"], size: 60, sub: "Keep the loop effective across many turns.", method: false, accent: TEAL },
   "article-loop-health-monitoring": { eyebrow: "LOOPRAILS · RUN & OBSERVE", head: ["Loop health"], size: 64, sub: "What to monitor in a running loop.", method: false, accent: G2 },
+  "article-world-models-agent-loops": { eyebrow: "LOOPRAILS · BUILD A LOOP", head: ["World models", "for agent loops"], size: 52, sub: "Simulate before you act.", method: false, accent: TEAL },
+  "article-failure-recovery-agent-loops": { eyebrow: "LOOPRAILS · RUN & OBSERVE", head: ["Failure", "recovery"], size: 60, sub: "Retries, rollback, resuming a crashed run.", method: false, accent: G2 },
+  "article-multi-agent-loops": { eyebrow: "LOOPRAILS · BUILD A LOOP", head: ["Multi-agent", "loops"], size: 58, sub: "When more agents help, and how they break.", method: false, accent: TEAL },
+  "codex-loops": { eyebrow: "THE LOOP ENGINEERING CODEX", head: ["The evidence base", "for agent loops"], size: 50, sub: "Failure recovery and multi-agent research, sourced.", method: false, accent: TEAL },
 };
 
 function svg(c) {
