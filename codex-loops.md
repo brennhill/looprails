@@ -231,4 +231,56 @@ These sources back the [Cookbook](cookbook.html), the recipe side of the framewo
 - Global sensemaking gap: broad whole-corpus questions have no single answering chunk, addressed by graph-based summarization [RAG-7].
 - Ungrounded answers: the generator ignores or contradicts retrieved evidence, which faithfulness scoring is built to catch [RAG-10] [RAG-1].
 
+## Part 5: Tool, skill, and context overload
+
+How the number of tools (including MCP servers and agent skills) and the amount of context spent affect accuracy and the number of useful turns. Lost-in-the-Middle is also catalogued as [RAG-11].
+
+### 5.1 Tool count and selection
+
+**[TOOL-1]** ToolLLM: Facilitating LLMs to Master 16000+ Real-world APIs, Qin et al. (2023), ICLR 2024. [arxiv.org/abs/2307.16789](https://arxiv.org/abs/2307.16789). Builds ToolBench over 16000+ APIs and uses a neural API retriever to recommend a small relevant subset per instruction, because all the APIs cannot fit in context at once. Evidence that large catalogs force retrieval rather than dumping every tool in the prompt.
+
+**[TOOL-2]** Gorilla: Large Language Model Connected with Massive APIs, Patil et al. (2023). [arxiv.org/abs/2305.15334](https://arxiv.org/abs/2305.15334). Pairs an LLM with a retriever to call the right API from a massive set and adapt when docs change, reducing hallucinated calls. Retrieval-aware tool calling beats stuffing all docs into the prompt.
+
+**[TOOL-3]** Tool Documentation Enables Zero-Shot Tool-Usage, Hsieh et al. (2023). [arxiv.org/abs/2308.00675](https://arxiv.org/abs/2308.00675). Concise tool documentation alone lets models use tools zero-shot, matching or beating few-shot demonstrations. Good docs are a cheaper per-tool context investment than long examples.
+
+**[TOOL-4]** The Berkeley Function Calling Leaderboard, Patil et al. (2025), ICML. [proceedings.mlr.press](https://proceedings.mlr.press/v267/patil25a.html). The standard live function-calling benchmark, scaling to thousands of functions and including cases where no provided function is relevant so the model must abstain. A way to measure whether adding tools helps or just adds noise.
+
+**[TOOL-5]** API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs, Li et al. (2023), EMNLP. [arxiv.org/abs/2304.08244](https://arxiv.org/abs/2304.08244). A multi-turn benchmark for planning, retrieving, and calling APIs across domains, showing models still have large headroom in deciding which API to call.
+
+**[TOOL-6]** Towards Completeness-Oriented Tool Retrieval (COLT), Qu et al. (2024), CIKM. [arxiv.org/abs/2405.16089](https://arxiv.org/abs/2405.16089). Pure semantic matching retrieves redundant overlapping tools and misses the diverse set a task needs. Redundant tools degrade selection, so curation matters as much as count.
+
+**[TOOL-7]** ToolRerank: Adaptive and Hierarchy-Aware Reranking for Tool Retrieval, Zheng et al. (2024), LREC-COLING. [arxiv.org/abs/2403.06551](https://arxiv.org/abs/2403.06551). Reranks retrieved tools with adaptive truncation; the relevant-subset size should be tuned, not maximized. (First-author name UNVERIFIED.)
+
+**[TOOL-8]** Re-Invoke: Tool Invocation Rewriting for Zero-Shot Tool Retrieval, Chen et al. (2024), Findings of EMNLP. [arxiv.org/abs/2408.01875](https://arxiv.org/abs/2408.01875). Unsupervised tool retrieval that scales to large toolsets by generating synthetic queries per tool. The practical answer to many tools is retrieve-then-use, not load-all. (First-author name UNVERIFIED.)
+
+**[TOOL-9]** Retrieval Models Aren't Tool-Savvy (ToolRet), Shi et al. (2025), Findings of ACL. [arxiv.org/abs/2503.01763](https://arxiv.org/abs/2503.01763). Standard IR models that do well on normal retrieval perform poorly at tool retrieval, framed as a problem precisely because tool-using LLMs have limited context and cannot hold all tools. Support that you must select a subset and that doing it well is hard.
+
+**[TOOL-10]** Less is More: Optimizing Function Calling for LLM Execution on Edge Devices, Paramanayakam et al. (2024). [arxiv.org/abs/2411.15399](https://arxiv.org/abs/2411.15399). Selectively reducing the tools presented improves function-calling accuracy, with a worked example where cutting tools from 46 to 19 lets the model pick correctly. Fewer relevant tools beats a large undifferentiated set.
+
+### 5.2 Context length degradation
+
+**[TOOL-11]** Lost in the Middle: How Language Models Use Long Contexts, Liu et al. (2023), TACL. [aclanthology.org](https://aclanthology.org/2024.tacl-1.9/). Models use information best at the start or end of the context and underuse the middle, even in long-context models. Filling the window with tool definitions or documents buries the items the model needs to act on. (Also [RAG-11].)
+
+**[TOOL-12]** Same Task, More Tokens: the Impact of Input Length on the Reasoning Performance of LLMs, Levy et al. (2024), ACL. [arxiv.org/abs/2402.14848](https://arxiv.org/abs/2402.14848). Holding the task fixed and only padding the input degrades reasoning accuracy far below the model's technical maximum. Spending context budget, even on padding, hurts the model's use of the actual task content.
+
+**[TOOL-13]** RULER: What's the Real Context Size of Your Long-Context Language Models? Hsieh et al. (2024), COLM. [arxiv.org/abs/2404.06654](https://arxiv.org/abs/2404.06654). Most models that advertise 32K-plus windows degrade well before that length, so effective context is much shorter than the claimed number. Do not treat the advertised window as usable budget for tools plus task.
+
+### 5.3 MCP and skills
+
+**[TOOL-14]** Introducing the Model Context Protocol, Anthropic (2024). [anthropic.com](https://www.anthropic.com/news/model-context-protocol). The official announcement of MCP as an open standard for two-way connections between AI tools and data sources (November 2024). The standard whose tool definitions later compete for context budget.
+
+**[TOOL-15]** Code Execution with MCP: Building More Efficient Agents, Anthropic (2025), engineering blog. [anthropic.com](https://www.anthropic.com/engineering/code-execution-with-mcp). Reports that loading all MCP tool definitions upfront consumes excessive tokens, with a case dropping from 150,000 to 2,000 tokens by having the agent load only the tools it needs on demand. First-party statement that many MCP tools fill the window and that on-demand loading recovers it. (Engineering blog, not peer-reviewed.)
+
+**[TOOL-16]** Equipping Agents for the Real World with Agent Skills, Anthropic (2025), engineering blog. [anthropic.com](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills). Agent Skills are folders of instructions and resources the agent discovers and loads dynamically, using progressive disclosure so only a name and short description sit in context until a skill is invoked (October 2025). The explicit design goal of not paying full context cost for every available skill. (Engineering blog, not peer-reviewed.)
+
+### 5.4 Key findings for tool and skill overload
+
+- Tool-selection accuracy tends to drop as the candidate set grows, so retrieve a relevant subset per query rather than expose every tool [TOOL-1] [TOOL-2] [TOOL-9] [TOOL-10].
+- Redundant or near-duplicate tools and a fixed maximal candidate count hurt selection; curate for diversity and tune the subset size [TOOL-6] [TOOL-7].
+- Good per-tool documentation is a cheaper context investment than long demonstrations [TOOL-3].
+- Effective usable context is shorter than the advertised window, so do not budget tools plus task against the headline number [TOOL-13].
+- Adding tokens, even when the task is unchanged, degrades reasoning and buries middle-of-context material, so every tool or skill definition spends budget that the task then cannot use [TOOL-11] [TOOL-12].
+- Connecting many MCP servers loads many tool definitions that can consume large context before work begins; first-party guidance is to load tools on demand [TOOL-14] [TOOL-15].
+- Agent Skills use progressive disclosure so only a name and short description occupy context until the skill is invoked [TOOL-16].
+
 For how human oversight fits on top of all this, see the [LoopRails framework](framework.html) and the main [research codex](codex.html).

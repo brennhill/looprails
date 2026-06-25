@@ -229,6 +229,10 @@ const ARTICLES = {
     label: "Multi-Agent Loops: When More Agents Help",
     title: "Multi-Agent Loops: When More Agents Help, and How They Break · LoopRails",
     desc: "When splitting a loop across multiple agents helps and when it just adds failure surface: the patterns that work, the MAST failure taxonomy, the reviewer-agent trap, and the oversight each sub-agent needs." },
+  "article-mcp-skill-overload": { md: "article-mcp-skill-overload.md", out: "article-mcp-skill-overload.html",
+    label: "MCP and Skill Overload",
+    title: "MCP and Skill Overload: How the Number of Tools Affects Accuracy · LoopRails",
+    desc: "Every tool, MCP server, and skill you connect spends context and lowers tool-selection accuracy. What the research says about too many tools, how it cuts your useful turns, and how to keep the toolset lean." },
   "article-agent-workflow-patterns": { md: "article-agent-workflow-patterns.md", out: "article-agent-workflow-patterns.html",
     label: "Agent Workflow Patterns",
     title: "Agent Workflow Patterns: Chaining, Routing, Orchestration · LoopRails",
@@ -399,6 +403,7 @@ const BRACE_SECURE = {
   "article-agent-workflow-patterns": `Even a fixed workflow calls tools and models that touch real systems. Scope what each step can do and contain failures with the <a href="https://braceframework.org">BRACE Framework</a>, the security counterpart that secures the agent's configuration and infrastructure.`,
   "article-multi-agent-loops": `Every sub-agent is a new identity and a new attack surface, and one agent's output is untrusted input to the next. Give each least privilege, isolate them, and keep sub-agent provenance: see <a href="article-hitl-multi-agent-systems.html">oversight for multi-agent systems</a> and the <a href="https://braceframework.org">BRACE Framework</a>.`,
   "article-failure-recovery-agent-loops": `Recovery leans on the audit log and checkpoints, so their integrity matters: a tampered log or a non-idempotent replay is its own risk. The <a href="https://braceframework.org">BRACE Framework</a> covers the audit trail and a kill switch that leaves a safe state.`,
+  "article-mcp-skill-overload": `Every MCP server and skill you connect is third-party code and a new attack surface, and a connected tool can carry an injection or leak a secret. Vet and scope what you connect: see <a href="article-llm-agent-skills-credential-leak.html">how agent skills leak credentials</a> and the <a href="https://braceframework.org">BRACE Framework</a> (capability-scoped access, a hardened harness).`,
 };
 function securingNote(key) {
   if (!BRACE_SECURE[key]) return "";
@@ -541,7 +546,7 @@ function articlesIndexPage() {
   const items = Object.values(ARTICLES);
   const CATS = [
     ["The LoopRails Doctrine", ["article-loop-engineering-doctrine"]],
-    ["Build a loop", ["article-loop-engineering", "article-build-agent-loop", "article-context-engineering-agent-loops", "article-loop-patterns", "article-evaluation-driven-development", "article-world-models-agent-loops", "article-multi-agent-loops"]],
+    ["Build a loop", ["article-loop-engineering", "article-build-agent-loop", "article-context-engineering-agent-loops", "article-mcp-skill-overload", "article-loop-patterns", "article-evaluation-driven-development", "article-world-models-agent-loops", "article-multi-agent-loops"]],
     ["Agent design patterns", ["article-agent-workflow-patterns", "article-autonomous-agent-patterns"]],
     ["RAG patterns", ["article-rag-retrieval-patterns", "article-advanced-agentic-rag"]],
     ["Choosing & adapting models", ["article-lora-vs-fine-tuning-vs-pre-training", "article-adapting-models-you-dont-control"]],

@@ -81,6 +81,7 @@ const CARDS = {
   "article-rag-retrieval-patterns": { eyebrow: "THE COOKBOOK · RAG", head: ["RAG retrieval", "patterns"], size: 54, sub: "Chunking, hybrid search, reranking.", method: false, accent: TEAL },
   "article-advanced-agentic-rag": { eyebrow: "THE COOKBOOK · RAG", head: ["Advanced and", "agentic RAG"], size: 54, sub: "Contextual, corrective, self-RAG, GraphRAG.", method: false, accent: TEAL },
   "cookbook": { eyebrow: "THE LOOPRAILS COOKBOOK", head: ["Recipes for agents", "and RAG"], size: 52, sub: "What it is, when, how it fails, how to fix it.", method: true, accent: TEAL },
+  "article-mcp-skill-overload": { eyebrow: "LOOPRAILS · BUILD A LOOP", head: ["MCP and skill", "overload"], size: 54, sub: "How many tools is too many?", method: false, accent: G2 },
 };
 
 function svg(c) {
