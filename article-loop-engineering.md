@@ -2,7 +2,7 @@
 
 Loop engineering means you build a system that prompts an AI agent, checks its output, and decides the next step, instead of typing every prompt by hand. You define the goal and the conditions for "done," and the loop runs until it gets there. You stop being the person in the chat box and become the person who designs the machine that runs the chat box.
 
-That is the short version. The longer version is more interesting, because moving from hand-prompting to loop-building does not get rid of your judgment. It moves it. This article explains what loop engineering is, where it came from, and what it changes about oversight. The change is the part most people miss.
+That is the short version. The longer version is more interesting, because moving from hand-prompting to loop-building does not get rid of your judgment. It moves it. This article explains what loop engineering is, where it came from, and what it changes about oversight. The change is the part most people miss. For what loop engineering looks like when it works and when it fails, with measured results, see [agentic loops in the wild](article-agentic-loops-in-the-wild.html).
 
 ## The term and where it sits
 

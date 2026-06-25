@@ -113,6 +113,14 @@ const ARTICLES = {
     label: "Study: How AI Agent Skills Leak Credentials",
     title: "Study: How AI Agent \"Skills\" Leak Your Credentials · LoopRails",
     desc: "A 2026 study analyzed 17,022 AI agent skills and found rampant credential leaks, mostly via debug logging, during routine use. What it found and how to prevent it." },
+  "article-llm-compiler-loop-optimization": { md: "article-llm-compiler-loop-optimization.md", out: "article-llm-compiler-loop-optimization.html",
+    label: "Study: A Compiler as the Verifier",
+    title: "Study: LLM-Guided Loop Optimization with Compiler Feedback (ComPilot) · LoopRails",
+    desc: "A 2025 study (ComPilot) put an off-the-shelf LLM in a loop with a compiler that checked legality and measured speedup, and the model refined: 2.66x single-run, 3.54x best-of-5, no fine-tuning. A measured proof of loop plus an independent verifier." },
+  "article-agentic-loops-in-the-wild": { md: "article-agentic-loops-in-the-wild.md", out: "article-agentic-loops-in-the-wild.html",
+    label: "Agentic Loops in the Wild: Wins, Failures, Cost",
+    title: "Agentic Loops in the Wild: What Works, What Fails, and What It Costs · LoopRails",
+    desc: "Real agentic-loop results woven together: DeepSeek-R1, AlphaCodium, o3 on ARC-AGI, SWE-agent, and the failures (reward hacking, the AI Scientist, GAIA, WebArena). The wins share an ungameable verifier and pay for compute; the failures lack one." },
   "article-ai-agent-sandboxing": { md: "article-ai-agent-sandboxing.md", out: "article-ai-agent-sandboxing.html",
     label: "AI Agent Sandboxing",
     title: "AI Agent Sandboxing: Contain the Blast Radius · LoopRails",
@@ -554,7 +562,7 @@ function articlesIndexPage() {
     ["Start here & concepts", ["article-what-is-agentic-ai", "article-what-is-human-in-the-loop", "article-hitl-ai-safety", "article-in-the-loop-vs-on-the-loop", "article-ai-agent-autonomy-levels", "article-automation-bias"]],
     ["Patterns & controls", ["article-ai-agent-approval", "article-ai-agent-guardrails", "article-lethal-trifecta", "article-prompt-injection-prevention", "article-maker-checker-ai", "article-ai-kill-switch", "article-circuit-breaker-ai-agents", "article-ai-agent-sandboxing", "article-least-privilege-ai-agents"]],
     ["Use cases, human-in-the-loop for…", ["article-hitl-coding-agents", "article-hitl-customer-support", "article-hitl-financial-transactions", "article-hitl-database-operations", "article-hitl-email-agents", "article-hitl-deployments", "article-hitl-content-moderation", "article-hitl-machine-learning", "article-hitl-healthcare", "article-hitl-legal-contracts", "article-hitl-hiring", "article-hitl-browser-agents", "article-hitl-voice-agents", "article-hitl-multi-agent-systems"]],
-    ["Studies", ["article-llm-agent-skills-credential-leak"]],
+    ["Studies", ["article-agentic-loops-in-the-wild", "article-llm-compiler-loop-optimization", "article-llm-agent-skills-credential-leak"]],
   ];
   const card = a => `
       <a class="acard" href="${a.out}">

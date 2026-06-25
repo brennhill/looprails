@@ -2,7 +2,7 @@
 
 Addy Osmani named the pattern in June 2026: loop engineering. A system prompts an AI agent, checks the output, and decides the next step. It runs until a defined goal is reached and a set of "done" conditions is satisfied. Boris Cherny of Claude Code at Anthropic put it more bluntly: "My job is to write loops." That is the loud half of the work. The quiet half, the part that decides whether the loop produces anything worth keeping, is the check. This article is about that check.
 
-When you write a loop, you write two things that matter. You write the generator: the agent, the prompt, the tools it can call. And you write the verifier: the thing that looks at what the agent produced and decides whether it actually met the goal. The generator gets the attention. The verifier is what makes the loop trustworthy. As one engineer put it, the verifier is what separates a loop from a vibe.
+When you write a loop, you write two things that matter. You write the generator: the agent, the prompt, the tools it can call. And you write the verifier: the thing that looks at what the agent produced and decides whether it actually met the goal. The generator gets the attention. The verifier is what makes the loop trustworthy. As one engineer put it, the verifier is what separates a loop from a vibe. The case studies bear this out: the loops that post real numbers have a hard-to-game verifier, and the ones that fail get the verifier gamed. See [agentic loops in the wild](article-agentic-loops-in-the-wild.html).
 
 ## The bottleneck moved
 

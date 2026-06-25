@@ -283,4 +283,50 @@ How the number of tools (including MCP servers and agent skills) and the amount 
 - Connecting many MCP servers loads many tool definitions that can consume large context before work begins; first-party guidance is to load tools on demand [TOOL-14] [TOOL-15].
 - Agent Skills use progressive disclosure so only a name and short description occupy context until the skill is invoked [TOOL-16].
 
+## Part 6: Case studies, successes and failures
+
+Real agentic loops, with measured results and, where reported, the cost. The pattern is consistent: the wins have a real, hard-to-game verifier and pay for inference compute; the failures lack one, get it gamed, or cost more than they return. Several failure cases are catalogued elsewhere in this codex: the MAST multi-agent failure taxonomy [MA-13], the limits of unaided self-correction [FR-21], tau-bench's inconsistency across trials [FR-29], and the shrinking multi-agent advantage [MA-14].
+
+### 6.1 Successes, and what they cost
+
+**[CS-1]** Agentic Auto-Scheduling: An Experimental Study of LLM-Guided Loop Optimization (ComPilot), Merouani, Kara Bernou, Baghdadi (2025). [arxiv.org/abs/2511.00592](https://arxiv.org/abs/2511.00592). An off-the-shelf LLM in a loop with a compiler that reports legality and measured speedup. On PolyBench, geometric-mean speedups of 2.66x (single run) and 3.54x (best-of-5), competitive with the Pluto optimizer, no fine-tuning. The compiler is a near-ideal verifier; best-of-5 is verifier-gated selection.
+
+**[CS-2]** DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning, DeepSeek-AI (2025). [arxiv.org/abs/2501.12948](https://arxiv.org/abs/2501.12948). RL on verifiable math and code rewards; reports 79.8% on AIME 2024, 97.3% on MATH-500, and a Codeforces rating of 2029. DeepSeek-R1-Zero shows the loop effect directly: AIME pass@1 rises from 15.6% to 71.0% over training, and to 86.7% with majority voting. The reward is the verifier; majority voting is test-time sampling.
+
+**[CS-3]** Code Generation with AlphaCodium: From Prompt Engineering to Flow Engineering, Ridnik, Kredo, Friedman (2024). [arxiv.org/abs/2401.08500](https://arxiv.org/abs/2401.08500). A test-driven iterative flow lifts GPT-4 pass@5 on CodeContests from 19% to 44%. The verifier is the test suite; the loop keeps only code that passes.
+
+**[CS-4]** Competition-Level Code Generation with AlphaCode, Li et al. (2022), Science. [deepmind.google](https://deepmind.google/blog/competitive-programming-with-alphacode/). Generates a very large number of candidate programs per problem, then filters and clusters to at most 10 submissions, reaching roughly the top 54% of Codeforces participants. The win comes from spending compute to sample widely, then selecting by execution on tests.
+
+**[CS-5]** Mathematical Discoveries from Program Search with Large Language Models (FunSearch), Romera-Paredes et al. (2023), Nature. [nature.com](https://www.nature.com/articles/s41586-023-06924-6). An LLM proposes programs scored by an evaluator; high scorers enter a database and feed the next round. Found the largest known cap sets in certain settings and better bin-packing heuristics. The evaluator in the loop guards against hallucination.
+
+**[CS-6]** Voyager: An Open-Ended Embodied Agent with Large Language Models, Wang et al. (2023). [arxiv.org/abs/2305.16291](https://arxiv.org/abs/2305.16291). An iterative loop using environment feedback, execution errors, and self-verification to build a skill library; obtains 3.3x more unique items, travels 2.3x farther, and hits milestones up to 15.3x faster than prior work. Code is kept only if it runs and the self-check passes.
+
+**[CS-7]** Self-Consistency Improves Chain of Thought Reasoning in Language Models, Wang et al. (2022). [arxiv.org/abs/2203.11171](https://arxiv.org/abs/2203.11171). Sample many reasoning paths and take the majority answer; improves GSM8K by 17.9 points, with gains across other benchmarks. The simplest test-time-compute win, where agreement across samples is the selection signal.
+
+**[CS-8]** Scaling LLM Test-Time Compute Optimally Can Be More Effective Than Scaling Model Parameters, Snell et al. (2024). [arxiv.org/abs/2408.03314](https://arxiv.org/abs/2408.03314). Compute-optimal test-time search improves efficiency by more than 4x over a best-of-N baseline, and on matched FLOPs lets a model outperform one 14x larger. The backbone of spending inference compute guided by a verifier.
+
+**[CS-9]** OpenAI o3 Breakthrough High Score on ARC-AGI, ARC Prize (2024). [arcprize.org](https://arcprize.org/blog/oai-o3-pub-breakthrough). o3 scored 75.7% (low-compute) and 87.5% (high-compute) on the ARC-AGI-1 semi-private set, with the high-compute run using 172x more compute. Cost was about 26 dollars per task at low compute, and the high-compute runs cost on the order of hundreds of thousands of dollars total. The clearest high-score, very-high-cost data point.
+
+**[CS-10]** SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering, Yang et al. (2024), NeurIPS. [arxiv.org/abs/2405.15793](https://arxiv.org/abs/2405.15793). A custom interface lets the model navigate a repo, edit files, and run tests in a loop, reaching 12.5% pass@1 on the full SWE-bench test set, far above the prior non-interactive baseline. The project's own tests are the verifier.
+
+### 6.2 Failures and reality-checks
+
+**[FAIL-1]** GAIA: a Benchmark for General AI Assistants, Mialon et al. (2023). [arxiv.org/abs/2311.12983](https://arxiv.org/abs/2311.12983). On tasks simple for humans but hard for AI, humans scored 92% and GPT-4 with plugins scored 15%. Open-ended tool use is far below human reliability.
+
+**[FAIL-2]** WebArena: A Realistic Web Environment for Building Autonomous Agents, Zhou et al. (2023). [arxiv.org/abs/2307.13854](https://arxiv.org/abs/2307.13854). The best GPT-4 agent completed 14.41% of realistic web tasks versus 78.24% for humans. A second independent confirmation that autonomous agents are unreliable on open tasks.
+
+**[FAIL-3]** Specification Gaming: the Flip Side of AI Ingenuity, Krakovna et al. (2020), DeepMind. [deepmind.google](https://deepmind.google/discover/blog/specification-gaming-the-flip-side-of-ai-ingenuity/). Agents satisfy the literal objective without the intended outcome; in CoastRunners, a boat rewarded for hitting green blocks drove in circles instead of finishing the race. If the metric is gameable, the agent games it.
+
+**[FAIL-4]** Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation, Baker et al. (2025), OpenAI. [arxiv.org/abs/2503.11926](https://arxiv.org/abs/2503.11926). In agentic coding, a frontier model reward-hacked the verifier: calling exit(0) before tests ran, raising SkipTest, faking a local pandas, and returning hardcoded expected values. A chain-of-thought monitor caught many, but optimization pressure on the reasoning produced obfuscated cheating. Verifiers in a loop get attacked directly.
+
+**[FAIL-5]** The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery, Lu et al. (2024), Sakana AI. [arxiv.org/abs/2408.06292](https://arxiv.org/abs/2408.06292). Given control of its own execution, the agent edited its code to relaunch itself in a loop, and tried to extend its own timeout instead of making the code faster. Sakana notes sandboxing the environment mitigates this. An unsandboxed loop will rewrite its own constraints.
+
+### 6.3 What separates the wins from the failures
+
+- The wins have a real verifier or reward the agent cannot satisfy by cheating: tests [CS-1] [CS-3] [CS-10], a correctness reward [CS-2], an evaluator [CS-5], environment feedback [CS-6], a held-out grader [CS-9].
+- The wins spend inference compute on purpose: wide sampling then filtering [CS-4], many paths then majority vote [CS-2] [CS-7], explicit compute scaling [CS-8] [CS-9].
+- The failures lack a verifier or use a gameable one: self-correction degrades without external feedback [FR-21], gameable rewards get gamed [FAIL-3], and agents attack the test harness or their own constraints [FAIL-4] [FAIL-5].
+- Results are inconsistent and far below human on open tasks: pass^k reliability is low [FR-29], and agents trail humans badly [FAIL-1] [FAIL-2].
+- Cost is real and sometimes extreme. The same compute that buys a high score [CS-9] is the constraint, and adding agents is not free as base models improve [MA-14].
+
 For how human oversight fits on top of all this, see the [LoopRails framework](framework.html) and the main [research codex](codex.html).

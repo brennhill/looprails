@@ -82,6 +82,8 @@ const CARDS = {
   "article-advanced-agentic-rag": { eyebrow: "THE COOKBOOK · RAG", head: ["Advanced and", "agentic RAG"], size: 54, sub: "Contextual, corrective, self-RAG, GraphRAG.", method: false, accent: TEAL },
   "cookbook": { eyebrow: "THE LOOPRAILS COOKBOOK", head: ["Recipes for agents", "and RAG"], size: 52, sub: "What it is, when, how it fails, how to fix it.", method: true, accent: TEAL },
   "article-mcp-skill-overload": { eyebrow: "LOOPRAILS · BUILD A LOOP", head: ["MCP and skill", "overload"], size: 54, sub: "How many tools is too many?", method: false, accent: G2 },
+  "article-llm-compiler-loop-optimization": { eyebrow: "LOOPRAILS · STUDY", head: ["When the verifier", "is a compiler"], size: 52, sub: "LLM-guided loop optimization, measured.", method: false, accent: G1 },
+  "article-agentic-loops-in-the-wild": { eyebrow: "LOOPRAILS · STUDIES", head: ["Agentic loops", "in the wild"], size: 54, sub: "What works, what fails, what it costs.", method: false, accent: TEAL },
 };
 
 function svg(c) {

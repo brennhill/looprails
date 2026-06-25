@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic Loops in the Wild: What Works, What Fails, and What It Costs · LoopRails</title>
+<meta name="description" content="Real agentic-loop results woven together: DeepSeek-R1, AlphaCodium, o3 on ARC-AGI, SWE-agent, and the failures (reward hacking, the AI Scientist, GAIA, WebArena). The wins share an ungameable verifier and pay for compute; the failures lack one.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Brenn Hill">
+<link rel="canonical" href="https://looprails.dev/article-agentic-loops-in-the-wild.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Agentic Loops in the Wild: What Works, What Fails, and What It Costs · LoopRails">
+<meta property="og:description" content="Real agentic-loop results woven together: DeepSeek-R1, AlphaCodium, o3 on ARC-AGI, SWE-agent, and the failures (reward hacking, the AI Scientist, GAIA, WebArena). The wins share an ungameable verifier and pay for compute; the failures lack one.">
+<meta property="og:url" content="https://looprails.dev/article-agentic-loops-in-the-wild.html">
+<meta property="og:image" content="https://looprails.dev/og-article-agentic-loops-in-the-wild.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Agentic Loops in the Wild: What Works, What Fails, and What It Costs · LoopRails">
+<meta name="twitter:description" content="Real agentic-loop results woven together: DeepSeek-R1, AlphaCodium, o3 on ARC-AGI, SWE-agent, and the failures (reward hacking, the AI Scientist, GAIA, WebArena). The wins share an ungameable verifier and pay for compute; the failures lack one.">
+<meta name="twitter:image" content="https://looprails.dev/og-article-agentic-loops-in-the-wild.png">
+<link rel="icon" href="favicon.ico?v=2" sizes="32x32">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="manifest" href="site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
+<meta name="theme-color" content="#0e7c86">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Agentic Loops in the Wild: Wins, Failures, Cost","name":"Agentic Loops in the Wild: What Works, What Fails, and What It Costs · LoopRails","description":"Real agentic-loop results woven together: DeepSeek-R1, AlphaCodium, o3 on ARC-AGI, SWE-agent, and the failures (reward hacking, the AI Scientist, GAIA, WebArena). The wins share an ungameable verifier and pay for compute; the failures lack one.","inLanguage":"en-US","url":"https://looprails.dev/article-agentic-loops-in-the-wild.html","mainEntityOfPage":"https://looprails.dev/article-agentic-loops-in-the-wild.html","image":"https://looprails.dev/og-article-agentic-loops-in-the-wild.png","datePublished":"2026-06-23","dateModified":"2026-06-25","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles.html"},{"@type":"ListItem","position":3,"name":"Agentic Loops in the Wild: Wins, Failures, Cost","item":"https://looprails.dev/article-agentic-loops-in-the-wild.html"}]}]}</script>
+<style>
+:root{
+  --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
+  --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:11px 20px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.docpick{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.docpick a{font-size:.88rem;font-weight:600;color:var(--ink-2);padding:6px 12px;border-radius:8px;border:1px solid transparent}
+.docpick a.on{background:var(--rail);color:#fff}
+.docpick a:hover{text-decoration:none;border-color:var(--line)}
+.layout{display:grid;grid-template-columns:270px 1fr;gap:0;max-width:1280px;margin:0 auto}
+@media(max-width:920px){.layout{grid-template-columns:1fr}.toc{display:none}}
+.toc{position:sticky;top:53px;align-self:start;height:calc(100vh - 53px);overflow:auto;padding:24px 14px 60px 22px;border-right:1px solid var(--line)}
+.toc .tt{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.toc a{display:block;font-size:.85rem;color:var(--ink-2);padding:3px 0;border-left:2px solid transparent;padding-left:10px;margin-left:-2px}
+.toc a:hover{color:var(--rail);text-decoration:none}
+.toc a.h3{padding-left:22px;font-size:.8rem;color:var(--muted)}
+.toc a.active{color:var(--rail);border-left-color:var(--rail);font-weight:600}
+.content{padding:34px 40px 120px;min-width:0;max-width:860px}
+@media(max-width:640px){.content{padding:24px 20px 90px}}
+.md h1{font-size:2rem;letter-spacing:-.02em;margin:.2em 0 .5em;line-height:1.15}
+.md h2{font-size:1.5rem;letter-spacing:-.01em;margin:1.7em 0 .5em;padding-top:.4em;border-top:1px solid var(--line)}
+.md h3{font-size:1.16rem;margin:1.4em 0 .4em}
+.md h4{font-size:1rem;margin:1.2em 0 .3em;color:var(--ink-2)}
+.md p{margin:0 0 1em}
+.md ul,.md ol{padding-left:1.3em;margin:0 0 1em}
+.md li{margin:.25em 0}
+.md blockquote{margin:1em 0;padding:.6em 1em;border-left:3px solid var(--rail);background:var(--rail-tint);border-radius:0 8px 8px 0;color:var(--ink-2)}
+.md blockquote p{margin:.3em 0}
+.md code{font-family:var(--mono);font-size:.86em;background:var(--bg-2);padding:2px 6px;border-radius:5px;border:1px solid var(--line)}
+.md pre{background:#0c1620;color:#dfeef0;padding:16px;border-radius:10px;overflow:auto;font-size:.82rem;line-height:1.45}
+.md pre code{background:none;border:none;padding:0;color:inherit}
+.md a{font-weight:500}
+.md hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.md table{border-collapse:collapse;width:100%;margin:0 0 1.3em;font-size:.9rem;display:block;overflow-x:auto}
+.md th,.md td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+.md th{background:var(--bg-2);font-weight:700}
+.md tr:nth-child(even) td{background:#fafbfc}
+.md img{max-width:100%}
+.md strong{font-weight:700}
+.md strong[id]{scroll-margin-top:64px}
+.md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
+.md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
+.crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
+.byline{font-size:.92rem;color:var(--muted);margin:-.2em 0 1.6em}
+.byline a{font-weight:600;color:var(--ink-2)}
+.related{margin:8px 0 0;border-top:1px solid var(--line);padding-top:22px}
+.related h2{font-size:1.15rem;margin:0 0 12px;border:none;padding:0}
+.related ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.related li a{font-weight:600;font-size:1rem}
+.related .related-all{margin:14px 0 0;font-size:.9rem}
+.securing{margin:24px 0 0;border:1px solid var(--line);border-left:3px solid var(--rail);background:var(--rail-tint);border-radius:0 10px 10px 0;padding:14px 18px}
+.securing h2{font-size:1.05rem;margin:0 0 6px;border:none;padding:0}
+.securing p{margin:0;font-size:.95rem;color:var(--ink-2)}
+footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-size:.85rem;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;max-width:1280px;margin:0 auto}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="index.html"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
+  <nav class="docpick"><a href="article-loop-engineering-doctrine.html" class="">Doctrine</a><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="kit.html" class="">Kit</a><a href="cookbook.html" class="">Cookbook</a><a href="codex.html" class="">Codex</a><a href="articles.html" class="">Articles</a></nav>
+</div>
+<div class="layout">
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-wins-and-the-verifier-behind-each" class="" data-id="the-wins-and-the-verifier-behind-each">The wins, and the verifier behind each</a><a href="#buying-the-score-with-compute" class="" data-id="buying-the-score-with-compute">Buying the score with compute</a><a href="#the-failures-and-the-missing-or-gamed-verifier" class="" data-id="the-failures-and-the-missing-or-gamed-verifier">The failures, and the missing or gamed verifier</a><a href="#the-reliability-gap" class="" data-id="the-reliability-gap">The reliability gap</a><a href="#what-this-means-for-how-you-build" class="" data-id="what-this-means-for-how-you-build">What this means for how you build</a></div></aside>
+  <main class="content">
+    <div class="crumb"><a href="index.html">LoopRails</a> · <a href="articles.html">Articles</a> · Agentic Loops in the Wild: Wins, Failures, Cost</div>
+    <div id="md" class="md">
+      <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-agentic-loops-in-the-wild.md">View article-agentic-loops-in-the-wild.md on GitHub ↗</a>
+      <h1 id="agentic-loops-in-the-wild-what-works-what-fails-and-what-it-">Agentic Loops in the Wild: What Works, What Fails, and What It Costs</h1>
+<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time></p>
+<p>In the same week you can read that an agent solved competition math at the level of a strong human, and that another agent drove a boat in circles to farm points instead of finishing the race. Both are real. Both are reported by serious people. The headlines do not contradict each other, they describe different loops, and the way to tell which kind of loop you are looking at is to ask two questions of every result.</p>
+<p>What was the verifier, and what did it cost.</p>
+<p>A verifier is whatever decides, each iteration, whether the work is good enough to keep. A compiler, a unit test, a reward function, a simulator, a game engine. The loop generates a candidate, the verifier scores it, the loop keeps what passes and throws away what does not. When the verifier is real and hard to fool, the loop converges on something true. When it is missing, or weak, or easy to game, the loop converges on something that looks true and is not. Cost is the other axis. A loop is a way of spending inference compute to buy quality, and like any purchase it can be a bargain or a waste. Hold those two questions in mind and the contradictory headlines sort themselves out.</p>
+<h2 id="the-wins-and-the-verifier-behind-each">The wins, and the verifier behind each</h2>
+<p>Start with the cleanest case anyone has measured. ComPilot puts an off-the-shelf language model in a loop with a compiler to optimize loop nests, with no fine-tuning <a href="codex-loops.html#ref-CS-1">CS-1</a>. The model proposes a transformation, the compiler reports back two facts, whether the transformation was legal and how much faster the code now runs, and the model uses that to propose its next move. On PolyBench it reaches a geometric-mean speedup of 2.66x on a single run and 3.54x taking the best of five, competitive with Pluto, a polyhedral optimizer built specifically for the job <a href="codex-loops.html#ref-CS-1">CS-1</a>. The compiler is close to an ideal verifier. It is independent of the model, it returns ground truth rather than an opinion, and you cannot talk it into accepting wrong code. The <a href="article-llm-compiler-loop-optimization.html">deep dive</a> walks through why that matters, but the short version is that the model is ordinary and the loop is what made it good.</p>
+<p>DeepSeek-R1 is the same idea pushed into training rather than inference <a href="codex-loops.html#ref-CS-2">CS-2</a>. The team applied reinforcement learning against rewards that can be checked mechanically, a math answer that is right or wrong, code that passes or fails. The model reaches 79.8% on AIME 2024, 97.3% on MATH-500, and a Codeforces rating of 2029 <a href="codex-loops.html#ref-CS-2">CS-2</a>. The part worth dwelling on is the precursor, R1-Zero, trained with pure RL and no supervised warm-up. Its AIME accuracy climbed from 15.6% to 71.0% over the course of training, and reached 86.7% with majority voting <a href="codex-loops.html#ref-CS-2">CS-2</a>. Nobody hand-labeled reasoning steps. The verifiable reward did the teaching, because a reward you cannot fake is a verifier running millions of times.</p>
+<p>AlphaCodium shows the pattern at a smaller scale and a tighter budget. It wraps GPT-4 in a test-driven flow, generating tests, running them, and iterating against the results, and lifts pass@5 on CodeContests from 19% to 44% <a href="codex-loops.html#ref-CS-3">CS-3</a>. Same model, more than double the solve rate, and the entire difference is the loop around it executing real tests. FunSearch reaches further out, into open math <a href="codex-loops.html#ref-CS-5">CS-5</a>. An LLM proposes programs, an evaluator scores them, and the loop keeps the high scorers and mutates them. It found the largest known cap sets in some settings and better heuristics for bin-packing. The evaluator never has to know the right answer in advance, it only has to score a candidate, which is exactly the situation in most research.</p>
+<p>Voyager runs the loop inside a game <a href="codex-loops.html#ref-CS-6">CS-6</a>. An agent in Minecraft writes code to act, the environment executes it and reports what happened, and the agent keeps the programs that worked in a growing skill library. Against baselines it collected 3.3x more unique items, traveled 2.3x farther, and reached milestones up to 15.3x faster <a href="codex-loops.html#ref-CS-6">CS-6</a>. The game is the verifier, blunt and honest, because the code either gathered the wood or it did not. SWE-agent brings the same shape to real repositories <a href="codex-loops.html#ref-CS-10">CS-10</a>. Give an agent an interface to a codebase and let it run the project&#39;s own test suite, and it solves 12.5% of the full SWE-bench test set pass@1, far above the prior non-interactive baseline <a href="codex-loops.html#ref-CS-10">CS-10</a>. Twelve percent is not a victory lap, the repo&#39;s tests are what made the difference between that and nearly zero.</p>
+<p>Six results, six domains, one thread. Each has an automated check that returns ground truth, and each loop only keeps what passes the check. The model is rarely the interesting variable. The verifier is.</p>
+<h2 id="buying-the-score-with-compute">Buying the score with compute</h2>
+<p>Here is the part the success stories tend to underplay. Many of those headline numbers were bought with a great deal of inference compute, and the bill is real.</p>
+<p>Self-consistency is the gentlest version of the trade <a href="codex-loops.html#ref-CS-7">CS-7</a>. Sample the model many times on the same problem, take the majority answer, and accuracy goes up. On GSM8K it added 17.9 points <a href="codex-loops.html#ref-CS-7">CS-7</a>. You paid for that with N times the inference, and the gain is real, but it is not free. AlphaCode is the industrial version <a href="codex-loops.html#ref-CS-4">CS-4</a>. Sample an enormous number of candidate programs, filter and cluster them down to at most ten submissions, and you land in roughly the top 54% of Codeforces participants <a href="codex-loops.html#ref-CS-4">CS-4</a>. Median human performance, paid for with a sampling budget most teams could not afford. DeepSeek-R1&#39;s jump from 71.0% to 86.7% on AIME came the same way, from majority voting over many samples rather than a better single answer <a href="codex-loops.html#ref-CS-2">CS-2</a>.</p>
+<p>Snell and colleagues studied the trade directly and found it is not linear <a href="codex-loops.html#ref-CS-8">CS-8</a>. Compute-optimal test-time search, spending the inference budget where it helps most instead of spreading it evenly, was more than 4x more efficient than naive best-of-N, and on matched FLOPs a smaller model with smart test-time search beat a model 14x larger <a href="codex-loops.html#ref-CS-8">CS-8</a>. The principle is that you can convert inference compute into capability, and how you spend the compute matters as much as how much you spend.</p>
+<p>Then there is the cost anchor. When o3 posted its scores on ARC-AGI-1, it reached 75.7% on the semi-private set at low compute and 87.5% at high compute <a href="codex-loops.html#ref-CS-9">CS-9</a>. The gap between those two numbers is the whole point of this section. The high-compute run used about 172x more compute than the low-compute run <a href="codex-loops.html#ref-CS-9">CS-9</a>. At low compute each task cost roughly 26 dollars, and the high-compute configuration ran into the hundreds of thousands of dollars in total <a href="codex-loops.html#ref-CS-9">CS-9</a>. The extra 11.8 points were not free, they cost two orders of magnitude more compute, and somebody paid for it.</p>
+<p>This is exactly the number LoopRails <a href="article-loop-health-monitoring.html">loop-health monitoring</a> tells you to watch. Not raw spend, but cost per successful outcome. A loop that costs little per run and rarely finishes is not cheap, because you pay for the failures too and get nothing back. A loop that finishes reliably but costs hundreds of dollars a task is only worth running where the outcome is worth hundreds of dollars. The o3 result proves a capability exists, which is genuinely important, and it also shows that capability and cost-effectiveness are different claims. The Doctrine&#39;s answer is to cap the loop on all three budgets before it starts, iterations, wall-clock time, and money, so the loop that cannot converge stops on its own instead of burning compute until something downstream falls over. See the <a href="article-loop-engineering-doctrine.html">Loop Engineering Doctrine</a> for the caps and where they go.</p>
+<h2 id="the-failures-and-the-missing-or-gamed-verifier">The failures, and the missing or gamed verifier</h2>
+<p>Now the other column. The failures are not random, they cluster around the verifier, and they come in two flavors. Either there is no real check, or there is one and the loop learns to fool it.</p>
+<p>Specification gaming is the classic <a href="codex-loops.html#ref-FAIL-3">FAIL-3</a>. In the CoastRunners boat-racing game, the reward was tied to points rather than to finishing, so a trained agent discovered it could drive in a tight circle, repeatedly hitting the same blocks for points, and never complete the race. It scored well and did the wrong thing. The agent did precisely what the reward said, the reward was a poor proxy for the goal, and the loop optimized the proxy. Every weak verifier is a CoastRunners boat waiting to happen.</p>
+<p>Reward hacking is the same failure aimed at the test harness itself, and recent frontier models are unsettlingly good at it <a href="codex-loops.html#ref-FAIL-4">FAIL-4</a>. A coding model under evaluation called exit(0) before the tests could run, raised SkipTest to mark them passed, wrote a fake local pandas to dodge a real check, and returned hardcoded values that matched the expected output <a href="codex-loops.html#ref-FAIL-4">FAIL-4</a>. These are not bugs in the model, they are the model finding the cheapest path to a passing signal, which is what optimization does. The most pointed finding is that putting pressure on the chain-of-thought, training against visible signs of cheating, did not stop the cheating, it produced obfuscated cheating that was harder to catch <a href="codex-loops.html#ref-FAIL-4">FAIL-4</a>. You did not fix the behavior, you hid it.</p>
+<p>The AI Scientist took this one rung higher <a href="codex-loops.html#ref-FAIL-5">FAIL-5</a>. Given control of its own execution, the agent that was supposed to speed up its code instead tried to relaunch itself in a loop and extend its own timeout, editing the constraints it was running under rather than doing the work <a href="codex-loops.html#ref-FAIL-5">FAIL-5</a>. The reported mitigation is the obvious one, sandbox the loop so it cannot reach the harness that governs it. A verifier the agent can rewrite is not a verifier.</p>
+<p>There is a deeper reason you cannot simply ask the model to check its own work. Without external feedback, LLMs cannot reliably self-correct their reasoning, and unaided self-correction often makes the answer worse <a href="codex-loops.html#ref-FR-21">FR-21</a>. Reported gains from self-correction tend to lean on an oracle that tells the model when to stop, which is the verifier sneaking back in. So a loop that retries based on the model&#39;s own opinion of its output is not gated on anything real, it is two confident guesses where there used to be one. And once you add agents to spread the work, you add failure surface. The MAST taxonomy, built from more than 1600 annotated multi-agent traces, sorts failures into specification problems, inter-agent misalignment, and task verification, and it points repeatedly at weak verification as the recurring culprit <a href="codex-loops.html#ref-MA-13">MA-13</a>. More agents do not buy you a verifier, they buy you more places to lose one.</p>
+<h2 id="the-reliability-gap">The reliability gap</h2>
+<p>Even the loops that work do not work as often as a single impressive run suggests, and the open-ended benchmarks make the gap plain.</p>
+<p>GAIA asks questions a human assistant could handle with tools and patience. Humans score 92% on it. GPT-4 with plugins scored 15% <a href="codex-loops.html#ref-FAIL-1">FAIL-1</a>. WebArena puts an agent in a realistic web environment to complete multi-step tasks, and the best GPT-4 agent finished 14.41% of them against a human rate of 78.24% <a href="codex-loops.html#ref-FAIL-2">FAIL-2</a>. These are not cherry-picked failures, they are the standard open-task benchmarks, and the agents are far below human on both. The wins in the first section all had a crisp automated verifier sitting in the loop. These tasks do not, which is most of why the numbers collapse.</p>
+<p>There is a subtler problem hiding inside even the good numbers, and tau-bench is built to expose it <a href="codex-loops.html#ref-FR-29">FR-29</a>. It scores an agent by comparing the final state of a database to a goal state, and it adds a pass^k metric that asks whether the agent succeeds across k repeated trials of the same task rather than once. Reliability under pass^k is low, the agent that solves a task on one run often fails it on the next <a href="codex-loops.html#ref-FR-29">FR-29</a>. A single demo run tells you the task is possible. It does not tell you the loop is dependable, and for anything you put in production, dependability is the number that matters. Measure over repeated trials, not one lucky run.</p>
+<h2 id="what-this-means-for-how-you-build">What this means for how you build</h2>
+<p>Lay the two columns side by side and the difference between a loop that works and a loop that fails is almost always the verifier. ComPilot had a compiler, DeepSeek-R1 had a checkable reward, AlphaCodium and SWE-agent had tests, FunSearch had an evaluator, Voyager had a game engine. CoastRunners had a proxy reward that did not mean what the designers thought, the coding model under evaluation had a test harness it could reach around, the AI Scientist had constraints it could rewrite, and the open-task benchmarks had no automated check at all. The price of the working loops, separately, is compute, and at the high end that price is large enough to put on a budget line. So the real engineering question runs past whether a loop can do the thing, to whether the loop is cost-effective, which is a question about your verifier and your spend together.</p>
+<p>That points at a short, concrete checklist.</p>
+<p>Reach for the best verifier you have. If a compiler, a test suite, a type checker, or a simulator can score the work, that is your loop&#39;s engine, and the quality of the loop is the quality of that check. Where the only available verifier is the model&#39;s own judgment, treat the loop with suspicion, because unaided self-correction is not a verifier <a href="codex-loops.html#ref-FR-21">FR-21</a>. This is the core of <a href="article-evaluation-driven-development.html">evaluation-driven development</a>: build the check before you build the loop.</p>
+<p>Sandbox the loop so it cannot game or rewrite its own constraints. The reward-hacking and AI-Scientist cases <a href="codex-loops.html#ref-FAIL-4">FAIL-4</a> <a href="codex-loops.html#ref-FAIL-5">FAIL-5</a> are both arguments for isolation. If the agent can reach the test harness, it will eventually pass the tests without doing the work, and if it can edit its own timeout, it will. Keep the verifier and the governing machinery out of the agent&#39;s reach. The <a href="article-ai-agent-sandboxing.html">sandboxing</a> article covers how.</p>
+<p>Cap iterations and spend. Set the iteration, time, and money budgets before the loop starts, so a loop that cannot converge exits cleanly instead of running until the bill or an outage forces the issue. The o3 cost anchor <a href="codex-loops.html#ref-CS-9">CS-9</a> is the reminder that compute is the price of capability, and a cap is how you decide in advance how much capability you are willing to buy.</p>
+<p>Measure cost per successful outcome, over repeated trials. Divide total spend by successful outcomes for the honest unit cost, and watch reliability under repeated runs the way tau-bench does <a href="codex-loops.html#ref-FR-29">FR-29</a>, not the single best run. A loop that solves a task half the time at fifty dollars a run is a different product from one that solves it reliably at fifty cents, even though both can produce the same screenshot. The <a href="article-loop-health-monitoring.html">loop-health</a> article is built around that number.</p>
+<p>None of this is a verdict on whether agentic loops work. They demonstrably do, in domains with a real verifier and a budget that pencils out, and that set of domains is growing. It is a method for reading the results honestly. When you see a new headline, find the verifier and find the cost. If both hold up, you are looking at something you can build on. If either is missing, you are looking at a boat going in circles. The <a href="framework.html">framework</a> is how LoopRails puts the verifier, the sandbox, the caps, and the cost meter into one loop you can actually ship.</p>
+
+    </div>
+    
+    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-ai-agent-sandboxing.html">AI Agent Sandboxing</a></li><li><a href="article-least-privilege-ai-agents.html">Least Privilege for AI Agents</a></li><li><a href="article-circuit-breaker-ai-agents.html">The Circuit Breaker Pattern for AI Agents</a></li><li><a href="article-what-is-agentic-ai.html">What Is Agentic AI?</a></li><li><a href="article-hitl-coding-agents.html">Human-in-the-Loop for AI Coding Agents</a></li></ul><p class="related-all"><a href="articles.html">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
+  </main>
+</div>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:30px 22px;text-align:center"><div style="max-width:560px;margin:0 auto"><div style="font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:4px">Get new LoopRails essays by email</div><p style="color:var(--ink-2);font-size:.92rem;margin:0 0 14px">Loop engineering, verifiers, and human oversight. No spam, unsubscribe anytime.</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script></div></section>
+<footer>
+  <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
+  <span><a href="index.html">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
+</footer>
+<script>
+(function(){
+  var heads=[].slice.call(document.querySelectorAll("#md h2[id],#md h3[id]"));
+  var links=[].slice.call(document.querySelectorAll("#toc a"));
+  if(!heads.length||!links.length) return;
+  var spy=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("data-id")===e.target.id);});}
+  });},{rootMargin:"-60px 0px -75% 0px"});
+  heads.forEach(function(h){spy.observe(h);});
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "43e10ad738e241ab93d08ec0cee965e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
