@@ -54,6 +54,7 @@ ACTION_COST = {
 RUNTIME_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".looprails")
 MEMORY_PATH = os.path.join(RUNTIME_DIR, "memory.json")
 AUDIT_PATH = os.path.join(RUNTIME_DIR, "audit.log")
+METRICS_PATH = os.path.join(RUNTIME_DIR, "metrics.json")   # loop-health signals
 STOP_PATH = os.path.join(RUNTIME_DIR, "STOP")   # P9: presence of this file = kill
 
 
@@ -93,6 +94,18 @@ def append_audit(record):
     record["ts"] = time.time()
     with open(AUDIT_PATH, "a") as f:
         f.write(json.dumps(record) + "\n")
+
+
+def write_metrics(metrics):
+    """Persist the loop-health signals to a file (pretty-printed JSON).
+
+    These are the signals the monitoring article and the Kit health checklist
+    describe, and the same signals that feed the circuit breaker (no-progress
+    streak) and the caps (turns and spend). One file you can diff run to run.
+    """
+    with open(METRICS_PATH, "w") as f:
+        json.dump(metrics, f, indent=2)
+        f.write("\n")
 
 
 def kill_switch_tripped():
@@ -145,6 +158,61 @@ def apply_action(action, state):
 
 def cost_of(action):
     return ACTION_COST.get(action["type"], 10)
+
+
+def build_metrics(memory, stop_reason):
+    """Roll the per-iteration history up into the loop-health signals.
+
+    Everything here is derived from what the loop already tracked, so the loop
+    body stays unchanged. These are the signals the monitoring article and the
+    Kit health checklist describe: the caps (turns, spend), the trend the
+    circuit breaker watches (score_trend, no_progress_streak), the grade mix,
+    and how often the human gate was hit.
+    """
+    history = memory["history"]
+    final = memory["final"]
+
+    # The verifier score after each turn, in order: the trend made visible.
+    score_trend = [h["score"] for h in history]
+
+    # Longest run of consecutive turns where the score did not improve. This is
+    # the exact thing the circuit breaker watches (NO_PROGRESS_LIMIT).
+    best = -1.0
+    streak = 0
+    no_progress_streak = 0
+    for score in score_trend:
+        if score > best:
+            best = score
+            streak = 0
+        else:
+            streak += 1
+            if streak > no_progress_streak:
+                no_progress_streak = streak
+
+    # How many actions of each grade we took.
+    grade_counts = {"G0": 0, "G1": 0, "G2": 0, "G3": 0}
+    for h in history:
+        if h["grade"] in grade_counts:
+            grade_counts[h["grade"]] += 1
+
+    # How many actions required (or in auto-approve mode WOULD have required) a
+    # human. Derived from the grade so the count is honest in either mode.
+    human_gate_count = sum(1 for h in history if requires_approval(h["grade"]))
+
+    return {
+        "task": memory["task"],
+        "outcome": "success" if final["passed"] else "incomplete",
+        "stop_reason": stop_reason,
+        "turns_used": memory["iterations"],
+        "turns_cap": MAX_ITERATIONS,
+        "spend_used": memory["spend"],
+        "spend_cap": MAX_SPEND,
+        "score_trend": score_trend,
+        "no_progress_streak": no_progress_streak,
+        "no_progress_limit": NO_PROGRESS_LIMIT,
+        "grade_counts": grade_counts,
+        "human_gate_count": human_gate_count,
+    }
 
 
 def run(task, maker, auto_approve):
@@ -282,7 +350,12 @@ def run(task, maker, auto_approve):
                   "iterations": memory["iterations"], "spend": spend,
                   "passed": memory["final"]["passed"]})
 
-    return memory
+    # Roll the run up into loop-health signals and write them alongside memory
+    # and the audit log (the monitoring view of the same run).
+    metrics = build_metrics(memory, stop_reason)
+    write_metrics(metrics)
+
+    return memory, metrics
 
 
 def print_summary(memory):
@@ -301,14 +374,41 @@ def print_summary(memory):
     print("=" * 56)
 
 
+def print_health(metrics):
+    """The monitoring view of the run: the same signals written to metrics.json.
+
+    These line up with the Kit health checklist: are we inside the caps, is the
+    score still climbing, how often did we hit the human gate, and did we finish.
+    """
+    m = metrics
+    trend = ", ".join("{:.0f}".format(s) for s in m["score_trend"]) or "(none)"
+    grades = m["grade_counts"]
+    print("")
+    print("=" * 56)
+    print("LOOP HEALTH")
+    print("  outcome          : {}".format(m["outcome"]))
+    print("  stop reason      : {}".format(m["stop_reason"]))
+    print("  turns used       : {} / {}".format(m["turns_used"], m["turns_cap"]))
+    print("  spend used       : {} / {}".format(m["spend_used"], m["spend_cap"]))
+    print("  score trend      : {}".format(trend))
+    print("  no-progress streak: {} (breaker at {})".format(
+        m["no_progress_streak"], m["no_progress_limit"]))
+    print("  grade counts     : G0={} G1={} G2={} G3={}".format(
+        grades["G0"], grades["G1"], grades["G2"], grades["G3"]))
+    print("  human gate count : {}".format(m["human_gate_count"]))
+    print("  metrics file     : {}".format(METRICS_PATH))
+    print("=" * 56)
+
+
 def main():
     auto_approve = os.environ.get("LOOPRAILS_AUTO_APPROVE") == "1"
     signal.signal(signal.SIGINT, _on_sigint)   # P9: Ctrl-C stops gracefully
 
     task = load_task()
     maker = make_maker()
-    memory = run(task, maker, auto_approve)
+    memory, metrics = run(task, maker, auto_approve)
     print_summary(memory)
+    print_health(metrics)
 
     # Exit 0 whenever the loop completed in a controlled way (done, capped,
     # stopped, or kill switch). It is a guarded run that ended on its own

@@ -6,7 +6,7 @@
     <atom:link href="https://looprails.dev/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical, sourced writing on human-in-the-loop oversight of AI agents, when review helps, when it's a rubber stamp, and how to design oversight that actually catches mistakes.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jun 2026 14:48:48 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2026 05:42:30 GMT</lastBuildDate>
     <item>
       <title>What Is Human-in-the-Loop (HITL) in AI?</title>
       <link>https://looprails.dev/article-what-is-human-in-the-loop.html</link>
@@ -260,18 +260,32 @@
       <pubDate>Tue, 23 Jun 2026 11:25:00 GMT</pubDate>
     </item>
     <item>
+      <title>Context Engineering for Agent Loops</title>
+      <link>https://looprails.dev/article-context-engineering-agent-loops.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-context-engineering-agent-loops.html</guid>
+      <description>Context engineering means deciding what goes into the model's window each turn: the goal, the done-condition, and what to keep, drop, summarize, and retrieve. How to keep an agent loop effective across many turns instead of drifting.</description>
+      <pubDate>Tue, 23 Jun 2026 11:24:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Loop Health: What to Monitor in a Running Loop</title>
+      <link>https://looprails.dev/article-loop-health-monitoring.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-loop-health-monitoring.html</guid>
+      <description>Which signals tell you an agent loop is working, stuck, or burning money: turns, spend per successful outcome, the verifier-score trend, the no-progress streak, and the thresholds that feed the circuit breaker and kill switch.</description>
+      <pubDate>Tue, 23 Jun 2026 11:23:00 GMT</pubDate>
+    </item>
+    <item>
       <title>LoRA vs Fine-Tuning vs Pre-Training</title>
       <link>https://looprails.dev/article-lora-vs-fine-tuning-vs-pre-training.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-lora-vs-fine-tuning-vs-pre-training.html</guid>
       <description>What LoRA, full fine-tuning, and pre-training each change in a model, what they cost, and when to reach for each when adapting a model for an agent loop. Plus why retrieval often beats fine-tuning.</description>
-      <pubDate>Tue, 23 Jun 2026 11:24:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:22:00 GMT</pubDate>
     </item>
     <item>
       <title>What You Can &amp; Can't Do With Models You Don't Control</title>
       <link>https://looprails.dev/article-adapting-models-you-dont-control.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-adapting-models-you-dont-control.html</guid>
       <description>Closed API models (Claude, GPT, Gemini) versus open-weight models (Llama, Mistral, Gemma): what each lets you change, what it takes off the table, and how that choice shapes the loop you build.</description>
-      <pubDate>Tue, 23 Jun 2026 11:23:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:21:00 GMT</pubDate>
     </item>
   </channel>
 </rss>

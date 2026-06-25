@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Kit","name":"The LoopRails Kit: Templates for Building Safe Agent Loops · LoopRails","description":"Copy-paste artifacts for building agent loops: a done-condition spec, a Loop Card, a guardrails checklist, and a model-adaptation worksheet. Fill them in before you let a loop run.","inLanguage":"en-US","url":"https://looprails.dev/kit.html","mainEntityOfPage":"https://looprails.dev/kit.html","image":"https://looprails.dev/og-kit.png","datePublished":"2026-06-22","dateModified":"2026-06-24","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Kit","item":"https://looprails.dev/kit.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Kit","name":"The LoopRails Kit: Templates for Building Safe Agent Loops · LoopRails","description":"Copy-paste artifacts for building agent loops: a done-condition spec, a Loop Card, a guardrails checklist, and a model-adaptation worksheet. Fill them in before you let a loop run.","inLanguage":"en-US","url":"https://looprails.dev/kit.html","mainEntityOfPage":"https://looprails.dev/kit.html","image":"https://looprails.dev/og-kit.png","datePublished":"2026-06-22","dateModified":"2026-06-25","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Kit","item":"https://looprails.dev/kit.html"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -94,13 +94,13 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="article-loop-engineering-doctrine.html" class="">Doctrine</a><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="kit.html" class="on">Kit</a><a href="codex.html" class="">Codex</a><a href="articles.html" class="">Articles</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#1-the-done-condition-spec" class="" data-id="1-the-done-condition-spec">The Done-Condition Spec</a><a href="#2-the-loop-card" class="" data-id="2-the-loop-card">The Loop Card</a><a href="#3-the-guardrails-checklist" class="" data-id="3-the-guardrails-checklist">The Guardrails Checklist</a><a href="#4-the-model-adaptation-worksheet" class="" data-id="4-the-model-adaptation-worksheet">The Model Adaptation Worksheet</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#1-the-done-condition-spec" class="" data-id="1-the-done-condition-spec">The Done-Condition Spec</a><a href="#2-the-loop-card" class="" data-id="2-the-loop-card">The Loop Card</a><a href="#3-the-guardrails-checklist" class="" data-id="3-the-guardrails-checklist">The Guardrails Checklist</a><a href="#4-the-model-adaptation-worksheet" class="" data-id="4-the-model-adaptation-worksheet">The Model Adaptation Worksheet</a><a href="#5-the-loop-health-signals" class="" data-id="5-the-loop-health-signals">The Loop Health Signals</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="index.html">LoopRails</a> · Kit</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/kit.md">View kit.md on GitHub ↗</a>
       <h1 id="the-looprails-kit">The LoopRails Kit</h1>
-<p>These are the artifacts you fill in before you let a loop run, the same way you would not ship a service without a runbook. They turn a vague &quot;let the agent figure it out&quot; into something a teammate can review, approve, and shut off. They pair with the LoopRails starter project (the working scaffold) and the Doctrine (the principles behind the rails). The fourth artifact, the Model Adaptation Worksheet, covers choosing and adapting the model itself, since that decision is part of building the loop too.</p>
+<p>These are the artifacts you fill in before you let a loop run, the same way you would not ship a service without a runbook. They turn a vague &quot;let the agent figure it out&quot; into something a teammate can review, approve, and shut off. They pair with the LoopRails starter project (the working scaffold) and the Doctrine (the principles behind the rails). The fourth artifact, the Model Adaptation Worksheet, covers choosing and adapting the model itself, since that decision is part of building the loop too. The fifth, the Loop Health Signals, covers what to watch once the loop is running.</p>
 <h2 id="1-the-done-condition-spec">1. The Done-Condition Spec</h2>
 <p>Write this first, before you build anything. If you cannot state how the loop knows it is finished and how that gets checked independently, the loop is not ready to run. The point is to force a precise, checkable finish line instead of an open-ended &quot;keep going.&quot;</p>
 <p>How to use it: copy the block, fill every field, and keep it next to the loop&#39;s code. If &quot;Done when&quot; and &quot;Verified by&quot; are the same thing, your check is not independent. Fix that before shipping.</p>
@@ -226,6 +226,27 @@ Where the adapter / fine-tune artifact lives + its version:
 Re-verification after adapting (the verifier and the rails still decide what ships):
 </code></pre>
 <p>A tuned model is still a model: it can still be wrong, so adapting it does not remove the need for an independent verifier or for the rails (caps, action grading, a human at consequential steps). For the trade-offs behind rungs 4-6, see the articles &quot;LoRA vs Fine-Tuning vs Pre-Training&quot; and &quot;What You Can and Can&#39;t Do With Models You Don&#39;t Control.&quot;</p>
+<h2 id="5-the-loop-health-signals">5. The Loop Health Signals</h2>
+<p>A running loop works unattended, so you need signals that tell you whether it is making progress, stuck, or burning money. Emit these from day one, written next to the audit log so they are queryable. The starter writes them to <code>.looprails/metrics.json</code>.</p>
+<p>How to use it: emit the metrics below every run, and set the alert thresholds before you let the loop run unattended. The no-progress streak and the spend total are the two that should drive automatic action, not just sit on a dashboard.</p>
+<p>Emit every run:</p>
+<ul>
+<li><input disabled="" type="checkbox"> turns used / iteration cap</li>
+<li><input disabled="" type="checkbox"> spend used / spend cap (and cost per successful outcome, not just per run)</li>
+<li><input disabled="" type="checkbox"> verifier score per turn (the trend, so you can see it climb or flatten)</li>
+<li><input disabled="" type="checkbox"> no-progress streak (turns since the verifier score last improved)</li>
+<li><input disabled="" type="checkbox"> grade mix (how many G0/G1/G2/G3 actions the loop took)</li>
+<li><input disabled="" type="checkbox"> human-gate count (approvals required, and how many were rejected)</li>
+<li><input disabled="" type="checkbox"> stop reason + outcome (done / no progress / hit a cap / killed; success or incomplete)</li>
+</ul>
+<p>Alert or act when:</p>
+<ul>
+<li><input disabled="" type="checkbox"> no-progress streak crosses N turns, trip the circuit breaker</li>
+<li><input disabled="" type="checkbox"> spend over budget or turns over cap, stop the run</li>
+<li><input disabled="" type="checkbox"> success rate falling or reject rate climbing across runs, page a human</li>
+<li><input disabled="" type="checkbox"> verifier score flat while turns keep climbing, the loop is spinning, stop it</li>
+</ul>
+<p>Healthy looks like: the score climbs then plateaus at done, most runs finish under cap, spend per success holds steady, few human rejects. Sick is the mirror image: score flat while turns climb, more runs hitting caps, spend per success rising, rejects climbing. For the full picture see the article &quot;Loop Health: What to Monitor in a Running Agent Loop.&quot;</p>
 
     </div>
     

@@ -1,6 +1,6 @@
 # The LoopRails Kit
 
-These are the artifacts you fill in before you let a loop run, the same way you would not ship a service without a runbook. They turn a vague "let the agent figure it out" into something a teammate can review, approve, and shut off. They pair with the LoopRails starter project (the working scaffold) and the Doctrine (the principles behind the rails). The fourth artifact, the Model Adaptation Worksheet, covers choosing and adapting the model itself, since that decision is part of building the loop too.
+These are the artifacts you fill in before you let a loop run, the same way you would not ship a service without a runbook. They turn a vague "let the agent figure it out" into something a teammate can review, approve, and shut off. They pair with the LoopRails starter project (the working scaffold) and the Doctrine (the principles behind the rails). The fourth artifact, the Model Adaptation Worksheet, covers choosing and adapting the model itself, since that decision is part of building the loop too. The fifth, the Loop Health Signals, covers what to watch once the loop is running.
 
 ## 1. The Done-Condition Spec
 
@@ -151,3 +151,28 @@ Re-verification after adapting (the verifier and the rails still decide what shi
 ```
 
 A tuned model is still a model: it can still be wrong, so adapting it does not remove the need for an independent verifier or for the rails (caps, action grading, a human at consequential steps). For the trade-offs behind rungs 4-6, see the articles "LoRA vs Fine-Tuning vs Pre-Training" and "What You Can and Can't Do With Models You Don't Control."
+
+## 5. The Loop Health Signals
+
+A running loop works unattended, so you need signals that tell you whether it is making progress, stuck, or burning money. Emit these from day one, written next to the audit log so they are queryable. The starter writes them to `.looprails/metrics.json`.
+
+How to use it: emit the metrics below every run, and set the alert thresholds before you let the loop run unattended. The no-progress streak and the spend total are the two that should drive automatic action, not just sit on a dashboard.
+
+Emit every run:
+
+- [ ] turns used / iteration cap
+- [ ] spend used / spend cap (and cost per successful outcome, not just per run)
+- [ ] verifier score per turn (the trend, so you can see it climb or flatten)
+- [ ] no-progress streak (turns since the verifier score last improved)
+- [ ] grade mix (how many G0/G1/G2/G3 actions the loop took)
+- [ ] human-gate count (approvals required, and how many were rejected)
+- [ ] stop reason + outcome (done / no progress / hit a cap / killed; success or incomplete)
+
+Alert or act when:
+
+- [ ] no-progress streak crosses N turns, trip the circuit breaker
+- [ ] spend over budget or turns over cap, stop the run
+- [ ] success rate falling or reject rate climbing across runs, page a human
+- [ ] verifier score flat while turns keep climbing, the loop is spinning, stop it
+
+Healthy looks like: the score climbs then plateaus at done, most runs finish under cap, spend per success holds steady, few human rejects. Sick is the mirror image: score flat while turns climb, more runs hitting caps, spend per success rising, rejects climbing. For the full picture see the article "Loop Health: What to Monitor in a Running Agent Loop."

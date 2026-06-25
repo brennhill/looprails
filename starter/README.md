@@ -39,10 +39,11 @@ In auto-approve mode the loop does not pretend the gate is not there. It logs
 that a human WOULD have been required for the G2 action, then proceeds. The
 gate is visible either way.
 
-When it finishes it writes two files under `.looprails/`:
+When it finishes it writes three files under `.looprails/`:
 
-- `.looprails/memory.json` - the loop's durable memory (what it did, where it ended)
-- `.looprails/audit.log`   - an append-only record, one JSON line per action
+- `.looprails/memory.json`  - the loop's durable memory (what it did, where it ended)
+- `.looprails/audit.log`    - an append-only record, one JSON line per action
+- `.looprails/metrics.json` - the loop-health signals (see "The health summary" below)
 
 ## What just happened (the output, against the ten principles)
 
@@ -77,6 +78,32 @@ The loop also:
 
 The SUMMARY block at the end reports iterations used, spend used, the final
 verifier result, and the paths of the memory and audit files.
+
+### The health summary
+
+After SUMMARY the loop prints a LOOP HEALTH block and writes the same data to
+`.looprails/metrics.json`. These are the signals the "Loop Health" article and
+the Kit health checklist describe: a quick read on whether the run stayed
+inside its rails. Each signal:
+
+- **outcome:** `success` if the done-condition was met, else `incomplete`.
+- **stop reason:** why the loop ended (done-condition met, no progress, a cap,
+  or the kill switch). Same string as SUMMARY.
+- **turns used / cap:** iterations run against `MAX_ITERATIONS`.
+- **spend used / cap:** mock cost spent against `MAX_SPEND`.
+- **score trend:** the verifier score after each turn, in order. The trend made
+  visible so you can see whether the loop was still climbing.
+- **no-progress streak:** the longest run of consecutive turns where the
+  verifier score did not improve. This is the signal the circuit breaker
+  watches: when it reaches `NO_PROGRESS_LIMIT` the loop stops instead of burning
+  the rest of the budget.
+- **grade counts:** how many actions of each grade (G0-G3) the run took.
+- **human gate count:** how many actions required (or in auto-approve mode WOULD
+  have required) a human checker.
+
+`metrics.json` carries the same fields as plain JSON, one file per run, so you
+can diff a run against the last one or feed it to a dashboard. It is covered by
+the existing `.looprails/` gitignore entry, same as memory and the audit log.
 
 ### The kill switch
 
@@ -140,6 +167,9 @@ Two things stay true when you wire a real model:
   but the task never grants it.
 - **Audit log (`loop.py`).** `.looprails/audit.log`, append-only, one JSON line
   per action plus a final stop record.
+- **Health metrics (`loop.py`).** `.looprails/metrics.json`, the loop-health
+  signals rolled up at the end of the run (`build_metrics`). The no-progress
+  streak in it is what the circuit breaker watches. See "The health summary".
 
 ## File map
 
@@ -150,4 +180,4 @@ Two things stay true when you wire a real model:
 | `verify.py` | the independent verifier |
 | `agent.py` | the maker (mock, with a real-model stub) |
 | `tasks/refactor_task.py` | the example task definition |
-| `.gitignore` | ignores `.looprails/` (runtime memory and audit) |
+| `.gitignore` | ignores `.looprails/` (runtime memory, audit, and metrics) |

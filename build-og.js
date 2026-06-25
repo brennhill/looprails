@@ -70,6 +70,8 @@ const CARDS = {
   "article-lora-vs-fine-tuning-vs-pre-training": { eyebrow: "LOOPRAILS · BUILD A LOOP", head: ["LoRA, fine-tuning,", "or pre-training?"], size: 50, sub: "When each one makes sense.", method: false, accent: TEAL },
   "article-adapting-models-you-dont-control": { eyebrow: "LOOPRAILS · BUILD A LOOP", head: ["Models you", "don't control"], size: 56, sub: "What you can and can't change.", method: false, accent: TEAL },
   kit: { eyebrow: "THE KIT · TAKE IT WITH YOU", head: ["The LoopRails Kit"], size: 60, sub: "Templates you fill in before a loop runs.", method: true, accent: TEAL },
+  "article-context-engineering-agent-loops": { eyebrow: "LOOPRAILS · BUILD A LOOP", head: ["Context", "engineering"], size: 60, sub: "Keep the loop effective across many turns.", method: false, accent: TEAL },
+  "article-loop-health-monitoring": { eyebrow: "LOOPRAILS · RUN & OBSERVE", head: ["Loop health"], size: 64, sub: "What to monitor in a running loop.", method: false, accent: G2 },
 };
 
 function svg(c) {
