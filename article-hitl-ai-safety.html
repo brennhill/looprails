@@ -84,6 +84,9 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .related ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
 .related li a{font-weight:600;font-size:1rem}
 .related .related-all{margin:14px 0 0;font-size:.9rem}
+.securing{margin:24px 0 0;border:1px solid var(--line);border-left:3px solid var(--rail);background:var(--rail-tint);border-radius:0 10px 10px 0;padding:14px 18px}
+.securing h2{font-size:1.05rem;margin:0 0 6px;border:none;padding:0}
+.securing p{margin:0;font-size:.95rem;color:var(--ink-2)}
 footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-size:.85rem;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;max-width:1280px;margin:0 auto}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -91,7 +94,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <body>
 <div class="topbar">
   <a class="brand" href="index.html"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
-  <nav class="docpick"><a href="article-loop-engineering-doctrine.html" class="">Doctrine</a><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="kit.html" class="">Kit</a><a href="codex.html" class="">Codex</a><a href="articles.html" class="">Articles</a></nav>
+  <nav class="docpick"><a href="article-loop-engineering-doctrine.html" class="">Doctrine</a><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="kit.html" class="">Kit</a><a href="cookbook.html" class="">Cookbook</a><a href="codex.html" class="">Codex</a><a href="articles.html" class="">Articles</a></nav>
 </div>
 <div class="layout">
   <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-wrong-question-and-the-right-one" class="" data-id="the-wrong-question-and-the-right-one">The wrong question, and the right one</a><a href="#the-evidence-an-approval-click-is-not-the-same-as-catching-a" class="" data-id="the-evidence-an-approval-click-is-not-the-same-as-catching-a">The evidence: an approval click is not the same as catching an error</a><a href="#when-human-in-the-loop-genuinely-improves-ai-safety" class="" data-id="when-human-in-the-loop-genuinely-improves-ai-safety">When human-in-the-loop genuinely improves AI safety</a><a href="#when-human-in-the-loop-gives-false-safety" class="" data-id="when-human-in-the-loop-gives-false-safety">When human-in-the-loop gives false safety</a><a href="#what-real-ai-safety-for-agents-looks-like-instead" class="" data-id="what-real-ai-safety-for-agents-looks-like-instead">What real AI safety for agents looks like instead</a><a href="#key-takeaways" class="" data-id="key-takeaways">Key takeaways</a><a href="#next-steps" class="" data-id="next-steps">Next steps</a></div></aside>
@@ -158,6 +161,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <p>If you are deciding where a human belongs in your agent&#39;s loop, start by grading your actions. Run them through the <a href="index.html#grader">interactive grader</a> to see which are genuinely human-catchable and which need prevention instead. Then read the <a href="framework.html">framework</a> for the full method, skim the <a href="cheatsheet.html">cheatsheet</a> for the patterns and anti-patterns, and dig into the <a href="codex.html">codex</a> for the research behind every claim here. The goal is to make sure the bad outcome cannot happen, whether a human is watching or not.</p>
 
     </div>
+    
     <aside class="related"><h2>Related reading</h2><ul><li><a href="article-in-the-loop-vs-on-the-loop.html">In-the-Loop vs On-the-Loop vs Out-of-the-Loop</a></li><li><a href="article-ai-agent-approval.html">When Should an AI Agent Ask for Approval?</a></li><li><a href="article-lethal-trifecta.html">The Lethal Trifecta: How AI Agents Leak Data</a></li><li><a href="article-ai-agent-guardrails.html">AI Agent Guardrails: A Practical Checklist</a></li><li><a href="article-ai-agent-autonomy-levels.html">AI Agent Autonomy Levels (L0-L6)</a></li></ul><p class="related-all"><a href="articles.html">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
   </main>
 </div>

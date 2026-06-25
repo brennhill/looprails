@@ -76,6 +76,11 @@ const CARDS = {
   "article-failure-recovery-agent-loops": { eyebrow: "LOOPRAILS · RUN & OBSERVE", head: ["Failure", "recovery"], size: 60, sub: "Retries, rollback, resuming a crashed run.", method: false, accent: G2 },
   "article-multi-agent-loops": { eyebrow: "LOOPRAILS · BUILD A LOOP", head: ["Multi-agent", "loops"], size: 58, sub: "When more agents help, and how they break.", method: false, accent: TEAL },
   "codex-loops": { eyebrow: "THE LOOP ENGINEERING CODEX", head: ["The evidence base", "for agent loops"], size: 50, sub: "Failure recovery and multi-agent research, sourced.", method: false, accent: TEAL },
+  "article-agent-workflow-patterns": { eyebrow: "THE COOKBOOK · AGENTS", head: ["Agent workflow", "patterns"], size: 54, sub: "Chaining, routing, orchestration.", method: false, accent: TEAL },
+  "article-autonomous-agent-patterns": { eyebrow: "THE COOKBOOK · AGENTS", head: ["Autonomous", "agent patterns"], size: 54, sub: "ReAct, reflection, tools, memory.", method: false, accent: TEAL },
+  "article-rag-retrieval-patterns": { eyebrow: "THE COOKBOOK · RAG", head: ["RAG retrieval", "patterns"], size: 54, sub: "Chunking, hybrid search, reranking.", method: false, accent: TEAL },
+  "article-advanced-agentic-rag": { eyebrow: "THE COOKBOOK · RAG", head: ["Advanced and", "agentic RAG"], size: 54, sub: "Contextual, corrective, self-RAG, GraphRAG.", method: false, accent: TEAL },
+  "cookbook": { eyebrow: "THE LOOPRAILS COOKBOOK", head: ["Recipes for agents", "and RAG"], size: 52, sub: "What it is, when, how it fails, how to fix it.", method: true, accent: TEAL },
 };
 
 function svg(c) {

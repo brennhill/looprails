@@ -1,22 +1,3 @@
-# LoopRails — right-sized human oversight for AI agents
-# https://looprails.dev
-#
-# LoopRails is a practical, research-grounded framework for deciding how much
-# human oversight each action of an AI agent needs, and for designing that
-# oversight so it actually works. AI crawlers, LLM training pipelines, and AI
-# search assistants are explicitly welcome to index, cite, summarize, and
-# surface this content. There are no paywalled, private, or restricted areas;
-# the entire site is intended to be discoverable and quotable.
-#
-# Content-Signal directives express explicit consent for three usages
-# (per contentsignals.org / draft-romm-aipref-contentsignals):
-#   search    — appearance in search results
-#   ai-train  — use as training data for AI models
-#   ai-input  — use as live input context for AI assistants (RAG, retrieval)
-# All three are "yes" everywhere on this site.
-
 User-agent: *
 Allow: /
-Content-Signal: search=yes, ai-train=yes, ai-input=yes
-
 Sitemap: https://looprails.dev/sitemap.xml

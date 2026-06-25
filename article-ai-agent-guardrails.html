@@ -84,6 +84,9 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .related ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
 .related li a{font-weight:600;font-size:1rem}
 .related .related-all{margin:14px 0 0;font-size:.9rem}
+.securing{margin:24px 0 0;border:1px solid var(--line);border-left:3px solid var(--rail);background:var(--rail-tint);border-radius:0 10px 10px 0;padding:14px 18px}
+.securing h2{font-size:1.05rem;margin:0 0 6px;border:none;padding:0}
+.securing p{margin:0;font-size:.95rem;color:var(--ink-2)}
 footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-size:.85rem;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;max-width:1280px;margin:0 auto}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -91,7 +94,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <body>
 <div class="topbar">
   <a class="brand" href="index.html"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
-  <nav class="docpick"><a href="article-loop-engineering-doctrine.html" class="">Doctrine</a><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="kit.html" class="">Kit</a><a href="codex.html" class="">Codex</a><a href="articles.html" class="">Articles</a></nav>
+  <nav class="docpick"><a href="article-loop-engineering-doctrine.html" class="">Doctrine</a><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="kit.html" class="">Kit</a><a href="cookbook.html" class="">Cookbook</a><a href="codex.html" class="">Codex</a><a href="articles.html" class="">Articles</a></nav>
 </div>
 <div class="layout">
   <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#step-1-grade-the-action-first" class="" data-id="step-1-grade-the-action-first">Step 1: Grade the action first</a><a href="#step-2-guard-with-environment-guardrails-highest-payoff" class="" data-id="step-2-guard-with-environment-guardrails-highest-payoff">Step 2: Guard with environment guardrails (highest payoff)</a><a href="#step-3-guard-with-runtime-guardrails-stop-it-mid-flight" class="" data-id="step-3-guard-with-runtime-guardrails-stop-it-mid-flight">Step 3: Guard with runtime guardrails (stop it mid-flight)</a><a href="#step-4-guard-with-approval-guardrails-only-where-a-human-can" class="" data-id="step-4-guard-with-approval-guardrails-only-where-a-human-can">Step 4: Guard with approval guardrails (only where a human can catch it)</a><a href="#step-5-show-by-designing-the-oversight-moment" class="" data-id="step-5-show-by-designing-the-oversight-moment">Step 5: Show, by designing the oversight moment</a><a href="#step-6-prove-by-treating-oversight-as-a-claim-to-test" class="" data-id="step-6-prove-by-treating-oversight-as-a-claim-to-test">Step 6: Prove, by treating oversight as a claim to test</a><a href="#what-ai-agent-guardrails-are-not" class="" data-id="what-ai-agent-guardrails-are-not">What AI agent guardrails are NOT</a><a href="#match-guardrails-to-the-grade" class="" data-id="match-guardrails-to-the-grade">Match guardrails to the grade</a><a href="#key-takeaways" class="" data-id="key-takeaways">Key takeaways</a><a href="#get-started" class="" data-id="get-started">Get started</a></div></aside>
@@ -171,6 +174,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <p>Run your agent&#39;s riskiest actions through the <a href="index.html#grader">interactive grader</a> to see their G0 to G3 grade and the controls that match. Work the four moves with the <a href="playbook.html">practitioner playbook</a>, keep the <a href="cheatsheet.html">cheatsheet</a> next to your next agent review, and check the <a href="codex.html">research codex</a> for the evidence behind each guardrail. The next time someone says &quot;just add an approval step,&quot; ask the only question that matters: can the human actually catch the mistake in time?</p>
 
     </div>
+    
     <aside class="related"><h2>Related reading</h2><ul><li><a href="article-ai-agent-autonomy-levels.html">AI Agent Autonomy Levels (L0-L6)</a></li><li><a href="article-prompt-injection-prevention.html">Prompt Injection Prevention</a></li><li><a href="article-maker-checker-ai.html">Maker-Checker (Four-Eyes) for AI Agents</a></li><li><a href="article-automation-bias.html">Automation Bias: Why People Rubber-Stamp AI</a></li><li><a href="article-ai-kill-switch.html">How to Build an AI Kill Switch</a></li></ul><p class="related-all"><a href="articles.html">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
   </main>
 </div>

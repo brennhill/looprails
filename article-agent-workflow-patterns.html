@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Workflow Patterns: Chaining, Routing, Orchestration · LoopRails</title>
+<meta name="description" content="A plain-English recipe book of agent workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer, with the failure modes of each and how to fix them.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Brenn Hill">
+<link rel="canonical" href="https://looprails.dev/article-agent-workflow-patterns.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Agent Workflow Patterns: Chaining, Routing, Orchestration · LoopRails">
+<meta property="og:description" content="A plain-English recipe book of agent workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer, with the failure modes of each and how to fix them.">
+<meta property="og:url" content="https://looprails.dev/article-agent-workflow-patterns.html">
+<meta property="og:image" content="https://looprails.dev/og-article-agent-workflow-patterns.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Agent Workflow Patterns: Chaining, Routing, Orchestration · LoopRails">
+<meta name="twitter:description" content="A plain-English recipe book of agent workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer, with the failure modes of each and how to fix them.">
+<meta name="twitter:image" content="https://looprails.dev/og-article-agent-workflow-patterns.png">
+<link rel="icon" href="favicon.ico?v=2" sizes="32x32">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="manifest" href="site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
+<meta name="theme-color" content="#0e7c86">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Agent Workflow Patterns","name":"Agent Workflow Patterns: Chaining, Routing, Orchestration · LoopRails","description":"A plain-English recipe book of agent workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer, with the failure modes of each and how to fix them.","inLanguage":"en-US","url":"https://looprails.dev/article-agent-workflow-patterns.html","mainEntityOfPage":"https://looprails.dev/article-agent-workflow-patterns.html","image":"https://looprails.dev/og-article-agent-workflow-patterns.png","datePublished":"2026-06-23","dateModified":"2026-06-25","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles.html"},{"@type":"ListItem","position":3,"name":"Agent Workflow Patterns","item":"https://looprails.dev/article-agent-workflow-patterns.html"}]}]}</script>
+<style>
+:root{
+  --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
+  --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:11px 20px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.docpick{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.docpick a{font-size:.88rem;font-weight:600;color:var(--ink-2);padding:6px 12px;border-radius:8px;border:1px solid transparent}
+.docpick a.on{background:var(--rail);color:#fff}
+.docpick a:hover{text-decoration:none;border-color:var(--line)}
+.layout{display:grid;grid-template-columns:270px 1fr;gap:0;max-width:1280px;margin:0 auto}
+@media(max-width:920px){.layout{grid-template-columns:1fr}.toc{display:none}}
+.toc{position:sticky;top:53px;align-self:start;height:calc(100vh - 53px);overflow:auto;padding:24px 14px 60px 22px;border-right:1px solid var(--line)}
+.toc .tt{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.toc a{display:block;font-size:.85rem;color:var(--ink-2);padding:3px 0;border-left:2px solid transparent;padding-left:10px;margin-left:-2px}
+.toc a:hover{color:var(--rail);text-decoration:none}
+.toc a.h3{padding-left:22px;font-size:.8rem;color:var(--muted)}
+.toc a.active{color:var(--rail);border-left-color:var(--rail);font-weight:600}
+.content{padding:34px 40px 120px;min-width:0;max-width:860px}
+@media(max-width:640px){.content{padding:24px 20px 90px}}
+.md h1{font-size:2rem;letter-spacing:-.02em;margin:.2em 0 .5em;line-height:1.15}
+.md h2{font-size:1.5rem;letter-spacing:-.01em;margin:1.7em 0 .5em;padding-top:.4em;border-top:1px solid var(--line)}
+.md h3{font-size:1.16rem;margin:1.4em 0 .4em}
+.md h4{font-size:1rem;margin:1.2em 0 .3em;color:var(--ink-2)}
+.md p{margin:0 0 1em}
+.md ul,.md ol{padding-left:1.3em;margin:0 0 1em}
+.md li{margin:.25em 0}
+.md blockquote{margin:1em 0;padding:.6em 1em;border-left:3px solid var(--rail);background:var(--rail-tint);border-radius:0 8px 8px 0;color:var(--ink-2)}
+.md blockquote p{margin:.3em 0}
+.md code{font-family:var(--mono);font-size:.86em;background:var(--bg-2);padding:2px 6px;border-radius:5px;border:1px solid var(--line)}
+.md pre{background:#0c1620;color:#dfeef0;padding:16px;border-radius:10px;overflow:auto;font-size:.82rem;line-height:1.45}
+.md pre code{background:none;border:none;padding:0;color:inherit}
+.md a{font-weight:500}
+.md hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.md table{border-collapse:collapse;width:100%;margin:0 0 1.3em;font-size:.9rem;display:block;overflow-x:auto}
+.md th,.md td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+.md th{background:var(--bg-2);font-weight:700}
+.md tr:nth-child(even) td{background:#fafbfc}
+.md img{max-width:100%}
+.md strong{font-weight:700}
+.md strong[id]{scroll-margin-top:64px}
+.md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
+.md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
+.crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
+.byline{font-size:.92rem;color:var(--muted);margin:-.2em 0 1.6em}
+.byline a{font-weight:600;color:var(--ink-2)}
+.related{margin:8px 0 0;border-top:1px solid var(--line);padding-top:22px}
+.related h2{font-size:1.15rem;margin:0 0 12px;border:none;padding:0}
+.related ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.related li a{font-weight:600;font-size:1rem}
+.related .related-all{margin:14px 0 0;font-size:.9rem}
+.securing{margin:24px 0 0;border:1px solid var(--line);border-left:3px solid var(--rail);background:var(--rail-tint);border-radius:0 10px 10px 0;padding:14px 18px}
+.securing h2{font-size:1.05rem;margin:0 0 6px;border:none;padding:0}
+.securing p{margin:0;font-size:.95rem;color:var(--ink-2)}
+footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-size:.85rem;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;max-width:1280px;margin:0 auto}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="index.html"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
+  <nav class="docpick"><a href="article-loop-engineering-doctrine.html" class="">Doctrine</a><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="kit.html" class="">Kit</a><a href="cookbook.html" class="">Cookbook</a><a href="codex.html" class="">Codex</a><a href="articles.html" class="">Articles</a></nav>
+</div>
+<div class="layout">
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-recipes" class="" data-id="the-recipes">The recipes</a><a href="#prompt-chaining" class="h3" data-id="prompt-chaining">Prompt chaining</a><a href="#routing" class="h3" data-id="routing">Routing</a><a href="#parallelization" class="h3" data-id="parallelization">Parallelization</a><a href="#orchestrator-workers" class="h3" data-id="orchestrator-workers">Orchestrator-workers</a><a href="#evaluator-optimizer" class="h3" data-id="evaluator-optimizer">Evaluator-optimizer</a><a href="#choosing-among-them" class="" data-id="choosing-among-them">Choosing among them</a></div></aside>
+  <main class="content">
+    <div class="crumb"><a href="index.html">LoopRails</a> · <a href="articles.html">Articles</a> · Agent Workflow Patterns</div>
+    <div id="md" class="md">
+      <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-agent-workflow-patterns.md">View article-agent-workflow-patterns.md on GitHub ↗</a>
+      <h1 id="agent-workflow-patterns-a-recipe-book">Agent Workflow Patterns: A Recipe Book</h1>
+<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time></p>
+<p>There is one fork that decides almost everything about how an LLM system behaves, and it is worth being clear about before any code gets written. A workflow follows a fixed path that you wrote. The steps are in a known order, the model fills in the parts you asked it to fill in, and the control flow belongs to you. An agent is the other thing: the model decides what to do next, picks its own tools, and chooses when it is done. Both can be useful. They are not the same animal, and confusing them is how you end up with a system you cannot debug.</p>
+<p>This chapter is about the workflow side. These are the patterns where you hold the steering wheel. You decide the path, you decide the checks, and the model does the work inside the lines you drew. The autonomous patterns, the ones where the model drives, live in a separate chapter (<a href="article-autonomous-agent-patterns.html">autonomous agent patterns</a>), because they come with a different set of failure modes and a different set of guardrails.</p>
+<p>Why start here? Because workflows are predictable in a way agents are not. You can look at a workflow and trace exactly what will happen. You can put a check between any two steps. You can swap one model for a cheaper one and measure the difference. The cost is bounded, the latency is roughly knowable, and when something breaks you can point at the step that broke it. Agents trade all of that away for flexibility. Sometimes the trade is worth it. Often it is not, and a fixed path would have done the job for a tenth of the trouble.</p>
+<p>The LoopRails stance is simple: start with the simplest workflow that does the job, and add model-driven autonomy only when the task genuinely needs it. Most things people reach for an agent to do are actually a short chain of steps in a known order. If you can write the steps down, write them down. Reach for an agent when you cannot, and not before. Each recipe below follows the same shape: what it is, when to reach for it, how it fails, and how to fix the failures.</p>
+<h2 id="the-recipes">The recipes</h2>
+<h3 id="prompt-chaining">Prompt chaining</h3>
+<p><strong>What it is:</strong> You break a task into an ordered set of steps, and each step&#39;s output becomes the next step&#39;s input. Draft, then critique, then rewrite. Or extract, then transform, then format. The path is fixed and you wrote it.</p>
+<p><strong>When to reach for it:</strong> Use a chain when the task splits cleanly into stages that have to happen in order, and where doing it in one giant prompt would ask the model to juggle too much at once. Chaining trades a little latency for a lot of accuracy on each step, because each prompt is smaller and more focused. It also gives you a natural place to drop a check between steps, which is the real reason to bother.</p>
+<p><strong>How it fails:</strong> Errors compound. A small mistake in step one becomes the trusted input to step two, and step two builds on it as if it were correct, and by step four you have a confident answer assembled on a bad foundation. The model does not know that the thing it received was wrong, so it does not flag it. The classic version of this is a missing or weak check between steps: you wired the output of one prompt straight into the next with nothing in between to ask &quot;is this even sane?&quot; The chain runs to completion and produces garbage that looks finished.</p>
+<p><strong>How to fix it:</strong> Put a check between steps, and make it a real one. After the step that extracts data, validate that the data has the fields you expected and the values are in range. After the step that drafts, run a gate that asks whether the draft actually addresses the request before you spend a model call rewriting it. The check does not have to be another LLM call; often a plain assertion or a schema validation is stronger and cheaper. When a check fails, stop the chain rather than feeding bad input forward. A loud failure at step two is much cheaper than a confident wrong answer at step five. For the larger discipline of putting the check first, see <a href="article-evaluation-driven-development.html">evaluation-driven development</a>.</p>
+<h3 id="routing">Routing</h3>
+<p><strong>What it is:</strong> You classify the input first, then send it down the path that fits. Easy questions go to a cheap, fast model; hard ones go to the strong model. Refund requests go to the refund flow; billing questions go to the billing flow. The classifier decides the route, and each route is tuned for its kind of work.</p>
+<p><strong>When to reach for it:</strong> Routing pays off when your inputs fall into clearly different buckets that want different handling, and lumping them together hurts every bucket. A single prompt that tries to be good at both trivial and hard cases tends to be mediocre at both, and expensive on the trivial ones. Splitting the traffic lets you spend big where it matters and stay cheap where it does not.</p>
+<p><strong>How it fails:</strong> Misrouting. The classifier sends a hard question to the cheap model, which answers confidently and wrong, and nobody downstream knows the route was bad. The cost of a wrong route is asymmetric: routing a hard case to the cheap path produces a bad answer, while routing an easy case to the expensive path just wastes money. The first one hurts more and is harder to notice. Routers also rot. The categories you defined six months ago stop matching the traffic you actually get, and a growing slice of inputs falls into a bucket that was never meant to hold them.</p>
+<p><strong>How to fix it:</strong> Pick a default route that is safe when the classifier is unsure, and bias toward it. If confidence is low, send the input to the stronger path rather than guessing cheap. Log the route alongside the outcome so you can measure how often each route produced a good result, and watch for the bucket that is quietly filling up with mismatched inputs. Add an explicit &quot;none of these&quot; route instead of forcing every input into an existing category, because a forced fit is a silent misroute. When a route leads to a consequential action, grade that action and keep a human at the ones that matter, rather than trusting the classifier to have gotten it right.</p>
+<h3 id="parallelization">Parallelization</h3>
+<p><strong>What it is:</strong> You run several model calls at the same time and combine the results. It comes in two flavors. Sectioning splits a task into independent parts that run in parallel, like checking a document for tone, for factual claims, and for policy violations all at once. Voting runs the same task several times and aggregates the answers, like asking three times whether a piece of content is safe and taking the majority.</p>
+<p><strong>When to reach for it:</strong> Use sectioning when the task has genuinely independent parts that do not need each other&#39;s output. Running them together in one prompt makes the model split its attention and do each part worse, while running them separately lets each call focus. Use voting when a single run is unreliable but the task is one where more samples raise your confidence, like a judgment call where you would rather have three opinions than one.</p>
+<p><strong>How it fails:</strong> Fan-out costs you latency and money. Voting five times is five times the spend, and the slowest of your parallel calls sets the wall-clock time, so one straggler holds up the whole batch. Sectioning fails when the parts were not actually independent: you split a task into pieces that needed to share context, and now each piece is missing something the others had, so the combined result has gaps or contradictions. Voting fails when the runs are correlated. If all of them share the same blind spot, they agree confidently and wrongly, and the majority vote launders a single error into an apparent consensus.</p>
+<p><strong>How to fix it:</strong> Only section along real seams. If two parts keep needing each other&#39;s output, they were one part, so keep them together. For voting, make the aggregation step deliberate rather than a blind majority: when the votes disagree, that disagreement is signal, and a split decision is a good trigger to escalate to a human or to the stronger path. Cap the fan-out at the smallest number that gives you the confidence you need, since the gains taper off fast. Set a timeout so one slow call does not stall the batch, and decide in advance what to do when a call times out: drop it, retry it, or fail the whole thing.</p>
+<h3 id="orchestrator-workers">Orchestrator-workers</h3>
+<p><strong>What it is:</strong> A lead model looks at the task, breaks it into subtasks at runtime, hands each subtask to a worker model, and then synthesizes the workers&#39; results into a final answer. The key difference from the patterns above is that the subtasks are not fixed in advance. The orchestrator decides what they are based on the input it sees.</p>
+<p><strong>When to reach for it:</strong> Reach for this when you cannot write the subtasks down ahead of time because they depend on the input. A research task over a question you have not seen, or a code change that touches an unknown set of files, is a poor fit for a fixed chain, because you do not know the steps until you look at the specifics. The orchestrator&#39;s job is to figure out the breakdown that a static workflow could not encode.</p>
+<p><strong>How it fails:</strong> The orchestrator fragments the task badly. It splits the work along the wrong lines, hands workers subtasks that overlap or leave gaps, and then has to stitch together pieces that do not fit. Workers given a slice without enough context produce something locally reasonable and globally wrong, and the synthesis step inherits all of it. Because the orchestrator is itself a model making decisions, this is the recipe where you have quietly crossed from workflow into agent territory, and the costs climb with it: more calls, more latency, and a control flow that is harder to predict because the model invented part of it.</p>
+<p><strong>How to fix it:</strong> Give the orchestrator a clear contract for what a good subtask looks like, and constrain the breakdown rather than leaving it wide open. Have workers return enough about their work that the synthesis step can spot a gap or an overlap, instead of blindly concatenating. Put a check on the synthesized result against the original request, because a clean-looking assembly of flawed parts is the failure to watch for. And ask the honest question first: do you actually need a model to decide the breakdown, or do your inputs fall into a few shapes you could route and chain instead? If a fixed path covers most of your traffic, use it for that traffic and save the orchestrator for the genuinely open-ended cases.</p>
+<h3 id="evaluator-optimizer">Evaluator-optimizer</h3>
+<p><strong>What it is:</strong> One model generates a candidate, a second model evaluates it against a set of criteria and sends back specific feedback, and the first model revises. You loop until the candidate passes. This is a verifier loop: the generator proposes, the evaluator decides whether it is good enough, and the cycle repeats until the standard is met or you hit a cap.</p>
+<p><strong>When to reach for it:</strong> Use it when you have clear criteria for a good answer, the first try usually misses some of them, and feedback genuinely helps the next try. Polishing a translation against a style guide, tightening a piece of writing against a rubric, or refining code against a set of requirements all fit, because in each case there is a checkable standard and an iteration loop that closes the gap. If you cannot say what &quot;good&quot; means in a way the evaluator can check, this pattern has nothing to grade against and will not help.</p>
+<p><strong>How it fails:</strong> The evaluator rubber-stamps. A weak evaluator, or one that shares the generator&#39;s blind spots, approves work that should have failed, and the loop terminates pleased with itself on a bad result. This gets worse when the evaluator is not independent: if the same model both writes and grades, it tends to like its own output, and you have built a loop that congratulates itself. The other failure is a gameable standard. If the criteria are vague or the generator can see exactly how the evaluator scores, the optimizer learns to satisfy the letter of the check while missing the point, the same way a student writes to the rubric instead of to the question.</p>
+<p><strong>How to fix it:</strong> Make the evaluator independent of the generator. Different model, different prompt, and a standard the generator was not handed verbatim, so it has to actually be good rather than just match a string. Give the evaluator a clear, checkable standard rather than a vibe: concrete criteria it can score, ideally backed by checks that are not themselves an LLM, like tests or validators that cannot be sweet-talked. Cap the iterations, because a loop chasing an evaluator it can never fully satisfy will burn budget forever, and a stalled loop should hand off to a human rather than declaring victory. The strongest version of this is the LoopRails idea of an independent verifier: the thing that grades the work sits outside the thing that does it, and the loop cannot reach in and edit its own grader. When the evaluator&#39;s verdict gates a consequential action, grade that action and keep a human at the high grades; a passing score from an automated evaluator is evidence, not a release form. The <a href="article-loop-patterns.html">loop patterns cookbook</a> has worked examples of verifier loops you can copy.</p>
+<h2 id="choosing-among-them">Choosing among them</h2>
+<p>These five are not a ladder you climb. They are tools, and the right one is the simplest that covers your case. Prompt chaining and routing are the workhorses, and most real systems are some combination of the two: route the input, then run it down a chain tuned for that route. Parallelization is an optimization you add when you have independent work or need more samples, not a starting point. Orchestrator-workers and evaluator-optimizer are where the model starts making decisions, which is where you cross from a workflow you fully control into something closer to an agent, with the extra cost and unpredictability that comes with it.</p>
+<p>A few failure modes show up across all of them, so they are worth holding in your head as you design. Errors compound whenever output feeds forward without a check, so put checks between steps and at the seams. A wrong route or a bad task breakdown is expensive precisely because nothing downstream knows it happened, so log decisions and watch the outcomes. Fan-out buys you accuracy or speed at the price of cost and latency, so cap it at what you actually need. And the evaluator that is too soft, or that the generator can game, is worse than no evaluator at all, because it tells you the work passed when it did not.</p>
+<p>The one mistake that costs the most is over-engineering. Reaching for an orchestrator or a multi-model voting scheme when a single well-written prompt would have done the job adds latency, spend, and surface area for bugs, and buys you nothing. Before you build any of these, try the boring version: one prompt, one model, one check on the output. If that works, ship it. Add a chain when one prompt is doing too much, add a router when your inputs split, and add the model-driven patterns only when you genuinely cannot write the path down yourself. Start simple, add autonomy when the task earns it, and grade the actions any of these patterns can take (G0-G3) so a human stays on the consequential ones. For the full method behind the grading and the rails, see the <a href="framework.html">framework</a>.</p>
+
+    </div>
+    <aside class="securing"><h2>Securing it</h2><p>Even a fixed workflow calls tools and models that touch real systems. Scope what each step can do and contain failures with the <a href="https://braceframework.org">BRACE Framework</a>, the security counterpart that secures the agent's configuration and infrastructure.</p></aside>
+    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-autonomous-agent-patterns.html">Autonomous Agent Patterns</a></li><li><a href="article-rag-retrieval-patterns.html">RAG Retrieval Patterns</a></li><li><a href="article-advanced-agentic-rag.html">Advanced and Agentic RAG</a></li><li><a href="article-lora-vs-fine-tuning-vs-pre-training.html">LoRA vs Fine-Tuning vs Pre-Training</a></li><li><a href="article-adapting-models-you-dont-control.html">What You Can &amp; Can't Do With Models You Don't Control</a></li></ul><p class="related-all"><a href="articles.html">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
+  </main>
+</div>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:30px 22px;text-align:center"><div style="max-width:560px;margin:0 auto"><div style="font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:4px">Get new LoopRails essays by email</div><p style="color:var(--ink-2);font-size:.92rem;margin:0 0 14px">Loop engineering, verifiers, and human oversight. No spam, unsubscribe anytime.</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script></div></section>
+<footer>
+  <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
+  <span><a href="index.html">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
+</footer>
+<script>
+(function(){
+  var heads=[].slice.call(document.querySelectorAll("#md h2[id],#md h3[id]"));
+  var links=[].slice.call(document.querySelectorAll("#toc a"));
+  if(!heads.length||!links.length) return;
+  var spy=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("data-id")===e.target.id);});}
+  });},{rootMargin:"-60px 0px -75% 0px"});
+  heads.forEach(function(h){spy.observe(h);});
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "43e10ad738e241ab93d08ec0cee965e6"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

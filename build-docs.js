@@ -28,6 +28,9 @@ const DOCS = {
   kit:                { md: "kit.md",                 out: "kit.html",                 label: "Kit",           nav: true,
     title: "The LoopRails Kit: Templates for Building Safe Agent Loops · LoopRails",
     desc: "Copy-paste artifacts for building agent loops: a done-condition spec, a Loop Card, a guardrails checklist, and a model-adaptation worksheet. Fill them in before you let a loop run." },
+  cookbook:           { md: "cookbook.md",            out: "cookbook.html",            label: "Cookbook",      nav: true,
+    title: "The LoopRails Cookbook: Agent & RAG Design Patterns with Failure Modes · LoopRails",
+    desc: "A plain-English recipe book for building AI agent loops: agent design patterns, RAG patterns, and the common failure modes of each, with how to get around them. What it is, when to use it, how it fails, how to fix it." },
   codex:              { md: "codex.md",               out: "codex.html",               label: "Codex",         nav: true,
     title: "Human-in-the-Loop & AI Safety Research Codex (366 Sources) · LoopRails",
     desc: "366 annotated sources on human-in-the-loop oversight and AI safety, aviation, medicine, finance, AI safety, and HCI. The evidence base behind LoopRails." },
@@ -226,6 +229,22 @@ const ARTICLES = {
     label: "Multi-Agent Loops: When More Agents Help",
     title: "Multi-Agent Loops: When More Agents Help, and How They Break · LoopRails",
     desc: "When splitting a loop across multiple agents helps and when it just adds failure surface: the patterns that work, the MAST failure taxonomy, the reviewer-agent trap, and the oversight each sub-agent needs." },
+  "article-agent-workflow-patterns": { md: "article-agent-workflow-patterns.md", out: "article-agent-workflow-patterns.html",
+    label: "Agent Workflow Patterns",
+    title: "Agent Workflow Patterns: Chaining, Routing, Orchestration · LoopRails",
+    desc: "A plain-English recipe book of agent workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer, with the failure modes of each and how to fix them." },
+  "article-autonomous-agent-patterns": { md: "article-autonomous-agent-patterns.md", out: "article-autonomous-agent-patterns.html",
+    label: "Autonomous Agent Patterns",
+    title: "Autonomous Agent Patterns: ReAct, Reflection, Tools, Memory · LoopRails",
+    desc: "A plain-English recipe book of autonomous agent patterns: ReAct, reflection, plan-and-execute, tool use, memory, and single vs multi-agent, with the failure modes of each and how to fix them." },
+  "article-rag-retrieval-patterns": { md: "article-rag-retrieval-patterns.md", out: "article-rag-retrieval-patterns.html",
+    label: "RAG Retrieval Patterns",
+    title: "RAG Retrieval Patterns: Chunking, Hybrid Search, Reranking · LoopRails",
+    desc: "A plain-English recipe book for RAG retrieval: chunking, embeddings and vector search, hybrid search, reranking, query transformation, and metadata filtering, with the failure modes of each and how to fix them." },
+  "article-advanced-agentic-rag": { md: "article-advanced-agentic-rag.md", out: "article-advanced-agentic-rag.html",
+    label: "Advanced and Agentic RAG",
+    title: "Advanced and Agentic RAG: Contextual, Corrective, Self-RAG, GraphRAG · LoopRails",
+    desc: "A plain-English recipe book for advanced RAG: contextual retrieval, agentic RAG, corrective RAG, self-RAG, GraphRAG, and how to evaluate a RAG system, with the failure modes of each and how to fix them." },
   "article-lora-vs-fine-tuning-vs-pre-training": { md: "article-lora-vs-fine-tuning-vs-pre-training.md", out: "article-lora-vs-fine-tuning-vs-pre-training.html",
     label: "LoRA vs Fine-Tuning vs Pre-Training",
     title: "LoRA vs Fine-Tuning vs Pre-Training: When Each Makes Sense · LoopRails",
@@ -312,6 +331,9 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .related ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
 .related li a{font-weight:600;font-size:1rem}
 .related .related-all{margin:14px 0 0;font-size:.9rem}
+.securing{margin:24px 0 0;border:1px solid var(--line);border-left:3px solid var(--rail);background:var(--rail-tint);border-radius:0 10px 10px 0;padding:14px 18px}
+.securing h2{font-size:1.05rem;margin:0 0 6px;border:none;padding:0}
+.securing p{margin:0;font-size:.95rem;color:var(--ink-2)}
 footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-size:.85rem;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;max-width:1280px;margin:0 auto}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>`;
@@ -352,6 +374,7 @@ function navHTML(currentKey) {
     ["playbook", "playbook.html", "Playbook"],
     ["framework", "framework.html", "Framework"],
     ["kit", "kit.html", "Kit"],
+    ["cookbook", "cookbook.html", "Cookbook"],
     ["codex", "codex.html", "Codex"],
     ["__articles", "articles.html", "Articles"],
   ];
@@ -368,6 +391,20 @@ function relatedReading(currentKey) {
   return `<aside class="related"><h2>Related reading</h2><ul>${items}</ul><p class="related-all"><a href="articles.html">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>`;
 }
 
+// Cross-link security-relevant articles to BRACE (which secures the agent itself).
+const BRACE_SECURE = {
+  "article-rag-retrieval-patterns": `Retrieved documents are untrusted input. A poisoned, stale, or attacker-controlled page in your index can carry a prompt injection straight into the model, and the index itself is an attack surface worth its own integrity checks. Securing the agent that reads them is a separate job: see the <a href="article-lethal-trifecta.html">lethal trifecta</a> and the <a href="https://braceframework.org">BRACE Framework</a>, which treats all external input as untrusted.`,
+  "article-advanced-agentic-rag": `Agentic RAG fetches from the open web and chooses its own queries, so it pulls untrusted content into the loop on purpose. Pair it with <a href="article-prompt-injection-prevention.html">prompt-injection defense</a> and the <a href="https://braceframework.org">BRACE Framework</a>, which treats retrieved and tool data as untrusted and contains the blast radius.`,
+  "article-autonomous-agent-patterns": `Tool use is where an agent reaches real systems, so it needs least privilege, capability-scoped tokens, and a sandbox, not trust. See <a href="article-least-privilege-ai-agents.html">least privilege for AI agents</a> and the <a href="https://braceframework.org">BRACE Framework</a> (capability-scoped access, a hardened harness, a tested kill switch).`,
+  "article-agent-workflow-patterns": `Even a fixed workflow calls tools and models that touch real systems. Scope what each step can do and contain failures with the <a href="https://braceframework.org">BRACE Framework</a>, the security counterpart that secures the agent's configuration and infrastructure.`,
+  "article-multi-agent-loops": `Every sub-agent is a new identity and a new attack surface, and one agent's output is untrusted input to the next. Give each least privilege, isolate them, and keep sub-agent provenance: see <a href="article-hitl-multi-agent-systems.html">oversight for multi-agent systems</a> and the <a href="https://braceframework.org">BRACE Framework</a>.`,
+  "article-failure-recovery-agent-loops": `Recovery leans on the audit log and checkpoints, so their integrity matters: a tampered log or a non-idempotent replay is its own risk. The <a href="https://braceframework.org">BRACE Framework</a> covers the audit trail and a kill switch that leaves a safe state.`,
+};
+function securingNote(key) {
+  if (!BRACE_SECURE[key]) return "";
+  return `<aside class="securing"><h2>Securing it</h2><p>${BRACE_SECURE[key]}</p></aside>`;
+}
+
 function page(key, d, contentHTML, toc) {
   const title = d.title || `${stripTags(d.label).replace(/ ·.*/, "")} · LoopRails`;
   const url = `${SITE}/${d.out}`;
@@ -375,6 +412,7 @@ function page(key, d, contentHTML, toc) {
   const isArticle = key.startsWith("article-");
   if (isArticle) contentHTML = injectByline(contentHTML, ARTICLE_PUB);
   const relatedBlock = isArticle ? relatedReading(key) : "";
+  const braceBlock = isArticle ? securingNote(key) : "";
   const crumbHTML = isArticle
     ? `<a href="index.html">LoopRails</a> · <a href="articles.html">Articles</a> · ${esc(stripTags(d.label))}`
     : `<a href="index.html">LoopRails</a> · ${esc(stripTags(d.label))}`;
@@ -434,6 +472,7 @@ ${styleBlock()}
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/${d.md}">View ${d.md} on GitHub ↗</a>
       ${contentHTML}
     </div>
+    ${braceBlock}
     ${relatedBlock}
   </main>
 </div>
@@ -503,6 +542,8 @@ function articlesIndexPage() {
   const CATS = [
     ["The LoopRails Doctrine", ["article-loop-engineering-doctrine"]],
     ["Build a loop", ["article-loop-engineering", "article-build-agent-loop", "article-context-engineering-agent-loops", "article-loop-patterns", "article-evaluation-driven-development", "article-world-models-agent-loops", "article-multi-agent-loops"]],
+    ["Agent design patterns", ["article-agent-workflow-patterns", "article-autonomous-agent-patterns"]],
+    ["RAG patterns", ["article-rag-retrieval-patterns", "article-advanced-agentic-rag"]],
     ["Choosing & adapting models", ["article-lora-vs-fine-tuning-vs-pre-training", "article-adapting-models-you-dont-control"]],
     ["Run & observe loops", ["article-loop-engineering-oversight", "article-loop-health-monitoring", "article-failure-recovery-agent-loops"]],
     ["Start here & concepts", ["article-what-is-agentic-ai", "article-what-is-human-in-the-loop", "article-hitl-ai-safety", "article-in-the-loop-vs-on-the-loop", "article-ai-agent-autonomy-levels", "article-automation-bias"]],

@@ -84,6 +84,9 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .related ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
 .related li a{font-weight:600;font-size:1rem}
 .related .related-all{margin:14px 0 0;font-size:.9rem}
+.securing{margin:24px 0 0;border:1px solid var(--line);border-left:3px solid var(--rail);background:var(--rail-tint);border-radius:0 10px 10px 0;padding:14px 18px}
+.securing h2{font-size:1.05rem;margin:0 0 6px;border:none;padding:0}
+.securing p{margin:0;font-size:.95rem;color:var(--ink-2)}
 footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-size:.85rem;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;max-width:1280px;margin:0 auto}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -91,7 +94,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <body>
 <div class="topbar">
   <a class="brand" href="index.html"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
-  <nav class="docpick"><a href="article-loop-engineering-doctrine.html" class="">Doctrine</a><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="kit.html" class="">Kit</a><a href="codex.html" class="">Codex</a><a href="articles.html" class="">Articles</a></nav>
+  <nav class="docpick"><a href="article-loop-engineering-doctrine.html" class="">Doctrine</a><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="kit.html" class="">Kit</a><a href="cookbook.html" class="">Cookbook</a><a href="codex.html" class="">Codex</a><a href="articles.html" class="">Articles</a></nav>
 </div>
 <div class="layout">
   <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#a-loop-relocates-oversight-it-does-not-remove-it" class="" data-id="a-loop-relocates-oversight-it-does-not-remove-it">A loop relocates oversight, it does not remove it</a><a href="#grade-the-actions-the-loop-can-take" class="" data-id="grade-the-actions-the-loop-can-take">Grade the actions the loop can take</a><a href="#a-loop-fails-differently-it-repeats" class="" data-id="a-loop-fails-differently-it-repeats">A loop fails differently: it repeats</a><a href="#the-memory-file-and-logs-are-your-audit-trail" class="" data-id="the-memory-file-and-logs-are-your-audit-trail">The memory file and logs are your audit trail</a><a href="#autonomy-is-a-dial-so-spend-your-human-checkpoints-where-the" class="" data-id="autonomy-is-a-dial-so-spend-your-human-checkpoints-where-the">Autonomy is a dial, so spend your human checkpoints where they count</a><a href="#a-checklist-before-you-let-a-loop-run-unattended" class="" data-id="a-checklist-before-you-let-a-loop-run-unattended">A checklist before you let a loop run unattended</a></div></aside>
@@ -145,6 +148,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <p>The loop is a powerful pattern, and it is going to be how a lot of agent work gets done. Just remember what you traded for the speed: you took your judgment out of the path of each action, so put it back into the system as grades, gates, a breaker, a kill switch, and a log you can read the morning after. Grade your loop&#39;s actions with the <a href="index.html#grader">LoopRails grader</a>, pair it with <a href="article-evaluation-driven-development.html">evaluation-driven development</a> so you know the loop is meeting its goal and not just running, then build the rails before you let it loose.</p>
 
     </div>
+    
     <aside class="related"><h2>Related reading</h2><ul><li><a href="article-context-engineering-agent-loops.html">Context Engineering for Agent Loops</a></li><li><a href="article-loop-health-monitoring.html">Loop Health: What to Monitor in a Running Loop</a></li><li><a href="article-world-models-agent-loops.html">World Models for Agent Loops</a></li><li><a href="article-failure-recovery-agent-loops.html">Failure Recovery for Agent Loops</a></li><li><a href="article-multi-agent-loops.html">Multi-Agent Loops: When More Agents Help</a></li></ul><p class="related-all"><a href="articles.html">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
   </main>
 </div>

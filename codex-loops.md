@@ -178,4 +178,57 @@ More agents is not automatically better. The modern frameworks show what coopera
 - Manage commitment deliberately [MA-17] [MA-21] [MA-22], coordinate through shared state when you can [MA-16] [MA-26], communicate selectively and reallocate on failure [MA-23].
 - Do not trust a single agent for a critical decision. Redundancy, quorum voting, one elected coordinator at a time, and a consistent shared log all carry over from distributed systems [MA-24] [MA-25].
 
+## Part 4: Agent design and RAG patterns
+
+These sources back the [Cookbook](cookbook.html), the recipe side of the framework. The agent-design entries name the patterns and the RAG entries cover retrieval and its documented failure modes. The core agent loops (ReAct [FR-23], Reflexion [FR-18], Plan-and-Solve [FR-25], Tree of Thoughts [FR-24]) are in Part 1.
+
+### 4.1 Agent design patterns
+
+**[AP-1]** Building Effective Agents, Anthropic, Erik Schluntz and Barry Zhang (2024). [anthropic.com](https://www.anthropic.com/engineering/building-effective-agents). The core engineering reference for this cookbook, separating workflows (LLMs and tools on fixed code paths) from agents (LLMs that direct their own steps), and naming the patterns: prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer.
+
+**[AP-2]** Chain-of-Thought Prompting Elicits Reasoning in Large Language Models, Wei et al. (2022), NeurIPS. [arxiv.org/abs/2201.11903](https://arxiv.org/abs/2201.11903). Prompting with worked intermediate steps unlocks multi-step reasoning, the building block under the agent loops, and the reason agents reason step by step rather than answering in one shot.
+
+### 4.2 Retrieval-augmented generation (RAG)
+
+**[RAG-1]** Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks, Lewis et al. (2020), NeurIPS. [arxiv.org/abs/2005.11401](https://arxiv.org/abs/2005.11401). The original RAG paper, pairing a generator with a neural retriever over a dense index so answers are grounded in fetched passages. The foundation of retrieve-then-generate, aimed at the failure mode of memory-only models inventing facts.
+
+**[RAG-2]** Dense Passage Retrieval for Open-Domain Question Answering, Karpukhin et al. (2020), EMNLP. [aclanthology.org](https://aclanthology.org/2020.emnlp-main.550/). A dual-encoder dense retriever that beats keyword matching on passage accuracy, establishing embedding-based retrieval as the default. Informs the choice of dense vector search.
+
+**[RAG-3]** Retrieval-Augmented Generation for Large Language Models: A Survey, Gao et al. (2023). [arxiv.org/abs/2312.10997](https://arxiv.org/abs/2312.10997). A map of the field organizing systems into Naive, Advanced, and Modular RAG and walking the retrieval, generation, and augmentation stages plus evaluation. The orientation reference and a source of named failure modes.
+
+**[RAG-4]** Precise Zero-Shot Dense Retrieval without Relevance Labels, Gao et al. (2022). [arxiv.org/abs/2212.10496](https://arxiv.org/abs/2212.10496). HyDE has the model write a hypothetical answer for the query, then retrieves real passages similar to it. Addresses the failure mode where short or vague queries embed poorly against full documents.
+
+**[RAG-5]** Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection, Asai et al. (2023), ICLR 2024. [arxiv.org/abs/2310.11511](https://arxiv.org/abs/2310.11511). Trains a model to decide when to retrieve and to critique passages and its own output with reflection tokens. Informs adaptive retrieval that skips or repeats fetching based on need.
+
+**[RAG-6]** Corrective Retrieval Augmented Generation, Yan et al. (2024). [arxiv.org/abs/2401.15884](https://arxiv.org/abs/2401.15884). CRAG adds a lightweight evaluator that grades retrieved documents and, when they look weak, triggers corrective steps such as web search before generation. Directly handles retrieval-miss and irrelevant-context failures.
+
+**[RAG-7]** From Local to Global: A Graph RAG Approach to Query-Focused Summarization, Edge et al. (2024), Microsoft. [arxiv.org/abs/2404.16130](https://arxiv.org/abs/2404.16130). GraphRAG builds an entity knowledge graph and pre-computes community summaries so the system can answer broad whole-corpus questions that flat chunk retrieval cannot.
+
+**[RAG-8]** Introducing Contextual Retrieval, Anthropic (2024). [anthropic.com](https://www.anthropic.com/news/contextual-retrieval). Prepends a short chunk-specific context blurb to each chunk before embedding and indexing, cutting retrieval misses caused by chunks that lost their surrounding meaning. A practical chunk-preparation pattern.
+
+**[RAG-9]** ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT, Khattab and Zaharia (2020), SIGIR. [arxiv.org/abs/2004.12832](https://arxiv.org/abs/2004.12832). Encodes query and document tokens separately and scores them with a cheap token-level match, giving fine-grained matching at low cost. Informs retrievers that need precision beyond a single pooled embedding.
+
+**[RAG-10]** RAGAs: Automated Evaluation of Retrieval Augmented Generation, Es et al. (2023), EACL 2024. [aclanthology.org](https://aclanthology.org/2024.eacl-demo.16/). A reference-free framework that scores a pipeline on retrieval relevance, faithfulness, and answer quality without ground-truth labels. The basis for measuring whether retrieved context is used and answers stay grounded.
+
+**[RAG-11]** Lost in the Middle: How Language Models Use Long Contexts, Liu et al. (2023), TACL. [arxiv.org/abs/2307.03172](https://arxiv.org/abs/2307.03172). Models use information best at the start or end of the input and lose it in the middle of long contexts. The source for ranking and reordering retrieved passages rather than dumping many into one prompt.
+
+**[RAG-12]** Active Retrieval Augmented Generation, Jiang et al. (2023), EMNLP. [aclanthology.org](https://aclanthology.org/2023.emnlp-main.495/). FLARE retrieves fresh passages mid-generation when the draft contains low-confidence tokens, instead of retrieving only once up front. Informs iterative retrieval for long-form answers.
+
+**[RAG-13]** The Probabilistic Relevance Framework: BM25 and Beyond, Robertson and Zaragoza (2009), Foundations and Trends in Information Retrieval. [dl.acm.org](https://dl.acm.org/doi/10.1561/1500000019). Derives BM25, the standard lexical baseline that hybrid search blends with dense retrieval. Use it to justify keeping keyword scoring alongside embeddings. (Verified via the ACM/Now Publishers DOI and Google Books; the author PDF mirror loads but is not text-extractable.)
+
+**[RAG-14]** BM25 Retriever and Reciprocal Rerank Fusion, LlamaIndex documentation. [developers.llamaindex.ai](https://developers.llamaindex.ai/python/examples/retrievers/reciprocal_rerank_fusion/). Official docs showing how to combine a dense vector retriever with a BM25 keyword retriever and merge by reciprocal rank fusion, the canonical hybrid pattern.
+
+**[RAG-15]** Semantic Chunker, LlamaIndex documentation. [developers.llamaindex.ai](https://developers.llamaindex.ai/python/examples/node_parsers/semantic_chunking/). Picks split points between sentences by embedding similarity instead of a fixed size, so each chunk holds related content. The engineering reference for semantic chunking, against chunks that split one idea in half.
+
+### 4.3 Common RAG failure modes (from the literature)
+
+- Lost-in-the-middle: relevant passages in the middle of a long prompt get underused, so ranking and reordering matter [RAG-11].
+- Retrieval miss: the right passage is never fetched, which corrective retrieval and web-search fallback try to repair [RAG-6] [RAG-3].
+- Irrelevant or noisy context: off-topic chunks degrade the answer, motivating relevance grading and filtering [RAG-6] [RAG-10].
+- Query-document embedding mismatch: short or vague queries embed poorly against full documents, the gap HyDE targets [RAG-4].
+- Lost chunk context: a chunk stripped of its document loses meaning and fails to match, fixed by prepending context [RAG-8] or better boundaries [RAG-15].
+- Lexical mismatch: pure dense retrieval misses exact-term and rare-token matches that keyword scoring catches, the case for hybrid search [RAG-2] [RAG-13] [RAG-14].
+- Global sensemaking gap: broad whole-corpus questions have no single answering chunk, addressed by graph-based summarization [RAG-7].
+- Ungrounded answers: the generator ignores or contradicts retrieved evidence, which faithfulness scoring is built to catch [RAG-10] [RAG-1].
+
 For how human oversight fits on top of all this, see the [LoopRails framework](framework.html) and the main [research codex](codex.html).

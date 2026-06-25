@@ -43,7 +43,7 @@ A skill is third-party code that runs with your agent's privileges and sees your
 
 ### 1. Least privilege: the skill should never hold a powerful, long-lived secret
 
-Give a skill only the access the task needs, scoped and short-lived. Prefer brokered, just-in-time credentials that expire in minutes over a long-lived API key pasted into config. If a leak can only expose a narrow, short-TTL token, the [89.6%-immediately-exploitable](https://arxiv.org/abs/2604.03070) statistic stops being catastrophic. This is the [Authorized](rail-authorized.html) property of RAIL and the [least-privilege](least-privilege-ai-agents.html) discipline applied to extensions.
+Give a skill only the access the task needs, scoped and short-lived. Prefer brokered, just-in-time credentials that expire in minutes over a long-lived API key pasted into config. If a leak can only expose a narrow, short-TTL token, the [89.6%-immediately-exploitable](https://arxiv.org/abs/2604.03070) statistic stops being catastrophic. This is the [Authorized](rail-authorized.html) property of RAIL and the [least-privilege](article-least-privilege-ai-agents.html) discipline applied to extensions.
 
 ### 2. Keep secrets out of logs and out of the context window
 
@@ -51,7 +51,7 @@ Redact credentials before anything is logged, disable verbose debug logging in p
 
 ### 3. Sandbox skills and cut the network leg
 
-Run skills in a contained environment with egress control. A skill that can read your secrets but cannot reach the open internet cannot exfiltrate them. That is the [lethal trifecta](article-lethal-trifecta.html) defense (private data + untrusted content + an outbound channel) applied here, and it is the core idea behind [AI agent sandboxing](ai-agent-sandboxing.html) and a broader [guardrails checklist](article-ai-agent-guardrails.html).
+Run skills in a contained environment with egress control. A skill that can read your secrets but cannot reach the open internet cannot exfiltrate them. That is the [lethal trifecta](article-lethal-trifecta.html) defense (private data + untrusted content + an outbound channel) applied here, and it is the core idea behind [AI agent sandboxing](article-ai-agent-sandboxing.html) and a broader [guardrails checklist](article-ai-agent-guardrails.html).
 
 ### 4. Treat any exposed credential as compromised: rotate, don't just delete
 
