@@ -12,8 +12,17 @@ const { parse } = require("./vendor/marked.min.js");
 const SITE = "https://looprails.dev";
 const BEACON = `<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "43e10ad738e241ab93d08ec0cee965e6"}'></script><!-- End Cloudflare Web Analytics -->`;
 
-// email capture (ConvertKit / Kit) shown near the foot of every generated page
-const NEWSLETTER = `<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:30px 22px;text-align:center"><div style="max-width:560px;margin:0 auto"><div style="font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:4px">Get new LoopRails essays by email</div><p style="color:var(--ink-2);font-size:.92rem;margin:0 0 14px">Loop engineering, verifiers, and human oversight. No spam, unsubscribe anytime.</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script></div></section>`;
+// email capture (ConvertKit / Kit), shown near the foot of every generated page.
+// Reframed around the Kit (the concrete lead magnet) instead of a vague newsletter.
+const NEWSLETTER = `<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get the 5 templates for shipping a guarded loop</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Enter your email and I'll send the LoopRails Kit: the fill-in templates that take an agent loop from idea to safely running, plus the one-page cheat sheet. New essays on loop engineering after that.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>`;
+
+// Lightweight inline CTA placed right after an article's intro. A link, not a second
+// embed, so a page never carries two Kit forms (duplicate forms break the widget).
+const INLINE_CTA = `<aside style="border:1px solid var(--rail);border-left:4px solid var(--rail);background:var(--rail-tint);border-radius:0 12px 12px 0;padding:15px 20px;margin:26px 0"><div style="font-weight:800;color:var(--ink);font-size:1.04rem;margin-bottom:3px">Get the LoopRails Kit, free</div><p style="margin:0;color:var(--ink-2);font-size:.95rem">The five fill-in templates for taking an agent loop from idea to safely running, plus the one-page cheat sheet. <a href="kit.html" style="font-weight:650">Get the Kit &rarr;</a></p></aside>`;
+
+// Strong capture at the top of the Kit page (the highest-intent page). It carries the
+// page's only embed; the foot NEWSLETTER is suppressed on kit to avoid a duplicate form.
+const KIT_CAPTURE = `<div style="border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:22px 24px;margin:22px 0 6px;text-align:center"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free &middot; keep the whole Kit</div><div style="font-weight:800;font-size:1.2rem;color:var(--ink);margin-bottom:6px">Get all five templates as one fill-in pack</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 auto 14px;max-width:54ch">Read them free below, or enter your email and I'll send the whole Kit as a single pack you can keep, plus the one-page cheat sheet and new essays on loop engineering.</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script></div>`;
 
 const TODAY = new Date().toISOString().slice(0, 10);
 
@@ -423,7 +432,13 @@ function page(key, d, contentHTML, toc) {
   const url = `${SITE}/${d.out}`;
   const ogimg = `${SITE}/og-${key}.png`;
   const isArticle = key.startsWith("article-");
-  if (isArticle) contentHTML = injectByline(contentHTML, ARTICLE_PUB);
+  let body = contentHTML;
+  if (isArticle) {
+    body = injectByline(body, ARTICLE_PUB);
+    body = body.replace(/<h2/, `${INLINE_CTA}\n<h2`); // first section only: after the intro
+  } else if (key === "kit") {
+    body = body.replace(/<\/p>/, (m) => `${m}\n${KIT_CAPTURE}`); // after the intro paragraph
+  }
   const relatedBlock = isArticle ? relatedReading(key) : "";
   const braceBlock = isArticle ? securingNote(key) : "";
   const crumbHTML = isArticle
@@ -483,13 +498,13 @@ ${styleBlock()}
     <div class="crumb">${crumbHTML}</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/${d.md}">View ${d.md} on GitHub ↗</a>
-      ${contentHTML}
+      ${body}
     </div>
     ${braceBlock}
     ${relatedBlock}
   </main>
 </div>
-${NEWSLETTER}
+${key === "kit" ? "" : NEWSLETTER}
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="index.html">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
