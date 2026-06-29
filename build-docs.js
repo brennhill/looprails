@@ -222,6 +222,10 @@ const ARTICLES = {
     label: "Evaluation-Driven Development",
     title: "Evaluation-Driven Development: The Verifier Is the Point · LoopRails",
     desc: "In an autonomous loop, an automated check, not your gut, decides whether each change improved things. How evaluation-driven development works and how to build a verifier you can trust." },
+  "article-verification-functions": { md: "article-verification-functions.md", out: "article-verification-functions.html",
+    label: "What Makes a Verifier Work",
+    title: "Verification Functions for AI Agent Loops: What Actually Works · LoopRails",
+    desc: "What the research says about verification functions in agent loops: the verifier-strength spectrum, why verification is the bottleneck, reward hacking and how to harden against it, and whether the verifier replaces a detailed spec. Backed by Codex Part 7." },
   "article-loop-engineering-oversight": { md: "article-loop-engineering-oversight.md", out: "article-loop-engineering-oversight.html",
     label: "Oversight for Autonomous Loops",
     title: "How to Keep an Autonomous Loop on the Rails · LoopRails",
@@ -569,7 +573,7 @@ function articlesIndexPage() {
   const items = Object.values(ARTICLES);
   const CATS = [
     ["The LoopRails Doctrine", ["article-loop-engineering-doctrine"]],
-    ["Build a loop", ["article-loop-engineering", "article-build-agent-loop", "article-context-engineering-agent-loops", "article-mcp-skill-overload", "article-loop-patterns", "article-evaluation-driven-development", "article-world-models-agent-loops", "article-multi-agent-loops"]],
+    ["Build a loop", ["article-loop-engineering", "article-build-agent-loop", "article-context-engineering-agent-loops", "article-mcp-skill-overload", "article-loop-patterns", "article-evaluation-driven-development", "article-verification-functions", "article-world-models-agent-loops", "article-multi-agent-loops"]],
     ["Agent design patterns", ["article-agent-workflow-patterns", "article-autonomous-agent-patterns"]],
     ["RAG patterns", ["article-rag-retrieval-patterns", "article-advanced-agentic-rag"]],
     ["Choosing & adapting models", ["article-lora-vs-fine-tuning-vs-pre-training", "article-adapting-models-you-dont-control"]],

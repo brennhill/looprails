@@ -6,7 +6,7 @@
     <atom:link href="https://looprails.dev/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical, sourced writing on human-in-the-loop oversight of AI agents, when review helps, when it's a rubber stamp, and how to design oversight that actually catches mistakes.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Jun 2026 04:56:42 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2026 05:56:06 GMT</lastBuildDate>
     <item>
       <title>What Is Human-in-the-Loop (HITL) in AI?</title>
       <link>https://looprails.dev/article-what-is-human-in-the-loop.html</link>
@@ -267,95 +267,102 @@
       <pubDate>Tue, 23 Jun 2026 11:24:00 GMT</pubDate>
     </item>
     <item>
+      <title>What Makes a Verifier Work</title>
+      <link>https://looprails.dev/article-verification-functions.html</link>
+      <guid isPermaLink="true">https://looprails.dev/article-verification-functions.html</guid>
+      <description>What the research says about verification functions in agent loops: the verifier-strength spectrum, why verification is the bottleneck, reward hacking and how to harden against it, and whether the verifier replaces a detailed spec. Backed by Codex Part 7.</description>
+      <pubDate>Tue, 23 Jun 2026 11:23:00 GMT</pubDate>
+    </item>
+    <item>
       <title>Oversight for Autonomous Loops</title>
       <link>https://looprails.dev/article-loop-engineering-oversight.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-loop-engineering-oversight.html</guid>
       <description>Loop engineering moves oversight from per-step prompts to the goal, the verifier, and a few human checkpoints. How to grade a loop's actions, cap its blast radius, and stop it when it runs away.</description>
-      <pubDate>Tue, 23 Jun 2026 11:23:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:22:00 GMT</pubDate>
     </item>
     <item>
       <title>Context Engineering for Agent Loops</title>
       <link>https://looprails.dev/article-context-engineering-agent-loops.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-context-engineering-agent-loops.html</guid>
       <description>Context engineering means deciding what goes into the model's window each turn: the goal, the done-condition, and what to keep, drop, summarize, and retrieve. How to keep an agent loop effective across many turns instead of drifting.</description>
-      <pubDate>Tue, 23 Jun 2026 11:22:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:21:00 GMT</pubDate>
     </item>
     <item>
       <title>Loop Health: What to Monitor in a Running Loop</title>
       <link>https://looprails.dev/article-loop-health-monitoring.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-loop-health-monitoring.html</guid>
       <description>Which signals tell you an agent loop is working, stuck, or burning money: turns, spend per successful outcome, the verifier-score trend, the no-progress streak, and the thresholds that feed the circuit breaker and kill switch.</description>
-      <pubDate>Tue, 23 Jun 2026 11:21:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:20:00 GMT</pubDate>
     </item>
     <item>
       <title>World Models for Agent Loops</title>
       <link>https://looprails.dev/article-world-models-agent-loops.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-world-models-agent-loops.html</guid>
       <description>A world model predicts what an action will do before the loop runs it. How to use simulation as a consequence preview, a planning aid, and an offline eval, and why a prediction is a claim to verify, not proof.</description>
-      <pubDate>Tue, 23 Jun 2026 11:20:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:19:00 GMT</pubDate>
     </item>
     <item>
       <title>Failure Recovery for Agent Loops</title>
       <link>https://looprails.dev/article-failure-recovery-agent-loops.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-failure-recovery-agent-loops.html</guid>
       <description>How to make an agent loop survive its own failures: durable checkpoints and resume, idempotent retries with backoff, a circuit breaker, verifier-gated retries, and saga-style rollback for irreversible actions.</description>
-      <pubDate>Tue, 23 Jun 2026 11:19:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:18:00 GMT</pubDate>
     </item>
     <item>
       <title>Multi-Agent Loops: When More Agents Help</title>
       <link>https://looprails.dev/article-multi-agent-loops.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-multi-agent-loops.html</guid>
       <description>When splitting a loop across multiple agents helps and when it just adds failure surface: the patterns that work, the MAST failure taxonomy, the reviewer-agent trap, and the oversight each sub-agent needs.</description>
-      <pubDate>Tue, 23 Jun 2026 11:18:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:17:00 GMT</pubDate>
     </item>
     <item>
       <title>MCP and Skill Overload</title>
       <link>https://looprails.dev/article-mcp-skill-overload.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-mcp-skill-overload.html</guid>
       <description>Every tool, MCP server, and skill you connect spends context and lowers tool-selection accuracy. What the research says about too many tools, how it cuts your useful turns, and how to keep the toolset lean.</description>
-      <pubDate>Tue, 23 Jun 2026 11:17:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:16:00 GMT</pubDate>
     </item>
     <item>
       <title>Agent Workflow Patterns</title>
       <link>https://looprails.dev/article-agent-workflow-patterns.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-agent-workflow-patterns.html</guid>
       <description>A plain-English recipe book of agent workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer, with the failure modes of each and how to fix them.</description>
-      <pubDate>Tue, 23 Jun 2026 11:16:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:15:00 GMT</pubDate>
     </item>
     <item>
       <title>Autonomous Agent Patterns</title>
       <link>https://looprails.dev/article-autonomous-agent-patterns.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-autonomous-agent-patterns.html</guid>
       <description>A plain-English recipe book of autonomous agent patterns: ReAct, reflection, plan-and-execute, tool use, memory, and single vs multi-agent, with the failure modes of each and how to fix them.</description>
-      <pubDate>Tue, 23 Jun 2026 11:15:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:14:00 GMT</pubDate>
     </item>
     <item>
       <title>RAG Retrieval Patterns</title>
       <link>https://looprails.dev/article-rag-retrieval-patterns.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-rag-retrieval-patterns.html</guid>
       <description>A plain-English recipe book for RAG retrieval: chunking, embeddings and vector search, hybrid search, reranking, query transformation, and metadata filtering, with the failure modes of each and how to fix them.</description>
-      <pubDate>Tue, 23 Jun 2026 11:14:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:13:00 GMT</pubDate>
     </item>
     <item>
       <title>Advanced and Agentic RAG</title>
       <link>https://looprails.dev/article-advanced-agentic-rag.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-advanced-agentic-rag.html</guid>
       <description>A plain-English recipe book for advanced RAG: contextual retrieval, agentic RAG, corrective RAG, self-RAG, GraphRAG, and how to evaluate a RAG system, with the failure modes of each and how to fix them.</description>
-      <pubDate>Tue, 23 Jun 2026 11:13:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:12:00 GMT</pubDate>
     </item>
     <item>
       <title>LoRA vs Fine-Tuning vs Pre-Training</title>
       <link>https://looprails.dev/article-lora-vs-fine-tuning-vs-pre-training.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-lora-vs-fine-tuning-vs-pre-training.html</guid>
       <description>What LoRA, full fine-tuning, and pre-training each change in a model, what they cost, and when to reach for each when adapting a model for an agent loop. Plus why retrieval often beats fine-tuning.</description>
-      <pubDate>Tue, 23 Jun 2026 11:12:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:11:00 GMT</pubDate>
     </item>
     <item>
       <title>What You Can &amp; Can't Do With Models You Don't Control</title>
       <link>https://looprails.dev/article-adapting-models-you-dont-control.html</link>
       <guid isPermaLink="true">https://looprails.dev/article-adapting-models-you-dont-control.html</guid>
       <description>Closed API models (Claude, GPT, Gemini) versus open-weight models (Llama, Mistral, Gemma): what each lets you change, what it takes off the table, and how that choice shapes the loop you build.</description>
-      <pubDate>Tue, 23 Jun 2026 11:11:00 GMT</pubDate>
+      <pubDate>Tue, 23 Jun 2026 11:10:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
