@@ -64,6 +64,12 @@ competence to change the decision" [D-4]). If any is absent, the oversight is th
 | **Ability** | The human has the competence and the *time* to evaluate before it's too late [H-19, E-22]. | Out-of-the-loop failure [E-13] |
 | **Accountability** | Responsibility is traceable to an informed human, not diffused [C-20]. Felt accountability also reduces bias [F-11]. | Responsibility gap [D-15] |
 
+### The two loops
+
+Everything that follows describes one half of a larger structure. A loop you can ship is really two loops at different speeds. The **inner loop** is the agent against a fixed verifier: propose, check, retry, fast and unattended. The **outer loop** is the human looking at what the inner loop produced and sharpening both the verifier and the goal: slow, deliberate, the loop this framework is about. The verifier is the seam between them, the artifact the inner loop reads and the outer loop rewrites.
+
+This matters here for two reasons. First, the human in this framework *is* the outer loop, so "calibrated oversight" is the design of when and how that outer loop engages, not a switch bolted onto an inner loop that already ran. Second, the outer loop does two jobs at once: it catches the unsafe actions this framework grades and guards, and it clarifies intent by encoding each observed failure into the verifier. That is why the done-condition does not have to be perfect on day one; it accretes in the outer loop, the way a regression suite grows from bugs. See [the two loops](article-two-loops.html) and the [LoopRails Doctrine](article-loop-engineering-doctrine.html).
+
 ---
 
 ## 1. The core model: Consequence × Controllability

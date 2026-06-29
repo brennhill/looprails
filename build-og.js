@@ -66,6 +66,7 @@ const CARDS = {
   "article-loop-patterns": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["Loop patterns"], size: 62, sub: "For engineering and data science.", method: false, accent: TEAL },
   "article-evaluation-driven-development": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["Evaluation-driven", "development"], size: 52, sub: "The verifier is the point.", method: false, accent: TEAL },
   "article-verification-functions": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["What makes", "a verifier work"], size: 54, sub: "The verifier is the spec.", method: false, accent: TEAL },
+  "article-two-loops": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["The two loops"], size: 62, sub: "Intent clarity, not waterfall.", method: false, accent: TEAL },
   "article-loop-engineering-oversight": { eyebrow: "LOOPRAILS · LOOP ENGINEERING", head: ["Keep a loop", "on the rails"], size: 56, sub: "Grade it, cap it, stop it.", method: false, accent: G2 },
   "article-loop-engineering-doctrine": { eyebrow: "LOOPRAILS · THE DOCTRINE", head: ["The LoopRails", "Doctrine"], size: 62, sub: "Ten principles for loops you can ship.", method: true, accent: TEAL },
   "article-lora-vs-fine-tuning-vs-pre-training": { eyebrow: "LOOPRAILS · BUILD A LOOP", head: ["LoRA, fine-tuning,", "or pre-training?"], size: 50, sub: "When each one makes sense.", method: false, accent: TEAL },

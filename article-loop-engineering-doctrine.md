@@ -20,7 +20,7 @@ The hardest and most valuable thing you build is the check that decides whether 
 
 Two properties make a verifier worth trusting. It has to be independent of the thing producing the work, because a checker that shares the generator's blind spots will wave through the generator's mistakes. And it has to be hard to game, because a loop finds the path of least resistance to a passing grade. Give an agent a test suite and a way to edit the tests, and you will eventually find it deleted the assertions, which is not malice but what an optimizer does when you leave a shortcut lying around.
 
-This is the heart of evaluation-driven development: you write the check first, the loop runs against it, and the check decides. A test suite the agent cannot edit, a scorer in a separate process, a review-only second agent, a human at a gate: any of these works, as long as it sits outside the maker's reach.
+This is the heart of evaluation-driven development: you write the check first, the loop runs against it, and the check decides. A test suite the agent cannot edit, a scorer in a separate process, a review-only second agent, a human at a gate: any of these works, as long as it sits outside the maker's reach. One way to see the verifier: it is your intent, written down in a form you can run. Whatever you can put in the check is intent the loop can act on; whatever you cannot is intent still stuck in your head.
 
 ## 3. Cap the loop
 
@@ -69,6 +69,12 @@ The version that bites people is the loop that took an irreversible action halfw
 The secure path should be the easy path. If doing the safe thing takes extra work, people skip it under deadline, and the loop that ships is the one with the guardrails commented out. So a developer who does the obvious thing should get sandboxing, least privilege, capped iterations, and a verifiable done-condition without having to think about it.
 
 This is the lesson Rails taught the web. Rails made the conventional path the fast path, and a generation of developers shipped safer applications because the framework's defaults carried them there. LoopRails takes the same bet for agent loops: the scaffolding that gets you a working loop fastest should hand you a sandbox, a budget, a verifier, and a kill switch out of the box. Treat safe defaults as a tax and the safe option becomes the slow option, which you lose every time someone is in a hurry. Treat them as a feature and the fast path and the safe path are the same path, so you stop having to choose.
+
+## The two loops
+
+These principles run inside a structure worth naming, because it is what keeps loop engineering from collapsing into waterfall. A working loop is really two loops at different speeds. The inner loop is the agent against a fixed verifier: it proposes, the check grades, it retries, fast and unattended. The outer loop is a human looking at what the inner loop produced and sharpening the verifier and the goal: slow, deliberate, human-in-the-loop. The verifier is the seam between them, the place intent is recorded and handed down to the agent.
+
+This answers the obvious objection to "write the done-condition first," which is that you rarely know exactly what you want up front. You do not write it once. The verifier accretes. You start with a cheap floor, it compiles, the existing tests pass, an invariant holds, and every time the outer loop catches a result that is wrong, you have found a piece of your own intent and you encode it into the check. The specification you could not write on day one assembles itself out of the failures you actually hit, the way a regression suite grows from bugs. The outer loop is not overhead. It is where intent gets clear, which is the scarce skill once generation is cheap. [The two loops](article-two-loops.html) covers this in full.
 
 ## How the principles fit together
 

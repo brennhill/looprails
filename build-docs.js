@@ -226,6 +226,10 @@ const ARTICLES = {
     label: "What Makes a Verifier Work",
     title: "Verification Functions for AI Agent Loops: What Actually Works · LoopRails",
     desc: "What the research says about verification functions in agent loops: the verifier-strength spectrum, why verification is the bottleneck, reward hacking and how to harden against it, and whether the verifier replaces a detailed spec. Backed by Codex Part 7." },
+  "article-two-loops": { md: "article-two-loops.md", out: "article-two-loops.html",
+    label: "The Two Loops: Intent Clarity & the Delivery Gap",
+    title: "The Two Loops: Intent Clarity and the Delivery Gap · LoopRails",
+    desc: "The hard part of building with agents is not generation, it is intent. Loop engineering closes the delivery gap with two loops: an inner loop that converges on the verifier, and an outer loop where a human clarifies intent by sharpening it. Why the spec accretes from failures, not up front." },
   "article-loop-engineering-oversight": { md: "article-loop-engineering-oversight.md", out: "article-loop-engineering-oversight.html",
     label: "Oversight for Autonomous Loops",
     title: "How to Keep an Autonomous Loop on the Rails · LoopRails",
@@ -573,7 +577,7 @@ function articlesIndexPage() {
   const items = Object.values(ARTICLES);
   const CATS = [
     ["The LoopRails Doctrine", ["article-loop-engineering-doctrine"]],
-    ["Build a loop", ["article-loop-engineering", "article-build-agent-loop", "article-context-engineering-agent-loops", "article-mcp-skill-overload", "article-loop-patterns", "article-evaluation-driven-development", "article-verification-functions", "article-world-models-agent-loops", "article-multi-agent-loops"]],
+    ["Build a loop", ["article-loop-engineering", "article-build-agent-loop", "article-context-engineering-agent-loops", "article-mcp-skill-overload", "article-loop-patterns", "article-evaluation-driven-development", "article-verification-functions", "article-two-loops", "article-world-models-agent-loops", "article-multi-agent-loops"]],
     ["Agent design patterns", ["article-agent-workflow-patterns", "article-autonomous-agent-patterns"]],
     ["RAG patterns", ["article-rag-retrieval-patterns", "article-advanced-agentic-rag"]],
     ["Choosing & adapting models", ["article-lora-vs-fine-tuning-vs-pre-training", "article-adapting-models-you-dont-control"]],
