@@ -7,11 +7,11 @@
 <meta name="description" content="The LoopRails practitioner field guide: grade each AI agent action, guard it, design the review moment, and prove the human-in-the-loop oversight actually catches mistakes.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
-<link rel="canonical" href="https://looprails.dev/playbook.html">
+<link rel="canonical" href="https://looprails.dev/playbook">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Human-in-the-Loop Playbook for AI Agents · LoopRails">
 <meta property="og:description" content="The LoopRails practitioner field guide: grade each AI agent action, guard it, design the review moment, and prove the human-in-the-loop oversight actually catches mistakes.">
-<meta property="og:url" content="https://looprails.dev/playbook.html">
+<meta property="og:url" content="https://looprails.dev/playbook">
 <meta property="og:image" content="https://looprails.dev/og-playbook.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Human-in-the-Loop Playbook for AI Agents · LoopRails">
@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Playbook","name":"Human-in-the-Loop Playbook for AI Agents · LoopRails","description":"The LoopRails practitioner field guide: grade each AI agent action, guard it, design the review moment, and prove the human-in-the-loop oversight actually catches mistakes.","inLanguage":"en-US","url":"https://looprails.dev/playbook.html","mainEntityOfPage":"https://looprails.dev/playbook.html","image":"https://looprails.dev/og-playbook.png","datePublished":"2026-06-22","dateModified":"2026-06-29","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Playbook","item":"https://looprails.dev/playbook.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Playbook","name":"Human-in-the-Loop Playbook for AI Agents · LoopRails","description":"The LoopRails practitioner field guide: grade each AI agent action, guard it, design the review moment, and prove the human-in-the-loop oversight actually catches mistakes.","inLanguage":"en-US","url":"https://looprails.dev/playbook","mainEntityOfPage":"https://looprails.dev/playbook","image":"https://looprails.dev/og-playbook.png","datePublished":"2026-06-22","dateModified":"2026-07-02","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Playbook","item":"https://looprails.dev/playbook"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -93,13 +93,13 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 </head>
 <body>
 <div class="topbar">
-  <a class="brand" href="index.html"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
-  <nav class="docpick"><a href="article-loop-engineering-doctrine.html" class="">Doctrine</a><a href="playbook.html" class="on">Playbook</a><a href="framework.html" class="">Framework</a><a href="kit.html" class="">Kit</a><a href="cookbook.html" class="">Cookbook</a><a href="codex.html" class="">Codex</a><a href="articles.html" class="">Articles</a></nav>
+  <a class="brand" href="/"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
+  <nav class="docpick"><a href="article-loop-engineering-doctrine" class="">Doctrine</a><a href="playbook" class="on">Playbook</a><a href="framework" class="">Framework</a><a href="kit" class="">Kit</a><a href="cookbook" class="">Cookbook</a><a href="codex" class="">Codex</a><a href="articles" class="">Articles</a></nav>
 </div>
 <div class="layout">
   <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-30-second-version" class="" data-id="the-30-second-version">The 30-second version</a><a href="#move-1-grade-what39s-it-worth" class="" data-id="move-1-grade-what39s-it-worth">Move 1: GRADE (what&amp;#39;s it worth?)</a><a href="#move-2-guard-how-much-control-and-what-kind" class="" data-id="move-2-guard-how-much-control-and-what-kind">Move 2: GUARD (how much control, and what kind?)</a><a href="#move-3-show-design-the-oversight-moment" class="" data-id="move-3-show-design-the-oversight-moment">Move 3: SHOW (design the oversight moment)</a><a href="#move-4-prove-does-the-oversight-actually-work" class="" data-id="move-4-prove-does-the-oversight-actually-work">Move 4: PROVE (does the oversight actually work?)</a><a href="#the-four-a39s-the-meaningful-control-test" class="" data-id="the-four-a39s-the-meaningful-control-test">The four A&amp;#39;s: the meaningful-control test</a><a href="#the-anti-pattern-deck-name-them-kill-them" class="" data-id="the-anti-pattern-deck-name-them-kill-them">The anti-pattern deck: name them, kill them</a><a href="#maturity-ladder-where-are-you" class="" data-id="maturity-ladder-where-are-you">Maturity ladder: where are you?</a><a href="#the-standup-smell-test-ask-these-in-any-agent-review" class="" data-id="the-standup-smell-test-ask-these-in-any-agent-review">The standup smell-test (ask these in any agent review)</a><a href="#recipes-condensed" class="" data-id="recipes-condensed">Recipes (condensed)</a><a href="#how-the-three-docs-fit" class="" data-id="how-the-three-docs-fit">How the three docs fit</a></div></aside>
   <main class="content">
-    <div class="crumb"><a href="index.html">LoopRails</a> · Playbook</div>
+    <div class="crumb"><a href="/">LoopRails</a> · Playbook</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/playbook.md">View playbook.md on GitHub ↗</a>
       <h1 id="looprails-a-practitioner39s-playbook-for-human-in-the-loop-a">LoopRails: A Practitioner&#39;s Playbook for Human-in-the-Loop Agentic AI</h1>
@@ -420,7 +420,7 @@ source there.</p>
 <section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get the 5 templates for shipping a guarded loop</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Enter your email and I'll send the LoopRails Kit: the fill-in templates that take an agent loop from idea to safely running, plus the one-page cheat sheet. New essays on loop engineering after that.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
-  <span><a href="index.html">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
+  <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
 </footer>
 <script>
 (function(){

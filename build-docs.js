@@ -298,6 +298,11 @@ function injectByline(html, dateISO) {
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const stripTags = (s) => s.replace(/<[^>]+>/g, "");
 const slug = (s) => stripTags(s).toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-").slice(0, 60);
+// Clean URLs: files stay named *.html, but Cloudflare Pages serves them extension-less
+// (/kit from kit.html). So all internal links + metadata drop the .html.
+const cleanHref = (f) => (f === "index.html" ? "" : f.replace(/\.html$/, ""));
+// Strip .html from local <a href="..."> (not external https links, not code text, not .md).
+const stripHtmlHrefs = (html) => html.replace(/href="([^"#:]+)\.html(#[^"]*)?"/g, (m, p, h) => `href="${p === "index" ? "/" : p}${h || ""}"`);
 
 function styleBlock() {
   return `<style>
@@ -437,7 +442,7 @@ function securingNote(key) {
 
 function page(key, d, contentHTML, toc) {
   const title = d.title || `${stripTags(d.label).replace(/ ·.*/, "")} · LoopRails`;
-  const url = `${SITE}/${d.out}`;
+  const url = `${SITE}/${cleanHref(d.out)}`;
   const ogimg = `${SITE}/og-${key}.png`;
   const isArticle = key.startsWith("article-");
   let body = contentHTML;
@@ -453,7 +458,7 @@ function page(key, d, contentHTML, toc) {
     ? `<a href="index.html">LoopRails</a> · <a href="articles.html">Articles</a> · ${esc(stripTags(d.label))}`
     : `<a href="index.html">LoopRails</a> · ${esc(stripTags(d.label))}`;
   const breadcrumb = isArticle
-    ? [["LoopRails", SITE + "/"], ["Articles", SITE + "/articles.html"], [stripTags(d.label), url]]
+    ? [["LoopRails", SITE + "/"], ["Articles", SITE + "/articles"], [stripTags(d.label), url]]
     : [["LoopRails", SITE + "/"], [stripTags(d.label), url]];
   const jsonld = JSON.stringify({
     "@context": "https://schema.org",
@@ -546,7 +551,7 @@ function rssFeed() {
   const items = Object.values(ARTICLES);
   const lastBuild = new Date().toUTCString();
   const entries = items.map((a, i) => {
-    const link = `${SITE}/${a.out}`;
+    const link = `${SITE}/${cleanHref(a.out)}`;
     return `    <item>
       <title>${esc(a.label)}</title>
       <link>${link}</link>
@@ -571,7 +576,7 @@ ${entries}
 }
 
 function articlesIndexPage() {
-  const url = `${SITE}/articles.html`;
+  const url = `${SITE}/articles`;
   const title = "Articles on Human-in-the-Loop & AI Agent Safety · LoopRails";
   const desc = "Practical articles on human-in-the-loop oversight and AI agent safety: HITL explained, when agents should ask for approval, the lethal trifecta, AI agent guardrails, and more.";
   const items = Object.values(ARTICLES);
@@ -604,7 +609,7 @@ function articlesIndexPage() {
   if (leftover.length) sections += `\n  <h2 class="cathead">More</h2>\n  <div class="alist">${leftover.map(k => card(ARTICLES[k])).join("")}\n  </div>`;
   const itemList = JSON.stringify({
     "@context": "https://schema.org", "@type": "ItemList",
-    "itemListElement": items.map((a, i) => ({ "@type": "ListItem", "position": i + 1, "url": `${SITE}/${a.out}`, "name": a.label }))
+    "itemListElement": items.map((a, i) => ({ "@type": "ListItem", "position": i + 1, "url": `${SITE}/${cleanHref(a.out)}`, "name": a.label }))
   });
   return `<!doctype html>
 <html lang="en">
@@ -675,18 +680,18 @@ for (const [key, d] of Object.entries(ALL)) {
   html = injectHeadingIds(html);
   if (key === "codex" || key === "codex-loops") html = injectRefAnchors(html);
   const toc = buildTOC(html);
-  fs.writeFileSync(path.join(__dirname, d.out), page(key, d, html, toc));
+  fs.writeFileSync(path.join(__dirname, d.out), stripHtmlHrefs(page(key, d, html, toc)));
   built.push(d.out);
 }
 
-fs.writeFileSync(path.join(__dirname, "articles.html"), articlesIndexPage());
+fs.writeFileSync(path.join(__dirname, "articles.html"), stripHtmlHrefs(articlesIndexPage()));
 built.push("articles.html");
 
 fs.writeFileSync(path.join(__dirname, "feed.xml"), rssFeed());
 built.push("feed.xml");
 
 // sitemap + robots
-const urls = ["", "articles.html", "cheatsheet.html", ...Object.values(ALL).map(d => d.out)];
+const urls = ["", "articles", "cheatsheet", ...Object.values(ALL).map(d => cleanHref(d.out))];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map(u => `  <url><loc>${SITE}/${u}</loc><lastmod>${TODAY}</lastmod></url>`).join("\n")}

@@ -7,11 +7,11 @@
 <meta name="description" content="A plain-English recipe book for building AI agent loops: agent design patterns, RAG patterns, and the common failure modes of each, with how to get around them. What it is, when to use it, how it fails, how to fix it.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
-<link rel="canonical" href="https://looprails.dev/cookbook.html">
+<link rel="canonical" href="https://looprails.dev/cookbook">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The LoopRails Cookbook: Agent &amp; RAG Design Patterns with Failure Modes · LoopRails">
 <meta property="og:description" content="A plain-English recipe book for building AI agent loops: agent design patterns, RAG patterns, and the common failure modes of each, with how to get around them. What it is, when to use it, how it fails, how to fix it.">
-<meta property="og:url" content="https://looprails.dev/cookbook.html">
+<meta property="og:url" content="https://looprails.dev/cookbook">
 <meta property="og:image" content="https://looprails.dev/og-cookbook.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The LoopRails Cookbook: Agent &amp; RAG Design Patterns with Failure Modes · LoopRails">
@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Cookbook","name":"The LoopRails Cookbook: Agent & RAG Design Patterns with Failure Modes · LoopRails","description":"A plain-English recipe book for building AI agent loops: agent design patterns, RAG patterns, and the common failure modes of each, with how to get around them. What it is, when to use it, how it fails, how to fix it.","inLanguage":"en-US","url":"https://looprails.dev/cookbook.html","mainEntityOfPage":"https://looprails.dev/cookbook.html","image":"https://looprails.dev/og-cookbook.png","datePublished":"2026-06-22","dateModified":"2026-06-29","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Cookbook","item":"https://looprails.dev/cookbook.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Cookbook","name":"The LoopRails Cookbook: Agent & RAG Design Patterns with Failure Modes · LoopRails","description":"A plain-English recipe book for building AI agent loops: agent design patterns, RAG patterns, and the common failure modes of each, with how to get around them. What it is, when to use it, how it fails, how to fix it.","inLanguage":"en-US","url":"https://looprails.dev/cookbook","mainEntityOfPage":"https://looprails.dev/cookbook","image":"https://looprails.dev/og-cookbook.png","datePublished":"2026-06-22","dateModified":"2026-07-02","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Cookbook","item":"https://looprails.dev/cookbook"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -93,37 +93,37 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 </head>
 <body>
 <div class="topbar">
-  <a class="brand" href="index.html"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
-  <nav class="docpick"><a href="article-loop-engineering-doctrine.html" class="">Doctrine</a><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="kit.html" class="">Kit</a><a href="cookbook.html" class="on">Cookbook</a><a href="codex.html" class="">Codex</a><a href="articles.html" class="">Articles</a></nav>
+  <a class="brand" href="/"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
+  <nav class="docpick"><a href="article-loop-engineering-doctrine" class="">Doctrine</a><a href="playbook" class="">Playbook</a><a href="framework" class="">Framework</a><a href="kit" class="">Kit</a><a href="cookbook" class="on">Cookbook</a><a href="codex" class="">Codex</a><a href="articles" class="">Articles</a></nav>
 </div>
 <div class="layout">
   <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#chapters" class="" data-id="chapters">Chapters</a><a href="#loops" class="h3" data-id="loops">Loops</a><a href="#agents" class="h3" data-id="agents">Agents</a><a href="#rag" class="h3" data-id="rag">RAG</a><a href="#how-to-use-it" class="" data-id="how-to-use-it">How to use it</a></div></aside>
   <main class="content">
-    <div class="crumb"><a href="index.html">LoopRails</a> · Cookbook</div>
+    <div class="crumb"><a href="/">LoopRails</a> · Cookbook</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/cookbook.md">View cookbook.md on GitHub ↗</a>
       <h1 id="the-looprails-cookbook">The LoopRails Cookbook</h1>
 <p>Recipes for building AI agent loops: the ways agents are designed, the ways RAG is designed, and the failure modes that bite each one, in plain English. Every recipe follows the same shape, so you can scan it fast: what it is, when to reach for it, how it fails, and how to fix it.</p>
-<p>This is the recipe side of LoopRails. The <a href="article-loop-engineering-doctrine.html">Doctrine</a> holds the principles, the <a href="framework.html">framework</a> holds the method, and this is the parts catalog. Pick the pattern that fits the task, read its failure modes before you ship, and keep a verifier and the guardrails around whatever you build.</p>
+<p>This is the recipe side of LoopRails. The <a href="article-loop-engineering-doctrine">Doctrine</a> holds the principles, the <a href="framework">framework</a> holds the method, and this is the parts catalog. Pick the pattern that fits the task, read its failure modes before you ship, and keep a verifier and the guardrails around whatever you build.</p>
 <h2 id="chapters">Chapters</h2>
 <h3 id="loops">Loops</h3>
 <ul>
-<li><a href="article-loop-patterns.html">Loop patterns for engineering and data science</a>. Test-fixing, refactor, dependency-upgrade, data-cleaning, experiment, and plan-in-simulation loops, each with a done-condition, a verifier, and the guardrail that keeps it honest.</li>
+<li><a href="article-loop-patterns">Loop patterns for engineering and data science</a>. Test-fixing, refactor, dependency-upgrade, data-cleaning, experiment, and plan-in-simulation loops, each with a done-condition, a verifier, and the guardrail that keeps it honest.</li>
 </ul>
 <h3 id="agents">Agents</h3>
 <ul>
-<li><a href="article-agent-workflow-patterns.html">Agent workflow patterns</a>. Prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer. The patterns where you control the path.</li>
-<li><a href="article-autonomous-agent-patterns.html">Autonomous agent patterns</a>. ReAct, reflection, plan-and-execute, tool use, memory, and single-agent versus multi-agent. The patterns where the model decides the next step.</li>
-<li><a href="article-multi-agent-loops.html">Multi-agent loops</a>. When more agents help, how they break, and the oversight each one needs.</li>
+<li><a href="article-agent-workflow-patterns">Agent workflow patterns</a>. Prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer. The patterns where you control the path.</li>
+<li><a href="article-autonomous-agent-patterns">Autonomous agent patterns</a>. ReAct, reflection, plan-and-execute, tool use, memory, and single-agent versus multi-agent. The patterns where the model decides the next step.</li>
+<li><a href="article-multi-agent-loops">Multi-agent loops</a>. When more agents help, how they break, and the oversight each one needs.</li>
 </ul>
 <h3 id="rag">RAG</h3>
 <ul>
-<li><a href="article-rag-retrieval-patterns.html">RAG retrieval patterns</a>. Chunking, embeddings and vector search, hybrid search, reranking, query transformation, and metadata filtering. The core retrieval pipeline.</li>
-<li><a href="article-advanced-agentic-rag.html">Advanced and agentic RAG</a>. Contextual retrieval, agentic RAG, corrective RAG, self-RAG, GraphRAG, and how to evaluate a RAG system.</li>
+<li><a href="article-rag-retrieval-patterns">RAG retrieval patterns</a>. Chunking, embeddings and vector search, hybrid search, reranking, query transformation, and metadata filtering. The core retrieval pipeline.</li>
+<li><a href="article-advanced-agentic-rag">Advanced and agentic RAG</a>. Contextual retrieval, agentic RAG, corrective RAG, self-RAG, GraphRAG, and how to evaluate a RAG system.</li>
 </ul>
 <h2 id="how-to-use-it">How to use it</h2>
 <p>Start from the task, not the pattern. Most systems begin as the simplest thing that works, a single prompt and then a workflow, and add autonomy or retrieval only when the task needs it. Read the failure modes before you build, because most of them are cheaper to design around than to debug in production. Whatever you assemble, keep an independent verifier deciding whether it worked, and keep the guardrails (graded actions, caps, a kill switch) around it.</p>
-<p>The sources behind these recipes are collected in the <a href="codex-loops.html">Loop Engineering Codex</a>. For securing what you build, the <a href="https://braceframework.org">BRACE Framework</a> covers the agent&#39;s configuration and infrastructure.</p>
+<p>The sources behind these recipes are collected in the <a href="codex-loops">Loop Engineering Codex</a>. For securing what you build, the <a href="https://braceframework.org">BRACE Framework</a> covers the agent&#39;s configuration and infrastructure.</p>
 
     </div>
     
@@ -133,7 +133,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get the 5 templates for shipping a guarded loop</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Enter your email and I'll send the LoopRails Kit: the fill-in templates that take an agent loop from idea to safely running, plus the one-page cheat sheet. New essays on loop engineering after that.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
-  <span><a href="index.html">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
+  <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
 </footer>
 <script>
 (function(){

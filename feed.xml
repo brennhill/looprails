@@ -6,368 +6,368 @@
     <atom:link href="https://looprails.dev/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Practical, sourced writing on human-in-the-loop oversight of AI agents, when review helps, when it's a rubber stamp, and how to design oversight that actually catches mistakes.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Jun 2026 07:04:12 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 09:09:10 GMT</lastBuildDate>
     <item>
       <title>What Is Human-in-the-Loop (HITL) in AI?</title>
-      <link>https://looprails.dev/article-what-is-human-in-the-loop.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-what-is-human-in-the-loop.html</guid>
+      <link>https://looprails.dev/article-what-is-human-in-the-loop</link>
+      <guid isPermaLink="true">https://looprails.dev/article-what-is-human-in-the-loop</guid>
       <description>Human-in-the-loop (HITL) means a person reviews or can intervene in an AI system's actions. A practical guide to HITL for AI agents, what it is, when it works, and when to prevent instead.</description>
       <pubDate>Tue, 23 Jun 2026 12:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Does Human-in-the-Loop Improve AI Safety?</title>
-      <link>https://looprails.dev/article-hitl-ai-safety.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-ai-safety.html</guid>
+      <link>https://looprails.dev/article-hitl-ai-safety</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-ai-safety</guid>
       <description>Does keeping a human in the loop actually make AI agents safer? The evidence, when HITL helps, when it's false safety, and what real AI agent safety looks like.</description>
       <pubDate>Tue, 23 Jun 2026 11:59:00 GMT</pubDate>
     </item>
     <item>
       <title>In-the-Loop vs On-the-Loop vs Out-of-the-Loop</title>
-      <link>https://looprails.dev/article-in-the-loop-vs-on-the-loop.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-in-the-loop-vs-on-the-loop.html</guid>
+      <link>https://looprails.dev/article-in-the-loop-vs-on-the-loop</link>
+      <guid isPermaLink="true">https://looprails.dev/article-in-the-loop-vs-on-the-loop</guid>
       <description>Human-in-the-loop, human-on-the-loop, and out-of-the-loop explained: definitions, tradeoffs, the sudden-handoff problem, and how to choose oversight for AI agents.</description>
       <pubDate>Tue, 23 Jun 2026 11:58:00 GMT</pubDate>
     </item>
     <item>
       <title>When Should an AI Agent Ask for Approval?</title>
-      <link>https://looprails.dev/article-ai-agent-approval.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-ai-agent-approval.html</guid>
+      <link>https://looprails.dev/article-ai-agent-approval</link>
+      <guid isPermaLink="true">https://looprails.dev/article-ai-agent-approval</guid>
       <description>When AI agents should ask for human approval, and how to build approval gates that catch mistakes instead of becoming rubber stamps. Graded examples G0-G3.</description>
       <pubDate>Tue, 23 Jun 2026 11:57:00 GMT</pubDate>
     </item>
     <item>
       <title>The Lethal Trifecta: How AI Agents Leak Data</title>
-      <link>https://looprails.dev/article-lethal-trifecta.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-lethal-trifecta.html</guid>
+      <link>https://looprails.dev/article-lethal-trifecta</link>
+      <guid isPermaLink="true">https://looprails.dev/article-lethal-trifecta</guid>
       <description>The lethal trifecta, private data + untrusted content + an exfiltration channel, lets prompt injection steal data from AI agents. How it works and how to stop it.</description>
       <pubDate>Tue, 23 Jun 2026 11:56:00 GMT</pubDate>
     </item>
     <item>
       <title>AI Agent Guardrails: A Practical Checklist</title>
-      <link>https://looprails.dev/article-ai-agent-guardrails.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-ai-agent-guardrails.html</guid>
+      <link>https://looprails.dev/article-ai-agent-guardrails</link>
+      <guid isPermaLink="true">https://looprails.dev/article-ai-agent-guardrails</guid>
       <description>A practical AI agent guardrails checklist: sandboxing, least privilege, blast-radius caps, kill switches, circuit breakers, logging, and maker-checker, matched to risk.</description>
       <pubDate>Tue, 23 Jun 2026 11:55:00 GMT</pubDate>
     </item>
     <item>
       <title>AI Agent Autonomy Levels (L0-L6)</title>
-      <link>https://looprails.dev/article-ai-agent-autonomy-levels.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-ai-agent-autonomy-levels.html</guid>
+      <link>https://looprails.dev/article-ai-agent-autonomy-levels</link>
+      <guid isPermaLink="true">https://looprails.dev/article-ai-agent-autonomy-levels</guid>
       <description>AI agent autonomy levels explained: the L0-L6 ladder from silent autonomy to escalate-or-forbid, and how to pick the right level for each action by risk.</description>
       <pubDate>Tue, 23 Jun 2026 11:54:00 GMT</pubDate>
     </item>
     <item>
       <title>Prompt Injection Prevention</title>
-      <link>https://looprails.dev/article-prompt-injection-prevention.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-prompt-injection-prevention.html</guid>
+      <link>https://looprails.dev/article-prompt-injection-prevention</link>
+      <guid isPermaLink="true">https://looprails.dev/article-prompt-injection-prevention</guid>
       <description>How to prevent prompt injection in AI agents: why filtering fails, and a defense-in-depth approach, least privilege, runtime shields, sandboxing, and removing a lethal-trifecta leg.</description>
       <pubDate>Tue, 23 Jun 2026 11:53:00 GMT</pubDate>
     </item>
     <item>
       <title>Maker-Checker (Four-Eyes) for AI Agents</title>
-      <link>https://looprails.dev/article-maker-checker-ai.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-maker-checker-ai.html</guid>
+      <link>https://looprails.dev/article-maker-checker-ai</link>
+      <guid isPermaLink="true">https://looprails.dev/article-maker-checker-ai</guid>
       <description>Maker-checker and the four-eyes principle for AI agents: why the proposer shouldn't be the approver, which actions need it, and how to implement it without rubber-stamping.</description>
       <pubDate>Tue, 23 Jun 2026 11:52:00 GMT</pubDate>
     </item>
     <item>
       <title>Automation Bias: Why People Rubber-Stamp AI</title>
-      <link>https://looprails.dev/article-automation-bias.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-automation-bias.html</guid>
+      <link>https://looprails.dev/article-automation-bias</link>
+      <guid isPermaLink="true">https://looprails.dev/article-automation-bias</guid>
       <description>Automation bias is why human-in-the-loop oversight of AI fails: people over-trust the system and approve without scrutiny. The evidence, and how to design against it.</description>
       <pubDate>Tue, 23 Jun 2026 11:51:00 GMT</pubDate>
     </item>
     <item>
       <title>How to Build an AI Kill Switch</title>
-      <link>https://looprails.dev/article-ai-kill-switch.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-ai-kill-switch.html</guid>
+      <link>https://looprails.dev/article-ai-kill-switch</link>
+      <guid isPermaLink="true">https://looprails.dev/article-ai-kill-switch</guid>
       <description>What an AI kill switch is, why every agent needs one, and how to design one that stops everything in flight, fast, reachable by anyone, and blame-free.</description>
       <pubDate>Tue, 23 Jun 2026 11:50:00 GMT</pubDate>
     </item>
     <item>
       <title>Study: How AI Agent Skills Leak Credentials</title>
-      <link>https://looprails.dev/article-llm-agent-skills-credential-leak.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-llm-agent-skills-credential-leak.html</guid>
+      <link>https://looprails.dev/article-llm-agent-skills-credential-leak</link>
+      <guid isPermaLink="true">https://looprails.dev/article-llm-agent-skills-credential-leak</guid>
       <description>A 2026 study analyzed 17,022 AI agent skills and found rampant credential leaks, mostly via debug logging, during routine use. What it found and how to prevent it.</description>
       <pubDate>Tue, 23 Jun 2026 11:49:00 GMT</pubDate>
     </item>
     <item>
       <title>Study: A Compiler as the Verifier</title>
-      <link>https://looprails.dev/article-llm-compiler-loop-optimization.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-llm-compiler-loop-optimization.html</guid>
+      <link>https://looprails.dev/article-llm-compiler-loop-optimization</link>
+      <guid isPermaLink="true">https://looprails.dev/article-llm-compiler-loop-optimization</guid>
       <description>A 2025 study (ComPilot) put an off-the-shelf LLM in a loop with a compiler that checked legality and measured speedup, and the model refined: 2.66x single-run, 3.54x best-of-5, no fine-tuning. A measured proof of loop plus an independent verifier.</description>
       <pubDate>Tue, 23 Jun 2026 11:48:00 GMT</pubDate>
     </item>
     <item>
       <title>Agentic Loops in the Wild: Wins, Failures, Cost</title>
-      <link>https://looprails.dev/article-agentic-loops-in-the-wild.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-agentic-loops-in-the-wild.html</guid>
+      <link>https://looprails.dev/article-agentic-loops-in-the-wild</link>
+      <guid isPermaLink="true">https://looprails.dev/article-agentic-loops-in-the-wild</guid>
       <description>Real agentic-loop results woven together: DeepSeek-R1, AlphaCodium, o3 on ARC-AGI, SWE-agent, and the failures (reward hacking, the AI Scientist, GAIA, WebArena). The wins share an ungameable verifier and pay for compute; the failures lack one.</description>
       <pubDate>Tue, 23 Jun 2026 11:47:00 GMT</pubDate>
     </item>
     <item>
       <title>AI Agent Sandboxing</title>
-      <link>https://looprails.dev/article-ai-agent-sandboxing.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-ai-agent-sandboxing.html</guid>
+      <link>https://looprails.dev/article-ai-agent-sandboxing</link>
+      <guid isPermaLink="true">https://looprails.dev/article-ai-agent-sandboxing</guid>
       <description>What AI agent sandboxing is and why it beats per-action approval prompts: no-network containers, scoped credentials, resource caps, and disposable environments.</description>
       <pubDate>Tue, 23 Jun 2026 11:46:00 GMT</pubDate>
     </item>
     <item>
       <title>Least Privilege for AI Agents</title>
-      <link>https://looprails.dev/article-least-privilege-ai-agents.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-least-privilege-ai-agents.html</guid>
+      <link>https://looprails.dev/article-least-privilege-ai-agents</link>
+      <guid isPermaLink="true">https://looprails.dev/article-least-privilege-ai-agents</guid>
       <description>Least privilege for AI agents: give an agent only the tools, data, and credentials it needs, and why removing a capability beats forbidding its use.</description>
       <pubDate>Tue, 23 Jun 2026 11:45:00 GMT</pubDate>
     </item>
     <item>
       <title>The Circuit Breaker Pattern for AI Agents</title>
-      <link>https://looprails.dev/article-circuit-breaker-ai-agents.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-circuit-breaker-ai-agents.html</guid>
+      <link>https://looprails.dev/article-circuit-breaker-ai-agents</link>
+      <guid isPermaLink="true">https://looprails.dev/article-circuit-breaker-ai-agents</guid>
       <description>A circuit breaker auto-pauses an AI agent when error rate, spend, or volume crosses a threshold, and requires human re-authorization to resume. How to build one.</description>
       <pubDate>Tue, 23 Jun 2026 11:44:00 GMT</pubDate>
     </item>
     <item>
       <title>What Is Agentic AI?</title>
-      <link>https://looprails.dev/article-what-is-agentic-ai.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-what-is-agentic-ai.html</guid>
+      <link>https://looprails.dev/article-what-is-agentic-ai</link>
+      <guid isPermaLink="true">https://looprails.dev/article-what-is-agentic-ai</guid>
       <description>Agentic AI explained: how AI agents plan and take actions with tools, what makes them powerful and risky, and why overseeing them means governing actions, not outputs.</description>
       <pubDate>Tue, 23 Jun 2026 11:43:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for AI Coding Agents</title>
-      <link>https://looprails.dev/article-hitl-coding-agents.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-coding-agents.html</guid>
+      <link>https://looprails.dev/article-hitl-coding-agents</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-coding-agents</guid>
       <description>How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0-G3, and match the right control to each.</description>
       <pubDate>Tue, 23 Jun 2026 11:42:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for AI Customer Support</title>
-      <link>https://looprails.dev/article-hitl-customer-support.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-customer-support.html</guid>
+      <link>https://looprails.dev/article-hitl-customer-support</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-customer-support</guid>
       <description>How to build human-in-the-loop oversight for AI customer support agents: value-conditional approval for refunds, review for outbound replies, and escalation done right.</description>
       <pubDate>Tue, 23 Jun 2026 11:41:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for AI Financial Transactions</title>
-      <link>https://looprails.dev/article-hitl-financial-transactions.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-financial-transactions.html</guid>
+      <link>https://looprails.dev/article-hitl-financial-transactions</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-financial-transactions</guid>
       <description>How to build human-in-the-loop oversight for AI agents that move money: maker-checker, value thresholds, circuit breakers, and kill switches for irreversible payments.</description>
       <pubDate>Tue, 23 Jun 2026 11:40:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for AI Database Operations</title>
-      <link>https://looprails.dev/article-hitl-database-operations.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-database-operations.html</guid>
+      <link>https://looprails.dev/article-hitl-database-operations</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-database-operations</guid>
       <description>How to build human-in-the-loop oversight for AI agents that run SQL: read-only by default, dry-runs, least privilege, backups, and maker-checker for prod schema changes.</description>
       <pubDate>Tue, 23 Jun 2026 11:39:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for AI Email &amp; Messaging</title>
-      <link>https://looprails.dev/article-hitl-email-agents.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-email-agents.html</guid>
+      <link>https://looprails.dev/article-hitl-email-agents</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-email-agents</guid>
       <description>How to build human-in-the-loop oversight for AI agents that send email and messages: undo-send windows, previews, rate caps, and approval for external or bulk sends.</description>
       <pubDate>Tue, 23 Jun 2026 11:38:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for AI Deployments</title>
-      <link>https://looprails.dev/article-hitl-deployments.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-deployments.html</guid>
+      <link>https://looprails.dev/article-hitl-deployments</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-deployments</guid>
       <description>How to build human-in-the-loop oversight for AI-driven deployments: canary plus automatic rollback, circuit breakers, and a kill switch instead of a rubber-stamp approval.</description>
       <pubDate>Tue, 23 Jun 2026 11:37:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for AI Content Moderation</title>
-      <link>https://looprails.dev/article-hitl-content-moderation.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-content-moderation.html</guid>
+      <link>https://looprails.dev/article-hitl-content-moderation</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-content-moderation</guid>
       <description>How to build human-in-the-loop oversight for AI content moderation: confidence-based routing, reversible removals, appeals as escalation, and avoiding reviewer fatigue.</description>
       <pubDate>Tue, 23 Jun 2026 11:36:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for Machine Learning</title>
-      <link>https://looprails.dev/article-hitl-machine-learning.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-machine-learning.html</guid>
+      <link>https://looprails.dev/article-hitl-machine-learning</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-machine-learning</guid>
       <description>Human-in-the-loop machine learning explained: labeling, active learning, low-confidence review, and RLHF, how to route human effort by uncertainty and keep label quality high.</description>
       <pubDate>Tue, 23 Jun 2026 11:35:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for AI in Healthcare</title>
-      <link>https://looprails.dev/article-hitl-healthcare.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-healthcare.html</guid>
+      <link>https://looprails.dev/article-hitl-healthcare</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-healthcare</guid>
       <description>How to design human-in-the-loop oversight for clinical AI: keep a licensed clinician in command, fight alert fatigue, and reserve autonomy for low-stakes actions.</description>
       <pubDate>Tue, 23 Jun 2026 11:34:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for AI Legal Work</title>
-      <link>https://looprails.dev/article-hitl-legal-contracts.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-legal-contracts.html</guid>
+      <link>https://looprails.dev/article-hitl-legal-contracts</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-legal-contracts</guid>
       <description>How to design human-in-the-loop oversight for AI legal and contract work: verify citations, attorney sign-off, maker-checker for execution, and treating documents as untrusted.</description>
       <pubDate>Tue, 23 Jun 2026 11:33:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for AI Hiring</title>
-      <link>https://looprails.dev/article-hitl-hiring.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-hiring.html</guid>
+      <link>https://looprails.dev/article-hitl-hiring</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-hiring</guid>
       <description>How to design human-in-the-loop oversight for AI hiring: keep a human deciding advance/reject, audit for bias, and never auto-reject candidates at scale.</description>
       <pubDate>Tue, 23 Jun 2026 11:32:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for Browser &amp; Computer-Use Agents</title>
-      <link>https://looprails.dev/article-hitl-browser-agents.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-browser-agents.html</guid>
+      <link>https://looprails.dev/article-hitl-browser-agents</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-browser-agents</guid>
       <description>How to design human-in-the-loop oversight for browser and computer-use agents: sandboxing, breaking the lethal trifecta, spend caps, and prompt-injection defense.</description>
       <pubDate>Tue, 23 Jun 2026 11:31:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for AI Voice Agents</title>
-      <link>https://looprails.dev/article-hitl-voice-agents.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-voice-agents.html</guid>
+      <link>https://looprails.dev/article-hitl-voice-agents</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-voice-agents</guid>
       <description>How to design human-in-the-loop oversight for real-time AI voice agents: limit capabilities, verbal confirmation, and warm handoff to a human for high-stakes calls.</description>
       <pubDate>Tue, 23 Jun 2026 11:30:00 GMT</pubDate>
     </item>
     <item>
       <title>Human-in-the-Loop for Multi-Agent Systems</title>
-      <link>https://looprails.dev/article-hitl-multi-agent-systems.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-hitl-multi-agent-systems.html</guid>
+      <link>https://looprails.dev/article-hitl-multi-agent-systems</link>
+      <guid isPermaLink="true">https://looprails.dev/article-hitl-multi-agent-systems</guid>
       <description>How to design human-in-the-loop oversight for multi-agent systems: least privilege per sub-agent, provenance logging, one kill switch, and clear human accountability.</description>
       <pubDate>Tue, 23 Jun 2026 11:29:00 GMT</pubDate>
     </item>
     <item>
       <title>The LoopRails Doctrine</title>
-      <link>https://looprails.dev/article-loop-engineering-doctrine.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-loop-engineering-doctrine.html</guid>
+      <link>https://looprails.dev/article-loop-engineering-doctrine</link>
+      <guid isPermaLink="true">https://looprails.dev/article-loop-engineering-doctrine</guid>
       <description>Ten principles for building agent loops that are fast to build and safe to run: a checkable done-condition, an independent verifier, caps, memory in a file, maker-checker, action grading, and guardrails on by default.</description>
       <pubDate>Tue, 23 Jun 2026 11:28:00 GMT</pubDate>
     </item>
     <item>
       <title>What Is Loop Engineering?</title>
-      <link>https://looprails.dev/article-loop-engineering.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-loop-engineering.html</guid>
+      <link>https://looprails.dev/article-loop-engineering</link>
+      <guid isPermaLink="true">https://looprails.dev/article-loop-engineering</guid>
       <description>Loop engineering means building a system that prompts an AI agent, checks its output, and decides the next step until a goal is met. The prompts-to-loops ladder, and why the verifier is the hard part.</description>
       <pubDate>Tue, 23 Jun 2026 11:27:00 GMT</pubDate>
     </item>
     <item>
       <title>How to Build Your First Agent Loop</title>
-      <link>https://looprails.dev/article-build-agent-loop.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-build-agent-loop.html</guid>
+      <link>https://looprails.dev/article-build-agent-loop</link>
+      <guid isPermaLink="true">https://looprails.dev/article-build-agent-loop</guid>
       <description>A practical guide to building your first AI agent loop: goal and done-conditions, the verifier, memory in a file, writer and reviewer subagents, and guardrails on by default.</description>
       <pubDate>Tue, 23 Jun 2026 11:26:00 GMT</pubDate>
     </item>
     <item>
       <title>Loop Patterns for Engineering &amp; Data Science</title>
-      <link>https://looprails.dev/article-loop-patterns.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-loop-patterns.html</guid>
+      <link>https://looprails.dev/article-loop-patterns</link>
+      <guid isPermaLink="true">https://looprails.dev/article-loop-patterns</guid>
       <description>Reusable agent-loop recipes for software and data science: test-fixing, refactor, dependency-upgrade, data-cleaning, and experiment loops, each with a goal, a done-condition, and a verifier.</description>
       <pubDate>Tue, 23 Jun 2026 11:25:00 GMT</pubDate>
     </item>
     <item>
       <title>Evaluation-Driven Development</title>
-      <link>https://looprails.dev/article-evaluation-driven-development.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-evaluation-driven-development.html</guid>
+      <link>https://looprails.dev/article-evaluation-driven-development</link>
+      <guid isPermaLink="true">https://looprails.dev/article-evaluation-driven-development</guid>
       <description>In an autonomous loop, an automated check, not your gut, decides whether each change improved things. How evaluation-driven development works and how to build a verifier you can trust.</description>
       <pubDate>Tue, 23 Jun 2026 11:24:00 GMT</pubDate>
     </item>
     <item>
       <title>What Makes a Verifier Work</title>
-      <link>https://looprails.dev/article-verification-functions.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-verification-functions.html</guid>
+      <link>https://looprails.dev/article-verification-functions</link>
+      <guid isPermaLink="true">https://looprails.dev/article-verification-functions</guid>
       <description>What the research says about verification functions in agent loops: the verifier-strength spectrum, why verification is the bottleneck, reward hacking and how to harden against it, and whether the verifier replaces a detailed spec. Backed by Codex Part 7.</description>
       <pubDate>Tue, 23 Jun 2026 11:23:00 GMT</pubDate>
     </item>
     <item>
       <title>The Two Loops: Intent Clarity &amp; the Delivery Gap</title>
-      <link>https://looprails.dev/article-two-loops.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-two-loops.html</guid>
+      <link>https://looprails.dev/article-two-loops</link>
+      <guid isPermaLink="true">https://looprails.dev/article-two-loops</guid>
       <description>The hard part of building with agents is not generation, it is intent. Loop engineering closes the delivery gap with two loops: an inner loop that converges on the verifier, and an outer loop where a human clarifies intent by sharpening it. Why the spec accretes from failures, not up front.</description>
       <pubDate>Tue, 23 Jun 2026 11:22:00 GMT</pubDate>
     </item>
     <item>
       <title>Oversight for Autonomous Loops</title>
-      <link>https://looprails.dev/article-loop-engineering-oversight.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-loop-engineering-oversight.html</guid>
+      <link>https://looprails.dev/article-loop-engineering-oversight</link>
+      <guid isPermaLink="true">https://looprails.dev/article-loop-engineering-oversight</guid>
       <description>Loop engineering moves oversight from per-step prompts to the goal, the verifier, and a few human checkpoints. How to grade a loop's actions, cap its blast radius, and stop it when it runs away.</description>
       <pubDate>Tue, 23 Jun 2026 11:21:00 GMT</pubDate>
     </item>
     <item>
       <title>Context Engineering for Agent Loops</title>
-      <link>https://looprails.dev/article-context-engineering-agent-loops.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-context-engineering-agent-loops.html</guid>
+      <link>https://looprails.dev/article-context-engineering-agent-loops</link>
+      <guid isPermaLink="true">https://looprails.dev/article-context-engineering-agent-loops</guid>
       <description>Context engineering means deciding what goes into the model's window each turn: the goal, the done-condition, and what to keep, drop, summarize, and retrieve. How to keep an agent loop effective across many turns instead of drifting.</description>
       <pubDate>Tue, 23 Jun 2026 11:20:00 GMT</pubDate>
     </item>
     <item>
       <title>Loop Health: What to Monitor in a Running Loop</title>
-      <link>https://looprails.dev/article-loop-health-monitoring.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-loop-health-monitoring.html</guid>
+      <link>https://looprails.dev/article-loop-health-monitoring</link>
+      <guid isPermaLink="true">https://looprails.dev/article-loop-health-monitoring</guid>
       <description>Which signals tell you an agent loop is working, stuck, or burning money: turns, spend per successful outcome, the verifier-score trend, the no-progress streak, and the thresholds that feed the circuit breaker and kill switch.</description>
       <pubDate>Tue, 23 Jun 2026 11:19:00 GMT</pubDate>
     </item>
     <item>
       <title>World Models for Agent Loops</title>
-      <link>https://looprails.dev/article-world-models-agent-loops.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-world-models-agent-loops.html</guid>
+      <link>https://looprails.dev/article-world-models-agent-loops</link>
+      <guid isPermaLink="true">https://looprails.dev/article-world-models-agent-loops</guid>
       <description>A world model predicts what an action will do before the loop runs it. How to use simulation as a consequence preview, a planning aid, and an offline eval, and why a prediction is a claim to verify, not proof.</description>
       <pubDate>Tue, 23 Jun 2026 11:18:00 GMT</pubDate>
     </item>
     <item>
       <title>Failure Recovery for Agent Loops</title>
-      <link>https://looprails.dev/article-failure-recovery-agent-loops.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-failure-recovery-agent-loops.html</guid>
+      <link>https://looprails.dev/article-failure-recovery-agent-loops</link>
+      <guid isPermaLink="true">https://looprails.dev/article-failure-recovery-agent-loops</guid>
       <description>How to make an agent loop survive its own failures: durable checkpoints and resume, idempotent retries with backoff, a circuit breaker, verifier-gated retries, and saga-style rollback for irreversible actions.</description>
       <pubDate>Tue, 23 Jun 2026 11:17:00 GMT</pubDate>
     </item>
     <item>
       <title>Multi-Agent Loops: When More Agents Help</title>
-      <link>https://looprails.dev/article-multi-agent-loops.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-multi-agent-loops.html</guid>
+      <link>https://looprails.dev/article-multi-agent-loops</link>
+      <guid isPermaLink="true">https://looprails.dev/article-multi-agent-loops</guid>
       <description>When splitting a loop across multiple agents helps and when it just adds failure surface: the patterns that work, the MAST failure taxonomy, the reviewer-agent trap, and the oversight each sub-agent needs.</description>
       <pubDate>Tue, 23 Jun 2026 11:16:00 GMT</pubDate>
     </item>
     <item>
       <title>MCP and Skill Overload</title>
-      <link>https://looprails.dev/article-mcp-skill-overload.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-mcp-skill-overload.html</guid>
+      <link>https://looprails.dev/article-mcp-skill-overload</link>
+      <guid isPermaLink="true">https://looprails.dev/article-mcp-skill-overload</guid>
       <description>Every tool, MCP server, and skill you connect spends context and lowers tool-selection accuracy. What the research says about too many tools, how it cuts your useful turns, and how to keep the toolset lean.</description>
       <pubDate>Tue, 23 Jun 2026 11:15:00 GMT</pubDate>
     </item>
     <item>
       <title>Agent Workflow Patterns</title>
-      <link>https://looprails.dev/article-agent-workflow-patterns.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-agent-workflow-patterns.html</guid>
+      <link>https://looprails.dev/article-agent-workflow-patterns</link>
+      <guid isPermaLink="true">https://looprails.dev/article-agent-workflow-patterns</guid>
       <description>A plain-English recipe book of agent workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer, with the failure modes of each and how to fix them.</description>
       <pubDate>Tue, 23 Jun 2026 11:14:00 GMT</pubDate>
     </item>
     <item>
       <title>Autonomous Agent Patterns</title>
-      <link>https://looprails.dev/article-autonomous-agent-patterns.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-autonomous-agent-patterns.html</guid>
+      <link>https://looprails.dev/article-autonomous-agent-patterns</link>
+      <guid isPermaLink="true">https://looprails.dev/article-autonomous-agent-patterns</guid>
       <description>A plain-English recipe book of autonomous agent patterns: ReAct, reflection, plan-and-execute, tool use, memory, and single vs multi-agent, with the failure modes of each and how to fix them.</description>
       <pubDate>Tue, 23 Jun 2026 11:13:00 GMT</pubDate>
     </item>
     <item>
       <title>RAG Retrieval Patterns</title>
-      <link>https://looprails.dev/article-rag-retrieval-patterns.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-rag-retrieval-patterns.html</guid>
+      <link>https://looprails.dev/article-rag-retrieval-patterns</link>
+      <guid isPermaLink="true">https://looprails.dev/article-rag-retrieval-patterns</guid>
       <description>A plain-English recipe book for RAG retrieval: chunking, embeddings and vector search, hybrid search, reranking, query transformation, and metadata filtering, with the failure modes of each and how to fix them.</description>
       <pubDate>Tue, 23 Jun 2026 11:12:00 GMT</pubDate>
     </item>
     <item>
       <title>Advanced and Agentic RAG</title>
-      <link>https://looprails.dev/article-advanced-agentic-rag.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-advanced-agentic-rag.html</guid>
+      <link>https://looprails.dev/article-advanced-agentic-rag</link>
+      <guid isPermaLink="true">https://looprails.dev/article-advanced-agentic-rag</guid>
       <description>A plain-English recipe book for advanced RAG: contextual retrieval, agentic RAG, corrective RAG, self-RAG, GraphRAG, and how to evaluate a RAG system, with the failure modes of each and how to fix them.</description>
       <pubDate>Tue, 23 Jun 2026 11:11:00 GMT</pubDate>
     </item>
     <item>
       <title>LoRA vs Fine-Tuning vs Pre-Training</title>
-      <link>https://looprails.dev/article-lora-vs-fine-tuning-vs-pre-training.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-lora-vs-fine-tuning-vs-pre-training.html</guid>
+      <link>https://looprails.dev/article-lora-vs-fine-tuning-vs-pre-training</link>
+      <guid isPermaLink="true">https://looprails.dev/article-lora-vs-fine-tuning-vs-pre-training</guid>
       <description>What LoRA, full fine-tuning, and pre-training each change in a model, what they cost, and when to reach for each when adapting a model for an agent loop. Plus why retrieval often beats fine-tuning.</description>
       <pubDate>Tue, 23 Jun 2026 11:10:00 GMT</pubDate>
     </item>
     <item>
       <title>What You Can &amp; Can't Do With Models You Don't Control</title>
-      <link>https://looprails.dev/article-adapting-models-you-dont-control.html</link>
-      <guid isPermaLink="true">https://looprails.dev/article-adapting-models-you-dont-control.html</guid>
+      <link>https://looprails.dev/article-adapting-models-you-dont-control</link>
+      <guid isPermaLink="true">https://looprails.dev/article-adapting-models-you-dont-control</guid>
       <description>Closed API models (Claude, GPT, Gemini) versus open-weight models (Llama, Mistral, Gemma): what each lets you change, what it takes off the table, and how that choice shapes the loop you build.</description>
       <pubDate>Tue, 23 Jun 2026 11:09:00 GMT</pubDate>
     </item>

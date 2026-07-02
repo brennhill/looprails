@@ -7,11 +7,11 @@
 <meta name="description" content="Interruptible, the I in RAIL: kill switches, monitors, and blame-free stops so anyone can halt an AI agent in time.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
-<link rel="canonical" href="https://looprails.dev/rail-interruptible.html">
+<link rel="canonical" href="https://looprails.dev/rail-interruptible">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kill Switches &amp; Interruptible AI Agents (RAIL) · LoopRails">
 <meta property="og:description" content="Interruptible, the I in RAIL: kill switches, monitors, and blame-free stops so anyone can halt an AI agent in time.">
-<meta property="og:url" content="https://looprails.dev/rail-interruptible.html">
+<meta property="og:url" content="https://looprails.dev/rail-interruptible">
 <meta property="og:image" content="https://looprails.dev/og-rail-interruptible.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kill Switches &amp; Interruptible AI Agents (RAIL) · LoopRails">
@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Interruptible","name":"Kill Switches & Interruptible AI Agents (RAIL) · LoopRails","description":"Interruptible, the I in RAIL: kill switches, monitors, and blame-free stops so anyone can halt an AI agent in time.","inLanguage":"en-US","url":"https://looprails.dev/rail-interruptible.html","mainEntityOfPage":"https://looprails.dev/rail-interruptible.html","image":"https://looprails.dev/og-rail-interruptible.png","datePublished":"2026-06-22","dateModified":"2026-06-29","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Interruptible","item":"https://looprails.dev/rail-interruptible.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Interruptible","name":"Kill Switches & Interruptible AI Agents (RAIL) · LoopRails","description":"Interruptible, the I in RAIL: kill switches, monitors, and blame-free stops so anyone can halt an AI agent in time.","inLanguage":"en-US","url":"https://looprails.dev/rail-interruptible","mainEntityOfPage":"https://looprails.dev/rail-interruptible","image":"https://looprails.dev/og-rail-interruptible.png","datePublished":"2026-06-22","dateModified":"2026-07-02","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Interruptible","item":"https://looprails.dev/rail-interruptible"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -93,13 +93,13 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 </head>
 <body>
 <div class="topbar">
-  <a class="brand" href="index.html"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
-  <nav class="docpick"><a href="article-loop-engineering-doctrine.html" class="">Doctrine</a><a href="playbook.html" class="">Playbook</a><a href="framework.html" class="">Framework</a><a href="kit.html" class="">Kit</a><a href="cookbook.html" class="">Cookbook</a><a href="codex.html" class="">Codex</a><a href="articles.html" class="">Articles</a></nav>
+  <a class="brand" href="/"><svg width="24" height="24" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0e7c86"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><line x1="9" y1="6" x2="9" y2="26"/><line x1="23" y1="6" x2="23" y2="26"/><line x1="6" y1="12" x2="26" y2="12"/><line x1="6" y1="20" x2="26" y2="20"/></g></svg> LoopRails</a>
+  <nav class="docpick"><a href="article-loop-engineering-doctrine" class="">Doctrine</a><a href="playbook" class="">Playbook</a><a href="framework" class="">Framework</a><a href="kit" class="">Kit</a><a href="cookbook" class="">Cookbook</a><a href="codex" class="">Codex</a><a href="articles" class="">Articles</a></nav>
 </div>
 <div class="layout">
   <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#what-quotinterruptiblequot-means" class="" data-id="what-quotinterruptiblequot-means">What &amp;quot;Interruptible&amp;quot; means</a><a href="#why-interruptibility-is-a-real-engineering-property-not-a-pr" class="" data-id="why-interruptibility-is-a-real-engineering-property-not-a-pr">Why interruptibility is a real engineering property, not a promise</a><a href="#how-to-implement-it-properly-concrete-mechanisms" class="" data-id="how-to-implement-it-properly-concrete-mechanisms">How to implement it properly: concrete mechanisms</a><a href="#cooperative-cancellation-graceful-stop" class="h3" data-id="cooperative-cancellation-graceful-stop">Cooperative cancellation (graceful stop)</a><a href="#preemptive-hard-stop" class="h3" data-id="preemptive-hard-stop">Preemptive / hard stop</a><a href="#the-kill-switch" class="h3" data-id="the-kill-switch">The kill switch</a><a href="#circuit-breakers-automatic-halt" class="h3" data-id="circuit-breakers-automatic-halt">Circuit breakers (automatic halt)</a><a href="#graceful-vs-hard-stop-choosing" class="h3" data-id="graceful-vs-hard-stop-choosing">Graceful vs. hard stop: choosing</a><a href="#the-handoff-problem" class="h3" data-id="the-handoff-problem">The handoff problem</a><a href="#multi-agent-fleet-halt" class="h3" data-id="multi-agent-fleet-halt">Multi-agent / fleet halt</a><a href="#a-maturity-checklist-for-interruptibility" class="" data-id="a-maturity-checklist-for-interruptibility">A maturity checklist for interruptibility</a><a href="#common-mistakes" class="" data-id="common-mistakes">Common mistakes</a><a href="#sources" class="" data-id="sources">Sources</a></div></aside>
   <main class="content">
-    <div class="crumb"><a href="index.html">LoopRails</a> · Interruptible</div>
+    <div class="crumb"><a href="/">LoopRails</a> · Interruptible</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/rail-interruptible.md">View rail-interruptible.md on GitHub ↗</a>
       <h1 id="i-is-for-interruptible-stopping-an-agent-should-be-cheap-fas">I is for Interruptible: Stopping an Agent Should Be Cheap, Fast, and Blame-Free</h1>
@@ -360,7 +360,7 @@ Capital (no kill switch) · <strong>[O-5]</strong> Flash Crash (system-level eme
 <section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get the 5 templates for shipping a guarded loop</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Enter your email and I'll send the LoopRails Kit: the fill-in templates that take an agent loop from idea to safely running, plus the one-page cheat sheet. New essays on loop engineering after that.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
-  <span><a href="index.html">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
+  <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
 </footer>
 <script>
 (function(){
