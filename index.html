@@ -328,6 +328,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
       <a href="#grader">Grade an action</a>
       <a href="kit">Kit</a>
       <a href="cookbook">Cookbook</a>
+      <a href="#evals">Evals</a>
       <a href="articles">Articles</a>
       <a href="article-loop-engineering-doctrine">Doctrine</a>
       <a class="nav-cta" href="#subscribe">Get the free Kit →</a>
@@ -700,7 +701,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
       <a class="door reveal" href="article-loop-engineering"><div class="dn">Start here</div><h3>What is loop engineering?</h3><p>From prompts to context to harnesses to loops, and why the verifier is the hard part.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-build-agent-loop"><div class="dn">Build</div><h3>Build your first agent loop</h3><p>Goal and done-conditions, the verifier, memory in a file, subagents, and guardrails on by default.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-loop-patterns"><div class="dn">Recipes</div><h3>Loop patterns for engineering &amp; data science</h3><p>Test-fixing, refactor, data-cleaning, and experiment loops, each with a done-condition and a verifier.</p><span class="go">Read →</span></a>
-      <a class="door reveal" href="article-evaluation-driven-development"><div class="dn">The verifier</div><h3>Evaluation-driven development</h3><p>An automated check, not your gut, decides whether each change improved things.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="evals"><div class="dn">The eval loop</div><h3>How to build evals</h3><p>Error analysis, task datasets, grader stacks, judge calibration, release gates, and production feedback.</p><span class="go">Build the eval →</span></a>
       <a class="door reveal" href="article-verification-functions"><div class="dn">The verifier</div><h3>What makes a verifier work</h3><p>The research on verification functions: the strength spectrum, reward hacking, and whether the verifier replaces the spec.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-two-loops"><div class="dn">Intent clarity</div><h3>The two loops</h3><p>An inner loop converges on the verifier; an outer loop clarifies intent. How loop engineering closes the delivery gap without waterfall.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-agentic-loops-in-the-wild"><div class="dn">Evidence</div><h3>Agentic loops in the wild</h3><p>Real wins and failures, with the numbers: DeepSeek-R1, AlphaCodium, o3, SWE-agent, and reward hacking. The verifier and the cost.</p><span class="go">Read →</span></a>
@@ -718,7 +719,30 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
   </div>
 </section>
 
-<section id="cookbook" class="band">
+<!-- EVALS -->
+<section id="evals" class="band">
+  <div class="wrap">
+    <div class="eyebrow reveal">The eval loop</div>
+    <h2 class="reveal">Build the check that makes the loop good.</h2>
+    <p class="lead reveal" style="margin-bottom:24px">An agent loop attempts, verifies, and tries again. The eval loop around it watches real behavior, names the failures, turns them into checks, calibrates those checks, and feeds production surprises back into the suite. That outer loop is how the inner loop gets better without learning to game a weak score.</p>
+    <div class="lifecycle reveal" style="justify-content:flex-start;margin-bottom:26px">
+      <span class="lcstep">Observe</span><span class="lcsep">→</span>
+      <span class="lcstep">Name failures</span><span class="lcsep">→</span>
+      <span class="lcstep">Encode checks</span><span class="lcsep">→</span>
+      <span class="lcstep hinge">Calibrate</span><span class="lcsep">→</span>
+      <span class="lcstep">Gate</span><span class="lcsep">→</span>
+      <span class="lcstep">Learn</span>
+    </div>
+    <div class="doors">
+      <a class="door reveal" href="evals#the-eval-building-loop"><div class="dn">Find the signal</div><h3>Start with error analysis</h3><p>Read real traces with domain experts before you write the rubric. Discover what failure actually means for this product.</p><span class="go">Build the dataset →</span></a>
+      <a class="door reveal" href="evals#5-calibrate-every-subjective-grader"><div class="dn">Trust the check</div><h3>Build and calibrate graders</h3><p>Use executable oracles first, narrow LLM judges to the subjective remainder, and measure false passes against expert labels.</p><span class="go">Design the graders →</span></a>
+      <a class="door reveal" href="evals#6-evaluate-the-whole-agent-not-only-its-final-sentence"><div class="dn">Evaluate the loop</div><h3>Test outcomes and trajectories</h3><p>Run isolated repeated trials, check end state before path, report uncertainty, and gate releases on regressions and critical failures.</p><span class="go">Evaluate the agent →</span></a>
+    </div>
+    <p class="reveal" style="margin-top:20px"><a href="evals" style="font-weight:650">Open the complete, research-grounded evals guide →</a></p>
+  </div>
+</section>
+
+<section id="cookbook">
   <div class="wrap">
     <div class="eyebrow reveal">The Cookbook</div>
     <h2 class="reveal">Patterns for agents and RAG, with the failure modes</h2>
@@ -819,6 +843,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
       <a href="article-loop-engineering-doctrine">Doctrine</a>
       <a href="kit">Kit</a>
       <a href="cookbook">Cookbook</a>
+      <a href="evals">Evals</a>
       <a href="playbook">Playbook</a>
       <a href="framework">Framework</a>
       <a href="articles">Articles</a>

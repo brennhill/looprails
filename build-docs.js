@@ -40,6 +40,9 @@ const DOCS = {
   cookbook:           { md: "cookbook.md",            out: "cookbook.html",            label: "Cookbook",      nav: true,
     title: "The LoopRails Cookbook: Agent & RAG Design Patterns with Failure Modes · LoopRails",
     desc: "A plain-English recipe book for building AI agent loops: agent design patterns, RAG patterns, and the common failure modes of each, with how to get around them. What it is, when to use it, how it fails, how to fix it." },
+  evals:              { md: "evals.md",               out: "evals.html",               label: "Evals",         nav: true,
+    title: "How to Build Evals for AI Agent Loops · LoopRails",
+    desc: "A research-grounded guide to building evals for AI agent loops: error analysis, task datasets, grader design, LLM judge calibration, agent trajectories, release gates, statistics, and production feedback." },
   codex:              { md: "codex.md",               out: "codex.html",               label: "Codex",         nav: true,
     title: "Human-in-the-Loop & AI Safety Research Codex (366 Sources) · LoopRails",
     desc: "366 annotated sources on human-in-the-loop oversight and AI safety, aviation, medicine, finance, AI safety, and HCI. The evidence base behind LoopRails." },
@@ -409,6 +412,7 @@ function navHTML(currentKey) {
     ["framework", "framework.html", "Framework"],
     ["kit", "kit.html", "Kit"],
     ["cookbook", "cookbook.html", "Cookbook"],
+    ["evals", "evals.html", "Evals"],
     ["codex", "codex.html", "Codex"],
     ["__articles", "articles.html", "Articles"],
   ];

@@ -36,6 +36,7 @@ beats review** every time.
 | [`index.html`](./index.html) | the **website**: landing page (failure gallery, the interactive consequence-vs-controllability grid, and an action grader) plus the in-site docs reader (`docs.html`) | everyone |
 | [`playbook.md`](./playbook.md) | the hands-on field guide: cheat sheet, pattern and anti-pattern decks, questions to ask in standup, recipes | practitioners |
 | [`framework.md`](./framework.md) | the full method and reasoning (§0 to §10) | designers / leads |
+| [`evals.md`](./evals.md) | how to build product-specific evals: error analysis, datasets, graders, judge calibration, release gates, and production feedback | AI product teams |
 | [`codex.md`](./codex.md) | 366-source annotated research base across 17 clusters (5 parts) | the evidence |
 
 ---

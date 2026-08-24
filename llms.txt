@@ -11,6 +11,7 @@ LoopRails replaces the unhelpful yes/no question "should there be a human in the
 - [Home — build agent loops with human-in-the-loop guardrails](https://looprails.dev/): The framework overview and entry point.
 - [The Human-in-the-Loop Framework](https://looprails.dev/framework.html): The full framework — Grade, Guard, Show, Prove.
 - [Playbook](https://looprails.dev/playbook.html): A step-by-step playbook for putting oversight on an agent.
+- [How to Build Evals for AI Agent Loops](https://looprails.dev/evals.html): Error analysis, task datasets, grader design, LLM judge calibration, agent trajectories, release gates, statistics, and production feedback.
 - [One-page cheat sheet](https://looprails.dev/cheatsheet.html): The whole framework on a single page.
 - [Research codex (366 sources)](https://looprails.dev/codex.html): The human-in-the-loop and AI-safety research base behind LoopRails.
 - [Articles index](https://looprails.dev/articles.html): The full library of articles.
