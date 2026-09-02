@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-25T16:32:06.604Z",
+  "visualSystem": "Evidence Workshop",
+  "figures": [
+    {
+      "file": "book/images/diagrams/ch10-01-nested-loops.svg",
+      "type": "diagram",
+      "priority": "P0",
+      "chapter": "10",
+      "title": "The nested loops",
+      "caption": "The inner loop performs the task. The outer loop improves the task performer. Evidence is the seam.",
+      "alt": "Two concentric cycles: a fast agent cycle inside a slower product-evaluation cycle, connected by task, grader, trace, budget, and rule artifacts.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch05-01-grader-ladder.svg",
+      "type": "diagram",
+      "priority": "P0",
+      "chapter": "5",
+      "title": "The grader ladder",
+      "caption": "Use the least magical grader that can answer the criterion.",
+      "alt": "Six ascending grader steps from an environment oracle to expert judgment, with increasing interpretive scope and cost.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch04-01-four-truths.svg",
+      "type": "diagram",
+      "priority": "P0",
+      "chapter": "4",
+      "title": "Four kinds of truth",
+      "caption": "The output tells you what the agent said. The workbench tells you where to verify it.",
+      "alt": "A fluent agent output points to four external evidence workbenches: repository tests, database state, expert criteria, and cited source passages.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch03-01-task-anatomy.svg",
+      "type": "diagram",
+      "priority": "P0",
+      "chapter": "3",
+      "title": "Anatomy of an eval task",
+      "caption": "A prompt is one field in a task contract.",
+      "alt": "A task contract flows from purpose through setup, input, execution limits, expected evidence, and owner metadata, with harness and version dependencies shown below.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch08-01-trace-first-departure.svg",
+      "type": "diagram",
+      "priority": "P0",
+      "chapter": "8",
+      "title": "Annotated trace and first departure",
+      "caption": "The visible failure is at the end. The actionable departure is often earlier.",
+      "alt": "A four-lane trace timeline marks an unsafe inference at event three and a visible duplicate booking change at event six.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch09-01-pass-at-vs-power.svg",
+      "type": "diagram",
+      "priority": "P0",
+      "chapter": "9",
+      "title": "pass at k versus pass to the k",
+      "caption": "A nearly certain demo and a worse-than-even user journey can come from the same per-task score.",
+      "alt": "Three candidate attempts produce 98.44 percent pass at three, while three required sequential tasks produce 42.19 percent journey reliability, both from a 75 percent per-task rate.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch11-01-eval-funnel.svg",
+      "type": "diagram",
+      "priority": "P0",
+      "chapter": "11",
+      "title": "Evaluation funnel",
+      "caption": "Fast checks protect iteration; deeper evidence protects release; production starts the next cycle.",
+      "alt": "Five narrowing evaluation gates move from local smoke checks through PR, nightly, held-out audit, and production rollout, which loops back to discovery.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch13-01-dataset-lifecycle.svg",
+      "type": "diagram",
+      "priority": "P0",
+      "chapter": "13",
+      "title": "Dataset lifecycle",
+      "caption": "An eval suite is maintained evidence, not a permanent monument.",
+      "alt": "A circular dataset lifecycle runs from production failure through candidate review, capability and regression suites, audit, then refresh or retirement.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch14-01-ownership-cadence.svg",
+      "type": "diagram",
+      "priority": "P0",
+      "chapter": "14",
+      "title": "Ownership map and clocks",
+      "caption": "Centralize the mechanics. Keep the meaning of good with the domain. Put both on a clock.",
+      "alt": "Eval artifacts sit at the center of product, engineering, and domain owners, supported by platform, data science, and risk, with recurring review clocks.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch15-01-thirty-day-plan.svg",
+      "type": "diagram",
+      "priority": "P0",
+      "chapter": "15",
+      "title": "The first thirty days",
+      "caption": "A month can establish one minimum viable eval loop; consequence sets the release pace.",
+      "alt": "Four weekly columns cover discover, encode, measure, and operate, ending in controlled shadow or production evidence with artifacts accumulating across the month.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch01-01-demo-vs-product.svg",
+      "type": "diagram",
+      "priority": "P1",
+      "chapter": "1",
+      "title": "Demo question versus product questions",
+      "caption": "The demo is a valid answer to a smaller question.",
+      "alt": "One spotlighted demo case asks whether the system can work once, while varied production cases ask about truth, repetition, safety, variation, and learning.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch02-01-two-samples.svg",
+      "type": "diagram",
+      "priority": "P1",
+      "chapter": "2",
+      "title": "Discovery sample versus measurement sample",
+      "caption": "Use enriched samples to discover categories and representative samples to estimate rates.",
+      "alt": "Production feeds a failure-enriched discovery basket and a probability-sampled measurement basket with different questions.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch05-02-composite-grader.svg",
+      "type": "diagram",
+      "priority": "P1",
+      "chapter": "5",
+      "title": "Composite grader",
+      "caption": "Do not let beautiful communication average away an unauthorized action.",
+      "alt": "State, authorization, action history, communication quality, cost, and latency feed a structured result, with hard gates separated from soft quality.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch06-01-test-the-test.svg",
+      "type": "diagram",
+      "priority": "P1",
+      "chapter": "6",
+      "title": "Four attacks on an executable grader",
+      "caption": "Every executable oracle needs cases that test the oracle.",
+      "alt": "Four quadrants show narrow passing, overconstraint, side-effect escape, and environment tricks as attacks on executable graders.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch07-01-judge-calibration.svg",
+      "type": "diagram",
+      "priority": "P1",
+      "chapter": "7",
+      "title": "Judge calibration pipeline",
+      "caption": "Calibration decides where the judge may be trusted, not whether it is universally good.",
+      "alt": "Expert labels flow through adjudication, development data, a judge, category confusion matrices, bounded scope, and drift audit.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch09-02-paired-disagreements.svg",
+      "type": "diagram",
+      "priority": "P1",
+      "chapter": "9",
+      "title": "Paired comparison",
+      "caption": "The average says plus ten. The 26 disagreements explain the change.",
+      "alt": "One hundred paired tasks divide into 62 both pass, 18 new-only, 8 old-only, and 12 both fail, emphasizing the 26 disagreements.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch09-03-clusters.svg",
+      "type": "diagram",
+      "priority": "P1",
+      "chapter": "9",
+      "title": "Clustered evidence",
+      "caption": "Fifty rows from five documents are not fifty independent worlds.",
+      "alt": "Fifty question dots are grouped inside five documents to show shared error families rather than independent observations.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch12-01-outcome-chain.svg",
+      "type": "diagram",
+      "priority": "P1",
+      "chapter": "12",
+      "title": "Offline-to-online outcome chain",
+      "caption": "An offline metric is a proxy until production validates the arrows.",
+      "alt": "Offline criterion flows through near-term behavior to product outcome, with each arrow labeled hypothesis and a production experiment feeding evidence back.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch12-02-production-layers.svg",
+      "type": "diagram",
+      "priority": "P1",
+      "chapter": "12",
+      "title": "Production evidence layers",
+      "caption": "Independent evidence layers fail differently.",
+      "alt": "Six offset evidence layers with different holes cover runtime guards, asynchronous graders, samples, risk review, delayed outcomes, and experiments.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/ch13-02-eval-failure-wheel.svg",
+      "type": "diagram",
+      "priority": "P1",
+      "chapter": "13",
+      "title": "Eval failure wheel",
+      "caption": "Measurement needs monitoring, adversaries, owners, and an exit plan.",
+      "alt": "Eight eval failure modes surround the statement that the eval is part of the system.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    },
+    {
+      "file": "book/images/diagrams/app-c-01-four-case-card.svg",
+      "type": "diagram",
+      "priority": "P1",
+      "chapter": "Appendix C",
+      "title": "Four-case comparison card",
+      "caption": "Four benchmarks, four locations of truth, four different maintenance problems.",
+      "alt": "Four vertical benchmark cards compare artifact, strongest truth, grader risk, and maintenance lesson for SWE-bench, tau-bench, HealthBench, and DeepResearch Bench.",
+      "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
+      "reviewStatus": "generated-needs-print-review"
+    }
+  ]
+}

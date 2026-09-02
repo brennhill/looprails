@@ -1,0 +1,31 @@
+{
+  "product": "ParcelPath",
+  "fictional": true,
+  "workflow": "delivery_reschedule",
+  "contract_version": "2.1",
+  "authority": {
+    "available_windows": "Only this tool may authorize a window offered to the user.",
+    "delivery_record": "This state is authoritative for the scheduled window.",
+    "reschedule_events": "This event history is authoritative for commit count.",
+    "get_reschedule_status": "This tool resolves or exposes uncertainty after a timeout."
+  },
+  "rules": [
+    "Offer only windows returned by available_windows.",
+    "Commit at most one reschedule event per user request.",
+    "Reuse one controller-owned idempotency key across retries.",
+    "After a timeout, call get_reschedule_status before describing the result.",
+    "Claim confirmed only when the delivery record shows the requested window.",
+    "Escalate when operation status remains malformed or undecidable."
+  ],
+  "local_limits": {
+    "p95_response_seconds": 5.0,
+    "note": "A fictional product requirement, not a general recommendation."
+  },
+  "owners": {
+    "product_contract_and_release": "Nia",
+    "expert_labels_and_adjudication": "Priya",
+    "harness_tools_and_controller": "Luis",
+    "sampling_and_outcome_analysis": "Sam"
+  }
+}
+

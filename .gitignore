@@ -8,3 +8,6 @@
 devto-preview/
 devto-state.json
 publish/
+
+# Generated review renders and downloaded validation runtimes
+tmp/
