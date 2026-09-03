@@ -1,0 +1,5041 @@
+{
+  "wireMagic": "pb3",
+  "pens": [ {
+
+  } ],
+  "wsWinStyles": [ {
+
+  } ],
+  "wpWinPositions": [ {
+
+  } ],
+  "events": [ {
+    "tStartMs": 700,
+    "dDurationMs": 2120,
+    "segs": [ {
+      "utf8": "All right, then let's kick it off."
+    } ]
+  }, {
+    "tStartMs": 3840,
+    "dDurationMs": 2760,
+    "segs": [ {
+      "utf8": "This talk is the evals that made GitHub\nCopilot."
+    } ]
+  }, {
+    "tStartMs": 8020,
+    "dDurationMs": 2480,
+    "segs": [ {
+      "utf8": "And just to get things started,"
+    } ]
+  }, {
+    "tStartMs": 11620,
+    "dDurationMs": 4920,
+    "segs": [ {
+      "utf8": "we'll go through a quick intro so that you\nguys can know who you're talking to."
+    } ]
+  }, {
+    "tStartMs": 17240,
+    "dDurationMs": 3520,
+    "segs": [ {
+      "utf8": "My name is John Berryman. Very nice to\nmake all your acquaintance."
+    } ]
+  }, {
+    "tStartMs": 21200,
+    "dDurationMs": 4800,
+    "segs": [ {
+      "utf8": "I worked at GitHub starting in 2019,"
+    } ]
+  }, {
+    "tStartMs": 27020,
+    "dDurationMs": 2180,
+    "segs": [ {
+      "utf8": "but that was well before Copilot was a\nthing."
+    } ]
+  }, {
+    "tStartMs": 29200,
+    "dDurationMs": 2780,
+    "segs": [ {
+      "utf8": "And so my first thing at GitHub was\nsearch."
+    } ]
+  }, {
+    "tStartMs": 32740,
+    "dDurationMs": 3360,
+    "segs": [ {
+      "utf8": "At that time, search was the world to me."
+    } ]
+  }, {
+    "tStartMs": 36660,
+    "dDurationMs": 2900,
+    "segs": [ {
+      "utf8": "Search is my hammer and the world is a\nnail."
+    } ]
+  }, {
+    "tStartMs": 40280,
+    "dDurationMs": 1560,
+    "segs": [ {
+      "utf8": "But over time, after"
+    } ]
+  }, {
+    "tStartMs": 44140,
+    "dDurationMs": 5980,
+    "segs": [ {
+      "utf8": "I worked on the code search team, I moved\non to data science and then worked with"
+    } ]
+  }, {
+    "tStartMs": 50120,
+    "dDurationMs": 2580,
+    "segs": [ {
+      "utf8": "Hamel there, actually. It's the first time\nwe got to meet."
+    } ]
+  }, {
+    "tStartMs": 53240,
+    "dDurationMs": 5200,
+    "segs": [ {
+      "utf8": "And then from there, moved into Copilot\nbecause I had kind of a data background"
+    } ]
+  }, {
+    "tStartMs": 58740,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "and an engineering background, so it was a\ngood fit for me."
+    } ]
+  }, {
+    "tStartMs": 62280,
+    "dDurationMs": 3380,
+    "segs": [ {
+      "utf8": "My projects while I was there was code\ncompletions."
+    } ]
+  }, {
+    "tStartMs": 66140,
+    "dDurationMs": 5200,
+    "segs": [ {
+      "utf8": "And then after about six, seven months of\nthat, I moved into"
+    } ]
+  }, {
+    "tStartMs": 71340,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "the chat, but it was web chat, so it's not\nthe IDE chat."
+    } ]
+  }, {
+    "tStartMs": 77800,
+    "dDurationMs": 5680,
+    "segs": [ {
+      "utf8": "Since then, about a year ago, I stepped\naway finally from GitHub to"
+    } ]
+  }, {
+    "tStartMs": 83480,
+    "dDurationMs": 4060,
+    "segs": [ {
+      "utf8": "become an independent consultant,\nfollowing again in Hamel's footsteps."
+    } ]
+  }, {
+    "tStartMs": 88240,
+    "dDurationMs": 5420,
+    "segs": [ {
+      "utf8": "And I wrote a book that was published last\nNovember called Prompt Engineering for"
+    } ]
+  }, {
+    "tStartMs": 93660,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "LLMs."
+    } ]
+  }, {
+    "tStartMs": 94900,
+    "dDurationMs": 4380,
+    "segs": [ {
+      "utf8": "Also, since he's given me the bully\npulpit, and Hamel, if you wouldn't mind"
+    } ]
+  }, {
+    "tStartMs": 99280,
+    "dDurationMs": 2680,
+    "segs": [ {
+      "utf8": "just posting a link from this, that would\nbe awesome."
+    } ]
+  }, {
+    "tStartMs": 102260,
+    "dDurationMs": 5040,
+    "segs": [ {
+      "utf8": "I do have a Maven course coming up soon\nabout building LLM applications."
+    } ]
+  }, {
+    "tStartMs": 107300,
+    "dDurationMs": 4540,
+    "segs": [ {
+      "utf8": "So the idea is we're getting lots of\nbuzzwords and there's like a million"
+    } ]
+  }, {
+    "tStartMs": 111840,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "different ways that you can build all this\nstuff."
+    } ]
+  }, {
+    "tStartMs": 114520,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "But when you get right down to it, there's\na few underlying principles, and if you"
+    } ]
+  }, {
+    "tStartMs": 118080,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "know them, you can rearrange them to make\nan amazing diversity of things."
+    } ]
+  }, {
+    "tStartMs": 122500,
+    "dDurationMs": 3420,
+    "segs": [ {
+      "utf8": "So that's kind of the... That."
+    } ]
+  }, {
+    "tStartMs": 126680,
+    "dDurationMs": 1980,
+    "segs": [ {
+      "utf8": "Sean, do you want to come in here? Yeah."
+    } ]
+  }, {
+    "tStartMs": 128660,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "Hi. I posted John's course in the chat."
+    } ]
+  }, {
+    "tStartMs": 131760,
+    "dDurationMs": 5180,
+    "segs": [ {
+      "utf8": "Thanks, Hannah. Hi, I'm Sean Simister."
+    } ]
+  }, {
+    "tStartMs": 136940,
+    "dDurationMs": 5940,
+    "segs": [ {
+      "utf8": "Worked at GitHub for three years, starting\njust after Copilot had"
+    } ]
+  }, {
+    "tStartMs": 142880,
+    "dDurationMs": 2932,
+    "segs": [ {
+      "utf8": "come out in beta."
+    } ]
+  }, {
+    "tStartMs": 145812,
+    "dDurationMs": 4612,
+    "segs": [ {
+      "utf8": "Before that, I was at Google working on\nsome machine learning stuff,"
+    } ]
+  }, {
+    "tStartMs": 150424,
+    "dDurationMs": 5132,
+    "segs": [ {
+      "utf8": "some search engine stuff. And yeah, so at\nGitHub, I took over some of the offline"
+    } ]
+  }, {
+    "tStartMs": 155556,
+    "dDurationMs": 5212,
+    "segs": [ {
+      "utf8": "evaluation work, building out—we'll talk\nabout the frameworks that we were building"
+    } ]
+  }, {
+    "tStartMs": 160768,
+    "dDurationMs": 3012,
+    "segs": [ {
+      "utf8": "out for offline evaluation."
+    } ]
+  }, {
+    "tStartMs": 164600,
+    "dDurationMs": 4520,
+    "segs": [ {
+      "utf8": "And then I prototyped the first version of\nCopilot Chat, and that led to a whole"
+    } ]
+  }, {
+    "tStartMs": 169120,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "bunch of new evaluation techniques as\nwell, and so I'll talk about that later."
+    } ]
+  }, {
+    "tStartMs": 173980,
+    "dDurationMs": 4220,
+    "segs": [ {
+      "utf8": "And then, yeah, just recently I've been\nworking on some personal research"
+    } ]
+  }, {
+    "tStartMs": 178200,
+    "dDurationMs": 2180,
+    "segs": [ {
+      "utf8": "projects, explain prompt, ground rules,"
+    } ]
+  }, {
+    "tStartMs": 181240,
+    "dDurationMs": 5020,
+    "segs": [ {
+      "utf8": "just really enjoying building with LLMs\nand building developer tools."
+    } ]
+  }, {
+    "tStartMs": 187920,
+    "dDurationMs": 5040,
+    "segs": [ {
+      "utf8": "And thank you for, John, for inviting me\nto reminisce about our times working on"
+    } ]
+  }, {
+    "tStartMs": 192960,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "GitHub Copilot."
+    } ]
+  }, {
+    "tStartMs": 194600,
+    "dDurationMs": 4520,
+    "segs": [ {
+      "utf8": "Yeah, this is really exciting. I mean,\nfrom my perspective, just, you know, I was"
+    } ]
+  }, {
+    "tStartMs": 199120,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "around when GitHub Copilot first started,"
+    } ]
+  }, {
+    "tStartMs": 203920,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "and when it first—that effort first kicked\noff, I was pretty skeptical."
+    } ]
+  }, {
+    "tStartMs": 207780,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "You know, they just partnered with OpenAI,"
+    } ]
+  }, {
+    "tStartMs": 211320,
+    "dDurationMs": 5270,
+    "segs": [ {
+      "utf8": "and it seemed like, you know, the first\nproject they jumped into right away, there"
+    } ]
+  }, {
+    "tStartMs": 216590,
+    "dDurationMs": 2010,
+    "segs": [ {
+      "utf8": "was a whole, like, menu of different\nthings."
+    } ]
+  }, {
+    "tStartMs": 218960,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "One was, you know, code search, which I\nthought, okay, that one seems like you"
+    } ]
+  }, {
+    "tStartMs": 222520,
+    "dDurationMs": 5580,
+    "segs": [ {
+      "utf8": "could tackle it. You know, no one really\never has seen, like, a language model like"
+    } ]
+  }, {
+    "tStartMs": 228100,
+    "dDurationMs": 3840,
+    "segs": [ {
+      "utf8": "that before, the one that OpenAI privately\nshared with GitHub,"
+    } ]
+  }, {
+    "tStartMs": 233080,
+    "dDurationMs": 2160,
+    "segs": [ {
+      "utf8": "and You know, I was really skeptical."
+    } ]
+  }, {
+    "tStartMs": 235300,
+    "dDurationMs": 2880,
+    "segs": [ {
+      "utf8": "Like the first version did not work well\nat all."
+    } ]
+  }, {
+    "tStartMs": 238180,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "It was like barely functional, if that."
+    } ]
+  }, {
+    "tStartMs": 240780,
+    "dDurationMs": 5800,
+    "segs": [ {
+      "utf8": "But it's really like because of the evals\nthat I saw the product improve."
+    } ]
+  }, {
+    "tStartMs": 247120,
+    "dDurationMs": 2680,
+    "segs": [ {
+      "utf8": "Like you could see, like every other day,"
+    } ]
+  }, {
+    "tStartMs": 250700,
+    "dDurationMs": 2840,
+    "segs": [ {
+      "utf8": "all the engineers would make progress\nagainst the evals."
+    } ]
+  }, {
+    "tStartMs": 253660,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "And by the time,"
+    } ]
+  }, {
+    "tStartMs": 255540,
+    "dDurationMs": 2280,
+    "segs": [ {
+      "utf8": "you know, first it was like vibe-based\nevals."
+    } ]
+  }, {
+    "tStartMs": 257900,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "Like the people on the GitHub team, we\nwould be using it and be like, okay, this"
+    } ]
+  }, {
+    "tStartMs": 261760,
+    "dDurationMs": 6000,
+    "segs": [ {
+      "utf8": "is cool. And after a certain point, like\nthe evals, you know, like we would be"
+    } ]
+  }, {
+    "tStartMs": 267760,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "moving the metrics on evals. And after,\nyou know, that provided a lot of signal"
+    } ]
+  }, {
+    "tStartMs": 271420,
+    "dDurationMs": 5640,
+    "segs": [ {
+      "utf8": "into what wasn't and was working. And it\nseemed like it was really unlocked the"
+    } ]
+  }, {
+    "tStartMs": 277060,
+    "dDurationMs": 2920,
+    "segs": [ {
+      "utf8": "product. So I think from my perspective,\nit's like very critical."
+    } ]
+  }, {
+    "tStartMs": 281520,
+    "dDurationMs": 1480,
+    "segs": [ {
+      "utf8": "So, but I don't know the whole story."
+    } ]
+  }, {
+    "tStartMs": 283040,
+    "dDurationMs": 2240,
+    "segs": [ {
+      "utf8": "Y'all know the whole story because y'all\nhave been there."
+    } ]
+  }, {
+    "tStartMs": 285460,
+    "dDurationMs": 1640,
+    "segs": [ {
+      "utf8": "Y'all worked on it for quite a long time."
+    } ]
+  }, {
+    "tStartMs": 287200,
+    "dDurationMs": 3980,
+    "segs": [ {
+      "utf8": "So. We know the whole story up until the\npoint where we left, and it's a really"
+    } ]
+  }, {
+    "tStartMs": 291180,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "interesting story. So I guess let's just,\nlet's dive in."
+    } ]
+  }, {
+    "tStartMs": 297080,
+    "dDurationMs": 4700,
+    "segs": [ {
+      "utf8": "First off, obviously quick slide, but make\nsure we have a shared foundation."
+    } ]
+  }, {
+    "tStartMs": 302700,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Copilot, you guys all know what it is,\nright?"
+    } ]
+  }, {
+    "tStartMs": 304700,
+    "dDurationMs": 5840,
+    "segs": [ {
+      "utf8": "Yeah, you type in some code and it\nautomatically completes stuff."
+    } ]
+  }, {
+    "tStartMs": 310680,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "I think this is probably one of the most\ncommon completions that I got while"
+    } ]
+  }, {
+    "tStartMs": 315180,
+    "dDurationMs": 2820,
+    "segs": [ {
+      "utf8": "writing comments. It was always insulting\nmy work."
+    } ]
+  }, {
+    "tStartMs": 318760,
+    "dDurationMs": 5160,
+    "segs": [ {
+      "utf8": "This was the first part that grabbed\neveryone's attention, but it wasn't the"
+    } ]
+  }, {
+    "tStartMs": 323920,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "only part."
+    } ]
+  }, {
+    "tStartMs": 325320,
+    "dDurationMs": 3020,
+    "segs": [ {
+      "utf8": "Both Sean and I worked on the code\ncompletions,"
+    } ]
+  }, {
+    "tStartMs": 329780,
+    "dDurationMs": 5940,
+    "segs": [ {
+      "utf8": "but Sean was actually one of the very\nfirst people to work on the chat"
+    } ]
+  }, {
+    "tStartMs": 335720,
+    "dDurationMs": 5020,
+    "segs": [ {
+      "utf8": "component to it. And here you see kind of\na screenshot of how that's evolved into"
+    } ]
+  }, {
+    "tStartMs": 340740,
+    "dDurationMs": 3060,
+    "segs": [ {
+      "utf8": "what it is today. And that's not the only\npart that there was."
+    } ]
+  }, {
+    "tStartMs": 343800,
+    "dDurationMs": 4900,
+    "segs": [ {
+      "utf8": "There's, it's probably you're less\nfamiliar with it, but this is the part"
+    } ]
+  }, {
+    "tStartMs": 348700,
+    "dDurationMs": 2140,
+    "segs": [ {
+      "utf8": "that I moved to after code completions."
+    } ]
+  }, {
+    "tStartMs": 351780,
+    "dDurationMs": 3240,
+    "segs": [ {
+      "utf8": "There is an online component that you\nstill have access today."
+    } ]
+  }, {
+    "tStartMs": 355080,
+    "dDurationMs": 3980,
+    "segs": [ {
+      "utf8": "I think it's free to everyone, so you can\nask questions about your repo and stuff"
+    } ]
+  }, {
+    "tStartMs": 359060,
+    "dDurationMs": 1520,
+    "segs": [ {
+      "utf8": "like that."
+    } ]
+  }, {
+    "tStartMs": 361920,
+    "dDurationMs": 5920,
+    "segs": [ {
+      "utf8": "But as Hamel was saying, evaluations were\nreally a core piece of"
+    } ]
+  }, {
+    "tStartMs": 367840,
+    "dDurationMs": 5100,
+    "segs": [ {
+      "utf8": "what made Copilot. And so let's dig into\nthat."
+    } ]
+  }, {
+    "tStartMs": 373620,
+    "dDurationMs": 5560,
+    "segs": [ {
+      "utf8": "Now, this kind of gets into how my own\nthinking has shaped since"
+    } ]
+  }, {
+    "tStartMs": 379180,
+    "dDurationMs": 5700,
+    "segs": [ {
+      "utf8": "working at Copilot. And I'm going to\nattend Hamel and Trey's course,"
+    } ]
+  }, {
+    "tStartMs": 385000,
+    "dDurationMs": 5700,
+    "segs": [ {
+      "utf8": "so I'm excited to be corrected. But this\nis the way I kind of mentally cut up the"
+    } ]
+  }, {
+    "tStartMs": 390700,
+    "dDurationMs": 1760,
+    "segs": [ {
+      "utf8": "evaluations that we were doing at GitHub."
+    } ]
+  }, {
+    "tStartMs": 392640,
+    "dDurationMs": 4860,
+    "segs": [ {
+      "utf8": "On the easy end of the spectrum, you have\nsomething that's like algorithmic, things"
+    } ]
+  }, {
+    "tStartMs": 397500,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "that you get to code completion, and it's\neasy to just, like, check, like an"
+    } ]
+  }, {
+    "tStartMs": 401160,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "equalities check for whatever you're\ntesting."
+    } ]
+  }, {
+    "tStartMs": 405560,
+    "dDurationMs": 5540,
+    "segs": [ {
+      "utf8": "So does, you know, if I'm extracting\nstructured content from a particular"
+    } ]
+  }, {
+    "tStartMs": 411100,
+    "dDurationMs": 4480,
+    "segs": [ {
+      "utf8": "website, does this website lead to exactly\nthis output?"
+    } ]
+  }, {
+    "tStartMs": 415720,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "And you can have, you know, a bunch of\nthose as, like, tests that you use in"
+    } ]
+  }, {
+    "tStartMs": 420720,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "eval."
+    } ]
+  }, {
+    "tStartMs": 421880,
+    "dDurationMs": 5820,
+    "segs": [ {
+      "utf8": "Does the response structure adhere to\nJSON, and in particular the schema that"
+    } ]
+  }, {
+    "tStartMs": 427700,
+    "dDurationMs": 4740,
+    "segs": [ {
+      "utf8": "I'm looking at? Is the length of the\nresponse within limit, or does, you know,"
+    } ]
+  }, {
+    "tStartMs": 432440,
+    "dDurationMs": 4240,
+    "segs": [ {
+      "utf8": "maybe it goes, it's too verbose or\nsomething, or too pithy?"
+    } ]
+  }, {
+    "tStartMs": 437940,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "Is the code all in backticks? Any of these\nthings are things that are just really"
+    } ]
+  }, {
+    "tStartMs": 441840,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "easy to write a normal programming check\nfor."
+    } ]
+  }, {
+    "tStartMs": 445880,
+    "dDurationMs": 5860,
+    "segs": [ {
+      "utf8": "At the other end of the spectrum, we have\nLLM as judge, which is hugely important"
+    } ]
+  }, {
+    "tStartMs": 451740,
+    "dDurationMs": 4200,
+    "segs": [ {
+      "utf8": "because so much of the work that we're\ndoing is subjective in nature, and you"
+    } ]
+  }, {
+    "tStartMs": 455940,
+    "dDurationMs": 3240,
+    "segs": [ {
+      "utf8": "kind of need a human to do it, but humans\ndon't scale."
+    } ]
+  }, {
+    "tStartMs": 459800,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "So LLM as judge is anything that is\nsubjective."
+    } ]
+  }, {
+    "tStartMs": 464500,
+    "dDurationMs": 5320,
+    "segs": [ {
+      "utf8": "You ask, you know, what is a preference\nfor, you know, this completion versus,"
+    } ]
+  }, {
+    "tStartMs": 469820,
+    "dDurationMs": 1640,
+    "segs": [ {
+      "utf8": "like, the canned response?"
+    } ]
+  }, {
+    "tStartMs": 472480,
+    "dDurationMs": 5620,
+    "segs": [ {
+      "utf8": "Am I hallucinating, or is my response, you\nknow, actually accurately using the"
+    } ]
+  }, {
+    "tStartMs": 478100,
+    "dDurationMs": 4520,
+    "segs": [ {
+      "utf8": "context provided? Those type things, more\nsubjective things that you can't write an"
+    } ]
+  }, {
+    "tStartMs": 482620,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "algorithm for."
+    } ]
+  }, {
+    "tStartMs": 484460,
+    "dDurationMs": 3160,
+    "segs": [ {
+      "utf8": "Now, Copilot was at this kind of\ninteresting in-between"
+    } ]
+  }, {
+    "tStartMs": 488920,
+    "dDurationMs": 3040,
+    "segs": [ {
+      "utf8": "that I've come to call verifiable\nevaluations."
+    } ]
+  }, {
+    "tStartMs": 492760,
+    "dDurationMs": 4440,
+    "segs": [ {
+      "utf8": "There are things that it's like, it's\nalgorithmic in some respect, but it's not"
+    } ]
+  }, {
+    "tStartMs": 497200,
+    "dDurationMs": 2200,
+    "segs": [ {
+      "utf8": "just so easy as looking at the output."
+    } ]
+  }, {
+    "tStartMs": 500160,
+    "dDurationMs": 4100,
+    "segs": [ {
+      "utf8": "It's things like, I'm generating code and\nI want to make sure the code compiles."
+    } ]
+  }, {
+    "tStartMs": 504880,
+    "dDurationMs": 2820,
+    "segs": [ {
+      "utf8": "I want to make sure that the code passes\nunit tests."
+    } ]
+  }, {
+    "tStartMs": 508060,
+    "dDurationMs": 5280,
+    "segs": [ {
+      "utf8": "Maybe it's SQL, and I want to make sure\nthat, I don't care what query it writes,"
+    } ]
+  }, {
+    "tStartMs": 513820,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "but it needs to have the right answers\ncome back, so it can have some degree of"
+    } ]
+  }, {
+    "tStartMs": 517560,
+    "dDurationMs": 5220,
+    "segs": [ {
+      "utf8": "freedom with that. So all these things,\nthe code completion, you can't immediately"
+    } ]
+  }, {
+    "tStartMs": 522780,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "look at it, but you can run it, evaluate\nit somehow in a way that's more"
+    } ]
+  }, {
+    "tStartMs": 527780,
+    "dDurationMs": 1440,
+    "segs": [ {
+      "utf8": "complicated than just the algorithm."
+    } ]
+  }, {
+    "tStartMs": 529620,
+    "dDurationMs": 3920,
+    "segs": [ {
+      "utf8": "And finally, underlying everything is A/B\ntesting."
+    } ]
+  }, {
+    "tStartMs": 534500,
+    "dDurationMs": 5800,
+    "segs": [ {
+      "utf8": "There's nothing particularly special about\nthis for Copilot,"
+    } ]
+  }, {
+    "tStartMs": 540460,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "but it was just an important part of our\nhistory."
+    } ]
+  }, {
+    "tStartMs": 545640,
+    "dDurationMs": 3880,
+    "segs": [ {
+      "utf8": "All right, so we're going to walk through\neach of these and tell you the piece of"
+    } ]
+  }, {
+    "tStartMs": 549520,
+    "dDurationMs": 3580,
+    "segs": [ {
+      "utf8": "the puzzle as it lived itself out at\nGitHub."
+    } ]
+  }, {
+    "tStartMs": 554780,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "So the first thing was exactly what Hamel\nwas referring to a moment ago."
+    } ]
+  }, {
+    "tStartMs": 558520,
+    "dDurationMs": 5820,
+    "segs": [ {
+      "utf8": "We called it Harnesslib. It was a\nverifiable code completion evaluation,"
+    } ]
+  }, {
+    "tStartMs": 564740,
+    "dDurationMs": 2240,
+    "segs": [ {
+      "utf8": "and the idea was,"
+    } ]
+  }, {
+    "tStartMs": 567900,
+    "dDurationMs": 5560,
+    "segs": [ {
+      "utf8": "you know, we've got this magic box.\nCertainly it was magic at the time, that"
+    } ]
+  }, {
+    "tStartMs": 573460,
+    "dDurationMs": 4340,
+    "segs": [ {
+      "utf8": "will look at your code and write,\nhopefully, working code."
+    } ]
+  }, {
+    "tStartMs": 578680,
+    "dDurationMs": 5160,
+    "segs": [ {
+      "utf8": "So as we were working on making the\ncompletions better,"
+    } ]
+  }, {
+    "tStartMs": 584600,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "pulling in more context data that was, you\nknow, we hoped would be helpful, we had"
+    } ]
+  }, {
+    "tStartMs": 589020,
+    "dDurationMs": 2780,
+    "segs": [ {
+      "utf8": "to test the changes before we go live with\nthem."
+    } ]
+  }, {
+    "tStartMs": 591800,
+    "dDurationMs": 3280,
+    "segs": [ {
+      "utf8": "So this is an offline tool that we did for\nthis."
+    } ]
+  }, {
+    "tStartMs": 595700,
+    "dDurationMs": 5360,
+    "segs": [ {
+      "utf8": "And it was one of the first things I was\nintroduced to when I started with Copilot."
+    } ]
+  }, {
+    "tStartMs": 601580,
+    "dDurationMs": 4800,
+    "segs": [ {
+      "utf8": "The idea is simple, but you got to admit,\nit's a really cool idea."
+    } ]
+  }, {
+    "tStartMs": 607420,
+    "dDurationMs": 3120,
+    "segs": [ {
+      "utf8": "First off, we would gather test samples."
+    } ]
+  }, {
+    "tStartMs": 611300,
+    "dDurationMs": 2840,
+    "segs": [ {
+      "utf8": "And here's the rundown of how that works."
+    } ]
+  }, {
+    "tStartMs": 614720,
+    "dDurationMs": 2780,
+    "segs": [ {
+      "utf8": "Basically, you grab, you know, we've got\nall the repos."
+    } ]
+  }, {
+    "tStartMs": 617820,
+    "dDurationMs": 2680,
+    "segs": [ {
+      "utf8": "So you grab a large set of open source\nrepos."
+    } ]
+  }, {
+    "tStartMs": 621480,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "Specifically in our case, Python and\nJavaScript."
+    } ]
+  }, {
+    "tStartMs": 623700,
+    "dDurationMs": 1660,
+    "segs": [ {
+      "utf8": "We had to narrow it down."
+    } ]
+  }, {
+    "tStartMs": 626580,
+    "dDurationMs": 3700,
+    "segs": [ {
+      "utf8": "You run their tests. That's basically why\nwe had to narrow it down."
+    } ]
+  }, {
+    "tStartMs": 630340,
+    "dDurationMs": 2140,
+    "segs": [ {
+      "utf8": "We could run Python and JavaScript tests\npretty easily."
+    } ]
+  }, {
+    "tStartMs": 632480,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "You run their tests, and you keep the\nrepos where all the tests pass."
+    } ]
+  }, {
+    "tStartMs": 636920,
+    "dDurationMs": 1100,
+    "segs": [ {
+      "utf8": "So it's kind of a funnel."
+    } ]
+  }, {
+    "tStartMs": 638940,
+    "dDurationMs": 5140,
+    "segs": [ {
+      "utf8": "Of those, you use code coverage tools to\nassociate the functions with your unit"
+    } ]
+  }, {
+    "tStartMs": 644080,
+    "dDurationMs": 2960,
+    "segs": [ {
+      "utf8": "tests. You have to make sure that you're\nactually testing something."
+    } ]
+  }, {
+    "tStartMs": 647620,
+    "dDurationMs": 3020,
+    "segs": [ {
+      "utf8": "And then of those functions that had some\ncoverage,"
+    } ]
+  }, {
+    "tStartMs": 653000,
+    "dDurationMs": 2420,
+    "segs": [ {
+      "utf8": "we've kind of forgotten the exact\ncriteria, but basically"
+    } ]
+  }, {
+    "tStartMs": 656320,
+    "dDurationMs": 5860,
+    "segs": [ {
+      "utf8": "the candidate functions had to have one\nunit test, had to have at least some"
+    } ]
+  }, {
+    "tStartMs": 662180,
+    "dDurationMs": 5560,
+    "segs": [ {
+      "utf8": "percentage of its lines covered. It had to\nhave, you know, no more"
+    } ]
+  }, {
+    "tStartMs": 667740,
+    "dDurationMs": 3920,
+    "segs": [ {
+      "utf8": "than blah number of lines. Otherwise, you\nknow, it was too"
+    } ]
+  }, {
+    "tStartMs": 671660,
+    "dDurationMs": 4980,
+    "segs": [ {
+      "utf8": "hard of a task for, you know, early days\nCopilot."
+    } ]
+  }, {
+    "tStartMs": 676880,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "And it needed a doc string. So we're\nlooking for something that is the"
+    } ]
+  }, {
+    "tStartMs": 680880,
+    "dDurationMs": 5960,
+    "segs": [ {
+      "utf8": "function, function name, the signature,\nthe doc string, and the context around"
+    } ]
+  }, {
+    "tStartMs": 686840,
+    "dDurationMs": 4560,
+    "segs": [ {
+      "utf8": "this piece of code. All those became\ncandidate tests for evaluation."
+    } ]
+  }, {
+    "tStartMs": 692200,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "And then running it, you kind of see what\nwe would do."
+    } ]
+  }, {
+    "tStartMs": 694940,
+    "dDurationMs": 5240,
+    "segs": [ {
+      "utf8": "We would grab some of these, one of these\ncandidate functions, kind of, you know,"
+    } ]
+  }, {
+    "tStartMs": 700280,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "melon baller scoop out the implementation\nof it,"
+    } ]
+  }, {
+    "tStartMs": 705260,
+    "dDurationMs": 2580,
+    "segs": [ {
+      "utf8": "generate the contents again, and run the\nunit test again."
+    } ]
+  }, {
+    "tStartMs": 709460,
+    "dDurationMs": 5920,
+    "segs": [ {
+      "utf8": "And if we do this across lots and lots of\nfunctions, across lots and lots of repos,"
+    } ]
+  }, {
+    "tStartMs": 715540,
+    "dDurationMs": 3580,
+    "segs": [ {
+      "utf8": "then we can start to get an idea of\ndirectionality."
+    } ]
+  }, {
+    "tStartMs": 719440,
+    "dDurationMs": 4300,
+    "segs": [ {
+      "utf8": "Like, as a baseline, we know what version\nX of Copilot did."
+    } ]
+  }, {
+    "tStartMs": 723880,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "It wouldn't succeed at all, and I forgot\nwhat it was up to."
+    } ]
+  }, {
+    "tStartMs": 727700,
+    "dDurationMs": 3520,
+    "segs": [ {
+      "utf8": "It was like 40 or 50 percent. It wasn't\neven a huge number back then."
+    } ]
+  }, {
+    "tStartMs": 731980,
+    "dDurationMs": 1960,
+    "segs": [ {
+      "utf8": "But we know that— Can you talk a little\nbit about,"
+    } ]
+  }, {
+    "tStartMs": 734880,
+    "dDurationMs": 5280,
+    "segs": [ {
+      "utf8": "if I recall, y'all selected these repos to\nbe like, you know, you had a way of"
+    } ]
+  }, {
+    "tStartMs": 740160,
+    "dDurationMs": 3480,
+    "segs": [ {
+      "utf8": "selecting or filtering ones for, like,\nhigher quality and stuff like that."
+    } ]
+  }, {
+    "tStartMs": 743720,
+    "dDurationMs": 1240,
+    "segs": [ {
+      "utf8": "Can you talk a little bit about"
+    } ]
+  }, {
+    "tStartMs": 747060,
+    "dDurationMs": 4780,
+    "segs": [ {
+      "utf8": "that? Maybe I touch on it a little bit in\nthis lessons learned thing right here,"
+    } ]
+  }, {
+    "tStartMs": 752680,
+    "dDurationMs": 1940,
+    "segs": [ {
+      "utf8": "but Sean's going to cut in here in a\nsecond."
+    } ]
+  }, {
+    "tStartMs": 754820,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "See, we got these cute little pictures,\nand he can probably address that a little"
+    } ]
+  }, {
+    "tStartMs": 759320,
+    "dDurationMs": 1600,
+    "segs": [ {
+      "utf8": "bit too if I miss any points."
+    } ]
+  }, {
+    "tStartMs": 762820,
+    "dDurationMs": 3500,
+    "segs": [ {
+      "utf8": "But, you know, as far as quality is\nconcerned, that was one of the things that"
+    } ]
+  }, {
+    "tStartMs": 766320,
+    "dDurationMs": 1660,
+    "segs": [ {
+      "utf8": "was kind of a lesson learned."
+    } ]
+  }, {
+    "tStartMs": 770960,
+    "dDurationMs": 4080,
+    "segs": [ {
+      "utf8": "We had to make sure that the content\nitself wasn't trained into the model."
+    } ]
+  }, {
+    "tStartMs": 775220,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "We would get these models from OpenAI, and\nguess what they were training the models"
+    } ]
+  }, {
+    "tStartMs": 779120,
+    "dDurationMs": 5900,
+    "segs": [ {
+      "utf8": "on? All the code at GitHub. So when we had\nclose"
+    } ]
+  }, {
+    "tStartMs": 785020,
+    "dDurationMs": 4780,
+    "segs": [ {
+      "utf8": "relations early on with OpenAI, because we\nwere one of their first main customers,"
+    } ]
+  }, {
+    "tStartMs": 790840,
+    "dDurationMs": 3960,
+    "segs": [ {
+      "utf8": "we could get a list of what went into the\ntraining and make sure that we had"
+    } ]
+  }, {
+    "tStartMs": 794800,
+    "dDurationMs": 2160,
+    "segs": [ {
+      "utf8": "something that was trained after that\ndate."
+    } ]
+  }, {
+    "tStartMs": 799080,
+    "dDurationMs": 4980,
+    "segs": [ {
+      "utf8": "It's also important to make sure that your\nrepos are consistent with the traffic"
+    } ]
+  }, {
+    "tStartMs": 804060,
+    "dDurationMs": 5280,
+    "segs": [ {
+      "utf8": "that you expect in production. And I think\nwe never quite—I mean, it was always very"
+    } ]
+  }, {
+    "tStartMs": 809340,
+    "dDurationMs": 6000,
+    "segs": [ {
+      "utf8": "subjective of this, but I think we always\nknew that we wished"
+    } ]
+  }, {
+    "tStartMs": 815340,
+    "dDurationMs": 1440,
+    "segs": [ {
+      "utf8": "it was a little bit more consistent."
+    } ]
+  }, {
+    "tStartMs": 817720,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "Some of the models—"
+    } ]
+  }, {
+    "tStartMs": 820020,
+    "dDurationMs": 2720,
+    "segs": [ {
+      "utf8": "Because they weren't in the training set\nwere the newer models—sorry,"
+    } ]
+  }, {
+    "tStartMs": 823860,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "some of the code bases that weren't in the\ntraining data were newer code bases."
+    } ]
+  }, {
+    "tStartMs": 828420,
+    "dDurationMs": 4600,
+    "segs": [ {
+      "utf8": "And guess what? Newer code bases tend to\nbe smaller, tend to be a certain type of"
+    } ]
+  }, {
+    "tStartMs": 833020,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "thing. And so, like, a lot of our code\nbases were a little bit smaller"
+    } ]
+  }, {
+    "tStartMs": 836600,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "than what, you know, you see worked on in\nproduction."
+    } ]
+  }, {
+    "tStartMs": 840500,
+    "dDurationMs": 3320,
+    "segs": [ {
+      "utf8": "That's really interesting about the\nrelationship with OpenAI."
+    } ]
+  }, {
+    "tStartMs": 844040,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "You mentioned,"
+    } ]
+  }, {
+    "tStartMs": 845460,
+    "dDurationMs": 2280,
+    "segs": [ {
+      "utf8": "like, in the beginning it seemed really\nclose."
+    } ]
+  }, {
+    "tStartMs": 847860,
+    "dDurationMs": 5500,
+    "segs": [ {
+      "utf8": "Like every week there was calls with Greg\nBrockman and Ilya, I remember."
+    } ]
+  }, {
+    "tStartMs": 853660,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "I'd get on conference calls with just them\nand a few other people."
+    } ]
+  }, {
+    "tStartMs": 857440,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "It seemed"
+    } ]
+  }, {
+    "tStartMs": 858800,
+    "dDurationMs": 2420,
+    "segs": [ {
+      "utf8": "like super close. So it didn't stay that\nway?"
+    } ]
+  }, {
+    "tStartMs": 861240,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "It wasn't like that necessarily throughout\nthe entire time?"
+    } ]
+  }, {
+    "tStartMs": 865280,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "Yeah, it's interesting."
+    } ]
+  }, {
+    "tStartMs": 866900,
+    "dDurationMs": 3340,
+    "segs": [ {
+      "utf8": "And by the way, Sean, you feel free to cut\nin here at any point that you want."
+    } ]
+  }, {
+    "tStartMs": 871420,
+    "dDurationMs": 3420,
+    "segs": [ {
+      "utf8": "You had an earlier window than I did, even\nthough we were working at GitHub at the"
+    } ]
+  }, {
+    "tStartMs": 874840,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "same time, but you were in the middle of\nit at that point."
+    } ]
+  }, {
+    "tStartMs": 878920,
+    "dDurationMs": 5640,
+    "segs": [ {
+      "utf8": "Sean got to see about a year before I did,\nand then I think both me and Sean left"
+    } ]
+  }, {
+    "tStartMs": 884560,
+    "dDurationMs": 1420,
+    "segs": [ {
+      "utf8": "at about a similar time,"
+    } ]
+  }, {
+    "tStartMs": 887400,
+    "dDurationMs": 3320,
+    "segs": [ {
+      "utf8": "middle of last year. So yeah, at some\npoint,"
+    } ]
+  }, {
+    "tStartMs": 892860,
+    "dDurationMs": 1500,
+    "segs": [ {
+      "utf8": "we were the big"
+    } ]
+  }, {
+    "tStartMs": 895160,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "kid in the kiddie pool. But eventually,\nyou know, ChatGPT landed, and it was very"
+    } ]
+  }, {
+    "tStartMs": 900220,
+    "dDurationMs": 4100,
+    "segs": [ {
+      "utf8": "important for them to do the best thing\nfor their own product."
+    } ]
+  }, {
+    "tStartMs": 906560,
+    "dDurationMs": 4280,
+    "segs": [ {
+      "utf8": "Maybe a couple—we've got a lot of ground\nto cover, so maybe just a couple more"
+    } ]
+  }, {
+    "tStartMs": 910840,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "tidbits here,"
+    } ]
+  }, {
+    "tStartMs": 912580,
+    "dDurationMs": 5160,
+    "segs": [ {
+      "utf8": "and then we've got the three other types\nof evals to go through."
+    } ]
+  }, {
+    "tStartMs": 920340,
+    "dDurationMs": 4240,
+    "segs": [ {
+      "utf8": "But a lesson that I think I learned, and\nthe reason I've got our pictures here is"
+    } ]
+  }, {
+    "tStartMs": 924580,
+    "dDurationMs": 3920,
+    "segs": [ {
+      "utf8": "because Sean almost learned the opposite\nlesson, and he makes a really great point."
+    } ]
+  }, {
+    "tStartMs": 929040,
+    "dDurationMs": 3160,
+    "segs": [ {
+      "utf8": "But I always felt like our test harness\nshould have been more—"
+    } ]
+  }, {
+    "tStartMs": 933560,
+    "dDurationMs": 5600,
+    "segs": [ {
+      "utf8": "Should have basically been a headless VS\nCode, so we could absolutely"
+    } ]
+  }, {
+    "tStartMs": 939160,
+    "dDurationMs": 4700,
+    "segs": [ {
+      "utf8": "test every single component of our\ncodebase as it changed."
+    } ]
+  }, {
+    "tStartMs": 944600,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "And I still agree with myself. That ends\nup being really good for, like,"
+    } ]
+  }, {
+    "tStartMs": 948240,
+    "dDurationMs": 5900,
+    "segs": [ {
+      "utf8": "integration tests to make sure that you're\nkeeping the evaluations high."
+    } ]
+  }, {
+    "tStartMs": 955040,
+    "dDurationMs": 4680,
+    "segs": [ {
+      "utf8": "And now, maybe Sean, you can pop in here,\nbut I liked the points that you're making"
+    } ]
+  }, {
+    "tStartMs": 959720,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "about the flexibility of the harness."
+    } ]
+  }, {
+    "tStartMs": 964500,
+    "dDurationMs": 4900,
+    "segs": [ {
+      "utf8": "Yeah, yeah. Just there was this kind of\nthese different phases of product"
+    } ]
+  }, {
+    "tStartMs": 969400,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "development where, you know, sometimes\nyou've got a new model with new"
+    } ]
+  }, {
+    "tStartMs": 973260,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "capabilities coming out, and you're trying\nto imagine, like, oh, how would people"
+    } ]
+  }, {
+    "tStartMs": 976480,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "use this? And how can we evaluate\nsomething that people have not even had a"
+    } ]
+  }, {
+    "tStartMs": 981540,
+    "dDurationMs": 5680,
+    "segs": [ {
+      "utf8": "chance to try yet? And so in that sense,\nyou can't just wrap the existing product"
+    } ]
+  }, {
+    "tStartMs": 987220,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "in an evaluation harness and have that be\nthe only way to test things."
+    } ]
+  }, {
+    "tStartMs": 990840,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "You do need this more experimental system\nwhere you can kind of prototype out new"
+    } ]
+  }, {
+    "tStartMs": 996720,
+    "dDurationMs": 2520,
+    "segs": [ {
+      "utf8": "ways of using the AI, new ways of using\nthe product."
+    } ]
+  }, {
+    "tStartMs": 1000860,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "But then those are always less reliable,\nand so once you launch that, you kind of"
+    } ]
+  }, {
+    "tStartMs": 1004760,
+    "dDurationMs": 4540,
+    "segs": [ {
+      "utf8": "have to go back into making it more\nreliable, more easy to evaluate."
+    } ]
+  }, {
+    "tStartMs": 1013880,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "So that covers Harnesslib."
+    } ]
+  }, {
+    "tStartMs": 1017560,
+    "dDurationMs": 5500,
+    "segs": [ {
+      "utf8": "The next big chunk is, so Harnesslib was\nverifiable tests, and it was probably"
+    } ]
+  }, {
+    "tStartMs": 1023060,
+    "dDurationMs": 4840,
+    "segs": [ {
+      "utf8": "the biggest chunk of our evaluations, and\nalso definitely one of the coolest."
+    } ]
+  }, {
+    "tStartMs": 1029020,
+    "dDurationMs": 4580,
+    "segs": [ {
+      "utf8": "A/B testing is what we did whenever it was\ntime to ship our changes online."
+    } ]
+  }, {
+    "tStartMs": 1034520,
+    "dDurationMs": 5700,
+    "segs": [ {
+      "utf8": "The offline test that we had would, you\nknow, hopefully, you know, limit— Limit"
+    } ]
+  }, {
+    "tStartMs": 1040220,
+    "dDurationMs": 5420,
+    "segs": [ {
+      "utf8": "the exposure to, you know, shipping\nsomething that was surprisingly bad."
+    } ]
+  }, {
+    "tStartMs": 1045800,
+    "dDurationMs": 4380,
+    "segs": [ {
+      "utf8": "And I think it did a good job of that and\nhelped us really flesh out what was going"
+    } ]
+  }, {
+    "tStartMs": 1050180,
+    "dDurationMs": 4520,
+    "segs": [ {
+      "utf8": "to be a good product to ship. But once we\nfinally did ship it, we had to make sure"
+    } ]
+  }, {
+    "tStartMs": 1054700,
+    "dDurationMs": 2420,
+    "segs": [ {
+      "utf8": "that the changes are appropriate,"
+    } ]
+  }, {
+    "tStartMs": 1057980,
+    "dDurationMs": 5220,
+    "segs": [ {
+      "utf8": "that, you know, we'll start our users on\nlike 10%"
+    } ]
+  }, {
+    "tStartMs": 1063460,
+    "dDurationMs": 5860,
+    "segs": [ {
+      "utf8": "of the traffic and kind of ramp it up,\nkeep an eye on how the product is doing"
+    } ]
+  }, {
+    "tStartMs": 1069320,
+    "dDurationMs": 1460,
+    "segs": [ {
+      "utf8": "and see if anything is changing."
+    } ]
+  }, {
+    "tStartMs": 1071980,
+    "dDurationMs": 5840,
+    "segs": [ {
+      "utf8": "And a really important lesson for us came"
+    } ]
+  }, {
+    "tStartMs": 1077820,
+    "dDurationMs": 1720,
+    "segs": [ {
+      "utf8": "from basically how these things were set\nup."
+    } ]
+  }, {
+    "tStartMs": 1080280,
+    "dDurationMs": 4060,
+    "segs": [ {
+      "utf8": "We had just a very few key metrics,"
+    } ]
+  }, {
+    "tStartMs": 1085260,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "and to the best of our memory, it's these\nthree items on the screen here:"
+    } ]
+  }, {
+    "tStartMs": 1091640,
+    "dDurationMs": 1220,
+    "segs": [ {
+      "utf8": "completion acceptance rate."
+    } ]
+  }, {
+    "tStartMs": 1093700,
+    "dDurationMs": 4380,
+    "segs": [ {
+      "utf8": "So, you know, a user gets the ghost text\non the screen."
+    } ]
+  }, {
+    "tStartMs": 1098340,
+    "dDurationMs": 3460,
+    "segs": [ {
+      "utf8": "Do they accept it or not? So how often do\nthey accept it?"
+    } ]
+  }, {
+    "tStartMs": 1102420,
+    "dDurationMs": 4240,
+    "segs": [ {
+      "utf8": "Characters retained. A lot of times,\nespecially for users like me, I would like"
+    } ]
+  }, {
+    "tStartMs": 1106660,
+    "dDurationMs": 3160,
+    "segs": [ {
+      "utf8": "mindlessly accept everything and then\nedit."
+    } ]
+  }, {
+    "tStartMs": 1110000,
+    "dDurationMs": 1440,
+    "segs": [ {
+      "utf8": "That was kind of the pattern that I used."
+    } ]
+  }, {
+    "tStartMs": 1111440,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "So we also had to incorporate that type of\nuser, that type of use case into it and"
+    } ]
+  }, {
+    "tStartMs": 1116440,
+    "dDurationMs": 4020,
+    "segs": [ {
+      "utf8": "make sure that, you know, people weren't\nzombie-like accepting everything and then,"
+    } ]
+  }, {
+    "tStartMs": 1120460,
+    "dDurationMs": 5800,
+    "segs": [ {
+      "utf8": "you know, not liking any of it and having\nto, you know, go back and"
+    } ]
+  }, {
+    "tStartMs": 1126260,
+    "dDurationMs": 3420,
+    "segs": [ {
+      "utf8": "change it. And the last thing is kind of\nan obvious one, is latency."
+    } ]
+  }, {
+    "tStartMs": 1129840,
+    "dDurationMs": 1480,
+    "segs": [ {
+      "utf8": "If we come out with"
+    } ]
+  }, {
+    "tStartMs": 1132140,
+    "dDurationMs": 5920,
+    "segs": [ {
+      "utf8": "a recommended piece of code that is too\nlate, then it's just bad for everything."
+    } ]
+  }, {
+    "tStartMs": 1138700,
+    "dDurationMs": 3320,
+    "segs": [ {
+      "utf8": "Now, beyond the key metrics, we had\nseveral guardrail metrics."
+    } ]
+  }, {
+    "tStartMs": 1142860,
+    "dDurationMs": 1210,
+    "segs": [ {
+      "utf8": "And by several, I mean"
+    } ]
+  }, {
+    "tStartMs": 1145580,
+    "dDurationMs": 3540,
+    "segs": [ {
+      "utf8": "I tens, maybe even into low in the\nhundred."
+    } ]
+  }, {
+    "tStartMs": 1149240,
+    "dDurationMs": 4780,
+    "segs": [ {
+      "utf8": "But there were a few of these were like\nvariations of these things above, like"
+    } ]
+  }, {
+    "tStartMs": 1154020,
+    "dDurationMs": 2120,
+    "segs": [ {
+      "utf8": "characters retained after a certain number\nof minutes."
+    } ]
+  }, {
+    "tStartMs": 1156700,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "But, you know, anything that would give us\na way of kind of measuring"
+    } ]
+  }, {
+    "tStartMs": 1161700,
+    "dDurationMs": 3120,
+    "segs": [ {
+      "utf8": "how How much it changed"
+    } ]
+  }, {
+    "tStartMs": 1165620,
+    "dDurationMs": 4900,
+    "segs": [ {
+      "utf8": "to see if there's anything weird going on\nin the side."
+    } ]
+  }, {
+    "tStartMs": 1171520,
+    "dDurationMs": 1600,
+    "segs": [ {
+      "utf8": "So I have a question about guardrails."
+    } ]
+  }, {
+    "tStartMs": 1173120,
+    "dDurationMs": 4560,
+    "segs": [ {
+      "utf8": "Like, a lot of times, guardrails, people\nhave guardrails, they're like binary"
+    } ]
+  }, {
+    "tStartMs": 1177680,
+    "dDurationMs": 5220,
+    "segs": [ {
+      "utf8": "pass-fails, like really catastrophic\nerrors or something they want to, like,"
+    } ]
+  }, {
+    "tStartMs": 1182900,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "prevent against."
+    } ]
+  }, {
+    "tStartMs": 1184620,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "Was there some of that too, something like\nthat too, or was it mostly like these"
+    } ]
+  }, {
+    "tStartMs": 1188940,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "metrics you keep an eye on with the, like,\ndrifting wildly?"
+    } ]
+  }, {
+    "tStartMs": 1193480,
+    "dDurationMs": 2400,
+    "segs": [ {
+      "utf8": "Yeah, mostly we were looking at the key\nmetrics."
+    } ]
+  }, {
+    "tStartMs": 1195880,
+    "dDurationMs": 2480,
+    "segs": [ {
+      "utf8": "That made the conversations really easy."
+    } ]
+  }, {
+    "tStartMs": 1198900,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "Just so we would focus on just those few\nsimple things."
+    } ]
+  }, {
+    "tStartMs": 1204000,
+    "dDurationMs": 3880,
+    "segs": [ {
+      "utf8": "Guardrails, we didn't have, like, just a\nhard fail if something went wrong with"
+    } ]
+  }, {
+    "tStartMs": 1207880,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "them. They were part of the conversation\nif something was really going wrong."
+    } ]
+  }, {
+    "tStartMs": 1212760,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "Or, you know, if we were trying to\nunderstand the metrics, the guardrails"
+    } ]
+  }, {
+    "tStartMs": 1216400,
+    "dDurationMs": 5980,
+    "segs": [ {
+      "utf8": "were just a useful side conversation to\ndiagnose and figure out what was going on"
+    } ]
+  }, {
+    "tStartMs": 1222380,
+    "dDurationMs": 2860,
+    "segs": [ {
+      "utf8": "with the key metrics. So it all kind of\nfed back into that."
+    } ]
+  }, {
+    "tStartMs": 1225240,
+    "dDurationMs": 5700,
+    "segs": [ {
+      "utf8": "When, in the cases where, like, let's say\nthose key metrics, like acceptance"
+    } ]
+  }, {
+    "tStartMs": 1230940,
+    "dDurationMs": 3460,
+    "segs": [ {
+      "utf8": "rate, latency, everything were, like,\nimproving, let's say,"
+    } ]
+  }, {
+    "tStartMs": 1235200,
+    "dDurationMs": 2580,
+    "segs": [ {
+      "utf8": "but then the other metrics were sort of"
+    } ]
+  }, {
+    "tStartMs": 1238760,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "going astray, did that ever happen? And,\nlike, did you do a bunch of analysis, like"
+    } ]
+  }, {
+    "tStartMs": 1243760,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "data science-y type of work to, like,\nfigure out why?"
+    } ]
+  }, {
+    "tStartMs": 1247360,
+    "dDurationMs": 3240,
+    "segs": [ {
+      "utf8": "And how was that conversation, like,\nsurfaced, let's say?"
+    } ]
+  }, {
+    "tStartMs": 1253220,
+    "dDurationMs": 2560,
+    "segs": [ {
+      "utf8": "So stuff like that would happen\noccasionally."
+    } ]
+  }, {
+    "tStartMs": 1256460,
+    "dDurationMs": 4680,
+    "segs": [ {
+      "utf8": "And, you know, I'm going to be super fuzzy\non this because I wasn't really in the"
+    } ]
+  }, {
+    "tStartMs": 1261140,
+    "dDurationMs": 4120,
+    "segs": [ {
+      "utf8": "middle of this discussion. But we did\nhave, like, weird"
+    } ]
+  }, {
+    "tStartMs": 1266560,
+    "dDurationMs": 1860,
+    "segs": [ {
+      "utf8": "coupling in several of the metrics."
+    } ]
+  }, {
+    "tStartMs": 1269780,
+    "dDurationMs": 1800,
+    "segs": [ {
+      "utf8": "It's the second bullet here: weird\ntrade-offs."
+    } ]
+  }, {
+    "tStartMs": 1271940,
+    "dDurationMs": 5220,
+    "segs": [ {
+      "utf8": "So, like, sometimes you would maximize one\nof the metrics, and"
+    } ]
+  }, {
+    "tStartMs": 1277160,
+    "dDurationMs": 4600,
+    "segs": [ {
+      "utf8": "it would just tank another metric, and\nyou'd have to think really hard about why"
+    } ]
+  }, {
+    "tStartMs": 1281760,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "those two were trading off."
+    } ]
+  }, {
+    "tStartMs": 1284680,
+    "dDurationMs": 5100,
+    "segs": [ {
+      "utf8": "Like, you know, if you really optimize for\nacceptance rates, well, one silly thing"
+    } ]
+  }, {
+    "tStartMs": 1289780,
+    "dDurationMs": 3320,
+    "segs": [ {
+      "utf8": "that would happen is, like, you have a\nbunch of little tiny completions, and so"
+    } ]
+  }, {
+    "tStartMs": 1293100,
+    "dDurationMs": 2440,
+    "segs": [ {
+      "utf8": "the experience was garbage when that\nhappened."
+    } ]
+  }, {
+    "tStartMs": 1296560,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "But you'd have to"
+    } ]
+  }, {
+    "tStartMs": 1298320,
+    "dDurationMs": 5580,
+    "segs": [ {
+      "utf8": "really dig around in some of the other\nmetrics to figure out, you know, why"
+    } ]
+  }, {
+    "tStartMs": 1303900,
+    "dDurationMs": 3180,
+    "segs": [ {
+      "utf8": "a sudden departure happened from whatever\nyour baseline was."
+    } ]
+  }, {
+    "tStartMs": 1309560,
+    "dDurationMs": 3480,
+    "segs": [ {
+      "utf8": "How did that process, that detective work\nhappen?"
+    } ]
+  }, {
+    "tStartMs": 1313220,
+    "dDurationMs": 4080,
+    "segs": [ {
+      "utf8": "Was it like a lot of data science-y type\nof work where you're kind of doing a lot"
+    } ]
+  }, {
+    "tStartMs": 1317300,
+    "dDurationMs": 5400,
+    "segs": [ {
+      "utf8": "of data exploration or, you know, like,\nyeah, how did it—who did that kind of,"
+    } ]
+  }, {
+    "tStartMs": 1322700,
+    "dDurationMs": 1660,
+    "segs": [ {
+      "utf8": "like, detective work?"
+    } ]
+  }, {
+    "tStartMs": 1325640,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "How did that work? Yeah. So as part of,\nlike, these"
+    } ]
+  }, {
+    "tStartMs": 1331520,
+    "dDurationMs": 5960,
+    "segs": [ {
+      "utf8": "A/B experiments, you know, we would ship\nout new models, new prompt crafting"
+    } ]
+  }, {
+    "tStartMs": 1337480,
+    "dDurationMs": 4120,
+    "segs": [ {
+      "utf8": "techniques, and then, you know, we would\nhope to see, you know, the key metrics"
+    } ]
+  }, {
+    "tStartMs": 1341600,
+    "dDurationMs": 4720,
+    "segs": [ {
+      "utf8": "going up. But then sometimes we would see\nsomething like a guardrail metric, like"
+    } ]
+  }, {
+    "tStartMs": 1346840,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "number of lines generated, you know,\naverage number of lines generated would"
+    } ]
+  }, {
+    "tStartMs": 1350400,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "jump in some weird direction, either up or\ndown, could be kind of alarming."
+    } ]
+  }, {
+    "tStartMs": 1356060,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "And so then there were different scales of\nthat, is like, you know, we'd have the"
+    } ]
+  }, {
+    "tStartMs": 1359920,
+    "dDurationMs": 4440,
+    "segs": [ {
+      "utf8": "prompt engineering folks in the meeting\nand they might say, Oh yeah, we, you know,"
+    } ]
+  }, {
+    "tStartMs": 1364360,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "we expect that because we improved the\nprompt in this way and it's giving more"
+    } ]
+  }, {
+    "tStartMs": 1368720,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "targeted suggestions, so it's actually\nokay if the number of lines goes down"
+    } ]
+  }, {
+    "tStartMs": 1372120,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "because they're higher quality lines."
+    } ]
+  }, {
+    "tStartMs": 1375080,
+    "dDurationMs": 4660,
+    "segs": [ {
+      "utf8": "And then, like you said, there are other\ntimes where everyone's like, We don't know"
+    } ]
+  }, {
+    "tStartMs": 1379740,
+    "dDurationMs": 1660,
+    "segs": [ {
+      "utf8": "why the number of lines have gone up."
+    } ]
+  }, {
+    "tStartMs": 1381500,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "This is"
+    } ]
+  }, {
+    "tStartMs": 1383080,
+    "dDurationMs": 3760,
+    "segs": [ {
+      "utf8": "concerning enough that it's worth, you\nknow, delaying the launch for a week while"
+    } ]
+  }, {
+    "tStartMs": 1386840,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "someone digs into the logs and actually\nfigures out what's going on, and then it"
+    } ]
+  }, {
+    "tStartMs": 1390780,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "becomes a data science"
+    } ]
+  }, {
+    "tStartMs": 1392540,
+    "dDurationMs": 4900,
+    "segs": [ {
+      "utf8": "project. And so luckily, yeah, we had a\nwhole bunch of people on the Copilot evals"
+    } ]
+  }, {
+    "tStartMs": 1397440,
+    "dDurationMs": 3280,
+    "segs": [ {
+      "utf8": "team that had that skill set who could\nkind of go off and dig through the data"
+    } ]
+  }, {
+    "tStartMs": 1400720,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "and figure out what was going on, come\nback the next week for ship room and say,"
+    } ]
+  }, {
+    "tStartMs": 1404840,
+    "dDurationMs": 1520,
+    "segs": [ {
+      "utf8": "All right, we looked at it. It's okay."
+    } ]
+  }, {
+    "tStartMs": 1406400,
+    "dDurationMs": 5960,
+    "segs": [ {
+      "utf8": "Here's why. Let's move forward. Hey, Sean,\nyou're"
+    } ]
+  }, {
+    "tStartMs": 1412360,
+    "dDurationMs": 3140,
+    "segs": [ {
+      "utf8": "doing the talking right now. I think this\nis one of the most interesting parts, and"
+    } ]
+  }, {
+    "tStartMs": 1415500,
+    "dDurationMs": 3840,
+    "segs": [ {
+      "utf8": "you were right in the middle of this\nLLM-as-judge stuff."
+    } ]
+  }, {
+    "tStartMs": 1419400,
+    "dDurationMs": 1640,
+    "segs": [ {
+      "utf8": "Do you want to take this next section?"
+    } ]
+  }, {
+    "tStartMs": 1421120,
+    "dDurationMs": 2240,
+    "segs": [ {
+      "utf8": "Just tell me when to progress the slides."
+    } ]
+  }, {
+    "tStartMs": 1423980,
+    "dDurationMs": 5940,
+    "segs": [ {
+      "utf8": "Yeah. Yeah, so, yeah, like we felt we had\na really, really"
+    } ]
+  }, {
+    "tStartMs": 1429920,
+    "dDurationMs": 1260,
+    "segs": [ {
+      "utf8": "good system with"
+    } ]
+  }, {
+    "tStartMs": 1432820,
+    "dDurationMs": 2680,
+    "segs": [ {
+      "utf8": "this offline Harnesslib eval where we\ncould run different prompt crafting"
+    } ]
+  }, {
+    "tStartMs": 1435500,
+    "dDurationMs": 5360,
+    "segs": [ {
+      "utf8": "experiments or, you know, fine-tune models\nand see how that affects the product in"
+    } ]
+  }, {
+    "tStartMs": 1440860,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "an offline setting. And then we could also\nkind of ground that in online A/B"
+    } ]
+  }, {
+    "tStartMs": 1444860,
+    "dDurationMs": 3800,
+    "segs": [ {
+      "utf8": "experiments and make sure that, you know,\nthe changes actually"
+    } ]
+  }, {
+    "tStartMs": 1450740,
+    "dDurationMs": 4020,
+    "segs": [ {
+      "utf8": "played out the way that we expected with\nour real user base."
+    } ]
+  }, {
+    "tStartMs": 1455320,
+    "dDurationMs": 2100,
+    "segs": [ {
+      "utf8": "So we were feeling pretty good about that."
+    } ]
+  }, {
+    "tStartMs": 1457420,
+    "dDurationMs": 5900,
+    "segs": [ {
+      "utf8": "And then ChatGPT came out, and it kind of\nchanged how we thought about"
+    } ]
+  }, {
+    "tStartMs": 1463320,
+    "dDurationMs": 4560,
+    "segs": [ {
+      "utf8": "evals. And I think it was obvious from the\nbeginning that these chat models were"
+    } ]
+  }, {
+    "tStartMs": 1467880,
+    "dDurationMs": 5480,
+    "segs": [ {
+      "utf8": "going to be a big deal, but we didn't\nquite realize at the time, you know, how"
+    } ]
+  }, {
+    "tStartMs": 1473360,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "much"
+    } ]
+  }, {
+    "tStartMs": 1474840,
+    "dDurationMs": 1320,
+    "segs": [ {
+      "utf8": "it was going to change our evals."
+    } ]
+  }, {
+    "tStartMs": 1476980,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "And so, yeah, this is how we kind of\nbacked our way into LLM-as-judge, I guess,"
+    } ]
+  }, {
+    "tStartMs": 1483240,
+    "dDurationMs": 5760,
+    "segs": [ {
+      "utf8": "and kind of started looking more at, like,\nsubjective quality judgments instead"
+    } ]
+  }, {
+    "tStartMs": 1489000,
+    "dDurationMs": 5720,
+    "segs": [ {
+      "utf8": "of these purely kind of execution-based,\nyou know, does the code work or"
+    } ]
+  }, {
+    "tStartMs": 1494720,
+    "dDurationMs": 1080,
+    "segs": [ {
+      "utf8": "not, which was"
+    } ]
+  }, {
+    "tStartMs": 1497120,
+    "dDurationMs": 4840,
+    "segs": [ {
+      "utf8": "kind of one of the key ingredients to\ngetting the Copilot completion product to"
+    } ]
+  }, {
+    "tStartMs": 1501960,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "that point."
+    } ]
+  }, {
+    "tStartMs": 1505460,
+    "dDurationMs": 5380,
+    "segs": [ {
+      "utf8": "So at first—yeah, thank you, John—at\nfirst, I think when we looked at what"
+    } ]
+  }, {
+    "tStartMs": 1510840,
+    "dDurationMs": 3420,
+    "segs": [ {
+      "utf8": "people were doing with ChatGPT and, like,\nkind of conversational programming, I"
+    } ]
+  }, {
+    "tStartMs": 1514260,
+    "dDurationMs": 4940,
+    "segs": [ {
+      "utf8": "think we were calling it at the time, it\nkind of looked like what we were already"
+    } ]
+  }, {
+    "tStartMs": 1519200,
+    "dDurationMs": 4780,
+    "segs": [ {
+      "utf8": "doing with Copilot. You know, people would\nask it, you know, make this code cleaner"
+    } ]
+  }, {
+    "tStartMs": 1523980,
+    "dDurationMs": 4640,
+    "segs": [ {
+      "utf8": "or, you know, write some unit tests for me\nor help me fix this bug, and then it"
+    } ]
+  }, {
+    "tStartMs": 1528620,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "would, you know, go through multiple steps\nof the conversation, but there'd still be"
+    } ]
+  }, {
+    "tStartMs": 1532480,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "some code output."
+    } ]
+  }, {
+    "tStartMs": 1534580,
+    "dDurationMs": 4440,
+    "segs": [ {
+      "utf8": "And so I— I started building out the first\nversion of Copilot Chat and thinking"
+    } ]
+  }, {
+    "tStartMs": 1539020,
+    "dDurationMs": 3520,
+    "segs": [ {
+      "utf8": "about how I would evaluate that so we\ncould launch something eventually."
+    } ]
+  }, {
+    "tStartMs": 1543900,
+    "dDurationMs": 5240,
+    "segs": [ {
+      "utf8": "And I started to realize, like, even\nthough there was code coming out of chat,"
+    } ]
+  }, {
+    "tStartMs": 1549680,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "what we needed to evaluate wasn't just the\ncode that was coming out of chat."
+    } ]
+  }, {
+    "tStartMs": 1552820,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "What we needed to evaluate was the actual\nconversation, right?"
+    } ]
+  }, {
+    "tStartMs": 1556440,
+    "dDurationMs": 4540,
+    "segs": [ {
+      "utf8": "And people obviously cared about getting\ngood code that came out, but they also"
+    } ]
+  }, {
+    "tStartMs": 1560980,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "wanted to feel like the conversation was\nproductive, like the assistant was"
+    } ]
+  }, {
+    "tStartMs": 1564840,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "listening to them and giving them good\nfeedback and that sort of thing."
+    } ]
+  }, {
+    "tStartMs": 1568540,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "And then,"
+    } ]
+  }, {
+    "tStartMs": 1569840,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "you know, we also had use cases in chat\nwhere there wasn't code coming out, right?"
+    } ]
+  }, {
+    "tStartMs": 1573780,
+    "dDurationMs": 3980,
+    "segs": [ {
+      "utf8": "So someone would say, like, Explain to me\nhow this code works, or like, you know,"
+    } ]
+  }, {
+    "tStartMs": 1578340,
+    "dDurationMs": 3380,
+    "segs": [ {
+      "utf8": "Why is it using this API and not that API?"
+    } ]
+  }, {
+    "tStartMs": 1582140,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "And those are really helpful answers, but\nthere's no code that we can run."
+    } ]
+  }, {
+    "tStartMs": 1586080,
+    "dDurationMs": 5960,
+    "segs": [ {
+      "utf8": "And so I started to think, like, maybe the\nonly way to evaluate these is"
+    } ]
+  }, {
+    "tStartMs": 1592040,
+    "dDurationMs": 1980,
+    "segs": [ {
+      "utf8": "just to have, like, side-by-sides, right?"
+    } ]
+  }, {
+    "tStartMs": 1594020,
+    "dDurationMs": 5840,
+    "segs": [ {
+      "utf8": "Like, you have your baseline, like, here's\nhow ChatGPT handles it, and"
+    } ]
+  }, {
+    "tStartMs": 1599860,
+    "dDurationMs": 2660,
+    "segs": [ {
+      "utf8": "then here's how our agent handles it."
+    } ]
+  }, {
+    "tStartMs": 1602520,
+    "dDurationMs": 3920,
+    "segs": [ {
+      "utf8": "Which one is better? And you just put it\nin front of a human and you ask them to,"
+    } ]
+  }, {
+    "tStartMs": 1606440,
+    "dDurationMs": 2780,
+    "segs": [ {
+      "utf8": "you know, to rate, you know, which one is\nbetter, which one is worse."
+    } ]
+  }, {
+    "tStartMs": 1609520,
+    "dDurationMs": 4640,
+    "segs": [ {
+      "utf8": "But obviously that's slow and it's\nexpensive to, you know, hire people and"
+    } ]
+  }, {
+    "tStartMs": 1614160,
+    "dDurationMs": 1540,
+    "segs": [ {
+      "utf8": "get a lot of those kind of judgments."
+    } ]
+  }, {
+    "tStartMs": 1617800,
+    "dDurationMs": 2880,
+    "segs": [ {
+      "utf8": "And you have to come up with a lot of\nguidelines too to help people."
+    } ]
+  }, {
+    "tStartMs": 1621160,
+    "dDurationMs": 1400,
+    "segs": [ {
+      "utf8": "You can't just say which one is better."
+    } ]
+  }, {
+    "tStartMs": 1622560,
+    "dDurationMs": 4280,
+    "segs": [ {
+      "utf8": "You have to explain what better means, and\nthey kind of read through and judge which"
+    } ]
+  }, {
+    "tStartMs": 1626840,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "parts of it."
+    } ]
+  }, {
+    "tStartMs": 1629300,
+    "dDurationMs": 5700,
+    "segs": [ {
+      "utf8": "And then, so I set up a basic version of\nthat in Label Studio so I could just"
+    } ]
+  }, {
+    "tStartMs": 1635000,
+    "dDurationMs": 4780,
+    "segs": [ {
+      "utf8": "kind of test the flow, and I found it\ndifficult just to say which one was"
+    } ]
+  }, {
+    "tStartMs": 1639780,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "better."
+    } ]
+  }, {
+    "tStartMs": 1640980,
+    "dDurationMs": 4680,
+    "segs": [ {
+      "utf8": "And so I tried to make my life easier by\npassing it into GPT-4 and saying, okay,"
+    } ]
+  }, {
+    "tStartMs": 1645660,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "here's my grading criteria. Tell me which\none you think is better."
+    } ]
+  }, {
+    "tStartMs": 1649900,
+    "dDurationMs": 4740,
+    "segs": [ {
+      "utf8": "And then now I can just click through in\nLabel Studio and kind of judge the judge"
+    } ]
+  }, {
+    "tStartMs": 1654640,
+    "dDurationMs": 4520,
+    "segs": [ {
+      "utf8": "and say, you know, did GPT-4 make the\nright call on which one is better or"
+    } ]
+  }, {
+    "tStartMs": 1659160,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "worse?"
+    } ]
+  }, {
+    "tStartMs": 1660560,
+    "dDurationMs": 3180,
+    "segs": [ {
+      "utf8": "But even that was challenging."
+    } ]
+  }, {
+    "tStartMs": 1666020,
+    "dDurationMs": 5780,
+    "segs": [ {
+      "utf8": "You know, this was years ago when models\nweren't as good at"
+    } ]
+  }, {
+    "tStartMs": 1671800,
+    "dDurationMs": 5260,
+    "segs": [ {
+      "utf8": "following the system instructions. And so\nsometimes it would get distracted and it"
+    } ]
+  }, {
+    "tStartMs": 1677060,
+    "dDurationMs": 4780,
+    "segs": [ {
+      "utf8": "would say, you know, the code on this\nconversation is more maintainable because,"
+    } ]
+  }, {
+    "tStartMs": 1681920,
+    "dDurationMs": 4040,
+    "segs": [ {
+      "utf8": "you know, they put their braces on a new\nline, whereas this one, the braces are on"
+    } ]
+  }, {
+    "tStartMs": 1685960,
+    "dDurationMs": 2900,
+    "segs": [ {
+      "utf8": "the same line, so someone would have to go\nin and adjust that."
+    } ]
+  }, {
+    "tStartMs": 1689200,
+    "dDurationMs": 3680,
+    "segs": [ {
+      "utf8": "And I was like, no, that's not what I'm\nevaluating at all."
+    } ]
+  }, {
+    "tStartMs": 1692920,
+    "dDurationMs": 2900,
+    "segs": [ {
+      "utf8": "You know, I'm trying to ask, like, did it\nwrite better unit tests?"
+    } ]
+  }, {
+    "tStartMs": 1696980,
+    "dDurationMs": 5420,
+    "segs": [ {
+      "utf8": "And so I started going in and actually\njust writing out in, like, bullet points"
+    } ]
+  }, {
+    "tStartMs": 1703580,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "explicitly what I wanted it to evaluate."
+    } ]
+  }, {
+    "tStartMs": 1706020,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "Like, does it have a test for, you know,\npassing in null values?"
+    } ]
+  }, {
+    "tStartMs": 1709500,
+    "dDurationMs": 3020,
+    "segs": [ {
+      "utf8": "Does it have a test for passing in an\nempty list?"
+    } ]
+  }, {
+    "tStartMs": 1713740,
+    "dDurationMs": 5480,
+    "segs": [ {
+      "utf8": "And finally that got to the point where I\ncould use this LLM as judge, and it would"
+    } ]
+  }, {
+    "tStartMs": 1719220,
+    "dDurationMs": 5720,
+    "segs": [ {
+      "utf8": "stick to my, you know, very granular list\nof things that I wanted it to evaluate on"
+    } ]
+  }, {
+    "tStartMs": 1724940,
+    "dDurationMs": 4080,
+    "segs": [ {
+      "utf8": "and give me good results. And I could kind\nof click through quickly and double-check"
+    } ]
+  }, {
+    "tStartMs": 1729020,
+    "dDurationMs": 5560,
+    "segs": [ {
+      "utf8": "these. And then once I verified that it\nworked for one model, then that could kind"
+    } ]
+  }, {
+    "tStartMs": 1734580,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "of become the baseline, and I would only\nhave to compare the new conversation to"
+    } ]
+  }, {
+    "tStartMs": 1738580,
+    "dDurationMs": 1360,
+    "segs": [ {
+      "utf8": "see if it matched the baseline."
+    } ]
+  }, {
+    "tStartMs": 1741280,
+    "dDurationMs": 5840,
+    "segs": [ {
+      "utf8": "So that was kind of how we backed our way\ninto this LLM"
+    } ]
+  }, {
+    "tStartMs": 1747120,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "as judge. It wasn't something that we\ndecided that we needed at the beginning."
+    } ]
+  }, {
+    "tStartMs": 1750280,
+    "dDurationMs": 3300,
+    "segs": [ {
+      "utf8": "It was more just kind of realizing that\nHarnesslib wasn't going to be able to give"
+    } ]
+  }, {
+    "tStartMs": 1753580,
+    "dDurationMs": 5740,
+    "segs": [ {
+      "utf8": "us What we needed, because Copilot Chat\nwas, in fact, like a whole new product."
+    } ]
+  }, {
+    "tStartMs": 1759560,
+    "dDurationMs": 4400,
+    "segs": [ {
+      "utf8": "It wasn't just the obvious next step for\ncode completion."
+    } ]
+  }, {
+    "tStartMs": 1765060,
+    "dDurationMs": 5840,
+    "segs": [ {
+      "utf8": "Now, were you able to measure, like,\nsomehow the alignment between the judge"
+    } ]
+  }, {
+    "tStartMs": 1770900,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "and yourself or other people? Like, how\ndid you"
+    } ]
+  }, {
+    "tStartMs": 1775960,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "go about instilling trust in the judge?"
+    } ]
+  }, {
+    "tStartMs": 1781400,
+    "dDurationMs": 5380,
+    "segs": [ {
+      "utf8": "I would have loved to have done a much, a\nmuch more extensive study"
+    } ]
+  }, {
+    "tStartMs": 1786780,
+    "dDurationMs": 5400,
+    "segs": [ {
+      "utf8": "proving that our judgments were being\naligned with the judge."
+    } ]
+  }, {
+    "tStartMs": 1793180,
+    "dDurationMs": 5780,
+    "segs": [ {
+      "utf8": "It was a crazy time to be working on AI,\nand everyone was shipping chat products"
+    } ]
+  }, {
+    "tStartMs": 1798960,
+    "dDurationMs": 1740,
+    "segs": [ {
+      "utf8": "as quickly as possible."
+    } ]
+  }, {
+    "tStartMs": 1801460,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "And so,"
+    } ]
+  }, {
+    "tStartMs": 1803040,
+    "dDurationMs": 4860,
+    "segs": [ {
+      "utf8": "yeah, the first version of Copilot Chat\nwent out with basically"
+    } ]
+  }, {
+    "tStartMs": 1807900,
+    "dDurationMs": 5780,
+    "segs": [ {
+      "utf8": "our gut feelings of, you know, here's what\nwe think users"
+    } ]
+  }, {
+    "tStartMs": 1813680,
+    "dDurationMs": 5760,
+    "segs": [ {
+      "utf8": "will do with this product, and here is an\noffline data set that kind of"
+    } ]
+  }, {
+    "tStartMs": 1819440,
+    "dDurationMs": 2260,
+    "segs": [ {
+      "utf8": "models that gut instinct."
+    } ]
+  }, {
+    "tStartMs": 1822840,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "And then, you know, once we launch it,\nthen we can actually start to collect"
+    } ]
+  }, {
+    "tStartMs": 1826620,
+    "dDurationMs": 4020,
+    "segs": [ {
+      "utf8": "telemetry and see how users are using it\nand then adjust our offline benchmarks."
+    } ]
+  }, {
+    "tStartMs": 1830840,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "But the first version was really just like\na bet on how"
+    } ]
+  }, {
+    "tStartMs": 1836720,
+    "dDurationMs": 3420,
+    "segs": [ {
+      "utf8": "we thought this conversational programming\nwould evolve."
+    } ]
+  }, {
+    "tStartMs": 1841200,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "So on balance, like, would you say the\njudge was helpful, like more"
+    } ]
+  }, {
+    "tStartMs": 1847080,
+    "dDurationMs": 4520,
+    "segs": [ {
+      "utf8": "helpful than wrong? Like, you were able to\nsee the outputs of the judge and find,"
+    } ]
+  }, {
+    "tStartMs": 1852360,
+    "dDurationMs": 5400,
+    "segs": [ {
+      "utf8": "you know, use cases, find examples you\nneeded to work on or correct things in,"
+    } ]
+  }, {
+    "tStartMs": 1857760,
+    "dDurationMs": 1140,
+    "segs": [ {
+      "utf8": "you know, in the product?"
+    } ]
+  }, {
+    "tStartMs": 1859780,
+    "dDurationMs": 5720,
+    "segs": [ {
+      "utf8": "Yeah, absolutely. So once, once we kind of\nmade the, the adjustment to like"
+    } ]
+  }, {
+    "tStartMs": 1865500,
+    "dDurationMs": 4292,
+    "segs": [ {
+      "utf8": "micromanaging the judge, where we're\nsaying like, you know, is there a test for"
+    } ]
+  }, {
+    "tStartMs": 1869792,
+    "dDurationMs": 2412,
+    "segs": [ {
+      "utf8": "this? Is there a test for that?"
+    } ]
+  }, {
+    "tStartMs": 1872204,
+    "dDurationMs": 4412,
+    "segs": [ {
+      "utf8": "Is there a test for that? Or like, does\nthe, does the answer mention that you have"
+    } ]
+  }, {
+    "tStartMs": 1876616,
+    "dDurationMs": 4252,
+    "segs": [ {
+      "utf8": "to do this? Does the answer refer to this\nspecific, you know, part of the API?"
+    } ]
+  }, {
+    "tStartMs": 1880868,
+    "dDurationMs": 4332,
+    "segs": [ {
+      "utf8": "Then it, it was much more reliable. And I\nthink that that helped people get over"
+    } ]
+  }, {
+    "tStartMs": 1885200,
+    "dDurationMs": 4020,
+    "segs": [ {
+      "utf8": "also this, this weirdness with LLM as\njudge, where it's like, OK, you're asking"
+    } ]
+  }, {
+    "tStartMs": 1889340,
+    "dDurationMs": 3960,
+    "segs": [ {
+      "utf8": "the LLM to write some code for you, and\nthen you're asking the same LLM or like a"
+    } ]
+  }, {
+    "tStartMs": 1893300,
+    "dDurationMs": 2460,
+    "segs": [ {
+      "utf8": "slightly different LLM whether it did a\ngood job."
+    } ]
+  }, {
+    "tStartMs": 1895900,
+    "dDurationMs": 2560,
+    "segs": [ {
+      "utf8": "Like, isn't it always just going to say,\nyeah, I did a great job."
+    } ]
+  }, {
+    "tStartMs": 1899400,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "But the, the intuition here is that like\nthe generative task of starting from, you"
+    } ]
+  }, {
+    "tStartMs": 1903760,
+    "dDurationMs": 4540,
+    "segs": [ {
+      "utf8": "know, the user's question and actually\nsolving it is a much harder task than"
+    } ]
+  }, {
+    "tStartMs": 1908300,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "giving it this really like detailed list\nof requirements and then just getting it"
+    } ]
+  }, {
+    "tStartMs": 1911860,
+    "dDurationMs": 3720,
+    "segs": [ {
+      "utf8": "to check each one off. So once we got to\nthat point, yeah, we were pretty confident"
+    } ]
+  }, {
+    "tStartMs": 1915580,
+    "dDurationMs": 5420,
+    "segs": [ {
+      "utf8": "that it was giving us good results. I\nmean, obviously there's still sometimes"
+    } ]
+  }, {
+    "tStartMs": 1921000,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "would be hallucinations where, you know,\nyou ask it to check a box off on the list"
+    } ]
+  }, {
+    "tStartMs": 1924220,
+    "dDurationMs": 2140,
+    "segs": [ {
+      "utf8": "and it adds three more items to the list,\nyou know."
+    } ]
+  }, {
+    "tStartMs": 1926360,
+    "dDurationMs": 3960,
+    "segs": [ {
+      "utf8": "I think people always like to ask, OK,\nwhen you're doing all this work on the LLM"
+    } ]
+  }, {
+    "tStartMs": 1930320,
+    "dDurationMs": 5600,
+    "segs": [ {
+      "utf8": "as a judge prompt, did anything from that\nprompt make it over into the, that the"
+    } ]
+  }, {
+    "tStartMs": 1935920,
+    "dDurationMs": 5160,
+    "segs": [ {
+      "utf8": "code completion model? Or, you know, did\nyou end up prompting another model with"
+    } ]
+  }, {
+    "tStartMs": 1941080,
+    "dDurationMs": 2140,
+    "segs": [ {
+      "utf8": "elements from the rubric of the judge?"
+    } ]
+  }, {
+    "tStartMs": 1943760,
+    "dDurationMs": 4620,
+    "segs": [ {
+      "utf8": "Did you end up, you know, making the main\nprompt more"
+    } ]
+  }, {
+    "tStartMs": 1948380,
+    "dDurationMs": 5920,
+    "segs": [ {
+      "utf8": "specific based upon like, you know, yeah,\nlike just curious, like did it"
+    } ]
+  }, {
+    "tStartMs": 1954300,
+    "dDurationMs": 1660,
+    "segs": [ {
+      "utf8": "kind of feed into each other at all?"
+    } ]
+  }, {
+    "tStartMs": 1958380,
+    "dDurationMs": 4640,
+    "segs": [ {
+      "utf8": "Maybe didn't prompt the model. Maybe it\nwas just like a code completion model that"
+    } ]
+  }, {
+    "tStartMs": 1963020,
+    "dDurationMs": 3340,
+    "segs": [ {
+      "utf8": "was just, you know, but I'm just curious\nif there's anything like that going on."
+    } ]
+  }, {
+    "tStartMs": 1966820,
+    "dDurationMs": 3320,
+    "segs": [ {
+      "utf8": "I don't remember any specific cases where\nit did."
+    } ]
+  }, {
+    "tStartMs": 1970360,
+    "dDurationMs": 5100,
+    "segs": [ {
+      "utf8": "I mean, like I said, we were much more\nfamiliar and confident with how we were"
+    } ]
+  }, {
+    "tStartMs": 1975460,
+    "dDurationMs": 2080,
+    "segs": [ {
+      "utf8": "evaluating the code completion product at\nthat point."
+    } ]
+  }, {
+    "tStartMs": 1978360,
+    "dDurationMs": 5900,
+    "segs": [ {
+      "utf8": "And so much of the Copilot autocomplete\nwas like, can we"
+    } ]
+  }, {
+    "tStartMs": 1984260,
+    "dDurationMs": 1720,
+    "segs": [ {
+      "utf8": "get the right context in the prompt?"
+    } ]
+  }, {
+    "tStartMs": 1986620,
+    "dDurationMs": 5620,
+    "segs": [ {
+      "utf8": "And so, and we were also fine-tuning\nmodels, but it wasn't like crafting the"
+    } ]
+  }, {
+    "tStartMs": 1992240,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "right system prompts the same way we were\ndoing with Copilot Chat."
+    } ]
+  }, {
+    "tStartMs": 1997680,
+    "dDurationMs": 5200,
+    "segs": [ {
+      "utf8": "I know that we had done a number of\nexperiments with writing unit tests in"
+    } ]
+  }, {
+    "tStartMs": 2002880,
+    "dDurationMs": 4800,
+    "segs": [ {
+      "utf8": "Copilot completion, and then we did, you\nknow, other experiments in chat with"
+    } ]
+  }, {
+    "tStartMs": 2007680,
+    "dDurationMs": 4240,
+    "segs": [ {
+      "utf8": "writing unit tests. But I don't think one\nended up feeding into the other."
+    } ]
+  }, {
+    "tStartMs": 2012580,
+    "dDurationMs": 2400,
+    "segs": [ {
+      "utf8": "It ended up just mostly happening in chat."
+    } ]
+  }, {
+    "tStartMs": 2017200,
+    "dDurationMs": 5020,
+    "segs": [ {
+      "utf8": "But one of the interesting lessons that we\nlearned coming out of this was, or that I"
+    } ]
+  }, {
+    "tStartMs": 2022220,
+    "dDurationMs": 2180,
+    "segs": [ {
+      "utf8": "learned personally building this, was that"
+    } ]
+  }, {
+    "tStartMs": 2027060,
+    "dDurationMs": 4200,
+    "segs": [ {
+      "utf8": "there ended up being these two very\ndifferent personas on the team for"
+    } ]
+  }, {
+    "tStartMs": 2031260,
+    "dDurationMs": 5980,
+    "segs": [ {
+      "utf8": "evaluation. There were folks who, you\nknow, were trying to ship things, were"
+    } ]
+  }, {
+    "tStartMs": 2037240,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "trying to keep things from breaking, were\ntrying to prevent regressions, and they"
+    } ]
+  }, {
+    "tStartMs": 2041740,
+    "dDurationMs": 2260,
+    "segs": [ {
+      "utf8": "would come in and they would want to run\nthe eval."
+    } ]
+  }, {
+    "tStartMs": 2044680,
+    "dDurationMs": 5350,
+    "segs": [ {
+      "utf8": "And so we would have to have, you know,\nreally clean, reliable ways to run the"
+    } ]
+  }, {
+    "tStartMs": 2050030,
+    "dDurationMs": 3570,
+    "segs": [ {
+      "utf8": "eval, get a number out, compare it to the\nprevious number, and make a shipping"
+    } ]
+  }, {
+    "tStartMs": 2053600,
+    "dDurationMs": 4080,
+    "segs": [ {
+      "utf8": "decision. And at the same time, there were\na whole bunch of folks who wanted to pull"
+    } ]
+  }, {
+    "tStartMs": 2057680,
+    "dDurationMs": 3040,
+    "segs": [ {
+      "utf8": "everything apart into Lego blocks and\nreconfigure them and say, what if the"
+    } ]
+  }, {
+    "tStartMs": 2060720,
+    "dDurationMs": 2420,
+    "segs": [ {
+      "utf8": "product worked this way? What if we use\nthis model?"
+    } ]
+  }, {
+    "tStartMs": 2063280,
+    "dDurationMs": 4600,
+    "segs": [ {
+      "utf8": "What if we did that? And so it was much\nmore experimental and trying new things"
+    } ]
+  }, {
+    "tStartMs": 2067880,
+    "dDurationMs": 1220,
+    "segs": [ {
+      "utf8": "that hadn't been built before."
+    } ]
+  }, {
+    "tStartMs": 2070740,
+    "dDurationMs": 3840,
+    "segs": [ {
+      "utf8": "And so, yeah, it wasn't always clear that"
+    } ]
+  }, {
+    "tStartMs": 2076000,
+    "dDurationMs": 2340,
+    "segs": [ {
+      "utf8": "That should be all one eval pipeline."
+    } ]
+  }, {
+    "tStartMs": 2078420,
+    "dDurationMs": 5180,
+    "segs": [ {
+      "utf8": "And I think over time, we developed more\nand more evaluation tools, evaluation"
+    } ]
+  }, {
+    "tStartMs": 2083600,
+    "dDurationMs": 3960,
+    "segs": [ {
+      "utf8": "pipelines, and it felt a little bit\noverwhelming to some people to have more"
+    } ]
+  }, {
+    "tStartMs": 2087560,
+    "dDurationMs": 5460,
+    "segs": [ {
+      "utf8": "than one way to do eval. But I believe it\nwas necessary because there's just more"
+    } ]
+  }, {
+    "tStartMs": 2093020,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "than one type of eval. There's these kind\nof unit testing, experimental things, and"
+    } ]
+  }, {
+    "tStartMs": 2097340,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "the more regression testing, you know,\nship decision things."
+    } ]
+  }, {
+    "tStartMs": 2100220,
+    "dDurationMs": 4400,
+    "segs": [ {
+      "utf8": "What's like one of the more experimental\nthings where you kind of took it apart"
+    } ]
+  }, {
+    "tStartMs": 2104620,
+    "dDurationMs": 2720,
+    "segs": [ {
+      "utf8": "with modular pieces and whatever? That\nsounds really interesting."
+    } ]
+  }, {
+    "tStartMs": 2109260,
+    "dDurationMs": 4980,
+    "segs": [ {
+      "utf8": "Actually, John was doing some of this\nstuff with, like, trying to—"
+    } ]
+  }, {
+    "tStartMs": 2115960,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "originally, we would just kind of chop up\ncode by line numbers and shove it into the"
+    } ]
+  }, {
+    "tStartMs": 2119860,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "prompt."
+    } ]
+  }, {
+    "tStartMs": 2121300,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "And John was trying to be a little bit\nsmarter about that and find ways to treat"
+    } ]
+  }, {
+    "tStartMs": 2125800,
+    "dDurationMs": 1440,
+    "segs": [ {
+      "utf8": "code as code. Yeah,"
+    } ]
+  }, {
+    "tStartMs": 2128300,
+    "dDurationMs": 5780,
+    "segs": [ {
+      "utf8": "it's hard because it's so— I've forgotten\na lot of the details, but I remember we"
+    } ]
+  }, {
+    "tStartMs": 2134080,
+    "dDurationMs": 4040,
+    "segs": [ {
+      "utf8": "used to have, when we were running the\nevals, it was basically a notebook."
+    } ]
+  }, {
+    "tStartMs": 2139100,
+    "dDurationMs": 4240,
+    "segs": [ {
+      "utf8": "And in the notebook, we had a pattern for,\nlike, a typical Harnesslib"
+    } ]
+  }, {
+    "tStartMs": 2143440,
+    "dDurationMs": 5260,
+    "segs": [ {
+      "utf8": "eval with, you know, where to get the data\nfrom and how to set up these individual"
+    } ]
+  }, {
+    "tStartMs": 2148700,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "tests."
+    } ]
+  }, {
+    "tStartMs": 2150820,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "But it was like Lego blocks. You could\njust use the piece that you needed."
+    } ]
+  }, {
+    "tStartMs": 2155420,
+    "dDurationMs": 1380,
+    "segs": [ {
+      "utf8": "But it's kind of nice because"
+    } ]
+  }, {
+    "tStartMs": 2158240,
+    "dDurationMs": 4480,
+    "segs": [ {
+      "utf8": "if you were to make something that fit in\nthe same place that the old Lego block"
+    } ]
+  }, {
+    "tStartMs": 2162720,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "went, you could, you know, kind of mix and\nmatch."
+    } ]
+  }, {
+    "tStartMs": 2165520,
+    "dDurationMs": 4200,
+    "segs": [ {
+      "utf8": "And like Sean is saying, you could prepare\nfor evaluation of a product that doesn't"
+    } ]
+  }, {
+    "tStartMs": 2169720,
+    "dDurationMs": 3020,
+    "segs": [ {
+      "utf8": "even exist yet, rather than do, like, a\nregression test against something that's"
+    } ]
+  }, {
+    "tStartMs": 2172740,
+    "dDurationMs": 3840,
+    "segs": [ {
+      "utf8": "more rigid and frozen. And so I've\nforgotten the details."
+    } ]
+  }, {
+    "tStartMs": 2176740,
+    "dDurationMs": 5280,
+    "segs": [ {
+      "utf8": "It's going to be uninteresting. But some\nof the work I did was, whereas initially"
+    } ]
+  }, {
+    "tStartMs": 2182680,
+    "dDurationMs": 5900,
+    "segs": [ {
+      "utf8": "we were, like, melon ball scooping out the\nfull contents of our candidate"
+    } ]
+  }, {
+    "tStartMs": 2188580,
+    "dDurationMs": 4680,
+    "segs": [ {
+      "utf8": "functions, a lot of our important\ncompletions were the one-line completions."
+    } ]
+  }, {
+    "tStartMs": 2193500,
+    "dDurationMs": 5860,
+    "segs": [ {
+      "utf8": "And so I just made another way of\nharvesting candidates as the Lego"
+    } ]
+  }, {
+    "tStartMs": 2199360,
+    "dDurationMs": 5660,
+    "segs": [ {
+      "utf8": "block, where the candidates were the\nfunction with a piece of the code missing,"
+    } ]
+  }, {
+    "tStartMs": 2205020,
+    "dDurationMs": 2680,
+    "segs": [ {
+      "utf8": "or like the bottom half of the code\nmissing, something like that, where it"
+    } ]
+  }, {
+    "tStartMs": 2207700,
+    "dDurationMs": 4280,
+    "segs": [ {
+      "utf8": "looked like you were editing a block\ninstead of editing the, you know, here's"
+    } ]
+  }, {
+    "tStartMs": 2211980,
+    "dDurationMs": 3300,
+    "segs": [ {
+      "utf8": "the new function, which is a little bit\ndifferent than what our users typically"
+    } ]
+  }, {
+    "tStartMs": 2215280,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "did. So, yeah, it was really neat, the\nHarnesslib, just how modular"
+    } ]
+  }, {
+    "tStartMs": 2222140,
+    "dDurationMs": 2840,
+    "segs": [ {
+      "utf8": "everything was. You mentioned that some of\nthese evals run in notebooks."
+    } ]
+  }, {
+    "tStartMs": 2225860,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "Did those, do you run the notebooks\nprogrammatically?"
+    } ]
+  }, {
+    "tStartMs": 2228460,
+    "dDurationMs": 2980,
+    "segs": [ {
+      "utf8": "Was it more like ad hoc, kind of open a\nnotebook and run each cell?"
+    } ]
+  }, {
+    "tStartMs": 2231440,
+    "dDurationMs": 2920,
+    "segs": [ {
+      "utf8": "How did, that's really interesting, I\nthink, to a lot of people."
+    } ]
+  }, {
+    "tStartMs": 2234740,
+    "dDurationMs": 1980,
+    "segs": [ {
+      "utf8": "You, you couldn't done it either way."
+    } ]
+  }, {
+    "tStartMs": 2236720,
+    "dDurationMs": 5760,
+    "segs": [ {
+      "utf8": "Um, and so like, for the more regression\ntesting, like flow, I guess, uh,"
+    } ]
+  }, {
+    "tStartMs": 2242480,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "these things were pretty, pretty canned."
+    } ]
+  }, {
+    "tStartMs": 2244480,
+    "dDurationMs": 3540,
+    "segs": [ {
+      "utf8": "Uh, it was in a Python script and you, you\ncould just like run the thing."
+    } ]
+  }, {
+    "tStartMs": 2248020,
+    "dDurationMs": 5320,
+    "segs": [ {
+      "utf8": "Um, the, but as, especially as you're\ngetting,"
+    } ]
+  }, {
+    "tStartMs": 2254080,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "you know, Sean had been working on this\nfor a year by the time that I, I was, I"
+    } ]
+  }, {
+    "tStartMs": 2257740,
+    "dDurationMs": 4680,
+    "segs": [ {
+      "utf8": "was, uh, introduced to it. And to get\nintro to get an understanding of how these"
+    } ]
+  }, {
+    "tStartMs": 2262420,
+    "dDurationMs": 4300,
+    "segs": [ {
+      "utf8": "things work, it was just so easy to go to\na notebook, which was the same stuff as in"
+    } ]
+  }, {
+    "tStartMs": 2266720,
+    "dDurationMs": 4180,
+    "segs": [ {
+      "utf8": "this, you know, canned script, but you\ncould see how each, each bit of it worked"
+    } ]
+  }, {
+    "tStartMs": 2270900,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "and you had, you know, it's a notebook,\nyou can muck around with it and, and, uh,"
+    } ]
+  }, {
+    "tStartMs": 2274500,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "play with the Lego blocks, change out the\nvowels and, and kind of get an idea for"
+    } ]
+  }, {
+    "tStartMs": 2278280,
+    "dDurationMs": 2680,
+    "segs": [ {
+      "utf8": "what you could do in the future. It was\nkind of neat."
+    } ]
+  }, {
+    "tStartMs": 2282180,
+    "dDurationMs": 5900,
+    "segs": [ {
+      "utf8": "Yeah, yeah, a lot of like and easy ideas\nor experiment ideas started off in"
+    } ]
+  }, {
+    "tStartMs": 2288080,
+    "dDurationMs": 3920,
+    "segs": [ {
+      "utf8": "a notebook and then would kind of move\ninto just a regular Python script so you"
+    } ]
+  }, {
+    "tStartMs": 2292000,
+    "dDurationMs": 2220,
+    "segs": [ {
+      "utf8": "could have an eval that people could run\neasily."
+    } ]
+  }, {
+    "tStartMs": 2294780,
+    "dDurationMs": 4060,
+    "segs": [ {
+      "utf8": "And then some of those would move actually\ninto, like, you know, Azure pipelines"
+    } ]
+  }, {
+    "tStartMs": 2298840,
+    "dDurationMs": 1360,
+    "segs": [ {
+      "utf8": "that would just run automatically."
+    } ]
+  }, {
+    "tStartMs": 2301880,
+    "dDurationMs": 2360,
+    "segs": [ {
+      "utf8": "But notebook was mostly just for\nexperimentation."
+    } ]
+  }, {
+    "tStartMs": 2305660,
+    "dDurationMs": 3120,
+    "segs": [ {
+      "utf8": "Yep. Yeah, a quick note on time."
+    } ]
+  }, {
+    "tStartMs": 2309940,
+    "dDurationMs": 4180,
+    "segs": [ {
+      "utf8": "We're 15 minutes past time. There's a\ncouple of slides left."
+    } ]
+  }, {
+    "tStartMs": 2314660,
+    "dDurationMs": 2340,
+    "segs": [ {
+      "utf8": "No, we can keep going. This should have\nbeen an hour."
+    } ]
+  }, {
+    "tStartMs": 2317100,
+    "dDurationMs": 1540,
+    "segs": [ {
+      "utf8": "I don't know why I made it 30 minutes."
+    } ]
+  }, {
+    "tStartMs": 2319200,
+    "dDurationMs": 4080,
+    "segs": [ {
+      "utf8": "It's my mistake. Yeah, it's because we\njust had me in the beginning, and then we"
+    } ]
+  }, {
+    "tStartMs": 2323280,
+    "dDurationMs": 4040,
+    "segs": [ {
+      "utf8": "have a whole year's worth of knowledge\nprior to me that joined after."
+    } ]
+  }, {
+    "tStartMs": 2328120,
+    "dDurationMs": 4240,
+    "segs": [ {
+      "utf8": "Well, so let's keep going, and then, but\nwe can obviously stick around for a bit."
+    } ]
+  }, {
+    "tStartMs": 2332360,
+    "dDurationMs": 2080,
+    "segs": [ {
+      "utf8": "The conversation's been fantastic so far."
+    } ]
+  }, {
+    "tStartMs": 2336580,
+    "dDurationMs": 5400,
+    "segs": [ {
+      "utf8": "All right, so the last little bit,\nremember in the first slide we had the"
+    } ]
+  }, {
+    "tStartMs": 2341980,
+    "dDurationMs": 4340,
+    "segs": [ {
+      "utf8": "four things we used. This is just kind of\na footnote, to be perfectly honest."
+    } ]
+  }, {
+    "tStartMs": 2347700,
+    "dDurationMs": 4180,
+    "segs": [ {
+      "utf8": "It's a much smaller type of evaluation."
+    } ]
+  }, {
+    "tStartMs": 2352780,
+    "dDurationMs": 3080,
+    "segs": [ {
+      "utf8": "As far as I know, it might have grown and\nbecome a really important thing after I"
+    } ]
+  }, {
+    "tStartMs": 2355860,
+    "dDurationMs": 5200,
+    "segs": [ {
+      "utf8": "left, but it was coming into existence\nabout the time that I left, and I probably"
+    } ]
+  }, {
+    "tStartMs": 2361060,
+    "dDurationMs": 1880,
+    "segs": [ {
+      "utf8": "used it a solid twice."
+    } ]
+  }, {
+    "tStartMs": 2363840,
+    "dDurationMs": 5280,
+    "segs": [ {
+      "utf8": "But it is a demonstration of the third,\nthe"
+    } ]
+  }, {
+    "tStartMs": 2369120,
+    "dDurationMs": 4640,
+    "segs": [ {
+      "utf8": "fourth type of evaluation in my hierarchy:"
+    } ]
+  }, {
+    "tStartMs": 2374720,
+    "dDurationMs": 5500,
+    "segs": [ {
+      "utf8": "algorithmic evaluation. And what we were\ndoing with this is, you know,"
+    } ]
+  }, {
+    "tStartMs": 2380220,
+    "dDurationMs": 5600,
+    "segs": [ {
+      "utf8": "as the chat models, you know, gave way to\nchat with"
+    } ]
+  }, {
+    "tStartMs": 2385820,
+    "dDurationMs": 2660,
+    "segs": [ {
+      "utf8": "functions, you know, these more\ninteresting capabilities."
+    } ]
+  }, {
+    "tStartMs": 2389280,
+    "dDurationMs": 5920,
+    "segs": [ {
+      "utf8": "It was important to double check that the\nfunction was making the correct tool"
+    } ]
+  }, {
+    "tStartMs": 2395200,
+    "dDurationMs": 3500,
+    "segs": [ {
+      "utf8": "calls, or sorry, that the LLM was making\nthe correct tool calls."
+    } ]
+  }, {
+    "tStartMs": 2399720,
+    "dDurationMs": 5920,
+    "segs": [ {
+      "utf8": "And the way you could do that is you\nprovide the context, user message,"
+    } ]
+  }, {
+    "tStartMs": 2405640,
+    "dDurationMs": 5500,
+    "segs": [ {
+      "utf8": "you know, all the tools that the model is\ngoing to have access to."
+    } ]
+  }, {
+    "tStartMs": 2411320,
+    "dDurationMs": 3160,
+    "segs": [ {
+      "utf8": "How many tools approximately did Copilot\nhave roughly at the time?"
+    } ]
+  }, {
+    "tStartMs": 2416880,
+    "dDurationMs": 4800,
+    "segs": [ {
+      "utf8": "I could probably speak to the web\ninterface, and Sean could probably speak"
+    } ]
+  }, {
+    "tStartMs": 2421680,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "to the VS Code, but it's kind of funny."
+    } ]
+  }, {
+    "tStartMs": 2424900,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "This is a hack. You can go to the web\ninterface and get a right now homework"
+    } ]
+  }, {
+    "tStartMs": 2429260,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "assignment, and you can ask it what its\ntools are, and it'll tell you."
+    } ]
+  }, {
+    "tStartMs": 2434040,
+    "dDurationMs": 3460,
+    "segs": [ {
+      "utf8": "So we don't, like, hide that very well if\nwe're supposed to, but it doesn't matter."
+    } ]
+  }, {
+    "tStartMs": 2437940,
+    "dDurationMs": 5680,
+    "segs": [ {
+      "utf8": "And I think there was probably, when I was\nthere, just a handful, like five,"
+    } ]
+  }, {
+    "tStartMs": 2444380,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "six. I think since then it's kind of moved\nup to about double that, but I haven't"
+    } ]
+  }, {
+    "tStartMs": 2448000,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "checked in a bit."
+    } ]
+  }, {
+    "tStartMs": 2450100,
+    "dDurationMs": 1140,
+    "segs": [ {
+      "utf8": "So not just a whole ton,"
+    } ]
+  }, {
+    "tStartMs": 2452000,
+    "dDurationMs": 2260,
+    "segs": [ {
+      "utf8": "but more than a couple."
+    } ]
+  }, {
+    "tStartMs": 2455680,
+    "dDurationMs": 4440,
+    "segs": [ {
+      "utf8": "Yeah, but the cool thing you could do is,\nyou know, given"
+    } ]
+  }, {
+    "tStartMs": 2460120,
+    "dDurationMs": 5900,
+    "segs": [ {
+      "utf8": "that expected kind of trial input, you\nknow what"
+    } ]
+  }, {
+    "tStartMs": 2466020,
+    "dDurationMs": 1460,
+    "segs": [ {
+      "utf8": "the output should be."
+    } ]
+  }, {
+    "tStartMs": 2470100,
+    "dDurationMs": 5140,
+    "segs": [ {
+      "utf8": "And you can, besides just doing, like, you\nknow, checking for accuracy by seeing if"
+    } ]
+  }, {
+    "tStartMs": 2475240,
+    "dDurationMs": 3980,
+    "segs": [ {
+      "utf8": "this is an exact match for the tool call,\nyou could do cool stuff, like you could do"
+    } ]
+  }, {
+    "tStartMs": 2479220,
+    "dDurationMs": 4140,
+    "segs": [ {
+      "utf8": "confusion matrices like this. I mean, it's\na toy problem I showed you on the right."
+    } ]
+  }, {
+    "tStartMs": 2484120,
+    "dDurationMs": 5400,
+    "segs": [ {
+      "utf8": "But, you know, you'd say, here's all the\ntools that my model has access to,"
+    } ]
+  }, {
+    "tStartMs": 2490040,
+    "dDurationMs": 4440,
+    "segs": [ {
+      "utf8": "and we attempted to call them this number\nof times."
+    } ]
+  }, {
+    "tStartMs": 2495140,
+    "dDurationMs": 2340,
+    "segs": [ {
+      "utf8": "Here's what actually got called instead."
+    } ]
+  }, {
+    "tStartMs": 2498180,
+    "dDurationMs": 3500,
+    "segs": [ {
+      "utf8": "And so that provides you with a lot of\ngood information there."
+    } ]
+  }, {
+    "tStartMs": 2501680,
+    "dDurationMs": 5680,
+    "segs": [ {
+      "utf8": "You can say, you know, if you got any—\nTools that get called"
+    } ]
+  }, {
+    "tStartMs": 2508360,
+    "dDurationMs": 6000,
+    "segs": [ {
+      "utf8": "that get mistook a lot. You can kind of\nstep back and say, oh, you know, I need"
+    } ]
+  }, {
+    "tStartMs": 2514360,
+    "dDurationMs": 3520,
+    "segs": [ {
+      "utf8": "to figure out how to make these things\nmore distinct, that your tools ideally"
+    } ]
+  }, {
+    "tStartMs": 2517880,
+    "dDurationMs": 5280,
+    "segs": [ {
+      "utf8": "need to partition the space that they're\noperating in so that there isn't,"
+    } ]
+  }, {
+    "tStartMs": 2523540,
+    "dDurationMs": 2300,
+    "segs": [ {
+      "utf8": "you know, silly overlaps that will confuse\nthe model."
+    } ]
+  }, {
+    "tStartMs": 2526400,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "So that's just kind of a tidbit. I kind of\nsee the confusion matrix."
+    } ]
+  }, {
+    "tStartMs": 2531280,
+    "dDurationMs": 5080,
+    "segs": [ {
+      "utf8": "Actually, in an earlier lightning lesson,\nBrian went over a very similar confusion"
+    } ]
+  }, {
+    "tStartMs": 2536360,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "matrix"
+    } ]
+  }, {
+    "tStartMs": 2537840,
+    "dDurationMs": 2900,
+    "segs": [ {
+      "utf8": "for evaluating agents, like agent\nhandoffs."
+    } ]
+  }, {
+    "tStartMs": 2541300,
+    "dDurationMs": 4060,
+    "segs": [ {
+      "utf8": "So, yeah, this is pretty cool. It makes\nsense, yeah."
+    } ]
+  }, {
+    "tStartMs": 2545700,
+    "dDurationMs": 3040,
+    "segs": [ {
+      "utf8": "You can see how often they— Yeah, it's\nreally important, right?"
+    } ]
+  }, {
+    "tStartMs": 2548740,
+    "dDurationMs": 2860,
+    "segs": [ {
+      "utf8": "Because if you're— that's just a very\nsimilar task."
+    } ]
+  }, {
+    "tStartMs": 2551640,
+    "dDurationMs": 3760,
+    "segs": [ {
+      "utf8": "If you're handing it off to the wrong\nagent, then probably what it means is"
+    } ]
+  }, {
+    "tStartMs": 2555400,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "there's just too much overlap with your\nagents, and the orchestrator model doesn't"
+    } ]
+  }, {
+    "tStartMs": 2559820,
+    "dDurationMs": 4780,
+    "segs": [ {
+      "utf8": "know how to decide between them. So, yeah,\nconfusion matrices are great for that"
+    } ]
+  }, {
+    "tStartMs": 2564600,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "type of thing."
+    } ]
+  }, {
+    "tStartMs": 2566300,
+    "dDurationMs": 3540,
+    "segs": [ {
+      "utf8": "All right, so we're back to this slide\nagain, and we have our bases covered."
+    } ]
+  }, {
+    "tStartMs": 2570860,
+    "dDurationMs": 2860,
+    "segs": [ {
+      "utf8": "Verifiable evals was Harness Code with\ncode completion."
+    } ]
+  }, {
+    "tStartMs": 2574580,
+    "dDurationMs": 5480,
+    "segs": [ {
+      "utf8": "LLM-as-judge was that really interesting\nconversation with Sean that revolved"
+    } ]
+  }, {
+    "tStartMs": 2580060,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "around chat completion."
+    } ]
+  }, {
+    "tStartMs": 2582500,
+    "dDurationMs": 2880,
+    "segs": [ {
+      "utf8": "Shiproom was our A/B testing, and that's,\nyou know, whenever we change the model or,"
+    } ]
+  }, {
+    "tStartMs": 2585380,
+    "dDurationMs": 5560,
+    "segs": [ {
+      "utf8": "you know, tokenization or the prompt or\nanything like that, we made sure that"
+    } ]
+  }, {
+    "tStartMs": 2590940,
+    "dDurationMs": 5160,
+    "segs": [ {
+      "utf8": "we put that through A/B test. And then\nfinally, just a footnote, but tool use"
+    } ]
+  }, {
+    "tStartMs": 2596100,
+    "dDurationMs": 5160,
+    "segs": [ {
+      "utf8": "evaluations was an example of where we're\nalso using algorithmic evaluations."
+    } ]
+  }, {
+    "tStartMs": 2603760,
+    "dDurationMs": 5340,
+    "segs": [ {
+      "utf8": "So that is it for the content. Thank you\nguys for sticking around for 22 minutes"
+    } ]
+  }, {
+    "tStartMs": 2609100,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "longer than we'd set this up for, but I\nguess we can still— Yeah, there's some"
+    } ]
+  }, {
+    "tStartMs": 2612760,
+    "dDurationMs": 4940,
+    "segs": [ {
+      "utf8": "questions if you don't mind. One from\nJesse is asking, what are your approaches"
+    } ]
+  }, {
+    "tStartMs": 2617700,
+    "dDurationMs": 2120,
+    "segs": [ {
+      "utf8": "with respect to caching? Like if the\ninputs—"
+    } ]
+  }, {
+    "tStartMs": 2620900,
+    "dDurationMs": 1820,
+    "segs": [ {
+      "utf8": "The prompts, the model is the same."
+    } ]
+  }, {
+    "tStartMs": 2623900,
+    "dDurationMs": 5940,
+    "segs": [ {
+      "utf8": "Do you somehow leverage caching? You know,\nwith all of these tests, like you're"
+    } ]
+  }, {
+    "tStartMs": 2629840,
+    "dDurationMs": 1740,
+    "segs": [ {
+      "utf8": "running them in mass, you know,"
+    } ]
+  }, {
+    "tStartMs": 2633040,
+    "dDurationMs": 5780,
+    "segs": [ {
+      "utf8": "how did that... I'll punt this over to\nSean shortly, but I remember wishing that"
+    } ]
+  }, {
+    "tStartMs": 2638820,
+    "dDurationMs": 5980,
+    "segs": [ {
+      "utf8": "we'd done something more intelligent with\ncaching for Harnesslib, because some"
+    } ]
+  }, {
+    "tStartMs": 2644800,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "of those tests took a while to run, and I\nfelt like there was still room to do more"
+    } ]
+  }, {
+    "tStartMs": 2648020,
+    "dDurationMs": 4600,
+    "segs": [ {
+      "utf8": "caching. But Sean, do you remember some of\nthe specific..."
+    } ]
+  }, {
+    "tStartMs": 2654420,
+    "dDurationMs": 1420,
+    "segs": [ {
+      "utf8": "It's a horrible thing I'm doing to you."
+    } ]
+  }, {
+    "tStartMs": 2655840,
+    "dDurationMs": 5620,
+    "segs": [ {
+      "utf8": "Yeah, no, I don't remember any specific,\nlike, prompt response caching."
+    } ]
+  }, {
+    "tStartMs": 2661620,
+    "dDurationMs": 2160,
+    "segs": [ {
+      "utf8": "I mean, obviously the model hosting"
+    } ]
+  }, {
+    "tStartMs": 2664740,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "had some optimizations to speed up, you\nknow, reusing the"
+    } ]
+  }, {
+    "tStartMs": 2670620,
+    "dDurationMs": 2040,
+    "segs": [ {
+      "utf8": "same context, that sort of thing."
+    } ]
+  }, {
+    "tStartMs": 2674660,
+    "dDurationMs": 5580,
+    "segs": [ {
+      "utf8": "But most of the caching approaches we had\nin Harnesslib were just sort of"
+    } ]
+  }, {
+    "tStartMs": 2680240,
+    "dDurationMs": 5760,
+    "segs": [ {
+      "utf8": "the preparing the code, you know? So, you\nknow, John talked about how, you know, we"
+    } ]
+  }, {
+    "tStartMs": 2686000,
+    "dDurationMs": 3980,
+    "segs": [ {
+      "utf8": "would select these repositories, and then\nwe would go through and run the tests, and"
+    } ]
+  }, {
+    "tStartMs": 2689980,
+    "dDurationMs": 3040,
+    "segs": [ {
+      "utf8": "then we would parse out the function\nbodies and that sort of thing."
+    } ]
+  }, {
+    "tStartMs": 2693120,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "You don't have to do that every time you\nrun the eval harness, right?"
+    } ]
+  }, {
+    "tStartMs": 2696140,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "And so, actually touching on another\nquestion we have here from Pasteur,"
+    } ]
+  }, {
+    "tStartMs": 2700660,
+    "dDurationMs": 4680,
+    "segs": [ {
+      "utf8": "you know, we could run all of that\nanalysis once for this fixed set of repos,"
+    } ]
+  }, {
+    "tStartMs": 2706280,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "store the list of functions that we had\nand the offsets into those files because,"
+    } ]
+  }, {
+    "tStartMs": 2710820,
+    "dDurationMs": 3200,
+    "segs": [ {
+      "utf8": "you know, they weren't changing in a SQL\ndatabase,"
+    } ]
+  }, {
+    "tStartMs": 2714920,
+    "dDurationMs": 4640,
+    "segs": [ {
+      "utf8": "and then just refer to that SQL database\nevery time we had to rerun the harness."
+    } ]
+  }, {
+    "tStartMs": 2719580,
+    "dDurationMs": 3820,
+    "segs": [ {
+      "utf8": "And did you build, like, your own\ndashboards and some kind of other"
+    } ]
+  }, {
+    "tStartMs": 2723400,
+    "dDurationMs": 5300,
+    "segs": [ {
+      "utf8": "alerting? Like, what kind of... Thing did\nyou build on top of that eval data that,"
+    } ]
+  }, {
+    "tStartMs": 2729040,
+    "dDurationMs": 3460,
+    "segs": [ {
+      "utf8": "you know, every time you run tests, you\nget all these telemetry, I'm thinking."
+    } ]
+  }, {
+    "tStartMs": 2732560,
+    "dDurationMs": 3500,
+    "segs": [ {
+      "utf8": "Did you have something on top of that that\nyou used?"
+    } ]
+  }, {
+    "tStartMs": 2737100,
+    "dDurationMs": 1300,
+    "segs": [ {
+      "utf8": "So for the offline eval,"
+    } ]
+  }, {
+    "tStartMs": 2739360,
+    "dDurationMs": 4140,
+    "segs": [ {
+      "utf8": "you know, this was just something that we\nwere mostly kicking off manually, and then"
+    } ]
+  }, {
+    "tStartMs": 2743500,
+    "dDurationMs": 2620,
+    "segs": [ {
+      "utf8": "we would, you know, build a pretty simple\nlittle,"
+    } ]
+  }, {
+    "tStartMs": 2747240,
+    "dDurationMs": 2940,
+    "segs": [ {
+      "utf8": "well, I don't even know if you could call\nit a scorecard, but just a list of"
+    } ]
+  }, {
+    "tStartMs": 2750180,
+    "dDurationMs": 2040,
+    "segs": [ {
+      "utf8": "metrics, you know, showing pass rates."
+    } ]
+  }, {
+    "tStartMs": 2753960,
+    "dDurationMs": 3960,
+    "segs": [ {
+      "utf8": "So there wasn't a lot of dashboards there."
+    } ]
+  }, {
+    "tStartMs": 2758260,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "But for the shiproom decisions, there was\na lot more."
+    } ]
+  }, {
+    "tStartMs": 2762160,
+    "dDurationMs": 4920,
+    "segs": [ {
+      "utf8": "And so the teams that we worked with at\nAzure had already built a lot more tooling"
+    } ]
+  }, {
+    "tStartMs": 2767080,
+    "dDurationMs": 5740,
+    "segs": [ {
+      "utf8": "around, you know, displaying the results\nof the A/B experiments and kind of"
+    } ]
+  }, {
+    "tStartMs": 2772820,
+    "dDurationMs": 4120,
+    "segs": [ {
+      "utf8": "making sound decisions based on, you know,\nhow much data we'd collected and whether"
+    } ]
+  }, {
+    "tStartMs": 2776940,
+    "dDurationMs": 3040,
+    "segs": [ {
+      "utf8": "they were, you know, representative\nsamples and that sort of thing."
+    } ]
+  }, {
+    "tStartMs": 2780000,
+    "dDurationMs": 4440,
+    "segs": [ {
+      "utf8": "And so that was really helpful to have\nthat expertise brought in into the"
+    } ]
+  }, {
+    "tStartMs": 2784440,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "product."
+    } ]
+  }, {
+    "tStartMs": 2787500,
+    "dDurationMs": 5860,
+    "segs": [ {
+      "utf8": "Did you find that, you know, when it came\nto troubleshooting errors that you"
+    } ]
+  }, {
+    "tStartMs": 2793360,
+    "dDurationMs": 3700,
+    "segs": [ {
+      "utf8": "saw or kind of digging into the results of\nthe evals,"
+    } ]
+  }, {
+    "tStartMs": 2798100,
+    "dDurationMs": 5800,
+    "segs": [ {
+      "utf8": "was it, you know, was it necessary to hand\nthings off to"
+    } ]
+  }, {
+    "tStartMs": 2803900,
+    "dDurationMs": 5380,
+    "segs": [ {
+      "utf8": "a separate data science team, or were,\nlike, engineers, like, able to figure"
+    } ]
+  }, {
+    "tStartMs": 2809280,
+    "dDurationMs": 5600,
+    "segs": [ {
+      "utf8": "things out? Or what's your intuition on,\nlike, can this be done by"
+    } ]
+  }, {
+    "tStartMs": 2814880,
+    "dDurationMs": 4020,
+    "segs": [ {
+      "utf8": "one set of skills, or do you need a\ndistinct set of skills to do it?"
+    } ]
+  }, {
+    "tStartMs": 2820160,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "You know, that's one of the questions that\nalways comes up with evals, because a lot"
+    } ]
+  }, {
+    "tStartMs": 2823160,
+    "dDurationMs": 1120,
+    "segs": [ {
+      "utf8": "of people are doing evals."
+    } ]
+  }, {
+    "tStartMs": 2825540,
+    "dDurationMs": 2280,
+    "segs": [ {
+      "utf8": "You know, there's people of different\nstripes doing evals."
+    } ]
+  }, {
+    "tStartMs": 2827980,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "There's, like, you know, a lot of software\nengineers with no data science"
+    } ]
+  }, {
+    "tStartMs": 2831200,
+    "dDurationMs": 3160,
+    "segs": [ {
+      "utf8": "experience. So I'm just curious, like, how\ndid it unfold at..."
+    } ]
+  }, {
+    "tStartMs": 2835300,
+    "dDurationMs": 5860,
+    "segs": [ {
+      "utf8": "One thing that I've often heard you say,\nHamel, is that,"
+    } ]
+  }, {
+    "tStartMs": 2841160,
+    "dDurationMs": 3820,
+    "segs": [ {
+      "utf8": "and I've started parroting it myself, that\nwhenever you get someone to evaluate"
+    } ]
+  }, {
+    "tStartMs": 2844980,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "these things,"
+    } ]
+  }, {
+    "tStartMs": 2846680,
+    "dDurationMs": 3700,
+    "segs": [ {
+      "utf8": "you get the people that are actually good\nat this stuff."
+    } ]
+  }, {
+    "tStartMs": 2850560,
+    "dDurationMs": 3460,
+    "segs": [ {
+      "utf8": "You get, you know, the content curators\nthat know what the heck they're talking"
+    } ]
+  }, {
+    "tStartMs": 2854020,
+    "dDurationMs": 3080,
+    "segs": [ {
+      "utf8": "about when they're reviewing RAG or, you\nknow, whatever it is."
+    } ]
+  }, {
+    "tStartMs": 2857200,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "In this case, it was great because I was\nan engineer."
+    } ]
+  }, {
+    "tStartMs": 2861220,
+    "dDurationMs": 1980,
+    "segs": [ {
+      "utf8": "I was using this stuff, and"
+    } ]
+  }, {
+    "tStartMs": 2864240,
+    "dDurationMs": 4840,
+    "segs": [ {
+      "utf8": "so, and the Harnesslib was really\nengineering-heavy test bed."
+    } ]
+  }, {
+    "tStartMs": 2869280,
+    "dDurationMs": 4300,
+    "segs": [ {
+      "utf8": "I was using, you know, Python notebook a\nlot of times when I was just running,"
+    } ]
+  }, {
+    "tStartMs": 2873680,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "kicking these things off."
+    } ]
+  }, {
+    "tStartMs": 2875580,
+    "dDurationMs": 4060,
+    "segs": [ {
+      "utf8": "And I was the best, and I was the one\nworking on the product that was running"
+    } ]
+  }, {
+    "tStartMs": 2879640,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "through the valves."
+    } ]
+  }, {
+    "tStartMs": 2882060,
+    "dDurationMs": 5560,
+    "segs": [ {
+      "utf8": "So maybe it's, you know, there's so many\nfortunate things about this"
+    } ]
+  }, {
+    "tStartMs": 2887620,
+    "dDurationMs": 5620,
+    "segs": [ {
+      "utf8": "very specific niche of codegen that\ndoesn't exist in other places,"
+    } ]
+  }, {
+    "tStartMs": 2893680,
+    "dDurationMs": 2920,
+    "segs": [ {
+      "utf8": "where you really do have to have the other\nperson that's not the engineer."
+    } ]
+  }, {
+    "tStartMs": 2897240,
+    "dDurationMs": 5300,
+    "segs": [ {
+      "utf8": "But a fortunate thing that we had is,\nlike, we could do it all, and it made it,"
+    } ]
+  }, {
+    "tStartMs": 2902860,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "I think, a lot easier in that circumstance\nto say, like, this eval went sideways,"
+    } ]
+  }, {
+    "tStartMs": 2908540,
+    "dDurationMs": 1680,
+    "segs": [ {
+      "utf8": "but I think I know what's happening."
+    } ]
+  }, {
+    "tStartMs": 2910260,
+    "dDurationMs": 1680,
+    "segs": [ {
+      "utf8": "You didn't have to have that communication"
+    } ]
+  }, {
+    "tStartMs": 2913040,
+    "dDurationMs": 5900,
+    "segs": [ {
+      "utf8": "and the breakdown. What about, like, for\nsituations where code completions for"
+    } ]
+  }, {
+    "tStartMs": 2918940,
+    "dDurationMs": 3080,
+    "segs": [ {
+      "utf8": "programming languages that you are not\nfamiliar with?"
+    } ]
+  }, {
+    "tStartMs": 2922320,
+    "dDurationMs": 1800,
+    "segs": [ {
+      "utf8": "I don't know which programming languages\nyou're not familiar with."
+    } ]
+  }, {
+    "tStartMs": 2924120,
+    "dDurationMs": 1920,
+    "segs": [ {
+      "utf8": "Like, maybe you are not comfortable with\nHaskell."
+    } ]
+  }, {
+    "tStartMs": 2926760,
+    "dDurationMs": 2360,
+    "segs": [ {
+      "utf8": "Maybe you're not comfortable with—maybe\nHaskell is, like, a little bit lower"
+    } ]
+  }, {
+    "tStartMs": 2929120,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "resource, but I don't know, maybe not\ncomfortable with C something."
+    } ]
+  }, {
+    "tStartMs": 2932780,
+    "dDurationMs": 5580,
+    "segs": [ {
+      "utf8": "Maybe you are, but pick a language. Like,\nhow would—would you feel okay with, like,"
+    } ]
+  }, {
+    "tStartMs": 2938360,
+    "dDurationMs": 3480,
+    "segs": [ {
+      "utf8": "trying to debug, like, hey, what's going\non with this code completion?"
+    } ]
+  }, {
+    "tStartMs": 2942080,
+    "dDurationMs": 4880,
+    "segs": [ {
+      "utf8": "Like, why is it— Not, you know, working\nthe way I wanted to."
+    } ]
+  }, {
+    "tStartMs": 2947880,
+    "dDurationMs": 1500,
+    "segs": [ {
+      "utf8": "You can take this, Sean or me."
+    } ]
+  }, {
+    "tStartMs": 2950840,
+    "dDurationMs": 5720,
+    "segs": [ {
+      "utf8": "I mean, I was surprised when we looked at\nthe internal numbers and saw, you know,"
+    } ]
+  }, {
+    "tStartMs": 2956780,
+    "dDurationMs": 4180,
+    "segs": [ {
+      "utf8": "hey, we're running Harnesslib on\nJavaScript and Python, and we're getting,"
+    } ]
+  }, {
+    "tStartMs": 2960960,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "you know, roughly similar acceptance rates\nfor, you know, Haskell and, you"
+    } ]
+  }, {
+    "tStartMs": 2966840,
+    "dDurationMs": 2960,
+    "segs": [ {
+      "utf8": "know, Visual Basic or whatever people are\nwriting in this thing."
+    } ]
+  }, {
+    "tStartMs": 2969800,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "And it's like, it was really encouraging\nto see that the evals"
+    } ]
+  }, {
+    "tStartMs": 2975680,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "that we were doing translated over to\nother languages that we weren't"
+    } ]
+  }, {
+    "tStartMs": 2979120,
+    "dDurationMs": 2280,
+    "segs": [ {
+      "utf8": "necessarily evaluating on or comfortable\nwith."
+    } ]
+  }, {
+    "tStartMs": 2981900,
+    "dDurationMs": 5440,
+    "segs": [ {
+      "utf8": "I'm not familiar with examples where we\nhad to do a deep dive into, you know, one"
+    } ]
+  }, {
+    "tStartMs": 2987340,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "of those less familiar languages."
+    } ]
+  }, {
+    "tStartMs": 2991300,
+    "dDurationMs": 4140,
+    "segs": [ {
+      "utf8": "And I think a big part of that is, like,\nanytime you're trying to diagnose one of"
+    } ]
+  }, {
+    "tStartMs": 2995440,
+    "dDurationMs": 3680,
+    "segs": [ {
+      "utf8": "these problems, especially in production,\nyou want to kind of go back and be like,"
+    } ]
+  }, {
+    "tStartMs": 2999120,
+    "dDurationMs": 3580,
+    "segs": [ {
+      "utf8": "okay, what's our baseline? You know, where\nis the point in the past where this"
+    } ]
+  }, {
+    "tStartMs": 3002700,
+    "dDurationMs": 5240,
+    "segs": [ {
+      "utf8": "worked? And so you're always kind of\nbuilding on the eval runs that you've done"
+    } ]
+  }, {
+    "tStartMs": 3007940,
+    "dDurationMs": 3580,
+    "segs": [ {
+      "utf8": "in the past. And so if you don't have\nthose evals for, like, hey, how did"
+    } ]
+  }, {
+    "tStartMs": 3011520,
+    "dDurationMs": 5420,
+    "segs": [ {
+      "utf8": "Haskell work in Copilot a year ago, then\nit's kind of hard to diagnose that"
+    } ]
+  }, {
+    "tStartMs": 3016940,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "in the present."
+    } ]
+  }, {
+    "tStartMs": 3020660,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "Okay, yeah, that makes sense. It sounds\nlike the high-resource languages, Python,"
+    } ]
+  }, {
+    "tStartMs": 3025320,
+    "dDurationMs": 3460,
+    "segs": [ {
+      "utf8": "JavaScript, are a good proxy, sounds like,\nfor even the low-resource ones."
+    } ]
+  }, {
+    "tStartMs": 3029500,
+    "dDurationMs": 1120,
+    "segs": [ {
+      "utf8": "Surprisingly so, yeah."
+    } ]
+  }, {
+    "tStartMs": 3031420,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "Okay, I'm gonna put y'all on the spot here\nwith the question, but maybe it'll work"
+    } ]
+  }, {
+    "tStartMs": 3036480,
+    "dDurationMs": 3680,
+    "segs": [ {
+      "utf8": "out. What is, like, a surprising thing\nthat y'all learned?"
+    } ]
+  }, {
+    "tStartMs": 3041080,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "Like, if you can think of any example that\nyou learned from doing the evals,"
+    } ]
+  }, {
+    "tStartMs": 3046400,
+    "dDurationMs": 3720,
+    "segs": [ {
+      "utf8": "like, you know, that turned into an\nimprovement of some kind."
+    } ]
+  }, {
+    "tStartMs": 3050780,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "Like, you know, that like something\ncounterintuitive or something that you"
+    } ]
+  }, {
+    "tStartMs": 3054420,
+    "dDurationMs": 2060,
+    "segs": [ {
+      "utf8": "remember that sticks out in your mind."
+    } ]
+  }, {
+    "tStartMs": 3064120,
+    "dDurationMs": 5960,
+    "segs": [ {
+      "utf8": "I, well, just kind of go back to, uh, To\nSean's part, honestly,"
+    } ]
+  }, {
+    "tStartMs": 3070160,
+    "dDurationMs": 1020,
+    "segs": [ {
+      "utf8": "with the L judge."
+    } ]
+  }, {
+    "tStartMs": 3072120,
+    "dDurationMs": 5440,
+    "segs": [ {
+      "utf8": "I really, this is well after the fact,\nbut, uh, in our conversation to to put"
+    } ]
+  }, {
+    "tStartMs": 3077560,
+    "dDurationMs": 5740,
+    "segs": [ {
+      "utf8": "this talk together, I thought it was just\nneat to hear him walk through the learning"
+    } ]
+  }, {
+    "tStartMs": 3083300,
+    "dDurationMs": 2433,
+    "segs": [ {
+      "utf8": "process that necessitated LLM judge."
+    } ]
+  }, {
+    "tStartMs": 3085733,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "We,"
+    } ]
+  }, {
+    "tStartMs": 3087060,
+    "dDurationMs": 4240,
+    "segs": [ {
+      "utf8": "I mean, this process has been done at\nseveral places at this point, but what you"
+    } ]
+  }, {
+    "tStartMs": 3091300,
+    "dDurationMs": 3360,
+    "segs": [ {
+      "utf8": "kind of saw it then was the birth of."
+    } ]
+  }, {
+    "tStartMs": 3094660,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "LLM judge, like this needs humans, humans\ndon't scale."
+    } ]
+  }, {
+    "tStartMs": 3099180,
+    "dDurationMs": 5200,
+    "segs": [ {
+      "utf8": "Here's how like we break this down into,\nuh, something that that's easier for"
+    } ]
+  }, {
+    "tStartMs": 3104380,
+    "dDurationMs": 2900,
+    "segs": [ {
+      "utf8": "humans. We like have at least this\ncriteria so that we can digest it."
+    } ]
+  }, {
+    "tStartMs": 3107340,
+    "dDurationMs": 1580,
+    "segs": [ {
+      "utf8": "Why not just turn that over to an LLM?"
+    } ]
+  }, {
+    "tStartMs": 3109260,
+    "dDurationMs": 4660,
+    "segs": [ {
+      "utf8": "It's easier to do it, like, you know, uh,\ntrue or false, that's that's gonna be a"
+    } ]
+  }, {
+    "tStartMs": 3113920,
+    "dDurationMs": 5900,
+    "segs": [ {
+      "utf8": "lot easier to to deal with than like\nsomething that's subjective as as a human."
+    } ]
+  }, {
+    "tStartMs": 3120460,
+    "dDurationMs": 5700,
+    "segs": [ {
+      "utf8": "So I thought that was kind of. A neat\nlesson that that came out of everything."
+    } ]
+  }, {
+    "tStartMs": 3128080,
+    "dDurationMs": 4100,
+    "segs": [ {
+      "utf8": "Yeah, I think, I think one of the things I\nremember is, is being kind of interesting"
+    } ]
+  }, {
+    "tStartMs": 3132180,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "is, you know, we started off with this\nharness that was ripping the bodies out of"
+    } ]
+  }, {
+    "tStartMs": 3136180,
+    "dDurationMs": 2120,
+    "segs": [ {
+      "utf8": "functions and trying to synthesize them\nagain."
+    } ]
+  }, {
+    "tStartMs": 3138300,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "Uh, and also this intuition, like John was\nsaying of like, you know, the more"
+    } ]
+  }, {
+    "tStartMs": 3142800,
+    "dDurationMs": 4080,
+    "segs": [ {
+      "utf8": "characters that are accepted and retained\nin the code that that that's a signal that"
+    } ]
+  }, {
+    "tStartMs": 3146880,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "we did something good. Um, and I, I\nremember."
+    } ]
+  }, {
+    "tStartMs": 3150620,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "We kind of discovered over time"
+    } ]
+  }, {
+    "tStartMs": 3154340,
+    "dDurationMs": 4220,
+    "segs": [ {
+      "utf8": "that users were getting frustrated when\nCopilot was trying to write too much code"
+    } ]
+  }, {
+    "tStartMs": 3158560,
+    "dDurationMs": 4620,
+    "segs": [ {
+      "utf8": "for them at, at one time, and they would,\nyou know, reluctantly accept it and then"
+    } ]
+  }, {
+    "tStartMs": 3163180,
+    "dDurationMs": 3680,
+    "segs": [ {
+      "utf8": "delete, you know, the last half of it and\nthen get a better completion for the, the"
+    } ]
+  }, {
+    "tStartMs": 3166860,
+    "dDurationMs": 4280,
+    "segs": [ {
+      "utf8": "second half of it. Um, and so I remember\nwe, we did a number of experiments and"
+    } ]
+  }, {
+    "tStartMs": 3171140,
+    "dDurationMs": 5320,
+    "segs": [ {
+      "utf8": "changes to the prompt to actually generate\nshorter completions, uh, or even just,"
+    } ]
+  }, {
+    "tStartMs": 3176460,
+    "dDurationMs": 4720,
+    "segs": [ {
+      "utf8": "you know, chop off the completion and let\nthe user kind of naturally tab their way"
+    } ]
+  }, {
+    "tStartMs": 3182040,
+    "dDurationMs": 4220,
+    "segs": [ {
+      "utf8": "through, uh, the, the solution instead of\ntrying to, to one shot it."
+    } ]
+  }, {
+    "tStartMs": 3186260,
+    "dDurationMs": 5900,
+    "segs": [ {
+      "utf8": "Um, and. And so that was something that\nwas kind of counter to our initial"
+    } ]
+  }, {
+    "tStartMs": 3192160,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "intuition of, like, Copilot should write\nas much code as possible for you, and then"
+    } ]
+  }, {
+    "tStartMs": 3195940,
+    "dDurationMs": 3880,
+    "segs": [ {
+      "utf8": "it should all be, you know, good quality\ncode on the first try."
+    } ]
+  }, {
+    "tStartMs": 3199820,
+    "dDurationMs": 3520,
+    "segs": [ {
+      "utf8": "And this was more like, no, people\nactually want to, you know, incrementally"
+    } ]
+  }, {
+    "tStartMs": 3203340,
+    "dDurationMs": 1200,
+    "segs": [ {
+      "utf8": "build up a good solution."
+    } ]
+  }, {
+    "tStartMs": 3207380,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "Makes sense."
+    } ]
+  }, {
+    "tStartMs": 3209240,
+    "dDurationMs": 4180,
+    "segs": [ {
+      "utf8": "If y'all were going to build a product\ntoday, like some other kind of AI product,"
+    } ]
+  }, {
+    "tStartMs": 3213920,
+    "dDurationMs": 5200,
+    "segs": [ {
+      "utf8": "where would you still do evals, and, like,\nwhere would you do it?"
+    } ]
+  }, {
+    "tStartMs": 3219120,
+    "dDurationMs": 4700,
+    "segs": [ {
+      "utf8": "Like, at what point would you start\nthinking about it,"
+    } ]
+  }, {
+    "tStartMs": 3225920,
+    "dDurationMs": 1220,
+    "segs": [ {
+      "utf8": "if at all?"
+    } ]
+  }, {
+    "tStartMs": 3228180,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "I don't want to lead the answer. Well, it\nis interesting because I,"
+    } ]
+  }, {
+    "tStartMs": 3235080,
+    "dDurationMs": 4720,
+    "segs": [ {
+      "utf8": "the good student answer is, well, you\nshould have evals always from day one."
+    } ]
+  }, {
+    "tStartMs": 3239920,
+    "dDurationMs": 2300,
+    "segs": [ {
+      "utf8": "And I bet Sean comes closer to that than I\nwould."
+    } ]
+  }, {
+    "tStartMs": 3243520,
+    "dDurationMs": 4800,
+    "segs": [ {
+      "utf8": "I think it's super important to have evals\nif you have any type of product."
+    } ]
+  }, {
+    "tStartMs": 3248560,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "But"
+    } ]
+  }, {
+    "tStartMs": 3250160,
+    "dDurationMs": 2660,
+    "segs": [ {
+      "utf8": "there is a point in time to introduce\nthem."
+    } ]
+  }, {
+    "tStartMs": 3252840,
+    "dDurationMs": 4160,
+    "segs": [ {
+      "utf8": "A lot of times when you're just really\nearly on trying to figure out what the"
+    } ]
+  }, {
+    "tStartMs": 3257000,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "product does, a good old vibe check"
+    } ]
+  }, {
+    "tStartMs": 3262420,
+    "dDurationMs": 2400,
+    "segs": [ {
+      "utf8": "will get you a long way. You can say, is\nthis working at all?"
+    } ]
+  }, {
+    "tStartMs": 3265100,
+    "dDurationMs": 1760,
+    "segs": [ {
+      "utf8": "Is, you know, what do I need to do with\nthis?"
+    } ]
+  }, {
+    "tStartMs": 3268360,
+    "dDurationMs": 4960,
+    "segs": [ {
+      "utf8": "And I would be interested, honestly,\nHamel, in hearing your opinion as I go"
+    } ]
+  }, {
+    "tStartMs": 3273320,
+    "dDurationMs": 1560,
+    "segs": [ {
+      "utf8": "through your course here in a few weeks"
+    } ]
+  }, {
+    "tStartMs": 3275680,
+    "dDurationMs": 6000,
+    "segs": [ {
+      "utf8": "about, like, what are the limits of, you\nknow, how much evaluation you do?"
+    } ]
+  }, {
+    "tStartMs": 3281860,
+    "dDurationMs": 3280,
+    "segs": [ {
+      "utf8": "Because, you know, we've all seen\ncompanies that are like, we're supposed to"
+    } ]
+  }, {
+    "tStartMs": 3285140,
+    "dDurationMs": 3480,
+    "segs": [ {
+      "utf8": "have evals, and they go a little bit whole\nhog into that, and now they're an eval"
+    } ]
+  }, {
+    "tStartMs": 3288620,
+    "dDurationMs": 3140,
+    "segs": [ {
+      "utf8": "company, but they're not really measuring\nthe right thing."
+    } ]
+  }, {
+    "tStartMs": 3292720,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "So I feel like there's..."
+    } ]
+  }, {
+    "tStartMs": 3295440,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "It's fairly early on, but it's not at the\nvery beginning."
+    } ]
+  }, {
+    "tStartMs": 3297940,
+    "dDurationMs": 4940,
+    "segs": [ {
+      "utf8": "At some point in the beginning, you need\nto be just making prototypes and seeing"
+    } ]
+  }, {
+    "tStartMs": 3302880,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "what works."
+    } ]
+  }, {
+    "tStartMs": 3305040,
+    "dDurationMs": 1400,
+    "segs": [ {
+      "utf8": "Yeah, yeah, totally agree."
+    } ]
+  }, {
+    "tStartMs": 3307480,
+    "dDurationMs": 1360,
+    "segs": [ {
+      "utf8": "Yeah, like I say, like,"
+    } ]
+  }, {
+    "tStartMs": 3309740,
+    "dDurationMs": 5280,
+    "segs": [ {
+      "utf8": "the purpose of building evals is not to\nhave evals; it's to build products, right?"
+    } ]
+  }, {
+    "tStartMs": 3315020,
+    "dDurationMs": 2420,
+    "segs": [ {
+      "utf8": "And so that should still be the number one\npriority."
+    } ]
+  }, {
+    "tStartMs": 3318900,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "You shouldn't not build the product\nbecause you can't think of the eval yet."
+    } ]
+  }, {
+    "tStartMs": 3323440,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "And so you should be listening to your\nusers and doing these A/B experiments to"
+    } ]
+  }, {
+    "tStartMs": 3326880,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "understand what your users want and then\ngoing out and building those products, but"
+    } ]
+  }, {
+    "tStartMs": 3331300,
+    "dDurationMs": 3080,
+    "segs": [ {
+      "utf8": "then thinking in the back of your mind,\nokay, eventually this product is going to"
+    } ]
+  }, {
+    "tStartMs": 3334380,
+    "dDurationMs": 2280,
+    "segs": [ {
+      "utf8": "be successful. How are we going to keep it\nfrom regressing?"
+    } ]
+  }, {
+    "tStartMs": 3336660,
+    "dDurationMs": 4380,
+    "segs": [ {
+      "utf8": "How are we going to evaluate it? But it\nshouldn't block you from doing something"
+    } ]
+  }, {
+    "tStartMs": 3341040,
+    "dDurationMs": 2440,
+    "segs": [ {
+      "utf8": "wild and crazy and different from your\ncompetitors."
+    } ]
+  }, {
+    "tStartMs": 3344700,
+    "dDurationMs": 1280,
+    "segs": [ {
+      "utf8": "That makes sense. I agree with that."
+    } ]
+  }, {
+    "tStartMs": 3345980,
+    "dDurationMs": 3460,
+    "segs": [ {
+      "utf8": "And what we'll teach in the course is you\nshould"
+    } ]
+  }, {
+    "tStartMs": 3351740,
+    "dDurationMs": 2040,
+    "segs": [ {
+      "utf8": "build evals after you've built a\nprototype."
+    } ]
+  }, {
+    "tStartMs": 3354340,
+    "dDurationMs": 1620,
+    "segs": [ {
+      "utf8": "You don't need to start it too early."
+    } ]
+  }, {
+    "tStartMs": 3355980,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "You need to have something first. And even\nwhile you're doing evals, like if you"
+    } ]
+  }, {
+    "tStartMs": 3359880,
+    "dDurationMs": 4740,
+    "segs": [ {
+      "utf8": "notice an error in the process, like you\ndon't—there's a tension on, like, when do"
+    } ]
+  }, {
+    "tStartMs": 3364620,
+    "dDurationMs": 1540,
+    "segs": [ {
+      "utf8": "you write an eval and when you don't."
+    } ]
+  }, {
+    "tStartMs": 3366220,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "It's a judgment call on if there's an ROI\nto writing that eval."
+    } ]
+  }, {
+    "tStartMs": 3370180,
+    "dDurationMs": 4060,
+    "segs": [ {
+      "utf8": "Some errors you'll find, like, okay, you\nknow exactly how to fix it."
+    } ]
+  }, {
+    "tStartMs": 3374600,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "Just go fix it. Like, you know, you don't\nnecessarily need to write an eval for"
+    } ]
+  }, {
+    "tStartMs": 3378380,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "every single thing."
+    } ]
+  }, {
+    "tStartMs": 3380360,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "But yeah, it makes sense. Yeah, kind of my\nexperience."
+    } ]
+  }, {
+    "tStartMs": 3384000,
+    "dDurationMs": 3920,
+    "segs": [ {
+      "utf8": "I mean, on that Harnesslib, or on the A/B\nexperiments, so many of our guardrail"
+    } ]
+  }, {
+    "tStartMs": 3387920,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "metrics,"
+    } ]
+  }, {
+    "tStartMs": 3389280,
+    "dDurationMs": 4160,
+    "segs": [ {
+      "utf8": "I believe, came out of, you know, things\nthat broke in the past, right?"
+    } ]
+  }, {
+    "tStartMs": 3393440,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "It was like this accumulation of, like,\noh, we tried something, it broke."
+    } ]
+  }, {
+    "tStartMs": 3397260,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "Someone spent a week digging into it and\nthen found this metric after the fact that"
+    } ]
+  }, {
+    "tStartMs": 3401760,
+    "dDurationMs": 1860,
+    "segs": [ {
+      "utf8": "would have, you know, caught it earlier."
+    } ]
+  }, {
+    "tStartMs": 3404200,
+    "dDurationMs": 4480,
+    "segs": [ {
+      "utf8": "And so a lot of that stuff you kind of\nonly learn by building it."
+    } ]
+  }, {
+    "tStartMs": 3409380,
+    "dDurationMs": 2300,
+    "segs": [ {
+      "utf8": "I have a really fun question for you\nbefore we wrap up."
+    } ]
+  }, {
+    "tStartMs": 3412040,
+    "dDurationMs": 5640,
+    "segs": [ {
+      "utf8": "That element as a judge prompt, do you\nthink, like, that would be, that would"
+    } ]
+  }, {
+    "tStartMs": 3417680,
+    "dDurationMs": 3360,
+    "segs": [ {
+      "utf8": "make for good cursor rule, like the one\nthat you have?"
+    } ]
+  }, {
+    "tStartMs": 3421820,
+    "dDurationMs": 2400,
+    "segs": [ {
+      "utf8": "Have you... It seems interesting, right?"
+    } ]
+  }, {
+    "tStartMs": 3424220,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "Like if you have all these bulleted points\nof like, hey, this is good code, this is"
+    } ]
+  }, {
+    "tStartMs": 3427620,
+    "dDurationMs": 5160,
+    "segs": [ {
+      "utf8": "bad code, whatever. It seems like the\nperfect prompt for yourself, in a way."
+    } ]
+  }, {
+    "tStartMs": 3435860,
+    "dDurationMs": 1120,
+    "segs": [ {
+      "utf8": "Yeah, maybe."
+    } ]
+  }, {
+    "tStartMs": 3440140,
+    "dDurationMs": 5260,
+    "segs": [ {
+      "utf8": "I mean, it's... you always get to cheat a\nlittle bit when you're building your own"
+    } ]
+  }, {
+    "tStartMs": 3445400,
+    "dDurationMs": 4480,
+    "segs": [ {
+      "utf8": "eval set and kind of say like, here's what\nI think programming is, and here's, you"
+    } ]
+  }, {
+    "tStartMs": 3449880,
+    "dDurationMs": 2760,
+    "segs": [ {
+      "utf8": "know, the tasks that our representative of\nwhat our users will be doing, and I'll"
+    } ]
+  }, {
+    "tStartMs": 3452640,
+    "dDurationMs": 1460,
+    "segs": [ {
+      "utf8": "only evaluate those tasks."
+    } ]
+  }, {
+    "tStartMs": 3455560,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "The scary thing whenever you're doing kind\nof, especially like a chat-based"
+    } ]
+  }, {
+    "tStartMs": 3459180,
+    "dDurationMs": 3960,
+    "segs": [ {
+      "utf8": "interface, is like it's just wide open and\npeople can ask anything and do anything"
+    } ]
+  }, {
+    "tStartMs": 3463140,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "with it. And so, yeah, I"
+    } ]
+  }, {
+    "tStartMs": 3469020,
+    "dDurationMs": 5400,
+    "segs": [ {
+      "utf8": "would hope that the prompt that I did for\nLMS Judge would generalize to more just"
+    } ]
+  }, {
+    "tStartMs": 3474420,
+    "dDurationMs": 5800,
+    "segs": [ {
+      "utf8": "kind of general code quality, but I also\ngot to kind of pick and choose which use"
+    } ]
+  }, {
+    "tStartMs": 3480220,
+    "dDurationMs": 2040,
+    "segs": [ {
+      "utf8": "cases I covered and tailor it to those."
+    } ]
+  }, {
+    "tStartMs": 3483700,
+    "dDurationMs": 2040,
+    "segs": [ {
+      "utf8": "Makes sense. I kind of want to see this."
+    } ]
+  }, {
+    "tStartMs": 3485740,
+    "dDurationMs": 1880,
+    "segs": [ {
+      "utf8": "It is pretty obvious I want to see the\nprompt."
+    } ]
+  }, {
+    "tStartMs": 3488980,
+    "dDurationMs": 1820,
+    "segs": [ {
+      "utf8": "Nice try, Animal. Yeah."
+    } ]
+  }, {
+    "tStartMs": 3491900,
+    "dDurationMs": 2680,
+    "segs": [ {
+      "utf8": "No, thank you so much. This was a really\ngreat conversation."
+    } ]
+  }, {
+    "tStartMs": 3494900,
+    "dDurationMs": 5900,
+    "segs": [ {
+      "utf8": "It was really interesting. So thanks for\ncoming on and teaching everybody about how"
+    } ]
+  }, {
+    "tStartMs": 3500800,
+    "dDurationMs": 3120,
+    "segs": [ {
+      "utf8": "y'all built evals. Yeah, thank you for\nhaving me."
+    } ]
+  }, {
+    "tStartMs": 3503920,
+    "dDurationMs": 580,
+    "segs": [ {
+      "utf8": "This has been great."
+    } ]
+  } ]
+}

@@ -121,7 +121,7 @@ function buildSvg({ pages, spineIn, spinePx, totalWidthPx, heightPx, frontX, fro
     <rect x="150" y="1515" width="1515" height="250" rx="24" fill="${colors.paleGold}" stroke="${colors.gold}" stroke-width="4"/>
     <g font-size="35" font-weight="600" fill="${colors.navy}">
       <text x="205" y="1588">Four published programs. One complete fictional loop. Plus</text>
-      <text x="205" y="1642">statistical recipes, thirteen exercises, fifteen templates, and a</text>
+      <text x="205" y="1642">statistical recipes, thirteen exercises, sixteen templates, and a</text>
       <text x="205" y="1696">30-day minimum viable eval-loop plan.</text>
     </g>
 

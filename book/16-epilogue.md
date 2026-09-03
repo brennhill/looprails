@@ -8,7 +8,9 @@ Of course it will. Start anyway.
 
 The eval loop exists so the system can correct its idea of truth.
 
-Read the failure, write the task, and find where evidence lives. Use the closest trustworthy grader, then try to embarrass it. Compare the change on the same cases. Release under constraints. Watch what users experience. Give every artifact an owner and a date to be questioned again.
+The six things from the beginning still apply. Observe what happened. Define the decision and the standard. Grade the consequence. Test the measurement. Compare the whole system. Own the loop after launch.
+
+They were never meant as opening ceremony. They are the repair manual. When an eval program gives a result nobody trusts, find the missing job. Perhaps the cases came from imagination, the standard is unsettled, the grader watches prose instead of consequences, the judge was never calibrated, the comparison changed three things at once, or production feedback has no owner. Fix that link and run the loop again.
 
 The four published cases show why the loop must stay open.
 

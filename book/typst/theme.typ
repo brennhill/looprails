@@ -24,6 +24,7 @@
 #let special-title(text-value) = {
   (
     text-value.contains("Preface")
+    or text-value.contains("The Six Things You Must Get Right")
     or text-value.contains("Appendix")
     or text-value.contains("Glossary")
     or text-value.contains("References")

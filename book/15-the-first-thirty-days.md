@@ -4,6 +4,8 @@
 
 The first month should produce a **minimum viable eval loop** for one workflow the team cannot shrug off.
 
+If you want the plan in one working document, start with Template 16 in Appendix B. It turns this chapter into six evidence gates and a rollout record. The calendar below supplies a useful order; the gates decide whether the team advances.
+
 Not the whole company. Not every model. Not a unified theory of helpfulness. One workflow, chosen because it matters, repeats, and has outcomes the team can inspect.
 
 “Minimum viable” describes the loop, not the quality bar. The month proves that one team can observe behavior, turn failures into tasks, compare a change, make a recorded decision, and learn again. It does not certify a product as safe, settle every grader dispute, or require a production launch before the calendar gets bored.
@@ -411,4 +413,4 @@ After the pilot:
 
 ## Field move
 
-Put a date beside Day 1, choose the workflow and decision owner, and book the first twenty-trace review. The loop begins one calendar invite before any evaluator runs.
+Copy Template 16, choose the workflow and decision owner, and book the first trace review. The loop begins one calendar invite before any evaluator runs.

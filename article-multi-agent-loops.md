@@ -20,13 +20,13 @@ The frameworks handle the plumbing. AutoGen gives you conversable agents and con
 
 One thread runs through the patterns that work, and it is the part teams most often get wrong.
 
-When correctness matters, constrain what agents exchange and force verifiable intermediate artifacts. Free-form dialogue between agents is seductive because it is easy to set up and it demos well. It is also where reliability goes to die. An open conversation lets errors propagate as confident assertions, lets agents drift off task, and gives you nothing concrete to check at the seams. The systems that hold up replace chat with typed handoffs and structured outputs: a spec the next agent must satisfy, a diff the next stage must apply, a test the result must pass [MA-3](codex-loops.html#ref-MA-3)[MA-6](codex-loops.html#ref-MA-6).
+When correctness matters, constrain what agents exchange and force verifiable intermediate artifacts. Free-form dialogue between agents is seductive because it is easy to set up and it demos well. It is also where reliability goes to die. An open conversation lets errors propagate as confident assertions, lets agents drift off task, and gives you nothing concrete to check when work changes hands. The systems that hold up replace chat with typed handoffs and structured outputs: a spec the next agent must satisfy, a diff the next stage must apply, a test the result must pass [MA-3](codex-loops.html#ref-MA-3)[MA-6](codex-loops.html#ref-MA-6).
 
 The rule of thumb: prefer a typed handoff over an open conversation whenever you would be unhappy to be wrong. Chat is fine for brainstorming and for low-grade work where a mistake is cheap to undo. For anything consequential, make the agents pass artifacts you can inspect, not opinions you have to trust.
 
 ## How multi-agent loops break
 
-Adding agents adds failure surface. Each boundary between two agents is a place where intent can be lost, a message can be misread, or an error can slip through unchecked. The honest way to design a multi-agent loop is to budget oversight for the seams, not just for the agents.
+Adding agents adds failure surface. Each boundary between two agents is a place where intent can be lost, a message can be misread, or an error can slip through unchecked. The honest way to design a multi-agent loop is to budget oversight for those handoffs, not just for the agents.
 
 The failures are not random. Cemri et al. studied real multi-agent systems and built MAST, a taxonomy of 14 failure modes grouped into three categories: specification and design issues, inter-agent misalignment, and task verification [MA-13](codex-loops.html#ref-MA-13). Specification failures are bad role definitions and unclear task boundaries. Misalignment failures are agents working at cross purposes, dropping context across a handoff, or talking past each other. Verification failures are the system accepting output that should have been rejected. Their finding worth tattooing on the architecture review: weak verification is a leading cause of failure. The system did not break because an agent was dumb. It broke because nothing competent checked the work.
 

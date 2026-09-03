@@ -1,4 +1,4 @@
-# Research: Components of Inner and Outer Agent Loops (and the Seam)
+# Research: Components of Inner and Outer Agent Loops (and Their Shared Contract)
 
 Verified research behind the LoopRails "two loops" model. Three focused web-research
 passes, every source fetched and read directly (anti-fabrication: nothing here is from
@@ -8,7 +8,7 @@ are preserved per component.
 Model: an agent system runs as an **inner loop** (the agent acts, a verifier checks, a
 controller decides retry/stop/select, fast and unattended) wrapped by an **outer loop**
 (humans observe the output and sharpen the verifier and the goal, slow and deliberate).
-The **seam** is the set of artifacts the outer loop produces and the inner loop consumes:
+Their **shared contract** is the set of artifacts the outer loop produces and the inner loop consumes:
 the verifier, the eval set, and the telemetry.
 
 Note: the heavy deep-research harness failed on an API/infra problem mid-run, so this used
@@ -177,9 +177,9 @@ Source anchors (all fetched):
 
 ---
 
-## 3. The seam and the platform (cross-cutting, shared)
+## 3. The shared contract and platform
 
-The conceptual seam, owned by the outer loop and consumed by the inner loop: the **verifier**,
+The shared contract, owned by the outer loop and consumed by the inner loop: the **verifier**,
 the **eval/golden set**, and the **telemetry**. The platform both loops run on:
 
 Source anchors (all fetched from official docs/repos):
@@ -255,8 +255,8 @@ Source anchors (all fetched from official docs/repos):
 
 ## 4. Synthesis (the decided takeaways)
 
-- The components split into **inner (engineering), outer (process), and a shared seam.** The
-  seam is real: the eval/golden set is written by the outer loop and run by the inner loop; the
+- The components split into **inner (engineering), outer (process), and a shared contract.** The
+  contract is concrete: the eval/golden set is written by the outer loop and run by the inner loop; the
   verifier is calibrated by the outer loop and gated by the inner loop.
 - **You can buy almost the entire inner loop and the platform. You cannot buy the outer loop.**
   Generators, tracing, guardrails, sandboxes, and checkpointers are off the shelf. Error

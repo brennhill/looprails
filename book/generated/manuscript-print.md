@@ -32,7 +32,7 @@ The **eval loop** improves the worker. People sample real outcomes, analyze erro
 
 The loops depend on each other. An agent loop without an eval loop can repeat mistakes at extraordinary speed. An eval loop disconnected from the agent loop becomes a benchmark program: impressive charts, limited influence, excellent snacks at the quarterly review.
 
-The seam between them is where the working artifacts live: task cases, traces, graders, release rules, and production telemetry. Build that seam well and product development becomes cumulative. Every consequential failure can become a permanent case. Every change can be compared on the same evidence. Every judge can be challenged. Every release can be discussed in terms more precise than “the vibes seem better.”
+The two loops meet in a small pile of working artifacts: task cases, traces, graders, release rules, and production telemetry. Make those connections explicit and product development becomes cumulative. Every consequential failure can become a permanent case. Every change can be compared on the same evidence. Every judge can be challenged. Every release can be discussed in terms more precise than “the vibes seem better.”
 
 Four published evaluation programs run through the book.
 
@@ -54,9 +54,88 @@ Certainty is unavailable. Evals are evidence, not a force field around productio
 
 Disciplined learning is a pretty good consolation prize.
 
-The route starts with twenty real cases: build the closest trustworthy grader for each, attack those graders, compare variants on the same evidence, connect offline results to production, and keep the whole contraption alive.
+The next section compresses the method into six questions. Then the route starts with twenty real cases: build the closest trustworthy grader, attack it, compare variants, connect offline results to production, and keep the whole contraption alive.
 
-Right. Let's get our hands dirty.
+# The Six Things You Must Get Right
+
+An eval program can acquire a startling amount of machinery. Datasets. Rubrics. Judges. Dashboards. CI jobs. Review queues. A small parliament of YAML files.
+
+Underneath all of it are six jobs. Miss one and the rest of the system becomes less trustworthy, no matter how handsome the dashboard is.
+
+These are not maturity levels. A two-person team can do all six with a spreadsheet, a script, and a weekly meeting. A large company can neglect three of them while operating an impressive quantity of infrastructure.
+
+## 1. Observe before you specify
+
+Start with what the product actually did. Read real traces, outputs, tool calls, final states, user corrections, support tickets, and incidents. Ask a person who understands the domain to mark the first place the behavior went wrong. Name the failure only after seeing it.
+
+This is how a team discovers that its real problem is not “accuracy.” Perhaps the assistant ends the conversation too early, uses the right tool with the wrong object, makes a promise the service cannot keep, or succeeds only after an expensive scenic tour through the tool catalog. Those failures need different fixes and different graders.
+
+Inventing a taxonomy before reading the evidence is tidy and dangerous. It measures the failures the team expected, then congratulates the product for not having them. Error analysis belongs upstream of test design ^[5](#ref-media-01)^.
+
+**The question:** What happened in real use, and where did it first go wrong?
+
+## 2. Define the decision and the standard
+
+An eval exists to inform a decision: ship this change, choose this harness, widen this rollout, keep a human review, retire a model, or investigate a failure. Write that decision down. Then define what counts as success for the cases involved.
+
+“Helpful” is not yet a standard. “Correctly identifies an unavailable unit, offers only services we provide, and gives the user a valid next step” is getting there. The definition may include hard constraints. A product may require zero prohibited actions in a release set, a strict latency ceiling, or human approval for a high-consequence path. Those limits come from the product and its consequences, not from a generic recipe in a book.
+
+An improvement does not need to clear an invented five-point hurdle to matter. The eval's job is to estimate what changed and how uncertain that estimate is. The product decision supplies the stakes.
+
+**The question:** What decision will this evidence change, and what must be true for the answer to count as good?
+
+## 3. Grade the consequence
+
+Find the closest trustworthy evidence to the outcome. If the agent says it changed a reservation, inspect the reservation. If it writes code, run the code. If it cites a source, test whether the source supports the claim. If quality depends on clinical judgment, use criteria written by people with clinical expertise.
+
+Prefer direct evidence over an opinion about the prose. Use environment state and executable checks where they fit; use rules, model judges, and expert review for the parts machines cannot settle cleanly. Composite products usually need composite graders. Fluency can describe an outcome; it cannot prove the outcome happened.
+
+The four recurring cases in this book make the point from different directions: SWE-bench executes tests, τ-bench inspects state and actions, HealthBench uses case-specific physician criteria, and DeepResearch Bench checks claims against their sources ^[28](#ref-swe-01)^ ^[37](#ref-tau-03)^ ^[39](#ref-health-01)^ ^[43](#ref-drb-01)^.
+
+**The question:** Where does the truth become observable, and are we grading that—or merely grading the agent's description of it?
+
+## 4. Test the measurement
+
+Labels can be wrong. Rubrics can be vague. Model judges can miss the failure class they were hired to catch. Harnesses can leak answers, preserve stale state, or reward shortcuts. The test is part of the product, and it needs tests of its own.
+
+Review disagreements instead of hiding them inside an average. Separate candidate error, label error, and genuine ambiguity. Keep judges narrow enough to diagnose. Compare their false passes and false holds with expert decisions, not just overall agreement. Try cases that should fool them. Protect verifiers from the system they grade. Revisit them when models, users, policies, or interfaces change ^[11](#ref-judge-02)^ ^[42](#ref-health-04)^.
+
+“The grader passed it” is the start of a useful conversation. It is not the end.
+
+**The question:** How could the labels, rubric, judge, or harness be wrong—or be gamed?
+
+## 5. Compare the whole system
+
+The thing under evaluation is not a model name. It is the model plus its prompt, tools, context, memory, routing, retry policy, stopping rule, environment, and sometimes a flock of smaller agents doing mysterious errands.
+
+Compare candidates on the same cases and record the conditions. Keep budgets and tool access visible. Split related cases as groups so near-duplicates do not flatter the result. Repeat stochastic work when consistency matters. Report failures, latency, cost, and tool behavior beside the headline score. Capability and reliability are different questions; a system can occasionally succeed at a task while remaining a terrible product ^[15](#ref-stat-01)^ ^[14](#ref-anth-01)^.
+
+Fair comparison does not mean every product uses the same release threshold. It means the evidence isolates the change well enough for that product to make its own decision.
+
+**The question:** Did the candidates face comparable work and constraints, and did we measure the system users will actually meet?
+
+## 6. Own the loop after launch
+
+Offline evals are rehearsals. Production supplies new accents, integrations, policies, incentives, and forms of chaos that nobody thought to put in the rehearsal room.
+
+Sample real outcomes. Connect offline scores with user and business consequences. Turn important incidents into cases. Give the task set, harness, labels, judges, release rule, and production review named owners. Put review and retirement dates on them. An eval suite without maintenance is not a safety net; it is a historical exhibit with a green build badge.
+
+Ownership is shared but not vague. Domain experts own the meaning of good. Engineering owns reproducible execution. Product and operational leaders own the decisions and consequences. Someone must be able to say when a metric has stopped predicting what matters ^[66](#ref-org-09)^.
+
+**The question:** Who reviews new evidence, who changes the eval, and when will they do it?
+
+## The pocket version
+
+Before trusting an eval result, ask:
+
+1. **Did we observe real behavior?**
+2. **Did we define the decision and the standard?**
+3. **Did we grade the consequence?**
+4. **Did we test the measurement?**
+5. **Did we compare the whole system fairly?**
+6. **Is someone keeping the loop alive after launch?**
+
+Appendix B turns these questions into a copyable readiness checklist and rollout card. Chapter 15 supplies the longer thirty-day route.
 
 ```{=typst}
 #part-divider("I", "Find the Truth")
@@ -77,7 +156,7 @@ Our first job is to follow the evidence backward: begin with actual failures, tu
 
 By the end of the part, these are no longer four benchmark summaries. They are four reusable truth patterns: executable, state, expert, and evidentiary. Your product may combine all four before lunch.
 
-First, though, we need to stop being impressed by the demo long enough to inspect the receipt.
+First, though, we need to stop applauding the tech demo long enough to follow its result into the database, test runner, cited source, or expert review, where the lurking surprises have been waiting politely.
 
 # Demos Lie
 
@@ -2489,7 +2568,7 @@ Treat the router as part of the product. Evaluate the small model, the fallback,
 
 The outer loop should make this decision repeatedly. Model releases, prices, hardware, data residency rules, and task mix change. Keep the eval stable enough to compare systems and alive enough to represent production. Then buy brains, build rails, tune weights, or mix the three according to evidence—not allegiance.
 
-## The seam
+## Where the loops meet
 
 The two loops exchange five artifacts.
 
@@ -2611,7 +2690,7 @@ Optimize the loop, not the logo on the tooling.
 
 ## Field move
 
-Draw both loops for one workflow: inner state and control, outer sampling and release, and the five artifacts crossing the seam. Name each handoff owner and write the elapsed time from production failure to permanent regression case. Circle every arrow powered by memory alone; that is where the loop opens.
+Draw both loops for one workflow: inner state and control, outer sampling and release, and the five artifacts passing between them. Name each handoff owner and write the elapsed time from production failure to permanent regression case. Circle every arrow powered by memory alone; that is where the loop opens.
 
 # Release Gates
 
@@ -3561,7 +3640,7 @@ The interface is a service contract: the platform guarantees mechanics; the doma
 
 Agent skills make this split concrete. The capability author should own the questions, expected behaviors, fixtures, and domain-specific grader intent alongside the skill. The platform should stage isolated environments, run matched baselines across supported harnesses, normalize traces, and retain reports. ACES describes this as developer-guided evaluation with bring-your-own-task and bring-your-own-grader extension points ^[19](#ref-aces-01)^. The central system supplies a protocol; it does not confiscate the product contract.
 
-Composition boundaries create another review job. A skill may work alone but route poorly when twenty plausible neighbors are visible. The catalog or platform owner must provide group-workspace tests and realistic decoys, while the skill author reviews whether failures reflect description, content, prerequisites, or interaction. Ownership follows the seam where the failure can be prevented.
+Composition boundaries create another review job. A skill may work alone but route poorly when twenty plausible neighbors are visible. The catalog or platform owner must provide group-workspace tests and realistic decoys, while the skill author reviews whether failures reflect description, content, prerequisites, or interaction. Put ownership at the boundary where someone can actually prevent the failure.
 
 ## A practical responsibility map
 
@@ -3807,6 +3886,8 @@ Do Exercise 10 and complete Template 12 with actual names. Schedule the weekly t
 *Start with twenty cases and one decision. You can purchase a platform later, after it has something worth platforming.*
 
 The first month should produce a **minimum viable eval loop** for one workflow the team cannot shrug off.
+
+If you want the plan in one working document, start with Template 16 in Appendix B. It turns this chapter into six evidence gates and a rollout record. The calendar below supplies a useful order; the gates decide whether the team advances.
 
 Not the whole company. Not every model. Not a unified theory of helpfulness. One workflow, chosen because it matters, repeats, and has outcomes the team can inspect.
 
@@ -4215,7 +4296,7 @@ After the pilot:
 
 ## Field move
 
-Put a date beside Day 1, choose the workflow and decision owner, and book the first twenty-trace review. The loop begins one calendar invite before any evaluator runs.
+Copy Template 16, choose the workflow and decision owner, and book the first trace review. The loop begins one calendar invite before any evaluator runs.
 
 # The Loop Stays Open
 
@@ -4227,7 +4308,9 @@ Of course it will. Start anyway.
 
 The eval loop exists so the system can correct its idea of truth.
 
-Read the failure, write the task, and find where evidence lives. Use the closest trustworthy grader, then try to embarrass it. Compare the change on the same cases. Release under constraints. Watch what users experience. Give every artifact an owner and a date to be questioned again.
+The six things from the beginning still apply. Observe what happened. Define the decision and the standard. Grade the consequence. Test the measurement. Compare the whole system. Own the loop after launch.
+
+They were never meant as opening ceremony. They are the repair manual. When an eval program gives a result nobody trusts, find the missing job. Perhaps the cases came from imagination, the standard is unsettled, the grader watches prose instead of consequences, the judge was never calibrated, the comparison changed three things at once, or production feedback has no owner. Fix that link and run the loop again.
 
 The four published cases show why the loop must stay open.
 
@@ -5186,6 +5269,141 @@ communication: ""
 
 For each entry, attach the experiment or observational analysis and record important segment differences. A proxy with no validation date is a hypothesis, not an outcome metric.
 
+```{=typst}
+#pagebreak()
+```
+
+## Template 16: Eval-loop readiness and rollout card
+
+Use this as the cover sheet for one workflow. A checked box means the evidence is linked, not that somebody remembers discussing it. Blank boxes are allowed. Mystery boxes are not.
+
+**Workflow:** [name]\
+**Decision:** We will decide whether to [release, route, automate, hold, or retire].\
+**Decision owner:** [name]\
+**Domain owner:** [name]\
+**Engineering owner:** [name]\
+**Release owner:** [name]\
+**Current stage:** month zero / discovery / offline / shadow / limited / expanded / routine\
+**Next review:** [date]
+
+### Before the gates
+
+- [ ] The workflow is bounded and the user outcome is named.
+- [ ] We can inspect privacy-approved traces or representative fixtures.
+- [ ] Inputs, versions, tool events, outputs, and outcomes are recorded.
+- [ ] Side effects can be replayed safely or simulated faithfully.
+- [ ] Human review time is protected and a domain owner is available.
+- [ ] A disable, rollback, or containment path has an owner.
+
+If any required item is blank, remain in month zero and fix it.
+
+### Gate 1: Observe before you specify
+
+- [ ] The discovery sample mixes ordinary cases, complaints, risk cases, important segments, and apparent successes.
+- [ ] Reviewers inspected the actual task outcome, not only final prose.
+- [ ] Each failed case records the first consequential departure.
+- [ ] Open notes came before the failure taxonomy.
+- [ ] The sample size and selection rationale are recorded.
+
+**Exit evidence:** linked traces, annotations, and failure taxonomy v1.\
+**Owner accepting exit:** [name] **Date:** [date]
+
+```{=typst}
+#pagebreak()
+```
+
+### Gate 2: Define the decision and the standard
+
+- [ ] The eval names the decision it will inform.
+- [ ] Each task says what success, failure, and ambiguity mean.
+- [ ] Hard constraints are separated from tradeoffs and monitoring signals.
+- [ ] Domain or policy disagreements are resolved or explicitly open.
+- [ ] Expected evidence, allowed actions, and escalation rules are written.
+
+**Exit evidence:** objective record, task contracts, and ambiguity log.\
+**Owner accepting exit:** [name] **Date:** [date]
+
+### Gate 3: Grade the consequence
+
+- [ ] Every criterion points to its strongest available truth source.
+- [ ] State checks, executable tests, and rules are used where they fit.
+- [ ] Judgment is limited to criteria direct evidence cannot settle.
+- [ ] Composite outcomes remain visible instead of disappearing in one score.
+- [ ] Missing evidence produces an explicit result, not a hopeful pass.
+
+**Exit evidence:** grader map and check-level result schema.\
+**Owner accepting exit:** [name] **Date:** [date]
+
+### Gate 4: Test the measurement
+
+- [ ] Task authors tried to make bad outcomes pass and good outcomes fail.
+- [ ] Human disagreements were separated into candidate error, label error, and genuine ambiguity.
+- [ ] Model judges were compared with qualified human labels by category.
+- [ ] False passes, false holds, and invalid grader runs are visible.
+- [ ] Leakage, stale state, judge gaming, and reward hacking were challenged.
+- [ ] Each grader has an owner, version, allowed use, and review trigger.
+
+**Exit evidence:** grader attacks, calibration report, and known limitations.\
+**Owner accepting exit:** [name] **Date:** [date]
+
+### Gate 5: Compare the whole system
+
+- [ ] Baseline and candidate ran on comparable cases and conditions.
+- [ ] Model, prompt, tools, context, policies, budgets, and harness are stored.
+- [ ] Related cases cannot leak across development and held-out groups.
+- [ ] Repeated behavior is measured where consistency matters.
+- [ ] Paired wins and regressions are inspected, not only the average.
+- [ ] Product-defined safety, latency, cost, and approval conditions appear.
+- [ ] The release decision states uncertainty and known blind spots.
+
+**Exit evidence:** paired comparison and signed release decision.\
+**Owner accepting exit:** [name] **Date:** [date]
+
+### Gate 6: Own the loop after launch
+
+- [ ] Production or shadow sampling covers representative and risk cases.
+- [ ] Runtime stop, escalation, containment, and rollback triggers are named.
+- [ ] Offline measures are linked to the outcomes they are meant to predict.
+- [ ] Important incidents become cases under a written rule.
+- [ ] Weekly trace review and recurring eval-health review are scheduled.
+- [ ] Dataset, grader, proxy, and benchmark retirement have owners.
+- [ ] The next expansion decision already has a date and evidence owner.
+
+**Exit evidence:** sampling plan, ownership page, proxy ledger, and calendar.\
+**Owner accepting exit:** [name] **Date:** [date]
+
+```{=typst}
+#pagebreak()
+```
+
+### The rollout ladder
+
+- **Month zero:** establish access, instrumentation, a safe replay path, review capacity, ownership, and containment.
+- **Discovery:** analyze real behavior and agree on the decision and standard. Complete Gates 1 and 2.
+- **Offline:** build and challenge the graders, then compare the complete systems. Complete Gates 3 through 5.
+- **Shadow:** run on fresh production work without giving the candidate authority. Check instrumentation, sampling, grader behavior, runtime controls, and offline-to-online links.
+- **Limited:** expose only the population and actions named in the release decision. Apply the product's entry, stop, review, and rollback rules.
+- **Expanded or routine:** widen use only when the recorded evidence supports it. Continue sampling, incident conversion, grader audits, and retirement review under Gate 6.
+
+### Rollout record
+
+**Stage:** offline / shadow / limited / expanded / routine\
+**Change being evaluated:** [versioned change]\
+**Population or exposure:** [who and what is included]\
+**Entry evidence:** [links]\
+**Product-defined constraints:** [hard limits and decision criteria]\
+**Stop or rollback trigger:** [observable trigger]\
+**Rollback owner and mechanism:** [name and action]\
+**Evidence review date:** [date]
+
+**Decision:** remain / advance / hold / roll back / retire\
+**Reason:** [evidence]\
+**New failures added as cases:** [IDs]\
+**Next stage or action:** [decision]\
+**Decision owner:** [name] **Date:** [date]
+
+Rollout is not promotion. A healthy loop may keep human approval or set rollout to zero.
+
 # Appendix C: Case Study Field Guide
 
 These four cases come with public artifacts worth opening: datasets, task schemas, annotation guidance, grader implementations, harness code, and benchmark-maintenance decisions.
@@ -5708,7 +5926,7 @@ Every quantitative eval report should state:
 
 If the report cannot state these yet, label the result exploratory. Exploratory is a respectable word. It has prevented many charts from being promoted beyond their abilities.
 
-# Appendix E: The Whole Loop, With Receipts
+# Appendix E: A Complete Eval Loop: From Complaint to Maintenance
 
 *ParcelPath is fictional. So are its people, traces, counts, failures, experiment results, and maintenance history. The companion files are real and runnable. This is a teaching case, not evidence that any particular intervention will produce the same result elsewhere.*
 

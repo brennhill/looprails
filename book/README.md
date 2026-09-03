@@ -22,6 +22,7 @@ The format follows the proven conventions of the sibling book at `../../ai-augme
 
 - `copyright.md`
 - `00-preface.md`
+- `key-principles.md`
 
 ### Part I — Discover
 
@@ -120,6 +121,7 @@ The script reports the KDP page count after each build and adds an unnumbered fi
 
 - Approximately 40,000–45,000 words before references and codex.
 - Warm, practical, and slightly playful.
+- Six plain-language principles anchor the book and recur in the closing diagnostic.
 - One strong argument per chapter.
 - Published cases recur across chapters rather than appearing once and vanishing.
 - One clearly labeled fictional case exposes the complete trace-to-maintenance chain and ships with runnable companion artifacts.

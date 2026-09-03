@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Evals","name":"How to Build Evals for AI Agent Loops · LoopRails","description":"A research-grounded guide to building evals for AI agent loops: error analysis, task datasets, grader design, LLM judge calibration, agent trajectories, release gates, statistics, and production feedback.","inLanguage":"en-US","url":"https://looprails.dev/evals","mainEntityOfPage":"https://looprails.dev/evals","image":"https://looprails.dev/og-evals.png","datePublished":"2026-06-22","dateModified":"2026-08-23","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Evals","item":"https://looprails.dev/evals"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Evals","name":"How to Build Evals for AI Agent Loops · LoopRails","description":"A research-grounded guide to building evals for AI agent loops: error analysis, task datasets, grader design, LLM judge calibration, agent trajectories, release gates, statistics, and production feedback.","inLanguage":"en-US","url":"https://looprails.dev/evals","mainEntityOfPage":"https://looprails.dev/evals","image":"https://looprails.dev/og-evals.png","datePublished":"2026-06-22","dateModified":"2026-09-03","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Evals","item":"https://looprails.dev/evals"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -107,7 +107,8 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <p>This guide is about <strong>product-specific evals</strong>: tests of the AI system you are actually shipping, on the work your users actually ask it to do. It is not a leaderboard for comparing foundation models in isolation. It turns the principle in <a href="article-evaluation-driven-development">evaluation-driven development</a> into a practical method.</p>
 <p>The short version is one loop inside another:</p>
 <blockquote>
-<p><strong>Agent loop:</strong> attempt → verify → retry or finish<br><strong>Eval loop:</strong> observe → name failures → encode checks → calibrate → compare → learn</p>
+<p><strong>Agent loop:</strong> attempt → verify → retry or finish<br>
+<strong>Eval loop:</strong> observe → name failures → encode checks → calibrate → compare → learn</p>
 </blockquote>
 <p>The inner agent loop makes the work. The outer eval loop improves both the worker and the verifier. A good eval suite is not a score you set up once. It is a living description of what your product is for, how it fails, and what evidence earns a release.</p>
 <h2 id="first-know-which-kind-of-check-you-mean">First, know which kind of check you mean</h2>
@@ -540,6 +541,8 @@ Return JSON with: verdict, unsupported_claims, evidence.
 <p>The sources converge on the same design: look at real behavior, let domain experts define failure, encode the strongest check each criterion permits, validate every proxy against human and real-world outcomes, report uncertainty, and keep learning from production. That is not evaluation after the loop. It is how a good loop becomes good.</p>
 
     </div>
+
+
   </main>
 </div>
 <section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get the 5 templates for shipping a guarded loop</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Enter your email and I'll send the LoopRails Kit: the fill-in templates that take an agent loop from idea to safely running, plus the one-page cheat sheet. New essays on loop engineering after that.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>

@@ -173,7 +173,7 @@ Treat the router as part of the product. Evaluate the small model, the fallback,
 
 The outer loop should make this decision repeatedly. Model releases, prices, hardware, data residency rules, and task mix change. Keep the eval stable enough to compare systems and alive enough to represent production. Then buy brains, build rails, tune weights, or mix the three according to evidence—not allegiance.
 
-## The seam
+## Where the loops meet
 
 The two loops exchange five artifacts.
 
@@ -295,4 +295,4 @@ Optimize the loop, not the logo on the tooling.
 
 ## Field move
 
-Draw both loops for one workflow: inner state and control, outer sampling and release, and the five artifacts crossing the seam. Name each handoff owner and write the elapsed time from production failure to permanent regression case. Circle every arrow powered by memory alone; that is where the loop opens.
+Draw both loops for one workflow: inner state and control, outer sampling and release, and the five artifacts passing between them. Name each handoff owner and write the elapsed time from production failure to permanent regression case. Circle every arrow powered by memory alone; that is where the loop opens.

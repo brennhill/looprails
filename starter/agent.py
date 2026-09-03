@@ -69,7 +69,7 @@ def make_maker():
 # Wiring a real model (a commented stub: do NOT uncomment in the demo, it
 # would add a dependency and require an API key).
 #
-# The seam is `call_model`: a function that turns the current state into a
+# The model integration point is `call_model`: it turns the current state into a
 # proposed action by asking a model. Everything else in the loop stays the
 # same, because the loop only ever sees the action dict that propose() returns.
 #

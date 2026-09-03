@@ -18,7 +18,7 @@ Inside, you will learn how to:
 - connect CI, release gates, and production feedback; and
 - give the loop an owner, a cadence, and a budget.
 
-Built around four published evaluation programs and one complete fictional eval loop, with runnable companion artifacts, statistical recipes, thirteen exercises, fifteen templates, and a 30-day minimum viable eval-loop plan.
+Built around four published evaluation programs and one complete fictional eval loop, with runnable companion artifacts, statistical recipes, thirteen exercises, sixteen templates, and a 30-day minimum viable eval-loop plan.
 
 ## Author bio
 

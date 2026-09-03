@@ -199,7 +199,7 @@ The priorities assume a practical first edition:
 - Copper path from production failure through the outer loop and back into the inner verifier.
 - Different clock icons or line weights show seconds/minutes for the inner loop and days/weeks for the outer loop.
 
-**Caption:** “The inner loop performs the task. The outer loop improves the task performer. Evidence is the seam.”
+**Caption:** “The inner loop performs the task. The outer loop improves the task performer. They communicate through cases, traces, graders, budgets, and rules.”
 
 **Alt text:** Two concentric cycles: a fast agent cycle inside a slower product-evaluation cycle, connected by task, grader, trace, budget, and rule artifacts.
 

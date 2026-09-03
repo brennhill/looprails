@@ -69,9 +69,9 @@ repeat mistakes at extraordinary speed. An eval loop disconnected from
 the agent loop becomes a benchmark program: impressive charts, limited
 influence, excellent snacks at the quarterly review.
 
-The seam between them is where the useful artifacts live: task cases,
-traces, graders, release rules, and production telemetry. Build that
-seam well and product development becomes cumulative. Every important
+The two loops meet in a small pile of useful artifacts: task cases,
+traces, graders, release rules, and production telemetry. Make those
+connections explicit and product development becomes cumulative. Every important
 failure can become a permanent case. Every change can be compared on the
 same evidence. Every judge can be challenged. Every release can be
 discussed in terms more precise than "the vibes seem better."
@@ -3241,8 +3241,8 @@ disagreements back into observation.
 Evaluation-driven development and operations treats eval as work that
 continues after launch \[OPS-01\]. That is the outer loop's job.
 
-== The seam
-<the-seam>
+== Where the loops meet
+<where-the-loops-meet>
 The two loops exchange five artifacts.
 
 === Task contracts
@@ -3397,7 +3397,7 @@ Draw your two loops. Include:
 
 - inner-loop state, tools, verifier, controller, and outcome;
 - outer-loop sampling, review, tasks, graders, comparison, and release;
-- the five seam artifacts;
+- the five artifacts passing between the loops;
 - a named owner for each handoff;
 - the elapsed time between production failure and permanent regression
   case.
@@ -4569,7 +4569,7 @@ but route poorly when twenty plausible neighbors are visible. The
 catalog or platform owner must provide group-workspace tests and
 realistic decoys, while the skill author reviews whether failures
 reflect description, content, prerequisites, or interaction. Ownership
-follows the seam where the failure can be prevented.
+belongs at the boundary where someone can actually prevent the failure.
 
 == A practical RACI
 <a-practical-raci>

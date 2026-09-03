@@ -21,6 +21,7 @@ Brenn Hill
 <p><b>Inside:</b></p>
 
 <ul>
+<li><b>The six things you must get right:</b> observe real behavior, define the decision, grade the consequence, test the measurement, compare the whole system, and own the loop after launch</li>
 <li><b>The two-loop model:</b> how the agent's execution loop and the team's evaluation loop interact</li>
 <li><b>The grader ladder:</b> when to use environment state, executable tests, rules, model judges, and experts</li>
 <li><b>Four published evaluation programs to learn from:</b> SWE-bench, τ-bench/τ³-bench, HealthBench, and DeepResearch Bench</li>
@@ -28,7 +29,7 @@ Brenn Hill
 <li><b>Statistics for release decisions:</b> confidence intervals, paired comparisons, clustering, pass@k, and pass^k without unnecessary ceremony</li>
 <li><b>From CI to production:</b> release gates, sampling, judge calibration, drift, experiments, and benchmark retirement</li>
 <li><b>Ownership and cadence:</b> who owns the harness, rubric, labels, release decision, and recurring review</li>
-<li><b>A practical starting kit:</b> a 30-day minimum viable eval-loop plan, a slower high-consequence track, thirteen exercises, and fifteen copyable templates</li>
+<li><b>A practical starting kit:</b> a 30-day minimum viable eval-loop plan, a slower high-consequence track, thirteen exercises, and sixteen copyable templates</li>
 </ul>
 
 <p>You will leave with a method for deciding what “good” means, testing whether a change improved it, and keeping that definition alive after launch. No platform catalog required.</p>

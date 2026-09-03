@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 342" width="100%" role="img"
+     aria-label="Bar chart: 42 annotated traces grouped into failure modes. Conversational flow issues 17, human handoff or transfer 13, tour scheduling 8, formatting error in output 2, notes too vague to categorize 2.">
+  <style>
+    .s{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .t{font-size:15px;font-weight:600;fill:#0d1117}
+    .k{font-size:13px;fill:#0d1117}
+    .km{font-size:13px;fill:#5b6b7a}
+    .n{font-size:13px;font-weight:600;fill:#0d1117}
+    .c{font-size:12px;fill:#5b6b7a}
+  </style>
+  <rect width="720" height="342" fill="#fff"/>
+  <text class="s t" x="0" y="18">What 42 annotated traces actually contained</text>
+  <text class="s c" x="0" y="38">One note per trace, clustered after the fact. Counting is the whole analysis.</text>
+
+  <g transform="translate(0,58)">
+    <!-- rows -->
+    <g>
+      <text class="s k" x="0" y="20">Conversational flow issues</text>
+      <rect x="264" y="7" width="380" height="17" rx="2.5" fill="#0e7c86"/>
+      <text class="s n" x="654" y="20">17</text>
+    </g>
+    <g transform="translate(0,42)">
+      <text class="s k" x="0" y="20">Human handoff / transfer</text>
+      <rect x="264" y="7" width="291" height="17" rx="2.5" fill="#0e7c86"/>
+      <text class="s n" x="565" y="20">13</text>
+    </g>
+    <g transform="translate(0,84)">
+      <text class="s k" x="0" y="20">Tour scheduling / rescheduling</text>
+      <rect x="264" y="7" width="179" height="17" rx="2.5" fill="#0e7c86"/>
+      <text class="s n" x="453" y="20">8</text>
+    </g>
+    <g transform="translate(0,126)">
+      <text class="s k" x="0" y="20">Formatting error in output</text>
+      <rect x="264" y="7" width="45" height="17" rx="2.5" fill="#0e7c86"/>
+      <text class="s n" x="319" y="20">2</text>
+    </g>
+    <g transform="translate(0,168)">
+      <text class="s km" x="0" y="20">Notes too vague to categorize</text>
+      <rect x="264" y="7" width="45" height="17" rx="2.5" fill="#e3f3f4" stroke="#0e7c86" stroke-dasharray="3 2"/>
+      <text class="s n" x="319" y="20" fill="#5b6b7a">2</text>
+    </g>
+    <line x1="264" y1="200" x2="644" y2="200" stroke="#e3e6ea"/>
+    <text class="s km" x="0" y="219">Total notes</text>
+    <text class="s n" x="264" y="219">42</text>
+  </g>
+
+  <text class="s c" x="0" y="316">The bottom row is not a failure mode. Two notes were written too vaguely to be sorted,</text>
+  <text class="s c" x="0" y="332">so they surface as noise in the table you are trying to prioritise from.</text>
+</svg>

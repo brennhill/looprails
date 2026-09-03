@@ -147,7 +147,7 @@ The interface is a service contract: the platform guarantees mechanics; the doma
 
 Agent skills make this split concrete. The capability author should own the questions, expected behaviors, fixtures, and domain-specific grader intent alongside the skill. The platform should stage isolated environments, run matched baselines across supported harnesses, normalize traces, and retain reports. ACES describes this as developer-guided evaluation with bring-your-own-task and bring-your-own-grader extension points [ACES-01]. The central system supplies a protocol; it does not confiscate the product contract.
 
-Composition boundaries create another review job. A skill may work alone but route poorly when twenty plausible neighbors are visible. The catalog or platform owner must provide group-workspace tests and realistic decoys, while the skill author reviews whether failures reflect description, content, prerequisites, or interaction. Ownership follows the seam where the failure can be prevented.
+Composition boundaries create another review job. A skill may work alone but route poorly when twenty plausible neighbors are visible. The catalog or platform owner must provide group-workspace tests and realistic decoys, while the skill author reviews whether failures reflect description, content, prerequisites, or interaction. Put ownership at the boundary where someone can actually prevent the failure.
 
 ## A practical responsibility map
 

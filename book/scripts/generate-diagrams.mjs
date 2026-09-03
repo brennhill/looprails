@@ -95,7 +95,7 @@ function loopArc(cx, cy, r, start, end, options = {}) {
 const figures = [
   {
     file: "ch10-01-nested-loops.svg", priority: "P0", chapter: "10", title: "The nested loops",
-    caption: "The inner loop performs the task. The outer loop improves the task performer. Evidence is the seam.",
+    caption: "The inner loop performs the task. The outer loop improves the task performer. They communicate through cases, traces, graders, budgets, and rules.",
     alt: "Two concentric cycles: a fast agent cycle inside a slower product-evaluation cycle, connected by task, grader, trace, budget, and rule artifacts.",
     draw() {
       const out = [];

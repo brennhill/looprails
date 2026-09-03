@@ -32,6 +32,7 @@ const ebookCoverSource = path.join(
 
 const manifest = [
   { file: "00-preface.md" },
+  { file: "key-principles.md" },
   { part: ["I", "Find the Truth"] },
   { file: "part-01-find-the-truth.md" },
   { file: "01-demos-lie.md" },

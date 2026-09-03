@@ -13,4 +13,4 @@ Our first job is to follow the evidence backward: begin with actual failures, tu
 
 By the end of the part, these are no longer four benchmark summaries. They are four reusable truth patterns: executable, state, expert, and evidentiary. Your product may combine all four before lunch.
 
-First, though, we need to stop being impressed by the demo long enough to inspect the receipt.
+First, though, we need to stop applauding the tech demo long enough to follow its result into the database, test runner, cited source, or expert review, where the lurking surprises have been waiting politely.

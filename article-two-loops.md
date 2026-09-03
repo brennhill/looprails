@@ -18,7 +18,7 @@ The inner loop is the agent against a fixed verifier. It proposes, the check gra
 
 The outer loop is you. You look at what the inner loop produced and you sharpen the verifier and the goal. Slow, deliberate, human-in-the-loop. The outer loop closes the gap between the current statement of intent and what you actually meant. It is the loop that does the intent clarity.
 
-The verifier sits on the seam between them. It is where intent is recorded, handed to the agent, and improved. The inner loop reads it; the outer loop writes it. A loop that has only an inner loop runs fast toward the wrong target. A process that has only an outer loop is a person editing a spec that never runs. You need both, and you need to know which one you are in.
+The verifier is the working contract between them. It records intent, gives the agent something testable to work against, and changes when people learn that the old definition was incomplete. The inner loop reads it; the outer loop rewrites it. A loop that has only an inner loop runs fast toward the wrong target. A process that has only an outer loop is a person editing a spec that never runs. You need both, and you need to know which one you are in.
 
 ## Intent clarity is emergent, which is why this is not waterfall
 

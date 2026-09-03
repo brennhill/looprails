@@ -1,0 +1,6637 @@
+{
+  "wireMagic": "pb3",
+  "pens": [ {
+
+  } ],
+  "wsWinStyles": [ {
+
+  } ],
+  "wpWinPositions": [ {
+
+  } ],
+  "events": [ {
+    "tStartMs": 0,
+    "dDurationMs": 5740,
+    "segs": [ {
+      "utf8": "Welcome, everybody. We're really excited\nabout this talk with Teresa Torres,"
+    } ]
+  }, {
+    "tStartMs": 5940,
+    "dDurationMs": 2240,
+    "segs": [ {
+      "utf8": "who was a student in our first cohort."
+    } ]
+  }, {
+    "tStartMs": 8540,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "Teresa Torres is a legendary person in the\nproduct management space."
+    } ]
+  }, {
+    "tStartMs": 14620,
+    "dDurationMs": 4960,
+    "segs": [ {
+      "utf8": "She has trained, I think, like over 70,000\npeople or something like that on"
+    } ]
+  }, {
+    "tStartMs": 19580,
+    "dDurationMs": 3920,
+    "segs": [ {
+      "utf8": "how to do product management effectively."
+    } ]
+  }, {
+    "tStartMs": 24600,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "She's the author of this book, Continuous\nDiscovery Habits, which is right behind"
+    } ]
+  }, {
+    "tStartMs": 28540,
+    "dDurationMs": 2640,
+    "segs": [ {
+      "utf8": "her. You'll see it. You should definitely\ncheck that book out."
+    } ]
+  }, {
+    "tStartMs": 31760,
+    "dDurationMs": 5540,
+    "segs": [ {
+      "utf8": "It's very—it's like one of the canons in\nproduct management, from"
+    } ]
+  }, {
+    "tStartMs": 37300,
+    "dDurationMs": 2540,
+    "segs": [ {
+      "utf8": "my understanding. I'm not a product\nmanager myself, but every product manager"
+    } ]
+  }, {
+    "tStartMs": 39840,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "tells me that."
+    } ]
+  }, {
+    "tStartMs": 41760,
+    "dDurationMs": 3280,
+    "segs": [ {
+      "utf8": "The reason this talk is so exciting and\nthe reason why you should pay attention to"
+    } ]
+  }, {
+    "tStartMs": 45040,
+    "dDurationMs": 5540,
+    "segs": [ {
+      "utf8": "this is, hey, like Teresa, she's not\ncoding every day or anything like that and"
+    } ]
+  }, {
+    "tStartMs": 50580,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "wasn't, like, necessarily doing evals."
+    } ]
+  }, {
+    "tStartMs": 53220,
+    "dDurationMs": 5500,
+    "segs": [ {
+      "utf8": "She had her own approach combined with her\nproduct management expertise, and she has"
+    } ]
+  }, {
+    "tStartMs": 58720,
+    "dDurationMs": 4220,
+    "segs": [ {
+      "utf8": "a unique take on how she went about things\nand has found a workflow that she likes."
+    } ]
+  }, {
+    "tStartMs": 64340,
+    "dDurationMs": 1480,
+    "segs": [ {
+      "utf8": "And she's going to share that today."
+    } ]
+  }, {
+    "tStartMs": 65820,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "So I'm going to hand it off to Teresa to\nget us started."
+    } ]
+  }, {
+    "tStartMs": 70280,
+    "dDurationMs": 2640,
+    "segs": [ {
+      "utf8": "All right. I'm really excited to do this."
+    } ]
+  }, {
+    "tStartMs": 73340,
+    "dDurationMs": 5100,
+    "segs": [ {
+      "utf8": "I really enjoyed this class quite a bit,\nand you're going to see I learned a ton"
+    } ]
+  }, {
+    "tStartMs": 78440,
+    "dDurationMs": 2980,
+    "segs": [ {
+      "utf8": "and was able to put a lot of it into\npractice right away."
+    } ]
+  }, {
+    "tStartMs": 81420,
+    "dDurationMs": 2540,
+    "segs": [ {
+      "utf8": "And I cannot emphasize this enough."
+    } ]
+  }, {
+    "tStartMs": 85260,
+    "dDurationMs": 1600,
+    "segs": [ {
+      "utf8": "I forget when the first cohort started."
+    } ]
+  }, {
+    "tStartMs": 86960,
+    "dDurationMs": 4540,
+    "segs": [ {
+      "utf8": "I think it was in June, maybe May. I\nbarely knew what an eval was."
+    } ]
+  }, {
+    "tStartMs": 91500,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "Like, and we'll talk about that in my\ntalk."
+    } ]
+  }, {
+    "tStartMs": 94760,
+    "dDurationMs": 3580,
+    "segs": [ {
+      "utf8": "I'm going to share some slides, but I'm\nhappy to keep this very conversational."
+    } ]
+  }, {
+    "tStartMs": 99120,
+    "dDurationMs": 3980,
+    "segs": [ {
+      "utf8": "So please feel free to jump in, Hamel or\nShreya, with questions."
+    } ]
+  }, {
+    "tStartMs": 105160,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "We'll just dig in. I'm going to start by\ngiving a little bit of context about the"
+    } ]
+  }, {
+    "tStartMs": 110160,
+    "dDurationMs": 1460,
+    "segs": [ {
+      "utf8": "product that I'm building."
+    } ]
+  }, {
+    "tStartMs": 113300,
+    "dDurationMs": 3480,
+    "segs": [ {
+      "utf8": "And Camel mentioned some of this in my\nintro, so I'll touch on this briefly."
+    } ]
+  }, {
+    "tStartMs": 116780,
+    "dDurationMs": 3340,
+    "segs": [ {
+      "utf8": "Like, my day job, I work as a product\ndiscovery coach."
+    } ]
+  }, {
+    "tStartMs": 120520,
+    "dDurationMs": 3080,
+    "segs": [ {
+      "utf8": "It means I help product teams make better\ndecisions about what to build."
+    } ]
+  }, {
+    "tStartMs": 124660,
+    "dDurationMs": 2260,
+    "segs": [ {
+      "utf8": "Some of you I know are familiar with my\nbook."
+    } ]
+  }, {
+    "tStartMs": 127640,
+    "dDurationMs": 3140,
+    "segs": [ {
+      "utf8": "We have a wide variety of courses. In\nfact, I saw Letty is here."
+    } ]
+  }, {
+    "tStartMs": 130780,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "Letty is currently in our continuous\ninterviewing course and has gotten to"
+    } ]
+  }, {
+    "tStartMs": 134640,
+    "dDurationMs": 2660,
+    "segs": [ {
+      "utf8": "experience the continuous interview coach\nfirsthand."
+    } ]
+  }, {
+    "tStartMs": 138300,
+    "dDurationMs": 3040,
+    "segs": [ {
+      "utf8": "But basically, because I primarily am an\neducator,"
+    } ]
+  }, {
+    "tStartMs": 142260,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "when I started to think about generative\nAI and how it might impact what I do, I"
+    } ]
+  }, {
+    "tStartMs": 147320,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "was thinking about it from a teaching\nstandpoint."
+    } ]
+  }, {
+    "tStartMs": 150140,
+    "dDurationMs": 1840,
+    "segs": [ {
+      "utf8": "And that's the part that's relevant here."
+    } ]
+  }, {
+    "tStartMs": 151980,
+    "dDurationMs": 5780,
+    "segs": [ {
+      "utf8": "So I found myself in March, I actually had\nto have ankle surgery,"
+    } ]
+  }, {
+    "tStartMs": 157960,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "and I was like on the couch for months."
+    } ]
+  }, {
+    "tStartMs": 160480,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "And I was like, how in the world am I\ngoing to use my time?"
+    } ]
+  }, {
+    "tStartMs": 163420,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "And I started with this question of what\ndoes generative AI make just now possible?"
+    } ]
+  }, {
+    "tStartMs": 168140,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "And I was asking this in the context of\nour courses."
+    } ]
+  }, {
+    "tStartMs": 170640,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "And there was one course in particular I\nthought this would help a lot with, which"
+    } ]
+  }, {
+    "tStartMs": 174540,
+    "dDurationMs": 1760,
+    "segs": [ {
+      "utf8": "is our continuous interviewing course."
+    } ]
+  }, {
+    "tStartMs": 176300,
+    "dDurationMs": 5200,
+    "segs": [ {
+      "utf8": "So in this course, students learn how—this\nis customer interviews, so not job"
+    } ]
+  }, {
+    "tStartMs": 181500,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "interviews—and"
+    } ]
+  }, {
+    "tStartMs": 182780,
+    "dDurationMs": 2680,
+    "segs": [ {
+      "utf8": "in this course, students learn how to ask\nthe right questions."
+    } ]
+  }, {
+    "tStartMs": 186440,
+    "dDurationMs": 2140,
+    "segs": [ {
+      "utf8": "They practice active listening techniques."
+    } ]
+  }, {
+    "tStartMs": 189140,
+    "dDurationMs": 5160,
+    "segs": [ {
+      "utf8": "We teach a very specific type of customer\ninterview where they're asking the"
+    } ]
+  }, {
+    "tStartMs": 194300,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "customer to share a specific story about\ntheir past behavior."
+    } ]
+  }, {
+    "tStartMs": 198000,
+    "dDurationMs": 4080,
+    "segs": [ {
+      "utf8": "And there's reasons for this. This is a\nway to collect reliable feedback."
+    } ]
+  }, {
+    "tStartMs": 202080,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "I'm a little bit of like a research\nmethods wonk, so I'm like trying to look"
+    } ]
+  }, {
+    "tStartMs": 206020,
+    "dDurationMs": 5680,
+    "segs": [ {
+      "utf8": "at what's the easiest way to teach product\nteams who are not researchers effective"
+    } ]
+  }, {
+    "tStartMs": 211700,
+    "dDurationMs": 4120,
+    "segs": [ {
+      "utf8": "ways to get customer feedback. And in all\nof our classes, they're very practice"
+    } ]
+  }, {
+    "tStartMs": 215820,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "oriented."
+    } ]
+  }, {
+    "tStartMs": 217300,
+    "dDurationMs": 4900,
+    "segs": [ {
+      "utf8": "So, like in this class, students come to\nclass and they interview each other, and"
+    } ]
+  }, {
+    "tStartMs": 222200,
+    "dDurationMs": 3240,
+    "segs": [ {
+      "utf8": "we give them a rubric to help give each\nother feedback, right?"
+    } ]
+  }, {
+    "tStartMs": 225440,
+    "dDurationMs": 1760,
+    "segs": [ {
+      "utf8": "So I'm a big fan of deliberate practice."
+    } ]
+  }, {
+    "tStartMs": 227320,
+    "dDurationMs": 3760,
+    "segs": [ {
+      "utf8": "We practice a skill, we get feedback, we\nthen know exactly what to practice."
+    } ]
+  }, {
+    "tStartMs": 232080,
+    "dDurationMs": 2900,
+    "segs": [ {
+      "utf8": "There's one challenge, though. Like when\nstudents give each other feedback, they're"
+    } ]
+  }, {
+    "tStartMs": 234980,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "not really experts, so they don't give\nexpert feedback."
+    } ]
+  }, {
+    "tStartMs": 238160,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "And so the problem I was looking to solve\nwas like, can we help students give each"
+    } ]
+  }, {
+    "tStartMs": 241600,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "other better feedback on their practice\ninterviews?"
+    } ]
+  }, {
+    "tStartMs": 244300,
+    "dDurationMs": 4080,
+    "segs": [ {
+      "utf8": "And that led to this question of, can we\nmodel what good feedback looks like?"
+    } ]
+  }, {
+    "tStartMs": 248860,
+    "dDurationMs": 1840,
+    "segs": [ {
+      "utf8": "And so this is the tool that I built."
+    } ]
+  }, {
+    "tStartMs": 250700,
+    "dDurationMs": 4220,
+    "segs": [ {
+      "utf8": "I built an interview coach where students\nsubmit their interview transcripts and"
+    } ]
+  }, {
+    "tStartMs": 254920,
+    "dDurationMs": 3380,
+    "segs": [ {
+      "utf8": "they get very detailed feedback on what\ntheir—"
+    } ]
+  }, {
+    "tStartMs": 259280,
+    "dDurationMs": 2720,
+    "segs": [ {
+      "utf8": "how they did on conducting an interview."
+    } ]
+  }, {
+    "tStartMs": 262080,
+    "dDurationMs": 3520,
+    "segs": [ {
+      "utf8": "And the coach actually— this is actually\nwhat you get from the coach."
+    } ]
+  }, {
+    "tStartMs": 266580,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "And the coach, this is actually a partial\nresponse, but the coach is basically"
+    } ]
+  }, {
+    "tStartMs": 270940,
+    "dDurationMs": 3880,
+    "segs": [ {
+      "utf8": "evaluating the interview transcript on\nfour different dimensions, and this is"
+    } ]
+  }, {
+    "tStartMs": 274820,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "from the rubric that we teach in the\nclass."
+    } ]
+  }, {
+    "tStartMs": 277400,
+    "dDurationMs": 3140,
+    "segs": [ {
+      "utf8": "So we're evaluating: did they ask a\nstory-based question?"
+    } ]
+  }, {
+    "tStartMs": 280940,
+    "dDurationMs": 1980,
+    "segs": [ {
+      "utf8": "Did they ask the participant to set the\nscene?"
+    } ]
+  }, {
+    "tStartMs": 283280,
+    "dDurationMs": 1560,
+    "segs": [ {
+      "utf8": "That's the two that you're seeing here."
+    } ]
+  }, {
+    "tStartMs": 284940,
+    "dDurationMs": 2460,
+    "segs": [ {
+      "utf8": "There's also a dimension about building\nthe timeline."
+    } ]
+  }, {
+    "tStartMs": 287660,
+    "dDurationMs": 2240,
+    "segs": [ {
+      "utf8": "How well did they get the participant to\ntell their story?"
+    } ]
+  }, {
+    "tStartMs": 289900,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "And then did they do a good job of\nredirecting generalizations?"
+    } ]
+  }, {
+    "tStartMs": 294360,
+    "dDurationMs": 3140,
+    "segs": [ {
+      "utf8": "And you can— I'm going to dive into this a\nlittle bit because a lot of my evals are"
+    } ]
+  }, {
+    "tStartMs": 297500,
+    "dDurationMs": 2860,
+    "segs": [ {
+      "utf8": "about this coach feedback, so this will\ngive you some context."
+    } ]
+  }, {
+    "tStartMs": 300540,
+    "dDurationMs": 2840,
+    "segs": [ {
+      "utf8": "So you can see here for each dimension,\nthey're getting a score."
+    } ]
+  }, {
+    "tStartMs": 303760,
+    "dDurationMs": 3360,
+    "segs": [ {
+      "utf8": "The score can be keep practicing, getting\nit, or great."
+    } ]
+  }, {
+    "tStartMs": 308600,
+    "dDurationMs": 4660,
+    "segs": [ {
+      "utf8": "This coach is pulling out real excerpts\nfrom the interview transcript and then"
+    } ]
+  }, {
+    "tStartMs": 313260,
+    "dDurationMs": 3540,
+    "segs": [ {
+      "utf8": "giving them a tip. So this might be, this\nwas really good."
+    } ]
+  }, {
+    "tStartMs": 316820,
+    "dDurationMs": 2280,
+    "segs": [ {
+      "utf8": "It might be, here's some room for\nimprovement."
+    } ]
+  }, {
+    "tStartMs": 319580,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "And it's doing this across all four\ndimensions."
+    } ]
+  }, {
+    "tStartMs": 322140,
+    "dDurationMs": 2460,
+    "segs": [ {
+      "utf8": "So there's two sections of this email\nwe're not seeing,"
+    } ]
+  }, {
+    "tStartMs": 325400,
+    "dDurationMs": 2400,
+    "segs": [ {
+      "utf8": "but it's basically excerpt, tip, excerpt,\ntip."
+    } ]
+  }, {
+    "tStartMs": 328540,
+    "dDurationMs": 1500,
+    "segs": [ {
+      "utf8": "Okay, so that's the interview coach."
+    } ]
+  }, {
+    "tStartMs": 331800,
+    "dDurationMs": 1080,
+    "segs": [ {
+      "utf8": "So let's get into..."
+    } ]
+  }, {
+    "tStartMs": 333800,
+    "dDurationMs": 4260,
+    "segs": [ {
+      "utf8": "We need the dimensions. Is it that those,\nis it like different stages, opening with"
+    } ]
+  }, {
+    "tStartMs": 338060,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "the story-based question and setting the\nscene?"
+    } ]
+  }, {
+    "tStartMs": 340100,
+    "dDurationMs": 4220,
+    "segs": [ {
+      "utf8": "Are those the dimensions? Yeah. It's, so\nwhat we're looking for in the transcript"
+    } ]
+  }, {
+    "tStartMs": 344320,
+    "dDurationMs": 2720,
+    "segs": [ {
+      "utf8": "is, did they ask the participant to share\na story?"
+    } ]
+  }, {
+    "tStartMs": 347680,
+    "dDurationMs": 3540,
+    "segs": [ {
+      "utf8": "We teach that they should ask them to set\nthe scene because this helps with memory"
+    } ]
+  }, {
+    "tStartMs": 351220,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "recall."
+    } ]
+  }, {
+    "tStartMs": 353180,
+    "dDurationMs": 1920,
+    "segs": [ {
+      "utf8": "So it's a cognitive tip"
+    } ]
+  }, {
+    "tStartMs": 355940,
+    "dDurationMs": 4180,
+    "segs": [ {
+      "utf8": "to help get a more reliable story. And\nthen the building the timeline dimension"
+    } ]
+  }, {
+    "tStartMs": 360120,
+    "dDurationMs": 4460,
+    "segs": [ {
+      "utf8": "is, did they help the participant go step\nby step through their story so they're"
+    } ]
+  }, {
+    "tStartMs": 364580,
+    "dDurationMs": 5480,
+    "segs": [ {
+      "utf8": "learning what actually happened? And then\nthe last dimension is, if I ask you, tell"
+    } ]
+  }, {
+    "tStartMs": 370060,
+    "dDurationMs": 3540,
+    "segs": [ {
+      "utf8": "me about the last time you watched\nNetflix, you might start to generalize"
+    } ]
+  }, {
+    "tStartMs": 373600,
+    "dDurationMs": 1720,
+    "segs": [ {
+      "utf8": "about what you usually do on Netflix."
+    } ]
+  }, {
+    "tStartMs": 375320,
+    "dDurationMs": 5620,
+    "segs": [ {
+      "utf8": "And so my job as the interviewer is to\nredirect you back to the specifics of your"
+    } ]
+  }, {
+    "tStartMs": 380940,
+    "dDurationMs": 3800,
+    "segs": [ {
+      "utf8": "story. And so that's the fourth dimension\nthat we're evaluating on."
+    } ]
+  }, {
+    "tStartMs": 384740,
+    "dDurationMs": 5140,
+    "segs": [ {
+      "utf8": "Interesting. Yeah. I need to read the book\ntoo."
+    } ]
+  }, {
+    "tStartMs": 390020,
+    "dDurationMs": 2660,
+    "segs": [ {
+      "utf8": "This is also, this is already very\ninteresting to me."
+    } ]
+  }, {
+    "tStartMs": 392680,
+    "dDurationMs": 5820,
+    "segs": [ {
+      "utf8": "Awesome. Okay. So as I was building the\ninterview coach, I literally"
+    } ]
+  }, {
+    "tStartMs": 398500,
+    "dDurationMs": 2780,
+    "segs": [ {
+      "utf8": "was like vibe checking the coach's\nresponses."
+    } ]
+  }, {
+    "tStartMs": 401960,
+    "dDurationMs": 4240,
+    "segs": [ {
+      "utf8": "Some of them looked good, some of them had\nsome problems, and I started to get"
+    } ]
+  }, {
+    "tStartMs": 406200,
+    "dDurationMs": 2560,
+    "segs": [ {
+      "utf8": "concerned, like, how do I know if my\ninterview coach is any good?"
+    } ]
+  }, {
+    "tStartMs": 409160,
+    "dDurationMs": 2880,
+    "segs": [ {
+      "utf8": "I would make like... So what did you have\nin the interview coach?"
+    } ]
+  }, {
+    "tStartMs": 412240,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "Was it like transcript of your book?"
+    } ]
+  }, {
+    "tStartMs": 415700,
+    "dDurationMs": 2480,
+    "segs": [ {
+      "utf8": "What information, like, was your initial\nversion?"
+    } ]
+  }, {
+    "tStartMs": 418660,
+    "dDurationMs": 5980,
+    "segs": [ {
+      "utf8": "Yes. So because we have a course on this\ntopic, I already had a rubric for how to"
+    } ]
+  }, {
+    "tStartMs": 424640,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "evaluate an interview. And so I started\nwith the rubric that we use in the class,"
+    } ]
+  }, {
+    "tStartMs": 428660,
+    "dDurationMs": 4640,
+    "segs": [ {
+      "utf8": "and then I included a lot of the\ninstructional content that we provide to"
+    } ]
+  }, {
+    "tStartMs": 433300,
+    "dDurationMs": 4680,
+    "segs": [ {
+      "utf8": "students in the class to the LLM. And,\nlike, my very first prototype was in a"
+    } ]
+  }, {
+    "tStartMs": 437980,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "Claude project. I just uploaded a bunch of\nfiles to Claude, and I was just like,"
+    } ]
+  }, {
+    "tStartMs": 441580,
+    "dDurationMs": 1920,
+    "segs": [ {
+      "utf8": "Here's an interview transcript. Give me\nfeedback."
+    } ]
+  }, {
+    "tStartMs": 443900,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "It obviously has iterated and evolved\nquite a bit from there."
+    } ]
+  }, {
+    "tStartMs": 447960,
+    "dDurationMs": 5200,
+    "segs": [ {
+      "utf8": "But basically, the coach, the AI tool, the\ncoach gets a full interview transcript,"
+    } ]
+  }, {
+    "tStartMs": 453540,
+    "dDurationMs": 5640,
+    "segs": [ {
+      "utf8": "and then it has a lot of context about\nwhat's a good interview, what these four"
+    } ]
+  }, {
+    "tStartMs": 459180,
+    "dDurationMs": 2680,
+    "segs": [ {
+      "utf8": "dimensions are. It started as one prompt."
+    } ]
+  }, {
+    "tStartMs": 461860,
+    "dDurationMs": 4720,
+    "segs": [ {
+      "utf8": "It's now, like, depending on the content\nand the context and what errors it"
+    } ]
+  }, {
+    "tStartMs": 466580,
+    "dDurationMs": 4080,
+    "segs": [ {
+      "utf8": "uncovers, it's anywhere from five to nine\nLLM calls."
+    } ]
+  }, {
+    "tStartMs": 471340,
+    "dDurationMs": 4460,
+    "segs": [ {
+      "utf8": "So it's a pretty complex workflow. And I\ncan imagine one day it will be an agent."
+    } ]
+  }, {
+    "tStartMs": 475960,
+    "dDurationMs": 5380,
+    "segs": [ {
+      "utf8": "Like, what I would love to do is to pull\nin a student's learning history and then"
+    } ]
+  }, {
+    "tStartMs": 481340,
+    "dDurationMs": 4080,
+    "segs": [ {
+      "utf8": "adjust the feedback based on where that\nstudent is on their learning journey and"
+    } ]
+  }, {
+    "tStartMs": 485420,
+    "dDurationMs": 5160,
+    "segs": [ {
+      "utf8": "move the coach to more of an agent model\nwhere it's choosing what dimensions to"
+    } ]
+  }, {
+    "tStartMs": 490580,
+    "dDurationMs": 2860,
+    "segs": [ {
+      "utf8": "evaluate on based on the student's\nhistory."
+    } ]
+  }, {
+    "tStartMs": 493620,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "But I'm not there yet."
+    } ]
+  }, {
+    "tStartMs": 495800,
+    "dDurationMs": 2920,
+    "segs": [ {
+      "utf8": "Okay, so, like, in my earliest days\nbuilding this—so, thank—by"
+    } ]
+  }, {
+    "tStartMs": 500140,
+    "dDurationMs": 5260,
+    "segs": [ {
+      "utf8": "the way, all this is fresh. I started this\non March 23rd, and I really had never"
+    } ]
+  }, {
+    "tStartMs": 505400,
+    "dDurationMs": 3300,
+    "segs": [ {
+      "utf8": "built an AI product. I was using all\nno-code tools at this point."
+    } ]
+  }, {
+    "tStartMs": 510520,
+    "dDurationMs": 2940,
+    "segs": [ {
+      "utf8": "And I just was making—I had one prompt."
+    } ]
+  }, {
+    "tStartMs": 513640,
+    "dDurationMs": 2740,
+    "segs": [ {
+      "utf8": "Like, it started as one prompt, and I\nwas—I didn't even know what temperature"
+    } ]
+  }, {
+    "tStartMs": 516380,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "was when I started. And so as I was making\ntweaks, I would see some things get"
+    } ]
+  }, {
+    "tStartMs": 521380,
+    "dDurationMs": 3360,
+    "segs": [ {
+      "utf8": "better and some things get worse, and I\nwas like, This seems insane."
+    } ]
+  }, {
+    "tStartMs": 525280,
+    "dDurationMs": 2460,
+    "segs": [ {
+      "utf8": "Like, product discovery is all about\nfeedback loops."
+    } ]
+  }, {
+    "tStartMs": 528080,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "That's literally what I teach. And so I\nwas like, Oh my God, what is my feedback"
+    } ]
+  }, {
+    "tStartMs": 532500,
+    "dDurationMs": 2860,
+    "segs": [ {
+      "utf8": "loop? Like, I need a more systematic way\nto evaluate this."
+    } ]
+  }, {
+    "tStartMs": 535680,
+    "dDurationMs": 3160,
+    "segs": [ {
+      "utf8": "And you're all in an evals class, so you\nalready know the answer is evals."
+    } ]
+  }, {
+    "tStartMs": 540300,
+    "dDurationMs": 4200,
+    "segs": [ {
+      "utf8": "But I got stuck, and you might understand\nwhy."
+    } ]
+  }, {
+    "tStartMs": 544560,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "Like, I started at OpenAI, and they talk\nabout evals, and it sounds like it's just"
+    } ]
+  }, {
+    "tStartMs": 548420,
+    "dDurationMs": 4580,
+    "segs": [ {
+      "utf8": "a bunch of input data. And I was like,\nYeah, but I don't have a bunch of"
+    } ]
+  }, {
+    "tStartMs": 553000,
+    "dDurationMs": 3720,
+    "segs": [ {
+      "utf8": "transcripts, and maybe I could\nsynthetically generate transcripts, but"
+    } ]
+  }, {
+    "tStartMs": 556720,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "let me tell you how hard that is. Like, it\nsucks."
+    } ]
+  }, {
+    "tStartMs": 560460,
+    "dDurationMs": 3880,
+    "segs": [ {
+      "utf8": "And so I kept looking, and I found like\nthis Python package."
+    } ]
+  }, {
+    "tStartMs": 564460,
+    "dDurationMs": 3840,
+    "segs": [ {
+      "utf8": "And what was interesting to me here is it\nstarted to talk about evals as code."
+    } ]
+  }, {
+    "tStartMs": 568700,
+    "dDurationMs": 2580,
+    "segs": [ {
+      "utf8": "And I was like, oh, interesting. That's\nlike interesting."
+    } ]
+  }, {
+    "tStartMs": 571480,
+    "dDurationMs": 4600,
+    "segs": [ {
+      "utf8": "And then I came across Amon Khan's blog\npost on Lenny's newsletter, and I was"
+    } ]
+  }, {
+    "tStartMs": 576080,
+    "dDurationMs": 2100,
+    "segs": [ {
+      "utf8": "like, oh, there's different types of\nevals."
+    } ]
+  }, {
+    "tStartMs": 578180,
+    "dDurationMs": 3760,
+    "segs": [ {
+      "utf8": "And now I got sucked in. And that's—we're\ngonna skip this."
+    } ]
+  }, {
+    "tStartMs": 582040,
+    "dDurationMs": 1160,
+    "segs": [ {
+      "utf8": "You guys know what evals are."
+    } ]
+  }, {
+    "tStartMs": 584120,
+    "dDurationMs": 6000,
+    "segs": [ {
+      "utf8": "That's when I found this class. And I will\ntell you, in the very first session when"
+    } ]
+  }, {
+    "tStartMs": 590120,
+    "dDurationMs": 5840,
+    "segs": [ {
+      "utf8": "this model was introduced, like light\nbulbs went off in my head because this is"
+    } ]
+  }, {
+    "tStartMs": 595960,
+    "dDurationMs": 2820,
+    "segs": [ {
+      "utf8": "the scientific method. I teach the\nscientific method."
+    } ]
+  }, {
+    "tStartMs": 599120,
+    "dDurationMs": 1890,
+    "segs": [ {
+      "utf8": "And I was like, okay, I'm in. Let's do it."
+    } ]
+  }, {
+    "tStartMs": 601700,
+    "dDurationMs": 4140,
+    "segs": [ {
+      "utf8": "And so over the course of the four weeks\nof class, I literally, instead of doing"
+    } ]
+  }, {
+    "tStartMs": 605840,
+    "dDurationMs": 3420,
+    "segs": [ {
+      "utf8": "the homework, I just applied each lesson\nto the interview coach."
+    } ]
+  }, {
+    "tStartMs": 609720,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "And this is how I work. I'm a very\ngoal-directed learner."
+    } ]
+  }, {
+    "tStartMs": 612280,
+    "dDurationMs": 2920,
+    "segs": [ {
+      "utf8": "So I was like, I have a project. I'm gonna\ntake everything I'm learning and just"
+    } ]
+  }, {
+    "tStartMs": 615200,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "apply it to my project."
+    } ]
+  }, {
+    "tStartMs": 616860,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "And so, again, some of these slides were\nfor a"
+    } ]
+  }, {
+    "tStartMs": 619860,
+    "dDurationMs": 4760,
+    "segs": [ {
+      "utf8": "non-experienced audience, so I'm gonna\nskip past them."
+    } ]
+  }, {
+    "tStartMs": 625000,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "So I started by collecting my traces in\nAirtable."
+    } ]
+  }, {
+    "tStartMs": 629440,
+    "dDurationMs": 2820,
+    "segs": [ {
+      "utf8": "So why did I use Airtable? This is a tool\nthat I'm familiar with."
+    } ]
+  }, {
+    "tStartMs": 632300,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "I already had plenty of new to learn, and\nthis is gonna be a theme of this talk."
+    } ]
+  }, {
+    "tStartMs": 636300,
+    "dDurationMs": 5180,
+    "segs": [ {
+      "utf8": "Like, I try to limit how much I have to\nlearn in each step so that I don't get"
+    } ]
+  }, {
+    "tStartMs": 641480,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "overwhelmed. And so I was like, okay, I\nsee that there's these eval tools, but"
+    } ]
+  }, {
+    "tStartMs": 645080,
+    "dDurationMs": 1620,
+    "segs": [ {
+      "utf8": "they look really overwhelming to me."
+    } ]
+  }, {
+    "tStartMs": 646820,
+    "dDurationMs": 1720,
+    "segs": [ {
+      "utf8": "I'm just gonna store everything in\nAirtable."
+    } ]
+  }, {
+    "tStartMs": 648720,
+    "dDurationMs": 2300,
+    "segs": [ {
+      "utf8": "And so that's what I did. It's an\nexcellent approach."
+    } ]
+  }, {
+    "tStartMs": 651160,
+    "dDurationMs": 1580,
+    "segs": [ {
+      "utf8": "I highly recommend that people do this."
+    } ]
+  }, {
+    "tStartMs": 652880,
+    "dDurationMs": 2100,
+    "segs": [ {
+      "utf8": "It's like, hey, don't try to swallow these\ntools."
+    } ]
+  }, {
+    "tStartMs": 655320,
+    "dDurationMs": 4620,
+    "segs": [ {
+      "utf8": "Everyone wants to go for tools, but yeah,\nstay where you're comfortable with in the"
+    } ]
+  }, {
+    "tStartMs": 659940,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "beginning for sure."
+    } ]
+  }, {
+    "tStartMs": 661280,
+    "dDurationMs": 2100,
+    "segs": [ {
+      "utf8": "So I think I had—God,"
+    } ]
+  }, {
+    "tStartMs": 664140,
+    "dDurationMs": 1340,
+    "segs": [ {
+      "utf8": "where did my original data came from?"
+    } ]
+  }, {
+    "tStartMs": 665480,
+    "dDurationMs": 2180,
+    "segs": [ {
+      "utf8": "I think I had about 15 interviews that I\nconducted."
+    } ]
+  }, {
+    "tStartMs": 668280,
+    "dDurationMs": 1860,
+    "segs": [ {
+      "utf8": "I think I had about 10 other interviews"
+    } ]
+  }, {
+    "tStartMs": 671540,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "that— Some of my instructors had\nconducted, and then I think I had about 10"
+    } ]
+  }, {
+    "tStartMs": 676040,
+    "dDurationMs": 4780,
+    "segs": [ {
+      "utf8": "interviews that some of our alumni let me\nplay with while I was developing this"
+    } ]
+  }, {
+    "tStartMs": 680820,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "tool. So it was small data sets, and I\nactually used Airtable interface as my"
+    } ]
+  }, {
+    "tStartMs": 686700,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "very first annotation tool. So if you're\nnot familiar with Airtable, like it's a"
+    } ]
+  }, {
+    "tStartMs": 690480,
+    "dDurationMs": 5280,
+    "segs": [ {
+      "utf8": "database basically, and then it gives you\nthese like UIs to construct viewers."
+    } ]
+  }, {
+    "tStartMs": 696200,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "And you can see here, like I have a trace\ndown here at the bottom."
+    } ]
+  }, {
+    "tStartMs": 698860,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "I have an annotation box. I have my\nfailure modes, and then I can mark it as"
+    } ]
+  }, {
+    "tStartMs": 702800,
+    "dDurationMs": 3280,
+    "segs": [ {
+      "utf8": "reviewed so that it doesn't show up again\nin my annotation tool."
+    } ]
+  }, {
+    "tStartMs": 706720,
+    "dDurationMs": 2860,
+    "segs": [ {
+      "utf8": "Dead simple, right? And if I go back,"
+    } ]
+  }, {
+    "tStartMs": 710760,
+    "dDurationMs": 2760,
+    "segs": [ {
+      "utf8": "you can see like I've got a bunch of\nannotated traces."
+    } ]
+  }, {
+    "tStartMs": 713760,
+    "dDurationMs": 1260,
+    "segs": [ {
+      "utf8": "I've got failure modes."
+    } ]
+  }, {
+    "tStartMs": 716160,
+    "dDurationMs": 3920,
+    "segs": [ {
+      "utf8": "This is my—these screenshots are from my\nvery first round of doing any of this."
+    } ]
+  }, {
+    "tStartMs": 720260,
+    "dDurationMs": 4720,
+    "segs": [ {
+      "utf8": "This is literally during the class. And\nI'll tell you, when I saw this, looking at"
+    } ]
+  }, {
+    "tStartMs": 724980,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "all these failure modes, I was like, holy\ncrap, my coach sucks."
+    } ]
+  }, {
+    "tStartMs": 729540,
+    "dDurationMs": 3080,
+    "segs": [ {
+      "utf8": "And what's funny is that I thought it was\npretty good."
+    } ]
+  }, {
+    "tStartMs": 732620,
+    "dDurationMs": 2840,
+    "segs": [ {
+      "utf8": "Like when I was just vibe checking\nresponses, I was like, oh, it's pretty"
+    } ]
+  }, {
+    "tStartMs": 735460,
+    "dDurationMs": 2960,
+    "segs": [ {
+      "utf8": "good. Yeah, I was embarrassed at this\npoint."
+    } ]
+  }, {
+    "tStartMs": 738740,
+    "dDurationMs": 2120,
+    "segs": [ {
+      "utf8": "This is amazing. I love this so much."
+    } ]
+  }, {
+    "tStartMs": 741380,
+    "dDurationMs": 4980,
+    "segs": [ {
+      "utf8": "Okay, so I then sat down. I remember this\nvividly because it was like a Sunday"
+    } ]
+  }, {
+    "tStartMs": 746360,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "evening. I'm sitting on my deck right next\nto my husband, who's also on his laptop."
+    } ]
+  }, {
+    "tStartMs": 750200,
+    "dDurationMs": 5780,
+    "segs": [ {
+      "utf8": "We're both nerds working away, and I was\ntrying to design my first set of evals."
+    } ]
+  }, {
+    "tStartMs": 757000,
+    "dDurationMs": 4840,
+    "segs": [ {
+      "utf8": "So I was literally, like whenever I code,\nI didn't talk about my coding background."
+    } ]
+  }, {
+    "tStartMs": 763000,
+    "dDurationMs": 2440,
+    "segs": [ {
+      "utf8": "As an undergrad, I took some computer\nscience classes."
+    } ]
+  }, {
+    "tStartMs": 765560,
+    "dDurationMs": 3520,
+    "segs": [ {
+      "utf8": "I did a cognitive science program where\ncomputer science was a big part of it."
+    } ]
+  }, {
+    "tStartMs": 770020,
+    "dDurationMs": 4860,
+    "segs": [ {
+      "utf8": "My first couple jobs, I was also a\nfront-end developer, so I did JavaScript"
+    } ]
+  }, {
+    "tStartMs": 775560,
+    "dDurationMs": 1760,
+    "segs": [ {
+      "utf8": "development before there were any\nframeworks."
+    } ]
+  }, {
+    "tStartMs": 777620,
+    "dDurationMs": 4880,
+    "segs": [ {
+      "utf8": "I did not code for 15 years, and then\nmaybe longer."
+    } ]
+  }, {
+    "tStartMs": 782840,
+    "dDurationMs": 5340,
+    "segs": [ {
+      "utf8": "And then about three years ago, I started\ncoding again to automate a lot of my"
+    } ]
+  }, {
+    "tStartMs": 788180,
+    "dDurationMs": 2180,
+    "segs": [ {
+      "utf8": "business logic. So I run cohort-based\ncourses."
+    } ]
+  }, {
+    "tStartMs": 791140,
+    "dDurationMs": 3360,
+    "segs": [ {
+      "utf8": "Running cohort-based courses requires a\nlot of, like, data management, and so I"
+    } ]
+  }, {
+    "tStartMs": 794500,
+    "dDurationMs": 2760,
+    "segs": [ {
+      "utf8": "started coding to work with that stuff."
+    } ]
+  }, {
+    "tStartMs": 798100,
+    "dDurationMs": 2980,
+    "segs": [ {
+      "utf8": "I'm not really an engineer. I had never\nworked in an IDE."
+    } ]
+  }, {
+    "tStartMs": 801080,
+    "dDurationMs": 2620,
+    "segs": [ {
+      "utf8": "Like, I didn't have a dev environment and\na prod environment."
+    } ]
+  }, {
+    "tStartMs": 803700,
+    "dDurationMs": 1760,
+    "segs": [ {
+      "utf8": "Like, I didn't know how to do these real\nthings."
+    } ]
+  }, {
+    "tStartMs": 805460,
+    "dDurationMs": 5920,
+    "segs": [ {
+      "utf8": "And so I actually chose to work in AWS's\nserverless environment because, like, I"
+    } ]
+  }, {
+    "tStartMs": 811380,
+    "dDurationMs": 1800,
+    "segs": [ {
+      "utf8": "didn't want to manage an EC2 instance."
+    } ]
+  }, {
+    "tStartMs": 813180,
+    "dDurationMs": 5140,
+    "segs": [ {
+      "utf8": "Like, I just wanted to, like, execute code\nand move data from this app to this app."
+    } ]
+  }, {
+    "tStartMs": 818640,
+    "dDurationMs": 5940,
+    "segs": [ {
+      "utf8": "And so I started writing Node.js Lambda\nfunctions and then orchestrated them with"
+    } ]
+  }, {
+    "tStartMs": 824580,
+    "dDurationMs": 4120,
+    "segs": [ {
+      "utf8": "Step Functions. So that was my experience\nwhen I started this product."
+    } ]
+  }, {
+    "tStartMs": 828880,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "And you'll see this influences a lot of my\ntech decisions."
+    } ]
+  }, {
+    "tStartMs": 833440,
+    "dDurationMs": 3800,
+    "segs": [ {
+      "utf8": "Okay, so it's Sunday evening. I'm like,\nokay, this is in the middle of the first"
+    } ]
+  }, {
+    "tStartMs": 837240,
+    "dDurationMs": 4020,
+    "segs": [ {
+      "utf8": "cohort. I've identified my top failure\nmodes, and I'm like, I need to write my"
+    } ]
+  }, {
+    "tStartMs": 841260,
+    "dDurationMs": 4760,
+    "segs": [ {
+      "utf8": "first evals. And whenever I write code, I\nalways start in pseudo code, and I just"
+    } ]
+  }, {
+    "tStartMs": 846020,
+    "dDurationMs": 4820,
+    "segs": [ {
+      "utf8": "start, like, in a text document. And I\nliterally was in an Apple Note, and I was,"
+    } ]
+  }, {
+    "tStartMs": 850840,
+    "dDurationMs": 3340,
+    "segs": [ {
+      "utf8": "like, writing out JSON. And I don't know\nif you guys have ever used Apple Note, but"
+    } ]
+  }, {
+    "tStartMs": 854180,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "it turns quotes into smart quotes, which\nbreaks your code."
+    } ]
+  }, {
+    "tStartMs": 858220,
+    "dDurationMs": 3240,
+    "segs": [ {
+      "utf8": "And I was, like, banging my head against\nthe wall, and my husband goes, Why don't"
+    } ]
+  }, {
+    "tStartMs": 861460,
+    "dDurationMs": 2180,
+    "segs": [ {
+      "utf8": "you use a Jupyter notebook? And I was\nlike, What?"
+    } ]
+  }, {
+    "tStartMs": 863720,
+    "dDurationMs": 5700,
+    "segs": [ {
+      "utf8": "What's a Jupyter notebook? So I literally\nasked ChatGPT, I'm a total"
+    } ]
+  }, {
+    "tStartMs": 869420,
+    "dDurationMs": 1440,
+    "segs": [ {
+      "utf8": "beginner. What's a Jupyter notebook?"
+    } ]
+  }, {
+    "tStartMs": 871460,
+    "dDurationMs": 4800,
+    "segs": [ {
+      "utf8": "For those of you that aren't familiar with\nnotebooks, this is a screenshot of a"
+    } ]
+  }, {
+    "tStartMs": 876260,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "Jupyter notebook. This top part up here is\nMarkdown, and then my code is here."
+    } ]
+  }, {
+    "tStartMs": 881040,
+    "dDurationMs": 3760,
+    "segs": [ {
+      "utf8": "Here's what this allowed me to do. I\nstarted in a Markdown cell and just"
+    } ]
+  }, {
+    "tStartMs": 884800,
+    "dDurationMs": 2060,
+    "segs": [ {
+      "utf8": "brainstormed, like, different ways to do\nan eval."
+    } ]
+  }, {
+    "tStartMs": 887220,
+    "dDurationMs": 5180,
+    "segs": [ {
+      "utf8": "In kind of pseudo code, and then I could\ntry to write that in my cell block and"
+    } ]
+  }, {
+    "tStartMs": 892400,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "actually execute it"
+    } ]
+  }, {
+    "tStartMs": 894240,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "and then see the results. And then what I\nrealized, which was really great about"
+    } ]
+  }, {
+    "tStartMs": 898140,
+    "dDurationMs": 4220,
+    "segs": [ {
+      "utf8": "this, is like for one eval, I might have\nthree different ideas about how to"
+    } ]
+  }, {
+    "tStartMs": 902360,
+    "dDurationMs": 3960,
+    "segs": [ {
+      "utf8": "implement it best. I could do all three in\na different cell block, run them, and"
+    } ]
+  }, {
+    "tStartMs": 906320,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "then compare their output. And so that was\nawesome."
+    } ]
+  }, {
+    "tStartMs": 908320,
+    "dDurationMs": 1700,
+    "segs": [ {
+      "utf8": "I was like, okay, I'm sold on notebooks."
+    } ]
+  }, {
+    "tStartMs": 911260,
+    "dDurationMs": 4860,
+    "segs": [ {
+      "utf8": "I'm going to show you two of my first\nevals that I ever created."
+    } ]
+  }, {
+    "tStartMs": 916580,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "So this one."
+    } ]
+  }, {
+    "tStartMs": 918420,
+    "dDurationMs": 4160,
+    "segs": [ {
+      "utf8": "So we need a little bit of context.\nRemember, the coach is taking in a"
+    } ]
+  }, {
+    "tStartMs": 922580,
+    "dDurationMs": 4620,
+    "segs": [ {
+      "utf8": "transcript and it's sending you detailed\nfeedback on that transcript."
+    } ]
+  }, {
+    "tStartMs": 927840,
+    "dDurationMs": 5360,
+    "segs": [ {
+      "utf8": "And sometimes it'll suggest to you, it'll\nbe like, Hannel, you asked a great"
+    } ]
+  }, {
+    "tStartMs": 933200,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "question here, but you could have asked\nthis follow-on question, right?"
+    } ]
+  }, {
+    "tStartMs": 936840,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "So sometimes the coach will suggest a\nquestion to you."
+    } ]
+  }, {
+    "tStartMs": 941360,
+    "dDurationMs": 2660,
+    "segs": [ {
+      "utf8": "The problem is sometimes the coach's\nsuggestions are wrong."
+    } ]
+  }, {
+    "tStartMs": 944240,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "So there's two failure modes that came up\nwhere sometimes the coach would tell you"
+    } ]
+  }, {
+    "tStartMs": 949100,
+    "dDurationMs": 4580,
+    "segs": [ {
+      "utf8": "you should ask a leading question, like\nthe question it suggested to you was a"
+    } ]
+  }, {
+    "tStartMs": 953680,
+    "dDurationMs": 2860,
+    "segs": [ {
+      "utf8": "leading question. And if you're not\nfamiliar with this concept, a leading"
+    } ]
+  }, {
+    "tStartMs": 956540,
+    "dDurationMs": 2280,
+    "segs": [ {
+      "utf8": "question is just a question that implies\nthe answer."
+    } ]
+  }, {
+    "tStartMs": 959280,
+    "dDurationMs": 1600,
+    "segs": [ {
+      "utf8": "So it's like you're leading the witness."
+    } ]
+  }, {
+    "tStartMs": 961000,
+    "dDurationMs": 4900,
+    "segs": [ {
+      "utf8": "That was one of my failure modes. And then\nmy other failure mode that was really"
+    } ]
+  }, {
+    "tStartMs": 965900,
+    "dDurationMs": 3420,
+    "segs": [ {
+      "utf8": "concerning to me is sometimes the coach\nwould suggest a general question."
+    } ]
+  }, {
+    "tStartMs": 969520,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "So it would say something like, You should\nhave asked, Tell me about your typical"
+    } ]
+  }, {
+    "tStartMs": 974020,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "morning routine."
+    } ]
+  }, {
+    "tStartMs": 975840,
+    "dDurationMs": 3820,
+    "segs": [ {
+      "utf8": "We don't teach that because that leads to\nreally unreliable responses."
+    } ]
+  }, {
+    "tStartMs": 979660,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "We teach, Tell me about your morning\nroutine this morning."
+    } ]
+  }, {
+    "tStartMs": 983380,
+    "dDurationMs": 1960,
+    "segs": [ {
+      "utf8": "So the specific, not the general."
+    } ]
+  }, {
+    "tStartMs": 986500,
+    "dDurationMs": 3980,
+    "segs": [ {
+      "utf8": "And so for someone that's new to notebooks\nand stuff, like, it seems like you"
+    } ]
+  }, {
+    "tStartMs": 990480,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "organize your notebooks quite well. You\nhave, like, headings, you have a little"
+    } ]
+  }, {
+    "tStartMs": 994260,
+    "dDurationMs": 4480,
+    "segs": [ {
+      "utf8": "bit of documentation, and you— Kind of\nprint it out to show yourself what it"
+    } ]
+  }, {
+    "tStartMs": 998740,
+    "dDurationMs": 3160,
+    "segs": [ {
+      "utf8": "does. This is like, yeah, good practices."
+    } ]
+  }, {
+    "tStartMs": 1002380,
+    "dDurationMs": 3880,
+    "segs": [ {
+      "utf8": "So here's what I'll tell you. I'm not an\nengineer day to day, but, like, I did—I"
+    } ]
+  }, {
+    "tStartMs": 1007320,
+    "dDurationMs": 4520,
+    "segs": [ {
+      "utf8": "took a lot of computer science classes at\nStanford where they hammer, like, elegant"
+    } ]
+  }, {
+    "tStartMs": 1011840,
+    "dDurationMs": 4440,
+    "segs": [ {
+      "utf8": "code and well-documented code. And, like,\nI feel like I have a pretty good"
+    } ]
+  }, {
+    "tStartMs": 1016280,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "foundation"
+    } ]
+  }, {
+    "tStartMs": 1017780,
+    "dDurationMs": 2520,
+    "segs": [ {
+      "utf8": "in, like, good engineering practices."
+    } ]
+  }, {
+    "tStartMs": 1020440,
+    "dDurationMs": 4460,
+    "segs": [ {
+      "utf8": "And then as a product manager, I always\nworked at teeny tiny startups where, like,"
+    } ]
+  }, {
+    "tStartMs": 1024900,
+    "dDurationMs": 2160,
+    "segs": [ {
+      "utf8": "I was involved in all the engineering\ndecisions."
+    } ]
+  }, {
+    "tStartMs": 1027340,
+    "dDurationMs": 2620,
+    "segs": [ {
+      "utf8": "So I think I'm a very technical product\nmanager."
+    } ]
+  }, {
+    "tStartMs": 1030380,
+    "dDurationMs": 3460,
+    "segs": [ {
+      "utf8": "And, like, actually now, like four months\nin, I'm ready to call myself an engineer,"
+    } ]
+  }, {
+    "tStartMs": 1033920,
+    "dDurationMs": 2080,
+    "segs": [ {
+      "utf8": "and you'll see why as we get further\nalong."
+    } ]
+  }, {
+    "tStartMs": 1036640,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "It's actually been really fun, like,\nembracing my engineering skill set."
+    } ]
+  }, {
+    "tStartMs": 1041680,
+    "dDurationMs": 4520,
+    "segs": [ {
+      "utf8": "Okay, so these two evals, these two error\ncases—the coach suggesting a leading"
+    } ]
+  }, {
+    "tStartMs": 1046200,
+    "dDurationMs": 3580,
+    "segs": [ {
+      "utf8": "question and the coach suggesting a\ngeneral question—as"
+    } ]
+  }, {
+    "tStartMs": 1050620,
+    "dDurationMs": 2280,
+    "segs": [ {
+      "utf8": "a teacher, were catastrophic for me."
+    } ]
+  }, {
+    "tStartMs": 1053320,
+    "dDurationMs": 4020,
+    "segs": [ {
+      "utf8": "These are two of the things that students\nreally struggle with, and I did not want"
+    } ]
+  }, {
+    "tStartMs": 1057340,
+    "dDurationMs": 4180,
+    "segs": [ {
+      "utf8": "the coach reinforcing it. But if you look\nat this code, this one on the left looks"
+    } ]
+  }, {
+    "tStartMs": 1061520,
+    "dDurationMs": 2540,
+    "segs": [ {
+      "utf8": "really complicated. It is not complicated\nat all."
+    } ]
+  }, {
+    "tStartMs": 1064420,
+    "dDurationMs": 3580,
+    "segs": [ {
+      "utf8": "What's happening here is this is a prompt\nwhere I'm explaining to an LLM what a"
+    } ]
+  }, {
+    "tStartMs": 1068000,
+    "dDurationMs": 4400,
+    "segs": [ {
+      "utf8": "leading question is, and then it gets sent\na list of questions, and it's being told"
+    } ]
+  }, {
+    "tStartMs": 1072400,
+    "dDurationMs": 1840,
+    "segs": [ {
+      "utf8": "if any of these questions are leading,"
+    } ]
+  }, {
+    "tStartMs": 1075080,
+    "dDurationMs": 1380,
+    "segs": [ {
+      "utf8": "fail the test, and if"
+    } ]
+  }, {
+    "tStartMs": 1077680,
+    "dDurationMs": 2240,
+    "segs": [ {
+      "utf8": "none of the questions are leading, pass\nthe test."
+    } ]
+  }, {
+    "tStartMs": 1080240,
+    "dDurationMs": 5080,
+    "segs": [ {
+      "utf8": "All this code down here is just Python to\ncall a production Lambda function, so you"
+    } ]
+  }, {
+    "tStartMs": 1085320,
+    "dDurationMs": 5840,
+    "segs": [ {
+      "utf8": "can ignore all that. So this is an LLM as\njudge, and I iterated on this a lot."
+    } ]
+  }, {
+    "tStartMs": 1091260,
+    "dDurationMs": 2080,
+    "segs": [ {
+      "utf8": "I tried, like, sending all the questions\nat once."
+    } ]
+  }, {
+    "tStartMs": 1093380,
+    "dDurationMs": 1920,
+    "segs": [ {
+      "utf8": "I tried sending one question at a time."
+    } ]
+  }, {
+    "tStartMs": 1095300,
+    "dDurationMs": 4760,
+    "segs": [ {
+      "utf8": "I tried sending the full coach response\nversus just the questions."
+    } ]
+  }, {
+    "tStartMs": 1100560,
+    "dDurationMs": 4920,
+    "segs": [ {
+      "utf8": "So that's what I mean by I tried different\nstrategies for how do I get this eval to"
+    } ]
+  }, {
+    "tStartMs": 1105480,
+    "dDurationMs": 2540,
+    "segs": [ {
+      "utf8": "be fully aligned with my human labels."
+    } ]
+  }, {
+    "tStartMs": 1109440,
+    "dDurationMs": 5100,
+    "segs": [ {
+      "utf8": "And then this eval, the general question,\nI actually banged my head about how do I"
+    } ]
+  }, {
+    "tStartMs": 1114540,
+    "dDurationMs": 3060,
+    "segs": [ {
+      "utf8": "teach an LLM what a general question is?"
+    } ]
+  }, {
+    "tStartMs": 1118040,
+    "dDurationMs": 4460,
+    "segs": [ {
+      "utf8": "Do I have to, like, give it the whole\ncontext of a specific story and the human"
+    } ]
+  }, {
+    "tStartMs": 1122500,
+    "dDurationMs": 4520,
+    "segs": [ {
+      "utf8": "tendency to generalize? And actually, I\nrealized that there's just a small set of"
+    } ]
+  }, {
+    "tStartMs": 1127020,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "keywords that tend to indicate a general\nquestion."
+    } ]
+  }, {
+    "tStartMs": 1129780,
+    "dDurationMs": 1700,
+    "segs": [ {
+      "utf8": "And this turned into a code assertion."
+    } ]
+  }, {
+    "tStartMs": 1131800,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "I'm just looking for red flag words in the\nquestions the coach suggested."
+    } ]
+  }, {
+    "tStartMs": 1136140,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "I've extended this list of keywords over\ntime, but what's funny about this very"
+    } ]
+  }, {
+    "tStartMs": 1141200,
+    "dDurationMs": 3680,
+    "segs": [ {
+      "utf8": "elementary eval is it has a really high\nalignment rate."
+    } ]
+  }, {
+    "tStartMs": 1145200,
+    "dDurationMs": 3800,
+    "segs": [ {
+      "utf8": "Like, it never has false positives, and it\ncatches almost everything I catch."
+    } ]
+  }, {
+    "tStartMs": 1149540,
+    "dDurationMs": 1880,
+    "segs": [ {
+      "utf8": "I'm so happy about this."
+    } ]
+  }, {
+    "tStartMs": 1152200,
+    "dDurationMs": 5040,
+    "segs": [ {
+      "utf8": "You nailed it, because what you want to do\nwith evals is you want to have the right"
+    } ]
+  }, {
+    "tStartMs": 1157240,
+    "dDurationMs": 3800,
+    "segs": [ {
+      "utf8": "cost benefit. And the fact that you had\nthis intuition, like, hey, this can be a"
+    } ]
+  }, {
+    "tStartMs": 1161040,
+    "dDurationMs": 2560,
+    "segs": [ {
+      "utf8": "code-based eval, a lot of people would\nmiss this, honestly."
+    } ]
+  }, {
+    "tStartMs": 1163760,
+    "dDurationMs": 2480,
+    "segs": [ {
+      "utf8": "They would say, Oh, I don't know, let's\nhave an LLM do it."
+    } ]
+  }, {
+    "tStartMs": 1166400,
+    "dDurationMs": 2880,
+    "segs": [ {
+      "utf8": "You had the good insight of making a\ncode-based eval."
+    } ]
+  }, {
+    "tStartMs": 1169960,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "Okay, I'm glad you highlighted this,\nbecause this was the moment where I was"
+    } ]
+  }, {
+    "tStartMs": 1173560,
+    "dDurationMs": 3260,
+    "segs": [ {
+      "utf8": "like, Holy crap, who's going to do this in\nreal life?"
+    } ]
+  }, {
+    "tStartMs": 1176820,
+    "dDurationMs": 4620,
+    "segs": [ {
+      "utf8": "Like product managers, designers,\nengineers, like what's the right role?"
+    } ]
+  }, {
+    "tStartMs": 1182100,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "Because the reason why I could identify\nthis insight is because I've been teaching"
+    } ]
+  }, {
+    "tStartMs": 1185660,
+    "dDurationMs": 3540,
+    "segs": [ {
+      "utf8": "this stuff for years, and I see the\nmistakes that students make."
+    } ]
+  }, {
+    "tStartMs": 1189440,
+    "dDurationMs": 2500,
+    "segs": [ {
+      "utf8": "Like, this required domain expertise."
+    } ]
+  }, {
+    "tStartMs": 1192920,
+    "dDurationMs": 3980,
+    "segs": [ {
+      "utf8": "And so if I just left this to an engineer\nwho wasn't me, I don't think this would"
+    } ]
+  }, {
+    "tStartMs": 1196900,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "have happened."
+    } ]
+  }, {
+    "tStartMs": 1198280,
+    "dDurationMs": 3960,
+    "segs": [ {
+      "utf8": "And so this is still an open question for\nme as a discovery coach that teaches"
+    } ]
+  }, {
+    "tStartMs": 1202240,
+    "dDurationMs": 2880,
+    "segs": [ {
+      "utf8": "cross-functional collaboration to product\nteams."
+    } ]
+  }, {
+    "tStartMs": 1205120,
+    "dDurationMs": 3720,
+    "segs": [ {
+      "utf8": "I'm like, Oh, we got to get good at\nworking really closely together, because"
+    } ]
+  }, {
+    "tStartMs": 1208840,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "not every product manager is going to\nwrite code like I did, but I think they"
+    } ]
+  }, {
+    "tStartMs": 1212580,
+    "dDurationMs": 3180,
+    "segs": [ {
+      "utf8": "need to be involved in the design of their\nevals."
+    } ]
+  }, {
+    "tStartMs": 1217100,
+    "dDurationMs": 4440,
+    "segs": [ {
+      "utf8": "Definitely, I can almost guarantee you\nwith almost 100% certainty that an"
+    } ]
+  }, {
+    "tStartMs": 1221540,
+    "dDurationMs": 4400,
+    "segs": [ {
+      "utf8": "engineer would not have tried to make an\nLLM judge out of that and not have."
+    } ]
+  }, {
+    "tStartMs": 1225940,
+    "dDurationMs": 4580,
+    "segs": [ {
+      "utf8": "Yeah, totally. Yeah, so these two are\nliterally the first two evals I wrote."
+    } ]
+  }, {
+    "tStartMs": 1230580,
+    "dDurationMs": 4300,
+    "segs": [ {
+      "utf8": "I love them because they're still in\nproduction today."
+    } ]
+  }, {
+    "tStartMs": 1234880,
+    "dDurationMs": 1460,
+    "segs": [ {
+      "utf8": "Like, they're still really valuable."
+    } ]
+  }, {
+    "tStartMs": 1236780,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "I've actually been able to reduce these\nerrors quite a bit."
+    } ]
+  }, {
+    "tStartMs": 1240580,
+    "dDurationMs": 1740,
+    "segs": [ {
+      "utf8": "And so, like, this sold me."
+    } ]
+  }, {
+    "tStartMs": 1243540,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "And I did this on that first Sunday night."
+    } ]
+  }, {
+    "tStartMs": 1247100,
+    "dDurationMs": 2240,
+    "segs": [ {
+      "utf8": "Now, I wrote these on that first Sunday\nnight."
+    } ]
+  }, {
+    "tStartMs": 1249540,
+    "dDurationMs": 4100,
+    "segs": [ {
+      "utf8": "I didn't have any infrastructure for,\nlike, how do I run them against all my"
+    } ]
+  }, {
+    "tStartMs": 1253640,
+    "dDurationMs": 1860,
+    "segs": [ {
+      "utf8": "traces and how do I score my judges?"
+    } ]
+  }, {
+    "tStartMs": 1255700,
+    "dDurationMs": 1100,
+    "segs": [ {
+      "utf8": "So we'll get to that."
+    } ]
+  }, {
+    "tStartMs": 1258840,
+    "dDurationMs": 4100,
+    "segs": [ {
+      "utf8": "Okay, so the other story I didn't tell you\nis on Sunday night when I started all of"
+    } ]
+  }, {
+    "tStartMs": 1262940,
+    "dDurationMs": 1860,
+    "segs": [ {
+      "utf8": "this, I had never even seen Python."
+    } ]
+  }, {
+    "tStartMs": 1266400,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "But I think my husband works with Python,\nand he might have told me that Python has"
+    } ]
+  }, {
+    "tStartMs": 1270720,
+    "dDurationMs": 2420,
+    "segs": [ {
+      "utf8": "all these visualization tools. I think he\ndid."
+    } ]
+  }, {
+    "tStartMs": 1274500,
+    "dDurationMs": 4140,
+    "segs": [ {
+      "utf8": "And also in class and in the Discord,\neverybody was talking about all the cool"
+    } ]
+  }, {
+    "tStartMs": 1278640,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "Python visualization tools. So my notebook\nis actually a Python notebook, which"
+    } ]
+  }, {
+    "tStartMs": 1283140,
+    "dDurationMs": 2820,
+    "segs": [ {
+      "utf8": "still blows my mind. And how did I do this\nnot knowing Python?"
+    } ]
+  }, {
+    "tStartMs": 1286440,
+    "dDurationMs": 4580,
+    "segs": [ {
+      "utf8": "I literally had ChatGPT open and was like,\nHere's what I'm trying to do."
+    } ]
+  }, {
+    "tStartMs": 1291580,
+    "dDurationMs": 1880,
+    "segs": [ {
+      "utf8": "Can you help me figure out how to do this?"
+    } ]
+  }, {
+    "tStartMs": 1293600,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "It would present some code. I won't run\ncode that I don't understand."
+    } ]
+  }, {
+    "tStartMs": 1298520,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "So I literally would go line by line and\nbe like, What does this mean?"
+    } ]
+  }, {
+    "tStartMs": 1301860,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "What is this doing? And then once I\nunderstood it, I would copy it into my"
+    } ]
+  }, {
+    "tStartMs": 1305260,
+    "dDurationMs": 1360,
+    "segs": [ {
+      "utf8": "cell block and run it."
+    } ]
+  }, {
+    "tStartMs": 1307820,
+    "dDurationMs": 5700,
+    "segs": [ {
+      "utf8": "Okay, so ChatGPT plus my Python notebook\nhelped me import, like, my traces."
+    } ]
+  }, {
+    "tStartMs": 1313700,
+    "dDurationMs": 2760,
+    "segs": [ {
+      "utf8": "So I exported a CSV file from Airtable."
+    } ]
+  }, {
+    "tStartMs": 1317080,
+    "dDurationMs": 4340,
+    "segs": [ {
+      "utf8": "I imported that CSV file and used, like,\npandas."
+    } ]
+  }, {
+    "tStartMs": 1321420,
+    "dDurationMs": 5960,
+    "segs": [ {
+      "utf8": "took a look at it. And I created a cell\nblock in my notebook"
+    } ]
+  }, {
+    "tStartMs": 1327380,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "that ran all of my evals against—at this\npoint, I had one,"
+    } ]
+  }, {
+    "tStartMs": 1333460,
+    "dDurationMs": 1460,
+    "segs": [ {
+      "utf8": "two, three, four, five evals—against"
+    } ]
+  }, {
+    "tStartMs": 1335900,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "my traces."
+    } ]
+  }, {
+    "tStartMs": 1338480,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "And, oh, the other thing I did in my\nnotebook, this I think might be helpful"
+    } ]
+  }, {
+    "tStartMs": 1342040,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "for people."
+    } ]
+  }, {
+    "tStartMs": 1343580,
+    "dDurationMs": 4480,
+    "segs": [ {
+      "utf8": "These two evals, they don't actually take\nin the transcript."
+    } ]
+  }, {
+    "tStartMs": 1348690,
+    "dDurationMs": 4990,
+    "segs": [ {
+      "utf8": "I actually do some transcript processing\nto help make my evals more efficient."
+    } ]
+  }, {
+    "tStartMs": 1354500,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "So one thing I noticed is a lot of my\nfailure modes were related to the"
+    } ]
+  }, {
+    "tStartMs": 1358820,
+    "dDurationMs": 5420,
+    "segs": [ {
+      "utf8": "questions the coach was suggesting. So I\nhave a helper function that—it's just"
+    } ]
+  }, {
+    "tStartMs": 1364240,
+    "dDurationMs": 4800,
+    "segs": [ {
+      "utf8": "code—that, like, takes the JSON response\nfrom the coach and pulls out all the"
+    } ]
+  }, {
+    "tStartMs": 1369040,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "coaching tips. That's just code. And then\nI have another helper function that I"
+    } ]
+  }, {
+    "tStartMs": 1372680,
+    "dDurationMs": 3360,
+    "segs": [ {
+      "utf8": "think is an LLM that pulls out all the\nquestions from the tips."
+    } ]
+  }, {
+    "tStartMs": 1376040,
+    "dDurationMs": 5800,
+    "segs": [ {
+      "utf8": "So then my evals don't have—especially my\nLLM-as-judge evals—they don't have huge"
+    } ]
+  }, {
+    "tStartMs": 1381840,
+    "dDurationMs": 5760,
+    "segs": [ {
+      "utf8": "input tokens. I just constrained the\ncontext to what that eval needs"
+    } ]
+  }, {
+    "tStartMs": 1387600,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "to assess what it's assessing. And\nactually, this has saved me a ton of money"
+    } ]
+  }, {
+    "tStartMs": 1392100,
+    "dDurationMs": 5280,
+    "segs": [ {
+      "utf8": "and makes my evals really fast, because\nwhen I'm testing and iterating, I can run"
+    } ]
+  }, {
+    "tStartMs": 1397380,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "all my helper functions once for all my\ntranscripts."
+    } ]
+  }, {
+    "tStartMs": 1400180,
+    "dDurationMs": 4740,
+    "segs": [ {
+      "utf8": "And then as I change an eval, the input\ndata isn't changing, so I don't have to"
+    } ]
+  }, {
+    "tStartMs": 1404920,
+    "dDurationMs": 5320,
+    "segs": [ {
+      "utf8": "rerun all those helpers. And those are,\nlike, the expensive LLM calls, whereas my"
+    } ]
+  }, {
+    "tStartMs": 1410240,
+    "dDurationMs": 2540,
+    "segs": [ {
+      "utf8": "evals end up being a lot more lightweight\nand a lot cheaper."
+    } ]
+  }, {
+    "tStartMs": 1413540,
+    "dDurationMs": 4580,
+    "segs": [ {
+      "utf8": "This is amazing. This is so amazing\nbecause not only are you saving money,"
+    } ]
+  }, {
+    "tStartMs": 1418180,
+    "dDurationMs": 4140,
+    "segs": [ {
+      "utf8": "but, like, you're also making the eval\nbetter if you're constraining the context"
+    } ]
+  }, {
+    "tStartMs": 1422320,
+    "dDurationMs": 2080,
+    "segs": [ {
+      "utf8": "to, like, only what it needs to know."
+    } ]
+  }, {
+    "tStartMs": 1424600,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "If you've done—"
+    } ]
+  }, {
+    "tStartMs": 1425960,
+    "dDurationMs": 1420,
+    "segs": [ {
+      "utf8": "that's pretty advanced."
+    } ]
+  }, {
+    "tStartMs": 1428340,
+    "dDurationMs": 3500,
+    "segs": [ {
+      "utf8": "And that's really great that you, like,\ndid that work."
+    } ]
+  }, {
+    "tStartMs": 1431840,
+    "dDurationMs": 5660,
+    "segs": [ {
+      "utf8": "And people would call that, quote, context\nengineering, and you have been doing"
+    } ]
+  }, {
+    "tStartMs": 1437500,
+    "dDurationMs": 2960,
+    "segs": [ {
+      "utf8": "context engineering from the very\nbeginning, which is excellent."
+    } ]
+  }, {
+    "tStartMs": 1440580,
+    "dDurationMs": 5680,
+    "segs": [ {
+      "utf8": "Yeah. What's funny is that this tapped\ninto—I did this originally just as, like,"
+    } ]
+  }, {
+    "tStartMs": 1446260,
+    "dDurationMs": 4220,
+    "segs": [ {
+      "utf8": "decomposition. I was like, oh, this eval\nand this eval need the same stuff."
+    } ]
+  }, {
+    "tStartMs": 1450540,
+    "dDurationMs": 3320,
+    "segs": [ {
+      "utf8": "I'm going to separate that into its own\nfunction, and it was just like a separate"
+    } ]
+  }, {
+    "tStartMs": 1453860,
+    "dDurationMs": 5280,
+    "segs": [ {
+      "utf8": "cell block in my notebook. And then I\nrealized that, oh, this enables different"
+    } ]
+  }, {
+    "tStartMs": 1459140,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "experiments I can run. Like, what if I\ngive this eval the full coaching output?"
+    } ]
+  }, {
+    "tStartMs": 1463700,
+    "dDurationMs": 1480,
+    "segs": [ {
+      "utf8": "What if I give it just the questions?"
+    } ]
+  }, {
+    "tStartMs": 1465340,
+    "dDurationMs": 1680,
+    "segs": [ {
+      "utf8": "What if I give it one question at a time?"
+    } ]
+  }, {
+    "tStartMs": 1467300,
+    "dDurationMs": 4400,
+    "segs": [ {
+      "utf8": "And that's what really allowed me to tweak\nand figure out which strategy was most"
+    } ]
+  }, {
+    "tStartMs": 1471700,
+    "dDurationMs": 4520,
+    "segs": [ {
+      "utf8": "aligned with my human labels. And I\nliterally did all of this in a single"
+    } ]
+  }, {
+    "tStartMs": 1476220,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "notebook."
+    } ]
+  }, {
+    "tStartMs": 1477560,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "Okay."
+    } ]
+  }, {
+    "tStartMs": 1479020,
+    "dDurationMs": 4180,
+    "segs": [ {
+      "utf8": "So then I, like, in my notebook, I worked\nwith ChatGPT and was like, okay, I have"
+    } ]
+  }, {
+    "tStartMs": 1483200,
+    "dDurationMs": 4740,
+    "segs": [ {
+      "utf8": "evals, I have the CSV file. How do I run\nall my evals against all my traces?"
+    } ]
+  }, {
+    "tStartMs": 1487940,
+    "dDurationMs": 4940,
+    "segs": [ {
+      "utf8": "It helped me create a code block that does\nthat, and that code block outputted what"
+    } ]
+  }, {
+    "tStartMs": 1492880,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "you're seeing here. And this is basically\nmy eval results."
+    } ]
+  }, {
+    "tStartMs": 1497720,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "And this was my very first run. So I have\none, two, three, four, five evals, and the"
+    } ]
+  }, {
+    "tStartMs": 1502140,
+    "dDurationMs": 4600,
+    "segs": [ {
+      "utf8": "traces are the rows. And you can see at a\nglance, I can start to see how I'm doing."
+    } ]
+  }, {
+    "tStartMs": 1506960,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "So those first two error cases that I was\nmost concerned about, they're happening"
+    } ]
+  }, {
+    "tStartMs": 1510820,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "pretty frequently, like I think about 20\nto 25 percent of the time."
+    } ]
+  }, {
+    "tStartMs": 1515640,
+    "dDurationMs": 3580,
+    "segs": [ {
+      "utf8": "And then you can see in this middle one,\nit looks like, wow, this fails all the"
+    } ]
+  }, {
+    "tStartMs": 1519220,
+    "dDurationMs": 2720,
+    "segs": [ {
+      "utf8": "time, and this one on the right seems to\nbe a huge problem."
+    } ]
+  }, {
+    "tStartMs": 1522960,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "But as I dug into this, I started to\nrealize some really interesting things."
+    } ]
+  }, {
+    "tStartMs": 1527540,
+    "dDurationMs": 5460,
+    "segs": [ {
+      "utf8": "First of all, this one on the right, when\nI created this eval, what this eval is, is"
+    } ]
+  }, {
+    "tStartMs": 1533000,
+    "dDurationMs": 4060,
+    "segs": [ {
+      "utf8": "I have four dimensions, right? Sometimes a\ndimension is greedy."
+    } ]
+  }, {
+    "tStartMs": 1537360,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "It expects every question in the interview\nto be about its dimension."
+    } ]
+  }, {
+    "tStartMs": 1541500,
+    "dDurationMs": 4660,
+    "segs": [ {
+      "utf8": "So my setting the scene feedback would be\nlike, This is a terrible setting the scene"
+    } ]
+  }, {
+    "tStartMs": 1546160,
+    "dDurationMs": 3880,
+    "segs": [ {
+      "utf8": "question, but it was a really good\nbuilding the timeline question, and the"
+    } ]
+  }, {
+    "tStartMs": 1550040,
+    "dDurationMs": 1480,
+    "segs": [ {
+      "utf8": "interviewer didn't do anything wrong."
+    } ]
+  }, {
+    "tStartMs": 1551940,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "And so this error mode is it expects too\nmuch setting the scene."
+    } ]
+  }, {
+    "tStartMs": 1556140,
+    "dDurationMs": 3060,
+    "segs": [ {
+      "utf8": "So, like, they asked good setting the\nscene questions, and then they moved on to"
+    } ]
+  }, {
+    "tStartMs": 1559200,
+    "dDurationMs": 3340,
+    "segs": [ {
+      "utf8": "building the timeline, and the coach was\ncritical that they asked building the"
+    } ]
+  }, {
+    "tStartMs": 1562540,
+    "dDurationMs": 1080,
+    "segs": [ {
+      "utf8": "timeline questions."
+    } ]
+  }, {
+    "tStartMs": 1564560,
+    "dDurationMs": 2120,
+    "segs": [ {
+      "utf8": "And so it looks like this is happening a\nlot."
+    } ]
+  }, {
+    "tStartMs": 1566820,
+    "dDurationMs": 4760,
+    "segs": [ {
+      "utf8": "But what I did to dig into this is, in my\nnotebook, I have tools that allow me to"
+    } ]
+  }, {
+    "tStartMs": 1571580,
+    "dDurationMs": 5540,
+    "segs": [ {
+      "utf8": "look into each of these failures and to\ngive and to examine"
+    } ]
+  }, {
+    "tStartMs": 1577120,
+    "dDurationMs": 3380,
+    "segs": [ {
+      "utf8": "the reason the LLM gave for why this\nfailed."
+    } ]
+  }, {
+    "tStartMs": 1581520,
+    "dDurationMs": 2760,
+    "segs": [ {
+      "utf8": "This one actually is a code eval, so\nthat's not quite right."
+    } ]
+  }, {
+    "tStartMs": 1585020,
+    "dDurationMs": 5440,
+    "segs": [ {
+      "utf8": "But I could look into the output of the\ncode, and then I could look at the"
+    } ]
+  }, {
+    "tStartMs": 1590460,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "individual trace and my human labels."
+    } ]
+  }, {
+    "tStartMs": 1593140,
+    "dDurationMs": 1760,
+    "segs": [ {
+      "utf8": "And again, I'm doing this all in my\nnotebook."
+    } ]
+  }, {
+    "tStartMs": 1594920,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "I don't have screenshots of that, but I'm\ndoing this all in my— So I, like,"
+    } ]
+  }, {
+    "tStartMs": 1599480,
+    "dDurationMs": 4560,
+    "segs": [ {
+      "utf8": "basically as I dug into my data, as I had\nquestions, I would go to ChatGPT and be"
+    } ]
+  }, {
+    "tStartMs": 1604040,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "like,"
+    } ]
+  }, {
+    "tStartMs": 1605200,
+    "dDurationMs": 3960,
+    "segs": [ {
+      "utf8": "Okay, it looks like my evals gave this and\nI gave this."
+    } ]
+  }, {
+    "tStartMs": 1609300,
+    "dDurationMs": 4880,
+    "segs": [ {
+      "utf8": "Can you create a cell block where I can\ncompare my human label to the eval label?"
+    } ]
+  }, {
+    "tStartMs": 1615040,
+    "dDurationMs": 5220,
+    "segs": [ {
+      "utf8": "And so then I just iterated with ChatGPT\nto turn my notebook into a data analysis"
+    } ]
+  }, {
+    "tStartMs": 1620260,
+    "dDurationMs": 5840,
+    "segs": [ {
+      "utf8": "tool. And what I found here in this last\ncolumn, it actually was a problem with"
+    } ]
+  }, {
+    "tStartMs": 1626100,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "my human labels. Like, my eval was better\nthan my human judgment."
+    } ]
+  }, {
+    "tStartMs": 1630280,
+    "dDurationMs": 4920,
+    "segs": [ {
+      "utf8": "And it's because to write a specific eval\nfor this error mode, I had to get a lot"
+    } ]
+  }, {
+    "tStartMs": 1635200,
+    "dDurationMs": 1740,
+    "segs": [ {
+      "utf8": "clearer about what I was evaluating,"
+    } ]
+  }, {
+    "tStartMs": 1637720,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "and I, like, codified that in code, but I\nhadn't codified it in my human label."
+    } ]
+  }, {
+    "tStartMs": 1643920,
+    "dDurationMs": 4280,
+    "segs": [ {
+      "utf8": "Like rubric. And so this was a case where\nthe code was better than I was."
+    } ]
+  }, {
+    "tStartMs": 1648960,
+    "dDurationMs": 2640,
+    "segs": [ {
+      "utf8": "And so, like, I had to change the way I\ndid human labels, which I thought was"
+    } ]
+  }, {
+    "tStartMs": 1651600,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "really interesting."
+    } ]
+  }, {
+    "tStartMs": 1653600,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "This is so amazing on so many levels."
+    } ]
+  }, {
+    "tStartMs": 1656460,
+    "dDurationMs": 5640,
+    "segs": [ {
+      "utf8": "The one thing that really impresses me is\nyou actually took on the mindset of a data"
+    } ]
+  }, {
+    "tStartMs": 1662100,
+    "dDurationMs": 1640,
+    "segs": [ {
+      "utf8": "scientist. Pretty good,"
+    } ]
+  }, {
+    "tStartMs": 1665720,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "like putting on the hat of, okay, let me\ninvestigate the data."
+    } ]
+  }, {
+    "tStartMs": 1669340,
+    "dDurationMs": 1880,
+    "segs": [ {
+      "utf8": "Let me look at it in different ways."
+    } ]
+  }, {
+    "tStartMs": 1671840,
+    "dDurationMs": 1340,
+    "segs": [ {
+      "utf8": "Let me figure out what's wrong"
+    } ]
+  }, {
+    "tStartMs": 1674360,
+    "dDurationMs": 5560,
+    "segs": [ {
+      "utf8": "and, like, really dig around with this\nsort of investigative approach."
+    } ]
+  }, {
+    "tStartMs": 1680920,
+    "dDurationMs": 2700,
+    "segs": [ {
+      "utf8": "Yeah, and this is, I think, where\nnotebooks shine."
+    } ]
+  }, {
+    "tStartMs": 1684000,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "Like, I wrote little pieces of code to,\nlike, visualize things a little"
+    } ]
+  }, {
+    "tStartMs": 1687900,
+    "dDurationMs": 2520,
+    "segs": [ {
+      "utf8": "differently and to look at different data."
+    } ]
+  }, {
+    "tStartMs": 1690420,
+    "dDurationMs": 5820,
+    "segs": [ {
+      "utf8": "And in some ways it's throwaway code, but\nit's not because it's reusable for every"
+    } ]
+  }, {
+    "tStartMs": 1696240,
+    "dDurationMs": 3340,
+    "segs": [ {
+      "utf8": "eval I work on. So, like, you'll see at\nthe end, I'll share the notebook I use"
+    } ]
+  }, {
+    "tStartMs": 1699580,
+    "dDurationMs": 5500,
+    "segs": [ {
+      "utf8": "now. I basically created, like, an eval\ninvestigation notebook that I use anytime"
+    } ]
+  }, {
+    "tStartMs": 1705080,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "I'm working on an eval."
+    } ]
+  }, {
+    "tStartMs": 1707580,
+    "dDurationMs": 3280,
+    "segs": [ {
+      "utf8": "So the other thing that came up here is,\nlike, this middle one is actually the"
+    } ]
+  }, {
+    "tStartMs": 1710860,
+    "dDurationMs": 3360,
+    "segs": [ {
+      "utf8": "reason why it failed so much is because I\nhad a bug in one of my helper functions."
+    } ]
+  }, {
+    "tStartMs": 1714780,
+    "dDurationMs": 5700,
+    "segs": [ {
+      "utf8": "And so that was also interesting to see,\nlike, how this data really exposes where,"
+    } ]
+  }, {
+    "tStartMs": 1720480,
+    "dDurationMs": 2640,
+    "segs": [ {
+      "utf8": "like, something you're doing may not be\nworking the way you expect."
+    } ]
+  }, {
+    "tStartMs": 1724480,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "And then I did score these evals. So these\nare my—"
+    } ]
+  }, {
+    "tStartMs": 1728440,
+    "dDurationMs": 4740,
+    "segs": [ {
+      "utf8": "also in my notebook, I basically asked\nChatGPT to write me a Python function that"
+    } ]
+  }, {
+    "tStartMs": 1733180,
+    "dDurationMs": 2140,
+    "segs": [ {
+      "utf8": "would compare my human labels to my evals."
+    } ]
+  }, {
+    "tStartMs": 1736300,
+    "dDurationMs": 3840,
+    "segs": [ {
+      "utf8": "This was my very first run. This was\nbefore I did any sort of iterations to"
+    } ]
+  }, {
+    "tStartMs": 1740140,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "align it."
+    } ]
+  }, {
+    "tStartMs": 1741500,
+    "dDurationMs": 1700,
+    "segs": [ {
+      "utf8": "It's pretty hit or miss at this point."
+    } ]
+  }, {
+    "tStartMs": 1744080,
+    "dDurationMs": 3280,
+    "segs": [ {
+      "utf8": "And I don't even— I can't even— this was\nso long ago enough, I can't even tell you"
+    } ]
+  }, {
+    "tStartMs": 1747360,
+    "dDurationMs": 2700,
+    "segs": [ {
+      "utf8": "what this blank line was. I think it's\nthat I had human labels."
+    } ]
+  }, {
+    "tStartMs": 1751080,
+    "dDurationMs": 2820,
+    "segs": [ {
+      "utf8": "But I don't have evals for yet, but I'm\nnot totally sure."
+    } ]
+  }, {
+    "tStartMs": 1755440,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "So up until this point, this was that\nSunday through Thursday."
+    } ]
+  }, {
+    "tStartMs": 1758660,
+    "dDurationMs": 3160,
+    "segs": [ {
+      "utf8": "I did all of this in four days while\ntaking the class."
+    } ]
+  }, {
+    "tStartMs": 1762460,
+    "dDurationMs": 2940,
+    "segs": [ {
+      "utf8": "And I was really surprised by how far I\ncould get."
+    } ]
+  }, {
+    "tStartMs": 1765520,
+    "dDurationMs": 4120,
+    "segs": [ {
+      "utf8": "And a lot of this was because I just\nleaned on ChatGPT as a thought partner"
+    } ]
+  }, {
+    "tStartMs": 1769640,
+    "dDurationMs": 1460,
+    "segs": [ {
+      "utf8": "really heavily."
+    } ]
+  }, {
+    "tStartMs": 1772600,
+    "dDurationMs": 4520,
+    "segs": [ {
+      "utf8": "Okay, so now a week in, I'm like, okay, I\nguess I'm a notebook Python developer."
+    } ]
+  }, {
+    "tStartMs": 1777300,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "Let's keep going."
+    } ]
+  }, {
+    "tStartMs": 1779720,
+    "dDurationMs": 4280,
+    "segs": [ {
+      "utf8": "And here's what this did for me. I, oh, I\nthink I already talked through some of"
+    } ]
+  }, {
+    "tStartMs": 1784000,
+    "dDurationMs": 2460,
+    "segs": [ {
+      "utf8": "this. Sorry. Let's see if there's anything\nnew."
+    } ]
+  }, {
+    "tStartMs": 1787540,
+    "dDurationMs": 4560,
+    "segs": [ {
+      "utf8": "Really what this did for me is these two\nerror cases were my most concerning, and"
+    } ]
+  }, {
+    "tStartMs": 1792100,
+    "dDurationMs": 1780,
+    "segs": [ {
+      "utf8": "it really helped me size the problem."
+    } ]
+  }, {
+    "tStartMs": 1794280,
+    "dDurationMs": 4400,
+    "segs": [ {
+      "utf8": "Like, how big of a problem is this? And\nthat was really reassuring because, like,"
+    } ]
+  }, {
+    "tStartMs": 1798680,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "I know when I can measure something, I can\nimprove it."
+    } ]
+  }, {
+    "tStartMs": 1801740,
+    "dDurationMs": 3160,
+    "segs": [ {
+      "utf8": "It helped me find bugs, I already talked\nabout that, and it helped me get further"
+    } ]
+  }, {
+    "tStartMs": 1804900,
+    "dDurationMs": 2860,
+    "segs": [ {
+      "utf8": "clarity on my rubric. That was this\nsetting the scene one."
+    } ]
+  }, {
+    "tStartMs": 1810880,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "So if I go back to this question, I was\nlike, okay, now I have a really structured"
+    } ]
+  }, {
+    "tStartMs": 1815240,
+    "dDurationMs": 2080,
+    "segs": [ {
+      "utf8": "way to ask, are my changes having an\nimpact?"
+    } ]
+  }, {
+    "tStartMs": 1817800,
+    "dDurationMs": 2960,
+    "segs": [ {
+      "utf8": "And literally for every model change,\nprompt change, temperature change,"
+    } ]
+  }, {
+    "tStartMs": 1821040,
+    "dDurationMs": 4580,
+    "segs": [ {
+      "utf8": "chunking strategy change, or now I've\ngotten into workflow changes, I have a"
+    } ]
+  }, {
+    "tStartMs": 1825620,
+    "dDurationMs": 4300,
+    "segs": [ {
+      "utf8": "fast feedback loop. I basically make the\nchange, I run my evals on my dev set"
+    } ]
+  }, {
+    "tStartMs": 1829920,
+    "dDurationMs": 4840,
+    "segs": [ {
+      "utf8": "that's based on production, and I run my\nevals on my dev set based on my change."
+    } ]
+  }, {
+    "tStartMs": 1835120,
+    "dDurationMs": 5200,
+    "segs": [ {
+      "utf8": "And I literally look at this table, and\nit's never like totally better or totally"
+    } ]
+  }, {
+    "tStartMs": 1840320,
+    "dDurationMs": 4480,
+    "segs": [ {
+      "utf8": "worse. It's always, these evals got a\nlittle better, this one got a little"
+    } ]
+  }, {
+    "tStartMs": 1844800,
+    "dDurationMs": 4020,
+    "segs": [ {
+      "utf8": "worse, and I have to make a judgment call\nabout, is this better for, and should I"
+    } ]
+  }, {
+    "tStartMs": 1848820,
+    "dDurationMs": 4560,
+    "segs": [ {
+      "utf8": "release it or not? And I cannot emphasize\nthis enough, like as someone who teaches"
+    } ]
+  }, {
+    "tStartMs": 1853380,
+    "dDurationMs": 3080,
+    "segs": [ {
+      "utf8": "fast feedback loops, this just felt so\nmagical."
+    } ]
+  }, {
+    "tStartMs": 1856620,
+    "dDurationMs": 4340,
+    "segs": [ {
+      "utf8": "I was like, oh, I can actually measure a\nnon-deterministic product."
+    } ]
+  }, {
+    "tStartMs": 1861180,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "This is awesome."
+    } ]
+  }, {
+    "tStartMs": 1863980,
+    "dDurationMs": 1580,
+    "segs": [ {
+      "utf8": "Okay, so what does it look like today?"
+    } ]
+  }, {
+    "tStartMs": 1865560,
+    "dDurationMs": 5640,
+    "segs": [ {
+      "utf8": "Today I work out of VS Code. The reason\nwhy I switched to VS Code is I am a heavy"
+    } ]
+  }, {
+    "tStartMs": 1871200,
+    "dDurationMs": 5860,
+    "segs": [ {
+      "utf8": "Claude Code user. Like, I treasure my Opus\nminutes with Claude Code"
+    } ]
+  }, {
+    "tStartMs": 1877460,
+    "dDurationMs": 2420,
+    "segs": [ {
+      "utf8": "because it designs everything for me."
+    } ]
+  }, {
+    "tStartMs": 1881000,
+    "dDurationMs": 4920,
+    "segs": [ {
+      "utf8": "I want to clarify this because for the\nnon-engineers in the room, I am not vibe"
+    } ]
+  }, {
+    "tStartMs": 1885920,
+    "dDurationMs": 5720,
+    "segs": [ {
+      "utf8": "coding with Claude Code. Like, I'm not\nletting Claude Code just produce"
+    } ]
+  }, {
+    "tStartMs": 1891640,
+    "dDurationMs": 1980,
+    "segs": [ {
+      "utf8": "a whole bunch of code that I don't look\nat."
+    } ]
+  }, {
+    "tStartMs": 1893880,
+    "dDurationMs": 4560,
+    "segs": [ {
+      "utf8": "That terrifies me. I still have this\nphilosophy: if I'm going to execute the"
+    } ]
+  }, {
+    "tStartMs": 1898440,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "code, I better understand it. So I pair\nprogram with Claude Code."
+    } ]
+  }, {
+    "tStartMs": 1902080,
+    "dDurationMs": 4200,
+    "segs": [ {
+      "utf8": "We talk about what's the best way to do\nthis, and how should I implement this, and"
+    } ]
+  }, {
+    "tStartMs": 1906280,
+    "dDurationMs": 2160,
+    "segs": [ {
+      "utf8": "I don't like that pattern. What are the\nother patterns?"
+    } ]
+  }, {
+    "tStartMs": 1909020,
+    "dDurationMs": 1940,
+    "segs": [ {
+      "utf8": "And so that's how I get a lot of work\ndone."
+    } ]
+  }, {
+    "tStartMs": 1911080,
+    "dDurationMs": 4880,
+    "segs": [ {
+      "utf8": "And sure, Claude Code might write most of\nmy code, but it's really important to me"
+    } ]
+  }, {
+    "tStartMs": 1916440,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "that I understand all of it, and we'll\ntalk about why in just a second."
+    } ]
+  }, {
+    "tStartMs": 1921180,
+    "dDurationMs": 3680,
+    "segs": [ {
+      "utf8": "But basically the way that I work is, you\ncan see here, I don't know if it's very"
+    } ]
+  }, {
+    "tStartMs": 1924860,
+    "dDurationMs": 4540,
+    "segs": [ {
+      "utf8": "visible, but like, I have the whole evals\ndirectory in my project."
+    } ]
+  }, {
+    "tStartMs": 1930220,
+    "dDurationMs": 3200,
+    "segs": [ {
+      "utf8": "I run experiments, so I have different\ndirectories for different experiments that"
+    } ]
+  }, {
+    "tStartMs": 1933420,
+    "dDurationMs": 4380,
+    "segs": [ {
+      "utf8": "I'm running. I had Claude Code write my\nA/B test runner, where it's basically"
+    } ]
+  }, {
+    "tStartMs": 1937800,
+    "dDurationMs": 4180,
+    "segs": [ {
+      "utf8": "running all my traces against what's in\nproduction versus my change."
+    } ]
+  }, {
+    "tStartMs": 1942560,
+    "dDurationMs": 4820,
+    "segs": [ {
+      "utf8": "I keep track of—I have evals for cross\ndimensions, I have evals for individual"
+    } ]
+  }, {
+    "tStartMs": 1947380,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "dimensions. So this is growing into a\ngnarly beast, but I love it."
+    } ]
+  }, {
+    "tStartMs": 1953160,
+    "dDurationMs": 2200,
+    "segs": [ {
+      "utf8": "What you're seeing here on the right is my\nnotebook."
+    } ]
+  }, {
+    "tStartMs": 1955700,
+    "dDurationMs": 1920,
+    "segs": [ {
+      "utf8": "This is my current notebook that I work\nout of."
+    } ]
+  }, {
+    "tStartMs": 1957780,
+    "dDurationMs": 4580,
+    "segs": [ {
+      "utf8": "And actually this screenshot, this in this\nnotebook, is this little tool where I can"
+    } ]
+  }, {
+    "tStartMs": 1962360,
+    "dDurationMs": 4900,
+    "segs": [ {
+      "utf8": "actually select a transcript, and it shows\nme what my helper functions extracted,"
+    } ]
+  }, {
+    "tStartMs": 1967580,
+    "dDurationMs": 2100,
+    "segs": [ {
+      "utf8": "and then what each of the evals returned."
+    } ]
+  }, {
+    "tStartMs": 1970040,
+    "dDurationMs": 5380,
+    "segs": [ {
+      "utf8": "And so this is like my magical—\nDiagnostic, like what went wrong with this"
+    } ]
+  }, {
+    "tStartMs": 1975420,
+    "dDurationMs": 4300,
+    "segs": [ {
+      "utf8": "trace tool, which the fact that I can just\ndo this all on a notebook still blows my"
+    } ]
+  }, {
+    "tStartMs": 1979720,
+    "dDurationMs": 6000,
+    "segs": [ {
+      "utf8": "mind. The level of joy that I have in this\ntalk keeps increasing exponentially"
+    } ]
+  }, {
+    "tStartMs": 1985720,
+    "dDurationMs": 2260,
+    "segs": [ {
+      "utf8": "as you keep talking. It's quite\nfascinating."
+    } ]
+  }, {
+    "tStartMs": 1988440,
+    "dDurationMs": 4440,
+    "segs": [ {
+      "utf8": "And so the thing that is really great here\nis, like, not only do you use notebooks"
+    } ]
+  }, {
+    "tStartMs": 1992880,
+    "dDurationMs": 5440,
+    "segs": [ {
+      "utf8": "for data analysis, you created your own\nwidgets and little user interfaces in the"
+    } ]
+  }, {
+    "tStartMs": 1998320,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "notebooks, which is quite an advanced\nthing, and a lot of people know you can do"
+    } ]
+  }, {
+    "tStartMs": 2001420,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "that. Okay, so I didn't know I could do\nthat."
+    } ]
+  }, {
+    "tStartMs": 2004000,
+    "dDurationMs": 3700,
+    "segs": [ {
+      "utf8": "Claude Code did that for me. Like, here's\nwhat I'm good at."
+    } ]
+  }, {
+    "tStartMs": 2007760,
+    "dDurationMs": 2820,
+    "segs": [ {
+      "utf8": "I'm really good at describing what I want,\nright?"
+    } ]
+  }, {
+    "tStartMs": 2010580,
+    "dDurationMs": 4640,
+    "segs": [ {
+      "utf8": "It's, okay, I see this error in this\ntrace, but you didn't tell me the trace"
+    } ]
+  }, {
+    "tStartMs": 2015220,
+    "dDurationMs": 2020,
+    "segs": [ {
+      "utf8": "number. Like, how am I supposed to go\ninvestigate?"
+    } ]
+  }, {
+    "tStartMs": 2017580,
+    "dDurationMs": 1500,
+    "segs": [ {
+      "utf8": "And they're like, Oh, let me add the trace\nnumber."
+    } ]
+  }, {
+    "tStartMs": 2019080,
+    "dDurationMs": 2520,
+    "segs": [ {
+      "utf8": "I'm like, Okay, now I have the trace\nnumber, but I don't want to go to Airtable"
+    } ]
+  }, {
+    "tStartMs": 2021600,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "to look it up."
+    } ]
+  }, {
+    "tStartMs": 2023300,
+    "dDurationMs": 3760,
+    "segs": [ {
+      "utf8": "And I have a cache helper functions, and\nyou let me look at the cache, but just put"
+    } ]
+  }, {
+    "tStartMs": 2027060,
+    "dDurationMs": 4860,
+    "segs": [ {
+      "utf8": "it all in one place. So I just demand\nthings from Claude Code, and we work on it"
+    } ]
+  }, {
+    "tStartMs": 2031920,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "together."
+    } ]
+  }, {
+    "tStartMs": 2033580,
+    "dDurationMs": 3700,
+    "segs": [ {
+      "utf8": "And actually, if there's anything you take\naway from this talk, it's that you don't"
+    } ]
+  }, {
+    "tStartMs": 2037280,
+    "dDurationMs": 3520,
+    "segs": [ {
+      "utf8": "have to know how to do any of this because\nLLMs are really good guides."
+    } ]
+  }, {
+    "tStartMs": 2042000,
+    "dDurationMs": 4100,
+    "segs": [ {
+      "utf8": "But I have vibe coded too, and what I'll\ntell you is just make sure you understand"
+    } ]
+  }, {
+    "tStartMs": 2046100,
+    "dDurationMs": 4040,
+    "segs": [ {
+      "utf8": "what it does, because every time I give\nClaude Code a little bit of a longer"
+    } ]
+  }, {
+    "tStartMs": 2050140,
+    "dDurationMs": 5380,
+    "segs": [ {
+      "utf8": "leash, things go horribly wrong. So, like,\nI am pair programming with Claude Code."
+    } ]
+  }, {
+    "tStartMs": 2056000,
+    "dDurationMs": 3520,
+    "segs": [ {
+      "utf8": "Claude Code is not just generating a bunch\nof code with me, for me."
+    } ]
+  }, {
+    "tStartMs": 2059780,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "That's great, because I think a lot of\npeople, they try to eat too much."
+    } ]
+  }, {
+    "tStartMs": 2063720,
+    "dDurationMs": 4520,
+    "segs": [ {
+      "utf8": "Like, they try to have the LLM, like, eval\neverything without looking at the data."
+    } ]
+  }, {
+    "tStartMs": 2068240,
+    "dDurationMs": 5780,
+    "segs": [ {
+      "utf8": "You have a sense of, okay, let me kind of\nwork with AI to understand"
+    } ]
+  }, {
+    "tStartMs": 2074020,
+    "dDurationMs": 5320,
+    "segs": [ {
+      "utf8": "the problem deeply, not let it just look\nat my traces and do my evals for me, which"
+    } ]
+  }, {
+    "tStartMs": 2079340,
+    "dDurationMs": 3120,
+    "segs": [ {
+      "utf8": "is, like, what a lot of people try to do,\nand it doesn't work."
+    } ]
+  }, {
+    "tStartMs": 2083480,
+    "dDurationMs": 4720,
+    "segs": [ {
+      "utf8": "Yeah, I think something about this class,\nlike, resonated with me so much at, like,"
+    } ]
+  }, {
+    "tStartMs": 2088200,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "my core that I just wanted to learn it\nreally well."
+    } ]
+  }, {
+    "tStartMs": 2091800,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "And I think also it's why I didn't want to\nuse the eval tool."
+    } ]
+  }, {
+    "tStartMs": 2095360,
+    "dDurationMs": 2760,
+    "segs": [ {
+      "utf8": "Like, I figured if I rolled my own, I\nwould know it inside and out."
+    } ]
+  }, {
+    "tStartMs": 2098240,
+    "dDurationMs": 4280,
+    "segs": [ {
+      "utf8": "And even now, like, even on the other side\nof this, I've been watching the eval"
+    } ]
+  }, {
+    "tStartMs": 2102520,
+    "dDurationMs": 4300,
+    "segs": [ {
+      "utf8": "videos from this second cohort, and I'm\nstill like, it just looks more complicated"
+    } ]
+  }, {
+    "tStartMs": 2106820,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "than what I have, and what I have is\nworking, so I'm going to stick with it."
+    } ]
+  }, {
+    "tStartMs": 2111520,
+    "dDurationMs": 2520,
+    "segs": [ {
+      "utf8": "The other thing that's different today is"
+    } ]
+  }, {
+    "tStartMs": 2115600,
+    "dDurationMs": 4280,
+    "segs": [ {
+      "utf8": "my notebook has graduated. So before, in\nmy first notebook,"
+    } ]
+  }, {
+    "tStartMs": 2120660,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "all my eval code and my data analysis\ntools were in one notebook."
+    } ]
+  }, {
+    "tStartMs": 2126300,
+    "dDurationMs": 5820,
+    "segs": [ {
+      "utf8": "Now my evals are part of my, like, normal\nrepo because, like, I run"
+    } ]
+  }, {
+    "tStartMs": 2132120,
+    "dDurationMs": 1640,
+    "segs": [ {
+      "utf8": "some of them as guardrails in production."
+    } ]
+  }, {
+    "tStartMs": 2134440,
+    "dDurationMs": 1520,
+    "segs": [ {
+      "utf8": "I run them on a percentage of traces."
+    } ]
+  }, {
+    "tStartMs": 2137040,
+    "dDurationMs": 5540,
+    "segs": [ {
+      "utf8": "And so now my notebook is just a data\nanalysis tool, and"
+    } ]
+  }, {
+    "tStartMs": 2142580,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "it can execute my evals, but it's\nexecuting my production code."
+    } ]
+  }, {
+    "tStartMs": 2146840,
+    "dDurationMs": 1540,
+    "segs": [ {
+      "utf8": "So they're no longer commingled."
+    } ]
+  }, {
+    "tStartMs": 2149240,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "And so in my notebook, I have some tools\nthat allow me—the first thing it does is"
+    } ]
+  }, {
+    "tStartMs": 2152980,
+    "dDurationMs": 3260,
+    "segs": [ {
+      "utf8": "it allows me to run all my helper\nfunctions and cache them."
+    } ]
+  }, {
+    "tStartMs": 2156880,
+    "dDurationMs": 3840,
+    "segs": [ {
+      "utf8": "So those are my expensive calls. I can do\nthat for my dev set once."
+    } ]
+  }, {
+    "tStartMs": 2161400,
+    "dDurationMs": 4200,
+    "segs": [ {
+      "utf8": "And then because my dev set isn't changing\nvery often, the only time I ever have to"
+    } ]
+  }, {
+    "tStartMs": 2165600,
+    "dDurationMs": 4460,
+    "segs": [ {
+      "utf8": "rerun those is if I change a helper\nfunction, and that's been huge."
+    } ]
+  }, {
+    "tStartMs": 2170500,
+    "dDurationMs": 2540,
+    "segs": [ {
+      "utf8": "And then I can rerun specific evals."
+    } ]
+  }, {
+    "tStartMs": 2173220,
+    "dDurationMs": 2240,
+    "segs": [ {
+      "utf8": "I can rerun all my evals right from my\nnotebook."
+    } ]
+  }, {
+    "tStartMs": 2176500,
+    "dDurationMs": 3520,
+    "segs": [ {
+      "utf8": "I do my analysis and visualization right\nfrom my notebook."
+    } ]
+  }, {
+    "tStartMs": 2180300,
+    "dDurationMs": 4460,
+    "segs": [ {
+      "utf8": "So this is a run I did yesterday. This is\nhow I'm currently doing on that"
+    } ]
+  }, {
+    "tStartMs": 2184760,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "general—suggested"
+    } ]
+  }, {
+    "tStartMs": 2187660,
+    "dDurationMs": 2080,
+    "segs": [ {
+      "utf8": "general question. You can see I've gotten\nthis error."
+    } ]
+  }, {
+    "tStartMs": 2190800,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "It's almost non-existent. And actually,\nwhen it shows up, it's showing up because"
+    } ]
+  }, {
+    "tStartMs": 2194660,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "there's some ambiguity. Like the\nparticipant starts by asking a specific"
+    } ]
+  }, {
+    "tStartMs": 2198400,
+    "dDurationMs": 2640,
+    "segs": [ {
+      "utf8": "question and then falls back to a general\nquestion."
+    } ]
+  }, {
+    "tStartMs": 2201740,
+    "dDurationMs": 5640,
+    "segs": [ {
+      "utf8": "But literally having access to this data\nand these visualizations has allowed me to"
+    } ]
+  }, {
+    "tStartMs": 2207380,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "iteratively,"
+    } ]
+  }, {
+    "tStartMs": 2209360,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "like, dramatically reduce the errors in my\ninterview coach."
+    } ]
+  }, {
+    "tStartMs": 2212560,
+    "dDurationMs": 5220,
+    "segs": [ {
+      "utf8": "And then the notebook also has, like,\ndiagnostic tools."
+    } ]
+  }, {
+    "tStartMs": 2219060,
+    "dDurationMs": 2500,
+    "segs": [ {
+      "utf8": "Okay, what's going on with this trace that\nfailed?"
+    } ]
+  }, {
+    "tStartMs": 2221720,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "Can I go look at why it failed? Is it a\nproblem with one of the helper functions?"
+    } ]
+  }, {
+    "tStartMs": 2225700,
+    "dDurationMs": 1480,
+    "segs": [ {
+      "utf8": "Is it a problem with the eval itself?"
+    } ]
+  }, {
+    "tStartMs": 2227360,
+    "dDurationMs": 2520,
+    "segs": [ {
+      "utf8": "Is it a problem actually with the trace\nand it's a real failure?"
+    } ]
+  }, {
+    "tStartMs": 2230440,
+    "dDurationMs": 2120,
+    "segs": [ {
+      "utf8": "And I can do all that right in the\nnotebook."
+    } ]
+  }, {
+    "tStartMs": 2232760,
+    "dDurationMs": 3020,
+    "segs": [ {
+      "utf8": "The other thing I can do in the notebook,\nwhich I don't have screenshots of,"
+    } ]
+  }, {
+    "tStartMs": 2236600,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "is partly because one piece of it is\ncurrently broken that I need to fix, but"
+    } ]
+  }, {
+    "tStartMs": 2240040,
+    "dDurationMs": 5720,
+    "segs": [ {
+      "utf8": "it can pull in my annotations and then\ncompare my annotations to my"
+    } ]
+  }, {
+    "tStartMs": 2245760,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "evals and then score any of my LLMs as\njudges."
+    } ]
+  }, {
+    "tStartMs": 2249880,
+    "dDurationMs": 4600,
+    "segs": [ {
+      "utf8": "I just changed my annotation output, and\nso that part of the notebook is currently"
+    } ]
+  }, {
+    "tStartMs": 2254480,
+    "dDurationMs": 4780,
+    "segs": [ {
+      "utf8": "broken. I need to fix it. But it's really\nnice having all of this in one place."
+    } ]
+  }, {
+    "tStartMs": 2259740,
+    "dDurationMs": 4260,
+    "segs": [ {
+      "utf8": "And again, I just want to say these\nnotebooks are so well organized."
+    } ]
+  }, {
+    "tStartMs": 2264200,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "They have sections, they have\ndocumentation, and that's not just"
+    } ]
+  }, {
+    "tStartMs": 2267860,
+    "dDurationMs": 2860,
+    "segs": [ {
+      "utf8": "aesthetics. This actually helps when\nyou're using AI."
+    } ]
+  }, {
+    "tStartMs": 2272580,
+    "dDurationMs": 3300,
+    "segs": [ {
+      "utf8": "Okay, so I will say Claude Code created\nthis notebook for me."
+    } ]
+  }, {
+    "tStartMs": 2276480,
+    "dDurationMs": 3020,
+    "segs": [ {
+      "utf8": "And because Claude Code created it and,\nlike, I had to work my way through"
+    } ]
+  }, {
+    "tStartMs": 2279500,
+    "dDurationMs": 5020,
+    "segs": [ {
+      "utf8": "understanding it, I would regularly update\nthe Markdown because I just didn't trust"
+    } ]
+  }, {
+    "tStartMs": 2284520,
+    "dDurationMs": 3140,
+    "segs": [ {
+      "utf8": "that since I— didn't write it, that I\nwould remember it."
+    } ]
+  }, {
+    "tStartMs": 2287760,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "So, like, a lot of the documentation is\nfor me because, like, I come back to the"
+    } ]
+  }, {
+    "tStartMs": 2291320,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "notebook and I'm like, which cells do I\nhave to run before I can run an eval, or"
+    } ]
+  }, {
+    "tStartMs": 2294920,
+    "dDurationMs": 1660,
+    "segs": [ {
+      "utf8": "what's going on with the cache?"
+    } ]
+  }, {
+    "tStartMs": 2297980,
+    "dDurationMs": 4400,
+    "segs": [ {
+      "utf8": "And yeah, I've learned, like, one of my\nbiggest takeaways working with—I think"
+    } ]
+  }, {
+    "tStartMs": 2302380,
+    "dDurationMs": 5820,
+    "segs": [ {
+      "utf8": "I've been using Claude Code for three\nweeks, maybe four weeks—and one of my"
+    } ]
+  }, {
+    "tStartMs": 2308200,
+    "dDurationMs": 3320,
+    "segs": [ {
+      "utf8": "favorite things about it is to be like,\nokay, let's create a README file."
+    } ]
+  }, {
+    "tStartMs": 2311760,
+    "dDurationMs": 1880,
+    "segs": [ {
+      "utf8": "Okay, what did you learn from this\nconversation?"
+    } ]
+  }, {
+    "tStartMs": 2313920,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "Let's document that. Because everybody who\ncodes knows, like, one of the hardest"
+    } ]
+  }, {
+    "tStartMs": 2318980,
+    "dDurationMs": 3060,
+    "segs": [ {
+      "utf8": "pieces is keeping all that context in your\nhead and getting back up to speed."
+    } ]
+  }, {
+    "tStartMs": 2322580,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "So I'm using LLMs to help solve that\nproblem for me."
+    } ]
+  }, {
+    "tStartMs": 2326600,
+    "dDurationMs": 1900,
+    "segs": [ {
+      "utf8": "Yeah, it's really powerful, and it's\nunique."
+    } ]
+  }, {
+    "tStartMs": 2328600,
+    "dDurationMs": 4900,
+    "segs": [ {
+      "utf8": "It's a unique aspect of notebooks that you\ncan have this kind of in-context learning"
+    } ]
+  }, {
+    "tStartMs": 2333500,
+    "dDurationMs": 2620,
+    "segs": [ {
+      "utf8": "where you can have prose and code"
+    } ]
+  }, {
+    "tStartMs": 2336920,
+    "dDurationMs": 4580,
+    "segs": [ {
+      "utf8": "interleaved in this way. I find that it\nreally can really help language models,"
+    } ]
+  }, {
+    "tStartMs": 2341680,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "especially since you're updating it with\nyour understanding and knowledge."
+    } ]
+  }, {
+    "tStartMs": 2346420,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "You're not just, like,"
+    } ]
+  }, {
+    "tStartMs": 2348140,
+    "dDurationMs": 3720,
+    "segs": [ {
+      "utf8": "letting it—you're actually, like, grooming\nthis very carefully."
+    } ]
+  }, {
+    "tStartMs": 2352600,
+    "dDurationMs": 5020,
+    "segs": [ {
+      "utf8": "Yeah, that's a great way to put it, and I\nthink that's really important to me."
+    } ]
+  }, {
+    "tStartMs": 2357620,
+    "dDurationMs": 3680,
+    "segs": [ {
+      "utf8": "I gave this talk yesterday, and I realized\neverybody thought I was just vibe coding,"
+    } ]
+  }, {
+    "tStartMs": 2361540,
+    "dDurationMs": 2720,
+    "segs": [ {
+      "utf8": "and I was like, oh, I need to distinguish\nthis because I don't want to send people"
+    } ]
+  }, {
+    "tStartMs": 2364260,
+    "dDurationMs": 4460,
+    "segs": [ {
+      "utf8": "off to just create a notebook. If I let\nClaude just create this on its own, like,"
+    } ]
+  }, {
+    "tStartMs": 2368720,
+    "dDurationMs": 3040,
+    "segs": [ {
+      "utf8": "the data analysis would be wrong,\nespecially if it was Sonnet."
+    } ]
+  }, {
+    "tStartMs": 2371840,
+    "dDurationMs": 1460,
+    "segs": [ {
+      "utf8": "Like, Sonnet is sloppy."
+    } ]
+  }, {
+    "tStartMs": 2374700,
+    "dDurationMs": 5340,
+    "segs": [ {
+      "utf8": "And actually, Andrew Karpathy, in his\nSoftware 3.0 talk, had a really great line"
+    } ]
+  }, {
+    "tStartMs": 2380040,
+    "dDurationMs": 3840,
+    "segs": [ {
+      "utf8": "that resonated with me, which was, I\noptimize for four-line diffs, not a"
+    } ]
+  }, {
+    "tStartMs": 2383880,
+    "dDurationMs": 4800,
+    "segs": [ {
+      "utf8": "thousand-line diffs. And that, like,\nencapsulates perfectly how I work with"
+    } ]
+  }, {
+    "tStartMs": 2388680,
+    "dDurationMs": 4620,
+    "segs": [ {
+      "utf8": "Claude Code. Because I'm really terrified\nof ending up with a product that I can't"
+    } ]
+  }, {
+    "tStartMs": 2393300,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "maintain myself."
+    } ]
+  }, {
+    "tStartMs": 2395460,
+    "dDurationMs": 4580,
+    "segs": [ {
+      "utf8": "Okay, so the other thing that has changed,\nI now had Claude Code build me a custom"
+    } ]
+  }, {
+    "tStartMs": 2400040,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "annotation tool."
+    } ]
+  }, {
+    "tStartMs": 2402120,
+    "dDurationMs": 2640,
+    "segs": [ {
+      "utf8": "You can see here it follows everything you\nlearned in this class."
+    } ]
+  }, {
+    "tStartMs": 2404860,
+    "dDurationMs": 2740,
+    "segs": [ {
+      "utf8": "I got a progress bar at the top. This is\nmy trace."
+    } ]
+  }, {
+    "tStartMs": 2408780,
+    "dDurationMs": 3580,
+    "segs": [ {
+      "utf8": "It's really nicely color coded and, like,\nvisual for helping me understand, like,"
+    } ]
+  }, {
+    "tStartMs": 2412360,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "what section I'm in. I've got an\nannotation box."
+    } ]
+  }, {
+    "tStartMs": 2415260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "I've got failure modes. I've got next and\nback."
+    } ]
+  }, {
+    "tStartMs": 2417640,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "Everything is key coded so I can do fast\nkeyboard shortcuts."
+    } ]
+  }, {
+    "tStartMs": 2422420,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "I actually have about half a dozen custom\nannotation tools, and because sometimes"
+    } ]
+  }, {
+    "tStartMs": 2428300,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "I'm annotating the whole trace, sometimes\nI'm annotating a single question."
+    } ]
+  }, {
+    "tStartMs": 2432400,
+    "dDurationMs": 2480,
+    "segs": [ {
+      "utf8": "So I'm, like, loading a whole bunch of\nquestions into the tool."
+    } ]
+  }, {
+    "tStartMs": 2435740,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "And just any time I'm working on an eval\nand, like, my annotation needs change, I"
+    } ]
+  }, {
+    "tStartMs": 2440740,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "literally just have Claude Code. Like, I\ntell it, I like the interface from this"
+    } ]
+  }, {
+    "tStartMs": 2444360,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "annotation tool, but now I have new input\nor a new output format."
+    } ]
+  }, {
+    "tStartMs": 2448260,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "Just spin up another tool. And it does it\nin two minutes."
+    } ]
+  }, {
+    "tStartMs": 2452260,
+    "dDurationMs": 2620,
+    "segs": [ {
+      "utf8": "Like, it's just so fast. So these I vibe\ncode."
+    } ]
+  }, {
+    "tStartMs": 2455000,
+    "dDurationMs": 1800,
+    "segs": [ {
+      "utf8": "I can't even tell you how this is\nimplemented."
+    } ]
+  }, {
+    "tStartMs": 2457700,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "I just test the inputs and the outputs and\nmake sure that it's working."
+    } ]
+  }, {
+    "tStartMs": 2462800,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "And then here's the thing that's really\nexciting to me, is that I started this"
+    } ]
+  }, {
+    "tStartMs": 2466580,
+    "dDurationMs": 2180,
+    "segs": [ {
+      "utf8": "project trying to create a teaching tool,"
+    } ]
+  }, {
+    "tStartMs": 2470380,
+    "dDurationMs": 4400,
+    "segs": [ {
+      "utf8": "and I was using it in my classes. And,\nlike, my classes are cohorts of 20 to 50"
+    } ]
+  }, {
+    "tStartMs": 2474780,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "students. It's not high volume. If\nsomething went wrong, I would get an email"
+    } ]
+  }, {
+    "tStartMs": 2478400,
+    "dDurationMs": 4280,
+    "segs": [ {
+      "utf8": "and I would just rerun it. But over the\ncourse of this project, I started talking"
+    } ]
+  }, {
+    "tStartMs": 2482680,
+    "dDurationMs": 1060,
+    "segs": [ {
+      "utf8": "to this company, Vistaly."
+    } ]
+  }, {
+    "tStartMs": 2484720,
+    "dDurationMs": 4380,
+    "segs": [ {
+      "utf8": "Vistaly is a software product for product\ndiscovery."
+    } ]
+  }, {
+    "tStartMs": 2489580,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "They have a whole flow for customer\ninterviews and helping you synthesize your"
+    } ]
+  }, {
+    "tStartMs": 2493520,
+    "dDurationMs": 2840,
+    "segs": [ {
+      "utf8": "customer interviews and create opportunity\nsolution trees."
+    } ]
+  }, {
+    "tStartMs": 2496820,
+    "dDurationMs": 3320,
+    "segs": [ {
+      "utf8": "And actually, we're in the process of\nrolling out the interview coach as a beta"
+    } ]
+  }, {
+    "tStartMs": 2500140,
+    "dDurationMs": 1300,
+    "segs": [ {
+      "utf8": "feature inside Vistaly."
+    } ]
+  }, {
+    "tStartMs": 2502440,
+    "dDurationMs": 4640,
+    "segs": [ {
+      "utf8": "And what's crazy to me about this, I'm\ngoing to tell you, two weeks ago I had"
+    } ]
+  }, {
+    "tStartMs": 2507080,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "never worked in a IDE."
+    } ]
+  }, {
+    "tStartMs": 2508860,
+    "dDurationMs": 3020,
+    "segs": [ {
+      "utf8": "Two weeks ago, I never had a dev\nenvironment and a prod environment."
+    } ]
+  }, {
+    "tStartMs": 2512180,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "And suddenly, like, I have to make\nproduction quality code."
+    } ]
+  }, {
+    "tStartMs": 2516080,
+    "dDurationMs": 3580,
+    "segs": [ {
+      "utf8": "So for the last two weeks, I've been\nworking nonstop, like learning how to be a"
+    } ]
+  }, {
+    "tStartMs": 2519660,
+    "dDurationMs": 5920,
+    "segs": [ {
+      "utf8": "real software engineer. I've been working\nwith Opus and O3 on, okay, walk me"
+    } ]
+  }, {
+    "tStartMs": 2525580,
+    "dDurationMs": 2720,
+    "segs": [ {
+      "utf8": "through error handling, beat this up, like\nwhere is it going to fail?"
+    } ]
+  }, {
+    "tStartMs": 2529020,
+    "dDurationMs": 3160,
+    "segs": [ {
+      "utf8": "And I'm now pretty confident that I have a\npretty good production product."
+    } ]
+  }, {
+    "tStartMs": 2532860,
+    "dDurationMs": 2400,
+    "segs": [ {
+      "utf8": "We are rolling out to beta customers this\nweek."
+    } ]
+  }, {
+    "tStartMs": 2535360,
+    "dDurationMs": 4300,
+    "segs": [ {
+      "utf8": "We'll see how it goes, but I'm crossing my\nfingers that I've got a real AI app"
+    } ]
+  }, {
+    "tStartMs": 2539660,
+    "dDurationMs": 1340,
+    "segs": [ {
+      "utf8": "that's doing pretty darn well."
+    } ]
+  }, {
+    "tStartMs": 2543640,
+    "dDurationMs": 1060,
+    "segs": [ {
+      "utf8": "This is amazing."
+    } ]
+  }, {
+    "tStartMs": 2546760,
+    "dDurationMs": 5780,
+    "segs": [ {
+      "utf8": "And as a product person, designer, kind of\nhalf-baked engineer, it feels really good"
+    } ]
+  }, {
+    "tStartMs": 2552540,
+    "dDurationMs": 4280,
+    "segs": [ {
+      "utf8": "to release, like, a real product where I\nliterally did every part."
+    } ]
+  }, {
+    "tStartMs": 2557020,
+    "dDurationMs": 3140,
+    "segs": [ {
+      "utf8": "It's very empowering, and I could not have\ndone it without LLMs."
+    } ]
+  }, {
+    "tStartMs": 2561120,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "This might be the best evaled product in\nproduction that"
+    } ]
+  }, {
+    "tStartMs": 2567000,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "I have seen. Like, from now on, when\nsomeone asks me, hey, like, what's a good"
+    } ]
+  }, {
+    "tStartMs": 2570660,
+    "dDurationMs": 5880,
+    "segs": [ {
+      "utf8": "example of a really good eval, like a\nproduct in production, this is"
+    } ]
+  }, {
+    "tStartMs": 2576540,
+    "dDurationMs": 4620,
+    "segs": [ {
+      "utf8": "it. There's actually, there's one story\nthat just makes me giggle when I think"
+    } ]
+  }, {
+    "tStartMs": 2581160,
+    "dDurationMs": 2080,
+    "segs": [ {
+      "utf8": "about it. Like, I'm so happy that I'm at\nthis point."
+    } ]
+  }, {
+    "tStartMs": 2583480,
+    "dDurationMs": 4880,
+    "segs": [ {
+      "utf8": "So a few weeks ago, I ran two cohorts of\ncontinuous interviewing in July, which"
+    } ]
+  }, {
+    "tStartMs": 2588360,
+    "dDurationMs": 2340,
+    "segs": [ {
+      "utf8": "means I was getting way more traces than I\nhad ever had."
+    } ]
+  }, {
+    "tStartMs": 2591220,
+    "dDurationMs": 3320,
+    "segs": [ {
+      "utf8": "And after week one, I started to see a new\nerror."
+    } ]
+  }, {
+    "tStartMs": 2594540,
+    "dDurationMs": 5240,
+    "segs": [ {
+      "utf8": "And the error was excerpts would get\nrepeated across dimensions."
+    } ]
+  }, {
+    "tStartMs": 2600120,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "So, like, in the opening with the\nstory-based, or in setting the scene, the"
+    } ]
+  }, {
+    "tStartMs": 2603340,
+    "dDurationMs": 2520,
+    "segs": [ {
+      "utf8": "coach would be like, this is a great\nsetting the scene question."
+    } ]
+  }, {
+    "tStartMs": 2605960,
+    "dDurationMs": 2960,
+    "segs": [ {
+      "utf8": "And then in building the timeline, it\nwould be the exact same excerpt."
+    } ]
+  }, {
+    "tStartMs": 2609280,
+    "dDurationMs": 2860,
+    "segs": [ {
+      "utf8": "And it would be like, this is a terrible\nbuilding the timeline question."
+    } ]
+  }, {
+    "tStartMs": 2612720,
+    "dDurationMs": 1580,
+    "segs": [ {
+      "utf8": "That's really confusing for students."
+    } ]
+  }, {
+    "tStartMs": 2614720,
+    "dDurationMs": 5620,
+    "segs": [ {
+      "utf8": "And it's one of the first times I saw an\nerror mode that, like, spanned LLM calls."
+    } ]
+  }, {
+    "tStartMs": 2620880,
+    "dDurationMs": 2900,
+    "segs": [ {
+      "utf8": "And so at first I was like, oh, how am I\ngoing to fix this?"
+    } ]
+  }, {
+    "tStartMs": 2623880,
+    "dDurationMs": 4140,
+    "segs": [ {
+      "utf8": "And my first idea was like, I need a\nquestion classifier, and then I'll only"
+    } ]
+  }, {
+    "tStartMs": 2628020,
+    "dDurationMs": 2400,
+    "segs": [ {
+      "utf8": "send each dimension the questions that are\nrelevant to it."
+    } ]
+  }, {
+    "tStartMs": 2630520,
+    "dDurationMs": 3320,
+    "segs": [ {
+      "utf8": "And I spent like a day and a half working\non a question classifier, which sucks."
+    } ]
+  }, {
+    "tStartMs": 2633920,
+    "dDurationMs": 3880,
+    "segs": [ {
+      "utf8": "Like, it's so ambiguous and so hard, and I\ndon't have lots of questions, and, like,"
+    } ]
+  }, {
+    "tStartMs": 2637920,
+    "dDurationMs": 1080,
+    "segs": [ {
+      "utf8": "it was just getting gnarly."
+    } ]
+  }, {
+    "tStartMs": 2639880,
+    "dDurationMs": 1880,
+    "segs": [ {
+      "utf8": "And I took a break, and I was at dinner."
+    } ]
+  }, {
+    "tStartMs": 2641760,
+    "dDurationMs": 5680,
+    "segs": [ {
+      "utf8": "I was talking to my husband about it, and\nI was like, oh, what if I just sent any"
+    } ]
+  }, {
+    "tStartMs": 2647440,
+    "dDurationMs": 4720,
+    "segs": [ {
+      "utf8": "subsequent call the list of excerpts that\nwere already used and told it not to use"
+    } ]
+  }, {
+    "tStartMs": 2652160,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "them?"
+    } ]
+  }, {
+    "tStartMs": 2654580,
+    "dDurationMs": 4780,
+    "segs": [ {
+      "utf8": "Okay, I went from having an error mode\nthat showed up in 81% of transcripts to"
+    } ]
+  }, {
+    "tStartMs": 2659360,
+    "dDurationMs": 3240,
+    "segs": [ {
+      "utf8": "having an error mode that only occurred in\n3% of transcripts."
+    } ]
+  }, {
+    "tStartMs": 2662600,
+    "dDurationMs": 3920,
+    "segs": [ {
+      "utf8": "And what was super fun about this is that\nI didn't even know how to detect the"
+    } ]
+  }, {
+    "tStartMs": 2666520,
+    "dDurationMs": 2900,
+    "segs": [ {
+      "utf8": "error, because the excerpts weren't\nexactly the same."
+    } ]
+  }, {
+    "tStartMs": 2669720,
+    "dDurationMs": 3880,
+    "segs": [ {
+      "utf8": "So first I had to figure out, like, how do\nI write an eval that even detects this"
+    } ]
+  }, {
+    "tStartMs": 2673600,
+    "dDurationMs": 4040,
+    "segs": [ {
+      "utf8": "error? And then I had to figure out, okay,\nthis isn't a prompt change."
+    } ]
+  }, {
+    "tStartMs": 2677860,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "This is actually a workflow change. So how\ndo I A/B test a workflow change?"
+    } ]
+  }, {
+    "tStartMs": 2682800,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "And then I had—and it all worked. And,\nlike, I did it all in three days."
+    } ]
+  }, {
+    "tStartMs": 2687740,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "That's when I was like, okay, I feel like\nan AI engineer now."
+    } ]
+  }, {
+    "tStartMs": 2690740,
+    "dDurationMs": 2580,
+    "segs": [ {
+      "utf8": "Oh, you are definitely an AI engineer."
+    } ]
+  }, {
+    "tStartMs": 2693320,
+    "dDurationMs": 3060,
+    "segs": [ {
+      "utf8": "You are in the very center of AI engineer."
+    } ]
+  }, {
+    "tStartMs": 2696540,
+    "dDurationMs": 5100,
+    "segs": [ {
+      "utf8": "There is probably—you're like the example\nthat we need to show everybody as an AI"
+    } ]
+  }, {
+    "tStartMs": 2701640,
+    "dDurationMs": 5200,
+    "segs": [ {
+      "utf8": "engineer, to be honest. I really love that\nyou're always measuring things before you"
+    } ]
+  }, {
+    "tStartMs": 2706840,
+    "dDurationMs": 1060,
+    "segs": [ {
+      "utf8": "do the improvement."
+    } ]
+  }, {
+    "tStartMs": 2709280,
+    "dDurationMs": 5340,
+    "segs": [ {
+      "utf8": "There's so few people out there who\nactually take the effort and the"
+    } ]
+  }, {
+    "tStartMs": 2714620,
+    "dDurationMs": 4020,
+    "segs": [ {
+      "utf8": "initiative to write the automated\nevaluator, or whatever it is, make sure"
+    } ]
+  }, {
+    "tStartMs": 2718640,
+    "dDurationMs": 4600,
+    "segs": [ {
+      "utf8": "they have measured 81%, then implement the\nfix, and then say 3%."
+    } ]
+  }, {
+    "tStartMs": 2723240,
+    "dDurationMs": 5040,
+    "segs": [ {
+      "utf8": "I don't know. So much of this is because,\nlike, I just teach this exact same stuff"
+    } ]
+  }, {
+    "tStartMs": 2728280,
+    "dDurationMs": 5400,
+    "segs": [ {
+      "utf8": "in a different domain, right? Like, in\ndiscovery, we talk about start with an"
+    } ]
+  }, {
+    "tStartMs": 2733680,
+    "dDurationMs": 1180,
+    "segs": [ {
+      "utf8": "outcome. What are you trying to achieve?"
+    } ]
+  }, {
+    "tStartMs": 2734860,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "If you don't know what that is and you\ncan't measure it, don't start changing"
+    } ]
+  }, {
+    "tStartMs": 2738480,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "things."
+    } ]
+  }, {
+    "tStartMs": 2739720,
+    "dDurationMs": 5300,
+    "segs": [ {
+      "utf8": "So there were so many analogies. Like,\neven Campbell's hammering on, look at your"
+    } ]
+  }, {
+    "tStartMs": 2745020,
+    "dDurationMs": 3880,
+    "segs": [ {
+      "utf8": "data. My equivalent of that is go talk to\nyour customer, right?"
+    } ]
+  }, {
+    "tStartMs": 2749240,
+    "dDurationMs": 4820,
+    "segs": [ {
+      "utf8": "There's just so many analogies that I\nthink I was"
+    } ]
+  }, {
+    "tStartMs": 2754060,
+    "dDurationMs": 5900,
+    "segs": [ {
+      "utf8": "really had a strong mental model to layer\nall"
+    } ]
+  }, {
+    "tStartMs": 2759960,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "this stuff onto."
+    } ]
+  }, {
+    "tStartMs": 2762680,
+    "dDurationMs": 5280,
+    "segs": [ {
+      "utf8": "This is a really good segue into this\nquestion of what do you think the product"
+    } ]
+  }, {
+    "tStartMs": 2767960,
+    "dDurationMs": 3360,
+    "segs": [ {
+      "utf8": "manager and the engineer and whatever, how\nwill they work together?"
+    } ]
+  }, {
+    "tStartMs": 2772040,
+    "dDurationMs": 2700,
+    "segs": [ {
+      "utf8": "It's very impressive, like, what you've\ndone, honestly."
+    } ]
+  }, {
+    "tStartMs": 2774940,
+    "dDurationMs": 4260,
+    "segs": [ {
+      "utf8": "Like, to synthesize this together, you've\ntaken a really good mindset this whole"
+    } ]
+  }, {
+    "tStartMs": 2779200,
+    "dDurationMs": 2280,
+    "segs": [ {
+      "utf8": "thing. Do you think it may collapse into?"
+    } ]
+  }, {
+    "tStartMs": 2783860,
+    "dDurationMs": 2260,
+    "segs": [ {
+      "utf8": "Could a single person going to be doing\nthis going forward?"
+    } ]
+  }, {
+    "tStartMs": 2786120,
+    "dDurationMs": 1640,
+    "segs": [ {
+      "utf8": "Do you have an idea how"
+    } ]
+  }, {
+    "tStartMs": 2788680,
+    "dDurationMs": 2520,
+    "segs": [ {
+      "utf8": "you might teach product managers this, for\nexample?"
+    } ]
+  }, {
+    "tStartMs": 2791820,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "Will you teach them how to code a little\nbit?"
+    } ]
+  }, {
+    "tStartMs": 2794140,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "Like, I'm just curious, like, what your\nthinking is on this."
+    } ]
+  }, {
+    "tStartMs": 2797800,
+    "dDurationMs": 3960,
+    "segs": [ {
+      "utf8": "Yeah, I wish I had a good answer. I've\nbeen really thinking hard about this."
+    } ]
+  }, {
+    "tStartMs": 2802280,
+    "dDurationMs": 4060,
+    "segs": [ {
+      "utf8": "I'm a teacher by nature, and so I'm\nstarting to think about,"
+    } ]
+  }, {
+    "tStartMs": 2807160,
+    "dDurationMs": 2880,
+    "segs": [ {
+      "utf8": "okay, product teams are clearly going to\nhave to do a lot of this."
+    } ]
+  }, {
+    "tStartMs": 2810520,
+    "dDurationMs": 3180,
+    "segs": [ {
+      "utf8": "And if they want it to be good, what does\nthat look like?"
+    } ]
+  }, {
+    "tStartMs": 2813800,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "Who is doing what? And I have some, like,\nhalf-baked ideas because I have been"
+    } ]
+  }, {
+    "tStartMs": 2817700,
+    "dDurationMs": 2580,
+    "segs": [ {
+      "utf8": "thinking about it a lot, but I don't have\na clear picture yet."
+    } ]
+  }, {
+    "tStartMs": 2820960,
+    "dDurationMs": 1520,
+    "segs": [ {
+      "utf8": "One of my half-baked ideas is"
+    } ]
+  }, {
+    "tStartMs": 2823240,
+    "dDurationMs": 3080,
+    "segs": [ {
+      "utf8": "I just separated my eval code from my data\nanalysis."
+    } ]
+  }, {
+    "tStartMs": 2826640,
+    "dDurationMs": 4200,
+    "segs": [ {
+      "utf8": "And part of the reason why I did that was,\nlike, to not reuse code, to be able to"
+    } ]
+  }, {
+    "tStartMs": 2830840,
+    "dDurationMs": 5800,
+    "segs": [ {
+      "utf8": "reuse code. But one of the benefits of\nthat is that, like, now someone can dig in"
+    } ]
+  }, {
+    "tStartMs": 2836640,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "and do data analysis without having to see\nthe code."
+    } ]
+  }, {
+    "tStartMs": 2840360,
+    "dDurationMs": 4340,
+    "segs": [ {
+      "utf8": "And this is really important to me because\nI want to create, like, 20 of these"
+    } ]
+  }, {
+    "tStartMs": 2844700,
+    "dDurationMs": 3300,
+    "segs": [ {
+      "utf8": "teaching tools. I have seven different\nclasses, and this is just one of them."
+    } ]
+  }, {
+    "tStartMs": 2848400,
+    "dDurationMs": 5280,
+    "segs": [ {
+      "utf8": "And I, like, have so many ideas for\nteaching tools, but I can't do this"
+    } ]
+  }, {
+    "tStartMs": 2853680,
+    "dDurationMs": 2700,
+    "segs": [ {
+      "utf8": "iterative work on a lot of tools\npersonally myself."
+    } ]
+  }, {
+    "tStartMs": 2856400,
+    "dDurationMs": 3340,
+    "segs": [ {
+      "utf8": "So, like, I want to engage my instructors\nin helping with these."
+    } ]
+  }, {
+    "tStartMs": 2860220,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "And so maybe I'm the engineer, but the\ninstructor does the analysis and the"
+    } ]
+  }, {
+    "tStartMs": 2863960,
+    "dDurationMs": 1400,
+    "segs": [ {
+      "utf8": "evolution. I don't know."
+    } ]
+  }, {
+    "tStartMs": 2866120,
+    "dDurationMs": 4660,
+    "segs": [ {
+      "utf8": "And so one idea I have is maybe notebooks\ncan help because I think notebooks are"
+    } ]
+  }, {
+    "tStartMs": 2870780,
+    "dDurationMs": 3960,
+    "segs": [ {
+      "utf8": "really good at—you can obfuscate some of\nthe code, but still let people execute it"
+    } ]
+  }, {
+    "tStartMs": 2874740,
+    "dDurationMs": 2500,
+    "segs": [ {
+      "utf8": "from a notebook. They can get\nvisualizations."
+    } ]
+  }, {
+    "tStartMs": 2878540,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "I think this is a new skill that we're all\ngoing to have to learn around,"
+    } ]
+  }, {
+    "tStartMs": 2884020,
+    "dDurationMs": 2280,
+    "segs": [ {
+      "utf8": "okay, I wanted to create an interview\ncoach."
+    } ]
+  }, {
+    "tStartMs": 2886380,
+    "dDurationMs": 4840,
+    "segs": [ {
+      "utf8": "I had no idea how to do it on day one, but\nI just took a first step and I tried"
+    } ]
+  }, {
+    "tStartMs": 2891220,
+    "dDurationMs": 3920,
+    "segs": [ {
+      "utf8": "something. And then I got stuck, and I\nlearned how to use an LLM to get unstuck."
+    } ]
+  }, {
+    "tStartMs": 2895580,
+    "dDurationMs": 3780,
+    "segs": [ {
+      "utf8": "And then I followed that pattern, like,\n4,000 times over the last four months."
+    } ]
+  }, {
+    "tStartMs": 2899800,
+    "dDurationMs": 4540,
+    "segs": [ {
+      "utf8": "And I think it's this skill of, like, how\ndo you identify the smallest piece that"
+    } ]
+  }, {
+    "tStartMs": 2904340,
+    "dDurationMs": 4620,
+    "segs": [ {
+      "utf8": "you need to learn, and then how do you\nwork with the LLM to learn that, and then"
+    } ]
+  }, {
+    "tStartMs": 2908960,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "iterate from there? Because, like,\nyesterday I gave this exact same talk, and"
+    } ]
+  }, {
+    "tStartMs": 2912620,
+    "dDurationMs": 3420,
+    "segs": [ {
+      "utf8": "someone was like, okay, if we were where\nyou were four months ago, how should we"
+    } ]
+  }, {
+    "tStartMs": 2916040,
+    "dDurationMs": 2420,
+    "segs": [ {
+      "utf8": "get started? And I was like, I just told\nyou."
+    } ]
+  }, {
+    "tStartMs": 2918680,
+    "dDurationMs": 1220,
+    "segs": [ {
+      "utf8": "I told you how I got started."
+    } ]
+  }, {
+    "tStartMs": 2920920,
+    "dDurationMs": 4480,
+    "segs": [ {
+      "utf8": "And so clearly there's, like, an ability\nthere of, like, how do you be a"
+    } ]
+  }, {
+    "tStartMs": 2925400,
+    "dDurationMs": 3360,
+    "segs": [ {
+      "utf8": "self-directed learner with support from an\nLLM?"
+    } ]
+  }, {
+    "tStartMs": 2929120,
+    "dDurationMs": 4600,
+    "segs": [ {
+      "utf8": "And I think we're going to have to learn\nhow to do that even as a cross-functional"
+    } ]
+  }, {
+    "tStartMs": 2933720,
+    "dDurationMs": 5260,
+    "segs": [ {
+      "utf8": "team, right? So, like, the product manager\nhas to learn some bits, but then the"
+    } ]
+  }, {
+    "tStartMs": 2938980,
+    "dDurationMs": 1200,
+    "segs": [ {
+      "utf8": "engineer needs to learn where—"
+    } ]
+  }, {
+    "tStartMs": 2940740,
+    "dDurationMs": 3140,
+    "segs": [ {
+      "utf8": "Yeah, you could write an eval for this,\nbut maybe someone with domain expertise"
+    } ]
+  }, {
+    "tStartMs": 2943880,
+    "dDurationMs": 2820,
+    "segs": [ {
+      "utf8": "would write a better eval for this. And\nwhat does that look like?"
+    } ]
+  }, {
+    "tStartMs": 2947300,
+    "dDurationMs": 4240,
+    "segs": [ {
+      "utf8": "One thing that really strikes me is your\nlevel of agency is super high,"
+    } ]
+  }, {
+    "tStartMs": 2952980,
+    "dDurationMs": 1240,
+    "segs": [ {
+      "utf8": "and the amount of"
+    } ]
+  }, {
+    "tStartMs": 2955100,
+    "dDurationMs": 5720,
+    "segs": [ {
+      "utf8": "self-help you availed yourself of\nproactively with an LLM"
+    } ]
+  }, {
+    "tStartMs": 2960820,
+    "dDurationMs": 1720,
+    "segs": [ {
+      "utf8": "is quite good."
+    } ]
+  }, {
+    "tStartMs": 2963600,
+    "dDurationMs": 3240,
+    "segs": [ {
+      "utf8": "And I feel like a lot of people fail\nthere."
+    } ]
+  }, {
+    "tStartMs": 2966840,
+    "dDurationMs": 5920,
+    "segs": [ {
+      "utf8": "Yeah. Is that something you could teach,\nor is it—how do you teach"
+    } ]
+  }, {
+    "tStartMs": 2972760,
+    "dDurationMs": 3140,
+    "segs": [ {
+      "utf8": "that? I don't know. I'm actually been\nthinking about this."
+    } ]
+  }, {
+    "tStartMs": 2976340,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "Just yesterday I started thinking about it\na lot, because a lot of the questions I"
+    } ]
+  }, {
+    "tStartMs": 2979440,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "got yesterday were around like, Yeah, but\nwhat did you say to ChatGPT?"
+    } ]
+  }, {
+    "tStartMs": 2983980,
+    "dDurationMs": 2920,
+    "segs": [ {
+      "utf8": "I'm like, Okay, forget everything you know\nabout prompt engineering."
+    } ]
+  }, {
+    "tStartMs": 2987120,
+    "dDurationMs": 4160,
+    "segs": [ {
+      "utf8": "It doesn't matter. I literally said to\nChatGPT—I'm not joking, this is like where"
+    } ]
+  }, {
+    "tStartMs": 2991280,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "I started—I"
+    } ]
+  }, {
+    "tStartMs": 2992980,
+    "dDurationMs": 1760,
+    "segs": [ {
+      "utf8": "want to learn how to use a Jupyter\nnotebook."
+    } ]
+  }, {
+    "tStartMs": 2994920,
+    "dDurationMs": 3700,
+    "segs": [ {
+      "utf8": "I'm a total beginner. What do I do? Oh,\nand I'm on a Mac."
+    } ]
+  }, {
+    "tStartMs": 2999600,
+    "dDurationMs": 3700,
+    "segs": [ {
+      "utf8": "So I didn't even have a development\nenvironment set up on my Mac when I"
+    } ]
+  }, {
+    "tStartMs": 3003300,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "started, right? Like, I was a total\nbeginner."
+    } ]
+  }, {
+    "tStartMs": 3006560,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "But the thing is, like, you can ask an LLM\nall your dumb questions because it"
+    } ]
+  }, {
+    "tStartMs": 3010460,
+    "dDurationMs": 4640,
+    "segs": [ {
+      "utf8": "doesn't care. And, like, I remember when I\nwas in college and I took computer"
+    } ]
+  }, {
+    "tStartMs": 3015100,
+    "dDurationMs": 2680,
+    "segs": [ {
+      "utf8": "science classes, I would get stuck and it\nwas so frustrating."
+    } ]
+  }, {
+    "tStartMs": 3018420,
+    "dDurationMs": 4940,
+    "segs": [ {
+      "utf8": "I got to go find a TA, or I got to go ask\nanother stupid smart Stanford student that"
+    } ]
+  }, {
+    "tStartMs": 3023360,
+    "dDurationMs": 2200,
+    "segs": [ {
+      "utf8": "I'm going to be embarrassed asking my\nstupid question to."
+    } ]
+  }, {
+    "tStartMs": 3025560,
+    "dDurationMs": 3280,
+    "segs": [ {
+      "utf8": "And, like, I never did it. I just turned\nin homework that didn't work because,"
+    } ]
+  }, {
+    "tStartMs": 3028840,
+    "dDurationMs": 2360,
+    "segs": [ {
+      "utf8": "like, I was too embarrassed to ask what I\ndidn't understand."
+    } ]
+  }, {
+    "tStartMs": 3031200,
+    "dDurationMs": 3160,
+    "segs": [ {
+      "utf8": "And so I was a terrible programmer in\ncollege."
+    } ]
+  }, {
+    "tStartMs": 3034740,
+    "dDurationMs": 2260,
+    "segs": [ {
+      "utf8": "I was great at CS theory, which is how I\ngraduated,"
+    } ]
+  }, {
+    "tStartMs": 3037780,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "but, like, I was really bad at programming\nbecause I didn't know how to get unstuck."
+    } ]
+  }, {
+    "tStartMs": 3042180,
+    "dDurationMs": 5020,
+    "segs": [ {
+      "utf8": "Whereas, like, now LLMs, like, they\ndon't—you can ask a really dumb question"
+    } ]
+  }, {
+    "tStartMs": 3047200,
+    "dDurationMs": 5540,
+    "segs": [ {
+      "utf8": "and they don't care. So I just, I think\nwhen you're in a conversational flow, like"
+    } ]
+  }, {
+    "tStartMs": 3052740,
+    "dDurationMs": 5740,
+    "segs": [ {
+      "utf8": "when you're in the web app of Claude AI or\nChatGPT.com, like prompt engineering does"
+    } ]
+  }, {
+    "tStartMs": 3058480,
+    "dDurationMs": 1960,
+    "segs": [ {
+      "utf8": "not matter because you can iterate, right?"
+    } ]
+  }, {
+    "tStartMs": 3060440,
+    "dDurationMs": 3840,
+    "segs": [ {
+      "utf8": "So you can just be like, here's my\nhalf-baked question, and then it comes"
+    } ]
+  }, {
+    "tStartMs": 3064280,
+    "dDurationMs": 3040,
+    "segs": [ {
+      "utf8": "back and you're like, no, I don't\nunderstand a thing you said."
+    } ]
+  }, {
+    "tStartMs": 3067400,
+    "dDurationMs": 4380,
+    "segs": [ {
+      "utf8": "And I literally will copy and paste a line\nand be like, what do you mean by this?"
+    } ]
+  }, {
+    "tStartMs": 3072440,
+    "dDurationMs": 4480,
+    "segs": [ {
+      "utf8": "And so some of it is just patience to pick\nthrough it and know that you can figure"
+    } ]
+  }, {
+    "tStartMs": 3076920,
+    "dDurationMs": 1060,
+    "segs": [ {
+      "utf8": "it out with enough time."
+    } ]
+  }, {
+    "tStartMs": 3078880,
+    "dDurationMs": 4800,
+    "segs": [ {
+      "utf8": "I went through this past week. So we're\nlike at the 11th hour about to release the"
+    } ]
+  }, {
+    "tStartMs": 3083680,
+    "dDurationMs": 1500,
+    "segs": [ {
+      "utf8": "interview coach inside Vistaly,"
+    } ]
+  }, {
+    "tStartMs": 3086260,
+    "dDurationMs": 3480,
+    "segs": [ {
+      "utf8": "and I was running through all my, like,\nintegration tests, and one of my"
+    } ]
+  }, {
+    "tStartMs": 3089740,
+    "dDurationMs": 3280,
+    "segs": [ {
+      "utf8": "integration tests caught an error in one\nof my step functions that was not caught."
+    } ]
+  }, {
+    "tStartMs": 3093520,
+    "dDurationMs": 1960,
+    "segs": [ {
+      "utf8": "And it didn't catch the error. It just,"
+    } ]
+  }, {
+    "tStartMs": 3096320,
+    "dDurationMs": 2440,
+    "segs": [ {
+      "utf8": "the test failed, and there was an uncaught\nerror."
+    } ]
+  }, {
+    "tStartMs": 3099100,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "And I was like, wow, I've been beating up\nmy error handling."
+    } ]
+  }, {
+    "tStartMs": 3101420,
+    "dDurationMs": 1720,
+    "segs": [ {
+      "utf8": "Like, how do I still have an uncaught\nerror?"
+    } ]
+  }, {
+    "tStartMs": 3103420,
+    "dDurationMs": 3720,
+    "segs": [ {
+      "utf8": "And it was because I didn't know that—this\nis going to get really technical for just"
+    } ]
+  }, {
+    "tStartMs": 3107140,
+    "dDurationMs": 5560,
+    "segs": [ {
+      "utf8": "a second—I didn't know that, like, JSON\npath errors in a step function are not"
+    } ]
+  }, {
+    "tStartMs": 3112700,
+    "dDurationMs": 1440,
+    "segs": [ {
+      "utf8": "catchable and they're not retryable."
+    } ]
+  }, {
+    "tStartMs": 3114220,
+    "dDurationMs": 1560,
+    "segs": [ {
+      "utf8": "Like, they just fail the step function."
+    } ]
+  }, {
+    "tStartMs": 3116640,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "And I had written my sub step functions to\nreturn an error in the payload."
+    } ]
+  }, {
+    "tStartMs": 3122580,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "And, like, you can't do that. Like, it has\nto throw an exception for the parent step"
+    } ]
+  }, {
+    "tStartMs": 3126520,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "function to call it. So I realized, like,\nat the 11th hour, all of my error handling"
+    } ]
+  }, {
+    "tStartMs": 3130380,
+    "dDurationMs": 2660,
+    "segs": [ {
+      "utf8": "between my step function to step function\ncalls were wrong."
+    } ]
+  }, {
+    "tStartMs": 3133720,
+    "dDurationMs": 3720,
+    "segs": [ {
+      "utf8": "Okay, if you didn't understand all of\nthat, any of that, all you have to know is"
+    } ]
+  }, {
+    "tStartMs": 3137440,
+    "dDurationMs": 4220,
+    "segs": [ {
+      "utf8": "that this was a very embarrassing\nlast-minute thing that made me realize my"
+    } ]
+  }, {
+    "tStartMs": 3141660,
+    "dDurationMs": 2140,
+    "segs": [ {
+      "utf8": "really reliable app was not very reliable."
+    } ]
+  }, {
+    "tStartMs": 3144400,
+    "dDurationMs": 2540,
+    "segs": [ {
+      "utf8": "And this was, like, last Tuesday."
+    } ]
+  }, {
+    "tStartMs": 3148120,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "And I panicked. And then I was like, okay,\nyou know how to do this."
+    } ]
+  }, {
+    "tStartMs": 3151780,
+    "dDurationMs": 5860,
+    "segs": [ {
+      "utf8": "Just go talk to Claude and ChatGPT. And I,\nlike, gave Opus an O3, like—"
+    } ]
+  }, {
+    "tStartMs": 3157640,
+    "dDurationMs": 4120,
+    "segs": [ {
+      "utf8": "Here's my testing pattern. What are the\nexisting patterns?"
+    } ]
+  }, {
+    "tStartMs": 3161920,
+    "dDurationMs": 1760,
+    "segs": [ {
+      "utf8": "What are the best practices? How do I fix\nit?"
+    } ]
+  }, {
+    "tStartMs": 3163840,
+    "dDurationMs": 3280,
+    "segs": [ {
+      "utf8": "And we talked through three or four\ndifferent error handling patterns between"
+    } ]
+  }, {
+    "tStartMs": 3167120,
+    "dDurationMs": 3520,
+    "segs": [ {
+      "utf8": "step functions. And I was like, tell me\nabout the pros and cons of each, and we"
+    } ]
+  }, {
+    "tStartMs": 3170640,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "picked one. And then I was like, okay, now\nlook at my code base and how many changes"
+    } ]
+  }, {
+    "tStartMs": 3174540,
+    "dDurationMs": 2120,
+    "segs": [ {
+      "utf8": "do we have to make, and how do we make a\nproject plan?"
+    } ]
+  }, {
+    "tStartMs": 3176960,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "And I do that in planning mode. Like, I\ndon't want Claude touching my code while"
+    } ]
+  }, {
+    "tStartMs": 3180360,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "we're debating how to do something. And\nthen we write a project plan that's really"
+    } ]
+  }, {
+    "tStartMs": 3184720,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "detailed that I've reviewed, and then we\nliterally step by step implement it."
+    } ]
+  }, {
+    "tStartMs": 3188420,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "And between Wednesday and Friday, I\nre-architected all of the error handling"
+    } ]
+  }, {
+    "tStartMs": 3193480,
+    "dDurationMs": 4580,
+    "segs": [ {
+      "utf8": "in the interview coach and released it on\nMonday morning."
+    } ]
+  }, {
+    "tStartMs": 3198860,
+    "dDurationMs": 5720,
+    "segs": [ {
+      "utf8": "And then ChatGPT-5 came out, and I\nliterally started asking ChatGPT-5,"
+    } ]
+  }, {
+    "tStartMs": 3205080,
+    "dDurationMs": 3040,
+    "segs": [ {
+      "utf8": "beat up my error handling, and it's like,\nwow, you have really robust error"
+    } ]
+  }, {
+    "tStartMs": 3208120,
+    "dDurationMs": 1860,
+    "segs": [ {
+      "utf8": "handling. And I was like, yes."
+    } ]
+  }, {
+    "tStartMs": 3211300,
+    "dDurationMs": 4720,
+    "segs": [ {
+      "utf8": "Just so people can play with this, like\nthe Vistaly thing, so that is, it's"
+    } ]
+  }, {
+    "tStartMs": 3216020,
+    "dDurationMs": 5060,
+    "segs": [ {
+      "utf8": "available right now. Can you go sign up\nfor this service and— Yeah."
+    } ]
+  }, {
+    "tStartMs": 3221080,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "Okay,"
+    } ]
+  }, {
+    "tStartMs": 3222860,
+    "dDurationMs": 3500,
+    "segs": [ {
+      "utf8": "so part of the reason why I partnered with\nVistaly is that part of the story I"
+    } ]
+  }, {
+    "tStartMs": 3226360,
+    "dDurationMs": 4680,
+    "segs": [ {
+      "utf8": "didn't share is that when I launched this\ntool in my course, I was expecting"
+    } ]
+  }, {
+    "tStartMs": 3231040,
+    "dDurationMs": 2720,
+    "segs": [ {
+      "utf8": "students to submit their practice\ninterviews."
+    } ]
+  }, {
+    "tStartMs": 3234280,
+    "dDurationMs": 5380,
+    "segs": [ {
+      "utf8": "And they did that, but they also started\nsubmitting their real customer interviews."
+    } ]
+  }, {
+    "tStartMs": 3240100,
+    "dDurationMs": 3760,
+    "segs": [ {
+      "utf8": "And this is scary because, like, I just\nput this stuff in Airtable."
+    } ]
+  }, {
+    "tStartMs": 3244120,
+    "dDurationMs": 2620,
+    "segs": [ {
+      "utf8": "Like, I'm not really—I'm certainly not SOC\n2 compliant."
+    } ]
+  }, {
+    "tStartMs": 3247500,
+    "dDurationMs": 3120,
+    "segs": [ {
+      "utf8": "And, like, people were sending sensitive\ncustomer data to me."
+    } ]
+  }, {
+    "tStartMs": 3251100,
+    "dDurationMs": 2120,
+    "segs": [ {
+      "utf8": "And I was like, oh, I don't know how to\nhandle that."
+    } ]
+  }, {
+    "tStartMs": 3253280,
+    "dDurationMs": 2880,
+    "segs": [ {
+      "utf8": "And I started to look into it, and I was\nlike, yep, not doing that."
+    } ]
+  }, {
+    "tStartMs": 3256660,
+    "dDurationMs": 4940,
+    "segs": [ {
+      "utf8": "And so what we get with the partnership\nwith Vistaly is this is a tool where"
+    } ]
+  }, {
+    "tStartMs": 3261600,
+    "dDurationMs": 2660,
+    "segs": [ {
+      "utf8": "product teams are already storing their\ncustomer interviews."
+    } ]
+  }, {
+    "tStartMs": 3264540,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "They are SOC 2 compliant. They follow all\nthe, like, data management laws."
+    } ]
+  }, {
+    "tStartMs": 3270040,
+    "dDurationMs": 4860,
+    "segs": [ {
+      "utf8": "And so, unfortunately, there's only two\nways to try this right now."
+    } ]
+  }, {
+    "tStartMs": 3275160,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "One is through our continuous, excuse me,\nour continuous interviewing course"
+    } ]
+  }, {
+    "tStartMs": 3279660,
+    "dDurationMs": 4340,
+    "segs": [ {
+      "utf8": "or through Vistaly. So if you're looking\nfor a product discovery tool, I do"
+    } ]
+  }, {
+    "tStartMs": 3284000,
+    "dDurationMs": 1420,
+    "segs": [ {
+      "utf8": "strongly recommend Vistaly."
+    } ]
+  }, {
+    "tStartMs": 3287020,
+    "dDurationMs": 5640,
+    "segs": [ {
+      "utf8": "But I am starting to think through what's\na light version of the coach that I can"
+    } ]
+  }, {
+    "tStartMs": 3292660,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "make freely available. And actually, it's\nbased on those very two evals."
+    } ]
+  }, {
+    "tStartMs": 3296640,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "Can I at least give people feedback for\nfree on, did they ask leading questions"
+    } ]
+  }, {
+    "tStartMs": 3300580,
+    "dDurationMs": 4880,
+    "segs": [ {
+      "utf8": "and general questions? So I'll have more\nthat's, like, publicly available to, like,"
+    } ]
+  }, {
+    "tStartMs": 3305460,
+    "dDurationMs": 2900,
+    "segs": [ {
+      "utf8": "at least play with probably in the next\ncouple weeks."
+    } ]
+  }, {
+    "tStartMs": 3309780,
+    "dDurationMs": 3520,
+    "segs": [ {
+      "utf8": "That's great. And what's the best way for\npeople to follow you or keep up with what"
+    } ]
+  }, {
+    "tStartMs": 3313300,
+    "dDurationMs": 2440,
+    "segs": [ {
+      "utf8": "you're doing? What do you recommend that\npeople do?"
+    } ]
+  }, {
+    "tStartMs": 3316240,
+    "dDurationMs": 3020,
+    "segs": [ {
+      "utf8": "Yeah, so I blog at producttalk.org."
+    } ]
+  }, {
+    "tStartMs": 3320420,
+    "dDurationMs": 2100,
+    "segs": [ {
+      "utf8": "I'm on LinkedIn and X."
+    } ]
+  }, {
+    "tStartMs": 3323340,
+    "dDurationMs": 5120,
+    "segs": [ {
+      "utf8": "LinkedIn lately has been my primary social\nnetwork, but I do check in on X every"
+    } ]
+  }, {
+    "tStartMs": 3328460,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "day."
+    } ]
+  }, {
+    "tStartMs": 3330160,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "That's probably the best places. And then\nI'll be in the Discord, so if there's lots"
+    } ]
+  }, {
+    "tStartMs": 3333600,
+    "dDurationMs": 3460,
+    "segs": [ {
+      "utf8": "of questions, I'm happy—if we have time,\nI'm happy to take questions now, and I'm"
+    } ]
+  }, {
+    "tStartMs": 3337060,
+    "dDurationMs": 1720,
+    "segs": [ {
+      "utf8": "also happy to take questions in the\nDiscord."
+    } ]
+  }, {
+    "tStartMs": 3339560,
+    "dDurationMs": 1840,
+    "segs": [ {
+      "utf8": "Okay, yeah, we could take some questions\nnow."
+    } ]
+  }, {
+    "tStartMs": 3341800,
+    "dDurationMs": 1320,
+    "segs": [ {
+      "utf8": "Do you have a little bit of time, Teresa?"
+    } ]
+  }, {
+    "tStartMs": 3343120,
+    "dDurationMs": 2840,
+    "segs": [ {
+      "utf8": "Yeah. Okay. Robert has a good question."
+    } ]
+  }, {
+    "tStartMs": 3346480,
+    "dDurationMs": 4300,
+    "segs": [ {
+      "utf8": "Are you thinking about capturing\nannotations from end users directly?"
+    } ]
+  }, {
+    "tStartMs": 3351140,
+    "dDurationMs": 4880,
+    "segs": [ {
+      "utf8": "Is that something that you've thought\nabout, or do you feel like, I am the PM,"
+    } ]
+  }, {
+    "tStartMs": 3356020,
+    "dDurationMs": 3040,
+    "segs": [ {
+      "utf8": "or I'm, like, building this product and I\nwant to control all the annotation?"
+    } ]
+  }, {
+    "tStartMs": 3359700,
+    "dDurationMs": 4200,
+    "segs": [ {
+      "utf8": "Yeah, Robert, we actually had a Twitter\ndiscussion about this, and I forgot I was"
+    } ]
+  }, {
+    "tStartMs": 3363900,
+    "dDurationMs": 5380,
+    "segs": [ {
+      "utf8": "going to tackle this. One of the things\nI'm really excited about is, what's the"
+    } ]
+  }, {
+    "tStartMs": 3369280,
+    "dDurationMs": 1420,
+    "segs": [ {
+      "utf8": "customer feedback loop in all of this?"
+    } ]
+  }, {
+    "tStartMs": 3370700,
+    "dDurationMs": 4380,
+    "segs": [ {
+      "utf8": "Because that's my jam. And there's a few\nplaces of things in the class that I"
+    } ]
+  }, {
+    "tStartMs": 3375080,
+    "dDurationMs": 1840,
+    "segs": [ {
+      "utf8": "learned that I really want to experiment\nwith."
+    } ]
+  }, {
+    "tStartMs": 3377180,
+    "dDurationMs": 4120,
+    "segs": [ {
+      "utf8": "So one is— You guys learn to generate\nsynthetic data by defining, like,"
+    } ]
+  }, {
+    "tStartMs": 3381300,
+    "dDurationMs": 2896,
+    "segs": [ {
+      "utf8": "dimensions. I actually think those\ndimensions should come"
+    } ]
+  }, {
+    "tStartMs": 3384196,
+    "dDurationMs": 2416,
+    "segs": [ {
+      "utf8": "from customer needs and customer pain\npoints."
+    } ]
+  }, {
+    "tStartMs": 3386612,
+    "dDurationMs": 3936,
+    "segs": [ {
+      "utf8": "So, like, the recipe bot, like if you've\ntalked to people about how they plan their"
+    } ]
+  }, {
+    "tStartMs": 3390548,
+    "dDurationMs": 3776,
+    "segs": [ {
+      "utf8": "meals and you know what their use cases\nare, like it gives you way better input"
+    } ]
+  }, {
+    "tStartMs": 3394324,
+    "dDurationMs": 3736,
+    "segs": [ {
+      "utf8": "for what those dimensions should be and,\nlike, what types of variations you're"
+    } ]
+  }, {
+    "tStartMs": 3398060,
+    "dDurationMs": 3960,
+    "segs": [ {
+      "utf8": "going to have ahead of time. That's a\nreally clear area where I can see a"
+    } ]
+  }, {
+    "tStartMs": 3402020,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "connection between traditional discovery\nwork and, like, the very beginning phases"
+    } ]
+  }, {
+    "tStartMs": 3406380,
+    "dDurationMs": 3280,
+    "segs": [ {
+      "utf8": "of, like, how do we generate\nrepresentative synthetic data."
+    } ]
+  }, {
+    "tStartMs": 3412140,
+    "dDurationMs": 4720,
+    "segs": [ {
+      "utf8": "Another area is, like, almost every AI\nproduct has, like, a thumbs up, thumbs"
+    } ]
+  }, {
+    "tStartMs": 3416860,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "down, was this helpful? And, like, I did\nbuild that into the interview coach in"
+    } ]
+  }, {
+    "tStartMs": 3420720,
+    "dDurationMs": 2720,
+    "segs": [ {
+      "utf8": "Vistaly. I'm still trying to figure out\nhow to do it in our course because they"
+    } ]
+  }, {
+    "tStartMs": 3423440,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "get it by email."
+    } ]
+  }, {
+    "tStartMs": 3427620,
+    "dDurationMs": 5700,
+    "segs": [ {
+      "utf8": "But I would love it if we could find—I\nwant to really experiment with UX"
+    } ]
+  }, {
+    "tStartMs": 3433320,
+    "dDurationMs": 4760,
+    "segs": [ {
+      "utf8": "patterns of, like, how can we get the\ncustomer to communicate more granular"
+    } ]
+  }, {
+    "tStartMs": 3438080,
+    "dDurationMs": 3920,
+    "segs": [ {
+      "utf8": "error feedback? So if they're giving me\nfeedback on the whole response, this was"
+    } ]
+  }, {
+    "tStartMs": 3442000,
+    "dDurationMs": 4240,
+    "segs": [ {
+      "utf8": "helpful or not, that's great. It, like, it\ntells me to go investigate that trace."
+    } ]
+  }, {
+    "tStartMs": 3446720,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "If they give me a verbatim of why, that's\neven more helpful."
+    } ]
+  }, {
+    "tStartMs": 3449420,
+    "dDurationMs": 1840,
+    "segs": [ {
+      "utf8": "But I would love to get to the point of,"
+    } ]
+  }, {
+    "tStartMs": 3452160,
+    "dDurationMs": 3120,
+    "segs": [ {
+      "utf8": "no, this excerpt, the tip on this excerpt\nis wrong."
+    } ]
+  }, {
+    "tStartMs": 3457040,
+    "dDurationMs": 1360,
+    "segs": [ {
+      "utf8": "Or—and just, like, what—like,"
+    } ]
+  }, {
+    "tStartMs": 3459940,
+    "dDurationMs": 2480,
+    "segs": [ {
+      "utf8": "ultimately our product works if it works\nfor the customer."
+    } ]
+  }, {
+    "tStartMs": 3462920,
+    "dDurationMs": 3160,
+    "segs": [ {
+      "utf8": "And so as a product manager, you can be a\nproxy for that."
+    } ]
+  }, {
+    "tStartMs": 3466380,
+    "dDurationMs": 5820,
+    "segs": [ {
+      "utf8": "But is there a way—I'm always looking for,\nlike, how do we get the customer closer"
+    } ]
+  }, {
+    "tStartMs": 3472200,
+    "dDurationMs": 1180,
+    "segs": [ {
+      "utf8": "to the problem?"
+    } ]
+  }, {
+    "tStartMs": 3474500,
+    "dDurationMs": 2220,
+    "segs": [ {
+      "utf8": "I don't, Robert, I don't have answers for\nyou yet."
+    } ]
+  }, {
+    "tStartMs": 3476800,
+    "dDurationMs": 4240,
+    "segs": [ {
+      "utf8": "Like, I've been so heads down building,\ngetting ready for this Vistaly beta that"
+    } ]
+  }, {
+    "tStartMs": 3481040,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "I've just been an engineer. But I'm going\nto put my product management, product"
+    } ]
+  }, {
+    "tStartMs": 3484260,
+    "dDurationMs": 3580,
+    "segs": [ {
+      "utf8": "discovery hat back on and start to run\nsome of those experiments too."
+    } ]
+  }, {
+    "tStartMs": 3491540,
+    "dDurationMs": 3120,
+    "segs": [ {
+      "utf8": "You have some background in computer\nscience education."
+    } ]
+  }, {
+    "tStartMs": 3494980,
+    "dDurationMs": 2660,
+    "segs": [ {
+      "utf8": "You did some JavaScript development early\nin your career."
+    } ]
+  }, {
+    "tStartMs": 3498300,
+    "dDurationMs": 4540,
+    "segs": [ {
+      "utf8": "Do you think you would have been just as\nsuccessful without that?"
+    } ]
+  }, {
+    "tStartMs": 3503320,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "Do people"
+    } ]
+  }, {
+    "tStartMs": 3504640,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "looking at this talk, should they feel\nlike they can do what you did without that"
+    } ]
+  }, {
+    "tStartMs": 3508540,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "education?"
+    } ]
+  }, {
+    "tStartMs": 3512060,
+    "dDurationMs": 4600,
+    "segs": [ {
+      "utf8": "Yeah. Okay, so for like decades, there's\nbeen this debate in the product management"
+    } ]
+  }, {
+    "tStartMs": 3516660,
+    "dDurationMs": 2160,
+    "segs": [ {
+      "utf8": "world about should product managers learn\nhow to code."
+    } ]
+  }, {
+    "tStartMs": 3520380,
+    "dDurationMs": 4480,
+    "segs": [ {
+      "utf8": "And I'm really glad I learned how to code\nin college."
+    } ]
+  }, {
+    "tStartMs": 3524860,
+    "dDurationMs": 5220,
+    "segs": [ {
+      "utf8": "I a little bit, even as a kid, I coded in\nBASIC on an Apple IIe, but like I really"
+    } ]
+  }, {
+    "tStartMs": 3530080,
+    "dDurationMs": 5980,
+    "segs": [ {
+      "utf8": "learned how to code in college. I, because\none of the skills I got from learning"
+    } ]
+  }, {
+    "tStartMs": 3536060,
+    "dDurationMs": 2880,
+    "segs": [ {
+      "utf8": "how to code is this like problem solving,\ndebugging,"
+    } ]
+  }, {
+    "tStartMs": 3539860,
+    "dDurationMs": 4080,
+    "segs": [ {
+      "utf8": "deconstructing like a big problem into\nsmaller parts, and then also like this"
+    } ]
+  }, {
+    "tStartMs": 3543940,
+    "dDurationMs": 3340,
+    "segs": [ {
+      "utf8": "attention to detail that I don't think you\nget in anything else."
+    } ]
+  }, {
+    "tStartMs": 3547480,
+    "dDurationMs": 4620,
+    "segs": [ {
+      "utf8": "And so I think there's skills you learn\nfrom coding that transfer to other"
+    } ]
+  }, {
+    "tStartMs": 3552100,
+    "dDurationMs": 3940,
+    "segs": [ {
+      "utf8": "domains, and I think coding is one of the\nbest ways to learn those skills."
+    } ]
+  }, {
+    "tStartMs": 3556700,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "So there's part of me that like everybody,\nI think maybe coding,"
+    } ]
+  }, {
+    "tStartMs": 3560860,
+    "dDurationMs": 1580,
+    "segs": [ {
+      "utf8": "even with vibe coding being a thing,"
+    } ]
+  }, {
+    "tStartMs": 3563220,
+    "dDurationMs": 2160,
+    "segs": [ {
+      "utf8": "might be a proficiency like literacy."
+    } ]
+  }, {
+    "tStartMs": 3565680,
+    "dDurationMs": 3980,
+    "segs": [ {
+      "utf8": "I just feel like it teaches such good\nproblem-solving skills."
+    } ]
+  }, {
+    "tStartMs": 3571700,
+    "dDurationMs": 2940,
+    "segs": [ {
+      "utf8": "Could I have done this if I didn't have\nthat background?"
+    } ]
+  }, {
+    "tStartMs": 3575180,
+    "dDurationMs": 2780,
+    "segs": [ {
+      "utf8": "Okay, so my undergraduate was symbolic\nsystems."
+    } ]
+  }, {
+    "tStartMs": 3578000,
+    "dDurationMs": 3680,
+    "segs": [ {
+      "utf8": "So for people that are familiar with this\nat Stanford, it's a cross-disciplinary,"
+    } ]
+  }, {
+    "tStartMs": 3582800,
+    "dDurationMs": 4640,
+    "segs": [ {
+      "utf8": "it's a multidisciplinary program. It\nfocuses on how humans and machines process"
+    } ]
+  }, {
+    "tStartMs": 3587440,
+    "dDurationMs": 4880,
+    "segs": [ {
+      "utf8": "information. It's also what's happening in\nthe world with generative AI is so cool"
+    } ]
+  }, {
+    "tStartMs": 3592320,
+    "dDurationMs": 5240,
+    "segs": [ {
+      "utf8": "in the context of symbolic systems. And I\nhad to take classes from computer science."
+    } ]
+  }, {
+    "tStartMs": 3599020,
+    "dDurationMs": 4140,
+    "segs": [ {
+      "utf8": "The analytical side of linguistics, so\nlike the underlying structure of language,"
+    } ]
+  }, {
+    "tStartMs": 3603900,
+    "dDurationMs": 4960,
+    "segs": [ {
+      "utf8": "analytical philosophy, so like mind-brain\nphilosophy, and then cognitive psychology."
+    } ]
+  }, {
+    "tStartMs": 3609160,
+    "dDurationMs": 3880,
+    "segs": [ {
+      "utf8": "So it's really like, how do we understand\nthe information processing from four"
+    } ]
+  }, {
+    "tStartMs": 3613040,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "different domains?"
+    } ]
+  }, {
+    "tStartMs": 3614760,
+    "dDurationMs": 4460,
+    "segs": [ {
+      "utf8": "What I really took away from that program\nwas critical thinking and problem solving."
+    } ]
+  }, {
+    "tStartMs": 3619620,
+    "dDurationMs": 3760,
+    "segs": [ {
+      "utf8": "And like, ideally this is what every\nprogram is teaching, but I think when you"
+    } ]
+  }, {
+    "tStartMs": 3623380,
+    "dDurationMs": 5960,
+    "segs": [ {
+      "utf8": "see how four different domains solve very\nsimilar problems, you"
+    } ]
+  }, {
+    "tStartMs": 3629340,
+    "dDurationMs": 4480,
+    "segs": [ {
+      "utf8": "start to see this pattern. For me anyway,\nI started to see this pattern that I would"
+    } ]
+  }, {
+    "tStartMs": 3633820,
+    "dDurationMs": 3040,
+    "segs": [ {
+      "utf8": "call a more like problem-solving critical\nthinking pattern."
+    } ]
+  }, {
+    "tStartMs": 3637840,
+    "dDurationMs": 4960,
+    "segs": [ {
+      "utf8": "And so I think I could do this. I think\nthat experience helped me be good at these"
+    } ]
+  }, {
+    "tStartMs": 3642800,
+    "dDurationMs": 4020,
+    "segs": [ {
+      "utf8": "types of things. Like I think what I was\ngood at in this whole process was just"
+    } ]
+  }, {
+    "tStartMs": 3646820,
+    "dDurationMs": 2960,
+    "segs": [ {
+      "utf8": "like the critical thinking part of it."
+    } ]
+  }, {
+    "tStartMs": 3651100,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "Is coding the only way to learn critical\nthinking?"
+    } ]
+  }, {
+    "tStartMs": 3654040,
+    "dDurationMs": 3500,
+    "segs": [ {
+      "utf8": "I'm sure there's plenty of people\nlistening right now that are good critical"
+    } ]
+  }, {
+    "tStartMs": 3657540,
+    "dDurationMs": 2840,
+    "segs": [ {
+      "utf8": "thinkers and good problem solvers and have\nnever written a line of code."
+    } ]
+  }, {
+    "tStartMs": 3661160,
+    "dDurationMs": 2120,
+    "segs": [ {
+      "utf8": "But I think it's a really good way to\nlearn it."
+    } ]
+  }, {
+    "tStartMs": 3665980,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "And do you think, and this may be hard to\npredict, and I've asked this before, but I"
+    } ]
+  }, {
+    "tStartMs": 3669620,
+    "dDurationMs": 4280,
+    "segs": [ {
+      "utf8": "just want to revisit it. If you were to\nteach, try to teach this to product"
+    } ]
+  }, {
+    "tStartMs": 3673900,
+    "dDurationMs": 5420,
+    "segs": [ {
+      "utf8": "managers, is your sense, do you maybe\nintroduce some code or teach them how to"
+    } ]
+  }, {
+    "tStartMs": 3679320,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "code, since you do think it's one of the\nbest, you mentioned AI is like the best"
+    } ]
+  }, {
+    "tStartMs": 3682960,
+    "dDurationMs": 4060,
+    "segs": [ {
+      "utf8": "thing, or would you try to go at it a\ndifferent way or you haven't decided yet?"
+    } ]
+  }, {
+    "tStartMs": 3687540,
+    "dDurationMs": 2920,
+    "segs": [ {
+      "utf8": "This is actually a genuinely hard problem\nfor me."
+    } ]
+  }, {
+    "tStartMs": 3690760,
+    "dDurationMs": 3480,
+    "segs": [ {
+      "utf8": "I'm trying to decide what I can uniquely\noffer."
+    } ]
+  }, {
+    "tStartMs": 3695000,
+    "dDurationMs": 3040,
+    "segs": [ {
+      "utf8": "So like the AI race right now is insane."
+    } ]
+  }, {
+    "tStartMs": 3698860,
+    "dDurationMs": 4080,
+    "segs": [ {
+      "utf8": "Like Aman Khan is doing really cool work\nin his last cohort of his Maven class."
+    } ]
+  }, {
+    "tStartMs": 3703480,
+    "dDurationMs": 4740,
+    "segs": [ {
+      "utf8": "He had 30 people using, like non-technical\npeople using Cursor, which is awesome,"
+    } ]
+  }, {
+    "tStartMs": 3708220,
+    "dDurationMs": 2860,
+    "segs": [ {
+      "utf8": "right? Is that the right path? I don't\nknow."
+    } ]
+  }, {
+    "tStartMs": 3711080,
+    "dDurationMs": 3140,
+    "segs": [ {
+      "utf8": "I think right now, is it going to be the\nright path in the long run?"
+    } ]
+  }, {
+    "tStartMs": 3716200,
+    "dDurationMs": 3240,
+    "segs": [ {
+      "utf8": "But I'm working out of a notebook, and I\nlove notebooks, but notebooks are pretty"
+    } ]
+  }, {
+    "tStartMs": 3719440,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "technical. Am I really going to teach all\nmy instructors how to set up a development"
+    } ]
+  }, {
+    "tStartMs": 3723300,
+    "dDurationMs": 2820,
+    "segs": [ {
+      "utf8": "environment on their Mac? And if they're\non Windows, I can't help them."
+    } ]
+  }, {
+    "tStartMs": 3726660,
+    "dDurationMs": 5640,
+    "segs": [ {
+      "utf8": "Like, there's some real challenges with\nthe way that I'm working for transferring"
+    } ]
+  }, {
+    "tStartMs": 3732300,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "it to other people."
+    } ]
+  }, {
+    "tStartMs": 3734180,
+    "dDurationMs": 4960,
+    "segs": [ {
+      "utf8": "And, like, in some ways, I wish I was\nstill on a cross-functional team because,"
+    } ]
+  }, {
+    "tStartMs": 3739140,
+    "dDurationMs": 3280,
+    "segs": [ {
+      "utf8": "like, I kind of want to partner with the\nengineer and play with some of these ideas"
+    } ]
+  }, {
+    "tStartMs": 3743080,
+    "dDurationMs": 1760,
+    "segs": [ {
+      "utf8": "and what do those handoffs look like."
+    } ]
+  }, {
+    "tStartMs": 3745380,
+    "dDurationMs": 2520,
+    "segs": [ {
+      "utf8": "One thing I am going to do, I'll give you\nguys all a sneak peek."
+    } ]
+  }, {
+    "tStartMs": 3747920,
+    "dDurationMs": 3760,
+    "segs": [ {
+      "utf8": "I'm in the process—okay, I'm in the\nprocess of recording some podcast"
+    } ]
+  }, {
+    "tStartMs": 3751680,
+    "dDurationMs": 4840,
+    "segs": [ {
+      "utf8": "episodes. I'm going to be launching a new\npodcast in September, and I'm interviewing"
+    } ]
+  }, {
+    "tStartMs": 3756520,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "cross-functional product teams about how\nthey're building their AI products."
+    } ]
+  }, {
+    "tStartMs": 3760600,
+    "dDurationMs": 5180,
+    "segs": [ {
+      "utf8": "So it's not the, like, How I AI, Clairvo\npodcast and how people are using AI in"
+    } ]
+  }, {
+    "tStartMs": 3765780,
+    "dDurationMs": 1080,
+    "segs": [ {
+      "utf8": "their day-to-day workflows."
+    } ]
+  }, {
+    "tStartMs": 3767440,
+    "dDurationMs": 2640,
+    "segs": [ {
+      "utf8": "It's, here's the story—it's what I did\ntoday."
+    } ]
+  }, {
+    "tStartMs": 3770280,
+    "dDurationMs": 3100,
+    "segs": [ {
+      "utf8": "Here's the story of an AI product. Here's\nhow it came to fruition."
+    } ]
+  }, {
+    "tStartMs": 3773600,
+    "dDurationMs": 4440,
+    "segs": [ {
+      "utf8": "And what I'm really interested in covering\nin those stories is who did what and how"
+    } ]
+  }, {
+    "tStartMs": 3778040,
+    "dDurationMs": 4800,
+    "segs": [ {
+      "utf8": "do we collaborate? Because I think this is\na really open question, and I'm not sure"
+    } ]
+  }, {
+    "tStartMs": 3782840,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "what to teach yet."
+    } ]
+  }, {
+    "tStartMs": 3784720,
+    "dDurationMs": 4060,
+    "segs": [ {
+      "utf8": "But I do want to help. Like, I do, as an\neducator, I will be doing something in"
+    } ]
+  }, {
+    "tStartMs": 3788780,
+    "dDurationMs": 2940,
+    "segs": [ {
+      "utf8": "this space. I'm just still figuring out\nwhat the right something is."
+    } ]
+  }, {
+    "tStartMs": 3793440,
+    "dDurationMs": 5860,
+    "segs": [ {
+      "utf8": "I would love to see a visual map of how\nyou went about annotation to the app that"
+    } ]
+  }, {
+    "tStartMs": 3799300,
+    "dDurationMs": 4680,
+    "segs": [ {
+      "utf8": "you're building. Specifically, there's\nprobably a lot of micro decisions that you"
+    } ]
+  }, {
+    "tStartMs": 3803980,
+    "dDurationMs": 4560,
+    "segs": [ {
+      "utf8": "had to make along the way, and so could\nyou unravel some of those?"
+    } ]
+  }, {
+    "tStartMs": 3808740,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "Were they difficult to make? How did you\nknow whether something was, like, a micro"
+    } ]
+  }, {
+    "tStartMs": 3812600,
+    "dDurationMs": 4260,
+    "segs": [ {
+      "utf8": "decision or something that, like, required\nmore, like you learning something new or"
+    } ]
+  }, {
+    "tStartMs": 3816860,
+    "dDurationMs": 1220,
+    "segs": [ {
+      "utf8": "figuring out something new?"
+    } ]
+  }, {
+    "tStartMs": 3819280,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "Yeah, I can talk about some of the kind of\nkey decision points I made and how they"
+    } ]
+  }, {
+    "tStartMs": 3822900,
+    "dDurationMs": 2320,
+    "segs": [ {
+      "utf8": "came about, and maybe that'll illustrate\nthis a little bit."
+    } ]
+  }, {
+    "tStartMs": 3826000,
+    "dDurationMs": 3620,
+    "segs": [ {
+      "utf8": "Yeah. Like, one of the big ones was I\nstarted—the interview coach was one"
+    } ]
+  }, {
+    "tStartMs": 3829620,
+    "dDurationMs": 2500,
+    "segs": [ {
+      "utf8": "prompt. Like it was this monster prompt."
+    } ]
+  }, {
+    "tStartMs": 3832480,
+    "dDurationMs": 4680,
+    "segs": [ {
+      "utf8": "And the problem I saw with that was that\nin the coaching responses, like one of my"
+    } ]
+  }, {
+    "tStartMs": 3837160,
+    "dDurationMs": 5920,
+    "segs": [ {
+      "utf8": "biggest failure modes was the coach would\ngive feedback on"
+    } ]
+  }, {
+    "tStartMs": 3843080,
+    "dDurationMs": 3400,
+    "segs": [ {
+      "utf8": "one dimension, but use criteria from a\ndifferent dimension."
+    } ]
+  }, {
+    "tStartMs": 3847200,
+    "dDurationMs": 5360,
+    "segs": [ {
+      "utf8": "So it was confusing the rules across\ndimensions."
+    } ]
+  }, {
+    "tStartMs": 3853000,
+    "dDurationMs": 4300,
+    "segs": [ {
+      "utf8": "And I think like around that time, I\nlearned about workflows, and I was like,"
+    } ]
+  }, {
+    "tStartMs": 3857320,
+    "dDurationMs": 2760,
+    "segs": [ {
+      "utf8": "oh, maybe this needs to be a series of LLM\ncalls."
+    } ]
+  }, {
+    "tStartMs": 3860440,
+    "dDurationMs": 2620,
+    "segs": [ {
+      "utf8": "And so I broke it up into four LLM calls."
+    } ]
+  }, {
+    "tStartMs": 3864120,
+    "dDurationMs": 5120,
+    "segs": [ {
+      "utf8": "But then that introduced some new\nproblems, like now, like setting this,"
+    } ]
+  }, {
+    "tStartMs": 3869260,
+    "dDurationMs": 1400,
+    "segs": [ {
+      "utf8": "it's that too much setting the scene."
+    } ]
+  }, {
+    "tStartMs": 3870660,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "Like setting the scene doesn't know about\nbuilding the timeline, and it's literally"
+    } ]
+  }, {
+    "tStartMs": 3873880,
+    "dDurationMs": 3060,
+    "segs": [ {
+      "utf8": "evaluating the entire interview based on\nsetting the scene."
+    } ]
+  }, {
+    "tStartMs": 3877620,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "And so like that"
+    } ]
+  }, {
+    "tStartMs": 3879380,
+    "dDurationMs": 5140,
+    "segs": [ {
+      "utf8": "change had a really big impact. Like my\noverall quality went up when I split up my"
+    } ]
+  }, {
+    "tStartMs": 3884520,
+    "dDurationMs": 4260,
+    "segs": [ {
+      "utf8": "LLM calls, but my, it introduced new error\nmodes."
+    } ]
+  }, {
+    "tStartMs": 3888880,
+    "dDurationMs": 3320,
+    "segs": [ {
+      "utf8": "And this is something that like I think is\nprobably really common."
+    } ]
+  }, {
+    "tStartMs": 3892460,
+    "dDurationMs": 2880,
+    "segs": [ {
+      "utf8": "There isn't a magical change that makes\neverything better."
+    } ]
+  }, {
+    "tStartMs": 3895520,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "It's like a change can improve some things\nand then maybe introduce some new errors."
+    } ]
+  }, {
+    "tStartMs": 3900580,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "And I"
+    } ]
+  }, {
+    "tStartMs": 3903860,
+    "dDurationMs": 3880,
+    "segs": [ {
+      "utf8": "then started, well, I had four LLM calls,\nthen I really got stuck on,"
+    } ]
+  }, {
+    "tStartMs": 3909180,
+    "dDurationMs": 5960,
+    "segs": [ {
+      "utf8": "I even asked this in the Discord, do I do\nevals for each LLM call or do I do"
+    } ]
+  }, {
+    "tStartMs": 3915140,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "evals for the whole response? And I\nactually started by doing them one"
+    } ]
+  }, {
+    "tStartMs": 3919560,
+    "dDurationMs": 4780,
+    "segs": [ {
+      "utf8": "dimension at a time, and it got really\noverwhelming because I was just like, I'm"
+    } ]
+  }, {
+    "tStartMs": 3924340,
+    "dDurationMs": 1880,
+    "segs": [ {
+      "utf8": "going to be doing evals for the rest of my\nlife."
+    } ]
+  }, {
+    "tStartMs": 3926380,
+    "dDurationMs": 4500,
+    "segs": [ {
+      "utf8": "And I realized like by doing it one\ndimension at a time, I was like finding a"
+    } ]
+  }, {
+    "tStartMs": 3930880,
+    "dDurationMs": 2680,
+    "segs": [ {
+      "utf8": "lot of errors, but a lot of them weren't\ncritical errors."
+    } ]
+  }, {
+    "tStartMs": 3934560,
+    "dDurationMs": 3340,
+    "segs": [ {
+      "utf8": "And so then I was like, oh, maybe I\nactually should do evals on the whole"
+    } ]
+  }, {
+    "tStartMs": 3937900,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "trace."
+    } ]
+  }, {
+    "tStartMs": 3939420,
+    "dDurationMs": 4720,
+    "segs": [ {
+      "utf8": "I should do analysis annotations on the\nwhole trace, because then I can still find"
+    } ]
+  }, {
+    "tStartMs": 3944140,
+    "dDurationMs": 3440,
+    "segs": [ {
+      "utf8": "dimension-specific errors, but I'm\nprioritizing all of them against each"
+    } ]
+  }, {
+    "tStartMs": 3947580,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "other. And that actually made a really big\ndifference."
+    } ]
+  }, {
+    "tStartMs": 3950380,
+    "dDurationMs": 5780,
+    "segs": [ {
+      "utf8": "And I still do individual dimension\nannotations when I'm working on an eval"
+    } ]
+  }, {
+    "tStartMs": 3956160,
+    "dDurationMs": 5300,
+    "segs": [ {
+      "utf8": "that's specific to that dimension. But I'm\ndoing my error analysis and, like,"
+    } ]
+  }, {
+    "tStartMs": 3961460,
+    "dDurationMs": 3600,
+    "segs": [ {
+      "utf8": "failure mode prioritization on the whole\ntrace, because that's, like, what's"
+    } ]
+  }, {
+    "tStartMs": 3965060,
+    "dDurationMs": 3540,
+    "segs": [ {
+      "utf8": "impacting my customer. And that was a\npattern I really struggled with."
+    } ]
+  }, {
+    "tStartMs": 3968840,
+    "dDurationMs": 2800,
+    "segs": [ {
+      "utf8": "What's the right way to do this? And I've\ntried both."
+    } ]
+  }, {
+    "tStartMs": 3971760,
+    "dDurationMs": 4680,
+    "segs": [ {
+      "utf8": "I've spent a ton of time annotating things\nI didn't need to annotate as a result."
+    } ]
+  }, {
+    "tStartMs": 3976440,
+    "dDurationMs": 5740,
+    "segs": [ {
+      "utf8": "And I just, I think, for me, my conclusion\nis I should start with the customer"
+    } ]
+  }, {
+    "tStartMs": 3982180,
+    "dDurationMs": 2080,
+    "segs": [ {
+      "utf8": "experience. The customer gets the full\ntrace."
+    } ]
+  }, {
+    "tStartMs": 3984720,
+    "dDurationMs": 3240,
+    "segs": [ {
+      "utf8": "I'm going to look at the whole trace, and\nit helps me prioritize a little bit"
+    } ]
+  }, {
+    "tStartMs": 3987960,
+    "dDurationMs": 2680,
+    "segs": [ {
+      "utf8": "better. So that was a key decision point."
+    } ]
+  }, {
+    "tStartMs": 3994680,
+    "dDurationMs": 4340,
+    "segs": [ {
+      "utf8": "Choosing to move from Airtable interfaces\nto my own annotation tool."
+    } ]
+  }, {
+    "tStartMs": 3999580,
+    "dDurationMs": 3080,
+    "segs": [ {
+      "utf8": "Like, I know in class we learned build\nyour own annotation tool, and I was like,"
+    } ]
+  }, {
+    "tStartMs": 4002660,
+    "dDurationMs": 5180,
+    "segs": [ {
+      "utf8": "I did, in Airtable. But, like, really\nbuilding my own annotation tool, like I"
+    } ]
+  }, {
+    "tStartMs": 4007840,
+    "dDurationMs": 4820,
+    "segs": [ {
+      "utf8": "still, I'll be annotating, I'll be like\nfour traces in, and I'll be like, like"
+    } ]
+  }, {
+    "tStartMs": 4012660,
+    "dDurationMs": 3300,
+    "segs": [ {
+      "utf8": "even this morning I was annotating\nactually right before this, and I was"
+    } ]
+  }, {
+    "tStartMs": 4015960,
+    "dDurationMs": 5400,
+    "segs": [ {
+      "utf8": "like, why didn't I add, like, little pills\nabove my failure mode so, like, in this"
+    } ]
+  }, {
+    "tStartMs": 4021360,
+    "dDurationMs": 3540,
+    "segs": [ {
+      "utf8": "set, once I've used an error mode, it\nshould just be a pill so I don't have to"
+    } ]
+  }, {
+    "tStartMs": 4024900,
+    "dDurationMs": 2840,
+    "segs": [ {
+      "utf8": "go back and remember what the stupid\nfailure mode was."
+    } ]
+  }, {
+    "tStartMs": 4027880,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "So, like, I'm constantly thinking of ways\nto make annotating faster."
+    } ]
+  }, {
+    "tStartMs": 4031300,
+    "dDurationMs": 3420,
+    "segs": [ {
+      "utf8": "And I literally just stop what I'm doing\nand I'm like, Claude, can you add this to"
+    } ]
+  }, {
+    "tStartMs": 4034720,
+    "dDurationMs": 4320,
+    "segs": [ {
+      "utf8": "this annotation tool? And I'm forcing\nmyself to do that because, like you learn"
+    } ]
+  }, {
+    "tStartMs": 4039040,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "in this class,"
+    } ]
+  }, {
+    "tStartMs": 4040580,
+    "dDurationMs": 5200,
+    "segs": [ {
+      "utf8": "like annotation is so important, and if\nit's not effortless and fast, like you're"
+    } ]
+  }, {
+    "tStartMs": 4045780,
+    "dDurationMs": 3180,
+    "segs": [ {
+      "utf8": "just not going to do enough of it. And my\nannotations are hard."
+    } ]
+  }, {
+    "tStartMs": 4049040,
+    "dDurationMs": 2380,
+    "segs": [ {
+      "utf8": "Like that coach response is a lot of text."
+    } ]
+  }, {
+    "tStartMs": 4051580,
+    "dDurationMs": 2040,
+    "segs": [ {
+      "utf8": "So, like, my annotations are slow."
+    } ]
+  }, {
+    "tStartMs": 4054500,
+    "dDurationMs": 4420,
+    "segs": [ {
+      "utf8": "When I'm doing full trace annotations, I\nhave other annotations that, like—like"
+    } ]
+  }, {
+    "tStartMs": 4059220,
+    "dDurationMs": 3640,
+    "segs": [ {
+      "utf8": "when I was doing my question classifier, I\nactually did my annotations with Claude."
+    } ]
+  }, {
+    "tStartMs": 4063160,
+    "dDurationMs": 3860,
+    "segs": [ {
+      "utf8": "I gave Claude a list of questions, and I\njust said, Ask me, like, Claude Code."
+    } ]
+  }, {
+    "tStartMs": 4067180,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "I said, Just show me one at a time and let\nme just tell you the failure mode."
+    } ]
+  }, {
+    "tStartMs": 4071140,
+    "dDurationMs": 3900,
+    "segs": [ {
+      "utf8": "And we just ran through like a hundred\ntraces in like less than 10 minutes."
+    } ]
+  }, {
+    "tStartMs": 4075260,
+    "dDurationMs": 4020,
+    "segs": [ {
+      "utf8": "And I was like, Whoa, that was a cool\nannotation interface that I just used my"
+    } ]
+  }, {
+    "tStartMs": 4079280,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "LLM for."
+    } ]
+  }, {
+    "tStartMs": 4080980,
+    "dDurationMs": 1260,
+    "segs": [ {
+      "utf8": "So I think, like,"
+    } ]
+  }, {
+    "tStartMs": 4083080,
+    "dDurationMs": 4440,
+    "segs": [ {
+      "utf8": "always just thinking about what's the\nright tool for the moment."
+    } ]
+  }, {
+    "tStartMs": 4088140,
+    "dDurationMs": 4980,
+    "segs": [ {
+      "utf8": "And then I think the other big thing I've\nlearned is just—it sounds so obvious—but"
+    } ]
+  }, {
+    "tStartMs": 4093660,
+    "dDurationMs": 3720,
+    "segs": [ {
+      "utf8": "take breaks, step away. Because I've\ndefinitely had moments where, like, I'm"
+    } ]
+  }, {
+    "tStartMs": 4097380,
+    "dDurationMs": 3820,
+    "segs": [ {
+      "utf8": "banging my head at something, and I go and\nhave a meal or I go for a walk and I come"
+    } ]
+  }, {
+    "tStartMs": 4101200,
+    "dDurationMs": 3380,
+    "segs": [ {
+      "utf8": "back and just a way simpler solution comes\nto mind."
+    } ]
+  }, {
+    "tStartMs": 4105040,
+    "dDurationMs": 2400,
+    "segs": [ {
+      "utf8": "And that's like a general problem-solving\ntip, but"
+    } ]
+  }, {
+    "tStartMs": 4108240,
+    "dDurationMs": 1820,
+    "segs": [ {
+      "utf8": "even though I know it, I forget it often."
+    } ]
+  }, {
+    "tStartMs": 4110540,
+    "dDurationMs": 4160,
+    "segs": [ {
+      "utf8": "I'm like, I literally am having more fun\nthan I think I've had in my entire career,"
+    } ]
+  }, {
+    "tStartMs": 4114700,
+    "dDurationMs": 3740,
+    "segs": [ {
+      "utf8": "and I'm obsessed right now, and I code all\nday long."
+    } ]
+  }, {
+    "tStartMs": 4119260,
+    "dDurationMs": 2080,
+    "segs": [ {
+      "utf8": "My husband jokes that I broke up with him\nfor Claude."
+    } ]
+  }, {
+    "tStartMs": 4122540,
+    "dDurationMs": 3560,
+    "segs": [ {
+      "utf8": "And so, like, I really have to rein\nin—like,"
+    } ]
+  }, {
+    "tStartMs": 4127120,
+    "dDurationMs": 5160,
+    "segs": [ {
+      "utf8": "I have to, I now set a timer on my watch\nto remind me, just get up and step away,"
+    } ]
+  }, {
+    "tStartMs": 4133240,
+    "dDurationMs": 2600,
+    "segs": [ {
+      "utf8": "because it's just so fun. It feels like\nthe '90s."
+    } ]
+  }, {
+    "tStartMs": 4135920,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "It feels like the beginning of the\ninternet, and everybody's, like, geeking"
+    } ]
+  }, {
+    "tStartMs": 4138920,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "out and trying to learn this stuff, and\neverybody's"
+    } ]
+  }, {
+    "tStartMs": 4142480,
+    "dDurationMs": 3460,
+    "segs": [ {
+      "utf8": "sharing with each other. It just, it feels\nreally similar and really fun."
+    } ]
+  }, {
+    "tStartMs": 4146660,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "Yeah, the amount you're having fun is\ndefinitely coming through the screen."
+    } ]
+  }, {
+    "tStartMs": 4149860,
+    "dDurationMs": 2660,
+    "segs": [ {
+      "utf8": "I can definitely feel it all the way over\nhere."
+    } ]
+  }, {
+    "tStartMs": 4152580,
+    "dDurationMs": 1980,
+    "segs": [ {
+      "utf8": "Level of energy, really good."
+    } ]
+  }, {
+    "tStartMs": 4156340,
+    "dDurationMs": 1720,
+    "segs": [ {
+      "utf8": "We can keep going on forever,"
+    } ]
+  }, {
+    "tStartMs": 4160120,
+    "dDurationMs": 5800,
+    "segs": [ {
+      "utf8": "but let's wrap things up. Yeah, and then\nfor folks, like in the class, if you guys"
+    } ]
+  }, {
+    "tStartMs": 4165920,
+    "dDurationMs": 4360,
+    "segs": [ {
+      "utf8": "are on a cross-functional product team and\nyou're building a product, like an AI"
+    } ]
+  }, {
+    "tStartMs": 4170280,
+    "dDurationMs": 3800,
+    "segs": [ {
+      "utf8": "product, reach out, because I'm definitely\nlooking for teams to interview."
+    } ]
+  }, {
+    "tStartMs": 4174620,
+    "dDurationMs": 3660,
+    "segs": [ {
+      "utf8": "And you don't have to be an expert. Partly\nwhat I want to show with this podcast is"
+    } ]
+  }, {
+    "tStartMs": 4178280,
+    "dDurationMs": 1820,
+    "segs": [ {
+      "utf8": "how we're all figuring it out together,"
+    } ]
+  }, {
+    "tStartMs": 4181000,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "right?"
+    } ]
+  }, {
+    "tStartMs": 4183300,
+    "dDurationMs": 2240,
+    "segs": [ {
+      "utf8": "I'm not—I've done the guru thing. I'm over\nit."
+    } ]
+  }, {
+    "tStartMs": 4185540,
+    "dDurationMs": 2880,
+    "segs": [ {
+      "utf8": "Now I'm just into the let's be a community\nand share with each other."
+    } ]
+  }, {
+    "tStartMs": 4188480,
+    "dDurationMs": 2280,
+    "segs": [ {
+      "utf8": "So that's my goal. It's just how do we\nshare more stories."
+    } ]
+  }, {
+    "tStartMs": 4193280,
+    "dDurationMs": 2280,
+    "segs": [ {
+      "utf8": "That's great. That's really good humility."
+    } ]
+  }, {
+    "tStartMs": 4196260,
+    "dDurationMs": 1560,
+    "segs": [ {
+      "utf8": "I would say I'm really impressed."
+    } ]
+  }, {
+    "tStartMs": 4199320,
+    "dDurationMs": 2771,
+    "segs": [ {
+      "utf8": "I would still call you a guru, like at\nthis point."
+    } ]
+  }, {
+    "tStartMs": 4202091,
+    "dDurationMs": 1209,
+    "segs": [ {
+      "utf8": "This is awesome. Yeah,"
+    } ]
+  }, {
+    "tStartMs": 4204380,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "thank you so much."
+    } ]
+  }, {
+    "tStartMs": 4206060,
+    "dDurationMs": 1000,
+    "segs": [ {
+      "utf8": "Thank you both."
+    } ]
+  }, {
+    "tStartMs": 4207840,
+    "dDurationMs": 3120,
+    "segs": [ {
+      "utf8": "I really enjoyed this class and clearly\nlearned a lot."
+    } ]
+  }, {
+    "tStartMs": 4212100,
+    "dDurationMs": 1760,
+    "segs": [ {
+      "utf8": "Oh, definitely. You definitely learned a\nlot."
+    } ]
+  }, {
+    "tStartMs": 4214100,
+    "dDurationMs": 3220,
+    "segs": [ {
+      "utf8": "This is, yeah, A plus. Thank you so much."
+    } ]
+  }, {
+    "tStartMs": 4217320,
+    "dDurationMs": 1080,
+    "segs": [ {
+      "utf8": "Thanks."
+    } ]
+  } ]
+}

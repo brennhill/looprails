@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T16:32:06.604Z",
+  "generatedAt": "2026-09-03T11:13:48.198Z",
   "visualSystem": "Evidence Workshop",
   "figures": [
     {
@@ -9,7 +9,7 @@
       "priority": "P0",
       "chapter": "10",
       "title": "The nested loops",
-      "caption": "The inner loop performs the task. The outer loop improves the task performer. Evidence is the seam.",
+      "caption": "The inner loop performs the task. The outer loop improves the task performer. They communicate through cases, traces, graders, budgets, and rules.",
       "alt": "Two concentric cycles: a fast agent cycle inside a slower product-evaluation cycle, connected by task, grader, trace, budget, and rule artifacts.",
       "source": "Original diagram for Measure Twice, Prompt Once; Evidence Workshop visual system.",
       "reviewStatus": "generated-needs-print-review"

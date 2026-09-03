@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Interruptible","name":"Kill Switches & Interruptible AI Agents (RAIL) · LoopRails","description":"Interruptible, the I in RAIL: kill switches, monitors, and blame-free stops so anyone can halt an AI agent in time.","inLanguage":"en-US","url":"https://looprails.dev/rail-interruptible","mainEntityOfPage":"https://looprails.dev/rail-interruptible","image":"https://looprails.dev/og-rail-interruptible.png","datePublished":"2026-06-22","dateModified":"2026-08-23","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Interruptible","item":"https://looprails.dev/rail-interruptible"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Interruptible","name":"Kill Switches & Interruptible AI Agents (RAIL) · LoopRails","description":"Interruptible, the I in RAIL: kill switches, monitors, and blame-free stops so anyone can halt an AI agent in time.","inLanguage":"en-US","url":"https://looprails.dev/rail-interruptible","mainEntityOfPage":"https://looprails.dev/rail-interruptible","image":"https://looprails.dev/og-rail-interruptible.png","datePublished":"2026-06-22","dateModified":"2026-09-03","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Interruptible","item":"https://looprails.dev/rail-interruptible"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -161,7 +161,7 @@ high-consequence stop on the assumption that the agent will gracefully comply wh
 <p>Interruptibility is a layered stack, running from polite to brutal. Build all the layers, and rely
 on the lower, model-independent ones for anything consequential.</p>
 <h3 id="cooperative-cancellation-graceful-stop">Cooperative cancellation (graceful stop)</h3>
-<p>The agent stops itself at a safe seam. Mechanisms:</p>
+<p>The agent stops itself at a safe checkpoint. Mechanisms:</p>
 <ul>
 <li><strong>Cancellation tokens.</strong> Every step checks a shared token before it acts. On cancel, the loop exits
 at the <em>next</em> checkpoint rather than mid-write, leaving state consistent. The major SDKs expose
@@ -175,10 +175,10 @@ hours later, across processes and machine restarts, when a human (or webhook, or
 [A-10]. This makes &quot;pause and come back&quot; a normal state rather than a crash.</li>
 </ul>
 <p>Graceful stop is the right default for low- and medium-grade work, because it preserves a clean,
-resumable state. Its limit is <em>latency</em>. It only stops at the next seam, which is too slow when the
+resumable state. Its limit is <em>latency</em>. It only stops at the next checkpoint, which is too slow when the
 next action is the dangerous one.</p>
 <h3 id="preemptive-hard-stop">Preemptive / hard stop</h3>
-<p>When you cannot wait for a safe seam, you stop the agent from the <em>outside</em> and accept that you may
+<p>When you cannot wait for a safe checkpoint, you stop the agent from the <em>outside</em> and accept that you may
 leave state messy:</p>
 <ul>
 <li><strong>Kill the process.</strong> Terminate the agent&#39;s execution. Cooperation not required.</li>

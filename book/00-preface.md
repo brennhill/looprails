@@ -32,7 +32,7 @@ The **eval loop** improves the worker. People sample real outcomes, analyze erro
 
 The loops depend on each other. An agent loop without an eval loop can repeat mistakes at extraordinary speed. An eval loop disconnected from the agent loop becomes a benchmark program: impressive charts, limited influence, excellent snacks at the quarterly review.
 
-The seam between them is where the working artifacts live: task cases, traces, graders, release rules, and production telemetry. Build that seam well and product development becomes cumulative. Every consequential failure can become a permanent case. Every change can be compared on the same evidence. Every judge can be challenged. Every release can be discussed in terms more precise than “the vibes seem better.”
+The two loops meet in a small pile of working artifacts: task cases, traces, graders, release rules, and production telemetry. Make those connections explicit and product development becomes cumulative. Every consequential failure can become a permanent case. Every change can be compared on the same evidence. Every judge can be challenged. Every release can be discussed in terms more precise than “the vibes seem better.”
 
 Four published evaluation programs run through the book.
 
@@ -54,6 +54,4 @@ Certainty is unavailable. Evals are evidence, not a force field around productio
 
 Disciplined learning is a pretty good consolation prize.
 
-The route starts with twenty real cases: build the closest trustworthy grader for each, attack those graders, compare variants on the same evidence, connect offline results to production, and keep the whole contraption alive.
-
-Right. Let's get our hands dirty.
+The next section compresses the method into six questions. Then the route starts with twenty real cases: build the closest trustworthy grader, attack it, compare variants, connect offline results to production, and keep the whole contraption alive.

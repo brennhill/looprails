@@ -69,7 +69,7 @@ on the lower, model-independent ones for anything consequential.
 
 ### Cooperative cancellation (graceful stop)
 
-The agent stops itself at a safe seam. Mechanisms:
+The agent stops itself at a safe checkpoint. Mechanisms:
 
 - **Cancellation tokens.** Every step checks a shared token before it acts. On cancel, the loop exits
   at the *next* checkpoint rather than mid-write, leaving state consistent. The major SDKs expose
@@ -83,12 +83,12 @@ The agent stops itself at a safe seam. Mechanisms:
   [A-10]. This makes "pause and come back" a normal state rather than a crash.
 
 Graceful stop is the right default for low- and medium-grade work, because it preserves a clean,
-resumable state. Its limit is *latency*. It only stops at the next seam, which is too slow when the
+resumable state. Its limit is *latency*. It only stops at the next checkpoint, which is too slow when the
 next action is the dangerous one.
 
 ### Preemptive / hard stop
 
-When you cannot wait for a safe seam, you stop the agent from the *outside* and accept that you may
+When you cannot wait for a safe checkpoint, you stop the agent from the *outside* and accept that you may
 leave state messy:
 
 - **Kill the process.** Terminate the agent's execution. Cooperation not required.

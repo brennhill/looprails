@@ -27,9 +27,22 @@ That process is the **outer eval loop**. It wraps the agent's **inner execution 
 
 - The inner loop attempts, observes, verifies, retries, stops, or escalates.
 - The outer loop samples outcomes, analyzes errors, updates tasks and graders, compares variants, and changes the system.
-- The seam between them is made of task contracts, graders, traces, and telemetry.
+- The loops communicate through task contracts, graders, traces, and telemetry.
 
 Most teams have pieces of this. Few have a loop. A dashboard is not a loop. A benchmark run is not a loop. A red-team exercise performed once during a launch week—usually while everyone is eating pizza and making decisions they will later describe as "context dependent"—is not a loop.
+
+### The six foundational practices
+
+The research and case studies reduce to six jobs that should remain stable even as models and tools change:
+
+1. **Observe before you specify.** Begin with real behavior and locate the first consequential failure.
+2. **Define the decision and the standard.** Say which product decision the eval informs and what must count as success.
+3. **Grade the consequence.** Use the closest trustworthy evidence to the outcome rather than trusting the agent's account of it.
+4. **Test the measurement.** Treat labels, rubrics, judges, and harnesses as fallible components that can be checked and gamed.
+5. **Compare the whole system.** Evaluate the model, prompts, tools, context, policies, environment, constraints, and repeated behavior together.
+6. **Own the loop after launch.** Connect production evidence back to cases and give every eval artifact an owner, review cadence, and retirement rule.
+
+These are diagnostic questions, not maturity levels. They appear in reader-facing form in [`../book/key-principles.md`](../book/key-principles.md) and return in the epilogue as a repair guide for an eval program nobody quite trusts.
 
 ### Why there is enough material for a roughly 200-page book
 

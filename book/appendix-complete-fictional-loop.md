@@ -1,4 +1,4 @@
-# Appendix E: The Whole Loop, With Receipts
+# Appendix E: A Complete Eval Loop: From Complaint to Maintenance
 
 *ParcelPath is fictional. So are its people, traces, counts, failures, experiment results, and maintenance history. The companion files are real and runnable. This is a teaching case, not evidence that any particular intervention will produce the same result elsewhere.*
 

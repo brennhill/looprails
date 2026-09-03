@@ -583,3 +583,138 @@ communication: ""
 ```
 
 For each entry, attach the experiment or observational analysis and record important segment differences. A proxy with no validation date is a hypothesis, not an outcome metric.
+
+```{=typst}
+#pagebreak()
+```
+
+## Template 16: Eval-loop readiness and rollout card
+
+Use this as the cover sheet for one workflow. A checked box means the evidence is linked, not that somebody remembers discussing it. Blank boxes are allowed. Mystery boxes are not.
+
+**Workflow:** [name]\
+**Decision:** We will decide whether to [release, route, automate, hold, or retire].\
+**Decision owner:** [name]\
+**Domain owner:** [name]\
+**Engineering owner:** [name]\
+**Release owner:** [name]\
+**Current stage:** month zero / discovery / offline / shadow / limited / expanded / routine\
+**Next review:** [date]
+
+### Before the gates
+
+- [ ] The workflow is bounded and the user outcome is named.
+- [ ] We can inspect privacy-approved traces or representative fixtures.
+- [ ] Inputs, versions, tool events, outputs, and outcomes are recorded.
+- [ ] Side effects can be replayed safely or simulated faithfully.
+- [ ] Human review time is protected and a domain owner is available.
+- [ ] A disable, rollback, or containment path has an owner.
+
+If any required item is blank, remain in month zero and fix it.
+
+### Gate 1: Observe before you specify
+
+- [ ] The discovery sample mixes ordinary cases, complaints, risk cases, important segments, and apparent successes.
+- [ ] Reviewers inspected the actual task outcome, not only final prose.
+- [ ] Each failed case records the first consequential departure.
+- [ ] Open notes came before the failure taxonomy.
+- [ ] The sample size and selection rationale are recorded.
+
+**Exit evidence:** linked traces, annotations, and failure taxonomy v1.\
+**Owner accepting exit:** [name] **Date:** [date]
+
+```{=typst}
+#pagebreak()
+```
+
+### Gate 2: Define the decision and the standard
+
+- [ ] The eval names the decision it will inform.
+- [ ] Each task says what success, failure, and ambiguity mean.
+- [ ] Hard constraints are separated from tradeoffs and monitoring signals.
+- [ ] Domain or policy disagreements are resolved or explicitly open.
+- [ ] Expected evidence, allowed actions, and escalation rules are written.
+
+**Exit evidence:** objective record, task contracts, and ambiguity log.\
+**Owner accepting exit:** [name] **Date:** [date]
+
+### Gate 3: Grade the consequence
+
+- [ ] Every criterion points to its strongest available truth source.
+- [ ] State checks, executable tests, and rules are used where they fit.
+- [ ] Judgment is limited to criteria direct evidence cannot settle.
+- [ ] Composite outcomes remain visible instead of disappearing in one score.
+- [ ] Missing evidence produces an explicit result, not a hopeful pass.
+
+**Exit evidence:** grader map and check-level result schema.\
+**Owner accepting exit:** [name] **Date:** [date]
+
+### Gate 4: Test the measurement
+
+- [ ] Task authors tried to make bad outcomes pass and good outcomes fail.
+- [ ] Human disagreements were separated into candidate error, label error, and genuine ambiguity.
+- [ ] Model judges were compared with qualified human labels by category.
+- [ ] False passes, false holds, and invalid grader runs are visible.
+- [ ] Leakage, stale state, judge gaming, and reward hacking were challenged.
+- [ ] Each grader has an owner, version, allowed use, and review trigger.
+
+**Exit evidence:** grader attacks, calibration report, and known limitations.\
+**Owner accepting exit:** [name] **Date:** [date]
+
+### Gate 5: Compare the whole system
+
+- [ ] Baseline and candidate ran on comparable cases and conditions.
+- [ ] Model, prompt, tools, context, policies, budgets, and harness are stored.
+- [ ] Related cases cannot leak across development and held-out groups.
+- [ ] Repeated behavior is measured where consistency matters.
+- [ ] Paired wins and regressions are inspected, not only the average.
+- [ ] Product-defined safety, latency, cost, and approval conditions appear.
+- [ ] The release decision states uncertainty and known blind spots.
+
+**Exit evidence:** paired comparison and signed release decision.\
+**Owner accepting exit:** [name] **Date:** [date]
+
+### Gate 6: Own the loop after launch
+
+- [ ] Production or shadow sampling covers representative and risk cases.
+- [ ] Runtime stop, escalation, containment, and rollback triggers are named.
+- [ ] Offline measures are linked to the outcomes they are meant to predict.
+- [ ] Important incidents become cases under a written rule.
+- [ ] Weekly trace review and recurring eval-health review are scheduled.
+- [ ] Dataset, grader, proxy, and benchmark retirement have owners.
+- [ ] The next expansion decision already has a date and evidence owner.
+
+**Exit evidence:** sampling plan, ownership page, proxy ledger, and calendar.\
+**Owner accepting exit:** [name] **Date:** [date]
+
+```{=typst}
+#pagebreak()
+```
+
+### The rollout ladder
+
+- **Month zero:** establish access, instrumentation, a safe replay path, review capacity, ownership, and containment.
+- **Discovery:** analyze real behavior and agree on the decision and standard. Complete Gates 1 and 2.
+- **Offline:** build and challenge the graders, then compare the complete systems. Complete Gates 3 through 5.
+- **Shadow:** run on fresh production work without giving the candidate authority. Check instrumentation, sampling, grader behavior, runtime controls, and offline-to-online links.
+- **Limited:** expose only the population and actions named in the release decision. Apply the product's entry, stop, review, and rollback rules.
+- **Expanded or routine:** widen use only when the recorded evidence supports it. Continue sampling, incident conversion, grader audits, and retirement review under Gate 6.
+
+### Rollout record
+
+**Stage:** offline / shadow / limited / expanded / routine\
+**Change being evaluated:** [versioned change]\
+**Population or exposure:** [who and what is included]\
+**Entry evidence:** [links]\
+**Product-defined constraints:** [hard limits and decision criteria]\
+**Stop or rollback trigger:** [observable trigger]\
+**Rollback owner and mechanism:** [name and action]\
+**Evidence review date:** [date]
+
+**Decision:** remain / advance / hold / roll back / retire\
+**Reason:** [evidence]\
+**New failures added as cases:** [IDs]\
+**Next stage or action:** [decision]\
+**Decision owner:** [name] **Date:** [date]
+
+Rollout is not promotion. A healthy loop may keep human approval or set rollout to zero.
