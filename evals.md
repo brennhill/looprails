@@ -77,7 +77,7 @@ Check three things:
 
 A correct final sentence can conceal an unauthorized or incomplete action. Preserve tool calls, results and final environment state, with secrets redacted.
 
-## 4. Calibrate subjective judgments
+## 4. Check that reviewers apply the same criteria
 
 Have qualified reviewers label a representative sample. Resolve ambiguous criteria, inspect disagreements and allow UNKNOWN. Agreement alone is insufficient if reviewers share a blind spot.
 
@@ -102,7 +102,7 @@ Record model, prompt, tools, retrieval corpus, harness, environment, resource li
 
 Use repeated trials when consistency matters. Distinguish first-attempt success, at-least-one success across several attempts and success on every attempt. With independent trials that each have the same success probability and a 75% per-trial success probability, three consecutive successes have probability 0.75³, about 42%. Real trials may be correlated; report that assumption.
 
-## 6. Compare changes as experiments
+## 6. Compare a change with the baseline
 
 Evaluate baseline and candidate on the same cases and inspect paired differences. Report case and trial counts, uncertainty, critical failures, important slices, cost and latency per useful outcome.
 
@@ -116,7 +116,7 @@ Keep held-out cases and critical grading rules outside the optimizing agent’s 
 
 Try to pass without accomplishing the task, then repair the loophole while confirming legitimate solutions still pass. Separate feedback used for optimization from independent release evidence where practical. Refresh leaked or saturated cases.
 
-## 8. Close the production loop
+## 8. Learn from production
 
 | Cadence | Use |
 |---|---|

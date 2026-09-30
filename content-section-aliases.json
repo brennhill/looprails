@@ -478,7 +478,10 @@
     "graders",
     "experiment",
     "operations",
-    "research-behind-this-guide"
+    "research-behind-this-guide",
+    "4-calibrate-subjective-judgments",
+    "6-compare-changes-as-experiments",
+    "8-close-the-production-loop"
   ],
   "article-hitl-healthcare": [
     "how-to-build-a-good-human-in-the-loop-for-ai-in-healthcare",
