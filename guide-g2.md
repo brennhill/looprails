@@ -8,7 +8,7 @@ A shared branch change, a recoverable infrastructure update, or a consequential 
 
 ## Choose the control
 
-Establish appropriate authority and show concrete evidence before commitment. A reviewer needs a readable diff or state preview, competence, time and the power to change the decision.
+Establish appropriate authority and show concrete evidence before the action executes. A reviewer needs a readable diff or state preview, competence, time and the power to change the decision.
 
 ## Watch the boundary
 

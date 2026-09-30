@@ -1,6 +1,6 @@
 # Autonomous Agent Patterns
 
-An autonomous agent observes state, chooses an action, uses a tool and checks the result. It needs limits and a completion criterion because its next step is not fully specified in advance.
+An autonomous agent checks the current state, chooses an action, uses a tool and examines the result. Give it clear limits and a way to tell when the task is complete.
 
 ## Common patterns
 

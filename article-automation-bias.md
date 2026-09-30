@@ -1,10 +1,10 @@
 # Automation Bias
 
-Automation bias is inappropriate reliance on automated advice. A person may accept a wrong recommendation or miss a problem because the system did not flag it. Expertise and good intentions do not remove the risk.
+Automation bias means relying too much on automated advice. A reviewer may accept a wrong recommendation or miss a problem the system never flagged. Experience alone does not prevent it.
 
 Reliance depends on task, workload, interface, perceived reliability and available evidence. Avoid treating rubber-stamping as inevitable or assigning one detection rate to every workflow.
 
-## Reduce the conditions that encourage it
+## Help reviewers catch mistakes
 
 Show source evidence and the concrete effect of an action. Make uncertainty and missing information visible. A confident explanation can persuade without making the result correct.
 

@@ -1,6 +1,6 @@
 # RAG Retrieval Patterns
 
-Retrieval-augmented generation (RAG) supplies external evidence to a model before it answers. Retrieval quality, source access and answer grounding are separate problems; improving one does not automatically solve the others.
+Retrieval-augmented generation (RAG) gives a model external evidence before it answers. You need to find useful sources, enforce access permissions and check that the answer follows the evidence.
 
 ## Choose the retrieval stages
 

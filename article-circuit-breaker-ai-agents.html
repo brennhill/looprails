@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Circuit Breaker Pattern for AI Agents · LoopRails</title>
-<meta name="description" content="A circuit breaker stops new work when a measured condition crosses a threshold.">
+<meta name="description" content="A circuit breaker blocks new work when a limit is reached.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="https://looprails.dev/article-circuit-breaker-ai-agents">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Circuit Breaker Pattern for AI Agents · LoopRails">
-<meta property="og:description" content="A circuit breaker stops new work when a measured condition crosses a threshold.">
+<meta property="og:description" content="A circuit breaker blocks new work when a limit is reached.">
 <meta property="og:url" content="https://looprails.dev/article-circuit-breaker-ai-agents">
 <meta property="og:image" content="https://looprails.dev/og-article-circuit-breaker-ai-agents.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Circuit Breaker Pattern for AI Agents · LoopRails">
-<meta name="twitter:description" content="A circuit breaker stops new work when a measured condition crosses a threshold.">
+<meta name="twitter:description" content="A circuit breaker blocks new work when a limit is reached.">
 <meta name="twitter:image" content="https://looprails.dev/og-article-circuit-breaker-ai-agents.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -23,8 +23,13 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"The Circuit Breaker Pattern for AI Agents","name":"The Circuit Breaker Pattern for AI Agents · LoopRails","description":"A circuit breaker stops new work when a measured condition crosses a threshold.","inLanguage":"en-US","url":"https://looprails.dev/article-circuit-breaker-ai-agents","mainEntityOfPage":"https://looprails.dev/article-circuit-breaker-ai-agents","image":"https://looprails.dev/og-article-circuit-breaker-ai-agents.png","datePublished":"2026-06-23","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"The Circuit Breaker Pattern for AI Agents","item":"https://looprails.dev/article-circuit-breaker-ai-agents"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"The Circuit Breaker Pattern for AI Agents","name":"The Circuit Breaker Pattern for AI Agents · LoopRails","description":"A circuit breaker blocks new work when a limit is reached.","inLanguage":"en-US","url":"https://looprails.dev/article-circuit-breaker-ai-agents","mainEntityOfPage":"https://looprails.dev/article-circuit-breaker-ai-agents","image":"https://looprails.dev/og-article-circuit-breaker-ai-agents.png","datePublished":"2026-06-23","dateModified":"2026-10-01","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"The Circuit Breaker Pattern for AI Agents","item":"https://looprails.dev/article-circuit-breaker-ai-agents"}]}]}</script>
 <style>
+/* The surrounding section supplies the signup copy. Keep the form concise. */
+.formkit-form .formkit-column:first-child{display:none!important}
+.formkit-form .formkit-column{width:100%!important;flex-basis:100%!important}
+.formkit-form .formkit-guarantee{display:none!important}
+
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
   --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
@@ -98,15 +103,15 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="article-loop-engineering-doctrine" class="">Doctrine</a><a href="playbook" class="">Playbook</a><a href="framework" class="">Framework</a><a href="kit" class="">Kit</a><a href="cookbook" class="">Cookbook</a><a href="evals" class="">Evals</a><a href="codex" class="">Codex</a><a href="articles" class="">Articles</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#choose-actionable-signals" class="" data-id="choose-actionable-signals">Choose actionable signals</a><a href="#use-explicit-states" class="" data-id="use-explicit-states">Use explicit states</a><a href="#enforce-at-execution" class="" data-id="enforce-at-execution">Enforce at execution</a><a href="#test-it" class="" data-id="test-it">Test it</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#choose-signals-that-trigger-a-response" class="" data-id="choose-signals-that-trigger-a-response">Choose signals that trigger a response</a><a href="#use-explicit-states" class="" data-id="use-explicit-states">Use explicit states</a><a href="#enforce-at-execution" class="" data-id="enforce-at-execution">Enforce at execution</a><a href="#test-it" class="" data-id="test-it">Test it</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="/">LoopRails</a> · <a href="articles">Articles</a> · The Circuit Breaker Pattern for AI Agents</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-circuit-breaker-ai-agents.md">View article-circuit-breaker-ai-agents.md on GitHub ↗</a>
-      <span class="section-alias" id="the-circuit-breaker-pattern-for-ai-agents" aria-hidden="true"></span><span class="section-alias" id="what-the-circuit-breaker-pattern-is" aria-hidden="true"></span><span class="section-alias" id="why-agents-need-automatic-thresholds" aria-hidden="true"></span><span class="section-alias" id="what-to-trip-on" aria-hidden="true"></span><span class="section-alias" id="half-open-and-resume-semantics" aria-hidden="true"></span><span class="section-alias" id="circuit-breaker-vs-kill-switch-vs-rate-limit" aria-hidden="true"></span><span class="section-alias" id="how-it-fits-rail-and-the-grades" aria-hidden="true"></span><span class="section-alias" id="implementation-checklist" aria-hidden="true"></span><span class="section-alias" id="key-takeaways" aria-hidden="true"></span><span class="section-alias" id="get-started" aria-hidden="true"></span><h1 id="circuit-breakers-for-ai-agents">Circuit Breakers for AI Agents</h1>
-<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-09-30">September 30, 2026</time></p>
-<p>A circuit breaker stops new work when a measured condition crosses a threshold. It protects the system while a dependency fails, a budget is exhausted or the agent repeats an unproductive action.</p>
-<h2 id="choose-actionable-signals">Choose actionable signals</h2>
+      <span class="section-alias" id="the-circuit-breaker-pattern-for-ai-agents" aria-hidden="true"></span><span class="section-alias" id="what-the-circuit-breaker-pattern-is" aria-hidden="true"></span><span class="section-alias" id="why-agents-need-automatic-thresholds" aria-hidden="true"></span><span class="section-alias" id="what-to-trip-on" aria-hidden="true"></span><span class="section-alias" id="half-open-and-resume-semantics" aria-hidden="true"></span><span class="section-alias" id="circuit-breaker-vs-kill-switch-vs-rate-limit" aria-hidden="true"></span><span class="section-alias" id="how-it-fits-rail-and-the-grades" aria-hidden="true"></span><span class="section-alias" id="implementation-checklist" aria-hidden="true"></span><span class="section-alias" id="key-takeaways" aria-hidden="true"></span><span class="section-alias" id="get-started" aria-hidden="true"></span><span class="section-alias" id="choose-actionable-signals" aria-hidden="true"></span><h1 id="circuit-breakers-for-ai-agents">Circuit Breakers for AI Agents</h1>
+<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-10-01">October 1, 2026</time></p>
+<p>A circuit breaker blocks new work when a limit is reached. Use it to stop repeated failures, exhausted budgets or an agent that keeps trying the same unproductive action.</p>
+<h2 id="choose-signals-that-trigger-a-response">Choose signals that trigger a response</h2>
 <p>Useful triggers include repeated tool failures, elapsed time, spending, duplicate actions, policy violations and excessive affected records. Aggregate limits across the whole run, including child agents.</p>
 <p>A flat verifier score can justify stopping, but only if the score is trustworthy. A self-reported confidence drop is not a reliable safety detector by itself.</p>
 <h2 id="use-explicit-states">Use explicit states</h2>
@@ -143,7 +148,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <aside class="related"><h2>Related reading</h2><ul><li><a href="article-what-is-agentic-ai">What Is Agentic AI?</a></li><li><a href="article-hitl-coding-agents">Human-in-the-Loop for AI Coding Agents</a></li><li><a href="article-hitl-customer-support">Human-in-the-Loop for AI Customer Support</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Plan your loop with five templates and a one-page checklist. Get them by email, plus new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>

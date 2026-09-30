@@ -1,6 +1,6 @@
 # I: Interruptible
 
-An interruptible system can stop scheduling new actions, cancel supported running work and reconcile effects already committed. The stop mechanism must operate outside the model’s willingness to cooperate.
+An interruptible system can stop scheduling new actions, cancel supported running work and check which actions completed already committed. The stop mechanism must operate outside the model’s willingness to cooperate.
 
 “Stop everything instantly” is not a defensible promise for distributed services. Define scope and measure latency.
 

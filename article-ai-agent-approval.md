@@ -1,12 +1,12 @@
 # When Should an AI Agent Ask for Approval?
 
-Ask before a consequential action when approval is needed to establish authority or when a reviewer can meaningfully check the effect. An existing authorization can cover routine actions within a defined scope; material changes to that scope need a new decision.
+Ask for approval when an action needs permission or a reviewer can catch a costly mistake. Existing permission can cover routine work within clear limits. Ask again when those limits change.
 
 ## Decide what the approval is doing
 
 An approval can establish permission, catch an error, satisfy a separation-of-duties rule or clarify intent. These are different jobs. A person can authorize an action without being able to verify that it is technically correct.
 
-For low-consequence work, use bounded autonomy and suitable records. For recoverable changes, provide a tested undo. For consequential actions, stage execution and show evidence. If nobody can evaluate the risk in time, restrict or contain the capability.
+For low-consequence work, use autonomy within clear limits and action records. For recoverable changes, provide a tested undo. For consequential actions, stage execution and show evidence. If nobody can evaluate the risk in time, restrict or contain the capability.
 
 ## Show what will happen
 

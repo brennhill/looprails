@@ -4,7 +4,7 @@ Keep enough evidence to reconstruct a consequential action: what was proposed, w
 
 ## Record the decision and effect
 
-For each consequential action, retain an action and run ID, originating principal, agent or worker identity, target, permitted scope, relevant arguments, approval decision, tool outcome and recovery status.
+For each consequential action, retain an action and run ID, person or service that started the request, agent or worker identity, target, permitted scope, relevant arguments, approval decision, tool outcome and recovery status.
 
 Record evidence locations and system versions rather than duplicating every sensitive payload. Distinguish completed, canceled and uncertain outcomes. A tool’s “success” message may need verification against the actual service state.
 

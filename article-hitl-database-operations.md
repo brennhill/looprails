@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Database Operations
 
-Treat generated SQL as executable code. The risk comes from data sensitivity, affected rows, locks and downstream effects—not whether the query begins with SELECT.
+Treat generated SQL as executable code. Check which data it exposes, rows it affects and locks it takes. A SELECT query can still cause harm.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

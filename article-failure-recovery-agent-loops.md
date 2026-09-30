@@ -1,8 +1,8 @@
 # Recovery for Agent Loops
 
-Before retrying, determine whether the previous action failed, succeeded or has an unknown outcome. A lost response after a successful payment is different from a request that never reached the service.
+Check what happened before retrying. The previous action may have failed, succeeded or left you unsure. A payment with a lost confirmation needs different handling from a request that never arrived.
 
-## Persist steps and effects
+## Save progress and record changes
 
 Record inputs, action identity, results and checkpoints. On restart, resume from known state rather than repeating the whole run. Record nondeterministic model calls and tool effects so replay does not execute them again.
 
@@ -10,7 +10,7 @@ Record inputs, action identity, results and checkpoints. On restart, resume from
 
 ## Make retries safe
 
-Use idempotency keys bound to the intended operation where the service supports them. For unknown outcomes, query the service’s authoritative state before retrying. Local deduplication alone cannot guarantee exactly-once effects across a network failure.
+Where supported, give each operation an idempotency key: an identifier the service uses to recognize a retry and avoid repeating the action. For unknown outcomes, query the service’s authoritative state before retrying. Local deduplication alone cannot guarantee exactly-once effects across a network failure.
 
 Retry transient faults with bounded attempts, backoff and jitter. Do not retry authorization failures or unsafe actions through another route. Preserve a run-wide budget.
 

@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Voice Agents
 
-A voice agent needs controls that work under real-time pressure. Recognition errors, interruptions and identity uncertainty can make a spoken confirmation ambiguous.
+Voice-agent controls need to work during a live conversation. Misheard words, interruptions and uncertain identity can make a spoken confirmation unreliable.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

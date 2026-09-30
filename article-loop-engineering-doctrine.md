@@ -1,6 +1,6 @@
 # Ten Principles for Agent Loops
 
-Build a loop around evidence of useful work, then limit what can happen when that evidence is wrong. These are LoopRails design recommendations, not universal empirical laws.
+Build a loop that checks whether the work is useful. Limit the damage when those checks are wrong. The principles below are LoopRails design guidance.
 
 1. **State the goal and permitted scope.** Include prohibited effects and a named owner.
 2. **Define completion before running.** Choose checks that examine the artifact or state, not only the agent’s claim.

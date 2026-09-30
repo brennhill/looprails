@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Email Agents
 
-Keep drafting separate from sending. Once a message reaches a recipient, recall or deletion cannot reliably remove every copy.
+Keep drafting separate from sending. Once an email arrives, recall and deletion cannot reliably remove every copy.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

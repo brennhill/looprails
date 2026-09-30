@@ -1,6 +1,6 @@
 # What to Monitor in an Agent Loop
 
-Monitor progress, effects and resource use. A loop can spend more while accomplishing less, or produce a good-looking answer after changing the wrong state.
+Watch progress, costs and changes to the world outside the agent. A loop can spend more while achieving less. A polished answer can hide a change to the wrong record or account.
 
 | Signal | What it can reveal | Response |
 |---|---|---|

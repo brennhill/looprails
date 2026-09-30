@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Multi-Agent Systems
 
-A team of agents adds handoffs, shared state and parallel actions. Govern the whole run as well as each participant; individually acceptable actions can combine into an unsafe outcome.
+A team of agents shares work, state and handoffs. Set limits for the whole team as well as each agent. Several acceptable actions can still add up to an unsafe result.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

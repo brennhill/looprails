@@ -23,8 +23,13 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Kit","name":"The LoopRails Kit: Templates for Building Safe Agent Loops · LoopRails","description":"Five templates for goals, action authority, execution controls, model adaptation and loop health.","inLanguage":"en-US","url":"https://looprails.dev/kit","mainEntityOfPage":"https://looprails.dev/kit","image":"https://looprails.dev/og-kit.png","datePublished":"2026-06-22","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Kit","item":"https://looprails.dev/kit"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Kit","name":"The LoopRails Kit: Templates for Building Safe Agent Loops · LoopRails","description":"Five templates for goals, action authority, execution controls, model adaptation and loop health.","inLanguage":"en-US","url":"https://looprails.dev/kit","mainEntityOfPage":"https://looprails.dev/kit","image":"https://looprails.dev/og-kit.png","datePublished":"2026-06-22","dateModified":"2026-10-01","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Kit","item":"https://looprails.dev/kit"}]}]}</script>
 <style>
+/* The surrounding section supplies the signup copy. Keep the form concise. */
+.formkit-form .formkit-column:first-child{display:none!important}
+.formkit-form .formkit-column{width:100%!important;flex-basis:100%!important}
+.formkit-form .formkit-guarantee{display:none!important}
+
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
   --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
@@ -104,7 +109,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/kit.md">View kit.md on GitHub ↗</a>
       <h1 id="the-looprails-kit">The LoopRails Kit</h1>
-<p>Five templates for defining, governing and monitoring an agent loop. Copy them into the project and name an owner. The <a href="framework">framework</a> defines the grades; the <a href="https://github.com/brennhill/looprails/tree/main/starter">starter</a> provides a small runnable example.</p>
+<p>Five templates to plan an agent loop, set its limits and track its results. Copy them into your project and name an owner. The <a href="framework">framework</a> defines the grades; the <a href="https://github.com/brennhill/looprails/tree/main/starter">starter</a> provides a small runnable example.</p>
 <div style="border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:22px 24px;margin:22px 0 6px;text-align:center"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free &middot; keep the whole Kit</div><div style="font-weight:800;font-size:1.2rem;color:var(--ink);margin-bottom:6px">Get all five templates as one fill-in pack</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 auto 14px;max-width:54ch">Read the templates below, or get the pack and one-page checklist by email. New essays follow.</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script></div>
 <h2 id="1-the-done-condition-spec">1. The Done-Condition Spec</h2>
 <p>Separate the desired result from the evidence used to check it. The agent’s claim is not enough.</p>
@@ -126,28 +131,28 @@ Purpose and intended users:
 Inputs and data sensitivity:
 Outputs and destinations:
 Actions with consequence grades (G0–G3):
-Cumulative-effect limits:
-Authority and approval boundaries per action:
+Limits on combined effects:
+Who may authorize each action, and when approval is required:
 Completion checks and their coverage:
 Environment, filesystem and network restrictions:
-Credential scopes and expiry:
+What credentials allow and when they expire:
 Maximum turns / time / spend:
-Stop scope and measured latency:
+What the stop reaches and how long it takes:
 Recovery path and irreversible effects:
-State, evidence and privacy-safe audit locations:
+State, evidence and audit records with sensitive data protected:
 Known failure modes:
 Last reviewed, by whom, and system versions:
 </code></pre>
 <p>A read can expose data, and tests can execute code. Grade actual effects using <a href="framework#2-grade-the-action">the rule</a>, not fixed labels for commands. A code merge may be G2; an irreversible critical deployment may be G3.</p>
 <h2 id="3-the-guardrails-checklist">3. The Guardrails Checklist</h2>
-<p>Resolve gaps in the controls required for the intended scope before granting that scope.</p>
+<p>Check these controls before giving the agent access.</p>
 <ul>
 <li><input disabled="" type="checkbox"> Goal, permitted actions and completion checks are explicit.</li>
 <li><input disabled="" type="checkbox"> Trusted checks and held-out cases are protected from the optimizing agent.</li>
 <li><input disabled="" type="checkbox"> Filesystem, network and credentials match the task’s authority.</li>
 <li><input disabled="" type="checkbox"> Isolation is an execution boundary; a worktree alone is not a sandbox.</li>
-<li><input disabled="" type="checkbox"> Turn, time, spend and aggregate-effect caps run before actions.</li>
-<li><input disabled="" type="checkbox"> Consequential actions have appropriate authorization and checkable evidence.</li>
+<li><input disabled="" type="checkbox"> Turn, time, spend and limits on combined effects run before actions.</li>
+<li><input disabled="" type="checkbox"> Consequential actions have appropriate authorization and evidence a reviewer can inspect.</li>
 <li><input disabled="" type="checkbox"> Approval is bound to exact targets, arguments and artifact versions.</li>
 <li><input disabled="" type="checkbox"> Cancellation reaches workers, queues and checkpoint resume.</li>
 <li><input disabled="" type="checkbox"> Recovery is tested; irreversible and uncertain effects are documented.</li>

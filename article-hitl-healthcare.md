@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Healthcare
 
-Grade clinical actions by patient consequences, not by whether they look administrative. A wrong note, routing decision or scheduling instruction can affect care as well as an explicit treatment recommendation.
+Assess clinical actions by their effect on patients. An incorrect note, referral or scheduling instruction can affect care, even when the task looks administrative.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

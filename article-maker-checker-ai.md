@@ -1,6 +1,6 @@
 # Maker–Checker for AI Agents
 
-Maker–checker separates proposing an action from authorizing it. The maker prepares the change; a checker with the required authority examines evidence before execution.
+In maker–checker review, one party proposes an action and another authorizes it. The maker prepares the change. The checker examines the evidence and decides whether it may proceed.
 
 It helps only when the separation is real. Two model calls sharing credentials and assumptions do not create independent authorization.
 

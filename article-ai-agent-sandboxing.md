@@ -1,6 +1,6 @@
 # Sandboxing AI Agents
 
-A sandbox restricts an agent’s execution environment: which files it can access, which processes it can launch, where it can connect and how many resources it can consume. It reduces possible harm even when the model follows the wrong instruction.
+A sandbox limits where an agent can act: the files it can access, programs it can run, services it can reach and resources it can use. Those limits reduce harm when the model follows a bad instruction.
 
 Isolation depends on the implementation and configuration. “Runs in a container” is not enough to establish a secure boundary.
 

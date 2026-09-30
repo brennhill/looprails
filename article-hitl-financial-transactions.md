@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Financial Transactions
 
-Separate a payment proposal from execution. A safe design checks authority, destination and aggregate exposure before funds move; a confirmation click alone supplies none of those checks.
+Check who can authorize a payment, where it will go and how much the agent can spend before moving funds. Keep the proposal separate from execution. A confirmation click is useful only when it is tied to those checks.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

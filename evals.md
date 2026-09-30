@@ -1,6 +1,6 @@
 # Build Evals for Agent Loops
 
-An eval supports a decision: whether a change improves useful behavior enough to ship. Start with representative work, explicit outcomes and checks you can inspect.
+An eval helps you decide whether a change is ready to ship. Test realistic work, define success and keep the evidence easy to inspect.
 
 ## Separate the checks
 
@@ -15,9 +15,9 @@ A strong local verifier does not establish product-wide reliability. A good offl
 
 ## 1. Name the decision
 
-Choose one product behavior and the consequence of failure. Define the baseline, acceptable trade-offs, prohibited effects and owner. Do this before choosing a metric.
+Choose one behavior to improve. Define the current baseline, the cost of failure, acceptable trade-offs and who owns the decision. Then choose a metric.
 
-Inspect real traces, artifacts and final state. Ask qualified reviewers for pass, fail or cannot tell, with evidence. Group repeated failures into a small taxonomy. Count frequency and consequence separately.
+Inspect real traces, artifacts and final state. Ask qualified reviewers for pass, fail or cannot tell, with evidence. Group repeated failures by type. Count frequency and consequence separately.
 
 ## 2. Turn failures into cases
 
@@ -63,17 +63,17 @@ Keep three suites:
 | Regression | Protect previously solved cases and confirmed failures |
 | Held-out audit | Detect overfitting and gaming on unseen variants |
 
-A small initial set can reveal obvious failures. It cannot establish a rare critical-failure rate merely because no failure appeared.
+A small initial set can reveal obvious failures. It cannot establish a rare critical-failure rate from a small set with no observed failures.
 
 ## 3. Choose complementary graders
 
 Use direct state checks, trusted tests and assertions where the claim is executable. Use source comparisons for factual support and calibrated rubrics for subjective quality. Check the strongest available evidence for the particular claim; no grader is universally strongest.
 
-For an agent, evaluate:
+Check three things:
 
-- **Outcome:** requested state achieved and invariants preserved.
-- **Trajectory:** permitted actions, reasonable cost and no hidden harmful effects.
-- **Interaction:** useful clarification, accurate status and effective handoff.
+- **Result:** the task is complete and required conditions still hold.
+- **Actions:** the agent stayed within its permissions and budget, without hidden harmful effects.
+- **Communication:** the agent asked useful questions, reported its status accurately and handed off enough context.
 
 A correct final sentence can conceal an unauthorized or incomplete action. Preserve tool calls, results and final environment state, with secrets redacted.
 
@@ -98,9 +98,9 @@ Version the rubric, judge model and settings. Recheck against fresh human labels
 
 Record model, prompt, tools, retrieval corpus, harness, environment, resource limits and grader versions. Reset state between trials. Validate a reference solution to ensure the harness can recognize success.
 
-[Anthropic’s infrastructure-noise analysis](https://www.anthropic.com/engineering/infrastructure-noise) shows why resource settings can affect measured coding-agent results. Treat them as experimental inputs.
+[Anthropic’s infrastructure-noise analysis](https://www.anthropic.com/engineering/infrastructure-noise) shows why resource settings can affect measured coding-agent results. Treat them as part of the experiment setup.
 
-Use repeated trials when consistency matters. Distinguish first-attempt success, at-least-one success across several attempts and success on every attempt. With independent identical trials and a 75% per-trial success probability, three consecutive successes have probability 0.75³, about 42%. Real trials may be correlated; report that assumption.
+Use repeated trials when consistency matters. Distinguish first-attempt success, at-least-one success across several attempts and success on every attempt. With independent trials that each have the same success probability and a 75% per-trial success probability, three consecutive successes have probability 0.75³, about 42%. Real trials may be correlated; report that assumption.
 
 ## 6. Compare changes as experiments
 
@@ -123,9 +123,9 @@ Try to pass without accomplishing the task, then repair the loophole while confi
 | Local or PR | Fast assertions and a small regression set |
 | Nightly or merge | Broader cases and repeated stochastic trials |
 | Pre-release | Held-out audit, adversarial tests and targeted review |
-| Production | Privacy-safe sampling, monitors and user outcomes |
+| Production | Sampling with sensitive data protected, monitors and user outcomes |
 
-Randomly sample routine traffic as well as complaints. Oversample changed and high-consequence slices, while keeping sampling weights clear. Turn confirmed important failures into regression cases and revisit the taxonomy.
+Randomly sample routine traffic as well as complaints. Oversample changed and high-consequence slices, while keeping sampling weights clear. Turn confirmed important failures into regression cases and review the failure categories.
 
 Assign owners for alerts, stopping and rollback. Logging an incident afterward is not an execution cap.
 

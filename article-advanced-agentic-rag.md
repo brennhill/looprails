@@ -1,6 +1,6 @@
 # Advanced and Agentic RAG
 
-Add retrieval complexity to fix a measured failure. Iterative search can help with ambiguous or multi-hop questions, but adds latency, cost and opportunities to propagate wrong evidence.
+Add retrieval steps when a simpler search misses evidence you need. Repeated searches can help answer ambiguous questions or connect several sources. Each step also adds time, cost and another chance to carry bad evidence forward.
 
 ## Patterns and trade-offs
 

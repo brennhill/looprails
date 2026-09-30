@@ -1,6 +1,6 @@
 # Adapting Models You Do Not Control
 
-A hosted API gives access to inference and sometimes managed fine-tuning. An open-weight model gives access to parameters, subject to its license. Deployment method and weight access are separate choices: open-weight models can also be hosted by a provider.
+How you access a model determines what you can change. A hosted API may offer managed fine-tuning. An open-weight model lets you adapt its parameters under its license. You can also run open weights through a hosting provider.
 
 ## What you can change
 

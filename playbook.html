@@ -23,8 +23,13 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Playbook","name":"Human-in-the-Loop Playbook for AI Agents · LoopRails","description":"A quick checklist for grading agent actions, enforcing limits, designing useful review and testing the workflow.","inLanguage":"en-US","url":"https://looprails.dev/playbook","mainEntityOfPage":"https://looprails.dev/playbook","image":"https://looprails.dev/og-playbook.png","datePublished":"2026-06-22","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Playbook","item":"https://looprails.dev/playbook"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Playbook","name":"Human-in-the-Loop Playbook for AI Agents · LoopRails","description":"A quick checklist for grading agent actions, enforcing limits, designing useful review and testing the workflow.","inLanguage":"en-US","url":"https://looprails.dev/playbook","mainEntityOfPage":"https://looprails.dev/playbook","image":"https://looprails.dev/og-playbook.png","datePublished":"2026-06-22","dateModified":"2026-10-01","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Playbook","item":"https://looprails.dev/playbook"}]}]}</script>
 <style>
+/* The surrounding section supplies the signup copy. Keep the form concise. */
+.formkit-form .formkit-column:first-child{display:none!important}
+.formkit-form .formkit-column{width:100%!important;flex-basis:100%!important}
+.formkit-form .formkit-guarantee{display:none!important}
+
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
   --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
@@ -98,13 +103,13 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="article-loop-engineering-doctrine" class="">Doctrine</a><a href="playbook" class="on">Playbook</a><a href="framework" class="">Framework</a><a href="kit" class="">Kit</a><a href="cookbook" class="">Cookbook</a><a href="evals" class="">Evals</a><a href="codex" class="">Codex</a><a href="articles" class="">Articles</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#grade-what-can-go-wrong" class="" data-id="grade-what-can-go-wrong">Grade: what can go wrong?</a><a href="#guard-enforce-the-scope" class="" data-id="guard-enforce-the-scope">Guard: enforce the scope</a><a href="#show-make-the-decision-checkable" class="" data-id="show-make-the-decision-checkable">Show: make the decision checkable</a><a href="#prove-test-the-complete-workflow" class="" data-id="prove-test-the-complete-workflow">Prove: test the complete workflow</a><a href="#common-failures" class="" data-id="common-failures">Common failures</a><a href="#three-starting-recipes" class="" data-id="three-starting-recipes">Three starting recipes</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#grade-what-can-go-wrong" class="" data-id="grade-what-can-go-wrong">Grade: what can go wrong?</a><a href="#guard-enforce-the-scope" class="" data-id="guard-enforce-the-scope">Guard: enforce the scope</a><a href="#show-give-reviewers-what-they-need" class="" data-id="show-give-reviewers-what-they-need">Show: give reviewers what they need</a><a href="#prove-test-the-whole-workflow" class="" data-id="prove-test-the-whole-workflow">Prove: test the whole workflow</a><a href="#common-failures" class="" data-id="common-failures">Common failures</a><a href="#three-starting-recipes" class="" data-id="three-starting-recipes">Three starting recipes</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="/">LoopRails</a> · Playbook</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/playbook.md">View playbook.md on GitHub ↗</a>
-      <span class="section-alias" id="looprails-a-practitioner39s-playbook-for-human-in-the-loop-a" aria-hidden="true"></span><span class="section-alias" id="the-30-second-version" aria-hidden="true"></span><span class="section-alias" id="move-1-grade-what39s-it-worth" aria-hidden="true"></span><span class="section-alias" id="move-2-guard-how-much-control-and-what-kind" aria-hidden="true"></span><span class="section-alias" id="move-3-show-design-the-oversight-moment" aria-hidden="true"></span><span class="section-alias" id="move-4-prove-does-the-oversight-actually-work" aria-hidden="true"></span><span class="section-alias" id="the-four-a39s-the-meaningful-control-test" aria-hidden="true"></span><span class="section-alias" id="the-anti-pattern-deck-name-them-kill-them" aria-hidden="true"></span><span class="section-alias" id="maturity-ladder-where-are-you" aria-hidden="true"></span><span class="section-alias" id="the-standup-smell-test-ask-these-in-any-agent-review" aria-hidden="true"></span><span class="section-alias" id="recipes-condensed" aria-hidden="true"></span><span class="section-alias" id="how-the-three-docs-fit" aria-hidden="true"></span><h1 id="the-looprails-playbook">The LoopRails Playbook</h1>
-<p><strong>Grade · Guard · Show · Prove.</strong> Use this checklist per action, including the effects of many actions combined. The <a href="framework">framework</a> defines the method and its limits.</p>
+      <span class="section-alias" id="looprails-a-practitioner39s-playbook-for-human-in-the-loop-a" aria-hidden="true"></span><span class="section-alias" id="the-30-second-version" aria-hidden="true"></span><span class="section-alias" id="move-1-grade-what39s-it-worth" aria-hidden="true"></span><span class="section-alias" id="move-2-guard-how-much-control-and-what-kind" aria-hidden="true"></span><span class="section-alias" id="move-3-show-design-the-oversight-moment" aria-hidden="true"></span><span class="section-alias" id="move-4-prove-does-the-oversight-actually-work" aria-hidden="true"></span><span class="section-alias" id="the-four-a39s-the-meaningful-control-test" aria-hidden="true"></span><span class="section-alias" id="the-anti-pattern-deck-name-them-kill-them" aria-hidden="true"></span><span class="section-alias" id="maturity-ladder-where-are-you" aria-hidden="true"></span><span class="section-alias" id="the-standup-smell-test-ask-these-in-any-agent-review" aria-hidden="true"></span><span class="section-alias" id="recipes-condensed" aria-hidden="true"></span><span class="section-alias" id="how-the-three-docs-fit" aria-hidden="true"></span><span class="section-alias" id="prove-test-the-complete-workflow" aria-hidden="true"></span><span class="section-alias" id="show-make-the-decision-checkable" aria-hidden="true"></span><h1 id="the-looprails-playbook">The LoopRails Playbook</h1>
+<p><strong>Grade · Guard · Show · Prove.</strong> Use this checklist for each action and for the combined effects of a run. The <a href="framework">framework</a> defines the method and its limits.</p>
 <h2 id="grade-what-can-go-wrong">Grade: what can go wrong?</h2>
 <p>Rate reversibility, reach and stakes from 0 to 2.</p>
 <table>
@@ -118,7 +123,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <tbody><tr>
 <td>G0</td>
 <td>All dimensions 0</td>
-<td>Bounded autonomy; suitable records</td>
+<td>Autonomy within clear limits; action records</td>
 </tr>
 <tr>
 <td>G1</td>
@@ -143,15 +148,15 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <li><strong>Reversible:</strong> tested undo or containment, with irreversible effects documented.</li>
 <li><strong>Authorized:</strong> scoped identity and permissions, checked at execution.</li>
 <li><strong>Interruptible:</strong> a tested stop that reaches workers and queues.</li>
-<li><strong>Logged:</strong> privacy-safe evidence of proposals, decisions and outcomes.</li>
+<li><strong>Logged:</strong> records that protect sensitive data of proposals, decisions and outcomes.</li>
 </ul>
-<p>Set time, spending, retry and cumulative-effect caps. Keep production access separate from exploration. A worktree separates edits; use an execution boundary for isolation.</p>
+<p>Set time, spending, retry and limits on combined effects. Keep production access separate from exploration. A worktree separates edits; use an execution boundary for isolation.</p>
 <p>If a person cannot detect or stop a mistake in time, stage it, reduce its effects, restrict the capability or transfer it to a controlled process. Approval alone cannot fill that gap.</p>
-<h2 id="show-make-the-decision-checkable">Show: make the decision checkable</h2>
+<h2 id="show-give-reviewers-what-they-need">Show: give reviewers what they need</h2>
 <p>Show the exact action, target, evidence, expected effect, missing information and recovery limits. Provide approve, edit, reject and escalate choices.</p>
-<p>The reviewer needs authority, awareness, ability and accountable responsibility. Bind approval to the action version; material changes require a new check. Respect the review queue’s capacity.</p>
-<h2 id="prove-test-the-complete-workflow">Prove: test the complete workflow</h2>
-<p>Seed realistic errors and inspect what executed. Track missed hazards, false blocks, errors caught, reviewer effort and stop latency. Test cancellation, failed dependencies, unavailable reviewers and resume after a crash.</p>
+<p>The reviewer needs evidence, time, relevant expertise and the power to change the decision. Bind approval to the action version; meaningful changes require a new check. Respect the number of reviews the team can handle.</p>
+<h2 id="prove-test-the-whole-workflow">Prove: test the whole workflow</h2>
+<p>Introduce realistic errors and inspect what actually happened. Track missed hazards, false blocks, errors caught, reviewer effort and stop latency. Test cancellation, failed dependencies, unavailable reviewers and resume after a crash.</p>
 <p>A <a href="https://arxiv.org/abs/2604.04918v2">2026 computer-use study</a> highlights timing and attention problems in review. It supports testing your own interface, not assuming a universal intervention rate.</p>
 <h2 id="common-failures">Common failures</h2>
 <table>
@@ -187,12 +192,12 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 </tr>
 <tr>
 <td>Stop leaves child work running</td>
-<td>Propagate cancellation and reconcile effects</td>
+<td>Propagate cancellation and check which actions completed</td>
 </tr>
 </tbody></table>
 <h2 id="three-starting-recipes">Three starting recipes</h2>
 <p><strong>Coding:</strong> restricted workspace, protected tests, readable diff and separate release authority.</p>
-<p><strong>Support:</strong> authenticated access, service-side limits, idempotent changes and a context-rich handoff.</p>
+<p><strong>Support:</strong> authenticated access, service-side limits, idempotent changes and a handoff that includes the case history and next decision.</p>
 <p><strong>Browser:</strong> scoped sessions, destination restrictions and a preview before submission.</p>
 <p>Capture the design in the <a href="kit">Kit</a>, build evaluation cases with the <a href="evals">evals guide</a>, and inspect the <a href="codex">research codex</a> when a claim needs closer review.</p>
 
@@ -201,7 +206,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Plan your loop with five templates and a one-page checklist. Get them by email, plus new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>

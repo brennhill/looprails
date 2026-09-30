@@ -1,6 +1,6 @@
 # Guardrails for AI Agents
 
-Guardrails combine checks on agent behavior with limits on what its tools can do. Distinguish **enforced boundaries** from **fallible judgments**: a scoped credential denies access; a model classifier estimates whether an action is acceptable.
+Guardrails check an agent’s decisions and limit what its tools can do. These controls work differently: a scoped credential blocks access; a model reviewer judges whether an action looks acceptable. A judgment can be wrong.
 
 ## Build the boundary first
 

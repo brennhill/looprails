@@ -1,8 +1,8 @@
 # Circuit Breakers for AI Agents
 
-A circuit breaker stops new work when a measured condition crosses a threshold. It protects the system while a dependency fails, a budget is exhausted or the agent repeats an unproductive action.
+A circuit breaker blocks new work when a limit is reached. Use it to stop repeated failures, exhausted budgets or an agent that keeps trying the same unproductive action.
 
-## Choose actionable signals
+## Choose signals that trigger a response
 
 Useful triggers include repeated tool failures, elapsed time, spending, duplicate actions, policy violations and excessive affected records. Aggregate limits across the whole run, including child agents.
 

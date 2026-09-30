@@ -18,7 +18,7 @@ A send delay provides time to cancel an email before delivery. It is not a relia
 
 Record the starting state, recovery owner, maximum delay and effects that cannot be undone. Keep backups outside the agent’s destructive scope and test restoration. A backup that has never been restored is an unproven recovery plan.
 
-Use idempotency and reconciliation for retries. If the service committed an action but the response was lost, repeating it can create another effect.
+Make retries safe: use operation IDs to prevent duplicate actions, and check the service’s state when the result is unknown. If the service committed an action but the response was lost, repeating it can create another effect.
 
 ## Check the risk reduction
 

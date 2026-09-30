@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to Keep an Autonomous Loop on the Rails · LoopRails</title>
-<meta name="description" content="A loop needs two kinds of checks: whether it completed useful work and whether its actions stayed within authority and risk limits.">
+<meta name="description" content="Check both the result and the route taken to produce it.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="https://looprails.dev/article-loop-engineering-oversight">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to Keep an Autonomous Loop on the Rails · LoopRails">
-<meta property="og:description" content="A loop needs two kinds of checks: whether it completed useful work and whether its actions stayed within authority and risk limits.">
+<meta property="og:description" content="Check both the result and the route taken to produce it.">
 <meta property="og:url" content="https://looprails.dev/article-loop-engineering-oversight">
 <meta property="og:image" content="https://looprails.dev/og-article-loop-engineering-oversight.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="How to Keep an Autonomous Loop on the Rails · LoopRails">
-<meta name="twitter:description" content="A loop needs two kinds of checks: whether it completed useful work and whether its actions stayed within authority and risk limits.">
+<meta name="twitter:description" content="Check both the result and the route taken to produce it.">
 <meta name="twitter:image" content="https://looprails.dev/og-article-loop-engineering-oversight.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -23,8 +23,13 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Oversight for Autonomous Loops","name":"How to Keep an Autonomous Loop on the Rails · LoopRails","description":"A loop needs two kinds of checks: whether it completed useful work and whether its actions stayed within authority and risk limits.","inLanguage":"en-US","url":"https://looprails.dev/article-loop-engineering-oversight","mainEntityOfPage":"https://looprails.dev/article-loop-engineering-oversight","image":"https://looprails.dev/og-article-loop-engineering-oversight.png","datePublished":"2026-06-23","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"Oversight for Autonomous Loops","item":"https://looprails.dev/article-loop-engineering-oversight"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Oversight for Autonomous Loops","name":"How to Keep an Autonomous Loop on the Rails · LoopRails","description":"Check both the result and the route taken to produce it.","inLanguage":"en-US","url":"https://looprails.dev/article-loop-engineering-oversight","mainEntityOfPage":"https://looprails.dev/article-loop-engineering-oversight","image":"https://looprails.dev/og-article-loop-engineering-oversight.png","datePublished":"2026-06-23","dateModified":"2026-10-01","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"Oversight for Autonomous Loops","item":"https://looprails.dev/article-loop-engineering-oversight"}]}]}</script>
 <style>
+/* The surrounding section supplies the signup copy. Keep the form concise. */
+.formkit-form .formkit-column:first-child{display:none!important}
+.formkit-form .formkit-column{width:100%!important;flex-basis:100%!important}
+.formkit-form .formkit-guarantee{display:none!important}
+
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
   --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
@@ -98,24 +103,24 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="article-loop-engineering-doctrine" class="">Doctrine</a><a href="playbook" class="">Playbook</a><a href="framework" class="">Framework</a><a href="kit" class="">Kit</a><a href="cookbook" class="">Cookbook</a><a href="evals" class="">Evals</a><a href="codex" class="">Codex</a><a href="articles" class="">Articles</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#grade-actions-in-context" class="" data-id="grade-actions-in-context">Grade actions in context</a><a href="#guard-execution" class="" data-id="guard-execution">Guard execution</a><a href="#design-the-human-decision" class="" data-id="design-the-human-decision">Design the human decision</a><a href="#prove-the-workflow" class="" data-id="prove-the-workflow">Prove the workflow</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#grade-actions-in-context" class="" data-id="grade-actions-in-context">Grade actions in context</a><a href="#guard-execution" class="" data-id="guard-execution">Guard execution</a><a href="#design-the-human-decision" class="" data-id="design-the-human-decision">Design the human decision</a><a href="#test-the-whole-workflow" class="" data-id="test-the-whole-workflow">Test the whole workflow</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="/">LoopRails</a> · <a href="articles">Articles</a> · Oversight for Autonomous Loops</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-loop-engineering-oversight.md">View article-loop-engineering-oversight.md on GitHub ↗</a>
-      <span class="section-alias" id="how-to-keep-an-autonomous-loop-on-the-rails" aria-hidden="true"></span><span class="section-alias" id="a-loop-relocates-oversight-it-does-not-remove-it" aria-hidden="true"></span><span class="section-alias" id="grade-the-actions-the-loop-can-take" aria-hidden="true"></span><span class="section-alias" id="a-loop-fails-differently-it-repeats" aria-hidden="true"></span><span class="section-alias" id="the-memory-file-and-logs-are-your-audit-trail" aria-hidden="true"></span><span class="section-alias" id="autonomy-is-a-dial-so-spend-your-human-checkpoints-where-the" aria-hidden="true"></span><span class="section-alias" id="a-checklist-before-you-let-a-loop-run-unattended" aria-hidden="true"></span><h1 id="oversight-for-agent-loops">Oversight for Agent Loops</h1>
-<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-09-30">September 30, 2026</time></p>
-<p>A loop needs two kinds of checks: whether it completed useful work and whether its actions stayed within authority and risk limits. A good output does not justify an unauthorized route to producing it.</p>
+      <span class="section-alias" id="how-to-keep-an-autonomous-loop-on-the-rails" aria-hidden="true"></span><span class="section-alias" id="a-loop-relocates-oversight-it-does-not-remove-it" aria-hidden="true"></span><span class="section-alias" id="grade-the-actions-the-loop-can-take" aria-hidden="true"></span><span class="section-alias" id="a-loop-fails-differently-it-repeats" aria-hidden="true"></span><span class="section-alias" id="the-memory-file-and-logs-are-your-audit-trail" aria-hidden="true"></span><span class="section-alias" id="autonomy-is-a-dial-so-spend-your-human-checkpoints-where-the" aria-hidden="true"></span><span class="section-alias" id="a-checklist-before-you-let-a-loop-run-unattended" aria-hidden="true"></span><span class="section-alias" id="prove-the-workflow" aria-hidden="true"></span><h1 id="oversight-for-agent-loops">Oversight for Agent Loops</h1>
+<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-10-01">October 1, 2026</time></p>
+<p>Check both the result and the route taken to produce it. Did the agent complete useful work? Did it stay within its permissions and risk limits?</p>
 <h2 id="grade-actions-in-context">Grade actions in context</h2>
 <p>Use reversibility, reach and stakes to rate each capability. Local drafting may be low consequence; reading a credential, exporting data or running untrusted code can be consequential even without a file change.</p>
 <p>Count cumulative effects. A series of small refunds or uploads can exceed the acceptable total. Apply the same run-wide limits to child agents.</p>
 <h2 id="guard-execution">Guard execution</h2>
 <p>Enforce filesystem, network, credential and spending restrictions outside the model. Keep critical actions behind a separate, authorized process. Stage consequential changes so evidence can be inspected before commitment.</p>
-<p>A prompt telling the agent to stop is not the stop mechanism. Check cancellation at the executor, propagate it to workers and reconcile effects already accepted by external services.</p>
+<p>A prompt telling the agent to stop is not the stop mechanism. Check cancellation at the executor, propagate it to workers and check which actions completed already accepted by external services.</p>
 <h2 id="design-the-human-decision">Design the human decision</h2>
 <p>Show the actual action, target, evidence and recovery limits. Make approvals specific and invalidate them when the action changes. Route to a reviewer who has competence, time and authority.</p>
 <p>Model reviewers can help screen actions, but they remain fallible. Evaluate false blocks and missed hazards alongside the other controls.</p>
-<h2 id="prove-the-workflow">Prove the workflow</h2>
+<h2 id="test-the-whole-workflow">Test the whole workflow</h2>
 <p>Seed scope violations, malicious tool output, forged success, budget overruns and unavailable reviewers. Check what actually executed and whether the stop arrived before further effects.</p>
 <p>The <a href="https://arxiv.org/abs/2604.04918v2">September 2026 computer-use oversight revision</a> emphasizes timing, authority and attention. Use that finding to test your interfaces rather than assume that more prompts mean more control.</p>
 <p>See the <a href="framework">framework</a> and <a href="kit">Loop Card</a>.</p>
@@ -125,7 +130,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <aside class="related"><h2>Related reading</h2><ul><li><a href="article-context-engineering-agent-loops">Context Engineering for Agent Loops</a></li><li><a href="article-loop-health-monitoring">Loop Health: What to Monitor in a Running Loop</a></li><li><a href="article-world-models-agent-loops">World Models for Agent Loops</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Plan your loop with five templates and a one-page checklist. Get them by email, plus new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>

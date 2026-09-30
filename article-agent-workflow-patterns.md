@@ -1,6 +1,6 @@
 # Agent Workflow Patterns
 
-A workflow follows developer-defined control flow. An agent chooses some steps at runtime. Use predictable workflows when they meet the need; flexibility adds uncertainty and operational cost.
+Use a workflow when you know the steps in advance. Use an agent when it needs to choose the next step as it learns. That flexibility brings more uncertainty and cost.
 
 [Anthropic’s design guidance](https://www.anthropic.com/engineering/building-effective-agents) describes five useful workflow patterns. Choose them by the failure they address.
 

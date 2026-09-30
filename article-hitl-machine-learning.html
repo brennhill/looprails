@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Human-in-the-Loop for Machine Learning (Labeling &amp; Active Learning) · LoopRails</title>
-<meta name="description" content="Human-in-the-loop machine learning includes labeling, active learning and preference feedback.">
+<meta name="description" content="People help train models by labeling examples, choosing useful training cases and rating outputs.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="https://looprails.dev/article-hitl-machine-learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Human-in-the-Loop for Machine Learning (Labeling &amp; Active Learning) · LoopRails">
-<meta property="og:description" content="Human-in-the-loop machine learning includes labeling, active learning and preference feedback.">
+<meta property="og:description" content="People help train models by labeling examples, choosing useful training cases and rating outputs.">
 <meta property="og:url" content="https://looprails.dev/article-hitl-machine-learning">
 <meta property="og:image" content="https://looprails.dev/og-article-hitl-machine-learning.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Human-in-the-Loop for Machine Learning (Labeling &amp; Active Learning) · LoopRails">
-<meta name="twitter:description" content="Human-in-the-loop machine learning includes labeling, active learning and preference feedback.">
+<meta name="twitter:description" content="People help train models by labeling examples, choosing useful training cases and rating outputs.">
 <meta name="twitter:image" content="https://looprails.dev/og-article-hitl-machine-learning.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -23,8 +23,13 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Human-in-the-Loop for Machine Learning","name":"Human-in-the-Loop for Machine Learning (Labeling & Active Learning) · LoopRails","description":"Human-in-the-loop machine learning includes labeling, active learning and preference feedback.","inLanguage":"en-US","url":"https://looprails.dev/article-hitl-machine-learning","mainEntityOfPage":"https://looprails.dev/article-hitl-machine-learning","image":"https://looprails.dev/og-article-hitl-machine-learning.png","datePublished":"2026-06-23","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"Human-in-the-Loop for Machine Learning","item":"https://looprails.dev/article-hitl-machine-learning"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Human-in-the-Loop for Machine Learning","name":"Human-in-the-Loop for Machine Learning (Labeling & Active Learning) · LoopRails","description":"People help train models by labeling examples, choosing useful training cases and rating outputs.","inLanguage":"en-US","url":"https://looprails.dev/article-hitl-machine-learning","mainEntityOfPage":"https://looprails.dev/article-hitl-machine-learning","image":"https://looprails.dev/og-article-hitl-machine-learning.png","datePublished":"2026-06-23","dateModified":"2026-10-01","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"Human-in-the-Loop for Machine Learning","item":"https://looprails.dev/article-hitl-machine-learning"}]}]}</script>
 <style>
+/* The surrounding section supplies the signup copy. Keep the form concise. */
+.formkit-form .formkit-column:first-child{display:none!important}
+.formkit-form .formkit-column{width:100%!important;flex-basis:100%!important}
+.formkit-form .formkit-guarantee{display:none!important}
+
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
   --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
@@ -104,10 +109,10 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-hitl-machine-learning.md">View article-hitl-machine-learning.md on GitHub ↗</a>
       <span class="section-alias" id="how-to-build-a-good-human-in-the-loop-for-machine-learning" aria-hidden="true"></span><span class="section-alias" id="how-hitl-ml-differs-from-agentic-oversight-and-how-it-doesn3" aria-hidden="true"></span><span class="section-alias" id="where-human-in-the-loop-fits-in-the-ml-lifecycle" aria-hidden="true"></span><span class="section-alias" id="do-each-one-well" aria-hidden="true"></span><span class="section-alias" id="route-by-uncertainty-with-active-learning" aria-hidden="true"></span><span class="section-alias" id="control-quality-with-multiple-labelers-and-agreement" aria-hidden="true"></span><span class="section-alias" id="design-the-labeling-ui-to-fight-automation-bias" aria-hidden="true"></span><span class="section-alias" id="version-and-log-labels-for-provenance-and-reversibility" aria-hidden="true"></span><span class="section-alias" id="validate-that-human-review-actually-improves-the-model" aria-hidden="true"></span><span class="section-alias" id="pitfalls" aria-hidden="true"></span><span class="section-alias" id="key-takeaways" aria-hidden="true"></span><h1 id="human-in-the-loop-for-machine-learning">Human-in-the-Loop for Machine Learning</h1>
-<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-09-30">September 30, 2026</time></p>
-<p>Human-in-the-loop machine learning includes labeling, active learning and preference feedback. Those training workflows differ from approving a deployed agent action.</p>
+<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-10-01">October 1, 2026</time></p>
+<p>People help train models by labeling examples, choosing useful training cases and rating outputs. These forms of human-in-the-loop machine learning serve a different purpose from approving an agent’s next action.</p>
 <h2 id="grade-the-actions">Grade the actions</h2>
-<p>These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the <a href="framework#2-grade-the-action">framework</a> defines the rule.</p>
+<p>Use these grades as starting points. Sensitive data or combined effects may raise the risk. <a href="framework#2-grade-the-action">Check the grading rule</a>.</p>
 <table>
 <thead>
 <tr>
@@ -151,7 +156,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <aside class="related"><h2>Related reading</h2><ul><li><a href="article-hitl-healthcare">Human-in-the-Loop for AI in Healthcare</a></li><li><a href="article-hitl-legal-contracts">Human-in-the-Loop for AI Legal Work</a></li><li><a href="article-hitl-hiring">Human-in-the-Loop for AI Hiring</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Plan your loop with five templates and a one-page checklist. Get them by email, plus new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>

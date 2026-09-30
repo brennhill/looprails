@@ -1,6 +1,6 @@
 # Build Your First Agent Loop
 
-Start with one bounded task and a completion check you can run independently. Fixing a failing test is a useful example when the agent cannot silently weaken the tests to claim success.
+Start with one task, clear limits and a completion check the agent cannot bypass. Fixing a failing test works well—provided the agent cannot weaken the test to claim success.
 
 ## 1. Write the contract
 

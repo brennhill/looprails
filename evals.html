@@ -23,8 +23,13 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Evals","name":"How to Build Evals for AI Agent Loops · LoopRails","description":"Build agent evals from real failures: cases, calibrated graders, controlled comparisons and release evidence.","inLanguage":"en-US","url":"https://looprails.dev/evals","mainEntityOfPage":"https://looprails.dev/evals","image":"https://looprails.dev/og-evals.png","datePublished":"2026-06-22","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Evals","item":"https://looprails.dev/evals"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Evals","name":"How to Build Evals for AI Agent Loops · LoopRails","description":"Build agent evals from real failures: cases, calibrated graders, controlled comparisons and release evidence.","inLanguage":"en-US","url":"https://looprails.dev/evals","mainEntityOfPage":"https://looprails.dev/evals","image":"https://looprails.dev/og-evals.png","datePublished":"2026-06-22","dateModified":"2026-10-01","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Evals","item":"https://looprails.dev/evals"}]}]}</script>
 <style>
+/* The surrounding section supplies the signup copy. Keep the form concise. */
+.formkit-form .formkit-column:first-child{display:none!important}
+.formkit-form .formkit-column{width:100%!important;flex-basis:100%!important}
+.formkit-form .formkit-guarantee{display:none!important}
+
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
   --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
@@ -104,7 +109,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/evals.md">View evals.md on GitHub ↗</a>
       <span class="section-alias" id="how-to-build-evals-for-ai-agent-loops" aria-hidden="true"></span><span class="section-alias" id="first-know-which-kind-of-check-you-mean" aria-hidden="true"></span><span class="section-alias" id="the-eval-building-loop" aria-hidden="true"></span><span class="section-alias" id="1-start-with-the-decision-not-the-metric" aria-hidden="true"></span><span class="section-alias" id="2-inspect-real-work-before-writing-a-rubric" aria-hidden="true"></span><span class="section-alias" id="3-turn-failures-into-a-task-dataset" aria-hidden="true"></span><span class="section-alias" id="4-choose-the-strongest-grader-available" aria-hidden="true"></span><span class="section-alias" id="5-calibrate-every-subjective-grader" aria-hidden="true"></span><span class="section-alias" id="6-evaluate-the-whole-agent-not-only-its-final-sentence" aria-hidden="true"></span><span class="section-alias" id="7-compare-changes-as-experiments" aria-hidden="true"></span><span class="section-alias" id="8-put-evals-into-the-delivery-loop" aria-hidden="true"></span><span class="section-alias" id="design-the-product-to-create-checkable-evidence" aria-hidden="true"></span><span class="section-alias" id="harden-the-eval-against-gaming" aria-hidden="true"></span><span class="section-alias" id="a-minimum-viable-eval-you-can-build-this-week" aria-hidden="true"></span><span class="section-alias" id="day-1-define-and-inspect" aria-hidden="true"></span><span class="section-alias" id="day-2-encode" aria-hidden="true"></span><span class="section-alias" id="day-3-calibrate" aria-hidden="true"></span><span class="section-alias" id="day-4-compare" aria-hidden="true"></span><span class="section-alias" id="day-5-operate" aria-hidden="true"></span><span class="section-alias" id="the-eval-review-checklist" aria-hidden="true"></span><span class="section-alias" id="objective-and-cases" aria-hidden="true"></span><span class="section-alias" id="graders" aria-hidden="true"></span><span class="section-alias" id="experiment" aria-hidden="true"></span><span class="section-alias" id="operations" aria-hidden="true"></span><span class="section-alias" id="research-behind-this-guide" aria-hidden="true"></span><h1 id="build-evals-for-agent-loops">Build Evals for Agent Loops</h1>
-<p>An eval supports a decision: whether a change improves useful behavior enough to ship. Start with representative work, explicit outcomes and checks you can inspect.</p>
+<p>An eval helps you decide whether a change is ready to ship. Test realistic work, define success and keep the evidence easy to inspect.</p>
 <h2 id="separate-the-checks">Separate the checks</h2>
 <table>
 <thead>
@@ -132,8 +137,8 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 </tbody></table>
 <p>A strong local verifier does not establish product-wide reliability. A good offline score does not authorize an unsafe action.</p>
 <h2 id="1-name-the-decision">1. Name the decision</h2>
-<p>Choose one product behavior and the consequence of failure. Define the baseline, acceptable trade-offs, prohibited effects and owner. Do this before choosing a metric.</p>
-<p>Inspect real traces, artifacts and final state. Ask qualified reviewers for pass, fail or cannot tell, with evidence. Group repeated failures into a small taxonomy. Count frequency and consequence separately.</p>
+<p>Choose one behavior to improve. Define the current baseline, the cost of failure, acceptable trade-offs and who owns the decision. Then choose a metric.</p>
+<p>Inspect real traces, artifacts and final state. Ask qualified reviewers for pass, fail or cannot tell, with evidence. Group repeated failures by type. Count frequency and consequence separately.</p>
 <h2 id="2-turn-failures-into-cases">2. Turn failures into cases</h2>
 <p>Each case needs a goal, starting state, input, allowed variation, success criteria and unacceptable effects. A reviewer should be able to explain a verdict from the evidence.</p>
 <pre><code class="language-yaml">id: refund_duplicate_charge_014
@@ -186,14 +191,14 @@ provenance: production_failure_2026_07_18
 <td>Detect overfitting and gaming on unseen variants</td>
 </tr>
 </tbody></table>
-<p>A small initial set can reveal obvious failures. It cannot establish a rare critical-failure rate merely because no failure appeared.</p>
+<p>A small initial set can reveal obvious failures. It cannot establish a rare critical-failure rate from a small set with no observed failures.</p>
 <h2 id="3-choose-complementary-graders">3. Choose complementary graders</h2>
 <p>Use direct state checks, trusted tests and assertions where the claim is executable. Use source comparisons for factual support and calibrated rubrics for subjective quality. Check the strongest available evidence for the particular claim; no grader is universally strongest.</p>
-<p>For an agent, evaluate:</p>
+<p>Check three things:</p>
 <ul>
-<li><strong>Outcome:</strong> requested state achieved and invariants preserved.</li>
-<li><strong>Trajectory:</strong> permitted actions, reasonable cost and no hidden harmful effects.</li>
-<li><strong>Interaction:</strong> useful clarification, accurate status and effective handoff.</li>
+<li><strong>Result:</strong> the task is complete and required conditions still hold.</li>
+<li><strong>Actions:</strong> the agent stayed within its permissions and budget, without hidden harmful effects.</li>
+<li><strong>Communication:</strong> the agent asked useful questions, reported its status accurately and handed off enough context.</li>
 </ul>
 <p>A correct final sentence can conceal an unauthorized or incomplete action. Preserve tool calls, results and final environment state, with secrets redacted.</p>
 <h2 id="4-calibrate-subjective-judgments">4. Calibrate subjective judgments</h2>
@@ -208,8 +213,8 @@ Ignore answer length and style. Return the verdict and supporting evidence.
 <p>Version the rubric, judge model and settings. Recheck against fresh human labels when tasks or models change.</p>
 <h2 id="5-reproduce-the-environment">5. Reproduce the environment</h2>
 <p>Record model, prompt, tools, retrieval corpus, harness, environment, resource limits and grader versions. Reset state between trials. Validate a reference solution to ensure the harness can recognize success.</p>
-<p><a href="https://www.anthropic.com/engineering/infrastructure-noise">Anthropic’s infrastructure-noise analysis</a> shows why resource settings can affect measured coding-agent results. Treat them as experimental inputs.</p>
-<p>Use repeated trials when consistency matters. Distinguish first-attempt success, at-least-one success across several attempts and success on every attempt. With independent identical trials and a 75% per-trial success probability, three consecutive successes have probability 0.75³, about 42%. Real trials may be correlated; report that assumption.</p>
+<p><a href="https://www.anthropic.com/engineering/infrastructure-noise">Anthropic’s infrastructure-noise analysis</a> shows why resource settings can affect measured coding-agent results. Treat them as part of the experiment setup.</p>
+<p>Use repeated trials when consistency matters. Distinguish first-attempt success, at-least-one success across several attempts and success on every attempt. With independent trials that each have the same success probability and a 75% per-trial success probability, three consecutive successes have probability 0.75³, about 42%. Real trials may be correlated; report that assumption.</p>
 <h2 id="6-compare-changes-as-experiments">6. Compare changes as experiments</h2>
 <p>Evaluate baseline and candidate on the same cases and inspect paired differences. Report case and trial counts, uncertainty, critical failures, important slices, cost and latency per useful outcome.</p>
 <p>Related cases are not independent. Use the task, user or source-document cluster when estimating uncertainty if several cases share it. The <a href="https://www.anthropic.com/research/statistical-approach-to-model-evals">statistical-evaluation research</a> explains why naive error bars can mislead.</p>
@@ -239,10 +244,10 @@ Ignore answer length and style. Return the verdict and supporting evidence.
 </tr>
 <tr>
 <td>Production</td>
-<td>Privacy-safe sampling, monitors and user outcomes</td>
+<td>Sampling with sensitive data protected, monitors and user outcomes</td>
 </tr>
 </tbody></table>
-<p>Randomly sample routine traffic as well as complaints. Oversample changed and high-consequence slices, while keeping sampling weights clear. Turn confirmed important failures into regression cases and revisit the taxonomy.</p>
+<p>Randomly sample routine traffic as well as complaints. Oversample changed and high-consequence slices, while keeping sampling weights clear. Turn confirmed important failures into regression cases and review the failure categories.</p>
 <p>Assign owners for alerts, stopping and rollback. Logging an incident afterward is not an execution cap.</p>
 <h2 id="start-this-week">Start this week</h2>
 <p>Choose one release decision. Inspect a few dozen representative traces, encode the most useful cases, calibrate a small grader and compare one change with the baseline. Keep the traces and verdict evidence reviewable.</p>
@@ -254,7 +259,7 @@ Ignore answer length and style. Return the verdict and supporting evidence.
 
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Plan your loop with five templates and a one-page checklist. Get them by email, plus new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>

@@ -1,10 +1,10 @@
 # Kill Switches for AI Agents
 
-A kill switch blocks new work and attempts to stop work already running. It must operate outside the model’s cooperation. Its exact scope and latency need testing.
+A kill switch blocks new work and tries to stop work already running. It must work even if the model ignores it. Test what it stops and how long that takes.
 
 It cannot unsend an email, undo a settled payment or guarantee cancellation of a request already accepted by another service.
 
-## Define stop semantics
+## Decide what the stop must do
 
 | Control | Purpose |
 |---|---|

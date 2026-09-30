@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Content Moderation
 
-Automate routine moderation only where the policy and error costs are understood. Route ambiguous or consequential cases to trained reviewers, and give affected users a way to appeal.
+Automate routine moderation where the policy is clear and the cost of mistakes is understood. Send ambiguous or high-impact cases to trained reviewers. Give affected users a way to appeal.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

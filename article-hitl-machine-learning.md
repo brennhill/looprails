@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Machine Learning
 
-Human-in-the-loop machine learning includes labeling, active learning and preference feedback. Those training workflows differ from approving a deployed agent action.
+People help train models by labeling examples, choosing useful training cases and rating outputs. These forms of human-in-the-loop machine learning serve a different purpose from approving an agent’s next action.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

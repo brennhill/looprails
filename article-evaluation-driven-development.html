@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Evaluation-Driven Development: The Verifier Is the Point · LoopRails</title>
-<meta name="description" content="Build the check alongside the agent.">
+<meta name="description" content="Build the checks as you build the agent.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="https://looprails.dev/article-evaluation-driven-development">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Evaluation-Driven Development: The Verifier Is the Point · LoopRails">
-<meta property="og:description" content="Build the check alongside the agent.">
+<meta property="og:description" content="Build the checks as you build the agent.">
 <meta property="og:url" content="https://looprails.dev/article-evaluation-driven-development">
 <meta property="og:image" content="https://looprails.dev/og-article-evaluation-driven-development.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Evaluation-Driven Development: The Verifier Is the Point · LoopRails">
-<meta name="twitter:description" content="Build the check alongside the agent.">
+<meta name="twitter:description" content="Build the checks as you build the agent.">
 <meta name="twitter:image" content="https://looprails.dev/og-article-evaluation-driven-development.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -23,8 +23,13 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Evaluation-Driven Development","name":"Evaluation-Driven Development: The Verifier Is the Point · LoopRails","description":"Build the check alongside the agent.","inLanguage":"en-US","url":"https://looprails.dev/article-evaluation-driven-development","mainEntityOfPage":"https://looprails.dev/article-evaluation-driven-development","image":"https://looprails.dev/og-article-evaluation-driven-development.png","datePublished":"2026-06-23","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"Evaluation-Driven Development","item":"https://looprails.dev/article-evaluation-driven-development"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Evaluation-Driven Development","name":"Evaluation-Driven Development: The Verifier Is the Point · LoopRails","description":"Build the checks as you build the agent.","inLanguage":"en-US","url":"https://looprails.dev/article-evaluation-driven-development","mainEntityOfPage":"https://looprails.dev/article-evaluation-driven-development","image":"https://looprails.dev/og-article-evaluation-driven-development.png","datePublished":"2026-06-23","dateModified":"2026-10-01","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"Evaluation-Driven Development","item":"https://looprails.dev/article-evaluation-driven-development"}]}]}</script>
 <style>
+/* The surrounding section supplies the signup copy. Keep the form concise. */
+.formkit-form .formkit-column:first-child{display:none!important}
+.formkit-form .formkit-column{width:100%!important;flex-basis:100%!important}
+.formkit-form .formkit-guarantee{display:none!important}
+
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
   --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
@@ -104,8 +109,8 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-evaluation-driven-development.md">View article-evaluation-driven-development.md on GitHub ↗</a>
       <span class="section-alias" id="evaluation-driven-development-letting-the-verifier-decide" aria-hidden="true"></span><span class="section-alias" id="the-bottleneck-moved" aria-hidden="true"></span><span class="section-alias" id="what-a-verifier-actually-is" aria-hidden="true"></span><span class="section-alias" id="a-loop-without-a-real-verifier-produces-confidence-fast" aria-hidden="true"></span><span class="section-alias" id="building-a-verifier-you-can-trust" aria-hidden="true"></span><span class="section-alias" id="this-is-the-quotprovequot-move" aria-hidden="true"></span><span class="section-alias" id="where-to-go-next" aria-hidden="true"></span><h1 id="evaluation-driven-development-for-agents">Evaluation-Driven Development for Agents</h1>
-<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-09-30">September 30, 2026</time></p>
-<p>Build the check alongside the agent. An eval should tell you whether a change improved the product behavior you care about, under the same conditions you will deploy.</p>
+<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-10-01">October 1, 2026</time></p>
+<p>Build the checks as you build the agent. An eval should show whether a change improves the behavior your users need, under realistic conditions.</p>
 <h2 id="turn-failure-into-a-case">Turn failure into a case</h2>
 <p>Inspect real traces and artifacts. Write down the goal, initial state, allowed actions, expected outcome and unacceptable effects. Include cases where the agent should abstain or escalate, not only cases where it should act.</p>
 <p>Use production failures, expert examples and deliberate adversarial variants. Synthetic cases help fill gaps but need validation against real work.</p>
@@ -124,7 +129,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <aside class="related"><h2>Related reading</h2><ul><li><a href="article-verification-functions">What Makes a Verifier Work</a></li><li><a href="article-two-loops">The Two Loops: Intent Clarity &amp; the Delivery Gap</a></li><li><a href="article-loop-engineering-oversight">Oversight for Autonomous Loops</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Plan your loop with five templates and a one-page checklist. Get them by email, plus new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>

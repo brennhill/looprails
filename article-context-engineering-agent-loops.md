@@ -1,10 +1,10 @@
 # Context Engineering for Agent Loops
 
-Context engineering decides what information the model receives on each turn: goals, constraints, current state, tool definitions, retrieved evidence and recent results.
+Context engineering chooses what the model sees on each turn: its goal, limits, current state, tools, evidence and recent results.
 
 A long context window does not guarantee that every detail will be used reliably. Relevant information can be omitted, buried or distorted during summarization.
 
-## Give each turn a useful state
+## Give the model what it needs for the next step
 
 Keep the goal and hard constraints explicit. Supply current artifact locations, completed actions, unresolved questions and the evidence needed for the next decision. Retrieve task-relevant material instead of repeatedly pasting the whole corpus.
 

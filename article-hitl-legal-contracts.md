@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Legal and Contract Work
 
-AI can help extract clauses and draft changes. Legal conclusions, client advice and binding commitments need qualified review and a clear authority boundary.
+AI can extract clauses and draft changes. Have qualified reviewers check legal conclusions and client advice. Set clear limits on who can make binding commitments.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

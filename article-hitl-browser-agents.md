@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Browser Agents
 
-A browser agent can read a page, fill a form, or submit a purchase. Those actions need different controls. Review the destination and exact effect before anything leaves the browser.
+Reading a page, filling a form and submitting a purchase need different controls. Before a browser agent sends data or commits a change, check the destination and exact action.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

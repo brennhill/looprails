@@ -1,6 +1,6 @@
 # LoRA, Fine-Tuning and Pretraining
 
-Model adaptation changes learned behavior. It is different from supplying current facts through retrieval or enforcing permissions through an executor.
+Model adaptation changes a model’s learned behavior. Retrieval supplies information when it answers. Execution controls limit what it can do. Choose the tool that addresses your problem.
 
 LoRA is a parameter-efficient **fine-tuning method**, not a separate category alongside fine-tuning.
 

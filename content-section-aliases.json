@@ -54,7 +54,8 @@
     "verifier-gated-retry-do-not-let-the-model-grade-its-own-retr",
     "rollback-for-actions-you-cannot-just-retry",
     "quarantine-the-poison-runs",
-    "how-it-lands-in-looprails"
+    "how-it-lands-in-looprails",
+    "persist-steps-and-effects"
   ],
   "article-ai-agent-autonomy-levels": [
     "ai-agent-autonomy-levels-from-logged-to-locked-down",
@@ -266,7 +267,8 @@
     "how-the-kill-switch-fits-rail-and-the-grades",
     "ai-kill-switch-checklist",
     "key-takeaways",
-    "get-started"
+    "get-started",
+    "define-stop-semantics"
   ],
   "article-loop-patterns": [
     "loop-patterns-for-engineering-and-data-science",
@@ -317,7 +319,9 @@
     "maturity-ladder-where-are-you",
     "the-standup-smell-test-ask-these-in-any-agent-review",
     "recipes-condensed",
-    "how-the-three-docs-fit"
+    "how-the-three-docs-fit",
+    "prove-test-the-complete-workflow",
+    "show-make-the-decision-checkable"
   ],
   "article-autonomous-agent-patterns": [
     "autonomous-agent-patterns-a-recipe-book",
@@ -339,7 +343,8 @@
     "what-feeds-automation-bias",
     "how-to-design-against-automation-bias",
     "key-takeaways",
-    "where-to-go-next"
+    "where-to-go-next",
+    "reduce-the-conditions-that-encourage-it"
   ],
   "article-context-engineering-agent-loops": [
     "why-this-matters-more-in-a-loop-than-in-a-prompt",
@@ -351,7 +356,8 @@
     "the-long-run-failure-modes-named-plainly",
     "practical-tactics",
     "how-to-tell-context-is-the-problem",
-    "where-this-sits-in-looprails"
+    "where-this-sits-in-looprails",
+    "give-each-turn-a-useful-state"
   ],
   "article-hitl-legal-contracts": [
     "how-to-build-a-good-human-in-the-loop-for-ai-legal-amp-contr",
@@ -559,7 +565,8 @@
     "how-it-fits-rail-and-the-grades",
     "implementation-checklist",
     "key-takeaways",
-    "get-started"
+    "get-started",
+    "choose-actionable-signals"
   ],
   "article-what-is-human-in-the-loop": [
     "what-is-human-in-the-loop-hitl-in-ai-a-practical-guide",
@@ -591,7 +598,8 @@
     "when-there-is-no-cheap-oracle",
     "isn39t-this-just-waterfall",
     "so-do-you-need-an-intensely-detailed-spec",
-    "where-to-go-next"
+    "where-to-go-next",
+    "match-the-check-to-the-claim"
   ],
   "guide-g0": [
     "designing-for-a-g0-trivial-action",
@@ -727,7 +735,8 @@
     "a-loop-fails-differently-it-repeats",
     "the-memory-file-and-logs-are-your-audit-trail",
     "autonomy-is-a-dial-so-spend-your-human-checkpoints-where-the",
-    "a-checklist-before-you-let-a-loop-run-unattended"
+    "a-checklist-before-you-let-a-loop-run-unattended",
+    "prove-the-workflow"
   ],
   "article-hitl-browser-agents": [
     "how-to-build-a-good-human-in-the-loop-for-browser-amp-comput",

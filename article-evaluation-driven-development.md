@@ -1,6 +1,6 @@
 # Evaluation-Driven Development for Agents
 
-Build the check alongside the agent. An eval should tell you whether a change improved the product behavior you care about, under the same conditions you will deploy.
+Build the checks as you build the agent. An eval should show whether a change improves the behavior your users need, under realistic conditions.
 
 ## Turn failure into a case
 

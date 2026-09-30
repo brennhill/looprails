@@ -1,6 +1,6 @@
 # What Is Loop Engineering?
 
-Loop engineering designs the cycle around an AI agent: propose work, execute within bounds, check the result and decide whether to finish, retry or escalate.
+Loop engineering designs how an AI agent acts, checks its work and chooses what to do next. The loop ends when the task passes its checks, reaches a limit or needs help.
 
 The term describes a practical engineering pattern. It does not require a new class of model or make repeated prompting reliable by itself.
 
@@ -27,6 +27,6 @@ Use the simplest controller that works. Fixed workflows are often enough. More a
 
 An inner loop improves an artifact against current checks. An outer loop compares those checks with user needs, production failures and independent audits. Protect evaluation data and policy from the component optimizing against them.
 
-[Anthropic’s current agent-evaluation guidance](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) emphasizes complete outcomes and repeated trials. Apply that discipline to your own task distribution rather than treating a benchmark as a deployment guarantee.
+[Anthropic’s current agent-evaluation guidance](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) emphasizes complete outcomes and repeated trials. Apply that discipline to your own tasks and conditions rather than treating a benchmark as a deployment guarantee.
 
 Start with [build your first loop](article-build-agent-loop.html), the [templates](kit.html) and the [starter](https://github.com/brennhill/looprails/tree/main/starter).

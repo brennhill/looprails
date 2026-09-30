@@ -1,6 +1,6 @@
 # What Is Human-in-the-Loop in AI?
 
-Human-in-the-loop (HITL) means a person contributes to, reviews or can change an AI system’s decisions. In an agent, that might mean approving a payment, editing a proposed code change or taking over an unresolved support case.
+Human-in-the-loop (HITL) means a person helps make or review an AI system’s decisions. For an agent, that could mean approving a payment, editing a code change or taking over a support case.
 
 The useful question is: **what can this person detect and change before harm occurs?** A review step needs evidence, time and real authority.
 
@@ -16,7 +16,7 @@ These jobs need different interfaces and tests. A training-data annotator is not
 
 ## Choose oversight per action
 
-Let bounded, low-consequence work run with suitable records. For recoverable actions, provide a tested undo. For consequential actions, show the actual effect and require the appropriate authorization. When a reviewer cannot detect or stop an error, add containment, stage execution or restrict the capability.
+Let bounded, low-consequence work run with action records. For recoverable actions, provide a tested undo. For consequential actions, show the actual effect and require the appropriate authorization. When a reviewer cannot detect or stop an error, add containment, stage execution or restrict the capability.
 
 A file read is not automatically harmless: reading secrets into a model context can expose them. Sending a message is not automatically critical: consequences depend on its recipient, content and recovery limits. Grade the actual action in context.
 

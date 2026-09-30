@@ -1,6 +1,6 @@
 # What Is Agentic AI?
 
-An AI agent uses a model to choose steps and tools toward a goal. It can search, inspect results, change a file and decide what to try next. A fixed workflow follows control flow written by a developer; an agent chooses some of that control flow at runtime.
+An AI agent uses a model to choose actions toward a goal. It might search, inspect a result, edit a file and decide what to try next. A fixed workflow follows predefined steps; an agent chooses some steps as it goes.
 
 “Agentic” describes a design pattern, not a guarantee of intelligence, autonomy or reliability.
 
@@ -25,6 +25,6 @@ An agent earns more autonomy when success is checkable and mistakes are containe
 
 Give the agent a clear goal, relevant context, well-defined tools and an external completion check. Cap time, cost, retries and cumulative effects. Keep credentials outside model-visible text where possible. Record actions and provide a tested stop.
 
-[Anthropic’s agent-design guidance](https://www.anthropic.com/engineering/building-effective-agents) distinguishes workflows from agents and recommends adding complexity when it demonstrably helps. Benchmark success still needs validation in your own task distribution.
+[Anthropic’s agent-design guidance](https://www.anthropic.com/engineering/building-effective-agents) distinguishes workflows from agents and recommends adding complexity when it demonstrably helps. Benchmark success still needs validation in your own tasks and conditions.
 
 Build a small example with the [starter](https://github.com/brennhill/looprails/tree/main/starter) and [done-condition template](kit.html).

@@ -1,6 +1,6 @@
 # Oversight for Agent Loops
 
-A loop needs two kinds of checks: whether it completed useful work and whether its actions stayed within authority and risk limits. A good output does not justify an unauthorized route to producing it.
+Check both the result and the route taken to produce it. Did the agent complete useful work? Did it stay within its permissions and risk limits?
 
 ## Grade actions in context
 
@@ -12,7 +12,7 @@ Count cumulative effects. A series of small refunds or uploads can exceed the ac
 
 Enforce filesystem, network, credential and spending restrictions outside the model. Keep critical actions behind a separate, authorized process. Stage consequential changes so evidence can be inspected before commitment.
 
-A prompt telling the agent to stop is not the stop mechanism. Check cancellation at the executor, propagate it to workers and reconcile effects already accepted by external services.
+A prompt telling the agent to stop is not the stop mechanism. Check cancellation at the executor, propagate it to workers and check which actions completed already accepted by external services.
 
 ## Design the human decision
 
@@ -20,7 +20,7 @@ Show the actual action, target, evidence and recovery limits. Make approvals spe
 
 Model reviewers can help screen actions, but they remain fallible. Evaluate false blocks and missed hazards alongside the other controls.
 
-## Prove the workflow
+## Test the whole workflow
 
 Seed scope violations, malicious tool output, forged success, budget overruns and unavailable reviewers. Check what actually executed and whether the stop arrived before further effects.
 

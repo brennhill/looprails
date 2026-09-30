@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Coding Agents
 
-Let a coding agent explore and edit within an isolated workspace. Put stronger controls around shared branches, credentials, deployments and destructive commands.
+Give a coding agent a restricted workspace to explore and edit. Protect shared branches, credentials, deployments and destructive commands with stronger controls.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

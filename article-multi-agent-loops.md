@@ -1,6 +1,6 @@
 # When Multi-Agent Loops Help
 
-Several agents can explore independent sources or work on separate artifacts in parallel. They also add communication, coordination, duplicated work and failure paths.
+Several agents can research separate sources or work on different files at once. They also need coordination and can duplicate work or introduce new failures.
 
 Start with one agent or a fixed workflow. Add a team when the work decomposes cleanly and measured gains justify the cost.
 

@@ -31,6 +31,11 @@
 {"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://looprails.dev/#website", "url": "https://looprails.dev/", "name": "LoopRails", "alternateName": "LoopRails, Human-in-the-Loop Framework for AI Agents", "description": "A practical human-in-the-loop (HITL) framework for deciding how much human oversight each AI agent action needs and designing AI safety controls that catch mistakes.", "inLanguage": "en-US", "publisher": {"@id": "https://looprails.dev/#person"}}, {"@type": "Person", "@id": "https://looprails.dev/#person", "name": "Brenn Hill", "url": "https://looprails.dev/", "sameAs": ["https://www.linkedin.com/in/brennhill/", "https://github.com/brennhill"]}, {"@type": "TechArticle", "@id": "https://looprails.dev/#article", "headline": "Human-in-the-Loop Framework for AI Agents", "about": ["human-in-the-loop", "AI safety", "AI agents", "agentic AI", "AI agent oversight"], "inLanguage": "en-US", "isPartOf": {"@id": "https://looprails.dev/#website"}, "author": {"@id": "https://looprails.dev/#person"}, "publisher": {"@id": "https://looprails.dev/#person"}, "mainEntityOfPage": "https://looprails.dev/", "dateModified": "2026-09-30"}]}
 </script>
 <style>
+/* The surrounding section supplies the signup copy. Keep the form concise. */
+.formkit-form .formkit-column:first-child{display:none!important}
+.formkit-form .formkit-column{width:100%!important;flex-basis:100%!important}
+.formkit-form .formkit-guarantee{display:none!important}
+
 :root{
   --ink:#0d1117; --ink-2:#33404d; --muted:#5b6b7a; --line:#e3e6ea;
   --bg:#ffffff; --bg-2:#f6f8f9; --bg-3:#eef2f3;
@@ -338,13 +343,13 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
       <div>
         <div class="eyebrow">AI loops on rails</div>
         <h1>Build AI loops you can actually ship.</h1>
-        <p class="lead">Build agents that act, check results and stop within clear limits. LoopRails gives you a starter, practical controls and guidance on where human review helps.</p>
+        <p class="lead">Give your agent a clear goal, a way to check its work and limits it cannot bypass. Start with a runnable example, then add the controls your task needs.</p>
         <div class="btnrow">
-          <a class="btn btn-primary" href="article-loop-engineering-doctrine">Read the Doctrine →</a>
+          <a class="btn btn-primary" href="article-loop-engineering-doctrine">Start with the principles →</a>
           <a class="btn btn-ghost" href="https://github.com/brennhill/looprails/tree/main/starter">Get the starter ↗</a>
         </div>
         <div class="onerule">
-          <b>Start with this one rule:</b> approval establishes a decision, not proof of correctness. Give reviewers evidence and time; contain errors they cannot catch. <a class="cite" href="codex#ref-A-17" title="Open the source in the codex">A-17</a>
+          <b>Start here:</b> approval gives permission. Checking correctness takes evidence and time. Limit the harm from errors reviewers cannot catch. <a class="cite" href="codex#ref-A-17" title="Open the source in the codex">A-17</a>
         </div>
       </div>
       <div class="railbox">
@@ -365,7 +370,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
   <div class="wrap" style="max-width:780px;text-align:center">
     <div class="eyebrow reveal" style="justify-content:center">Free download · the LoopRails Kit</div>
     <h2 class="reveal" style="font-size:clamp(1.4rem,3vw,2rem)">Get five project templates</h2>
-    <p class="lead reveal" style="color:var(--ink-2);max-width:60ch;margin:10px auto 16px">Get five project templates and a one-page checklist by email, followed by new essays on agent loops.</p>
+    <p class="lead reveal" style="color:var(--ink-2);max-width:60ch;margin:10px auto 16px">Plan your first loop with five templates and a one-page checklist. Get them by email, plus new essays on agent loops.</p>
     <ul class="reveal" style="list-style:none;padding:0;margin:0 auto 20px;max-width:640px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;font-size:.92rem;color:var(--ink-2);font-weight:600">
       <li>✓ Done-Condition Spec</li>
       <li>✓ Loop Card</li>
@@ -383,14 +388,14 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
 <section id="why">
   <div class="wrap">
     <div class="eyebrow reveal">The core idea</div>
-    <h2 class="reveal">Most oversight breaks down in one corner.</h2>
-    <p class="lead reveal" style="margin-bottom:34px">How bad could an error be? Can someone detect and stop it in time? Use both answers to choose review, containment or bounded autonomy.</p>
+    <h2 class="reveal">Can someone catch the mistake in time?</h2>
+    <p class="lead reveal" style="margin-bottom:34px">Consider the cost of a mistake and the time available to catch it. Those answers help you choose where to use review and where to enforce stronger limits.</p>
     <div class="quad-wrap">
       <div class="quad reveal">
         <span class="axis y">Consequence →</span>
         <span class="axis x">Controllability →</span>
         <div class="cell trap pulse sel" data-q="trap">
-          <span class="t">Review is a trap</span><span class="d">High stakes · a human can't catch it in time</span>
+          <span class="t">Review alone falls short</span><span class="d">High stakes · a human can't catch it in time</span>
         </div>
         <div class="cell good" data-q="good">
           <span class="t">Review pays off</span><span class="d">High stakes · a human can catch it in time</span>
@@ -417,7 +422,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
   <div class="wrap">
     <div class="eyebrow reveal">The failure gallery</div>
     <h2 class="reveal">Where oversight can fail.</h2>
-    <p class="lead reveal" style="margin-bottom:34px">Common failures from human-factors research and agent studies. Open a card to see a design response; test it in your own workflow.</p>
+    <p class="lead reveal" style="margin-bottom:34px">See how oversight fails and what to change. Open a card for a practical response, then test it in your workflow.</p>
     <div class="gal" id="gallery"></div>
   </div>
 </section>
@@ -427,12 +432,12 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
   <div class="wrap">
     <div class="eyebrow reveal">The method</div>
     <h2 class="reveal">Four steps: Grade · Guard · Show · Prove.</h2>
-    <p class="lead reveal" style="margin-bottom:30px">Apply the method to each action and to the combined effects of the run.</p>
+    <p class="lead reveal" style="margin-bottom:30px">Assess each action, then check what the whole run could do.</p>
     <div class="moves">
-      <div class="move reveal"><span class="bar"></span><div class="n">STEP 1</div><h3>Grade</h3><p>Rate reversibility, reach and stakes. Use G0–G3 as a starting design heuristic.</p></div>
+      <div class="move reveal"><span class="bar"></span><div class="n">STEP 1</div><h3>Grade</h3><p>Rate reversibility, reach and stakes. Use G0–G3 to choose a starting level of control.</p></div>
       <div class="move reveal"><span class="bar"></span><div class="n">STEP 2</div><h3>Guard</h3><p>Enforce permissions, containment, limits and recovery before actions execute.</p></div>
       <div class="move reveal"><span class="bar"></span><div class="n">STEP 3</div><h3>Show</h3><p>Show the exact action, evidence and recovery limits. Give reviewers time and authority to decide.</p></div>
-      <div class="move reveal"><span class="bar"></span><div class="n">STEP 4</div><h3>Prove</h3><p>Seed realistic mistakes. Measure missed hazards, useful interventions and false blocks.</p></div>
+      <div class="move reveal"><span class="bar"></span><div class="n">STEP 4</div><h3>Prove</h3><p>Test realistic mistakes. Measure what reviewers catch, what they miss and what gets blocked unnecessarily.</p></div>
     </div>
   </div>
 </section>
@@ -444,14 +449,14 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
     <h2 class="reveal">Grade an action.</h2>
     <p class="lead reveal" style="margin-bottom:26px">Rate an action’s consequences and controllability. This is a design aid, not a validated risk score. <a href="framework#2-grade-the-action">See the grading rule.</a></p>
     <div class="scn-wrap reveal">
-      <div class="scn-lab">New to it? Tap a real example to load it into the grader ↓</div>
+      <div class="scn-lab">Choose an example, then adjust the ratings ↓</div>
       <div class="scn-grid" id="scn-grid"></div>
     </div>
     <div class="grader reveal">
       <div class="grader-grid">
         <div class="grader-in">
           <div class="qrow" data-axis="rev">
-            <label>Reversibility <span class="hint">, if it goes wrong, can you undo it?</span></label>
+            <label>Reversibility <span class="hint"> · Can you undo it?</span></label>
             <div class="opts">
               <div class="opt" data-v="0">Fully reversible</div>
               <div class="opt" data-v="1">Recoverable with effort</div>
@@ -459,7 +464,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
             </div>
           </div>
           <div class="qrow" data-axis="blast">
-            <label>Blast radius <span class="hint">, how far could the damage spread?</span></label>
+            <label>Blast radius <span class="hint"> · Who could be affected?</span></label>
             <div class="opts">
               <div class="opt" data-v="0">Just me / local</div>
               <div class="opt" data-v="1">My team / shared systems</div>
@@ -467,7 +472,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
             </div>
           </div>
           <div class="qrow" data-axis="stakes">
-            <label>Stakes <span class="hint">, how bad is it if this is wrong?</span></label>
+            <label>Stakes <span class="hint"> · How bad could a mistake be?</span></label>
             <div class="opts">
               <div class="opt" data-v="0">Trivial</div>
               <div class="opt" data-v="1">Meaningful</div>
@@ -475,7 +480,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
             </div>
           </div>
           <div class="qrow" data-axis="ctrl">
-            <label>Could a person realistically catch and stop a mistake here, in time? <span class="hint">, this is the controllability</span></label>
+            <label>Could a person realistically catch and stop a mistake here, in time? <span class="hint"> · Can review work here?</span></label>
             <div class="opts">
               <div class="opt" data-v="2">Yes</div>
               <div class="opt" data-v="1">Not sure</div>
@@ -507,8 +512,8 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
     <div class="rail-strip">
       <div class="rl reveal"><div class="big">R</div><h3>Reversible</h3><p>Test recovery or contain the effects. Document harm that cannot be undone.</p><a class="rl-link" href="rail-reversible">Read in depth →</a></div>
       <div class="rl reveal"><div class="big">A</div><h3>Authorized</h3><p>Check identity and task scope at execution. Separate critical authorization where required.</p><a class="rl-link" href="rail-authorized">Read in depth →</a></div>
-      <div class="rl reveal"><div class="big">I</div><h3>Interruptible</h3><p>Block new work and cancel supported operations. Test stop latency and account for committed effects.</p><a class="rl-link" href="rail-interruptible">Read in depth →</a></div>
-      <div class="rl reveal"><div class="big">L</div><h3>Logged</h3><p>Keep privacy-safe evidence of decisions, actions and outcomes.</p><a class="rl-link" href="rail-logged">Read in depth →</a></div>
+      <div class="rl reveal"><div class="big">I</div><h3>Interruptible</h3><p>Block new work and cancel supported operations. Measure how quickly it stops and check which actions already completed.</p><a class="rl-link" href="rail-interruptible">Read in depth →</a></div>
+      <div class="rl reveal"><div class="big">L</div><h3>Logged</h3><p>Record decisions, actions and outcomes without exposing sensitive data.</p><a class="rl-link" href="rail-logged">Read in depth →</a></div>
     </div>
   </div>
 </section>
@@ -517,10 +522,10 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
 <section id="stack">
   <div class="wrap">
     <div class="eyebrow reveal">Make it concrete</div>
-    <h2 class="reveal">Map LoopRails onto the tools you already use.</h2>
+    <h2 class="reveal">Check the controls in your tools.</h2>
     <p class="lead reveal" style="margin-bottom:30px">Check the current documentation for execution boundaries, action review and recovery. Features vary by product and configuration.</p>
     <div class="stack-wrap reveal">
-      <table><thead><tr><th>Platform</th><th>What to check</th><th>Current source</th></tr></thead><tbody><tr><td>Codex</td><td>Sandbox scope and approval policy</td><td><a href="https://learn.chatgpt.com/docs/sandboxing">Official docs ↗</a></td></tr><tr><td>Claude Code</td><td>Sandbox configuration and action review</td><td><a href="https://code.claude.com/docs/en/sandboxing">Official docs ↗</a></td></tr><tr><td>Cursor</td><td>Run modes and their security limits</td><td><a href="https://prod.cursor.com/docs/agent/security">Official docs ↗</a></td></tr><tr><td>GitHub Copilot cloud agent</td><td>Repository access and workflow risks</td><td><a href="https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations">Official docs ↗</a></td></tr><tr><td>Amazon Bedrock Agents</td><td>Confirmation before action-group execution</td><td><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-userconfirmation.html">Official docs ↗</a></td></tr><tr><td>LangGraph</td><td>Interrupt, persist and resume semantics</td><td><a href="https://docs.langchain.com/oss/python/langgraph/interrupts">Official docs ↗</a></td></tr><tr><td>n8n</td><td>Human review of selected tool calls</td><td><a href="https://docs.n8n.io/advanced-ai/human-in-the-loop-tools">Official docs ↗</a></td></tr></tbody></table>
+      <table><thead><tr><th>Platform</th><th>What to check</th><th>Current source</th></tr></thead><tbody><tr><td>Codex</td><td>Sandbox scope and approval policy</td><td><a href="https://learn.chatgpt.com/docs/sandboxing">Official docs ↗</a></td></tr><tr><td>Claude Code</td><td>Sandbox configuration and action review</td><td><a href="https://code.claude.com/docs/en/sandboxing">Official docs ↗</a></td></tr><tr><td>Cursor</td><td>Run modes and their security limits</td><td><a href="https://prod.cursor.com/docs/agent/security">Official docs ↗</a></td></tr><tr><td>GitHub Copilot cloud agent</td><td>Repository access and workflow risks</td><td><a href="https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations">Official docs ↗</a></td></tr><tr><td>Amazon Bedrock Agents</td><td>Confirmation before action-group execution</td><td><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-userconfirmation.html">Official docs ↗</a></td></tr><tr><td>LangGraph</td><td>How paused work is saved and resumed</td><td><a href="https://docs.langchain.com/oss/python/langgraph/interrupts">Official docs ↗</a></td></tr><tr><td>n8n</td><td>Human review of selected tool calls</td><td><a href="https://docs.n8n.io/advanced-ai/human-in-the-loop-tools">Official docs ↗</a></td></tr></tbody></table>
     </div>
     <p class="disclaim reveal">Documentation checked September 30, 2026. A permission prompt and an execution boundary serve different purposes.</p>
   </div>
@@ -530,7 +535,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
 <section id="patterns">
   <div class="wrap">
     <div class="eyebrow reveal">A shared vocabulary</div>
-    <h2 class="reveal">Patterns to use, and anti-patterns to avoid.</h2>
+    <h2 class="reveal">Useful patterns. Common pitfalls.</h2>
     <p class="lead reveal" style="margin-bottom:22px">Reusable designs and recurring failures. Choose a pattern to address an observed problem.</p>
     <h3 class="reveal" style="margin-bottom:12px;color:var(--good)">✓ Patterns to use</h3>
     <div class="deck reveal" style="margin-bottom:34px" id="patterns-good"></div>
@@ -543,7 +548,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
 <section id="maturity" class="band">
   <div class="wrap">
     <div class="eyebrow reveal">Where do you stand?</div>
-    <h2 class="reveal">Score your oversight maturity.</h2>
+    <h2 class="reveal">Find gaps in your oversight.</h2>
     <p class="lead reveal" style="margin-bottom:26px">Five questions to identify control gaps. The score is a self-assessment, not evidence of safety.</p>
     <div class="mat reveal">
       <div class="mat-grid">
@@ -597,7 +602,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
       <a class="door reveal" href="codex">
         <div class="dn">Level 3 · the evidence</div>
         <h3>The Codex</h3>
-        <p>Annotated oversight research, current-evidence notes and visible verification caveats.</p>
+        <p>Oversight research, recent findings and notes on what still needs verification.</p>
         <span class="go">Open the codex →</span>
       </a>
     </div>
@@ -623,9 +628,9 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
   <div class="wrap">
     <div class="eyebrow reveal">Loops on rails, in both senses</div>
     <h2 class="reveal">Build your agent loop end to end</h2>
-    <p class="lead reveal" style="margin-bottom:26px">Define a checkable goal, try the starter and record the controls. The <a href="codex-loops">loop research codex</a> provides the evidence and caveats.</p>
+    <p class="lead reveal" style="margin-bottom:26px">Define success, try the starter and record the controls. The <a href="codex-loops">loop research codex</a> provides the evidence and caveats.</p>
     <div class="buildcta reveal">
-      <a class="bcard" href="article-loop-engineering-doctrine"><div class="dn">Principles</div><h3>The LoopRails Doctrine →</h3><p>Ten design principles for bounded, checkable agent work.</p></a>
+      <a class="bcard" href="article-loop-engineering-doctrine"><div class="dn">Principles</div><h3>The LoopRails Doctrine →</h3><p>Ten principles for agents with clear limits and results you can check.</p></a>
       <a class="bcard" href="https://github.com/brennhill/looprails/tree/main/starter"><div class="dn">Scaffold</div><h3>The starter ↗</h3><p>A small Python example with verification, limits and action controls.</p></a>
       <a class="bcard" href="kit"><div class="dn">Templates</div><h3>The Kit →</h3><p>Five templates for goals, controls, adaptation and monitoring.</p></a>
     </div>
@@ -638,19 +643,19 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
       <span class="lcstep">Run</span><span class="lcsep">→</span>
       <span class="lcstep">Learn</span>
     </div>
-    <p class="reveal" style="color:var(--muted);font-size:.9rem;margin:.6em 0 30px;text-align:center">The inner loop meets the current contract. The outer loop improves that contract from evidence.</p>
+    <p class="reveal" style="color:var(--muted);font-size:.9rem;margin:.6em 0 30px;text-align:center">The inner loop checks the work. The outer loop checks whether you are asking for the right work.</p>
     <div class="doors">
-      <a class="door reveal" href="article-loop-engineering"><div class="dn">Start here</div><h3>What is loop engineering?</h3><p>From prompts to context to harnesses to loops, and why the verifier is the hard part.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-loop-engineering"><div class="dn">Start here</div><h3>What is loop engineering?</h3><p>How to connect actions, checks and retries into a useful loop.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-build-agent-loop"><div class="dn">Build</div><h3>Build your first agent loop</h3><p>Goal, completion check, persisted state and execution limits.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-loop-patterns"><div class="dn">Recipes</div><h3>Loop patterns for engineering &amp; data science</h3><p>Test-fixing, refactor, data-cleaning, and experiment loops, each with a done-condition and a verifier.</p><span class="go">Read →</span></a>
-      <a class="door reveal" href="evals"><div class="dn">The eval loop</div><h3>How to build evals</h3><p>Error analysis, task datasets, grader stacks, judge calibration, release gates, and production feedback.</p><span class="go">Build the eval →</span></a>
+      <a class="door reveal" href="evals"><div class="dn">The eval loop</div><h3>How to build evals</h3><p>Turn real failures into test cases and use the results to guide releases.</p><span class="go">Build the eval →</span></a>
       <a class="door reveal" href="article-verification-functions"><div class="dn">The verifier</div><h3>What makes a verifier work</h3><p>What each check proves, what it misses and how it can be gamed.</p><span class="go">Read →</span></a>
-      <a class="door reveal" href="article-two-loops"><div class="dn">Intent clarity</div><h3>The two loops</h3><p>Separate artifact improvement from improving the contract.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-two-loops"><div class="dn">Intent clarity</div><h3>The two loops</h3><p>Improve the work, then check whether your definition of success still fits.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-agentic-loops-in-the-wild"><div class="dn">Evidence</div><h3>Agentic loops in the wild</h3><p>Historical examples: task outcomes, verifier coverage and compute cost.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-context-engineering-agent-loops"><div class="dn">Context</div><h3>Context engineering for loops</h3><p>What goes in the window each turn, and how to keep a loop effective instead of drifting.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-mcp-skill-overload"><div class="dn">Context</div><h3>MCP &amp; skill overload</h3><p>Measure tool selection and context overhead; load useful capabilities when needed.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-world-models-agent-loops"><div class="dn">The model</div><h3>World models: simulate before you act</h3><p>Use predictions and dry runs to inform decisions, then validate their limits.</p><span class="go">Read →</span></a>
-      <a class="door reveal" href="article-multi-agent-loops"><div class="dn">Scale</div><h3>Multi-agent loops</h3><p>When more agents help, when they just add failure surface, and the oversight each one needs.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-multi-agent-loops"><div class="dn">Scale</div><h3>Multi-agent loops</h3><p>Decide when a team helps and how to control its combined actions.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-lora-vs-fine-tuning-vs-pre-training"><div class="dn">The model</div><h3>LoRA vs fine-tuning vs pre-training</h3><p>How to adapt the model under your loop, and when each option is worth the cost.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-adapting-models-you-dont-control"><div class="dn">The model</div><h3>Models you don't control</h3><p>What you can and can't change on a closed API model versus an open-weight one.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-loop-engineering-oversight"><div class="dn">Guardrails</div><h3>Keep a loop on the rails</h3><p>Grade what the loop can do, cap the blast radius, and stop it when it runs away.</p><span class="go">Read →</span></a>
@@ -666,7 +671,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
   <div class="wrap">
     <div class="eyebrow reveal">The eval loop</div>
     <h2 class="reveal">Build the check that makes the loop good.</h2>
-    <p class="lead reveal" style="margin-bottom:24px">Inspect real failures, turn them into cases and compare changes. Keep independent audits so improvements generalize beyond the development score.</p>
+    <p class="lead reveal" style="margin-bottom:24px">Turn real failures into test cases. Compare changes, then test unseen cases to check that the improvement holds.</p>
     <div class="lifecycle reveal" style="justify-content:flex-start;margin-bottom:26px">
       <span class="lcstep">Observe</span><span class="lcsep">→</span>
       <span class="lcstep">Name failures</span><span class="lcsep">→</span>
@@ -676,9 +681,9 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
       <span class="lcstep">Learn</span>
     </div>
     <div class="doors">
-      <a class="door reveal" href="evals#the-eval-building-loop"><div class="dn">Find the signal</div><h3>Start with error analysis</h3><p>Read representative traces with domain experts. Name the failures and required outcomes.</p><span class="go">Build the dataset →</span></a>
-      <a class="door reveal" href="evals#5-calibrate-every-subjective-grader"><div class="dn">Trust the check</div><h3>Build and calibrate graders</h3><p>Use direct checks where appropriate and calibrate subjective judgments against qualified labels.</p><span class="go">Design the graders →</span></a>
-      <a class="door reveal" href="evals#6-evaluate-the-whole-agent-not-only-its-final-sentence"><div class="dn">Evaluate the loop</div><h3>Test outcomes and trajectories</h3><p>Compare on the same cases and environment. Report uncertainty, critical failures, cost and latency.</p><span class="go">Evaluate the agent →</span></a>
+      <a class="door reveal" href="evals#1-name-the-decision"><div class="dn">Find the signal</div><h3>Start with error analysis</h3><p>Read representative traces with domain experts. Name the failures and required outcomes.</p><span class="go">Build the dataset →</span></a>
+      <a class="door reveal" href="evals#4-check-that-reviewers-apply-the-same-criteria"><div class="dn">Trust the check</div><h3>Build and calibrate graders</h3><p>Combine direct checks with reviewer judgments. Test that each grader catches the errors that matter.</p><span class="go">Design the graders →</span></a>
+      <a class="door reveal" href="evals#3-choose-complementary-graders"><div class="dn">Evaluate the loop</div><h3>Test outcomes and trajectories</h3><p>Compare on the same cases and environment. Report uncertainty, critical failures, cost and latency.</p><span class="go">Evaluate the agent →</span></a>
     </div>
     <p class="reveal" style="margin-top:20px"><a href="evals" style="font-weight:650">Open the complete, research-grounded evals guide →</a></p>
   </div>
@@ -690,10 +695,10 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
     <h2 class="reveal">Patterns for agents and RAG, with the failure modes</h2>
     <p class="lead reveal" style="margin-bottom:26px">Patterns for agent control flow and retrieval, with their limits and checks. <a href="cookbook">Open the Cookbook →</a></p>
     <div class="doors">
-      <a class="door reveal" href="article-agent-workflow-patterns"><div class="dn">Agents</div><h3>Agent workflow patterns</h3><p>Chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer.</p><span class="go">Read →</span></a>
-      <a class="door reveal" href="article-autonomous-agent-patterns"><div class="dn">Agents</div><h3>Autonomous agent patterns</h3><p>ReAct, reflection, plan-and-execute, tool use, memory, single vs multi-agent.</p><span class="go">Read →</span></a>
-      <a class="door reveal" href="article-rag-retrieval-patterns"><div class="dn">RAG</div><h3>RAG retrieval patterns</h3><p>Chunking, embeddings, hybrid search, reranking, query transforms, filtering.</p><span class="go">Read →</span></a>
-      <a class="door reveal" href="article-advanced-agentic-rag"><div class="dn">RAG</div><h3>Advanced &amp; agentic RAG</h3><p>Contextual retrieval, agentic RAG, corrective RAG, self-RAG, GraphRAG, evaluation.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-agent-workflow-patterns"><div class="dn">Agents</div><h3>Agent workflow patterns</h3><p>Choose how to divide, route and check predictable work.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-autonomous-agent-patterns"><div class="dn">Agents</div><h3>Autonomous agent patterns</h3><p>Compare ways agents plan, use tools and check their progress.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-rag-retrieval-patterns"><div class="dn">RAG</div><h3>RAG retrieval patterns</h3><p>Find useful sources, enforce access and check the evidence behind an answer.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-advanced-agentic-rag"><div class="dn">RAG</div><h3>Advanced &amp; agentic RAG</h3><p>Decide when another search helps and when it adds unnecessary complexity.</p><span class="go">Read →</span></a>
     </div>
   </div>
 </section>
@@ -704,10 +709,10 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
     <h2 class="reveal">Read up on human-in-the-loop &amp; AI agent safety</h2>
     <p class="lead reveal" style="margin-bottom:30px">Short guides to decisions, execution controls and evidence.</p>
     <div class="doors">
-      <a class="door reveal" href="article-what-is-agentic-ai"><div class="dn">Start here</div><h3>What is agentic AI?</h3><p>How agents take actions on their own, and why oversight must govern actions, not outputs.</p><span class="go">Read →</span></a>
-      <a class="door reveal" href="article-what-is-human-in-the-loop"><div class="dn">Guide</div><h3>What is human-in-the-loop (HITL)?</h3><p>What HITL means for AI agents, the three forms it takes, and when it's the wrong tool.</p><span class="go">Read →</span></a>
-      <a class="door reveal" href="article-hitl-ai-safety"><div class="dn">Evidence</div><h3>Does HITL improve AI safety?</h3><p>When a human in the loop actually adds safety, and when it's false comfort.</p><span class="go">Read →</span></a>
-      <a class="door reveal" href="article-ai-agent-approval"><div class="dn">How-to</div><h3>When should an AI agent ask for approval?</h3><p>How to decide what to gate, and build approval gates that aren't rubber stamps.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-what-is-agentic-ai"><div class="dn">Start here</div><h3>What is agentic AI?</h3><p>How agents choose actions and what keeps those actions within bounds.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-what-is-human-in-the-loop"><div class="dn">Guide</div><h3>What is human-in-the-loop (HITL)?</h3><p>The jobs people do in agent workflows and the conditions for useful review.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-hitl-ai-safety"><div class="dn">Evidence</div><h3>Does HITL improve AI safety?</h3><p>What research says about useful review and its limits.</p><span class="go">Read →</span></a>
+      <a class="door reveal" href="article-ai-agent-approval"><div class="dn">How-to</div><h3>When should an AI agent ask for approval?</h3><p>Choose which actions need approval and give reviewers a useful decision.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-ai-agent-guardrails"><div class="dn">Checklist</div><h3>AI agent guardrails</h3><p>Sandboxes, kill switches, least privilege, and more, matched to the risk.</p><span class="go">Read →</span></a>
       <a class="door reveal" href="article-llm-agent-skills-credential-leak"><div class="dn">Study</div><h3>How agent “skills” leak credentials</h3><p>What a study of 17,022 skills found about credential exposure.</p><span class="go">Read →</span></a>
     </div>
@@ -719,8 +724,8 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
 <section class="band" style="padding:46px 0">
   <div class="wrap" style="max-width:760px;text-align:center">
     <div class="eyebrow reveal" style="justify-content:center">Pairs with</div>
-    <h2 class="reveal" style="font-size:clamp(1.3rem,3vw,1.8rem)">LoopRails handles oversight. BRACE secures the agent itself.</h2>
-    <p class="reveal" style="color:var(--ink-2);margin:10px auto 18px">LoopRails covers oversight design. The <a href="https://braceframework.org">BRACE Framework</a> covers agent security. Use both when defining execution controls.</p>
+    <h2 class="reveal" style="font-size:clamp(1.3rem,3vw,1.8rem)">Pair oversight with agent security.</h2>
+    <p class="reveal" style="color:var(--ink-2);margin:10px auto 18px">Use LoopRails to design review and controls. Use the <a href="https://braceframework.org">BRACE Framework</a> to examine agent-security threats.</p>
     <a class="btn btn-primary reveal" href="https://braceframework.org" style="background:var(--rail)">Explore the BRACE Framework ↗</a>
   </div>
 </section>
@@ -733,15 +738,15 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
     <div class="faq reveal" style="margin-top:26px">
       <details>
         <summary>What is human-in-the-loop (HITL) in AI?</summary>
-        <div class="fa"><p>A person contributes to, reviews or can change an AI system’s decisions. For agents, review needs useful evidence and real authority. <a href="article-what-is-human-in-the-loop">Read the guide →</a></p></div>
+        <div class="fa"><p>A person helps make or review the system’s decisions. Useful review requires evidence, time and the power to change the action. <a href="article-what-is-human-in-the-loop">Read the guide →</a></p></div>
       </details>
       <details>
         <summary>Does human-in-the-loop actually improve AI safety?</summary>
-        <div class="fa"><p>It can, when evidence, timing and authority support a useful decision. A September 2026 computer-use study found important limits in the interfaces it tested. <a href="article-hitl-ai-safety">See the evidence →</a></p></div>
+        <div class="fa"><p>It can, when reviewers have evidence, time and the power to intervene. A computer-use study revised in September 2026 found limits in the review methods it tested. <a href="article-hitl-ai-safety">See the evidence →</a></p></div>
       </details>
       <details>
         <summary>When should an AI agent require human approval?</summary>
-        <div class="fa"><p>When a consequential action needs authority or a reviewer can meaningfully check its effect. Existing authorization can cover bounded routine work. <a href="article-ai-agent-approval">Read the approval guide →</a></p></div>
+        <div class="fa"><p>Ask when an action needs permission or a reviewer can catch a costly mistake. Existing permission can cover routine work within clear limits. <a href="article-ai-agent-approval">Read the approval guide →</a></p></div>
       </details>
       <details>
         <summary>What's the difference between human-in-the-loop and human-on-the-loop?</summary>
@@ -753,7 +758,7 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
       </details>
       <details>
         <summary>What is the "lethal trifecta" for AI agents?</summary>
-        <div class="fa"><p>Private data, untrusted content and an outbound channel can enable disclosure. Restrict data and channels; read-only access can still leak information. <a href="article-lethal-trifecta">Read the threat model →</a></p></div>
+        <div class="fa"><p>Private data, untrusted content and a way to send data out can let an attacker steal information. Limit access and outbound channels. Read-only access can still leak data. <a href="article-lethal-trifecta">Read the threat model →</a></p></div>
       </details>
       <details>
         <summary>Is LoopRails free?</summary>
@@ -763,14 +768,14 @@ a.cite:hover{background:var(--rail);color:#fff;text-decoration:none}
   </div>
 </section>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is human-in-the-loop (HITL) in AI?", "acceptedAnswer": {"@type": "Answer", "text": "A person contributes to, reviews or can change an AI system’s decisions. For agents, review needs useful evidence and real authority."}}, {"@type": "Question", "name": "Does human-in-the-loop actually improve AI safety?", "acceptedAnswer": {"@type": "Answer", "text": "It can, when evidence, timing and authority support a useful decision. A September 2026 computer-use study found important limits in the interfaces it tested."}}, {"@type": "Question", "name": "When should an AI agent require human approval?", "acceptedAnswer": {"@type": "Answer", "text": "When a consequential action needs authority or a reviewer can meaningfully check its effect. Existing authorization can cover bounded routine work."}}, {"@type": "Question", "name": "What is the difference between human-in-the-loop and human-on-the-loop?", "acceptedAnswer": {"@type": "Answer", "text": "In-the-loop review happens before execution. On-the-loop supervision monitors running work and intervenes when needed. Both depend on time to act."}}, {"@type": "Question", "name": "How do you design human oversight for autonomous AI agents?", "acceptedAnswer": {"@type": "Answer", "text": "Grade the effects, enforce controls, show useful evidence and test the workflow. RAIL covers recovery, authorization, stopping and records."}}, {"@type": "Question", "name": "What is the lethal trifecta for AI agents?", "acceptedAnswer": {"@type": "Answer", "text": "Private data, untrusted content and an outbound channel can enable disclosure. Restrict data and channels; read-only access can still leak information."}}, {"@type": "Question", "name": "Is LoopRails free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The playbook, method, templates and research reference are free to read."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is human-in-the-loop (HITL) in AI?", "acceptedAnswer": {"@type": "Answer", "text": "A person helps make or review the system’s decisions. Useful review requires evidence, time and the power to change the action."}}, {"@type": "Question", "name": "Does human-in-the-loop actually improve AI safety?", "acceptedAnswer": {"@type": "Answer", "text": "It can, when reviewers have evidence, time and the power to intervene. A computer-use study revised in September 2026 found limits in the review methods it tested."}}, {"@type": "Question", "name": "When should an AI agent require human approval?", "acceptedAnswer": {"@type": "Answer", "text": "Ask when an action needs permission or a reviewer can catch a costly mistake. Existing permission can cover routine work within clear limits."}}, {"@type": "Question", "name": "What is the difference between human-in-the-loop and human-on-the-loop?", "acceptedAnswer": {"@type": "Answer", "text": "In-the-loop review happens before execution. On-the-loop supervision monitors running work and intervenes when needed. Both depend on time to act."}}, {"@type": "Question", "name": "How do you design human oversight for autonomous AI agents?", "acceptedAnswer": {"@type": "Answer", "text": "Grade the effects, enforce controls, show useful evidence and test the workflow. RAIL covers recovery, authorization, stopping and records."}}, {"@type": "Question", "name": "What is the lethal trifecta for AI agents?", "acceptedAnswer": {"@type": "Answer", "text": "Private data, untrusted content and a way to send data out can let an attacker steal information. Limit access and outbound channels. Read-only access can still leak data."}}, {"@type": "Question", "name": "Is LoopRails free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The playbook, method, templates and research reference are free to read."}}]}
 </script>
 
 <footer>
   <div class="wrap foot-grid">
     <div>
       <div style="font-weight:800;color:#fff;font-size:1.05rem;letter-spacing:-.02em">LoopRails</div>
-      <div style="margin-top:4px">Practical controls for AI agents · revised September 30, 2026</div>
+      <div style="margin-top:4px">Practical controls for AI agents · copy revised October 1, 2026</div>
       <div style="margin-top:10px;font-size:.85rem">© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</div>
     </div>
     <div style="display:flex;gap:20px;flex-wrap:wrap">
@@ -918,7 +923,7 @@ const PATTERNS = [
   ["🔒","Capability Lock","Take away the ability to do harm instead of just discouraging it. Give only the permissions the task needs."],
   ["🛡️","Runtime Shield","Check supported constraints before execution; test coverage and failure paths."],
   ["🪢","Andon Cord","A no-blame way for anyone to halt the agent the moment something looks off (named after the factory stop-cord)."],
-  ["🛑","Kill Switch","Block new work, cancel supported operations and reconcile committed effects."],
+  ["🛑","Kill Switch","Block new work, cancel supported operations and check what already happened."],
   ["⚡","Circuit Breaker","Stop at a measured limit. Define safe probing or explicit reauthorization before resume."],
   ["👥","Maker-Checker","For actions that can't be undone, whoever proposes the action is not the one who approves it."],
   ["🎯","Brief-by-Intent","Give the agent a goal and limits rather than step-by-step orders, and pre-approve the routine, low-risk parts."],
@@ -1029,7 +1034,7 @@ function computeGrade(){
   const modes={
     G0:"Allow bounded work with suitable records. Escalate if scope or consequences change.",
     G1:"Allow authorized changes with records, notification and tested recovery.",
-    G2:"Establish authority and inspect concrete evidence before consequential commitment.",
+    G2:"Establish authority and inspect concrete evidence before a high-impact action executes.",
     G3:"Use prevention and explicit authority. Restrict or transfer actions the workflow cannot govern adequately."
   };
   const pats={
@@ -1177,7 +1182,7 @@ Apply in order:
 - G0: all dimensions 0.
 
 Stay within existing task authority. Establish appropriate authorization
-before consequential commitment; show exact targets, arguments and evidence.
+before a high-impact action executes; show exact targets, arguments and evidence.
 If review cannot catch harm in time, stage, contain, restrict or escalate.
 Never bypass a control or widen your own permissions.
 Record outcomes, enforce aggregate budgets and honor cancellation.

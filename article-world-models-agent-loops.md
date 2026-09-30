@@ -1,6 +1,6 @@
 # World Models: Preview Before Acting
 
-A world model predicts how an environment changes after an action. An agent can use it to compare plans, practice in simulation or flag likely consequences before acting.
+A world model predicts what may happen after an action. An agent can use it to compare plans, practice in simulation or spot likely consequences before acting.
 
 A prediction is evidence about a possible outcome, not an authorization or a guarantee.
 

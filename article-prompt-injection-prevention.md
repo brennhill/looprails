@@ -1,6 +1,6 @@
 # Reducing Prompt-Injection Risk in AI Agents
 
-Prompt injection puts malicious instructions inside material an agent treats as task data: web pages, emails, documents, code or tool results. The goal is to redirect its actions or expose information.
+Prompt injection hides malicious instructions in material an agent reads: pages, emails, documents, code or tool results. The attacker tries to redirect the agent or steal information.
 
 No prompt-based defense establishes universal prevention. Design so a successful instruction attack still encounters limited permissions and execution checks.
 

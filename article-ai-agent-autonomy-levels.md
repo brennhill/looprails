@@ -1,6 +1,6 @@
 # AI Agent Autonomy Levels
 
-Autonomy is permission to act within a scope. Set it per action, then revise it when the task, evidence or consequences change.
+Autonomy defines what an agent may do without asking. Set those permissions for each action. Revisit them when the task, evidence or consequences change.
 
 The following ladder is a **LoopRails design vocabulary**, not an industry standard or a validated measurement scale.
 

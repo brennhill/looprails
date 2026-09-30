@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Hiring
 
-Use AI to organize hiring evidence without letting a ranking silently become the hiring decision. Reviewers need job-related evidence, the ability to disagree and a record of their reasoning.
+Use AI to organize hiring evidence. Keep the hiring decision with reviewers who can inspect job-related evidence, disagree with a ranking and explain their reasoning.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

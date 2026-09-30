@@ -1,10 +1,10 @@
 # Human-in-the-Loop for Deployments
 
-A release approval chooses whether to deploy. Canary checks, rollout limits and rollback determine what happens if that choice is wrong.
+Approval decides whether a release goes ahead. Canary checks, rollout limits and tested rollback control what happens if the release fails.
 
 ## Grade the actions
 
-These are starting points. Data sensitivity, reversibility and cumulative impact can raise the grade; the [framework](framework.html#2-grade-the-action) defines the rule.
+Use these grades as starting points. Sensitive data or combined effects may raise the risk. [Check the grading rule](framework.html#2-grade-the-action).
 
 | Action | Starting grade | Control |
 |---|---|---|

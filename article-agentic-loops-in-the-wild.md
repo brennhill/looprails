@@ -1,6 +1,6 @@
 # Agent Loops in Practice: Read the Result and the Cost
 
-A reported agent success depends on the task, environment, checks, selection policy and compute budget. Use case studies to understand a design, rather than treating yesterday’s benchmark as today’s model ranking.
+An agent’s reported success depends on its task, tools, checks and budget. Read case studies for design lessons. Check the setup before applying their results to your own work.
 
 ## What the examples teach
 

@@ -1,6 +1,6 @@
 # In-the-Loop, On-the-Loop and Out-of-the-Loop
 
-These terms describe when a person can influence an automated action. Choose the mode per action, based on consequences and the time available to intervene.
+These terms describe when a person can step in. Choose the mode for each action based on its consequences and how much time someone has to respond.
 
 | Mode | Human role | Main limitation |
 |---|---|---|
@@ -16,7 +16,7 @@ Use in-the-loop review for consequential decisions where a person can check the 
 
 Use on-the-loop supervision when alerts are actionable and execution is slow or reversible enough for intervention. Measure detection delay, handoff delay and stop latency together.
 
-Use bounded autonomy for low-consequence work or operations protected by strong permissions, caps and recovery. Out-of-the-loop execution can still have logging, monitoring and an accountable owner.
+Use autonomy within clear limits for low-consequence work or operations protected by strong permissions, caps and recovery. Out-of-the-loop execution can still have logging, monitoring and an accountable owner.
 
 ## The handoff is part of the control
 

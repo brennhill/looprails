@@ -1,6 +1,6 @@
 # The LoopRails Kit
 
-Five templates for defining, governing and monitoring an agent loop. Copy them into the project and name an owner. The [framework](framework.html) defines the grades; the [starter](https://github.com/brennhill/looprails/tree/main/starter) provides a small runnable example.
+Five templates to plan an agent loop, set its limits and track its results. Copy them into your project and name an owner. The [framework](framework.html) defines the grades; the [starter](https://github.com/brennhill/looprails/tree/main/starter) provides a small runnable example.
 
 ## 1. The Done-Condition Spec
 
@@ -30,15 +30,15 @@ Purpose and intended users:
 Inputs and data sensitivity:
 Outputs and destinations:
 Actions with consequence grades (G0–G3):
-Cumulative-effect limits:
-Authority and approval boundaries per action:
+Limits on combined effects:
+Who may authorize each action, and when approval is required:
 Completion checks and their coverage:
 Environment, filesystem and network restrictions:
-Credential scopes and expiry:
+What credentials allow and when they expire:
 Maximum turns / time / spend:
-Stop scope and measured latency:
+What the stop reaches and how long it takes:
 Recovery path and irreversible effects:
-State, evidence and privacy-safe audit locations:
+State, evidence and audit records with sensitive data protected:
 Known failure modes:
 Last reviewed, by whom, and system versions:
 ```
@@ -47,14 +47,14 @@ A read can expose data, and tests can execute code. Grade actual effects using [
 
 ## 3. The Guardrails Checklist
 
-Resolve gaps in the controls required for the intended scope before granting that scope.
+Check these controls before giving the agent access.
 
 - [ ] Goal, permitted actions and completion checks are explicit.
 - [ ] Trusted checks and held-out cases are protected from the optimizing agent.
 - [ ] Filesystem, network and credentials match the task’s authority.
 - [ ] Isolation is an execution boundary; a worktree alone is not a sandbox.
-- [ ] Turn, time, spend and aggregate-effect caps run before actions.
-- [ ] Consequential actions have appropriate authorization and checkable evidence.
+- [ ] Turn, time, spend and limits on combined effects run before actions.
+- [ ] Consequential actions have appropriate authorization and evidence a reviewer can inspect.
 - [ ] Approval is bound to exact targets, arguments and artifact versions.
 - [ ] Cancellation reaches workers, queues and checkpoint resume.
 - [ ] Recovery is tested; irreversible and uncertain effects are documented.

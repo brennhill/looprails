@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Agent Sandboxing: Contain the Blast Radius · LoopRails</title>
-<meta name="description" content="A sandbox restricts an agent’s execution environment: which files it can access, which processes it can launch, where it can connect and how many resources it…">
+<meta name="description" content="A sandbox limits where an agent can act: the files it can access, programs it can run, services it can reach and resources it can use.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="https://looprails.dev/article-ai-agent-sandboxing">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI Agent Sandboxing: Contain the Blast Radius · LoopRails">
-<meta property="og:description" content="A sandbox restricts an agent’s execution environment: which files it can access, which processes it can launch, where it can connect and how many resources it…">
+<meta property="og:description" content="A sandbox limits where an agent can act: the files it can access, programs it can run, services it can reach and resources it can use.">
 <meta property="og:url" content="https://looprails.dev/article-ai-agent-sandboxing">
 <meta property="og:image" content="https://looprails.dev/og-article-ai-agent-sandboxing.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI Agent Sandboxing: Contain the Blast Radius · LoopRails">
-<meta name="twitter:description" content="A sandbox restricts an agent’s execution environment: which files it can access, which processes it can launch, where it can connect and how many resources it…">
+<meta name="twitter:description" content="A sandbox limits where an agent can act: the files it can access, programs it can run, services it can reach and resources it can use.">
 <meta name="twitter:image" content="https://looprails.dev/og-article-ai-agent-sandboxing.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -23,8 +23,13 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"AI Agent Sandboxing","name":"AI Agent Sandboxing: Contain the Blast Radius · LoopRails","description":"A sandbox restricts an agent’s execution environment: which files it can access, which processes it can launch, where it can connect and how many resources it…","inLanguage":"en-US","url":"https://looprails.dev/article-ai-agent-sandboxing","mainEntityOfPage":"https://looprails.dev/article-ai-agent-sandboxing","image":"https://looprails.dev/og-article-ai-agent-sandboxing.png","datePublished":"2026-06-23","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"AI Agent Sandboxing","item":"https://looprails.dev/article-ai-agent-sandboxing"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"AI Agent Sandboxing","name":"AI Agent Sandboxing: Contain the Blast Radius · LoopRails","description":"A sandbox limits where an agent can act: the files it can access, programs it can run, services it can reach and resources it can use.","inLanguage":"en-US","url":"https://looprails.dev/article-ai-agent-sandboxing","mainEntityOfPage":"https://looprails.dev/article-ai-agent-sandboxing","image":"https://looprails.dev/og-article-ai-agent-sandboxing.png","datePublished":"2026-06-23","dateModified":"2026-10-01","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"AI Agent Sandboxing","item":"https://looprails.dev/article-ai-agent-sandboxing"}]}]}</script>
 <style>
+/* The surrounding section supplies the signup copy. Keep the form concise. */
+.formkit-form .formkit-column:first-child{display:none!important}
+.formkit-form .formkit-column{width:100%!important;flex-basis:100%!important}
+.formkit-form .formkit-guarantee{display:none!important}
+
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
   --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
@@ -104,8 +109,8 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-ai-agent-sandboxing.md">View article-ai-agent-sandboxing.md on GitHub ↗</a>
       <span class="section-alias" id="ai-agent-sandboxing-contain-the-blast-radius" aria-hidden="true"></span><span class="section-alias" id="what-ai-agent-sandboxing-is-for" aria-hidden="true"></span><span class="section-alias" id="why-sandboxing-beats-per-action-approval-prompts" aria-hidden="true"></span><span class="section-alias" id="what-a-good-sandbox-includes" aria-hidden="true"></span><span class="section-alias" id="sandboxing-vs-denylists" aria-hidden="true"></span><span class="section-alias" id="sandboxing-and-the-lethal-trifecta" aria-hidden="true"></span><span class="section-alias" id="how-sandboxing-maps-to-grades-and-rail" aria-hidden="true"></span><span class="section-alias" id="a-sandbox-setup-checklist" aria-hidden="true"></span><span class="section-alias" id="key-takeaways" aria-hidden="true"></span><span class="section-alias" id="get-started" aria-hidden="true"></span><h1 id="sandboxing-ai-agents">Sandboxing AI Agents</h1>
-<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-09-30">September 30, 2026</time></p>
-<p>A sandbox restricts an agent’s execution environment: which files it can access, which processes it can launch, where it can connect and how many resources it can consume. It reduces possible harm even when the model follows the wrong instruction.</p>
+<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-10-01">October 1, 2026</time></p>
+<p>A sandbox limits where an agent can act: the files it can access, programs it can run, services it can reach and resources it can use. Those limits reduce harm when the model follows a bad instruction.</p>
 <p>Isolation depends on the implementation and configuration. “Runs in a container” is not enough to establish a secure boundary.</p>
 <h2 id="a-useful-baseline">A useful baseline</h2>
 <ul>
@@ -130,7 +135,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <aside class="related"><h2>Related reading</h2><ul><li><a href="article-least-privilege-ai-agents">Least Privilege for AI Agents</a></li><li><a href="article-circuit-breaker-ai-agents">The Circuit Breaker Pattern for AI Agents</a></li><li><a href="article-what-is-agentic-ai">What Is Agentic AI?</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Plan your loop with five templates and a one-page checklist. Get them by email, plus new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>

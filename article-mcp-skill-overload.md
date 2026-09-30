@@ -1,6 +1,6 @@
 # MCP and Skill Overload
 
-Connected tools and skills can add capabilities, but their descriptions and results also consume context and make selection harder. There is no universal safe tool count.
+Tools and skills give agents more ways to act. Their descriptions and results also take up context and can make the right tool harder to choose. Measure the trade-off in your setup; there is no universal safe tool count.
 
 The cost depends on what the client loads, how distinct the tools are and which definitions the task actually needs. Connecting a server does not necessarily load every tool into every turn.
 

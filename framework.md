@@ -1,12 +1,12 @@
 # LoopRails: Oversight for AI Agents
 
-**Grade · Guard · Show · Prove.** Rate each action, enforce appropriate limits, give reviewers useful evidence and test the complete workflow.
+**Grade · Guard · Show · Prove.** Assess the risk, enforce limits, help people review and test what happens when things go wrong.
 
-LoopRails is a research-informed design framework. Its grades and autonomy ladder are local conventions, not a validated risk calculator or a compliance standard. Use the [playbook](playbook.html) for a quick checklist and the [codex](codex.html) for evidence and limitations.
+LoopRails turns oversight research into practical design choices. The grades and autonomy levels are working guides; they do not certify safety or compliance. Use the [playbook](playbook.html) for a quick checklist and the [codex](codex.html) for evidence and limitations.
 
 ## 0. Start with the decision
 
-Ask what can go wrong, who has authority and whether anyone can detect and change the outcome in time. An approval can establish permission without proving correctness. Specify both jobs when both matter.
+Start with three questions: What can go wrong? Who may approve the action? Can anyone catch and correct a mistake in time? Approval grants permission. Checking correctness takes evidence.
 
 Human review needs four conditions:
 
@@ -21,11 +21,13 @@ The [September 2026 revision of Chen et al.](https://arxiv.org/abs/2604.04918v2)
 
 ## 1. Consequence and controllability
 
-**Consequence** is the possible harm: how reversible the action is, how far its effects reach and what is at stake. **Controllability** is the ability to detect and correct an error before harm occurs.
+**Consequence:** How much harm could the action cause, and can you undo it?
+
+**Controllability:** Can someone catch and correct a mistake before it causes harm?
 
 | | Low controllability | High controllability |
 |---|---|---|
-| Low consequence | Allow bounded autonomy with suitable records | Use a light touch and easy recovery |
+| Low consequence | Allow autonomy within clear limits with action records | Use a light touch and easy recovery |
 | High consequence | Contain, stage, restrict or transfer the action | Invest in evidence, review and prevention |
 
 If review cannot catch the error, improve evidence, buy time, reduce the effects or remove the capability. A confirmation prompt alone does not solve the underlying problem.
@@ -86,7 +88,7 @@ Stage consequential actions before commitment. Keep independent authorization wh
 
 Show the goal, exact action, target, source evidence, expected consequences and recovery limits. Highlight changes from the approved plan, missing information and policy exceptions.
 
-Offer approve, edit, reject and escalate. Bind the decision to the exact action version; changed arguments invalidate it. Do not ask a reviewer to verify an unreadable artifact within an unrealistic deadline.
+Offer approve, edit, reject and escalate. Bind the decision to the exact version of the action; changed arguments invalidate it. Do not ask a reviewer to verify an unreadable artifact within an unrealistic deadline.
 
 For handoffs, include completed actions, current state, the unresolved decision and remaining time. If nobody can respond safely, pause or contain the action.
 

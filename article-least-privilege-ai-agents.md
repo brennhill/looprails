@@ -1,6 +1,6 @@
 # Least Privilege for AI Agents
 
-Give an agent only the access needed for the authorized task, for only as long as needed. Scope both data visibility and actions; a read-only credential can still expose sensitive information.
+Give an agent the access its task needs, for only as long as it needs it. Limit both what it can see and what it can do. Read-only access can still expose sensitive data.
 
 ## Separate access by purpose
 

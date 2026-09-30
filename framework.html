@@ -23,8 +23,13 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Framework","name":"Human-in-the-Loop Framework for AI Agents · LoopRails","description":"The LoopRails method, exact grading rules, review design, operational controls and limitations.","inLanguage":"en-US","url":"https://looprails.dev/framework","mainEntityOfPage":"https://looprails.dev/framework","image":"https://looprails.dev/og-framework.png","datePublished":"2026-06-22","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Framework","item":"https://looprails.dev/framework"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Framework","name":"Human-in-the-Loop Framework for AI Agents · LoopRails","description":"The LoopRails method, exact grading rules, review design, operational controls and limitations.","inLanguage":"en-US","url":"https://looprails.dev/framework","mainEntityOfPage":"https://looprails.dev/framework","image":"https://looprails.dev/og-framework.png","datePublished":"2026-06-22","dateModified":"2026-10-01","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Framework","item":"https://looprails.dev/framework"}]}]}</script>
 <style>
+/* The surrounding section supplies the signup copy. Keep the form concise. */
+.formkit-form .formkit-column:first-child{display:none!important}
+.formkit-form .formkit-column{width:100%!important;flex-basis:100%!important}
+.formkit-form .formkit-guarantee{display:none!important}
+
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
   --bg:#fff;--bg-2:#f6f8f9;--rail:#0e7c86;--rail-2:#0b5e66;--rail-tint:#e3f3f4;
@@ -104,10 +109,10 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/framework.md">View framework.md on GitHub ↗</a>
       <span class="section-alias" id="looprails-calibrated-oversight-for-agentic-ai" aria-hidden="true"></span><span class="section-alias" id="keep-your-agents-on-the-rails-the-framework-reference-editio" aria-hidden="true"></span><span class="section-alias" id="0-the-reframe" aria-hidden="true"></span><span class="section-alias" id="the-goal-stated-precisely" aria-hidden="true"></span><span class="section-alias" id="the-four-a39s-of-meaningful-control" aria-hidden="true"></span><span class="section-alias" id="the-two-loops" aria-hidden="true"></span><span class="section-alias" id="1-the-core-model-consequence-controllability" aria-hidden="true"></span><span class="section-alias" id="2-step-one-grade-the-action-by-consequence" aria-hidden="true"></span><span class="section-alias" id="3-step-two-match-an-oversight-mode" aria-hidden="true"></span><span class="section-alias" id="default-mapping-grade-mode" aria-hidden="true"></span><span class="section-alias" id="make-it-dynamic-not-static" aria-hidden="true"></span><span class="section-alias" id="brief-by-intent-not-by-steps" aria-hidden="true"></span><span class="section-alias" id="4-step-three-instrument-the-control-surfaces" aria-hidden="true"></span><span class="section-alias" id="5-step-four-design-the-loop-episode-the-anatomy-of-a-single-" aria-hidden="true"></span><span class="section-alias" id="the-anatomy-of-a-well-designed-loop-episode" aria-hidden="true"></span><span class="section-alias" id="6-step-five-defend-against-the-predictable-failure-modes" aria-hidden="true"></span><span class="section-alias" id="7-step-six-validate-that-oversight-is-effective" aria-hidden="true"></span><span class="section-alias" id="8-the-design-procedure-putting-it-together" aria-hidden="true"></span><span class="section-alias" id="designer-checklist" aria-hidden="true"></span><span class="section-alias" id="maturity-model" aria-hidden="true"></span><span class="section-alias" id="9a-coding-agent-claude-code-style" aria-hidden="true"></span><span class="section-alias" id="9b-computer-use-web-agent" aria-hidden="true"></span><span class="section-alias" id="9c-customer-support-agent-high-fan-out" aria-hidden="true"></span><span class="section-alias" id="10-limits-tensions-and-honest-caveats" aria-hidden="true"></span><span class="section-alias" id="foundations" aria-hidden="true"></span><span class="section-alias" id="related-the-brace-framework" aria-hidden="true"></span><h1 id="looprails-oversight-for-ai-agents">LoopRails: Oversight for AI Agents</h1>
-<p><strong>Grade · Guard · Show · Prove.</strong> Rate each action, enforce appropriate limits, give reviewers useful evidence and test the complete workflow.</p>
-<p>LoopRails is a research-informed design framework. Its grades and autonomy ladder are local conventions, not a validated risk calculator or a compliance standard. Use the <a href="playbook">playbook</a> for a quick checklist and the <a href="codex">codex</a> for evidence and limitations.</p>
+<p><strong>Grade · Guard · Show · Prove.</strong> Assess the risk, enforce limits, help people review and test what happens when things go wrong.</p>
+<p>LoopRails turns oversight research into practical design choices. The grades and autonomy levels are working guides; they do not certify safety or compliance. Use the <a href="playbook">playbook</a> for a quick checklist and the <a href="codex">codex</a> for evidence and limitations.</p>
 <h2 id="0-start-with-the-decision">0. Start with the decision</h2>
-<p>Ask what can go wrong, who has authority and whether anyone can detect and change the outcome in time. An approval can establish permission without proving correctness. Specify both jobs when both matter.</p>
+<p>Start with three questions: What can go wrong? Who may approve the action? Can anyone catch and correct a mistake in time? Approval grants permission. Checking correctness takes evidence.</p>
 <p>Human review needs four conditions:</p>
 <table>
 <thead>
@@ -135,7 +140,8 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 </tbody></table>
 <p>The <a href="https://arxiv.org/abs/2604.04918v2">September 2026 revision of Chen et al.</a> studied 48 participants across 192 live web sessions. It highlights timing and attention problems in computer-use oversight. It does not establish that every human approval is ineffective or supply a universal coding-agent detection rate.</p>
 <h2 id="1-consequence-and-controllability">1. Consequence and controllability</h2>
-<p><strong>Consequence</strong> is the possible harm: how reversible the action is, how far its effects reach and what is at stake. <strong>Controllability</strong> is the ability to detect and correct an error before harm occurs.</p>
+<p><strong>Consequence:</strong> How much harm could the action cause, and can you undo it?</p>
+<p><strong>Controllability:</strong> Can someone catch and correct a mistake before it causes harm?</p>
 <table>
 <thead>
 <tr>
@@ -146,7 +152,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 </thead>
 <tbody><tr>
 <td>Low consequence</td>
-<td>Allow bounded autonomy with suitable records</td>
+<td>Allow autonomy within clear limits with action records</td>
 <td>Use a light touch and easy recovery</td>
 </tr>
 <tr>
@@ -247,7 +253,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 <p>Stage consequential actions before commitment. Keep independent authorization where required, and ensure the maker cannot grant itself checker privileges. Model-based guardrails can complement these controls, but they can be wrong.</p>
 <h2 id="5-show-a-useful-review">5. Show a useful review</h2>
 <p>Show the goal, exact action, target, source evidence, expected consequences and recovery limits. Highlight changes from the approved plan, missing information and policy exceptions.</p>
-<p>Offer approve, edit, reject and escalate. Bind the decision to the exact action version; changed arguments invalidate it. Do not ask a reviewer to verify an unreadable artifact within an unrealistic deadline.</p>
+<p>Offer approve, edit, reject and escalate. Bind the decision to the exact version of the action; changed arguments invalidate it. Do not ask a reviewer to verify an unreadable artifact within an unrealistic deadline.</p>
 <p>For handoffs, include completed actions, current state, the unresolved decision and remaining time. If nobody can respond safely, pause or contain the action.</p>
 <h2 id="6-defend-against-failure">6. Defend against failure</h2>
 <p>Test automation bias, excessive prompts, persuasive but unsupported explanations, malicious retrieved content, stale approvals, duplicate effects and correlated checker errors.</p>
@@ -278,7 +284,7 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
 
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Plan your loop with five templates and a one-page checklist. Get them by email, plus new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>

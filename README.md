@@ -28,6 +28,6 @@ LoopRails helps teams decide which actions need review, what execution controls 
 
 After Markdown changes, run `node build-docs.js` to regenerate pages, article listings and feeds. The landing page and cheat sheet are maintained directly.
 
-Content revised September 30, 2026. Current core claims were checked against primary research and official documentation. The bibliography also preserves historical entries and explicit UNVERIFIED details; it is not a claim that every archived citation was reverified.
+Copy revised October 1, 2026; research checked September 30. Current core claims were checked against primary research and official documentation. The bibliography also preserves historical entries and explicit UNVERIFIED details; it is not a claim that every archived citation was reverified.
 
 © 2026 [Brenn Hill](https://www.linkedin.com/in/brennhill/). All rights reserved; see [LICENSE](LICENSE).

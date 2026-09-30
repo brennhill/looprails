@@ -2,7 +2,7 @@
 
 A verifier checks a claim about an artifact or state. Its verdict is only as strong as its coverage, assumptions and resistance to being gamed.
 
-## Match the check to the claim
+## Choose a check that tests the claim
 
 | Check | Strong at | Limitation |
 |---|---|---|

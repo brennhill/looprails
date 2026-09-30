@@ -1,6 +1,6 @@
 # The Lethal Trifecta: How Agents Can Leak Data
 
-Private data, untrusted content and an outbound channel form a dangerous combination. An attacker can place instructions in material the agent reads, then try to make it send private information elsewhere.
+Private data, untrusted content and a way to send data out create a dangerous combination. An attacker can hide instructions in material the agent reads and try to make it disclose private information.
 
 “The lethal trifecta” is a useful threat-model shorthand, not an exhaustive account of agent security. Credentials can also leak through ordinary logging or unsafe dependencies without an attacker’s prompt.
 

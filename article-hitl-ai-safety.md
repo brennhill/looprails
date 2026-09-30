@@ -1,6 +1,6 @@
 # Does Human-in-the-Loop Improve AI Safety?
 
-Human review can improve safety when a reviewer has the evidence, ability, authority and time to catch a consequential error. Adding an approval button does not establish that those conditions exist.
+Human review can improve safety when reviewers know what to check, have the evidence and can act in time. Give them the power to reject or change the action. An approval button alone provides none of that.
 
 ## What current research shows
 

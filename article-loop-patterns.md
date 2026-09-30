@@ -1,6 +1,6 @@
 # Practical Loop Patterns
 
-Choose a loop by its completion check and recovery path. The pattern is useful when those are clearer than “keep improving.”
+Choose a loop with a clear completion check and recovery plan. Replace “keep improving” with a result you can verify.
 
 | Task | Done-condition | Check | Failure to prevent |
 |---|---|---|---|
