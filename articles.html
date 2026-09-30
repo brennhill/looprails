@@ -73,6 +73,7 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .md strong[id]{scroll-margin-top:64px}
 .md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
 .md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.section-alias{display:block;height:0;scroll-margin-top:64px}
 .gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
 .crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
 .byline{font-size:.92rem;color:var(--muted);margin:-.2em 0 1.6em}
@@ -110,13 +111,13 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <div class="crumb"><a href="/">LoopRails</a> · Articles</div>
   <div class="intro">
     <h1>Articles: human-in-the-loop &amp; AI agent safety</h1>
-    <p>Practical, sourced writing on how to oversee AI agents, when a human in the loop helps, when it's just a rubber stamp, and how to design oversight that actually catches mistakes. <a href="feed.xml">Subscribe via RSS ↗</a></p>
+    <p>Short guides to agent decisions, execution controls and evidence. <a href="feed.xml">Subscribe via RSS ↗</a></p>
   </div>
   <h2 class="cathead">The LoopRails Doctrine <span class="catcount">1</span></h2>
   <div class="alist">
       <a class="acard" href="article-loop-engineering-doctrine">
         <h3>The LoopRails Doctrine</h3>
-        <p>Ten principles for building agent loops that are fast to build and safe to run: a checkable done-condition, an independent verifier, caps, memory in a file, maker-checker, action grading, and guardrails on by default.</p>
+        <p>Build a loop around evidence of useful work, then limit what can happen when that evidence is wrong.</p>
         <span class="go">Read →</span>
       </a>
   </div>
@@ -124,52 +125,52 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <div class="alist">
       <a class="acard" href="article-loop-engineering">
         <h3>What Is Loop Engineering?</h3>
-        <p>Loop engineering means building a system that prompts an AI agent, checks its output, and decides the next step until a goal is met. The prompts-to-loops ladder, and why the verifier is the hard part.</p>
+        <p>Loop engineering designs the cycle around an AI agent: propose work, execute within bounds, check the result and decide whether to finish, retry or escalate.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-build-agent-loop">
         <h3>How to Build Your First Agent Loop</h3>
-        <p>A practical guide to building your first AI agent loop: goal and done-conditions, the verifier, memory in a file, writer and reviewer subagents, and guardrails on by default.</p>
+        <p>Start with one bounded task and a completion check you can run independently.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-context-engineering-agent-loops">
         <h3>Context Engineering for Agent Loops</h3>
-        <p>Context engineering means deciding what goes into the model's window each turn: the goal, the done-condition, and what to keep, drop, summarize, and retrieve. How to keep an agent loop effective across many turns instead of drifting.</p>
+        <p>Context engineering decides what information the model receives on each turn: goals, constraints, current state, tool definitions, retrieved evidence and recent…</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-mcp-skill-overload">
         <h3>MCP and Skill Overload</h3>
-        <p>Every tool, MCP server, and skill you connect spends context and lowers tool-selection accuracy. What the research says about too many tools, how it cuts your useful turns, and how to keep the toolset lean.</p>
+        <p>Connected tools and skills can add capabilities, but their descriptions and results also consume context and make selection harder.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-loop-patterns">
         <h3>Loop Patterns for Engineering &amp; Data Science</h3>
-        <p>Reusable agent-loop recipes for software and data science: test-fixing, refactor, dependency-upgrade, data-cleaning, and experiment loops, each with a goal, a done-condition, and a verifier.</p>
+        <p>Choose a loop by its completion check and recovery path.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-evaluation-driven-development">
         <h3>Evaluation-Driven Development</h3>
-        <p>In an autonomous loop, an automated check, not your gut, decides whether each change improved things. How evaluation-driven development works and how to build a verifier you can trust.</p>
+        <p>Build the check alongside the agent.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-verification-functions">
         <h3>What Makes a Verifier Work</h3>
-        <p>What the research says about verification functions in agent loops: the verifier-strength spectrum, why verification is the bottleneck, reward hacking and how to harden against it, and whether the verifier replaces a detailed spec. Backed by Codex Part 7.</p>
+        <p>A verifier checks a claim about an artifact or state.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-two-loops">
         <h3>The Two Loops: Intent Clarity &amp; the Delivery Gap</h3>
-        <p>The hard part of building with agents is not generation, it is intent. Loop engineering closes the delivery gap with two loops: an inner loop that converges on the verifier, and an outer loop where a human clarifies intent by sharpening it. Why the spec accretes from failures, not up front.</p>
+        <p>An agent loop tries to produce work that passes a check.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-world-models-agent-loops">
         <h3>World Models for Agent Loops</h3>
-        <p>A world model predicts what an action will do before the loop runs it. How to use simulation as a consequence preview, a planning aid, and an offline eval, and why a prediction is a claim to verify, not proof.</p>
+        <p>A world model predicts how an environment changes after an action.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-multi-agent-loops">
         <h3>Multi-Agent Loops: When More Agents Help</h3>
-        <p>When splitting a loop across multiple agents helps and when it just adds failure surface: the patterns that work, the MAST failure taxonomy, the reviewer-agent trap, and the oversight each sub-agent needs.</p>
+        <p>Several agents can explore independent sources or work on separate artifacts in parallel.</p>
         <span class="go">Read →</span>
       </a>
   </div>
@@ -177,12 +178,12 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <div class="alist">
       <a class="acard" href="article-agent-workflow-patterns">
         <h3>Agent Workflow Patterns</h3>
-        <p>A plain-English recipe book of agent workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer, with the failure modes of each and how to fix them.</p>
+        <p>A workflow follows developer-defined control flow.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-autonomous-agent-patterns">
         <h3>Autonomous Agent Patterns</h3>
-        <p>A plain-English recipe book of autonomous agent patterns: ReAct, reflection, plan-and-execute, tool use, memory, and single vs multi-agent, with the failure modes of each and how to fix them.</p>
+        <p>An autonomous agent observes state, chooses an action, uses a tool and checks the result.</p>
         <span class="go">Read →</span>
       </a>
   </div>
@@ -190,12 +191,12 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <div class="alist">
       <a class="acard" href="article-rag-retrieval-patterns">
         <h3>RAG Retrieval Patterns</h3>
-        <p>A plain-English recipe book for RAG retrieval: chunking, embeddings and vector search, hybrid search, reranking, query transformation, and metadata filtering, with the failure modes of each and how to fix them.</p>
+        <p>Retrieval-augmented generation (RAG) supplies external evidence to a model before it answers.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-advanced-agentic-rag">
         <h3>Advanced and Agentic RAG</h3>
-        <p>A plain-English recipe book for advanced RAG: contextual retrieval, agentic RAG, corrective RAG, self-RAG, GraphRAG, and how to evaluate a RAG system, with the failure modes of each and how to fix them.</p>
+        <p>Add retrieval complexity to fix a measured failure.</p>
         <span class="go">Read →</span>
       </a>
   </div>
@@ -203,12 +204,12 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <div class="alist">
       <a class="acard" href="article-lora-vs-fine-tuning-vs-pre-training">
         <h3>LoRA vs Fine-Tuning vs Pre-Training</h3>
-        <p>What LoRA, full fine-tuning, and pre-training each change in a model, what they cost, and when to reach for each when adapting a model for an agent loop. Plus why retrieval often beats fine-tuning.</p>
+        <p>Model adaptation changes learned behavior.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-adapting-models-you-dont-control">
         <h3>What You Can &amp; Can't Do With Models You Don't Control</h3>
-        <p>Closed API models (Claude, GPT, Gemini) versus open-weight models (Llama, Mistral, Gemma): what each lets you change, what it takes off the table, and how that choice shapes the loop you build.</p>
+        <p>A hosted API gives access to inference and sometimes managed fine-tuning.</p>
         <span class="go">Read →</span>
       </a>
   </div>
@@ -216,17 +217,17 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <div class="alist">
       <a class="acard" href="article-loop-engineering-oversight">
         <h3>Oversight for Autonomous Loops</h3>
-        <p>Loop engineering moves oversight from per-step prompts to the goal, the verifier, and a few human checkpoints. How to grade a loop's actions, cap its blast radius, and stop it when it runs away.</p>
+        <p>A loop needs two kinds of checks: whether it completed useful work and whether its actions stayed within authority and risk limits.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-loop-health-monitoring">
         <h3>Loop Health: What to Monitor in a Running Loop</h3>
-        <p>Which signals tell you an agent loop is working, stuck, or burning money: turns, spend per successful outcome, the verifier-score trend, the no-progress streak, and the thresholds that feed the circuit breaker and kill switch.</p>
+        <p>Monitor progress, effects and resource use.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-failure-recovery-agent-loops">
         <h3>Failure Recovery for Agent Loops</h3>
-        <p>How to make an agent loop survive its own failures: durable checkpoints and resume, idempotent retries with backoff, a circuit breaker, verifier-gated retries, and saga-style rollback for irreversible actions.</p>
+        <p>Before retrying, determine whether the previous action failed, succeeded or has an unknown outcome.</p>
         <span class="go">Read →</span>
       </a>
   </div>
@@ -234,32 +235,32 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <div class="alist">
       <a class="acard" href="article-what-is-agentic-ai">
         <h3>What Is Agentic AI?</h3>
-        <p>Agentic AI explained: how AI agents plan and take actions with tools, what makes them powerful and risky, and why overseeing them means governing actions, not outputs.</p>
+        <p>An AI agent uses a model to choose steps and tools toward a goal.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-what-is-human-in-the-loop">
         <h3>What Is Human-in-the-Loop (HITL) in AI?</h3>
-        <p>Human-in-the-loop (HITL) means a person reviews or can intervene in an AI system's actions. A practical guide to HITL for AI agents, what it is, when it works, and when to prevent instead.</p>
+        <p>Human-in-the-loop (HITL) means a person contributes to, reviews or can change an AI system’s decisions.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-ai-safety">
         <h3>Does Human-in-the-Loop Improve AI Safety?</h3>
-        <p>Does keeping a human in the loop actually make AI agents safer? The evidence, when HITL helps, when it's false safety, and what real AI agent safety looks like.</p>
+        <p>Human review can improve safety when a reviewer has the evidence, ability, authority and time to catch a consequential error.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-in-the-loop-vs-on-the-loop">
         <h3>In-the-Loop vs On-the-Loop vs Out-of-the-Loop</h3>
-        <p>Human-in-the-loop, human-on-the-loop, and out-of-the-loop explained: definitions, tradeoffs, the sudden-handoff problem, and how to choose oversight for AI agents.</p>
+        <p>These terms describe when a person can influence an automated action.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-ai-agent-autonomy-levels">
         <h3>AI Agent Autonomy Levels (L0-L6)</h3>
-        <p>AI agent autonomy levels explained: the L0-L6 ladder from silent autonomy to escalate-or-forbid, and how to pick the right level for each action by risk.</p>
+        <p>Autonomy is permission to act within a scope.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-automation-bias">
         <h3>Automation Bias: Why People Rubber-Stamp AI</h3>
-        <p>Automation bias is why human-in-the-loop oversight of AI fails: people over-trust the system and approve without scrutiny. The evidence, and how to design against it.</p>
+        <p>Automation bias is inappropriate reliance on automated advice.</p>
         <span class="go">Read →</span>
       </a>
   </div>
@@ -267,47 +268,47 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <div class="alist">
       <a class="acard" href="article-ai-agent-approval">
         <h3>When Should an AI Agent Ask for Approval?</h3>
-        <p>When AI agents should ask for human approval, and how to build approval gates that catch mistakes instead of becoming rubber stamps. Graded examples G0-G3.</p>
+        <p>Ask before a consequential action when approval is needed to establish authority or when a reviewer can meaningfully check the effect.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-ai-agent-guardrails">
         <h3>AI Agent Guardrails: A Practical Checklist</h3>
-        <p>A practical AI agent guardrails checklist: sandboxing, least privilege, blast-radius caps, kill switches, circuit breakers, logging, and maker-checker, matched to risk.</p>
+        <p>Guardrails combine checks on agent behavior with limits on what its tools can do.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-lethal-trifecta">
         <h3>The Lethal Trifecta: How AI Agents Leak Data</h3>
-        <p>The lethal trifecta, private data + untrusted content + an exfiltration channel, lets prompt injection steal data from AI agents. How it works and how to stop it.</p>
+        <p>Private data, untrusted content and an outbound channel form a dangerous combination.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-prompt-injection-prevention">
         <h3>Prompt Injection Prevention</h3>
-        <p>How to prevent prompt injection in AI agents: why filtering fails, and a defense-in-depth approach, least privilege, runtime shields, sandboxing, and removing a lethal-trifecta leg.</p>
+        <p>Prompt injection puts malicious instructions inside material an agent treats as task data: web pages, emails, documents, code or tool results.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-maker-checker-ai">
         <h3>Maker-Checker (Four-Eyes) for AI Agents</h3>
-        <p>Maker-checker and the four-eyes principle for AI agents: why the proposer shouldn't be the approver, which actions need it, and how to implement it without rubber-stamping.</p>
+        <p>Maker–checker separates proposing an action from authorizing it.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-ai-kill-switch">
         <h3>How to Build an AI Kill Switch</h3>
-        <p>What an AI kill switch is, why every agent needs one, and how to design one that stops everything in flight, fast, reachable by anyone, and blame-free.</p>
+        <p>A kill switch blocks new work and attempts to stop work already running.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-circuit-breaker-ai-agents">
         <h3>The Circuit Breaker Pattern for AI Agents</h3>
-        <p>A circuit breaker auto-pauses an AI agent when error rate, spend, or volume crosses a threshold, and requires human re-authorization to resume. How to build one.</p>
+        <p>A circuit breaker stops new work when a measured condition crosses a threshold.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-ai-agent-sandboxing">
         <h3>AI Agent Sandboxing</h3>
-        <p>What AI agent sandboxing is and why it beats per-action approval prompts: no-network containers, scoped credentials, resource caps, and disposable environments.</p>
+        <p>A sandbox restricts an agent’s execution environment: which files it can access, which processes it can launch, where it can connect and how many resources it…</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-least-privilege-ai-agents">
         <h3>Least Privilege for AI Agents</h3>
-        <p>Least privilege for AI agents: give an agent only the tools, data, and credentials it needs, and why removing a capability beats forbidding its use.</p>
+        <p>Give an agent only the access needed for the authorized task, for only as long as needed.</p>
         <span class="go">Read →</span>
       </a>
   </div>
@@ -315,72 +316,72 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <div class="alist">
       <a class="acard" href="article-hitl-coding-agents">
         <h3>Human-in-the-Loop for AI Coding Agents</h3>
-        <p>How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0-G3, and match the right control to each.</p>
+        <p>Let a coding agent explore and edit within an isolated workspace.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-customer-support">
         <h3>Human-in-the-Loop for AI Customer Support</h3>
-        <p>How to build human-in-the-loop oversight for AI customer support agents: value-conditional approval for refunds, review for outbound replies, and escalation done right.</p>
+        <p>A support agent can answer questions autonomously while account changes, refunds and commitments use separate permissions.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-financial-transactions">
         <h3>Human-in-the-Loop for AI Financial Transactions</h3>
-        <p>How to build human-in-the-loop oversight for AI agents that move money: maker-checker, value thresholds, circuit breakers, and kill switches for irreversible payments.</p>
+        <p>Separate a payment proposal from execution.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-database-operations">
         <h3>Human-in-the-Loop for AI Database Operations</h3>
-        <p>How to build human-in-the-loop oversight for AI agents that run SQL: read-only by default, dry-runs, least privilege, backups, and maker-checker for prod schema changes.</p>
+        <p>Treat generated SQL as executable code.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-email-agents">
         <h3>Human-in-the-Loop for AI Email &amp; Messaging</h3>
-        <p>How to build human-in-the-loop oversight for AI agents that send email and messages: undo-send windows, previews, rate caps, and approval for external or bulk sends.</p>
+        <p>Keep drafting separate from sending.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-deployments">
         <h3>Human-in-the-Loop for AI Deployments</h3>
-        <p>How to build human-in-the-loop oversight for AI-driven deployments: canary plus automatic rollback, circuit breakers, and a kill switch instead of a rubber-stamp approval.</p>
+        <p>A release approval chooses whether to deploy.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-content-moderation">
         <h3>Human-in-the-Loop for AI Content Moderation</h3>
-        <p>How to build human-in-the-loop oversight for AI content moderation: confidence-based routing, reversible removals, appeals as escalation, and avoiding reviewer fatigue.</p>
+        <p>Automate routine moderation only where the policy and error costs are understood.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-machine-learning">
         <h3>Human-in-the-Loop for Machine Learning</h3>
-        <p>Human-in-the-loop machine learning explained: labeling, active learning, low-confidence review, and RLHF, how to route human effort by uncertainty and keep label quality high.</p>
+        <p>Human-in-the-loop machine learning includes labeling, active learning and preference feedback.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-healthcare">
         <h3>Human-in-the-Loop for AI in Healthcare</h3>
-        <p>How to design human-in-the-loop oversight for clinical AI: keep a licensed clinician in command, fight alert fatigue, and reserve autonomy for low-stakes actions.</p>
+        <p>Grade clinical actions by patient consequences, not by whether they look administrative.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-legal-contracts">
         <h3>Human-in-the-Loop for AI Legal Work</h3>
-        <p>How to design human-in-the-loop oversight for AI legal and contract work: verify citations, attorney sign-off, maker-checker for execution, and treating documents as untrusted.</p>
+        <p>AI can help extract clauses and draft changes.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-hiring">
         <h3>Human-in-the-Loop for AI Hiring</h3>
-        <p>How to design human-in-the-loop oversight for AI hiring: keep a human deciding advance/reject, audit for bias, and never auto-reject candidates at scale.</p>
+        <p>Use AI to organize hiring evidence without letting a ranking silently become the hiring decision.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-browser-agents">
         <h3>Human-in-the-Loop for Browser &amp; Computer-Use Agents</h3>
-        <p>How to design human-in-the-loop oversight for browser and computer-use agents: sandboxing, breaking the lethal trifecta, spend caps, and prompt-injection defense.</p>
+        <p>A browser agent can read a page, fill a form, or submit a purchase.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-voice-agents">
         <h3>Human-in-the-Loop for AI Voice Agents</h3>
-        <p>How to design human-in-the-loop oversight for real-time AI voice agents: limit capabilities, verbal confirmation, and warm handoff to a human for high-stakes calls.</p>
+        <p>A voice agent needs controls that work under real-time pressure.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-hitl-multi-agent-systems">
         <h3>Human-in-the-Loop for Multi-Agent Systems</h3>
-        <p>How to design human-in-the-loop oversight for multi-agent systems: least privilege per sub-agent, provenance logging, one kill switch, and clear human accountability.</p>
+        <p>A team of agents adds handoffs, shared state and parallel actions.</p>
         <span class="go">Read →</span>
       </a>
   </div>
@@ -388,22 +389,22 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <div class="alist">
       <a class="acard" href="article-agentic-loops-in-the-wild">
         <h3>Agentic Loops in the Wild: Wins, Failures, Cost</h3>
-        <p>Real agentic-loop results woven together: DeepSeek-R1, AlphaCodium, o3 on ARC-AGI, SWE-agent, and the failures (reward hacking, the AI Scientist, GAIA, WebArena). The wins share an ungameable verifier and pay for compute; the failures lack one.</p>
+        <p>A reported agent success depends on the task, environment, checks, selection policy and compute budget.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-llm-compiler-loop-optimization">
         <h3>Study: A Compiler as the Verifier</h3>
-        <p>A 2025 study (ComPilot) put an off-the-shelf LLM in a loop with a compiler that checked legality and measured speedup, and the model refined: 2.66x single-run, 3.54x best-of-5, no fine-tuning. A measured proof of loop plus an independent verifier.</p>
+        <p>ComPilot uses a language model to propose loop transformations, then receives compiler legality checks and measured performance as feedback.</p>
         <span class="go">Read →</span>
       </a>
       <a class="acard" href="article-llm-agent-skills-credential-leak">
         <h3>Study: How AI Agent Skills Leak Credentials</h3>
-        <p>A 2026 study analyzed 17,022 AI agent skills and found rampant credential leaks, mostly via debug logging, during routine use. What it found and how to prevent it.</p>
+        <p>A 2026 study sampled 17,022 skills from SkillsMP and identified 520 affected skills containing 1,708 security issues.</p>
         <span class="go">Read →</span>
       </a>
   </div>
 </main>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get the 5 templates for shipping a guarded loop</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Enter your email and I'll send the LoopRails Kit: the fill-in templates that take an agent loop from idea to safely running, plus the one-page cheat sheet. New essays on loop engineering after that.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="playbook">Playbook</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a></span>

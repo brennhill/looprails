@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Human-in-the-Loop Playbook for AI Agents · LoopRails</title>
-<meta name="description" content="The LoopRails practitioner field guide: grade each AI agent action, guard it, design the review moment, and prove the human-in-the-loop oversight actually catches mistakes.">
+<meta name="description" content="A quick checklist for grading agent actions, enforcing limits, designing useful review and testing the workflow.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="https://looprails.dev/playbook">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Human-in-the-Loop Playbook for AI Agents · LoopRails">
-<meta property="og:description" content="The LoopRails practitioner field guide: grade each AI agent action, guard it, design the review moment, and prove the human-in-the-loop oversight actually catches mistakes.">
+<meta property="og:description" content="A quick checklist for grading agent actions, enforcing limits, designing useful review and testing the workflow.">
 <meta property="og:url" content="https://looprails.dev/playbook">
 <meta property="og:image" content="https://looprails.dev/og-playbook.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Human-in-the-Loop Playbook for AI Agents · LoopRails">
-<meta name="twitter:description" content="The LoopRails practitioner field guide: grade each AI agent action, guard it, design the review moment, and prove the human-in-the-loop oversight actually catches mistakes.">
+<meta name="twitter:description" content="A quick checklist for grading agent actions, enforcing limits, designing useful review and testing the workflow.">
 <meta name="twitter:image" content="https://looprails.dev/og-playbook.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Playbook","name":"Human-in-the-Loop Playbook for AI Agents · LoopRails","description":"The LoopRails practitioner field guide: grade each AI agent action, guard it, design the review moment, and prove the human-in-the-loop oversight actually catches mistakes.","inLanguage":"en-US","url":"https://looprails.dev/playbook","mainEntityOfPage":"https://looprails.dev/playbook","image":"https://looprails.dev/og-playbook.png","datePublished":"2026-06-22","dateModified":"2026-09-03","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Playbook","item":"https://looprails.dev/playbook"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Playbook","name":"Human-in-the-Loop Playbook for AI Agents · LoopRails","description":"A quick checklist for grading agent actions, enforcing limits, designing useful review and testing the workflow.","inLanguage":"en-US","url":"https://looprails.dev/playbook","mainEntityOfPage":"https://looprails.dev/playbook","image":"https://looprails.dev/og-playbook.png","datePublished":"2026-06-22","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Playbook","item":"https://looprails.dev/playbook"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -75,6 +75,7 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .md strong[id]{scroll-margin-top:64px}
 .md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
 .md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.section-alias{display:block;height:0;scroll-margin-top:64px}
 .gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
 .crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
 .byline{font-size:.92rem;color:var(--muted);margin:-.2em 0 1.6em}
@@ -97,327 +98,110 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="article-loop-engineering-doctrine" class="">Doctrine</a><a href="playbook" class="on">Playbook</a><a href="framework" class="">Framework</a><a href="kit" class="">Kit</a><a href="cookbook" class="">Cookbook</a><a href="evals" class="">Evals</a><a href="codex" class="">Codex</a><a href="articles" class="">Articles</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-30-second-version" class="" data-id="the-30-second-version">The 30-second version</a><a href="#move-1-grade-what39s-it-worth" class="" data-id="move-1-grade-what39s-it-worth">Move 1: GRADE (what&amp;#39;s it worth?)</a><a href="#move-2-guard-how-much-control-and-what-kind" class="" data-id="move-2-guard-how-much-control-and-what-kind">Move 2: GUARD (how much control, and what kind?)</a><a href="#move-3-show-design-the-oversight-moment" class="" data-id="move-3-show-design-the-oversight-moment">Move 3: SHOW (design the oversight moment)</a><a href="#move-4-prove-does-the-oversight-actually-work" class="" data-id="move-4-prove-does-the-oversight-actually-work">Move 4: PROVE (does the oversight actually work?)</a><a href="#the-four-a39s-the-meaningful-control-test" class="" data-id="the-four-a39s-the-meaningful-control-test">The four A&amp;#39;s: the meaningful-control test</a><a href="#the-anti-pattern-deck-name-them-kill-them" class="" data-id="the-anti-pattern-deck-name-them-kill-them">The anti-pattern deck: name them, kill them</a><a href="#maturity-ladder-where-are-you" class="" data-id="maturity-ladder-where-are-you">Maturity ladder: where are you?</a><a href="#the-standup-smell-test-ask-these-in-any-agent-review" class="" data-id="the-standup-smell-test-ask-these-in-any-agent-review">The standup smell-test (ask these in any agent review)</a><a href="#recipes-condensed" class="" data-id="recipes-condensed">Recipes (condensed)</a><a href="#how-the-three-docs-fit" class="" data-id="how-the-three-docs-fit">How the three docs fit</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#grade-what-can-go-wrong" class="" data-id="grade-what-can-go-wrong">Grade: what can go wrong?</a><a href="#guard-enforce-the-scope" class="" data-id="guard-enforce-the-scope">Guard: enforce the scope</a><a href="#show-make-the-decision-checkable" class="" data-id="show-make-the-decision-checkable">Show: make the decision checkable</a><a href="#prove-test-the-complete-workflow" class="" data-id="prove-test-the-complete-workflow">Prove: test the complete workflow</a><a href="#common-failures" class="" data-id="common-failures">Common failures</a><a href="#three-starting-recipes" class="" data-id="three-starting-recipes">Three starting recipes</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="/">LoopRails</a> · Playbook</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/playbook.md">View playbook.md on GitHub ↗</a>
-      <h1 id="looprails-a-practitioner39s-playbook-for-human-in-the-loop-a">LoopRails: A Practitioner&#39;s Playbook for Human-in-the-Loop Agentic AI</h1>
-<blockquote>
-<p><strong>Keep your AI agents on the rails.</strong> Calibrated oversight in four moves,
-<strong>Grade · Guard · Show · Prove</strong>, that keep every action on the <strong>RAIL</strong>:
-<strong>R</strong>eversible · <strong>A</strong>uthorized · <strong>I</strong>nterruptible · <strong>L</strong>ogged.</p>
-<p>The quick, do-this tier. For the full reasoning see <a href="./framework.md"><code>framework.md</code></a>. For the
-evidence behind every claim see <a href="./codex.md"><code>codex.md</code></a>. Bracket tags like <code>[A-17]</code> point to a
-source there.</p>
-</blockquote>
-<hr>
-<h2 id="the-30-second-version">The 30-second version</h2>
-<ol>
-<li><strong>Don&#39;t ask &quot;is there a human in the loop?&quot;</strong> Ask it <strong>per action</strong>.</li>
-<li><strong>Grade</strong> each action by <strong>blast radius × reversibility × stakes</strong> → G0 to G3.</li>
-<li><strong>Guard</strong> by grade: let trivial stuff run; gate the consequential; <strong>where a human can&#39;t reliably catch the error, <em>prevent</em> instead of review</strong> (sandbox, make reversible, or forbid).</li>
-<li><strong>Show</strong> the human a well-built moment when you do pull them in: <em>what&#39;s being asked, what happens if they approve, how it got here, and what to check</em>, without drowning them.</li>
-<li><strong>Prove</strong> it works: measure whether humans actually <em>catch</em> errors, and red-team the oversight, not just the agent.</li>
-</ol>
-<blockquote>
-<p><strong>The one rule that matters most:</strong> a confirmation prompt does <strong>not</strong> make a human a good error-catcher. Gates cut <em>bad actions</em> but barely improve <em>catching</em> them [A-17]. When stakes are high and the human can&#39;t realistically catch the mistake in time, <strong>prevention beats review every time.</strong></p>
-</blockquote>
-<hr>
-<h2 id="move-1-grade-what39s-it-worth">Move 1: GRADE (what&#39;s it worth?)</h2>
-<p>Score every action the agent can take on three axes; the <strong>highest</strong> axis sets the grade.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Low (0)</th>
-<th>Medium (1)</th>
-<th>High (2)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Reversibility</strong></td>
-<td>one-click undo</td>
-<td>recoverable with effort</td>
-<td>irreversible (sent/paid/deleted/published)</td>
-</tr>
-<tr>
-<td><strong>Blast radius</strong></td>
-<td>self / local</td>
-<td>shared / team</td>
-<td>external / third parties / public</td>
-</tr>
-<tr>
-<td><strong>Stakes</strong></td>
-<td>trivial</td>
-<td>money/time/minor harm</td>
-<td>safety, legal, security, finance, reputation</td>
-</tr>
-</tbody></table>
+      <span class="section-alias" id="looprails-a-practitioner39s-playbook-for-human-in-the-loop-a" aria-hidden="true"></span><span class="section-alias" id="the-30-second-version" aria-hidden="true"></span><span class="section-alias" id="move-1-grade-what39s-it-worth" aria-hidden="true"></span><span class="section-alias" id="move-2-guard-how-much-control-and-what-kind" aria-hidden="true"></span><span class="section-alias" id="move-3-show-design-the-oversight-moment" aria-hidden="true"></span><span class="section-alias" id="move-4-prove-does-the-oversight-actually-work" aria-hidden="true"></span><span class="section-alias" id="the-four-a39s-the-meaningful-control-test" aria-hidden="true"></span><span class="section-alias" id="the-anti-pattern-deck-name-them-kill-them" aria-hidden="true"></span><span class="section-alias" id="maturity-ladder-where-are-you" aria-hidden="true"></span><span class="section-alias" id="the-standup-smell-test-ask-these-in-any-agent-review" aria-hidden="true"></span><span class="section-alias" id="recipes-condensed" aria-hidden="true"></span><span class="section-alias" id="how-the-three-docs-fit" aria-hidden="true"></span><h1 id="the-looprails-playbook">The LoopRails Playbook</h1>
+<p><strong>Grade · Guard · Show · Prove.</strong> Use this checklist per action, including the effects of many actions combined. The <a href="framework">framework</a> defines the method and its limits.</p>
+<h2 id="grade-what-can-go-wrong">Grade: what can go wrong?</h2>
+<p>Rate reversibility, reach and stakes from 0 to 2.</p>
 <table>
 <thead>
 <tr>
 <th>Grade</th>
-<th>Means</th>
-<th>Examples</th>
+<th>Rule</th>
+<th>Starting control</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>G0</strong> trivial</td>
-<td>all low</td>
-<td>read a file, read-only query</td>
+<td>G0</td>
+<td>All dimensions 0</td>
+<td>Bounded autonomy; suitable records</td>
 </tr>
 <tr>
-<td><strong>G1</strong> low</td>
-<td>≤1 medium</td>
-<td>edit local file, run tests</td>
+<td>G1</td>
+<td>Exactly one dimension 1; none 2</td>
+<td>Records and tested recovery</td>
 </tr>
 <tr>
-<td><strong>G2</strong> high</td>
-<td>any one high</td>
-<td><code>git push</code>, send internal msg, spend in budget</td>
+<td>G2</td>
+<td>Any dimension 2, or at least two dimensions 1</td>
+<td>Stronger evidence and appropriate authorization</td>
 </tr>
 <tr>
-<td><strong>G3</strong> critical</td>
-<td>irreversible <strong>and</strong> (external or severe)</td>
-<td>delete prod data, deploy, pay, post publicly, <code>rm -rf</code></td>
+<td>G3</td>
+<td>Reversibility 2 and either reach or stakes 2</td>
+<td>Prevention and explicit authority; restrict or transfer when needed</td>
 </tr>
 </tbody></table>
-<blockquote>
-<p>⚠️ <strong>Grade by <em>real</em> reversibility, not by whether you have an &quot;undo&quot; button.</strong> A Bash <code>rm</code> is G3 even if your editor has rewind. Checkpoint/undo doesn&#39;t cover shell side-effects [A-4].</p>
-</blockquote>
-<hr>
-<h2 id="move-2-guard-how-much-control-and-what-kind">Move 2: GUARD (how much control, and what kind?)</h2>
-<p><strong>Pick a mode on the autonomy ladder, by grade:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Grade</th>
-<th>Default mode</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>G0</strong></td>
-<td><strong>L0 to L1</strong> run silently / log</td>
-<td>spending attention here just breeds fatigue</td>
-</tr>
-<tr>
-<td><strong>G1</strong></td>
-<td><strong>L1 to L2</strong> act + notify, cheap undo</td>
-<td>undo beats confirmation [G-14]</td>
-</tr>
-<tr>
-<td><strong>G2</strong></td>
-<td><strong>L3 to L4</strong> confirm-before / plan-approve, with a preview</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>G3</strong></td>
-<td><strong>L4 to L5 + prevention</strong>, or <strong>L6</strong> (escalate/forbid) if a human can&#39;t catch it</td>
-<td>review alone is a trap here</td>
-</tr>
-</tbody></table>
-<p><code>L0 silent · L1 logged · L2 notify-after · L3 confirm-before · L4 plan-approve · L5 co-execute · L6 escalate/forbid</code></p>
-<p><strong>Then escalate dynamically</strong> on: low agent confidence · novelty/scope-drift · <strong>lethal-trifecta exposure</strong> · accumulated blast radius. And make <strong>stepping <em>down</em> to manual easy</strong> (don&#39;t get locked into max autonomy).</p>
-<p><strong>The pattern deck. Reach for these. Most are borrowed from industries that hardened them:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Pattern</th>
-<th>Do this</th>
-<th>Why / src</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>🏰 <strong>Sandbox-First</strong></td>
-<td>contain blast radius in the <em>environment</em> (no-net container, scoped creds, budget cap) before trusting the agent</td>
-<td>the highest-payoff control [A-23]</td>
-</tr>
-<tr>
-<td>💥 <strong>Blast-Radius Cap</strong></td>
-<td>limit any single action&#39;s magnitude (max spend/deletes/recipients) + rate-throttle</td>
-<td>stops runaways [O-3]</td>
-</tr>
-<tr>
-<td>🔒 <strong>Capability Lock</strong></td>
-<td>make the bad action <em>impossible</em>, not discouraged (least-privilege, read-only, type/schema constraints)</td>
-<td>poka-yoke &gt; policy [N-6, O-10]</td>
-</tr>
-<tr>
-<td>🛡️ <strong>Runtime Shield</strong></td>
-<td>a <em>verified</em> monitor that vetoes the agent even under prompt injection</td>
-<td>[O-17, O-18]</td>
-</tr>
-<tr>
-<td>🪢 <strong>Andon Cord</strong></td>
-<td>anyone (human, monitor, user) can halt the agent, cheaply and blamelessly</td>
-<td>[N-4]</td>
-</tr>
-<tr>
-<td>🛑 <strong>Kill Switch</strong></td>
-<td>one command stops all + revokes in-flight, usable without diagnosing</td>
-<td>[O-7]</td>
-</tr>
-<tr>
-<td>⚡ <strong>Circuit Breaker</strong></td>
-<td>auto-halt on threshold breach (error rate, cost, anomaly); re-auth to resume</td>
-<td>[O-6]</td>
-</tr>
-<tr>
-<td>👥 <strong>Maker-Checker</strong></td>
-<td>proposer ≠ approver; two independent parties for irreversible actions</td>
-<td>[O-1, N-15]</td>
-</tr>
-<tr>
-<td>🚨 <strong>Break-Glass</strong></td>
-<td>no standing privilege; elevate just-in-time, logged loudly, reviewed after</td>
-<td>[O-14]</td>
-</tr>
-<tr>
-<td>↩️ <strong>Checkpoint &amp; Rewind</strong></td>
-<td>reversible by default; undo beats confirmation (mind the shell boundary)</td>
-<td>[A-4, G-14]</td>
-</tr>
-<tr>
-<td>📝 <strong>Plan-Then-Go</strong></td>
-<td>approve a plan <em>before</em> execution when the model can&#39;t be steered mid-task</td>
-<td>[A-20, A-19]</td>
-</tr>
-<tr>
-<td>🎯 <strong>Brief-by-Intent</strong></td>
-<td>give purpose + end-state + hard limits, not step-by-step; pre-authorize the routine</td>
-<td>[K-7, K-12]</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="move-3-show-design-the-oversight-moment">Move 3: SHOW (design the oversight moment)</h2>
-<p>When you <em>do</em> bring a human in, the moment usually fails for lack of four things. Build them in.</p>
-<p><strong>The four things usually missing:</strong></p>
-<ol>
-<li>🔭 <strong>Consequences + reversibility, up front.</strong> What approving <em>does</em>, side effects, and whether it can be undone, <em>before</em> they click (feedforward) [Q-3, Q-4].</li>
-<li>🧭 <strong>Provenance: &quot;how did this get to me?&quot;</strong> What the agent saw, considered, rejected, and <em>why it escalated</em>. Without it the human is out-of-the-loop and can&#39;t really judge [Q-7, Q-10].</li>
-<li>🔍 <strong>Detection affordances.</strong> Contrastive <em>why / why-not</em>, diffs, surfaced <strong>uncertainty</strong>, framed to help them <em>check</em> rather than <em>sell</em> the answer (persuasive rationale increases blind acceptance) [Q-16, Q-20, F-20].</li>
-<li>⏳ <strong>An attention budget.</strong> Interrupt rarely, at task breakpoints, batched, high-precision. Over-prompting gets tuned out by the <em>second</em> identical prompt [Q-28, O-16]. Low-precision alerting is how oversight dies (clinicians override 49% to 96% of alerts) [H-10].</li>
-</ol>
-<p><strong>Full anatomy of a good loop episode (ordered):</strong> ① decide whether to interrupt at all → ② state the request clearly → ③ show consequences + reversibility → ④ surface calibrated confidence → ⑤ give the provenance trail → ⑥ provide detection affordances → ⑦ add proportionate friction (a <em>microboundary</em>, not sludge) → ⑧ bias-safe choice architecture (safe default, <strong>no auto-approve-on-timeout</strong>, no dark patterns) → ⑨ log the decision for accountability.</p>
-<blockquote>
-<p>🎛️ <strong>Safe Default + Microboundary:</strong> the default option is always the safe/reversible one, and for irreversible actions add one beat of forced reflection (e.g., decide-before-seeing). Add it <em>only</em> there, or it becomes sludge [Q-19, Q-32, Q-35].</p>
-</blockquote>
-<hr>
-<h2 id="move-4-prove-does-the-oversight-actually-work">Move 4: PROVE (does the oversight actually work?)</h2>
-<p>Treat &quot;a human reviews it&quot; as a <strong>claim to validate, not a checkbox</strong> [D-14].</p>
+<p>Apply G3 first. These grades are LoopRails heuristics, not validated risk scores. A read can disclose secrets; a test can execute code. Grade actual effects.</p>
+<h2 id="guard-enforce-the-scope">Guard: enforce the scope</h2>
+<p>Keep each consequential action on <strong>RAIL</strong>:</p>
 <ul>
-<li><strong>Intervention-success rate.</strong> When the agent is wrong, how often does the human actually <em>catch and fix</em> it? (Not approval rate.) If you measure one thing, measure this [A-17].</li>
-<li><strong>Override rate + correctness.</strong> Uniform approval means rubber-stamping; lopsided overrides mean a new bias [D-24].</li>
-<li><strong>Time-to-detect vs. time-to-harm.</strong> Is there even time to intervene? [H-19]</li>
-<li><strong>Interrupt / false-alarm rate.</strong> Is the signal economy healthy, or breeding fatigue? [F-17]</li>
-<li><strong>Red-team the oversight.</strong> Plant errors and attacks; see if the human (or monitor AI) catches them. Untested oversight is unvalidated.</li>
+<li><strong>Reversible:</strong> tested undo or containment, with irreversible effects documented.</li>
+<li><strong>Authorized:</strong> scoped identity and permissions, checked at execution.</li>
+<li><strong>Interruptible:</strong> a tested stop that reaches workers and queues.</li>
+<li><strong>Logged:</strong> privacy-safe evidence of proposals, decisions and outcomes.</li>
 </ul>
-<hr>
-<h2 id="the-four-a39s-the-meaningful-control-test">The four A&#39;s: the meaningful-control test</h2>
-<p>Every oversight point must pass all four, or it&#39;s theater [C-20, D-4, E-21]:</p>
-<p>| <strong>Authority</strong> | the human can actually stop/change/reverse it |
-| <strong>Awareness</strong> | they comprehend what&#39;s happening (not a log dump) |
-| <strong>Ability</strong> | they have the competence <em>and the time</em> to judge it |
-| <strong>Accountability</strong> | responsibility traces to an informed human |</p>
-<p>Fail Authority → <strong>moral crumple zone</strong>. Fail Awareness → <strong>automation surprise</strong>. Fail Ability → <strong>out-of-the-loop</strong>. Fail Accountability → <strong>responsibility gap</strong>.</p>
-<hr>
-<h2 id="the-anti-pattern-deck-name-them-kill-them">The anti-pattern deck: name them, kill them</h2>
+<p>Set time, spending, retry and cumulative-effect caps. Keep production access separate from exploration. A worktree separates edits; use an execution boundary for isolation.</p>
+<p>If a person cannot detect or stop a mistake in time, stage it, reduce its effects, restrict the capability or transfer it to a controlled process. Approval alone cannot fill that gap.</p>
+<h2 id="show-make-the-decision-checkable">Show: make the decision checkable</h2>
+<p>Show the exact action, target, evidence, expected effect, missing information and recovery limits. Provide approve, edit, reject and escalate choices.</p>
+<p>The reviewer needs authority, awareness, ability and accountable responsibility. Bind approval to the action version; material changes require a new check. Respect the review queue’s capacity.</p>
+<h2 id="prove-test-the-complete-workflow">Prove: test the complete workflow</h2>
+<p>Seed realistic errors and inspect what executed. Track missed hazards, false blocks, errors caught, reviewer effort and stop latency. Test cancellation, failed dependencies, unavailable reviewers and resume after a crash.</p>
+<p>A <a href="https://arxiv.org/abs/2604.04918v2">2026 computer-use study</a> highlights timing and attention problems in review. It supports testing your own interface, not assuming a universal intervention rate.</p>
+<h2 id="common-failures">Common failures</h2>
 <table>
 <thead>
 <tr>
-<th>Anti-pattern</th>
-<th>What it is</th>
-<th>Antidote</th>
+<th>Failure</th>
+<th>Repair</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>🟥 <strong>The Rubber Stamp</strong></td>
-<td>gates clicked through; gating ≠ catching [A-17]</td>
-<td>forcing functions; verify-don&#39;t-trust evidence</td>
+<td>Approval without useful evidence</td>
+<td>Show the actual effect and source checks</td>
 </tr>
 <tr>
-<td>🟥 <strong>Moral Crumple Zone</strong></td>
-<td>human blamed without real control [D-16]</td>
-<td>the four A&#39;s, or drop the pretense</td>
+<td>Many low-value prompts</td>
+<td>Route routine work within explicit bounds</td>
 </tr>
 <tr>
-<td>🟥 <strong>The YOLO Cliff</strong></td>
-<td>global auto-approve with no containment [A-13]</td>
-<td>Sandbox-First</td>
+<td>Agent can bypass a blocklist</td>
+<td>Enforce permissions at the executor</td>
 </tr>
 <tr>
-<td>🟥 <strong>Alert-Fatigue Spiral</strong></td>
-<td>too many low-value prompts → all ignored [H-10]</td>
-<td>attention budget; high precision</td>
+<td>Undo covers only local edits</td>
+<td>Test external effects and document limits</td>
 </tr>
 <tr>
-<td>🟥 <strong>Confirmation Reflex</strong></td>
-<td>warnings instead of undo; habituation [G-14, O-16]</td>
-<td>Checkpoint &amp; Rewind</td>
+<td>Second agent agrees with the first</td>
+<td>Require independent evidence</td>
 </tr>
 <tr>
-<td>🟥 <strong>Lethal Trifecta</strong></td>
-<td>private data + untrusted input + external comms = exfiltration [A-23]</td>
-<td>break a leg (read-only / no net)</td>
+<td>Dashboard reports overspend afterward</td>
+<td>Enforce caps before the next action</td>
 </tr>
 <tr>
-<td>🟥 <strong>Magenta-Line Lock-In</strong></td>
-<td>riding max autonomy, no easy step-down [H-6]</td>
-<td>make stepping down easy</td>
-</tr>
-<tr>
-<td>🟥 <strong>Denylist Theater</strong></td>
-<td>string-match denylists / client approvals as &quot;security&quot; [A-14]</td>
-<td>Capability Lock; server-side enforce</td>
-</tr>
-<tr>
-<td>🟥 <strong>Phantom Oversight</strong></td>
-<td>mandated review that&#39;s illusory in practice [D-14]</td>
-<td>PROVE it works</td>
-</tr>
-<tr>
-<td>🟥 <strong>The Firehose</strong></td>
-<td>dumping everything on the human at overload [H-20]</td>
-<td>prioritize/aggregate; circuit-break</td>
+<td>Stop leaves child work running</td>
+<td>Propagate cancellation and reconcile effects</td>
 </tr>
 </tbody></table>
-<hr>
-<h2 id="maturity-ladder-where-are-you">Maturity ladder: where are you?</h2>
-<p>| 0 <strong>Binary</strong> | one global switch (ask-everything or YOLO): fatigue or blind risk |
-| 1 <strong>Graded</strong> | actions risk-tiered; gates match consequence |
-| 2 <strong>Reversible &amp; sandboxed</strong> | undo-by-default + environment containment |
-| 3 <strong>Calibrated &amp; dynamic</strong> | autonomy adapts; loop episodes designed (clarity/provenance/detection) |
-| 4 <strong>Validated</strong> | oversight effectiveness measured, red-teamed, proven |</p>
-<hr>
-<h2 id="the-standup-smell-test-ask-these-in-any-agent-review">The standup smell-test (ask these in any agent review)</h2>
-<ul>
-<li>What&#39;s the <strong>blast radius</strong> of the worst single action? Is it <strong>reversible</strong>?</li>
-<li>For G3 actions, are we <strong>preventing or just reviewing</strong>? (If reviewing, can the human really catch it?)</li>
-<li>Is high-autonomy work in a <strong>sandbox</strong>? Is the <strong>lethal trifecta</strong> possible?</li>
-<li>When we ask the human, do we <strong>show consequences + provenance</strong>, or just &quot;Approve?&quot;</li>
-<li>Are we <strong>measuring catch-rate</strong>, or assuming the human catches things?</li>
-<li>What&#39;s our <strong>kill switch</strong>, and who can pull the <strong>andon cord</strong>?</li>
-</ul>
-<hr>
-<h2 id="recipes-condensed">Recipes (condensed)</h2>
-<p><strong>Coding agent.</strong> Reads/edits run+log with undo (L1 to L2); <code>git push</code> → confirm + diff (L3); prod ops → plan-approve + escalate (L4/L6). Sandbox/branch, no prod creds. SHOW: diff + what&#39;s affected + reversibility + why-now. PROVE: catch-rate vs. merge rate, planted-regression red-team.</p>
-<p><strong>Computer-use / web agent.</strong> Browse autonomously (L1); <strong>confirm every side-effect</strong> (purchase/send/delete, L3); credentials via human takeover with vision blanked. The lethal trifecta is live → detect &amp; gate; <strong>escalate, don&#39;t review</strong>, when the human can&#39;t catch it.</p>
-<p><strong>Support agent (high fan-out).</strong> Answer with deterministic guardrails it can&#39;t cross; in-policy refunds L1 to L2; out-of-policy → escalate to human with a summary. The human is the <strong>escalation tier</strong>, not the per-turn approver (span limits [H-22]). AI monitors watch the autonomous body; humans review the escalated tail.</p>
-<hr>
-<h2 id="how-the-three-docs-fit">How the three docs fit</h2>
-<p>| <a href="./playbook.md"><code>playbook.md</code></a> | <strong>this</strong>, the do-this field guide | practitioners |
-| <a href="./framework.md"><code>framework.md</code></a> | the full LoopRails method + reasoning | designers/leads |
-| <a href="./codex.md"><code>codex.md</code></a> | 366-source research base | the evidence / skeptics |</p>
-<p><em>LoopRails · Grade · Guard · Show · Prove · 2026-06-22.</em></p>
+<h2 id="three-starting-recipes">Three starting recipes</h2>
+<p><strong>Coding:</strong> restricted workspace, protected tests, readable diff and separate release authority.</p>
+<p><strong>Support:</strong> authenticated access, service-side limits, idempotent changes and a context-rich handoff.</p>
+<p><strong>Browser:</strong> scoped sessions, destination restrictions and a preview before submission.</p>
+<p>Capture the design in the <a href="kit">Kit</a>, build evaluation cases with the <a href="evals">evals guide</a>, and inspect the <a href="codex">research codex</a> when a claim needs closer review.</p>
 
     </div>
-    
-    
+
+
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get the 5 templates for shipping a guarded loop</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Enter your email and I'll send the LoopRails Kit: the fill-in templates that take an agent loop from idea to safely running, plus the one-page cheat sheet. New essays on loop engineering after that.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>

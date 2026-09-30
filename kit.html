@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The LoopRails Kit: Templates for Building Safe Agent Loops · LoopRails</title>
-<meta name="description" content="Copy-paste artifacts for building agent loops: a done-condition spec, a Loop Card, a guardrails checklist, and a model-adaptation worksheet. Fill them in before you let a loop run.">
+<meta name="description" content="Five templates for goals, action authority, execution controls, model adaptation and loop health.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="https://looprails.dev/kit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The LoopRails Kit: Templates for Building Safe Agent Loops · LoopRails">
-<meta property="og:description" content="Copy-paste artifacts for building agent loops: a done-condition spec, a Loop Card, a guardrails checklist, and a model-adaptation worksheet. Fill them in before you let a loop run.">
+<meta property="og:description" content="Five templates for goals, action authority, execution controls, model adaptation and loop health.">
 <meta property="og:url" content="https://looprails.dev/kit">
 <meta property="og:image" content="https://looprails.dev/og-kit.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The LoopRails Kit: Templates for Building Safe Agent Loops · LoopRails">
-<meta name="twitter:description" content="Copy-paste artifacts for building agent loops: a done-condition spec, a Loop Card, a guardrails checklist, and a model-adaptation worksheet. Fill them in before you let a loop run.">
+<meta name="twitter:description" content="Five templates for goals, action authority, execution controls, model adaptation and loop health.">
 <meta name="twitter:image" content="https://looprails.dev/og-kit.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Kit","name":"The LoopRails Kit: Templates for Building Safe Agent Loops · LoopRails","description":"Copy-paste artifacts for building agent loops: a done-condition spec, a Loop Card, a guardrails checklist, and a model-adaptation worksheet. Fill them in before you let a loop run.","inLanguage":"en-US","url":"https://looprails.dev/kit","mainEntityOfPage":"https://looprails.dev/kit","image":"https://looprails.dev/og-kit.png","datePublished":"2026-06-22","dateModified":"2026-09-03","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Kit","item":"https://looprails.dev/kit"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"Kit","name":"The LoopRails Kit: Templates for Building Safe Agent Loops · LoopRails","description":"Five templates for goals, action authority, execution controls, model adaptation and loop health.","inLanguage":"en-US","url":"https://looprails.dev/kit","mainEntityOfPage":"https://looprails.dev/kit","image":"https://looprails.dev/og-kit.png","datePublished":"2026-06-22","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Kit","item":"https://looprails.dev/kit"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -75,6 +75,7 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .md strong[id]{scroll-margin-top:64px}
 .md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
 .md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.section-alias{display:block;height:0;scroll-margin-top:64px}
 .gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
 .crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
 .byline{font-size:.92rem;color:var(--muted);margin:-.2em 0 1.6em}
@@ -103,159 +104,93 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/kit.md">View kit.md on GitHub ↗</a>
       <h1 id="the-looprails-kit">The LoopRails Kit</h1>
-<p>These are the artifacts you fill in before you let a loop run, the same way you would not ship a service without a runbook. They turn a vague &quot;let the agent figure it out&quot; into something a teammate can review, approve, and shut off. They pair with the LoopRails starter project (the working scaffold) and the Doctrine (the principles behind the rails). The fourth artifact, the Model Adaptation Worksheet, covers choosing and adapting the model itself, since that decision is part of building the loop too. The fifth, the Loop Health Signals, covers what to watch once the loop is running.</p>
-<div style="border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:22px 24px;margin:22px 0 6px;text-align:center"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free &middot; keep the whole Kit</div><div style="font-weight:800;font-size:1.2rem;color:var(--ink);margin-bottom:6px">Get all five templates as one fill-in pack</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 auto 14px;max-width:54ch">Read them free below, or enter your email and I'll send the whole Kit as a single pack you can keep, plus the one-page cheat sheet and new essays on loop engineering.</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script></div>
+<p>Five templates for defining, governing and monitoring an agent loop. Copy them into the project and name an owner. The <a href="framework">framework</a> defines the grades; the <a href="https://github.com/brennhill/looprails/tree/main/starter">starter</a> provides a small runnable example.</p>
+<div style="border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:22px 24px;margin:22px 0 6px;text-align:center"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free &middot; keep the whole Kit</div><div style="font-weight:800;font-size:1.2rem;color:var(--ink);margin-bottom:6px">Get all five templates as one fill-in pack</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 auto 14px;max-width:54ch">Read the templates below, or get the pack and one-page checklist by email. New essays follow.</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script></div>
 <h2 id="1-the-done-condition-spec">1. The Done-Condition Spec</h2>
-<p>Write this first, before you build anything. If you cannot state how the loop knows it is finished and how that gets checked independently, the loop is not ready to run. The point is to force a precise, checkable finish line instead of an open-ended &quot;keep going.&quot;</p>
-<p>How to use it: copy the block, fill every field, and keep it next to the loop&#39;s code. If &quot;Done when&quot; and &quot;Verified by&quot; are the same thing, your check is not independent. Fix that before shipping.</p>
-<pre><code>Loop name:
-Goal (one sentence):
-Done when (precise, checkable condition):
-Verified by (independent check that proves done):
-  - test command / metric threshold / second-agent review / human sign-off
-Definitely NOT done if (failure signals):
-Max iterations:
-Max time:
-Max spend:
-On timeout (pick one): stop and escalate / roll back / hand to human
+<p>Separate the desired result from the evidence used to check it. The agent’s claim is not enough.</p>
+<pre><code>Loop name and owner:
+Goal:
+Permitted scope:
+Done when:
+Verified by (tests, state checks, calibrated review):
+Check coverage and known blind spots:
+Definitely not done if:
+Maximum turns / time / spend:
+On timeout or unsafe behavior:
 </code></pre>
-<p>Worked example, a &quot;fix the failing tests&quot; loop:</p>
-<pre><code>Loop name: fix-failing-tests
-Goal (one sentence): Make the existing test suite pass without weakening it.
-Done when: `npm test` exits 0 with the same test count as the starting commit.
-Verified by:
-  - `npm test` run in a clean checkout (not the agent&#39;s working dir)
-  - diff review confirms no tests were deleted, skipped, or had assertions removed
-Definitely NOT done if: test count dropped, tests marked skip/only, or
-  assertions replaced with trivial ones (assert true).
-Max iterations: 15
-Max time: 30 min
-Max spend: $5
-On timeout: stop and escalate (open a PR with progress so far, tag owner)
-</code></pre>
+<p>For a test-fixing loop, require the trusted suite to pass in a clean environment and inspect any test changes. Unchanged test count alone cannot detect weakened assertions.</p>
 <h2 id="2-the-loop-card">2. The Loop Card</h2>
-<p>A one-page record of what a loop is and how it is governed, modeled on a model card. The goal is that a reviewer or auditor who has never seen the loop can understand its risk and controls in under a minute.</p>
-<p>Grades in one line: a grade combines reversibility, blast radius, and stakes. G0 is trivial and reversible (read a file), G1 is low-stakes and easily undone, G2 is meaningful or annoying to reverse, G3 is irreversible or high-stakes (delete data, deploy to prod, spend money, message a customer).</p>
-<p>How to use it: fill one card per loop, store it in the repo next to the loop, and update &quot;Last reviewed&quot; whenever the loop&#39;s actions or caps change. The highest-graded action drives the approval rule, so be honest about it.</p>
-<pre><code>Loop name + owner:
-Purpose:
-Inputs:
-Outputs:
-Actions it can take (with grade):
-  - &lt;action&gt; .......... G0/G1/G2/G3
-  - &lt;action&gt; .......... G0/G1/G2/G3
-Highest-graded action + who must approve it:
-Verifier (what it checks, and is it independent? yes/no):
-Caps: iterations / time / spend
-Stop controls: kill switch / circuit breaker
-Memory + audit logs live at:
+<p>Record one card per loop. Update it when capabilities, environment, checks or limits change.</p>
+<pre><code>Loop name and accountable owner:
+Purpose and intended users:
+Inputs and data sensitivity:
+Outputs and destinations:
+Actions with consequence grades (G0–G3):
+Cumulative-effect limits:
+Authority and approval boundaries per action:
+Completion checks and their coverage:
+Environment, filesystem and network restrictions:
+Credential scopes and expiry:
+Maximum turns / time / spend:
+Stop scope and measured latency:
+Recovery path and irreversible effects:
+State, evidence and privacy-safe audit locations:
 Known failure modes:
-Last reviewed (date + by whom):
+Last reviewed, by whom, and system versions:
 </code></pre>
-<p>Filled-in example, a &quot;dependency upgrade&quot; loop:</p>
-<pre><code>Loop name + owner: dep-upgrade / platform-team
-Purpose: Bump outdated dependencies and confirm the build still passes.
-Inputs: lockfile, list of outdated packages, CI config
-Outputs: a branch + PR with version bumps and a passing build
-Actions it can take (with grade):
-  - read manifest / lockfile ............ G0
-  - update versions in a branch ......... G1
-  - run build + tests in CI ............. G1
-  - open a PR ........................... G2
-  - merge to main ...................... G3 (NOT permitted to the loop)
-Highest-graded action + who must approve it:
-  open PR (G2) auto-runs; merge (G3) requires a human reviewer.
-Verifier: clean-checkout CI build + test run; independent: yes (runs in CI,
-  not the agent&#39;s sandbox).
-Caps: 10 iterations / 20 min / $3
-Stop controls: kill switch via CI cancel; circuit breaker after 3 builds
-  with no new packages resolved.
-Memory + audit logs live at: repo /loops/dep-upgrade/runs/ (committed)
-Known failure modes: a transitive bump breaks a peer dep; flaky test reads
-  as a real failure; major-version jump with breaking API changes.
-Last reviewed: 2026-06-22 by platform-team
-</code></pre>
+<p>A read can expose data, and tests can execute code. Grade actual effects using <a href="framework#2-grade-the-action">the rule</a>, not fixed labels for commands. A code merge may be G2; an irreversible critical deployment may be G3.</p>
 <h2 id="3-the-guardrails-checklist">3. The Guardrails Checklist</h2>
-<p>Run this before turning a loop loose unattended. If any box is unchecked, the loop stays supervised.</p>
-<p>Before it runs</p>
+<p>Resolve gaps in the controls required for the intended scope before granting that scope.</p>
 <ul>
-<li><input disabled="" type="checkbox"> Done-Condition Spec is written and the finish line is checkable</li>
-<li><input disabled="" type="checkbox"> Verifier is independent and hard to game (not the same code the loop edits)</li>
-<li><input disabled="" type="checkbox"> Allowlist of permitted actions exists; default is deny</li>
-<li><input disabled="" type="checkbox"> Credentials and scope are least-privilege for this loop only</li>
-<li><input disabled="" type="checkbox"> Loop runs in a sandbox or isolated worktree, not on shared state</li>
+<li><input disabled="" type="checkbox"> Goal, permitted actions and completion checks are explicit.</li>
+<li><input disabled="" type="checkbox"> Trusted checks and held-out cases are protected from the optimizing agent.</li>
+<li><input disabled="" type="checkbox"> Filesystem, network and credentials match the task’s authority.</li>
+<li><input disabled="" type="checkbox"> Isolation is an execution boundary; a worktree alone is not a sandbox.</li>
+<li><input disabled="" type="checkbox"> Turn, time, spend and aggregate-effect caps run before actions.</li>
+<li><input disabled="" type="checkbox"> Consequential actions have appropriate authorization and checkable evidence.</li>
+<li><input disabled="" type="checkbox"> Approval is bound to exact targets, arguments and artifact versions.</li>
+<li><input disabled="" type="checkbox"> Cancellation reaches workers, queues and checkpoint resume.</li>
+<li><input disabled="" type="checkbox"> Recovery is tested; irreversible and uncertain effects are documented.</li>
+<li><input disabled="" type="checkbox"> Secrets are redacted before logs and tool output reach model context.</li>
+<li><input disabled="" type="checkbox"> Restart reconciles uncertain external effects before retrying.</li>
+<li><input disabled="" type="checkbox"> Alerts and escalations have an owner and safe fallback.</li>
 </ul>
-<p>Caps and stops</p>
-<ul>
-<li><input disabled="" type="checkbox"> Iteration, time, and spend caps are set</li>
-<li><input disabled="" type="checkbox"> Circuit breaker trips on no-progress (no new result over N steps)</li>
-<li><input disabled="" type="checkbox"> Kill switch exists and has been tested (you have stopped it on purpose)</li>
-<li><input disabled="" type="checkbox"> Rollback path exists and has been tested</li>
-</ul>
-<p>At the consequential edges</p>
-<ul>
-<li><input disabled="" type="checkbox"> Every action the loop can take has a grade (G0-G3)</li>
-<li><input disabled="" type="checkbox"> G2 and G3 actions require a human in the loop</li>
-<li><input disabled="" type="checkbox"> No irreversible action runs without explicit approval</li>
-<li><input disabled="" type="checkbox"> Consequential actions are previewed (dry-run or simulated) before they run, where possible</li>
-</ul>
-<p>After it runs</p>
-<ul>
-<li><input disabled="" type="checkbox"> Audit log captured for the full run</li>
-<li><input disabled="" type="checkbox"> Memory persisted to version control</li>
-<li><input disabled="" type="checkbox"> A named person owns reviewing the log</li>
-<li><input disabled="" type="checkbox"> Failure modes are documented in the Loop Card</li>
-</ul>
+<p>A second model reviewer is useful only within its evaluated coverage. It does not supply independent authority or guaranteed correctness.</p>
 <h2 id="4-the-model-adaptation-worksheet">4. The Model Adaptation Worksheet</h2>
-<p>Adapting the model is part of building the loop, not a separate project. Work down this ladder from cheapest and most reversible to most expensive and hardest to undo. Most loops never need to touch the weights at all.</p>
-<p>How to use it: start at the top. Only move down a rung when you have an evaluation set that shows the current rung has plateaued. Write down where you stopped and why, so the next person does not redo the climb. The two questions that decide your options are &quot;how good does this need to be&quot; and &quot;can I even change this model&#39;s weights.&quot;</p>
-<pre><code>Loop name:
-Task the model must do:
-Eval set + metric (without this you cannot tell if adaptation helped):
-
-Adaptation ladder (stop at the first rung that clears your metric):
-  [ ] 1. Prompt + system prompt + few-shot examples
-  [ ] 2. Context engineering / retrieval (RAG), best for changing facts
-  [ ] 3. Tools (let the model call code instead of guessing)
-  [ ] 4. LoRA / PEFT (cheap, swappable adapters; needs open weights or a provider service)
-  [ ] 5. Full fine-tuning (all weights; needs open weights or a managed service; large dataset)
-  [ ] 6. Continued / domain pre-training, then pre-training from scratch (almost never)
-
-Can you even change the weights?
-  [ ] Closed API model (for example Claude, GPT, Gemini): rungs 1-3, plus a provider
-        fine-tune service if one is offered (check the provider).
-  [ ] Open-weight model (for example Llama, Mistral, Gemma, Qwen): all rungs,
-        subject to the model&#39;s license (read it).
-
-Where the adapter / fine-tune artifact lives + its version:
-Re-verification after adapting (the verifier and the rails still decide what ships):
+<p>Identify the failure before choosing a remedy. LoRA is a fine-tuning method; hosted APIs may offer managed fine-tuning without exposing weights.</p>
+<pre><code>Observed failure and representative cases:
+Current model, provider, version and settings:
+Baseline quality / critical errors / latency / cost:
+Hypothesis:
+Candidate change:
+  instructions / retrieval / tools / harness
+  managed fine-tuning / adapter / full tuning / continued pretraining
+Weight access, license and provider support:
+Training-data origin and permissions:
+Held-out evaluation and regression slices:
+Deployment and maintenance costs:
+Result against baseline:
+Rollback and revalidation plan:
 </code></pre>
-<p>A tuned model is still a model: it can still be wrong, so adapting it does not remove the need for an independent verifier or for the rails (caps, action grading, a human at consequential steps). For the trade-offs behind rungs 4-6, see the articles &quot;LoRA vs Fine-Tuning vs Pre-Training&quot; and &quot;What You Can and Can&#39;t Do With Models You Don&#39;t Control.&quot;</p>
+<p>Use <a href="article-lora-vs-fine-tuning-vs-pre-training">model adaptation</a> and <a href="article-adapting-models-you-dont-control">weight-access trade-offs</a> for the decision. Adaptation does not replace execution controls.</p>
 <h2 id="5-the-loop-health-signals">5. The Loop Health Signals</h2>
-<p>A running loop works unattended, so you need signals that tell you whether it is making progress, stuck, or burning money. Emit these from day one, written next to the audit log so they are queryable. The starter writes them to <code>.looprails/metrics.json</code>.</p>
-<p>How to use it: emit the metrics below every run, and set the alert thresholds before you let the loop run unattended. The no-progress streak and the spend total are the two that should drive automatic action, not just sit on a dashboard.</p>
-<p>Emit every run:</p>
-<ul>
-<li><input disabled="" type="checkbox"> turns used / iteration cap</li>
-<li><input disabled="" type="checkbox"> spend used / spend cap (and cost per successful outcome, not just per run)</li>
-<li><input disabled="" type="checkbox"> verifier score per turn (the trend, so you can see it climb or flatten)</li>
-<li><input disabled="" type="checkbox"> no-progress streak (turns since the verifier score last improved)</li>
-<li><input disabled="" type="checkbox"> grade mix (how many G0/G1/G2/G3 actions the loop took)</li>
-<li><input disabled="" type="checkbox"> human-gate count (approvals required, and how many were rejected)</li>
-<li><input disabled="" type="checkbox"> stop reason + outcome (done / no progress / hit a cap / killed; success or incomplete)</li>
-</ul>
-<p>Alert or act when:</p>
-<ul>
-<li><input disabled="" type="checkbox"> no-progress streak crosses N turns, trip the circuit breaker</li>
-<li><input disabled="" type="checkbox"> spend over budget or turns over cap, stop the run</li>
-<li><input disabled="" type="checkbox"> success rate falling or reject rate climbing across runs, page a human</li>
-<li><input disabled="" type="checkbox"> verifier score flat while turns keep climbing, the loop is spinning, stop it</li>
-</ul>
-<p>Healthy looks like: the score climbs then plateaus at done, most runs finish under cap, spend per success holds steady, few human rejects. Sick is the mirror image: score flat while turns climb, more runs hitting caps, spend per success rising, rejects climbing. For the full picture see the article &quot;Loop Health: What to Monitor in a Running Agent Loop.&quot;</p>
+<p>Set thresholds and owners before running. A score trend helps only if the score is meaningful; some tasks make progress before the final score changes.</p>
+<pre><code>Signal / source / threshold / response / owner:
+Turns and elapsed time:
+Spend and cost per useful outcome:
+Verified progress and repeated-action count:
+Tool failures and retry count:
+Affected records and external-action total:
+Context usage and compaction:
+Approvals, false blocks and missed hazards:
+Stop reason and cancellation latency:
+Final outcome: complete / incomplete / unsafe / uncertain
+</code></pre>
+<p>Test thresholds with forced failures and measure false alarms. Distinguish completed actions from submitted requests whose outcome is unknown. See <a href="article-loop-health-monitoring">loop health</a> and <a href="evals">evals</a>.</p>
 
     </div>
-    
-    
+
+
   </main>
 </div>
 

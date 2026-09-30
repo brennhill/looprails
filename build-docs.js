@@ -14,65 +14,66 @@ const BEACON = `<!-- Cloudflare Web Analytics --><script defer src='https://stat
 
 // email capture (ConvertKit / Kit), shown near the foot of every generated page.
 // Reframed around the Kit (the concrete lead magnet) instead of a vague newsletter.
-const NEWSLETTER = `<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get the 5 templates for shipping a guarded loop</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Enter your email and I'll send the LoopRails Kit: the fill-in templates that take an agent loop from idea to safely running, plus the one-page cheat sheet. New essays on loop engineering after that.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>`;
+const NEWSLETTER = `<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>`;
 
 // Lightweight inline CTA placed right after an article's intro. A link, not a second
 // embed, so a page never carries two Kit forms (duplicate forms break the widget).
-const INLINE_CTA = `<aside style="border:1px solid var(--rail);border-left:4px solid var(--rail);background:var(--rail-tint);border-radius:0 12px 12px 0;padding:15px 20px;margin:26px 0"><div style="font-weight:800;color:var(--ink);font-size:1.04rem;margin-bottom:3px">Get the LoopRails Kit, free</div><p style="margin:0;color:var(--ink-2);font-size:.95rem">The five fill-in templates for taking an agent loop from idea to safely running, plus the one-page cheat sheet. <a href="kit.html" style="font-weight:650">Get the Kit &rarr;</a></p></aside>`;
 
 // Strong capture at the top of the Kit page (the highest-intent page). It carries the
 // page's only embed; the foot NEWSLETTER is suppressed on kit to avoid a duplicate form.
-const KIT_CAPTURE = `<div style="border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:22px 24px;margin:22px 0 6px;text-align:center"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free &middot; keep the whole Kit</div><div style="font-weight:800;font-size:1.2rem;color:var(--ink);margin-bottom:6px">Get all five templates as one fill-in pack</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 auto 14px;max-width:54ch">Read them free below, or enter your email and I'll send the whole Kit as a single pack you can keep, plus the one-page cheat sheet and new essays on loop engineering.</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script></div>`;
+const KIT_CAPTURE = `<div style="border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:22px 24px;margin:22px 0 6px;text-align:center"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free &middot; keep the whole Kit</div><div style="font-weight:800;font-size:1.2rem;color:var(--ink);margin-bottom:6px">Get all five templates as one fill-in pack</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 auto 14px;max-width:54ch">Read the templates below, or get the pack and one-page checklist by email. New essays follow.</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script></div>`;
 
-const TODAY = new Date().toISOString().slice(0, 10);
+// Advance when content is reviewed, not merely when the site is rebuilt.
+const CONTENT_REVIEW_DATE = "2026-09-30";
+const TODAY = CONTENT_REVIEW_DATE;
 
 // key -> source md, output html, nav label, SEO title, per-page description
 const DOCS = {
   playbook:           { md: "playbook.md",            out: "playbook.html",            label: "Playbook",      nav: true,
     title: "Human-in-the-Loop Playbook for AI Agents · LoopRails",
-    desc: "The LoopRails practitioner field guide: grade each AI agent action, guard it, design the review moment, and prove the human-in-the-loop oversight actually catches mistakes." },
+    desc: "A quick checklist for grading agent actions, enforcing limits, designing useful review and testing the workflow." },
   framework:          { md: "framework.md",           out: "framework.html",           label: "Framework",     nav: true,
     title: "Human-in-the-Loop Framework for AI Agents · LoopRails",
-    desc: "The full LoopRails framework: the consequence-vs-controllability model, grades G0-G3, the autonomy ladder, the anatomy of an oversight moment, and how to validate human-in-the-loop oversight of AI agents." },
+    desc: "The LoopRails method, exact grading rules, review design, operational controls and limitations." },
   kit:                { md: "kit.md",                 out: "kit.html",                 label: "Kit",           nav: true,
     title: "The LoopRails Kit: Templates for Building Safe Agent Loops · LoopRails",
-    desc: "Copy-paste artifacts for building agent loops: a done-condition spec, a Loop Card, a guardrails checklist, and a model-adaptation worksheet. Fill them in before you let a loop run." },
+    desc: "Five templates for goals, action authority, execution controls, model adaptation and loop health." },
   cookbook:           { md: "cookbook.md",            out: "cookbook.html",            label: "Cookbook",      nav: true,
     title: "The LoopRails Cookbook: Agent & RAG Design Patterns with Failure Modes · LoopRails",
-    desc: "A plain-English recipe book for building AI agent loops: agent design patterns, RAG patterns, and the common failure modes of each, with how to get around them. What it is, when to use it, how it fails, how to fix it." },
+    desc: "Practical patterns for agent control flow, recovery and retrieval, with their limits and checks." },
   evals:              { md: "evals.md",               out: "evals.html",               label: "Evals",         nav: true,
     title: "How to Build Evals for AI Agent Loops · LoopRails",
-    desc: "A research-grounded guide to building evals for AI agent loops: error analysis, task datasets, grader design, LLM judge calibration, agent trajectories, release gates, statistics, and production feedback." },
+    desc: "Build agent evals from real failures: cases, calibrated graders, controlled comparisons and release evidence." },
   codex:              { md: "codex.md",               out: "codex.html",               label: "Codex",         nav: true,
-    title: "Human-in-the-Loop & AI Safety Research Codex (366 Sources) · LoopRails",
-    desc: "366 annotated sources on human-in-the-loop oversight and AI safety, aviation, medicine, finance, AI safety, and HCI. The evidence base behind LoopRails." },
+    title: "Human-in-the-Loop & AI Safety Research Codex (Annotated Sources) · LoopRails",
+    desc: "Annotated research on agent oversight and human factors, with current-evidence notes and verification caveats." },
   "codex-loops":      { md: "codex-loops.md",         out: "codex-loops.html",         label: "Loop Engineering Codex",
     title: "The Loop Engineering Codex: Failure Recovery & Multi-Agent Research · LoopRails",
-    desc: "An annotated, sourced evidence base for building and operating AI agent loops: durable execution, retries, idempotency, rollback, checkpoint and resume, and multi-agent coordination, from distributed systems and recent LLM-agent research." },
+    desc: "Research on recovery, coordination, retrieval and verification, with current evidence and historical results." },
   "guide-g0":         { md: "guide-g0.md",            out: "guide-g0.html",            label: "G0 · Trivial",
     title: "G0 Trivial AI Actions: When Human-in-the-Loop Is Overkill · LoopRails",
-    desc: "G0 (trivial) AI agent actions: why putting a human in the loop is the wrong default here, and how to let low-stakes actions run safely and logged." },
+    desc: "G0 actions have trivial, contained effects. Check scope and data sensitivity before allowing bounded autonomy." },
   "guide-g1":         { md: "guide-g1.md",            out: "guide-g1.html",            label: "G1 · Low",
     title: "G1 Low-Risk AI Actions: Act, Notify, Undo · LoopRails",
-    desc: "G1 (low-consequence) AI actions: act-then-notify with easy undo, why reversibility beats a confirmation prompt, and how to design it." },
+    desc: "G1 actions have limited consequences. Use scoped authority, suitable records and tested recovery." },
   "guide-g2":         { md: "guide-g2.md",            out: "guide-g2.html",            label: "G2 · High",
     title: "G2 High-Risk AI Actions: When Human Review Works · LoopRails",
-    desc: "G2 (high-consequence) AI actions: when human review actually pays off, and how to design the review so it catches mistakes instead of rubber-stamping." },
+    desc: "G2 actions need stronger evidence and appropriate authorization before consequential commitment." },
   "guide-g3":         { md: "guide-g3.md",            out: "guide-g3.html",            label: "G3 · Critical",
     title: "G3 Critical AI Actions: Beyond the Rubber Stamp · LoopRails",
-    desc: "G3 (critical) AI actions: irreversible, high-blast-radius operations, why review degrades into a rubber stamp, and what to prevent-by-design instead." },
+    desc: "G3 actions combine irreversibility with external or severe consequences. Use prevention and explicit authority." },
   "rail-reversible":  { md: "rail-reversible.md",     out: "rail-reversible.html",     label: "Reversible",
     title: "Reversible AI Agent Actions (the R in RAIL) · LoopRails",
-    desc: "Reversible, the R in RAIL: make AI agent actions undoable or contained so you rarely need a stop-and-ask gate." },
+    desc: "Test recovery and containment, and document irreversible external effects." },
   "rail-authorized":  { md: "rail-authorized.md",     out: "rail-authorized.html",     label: "Authorized",
     title: "Least-Privilege & Maker-Checker for AI Agents (RAIL) · LoopRails",
-    desc: "Authorized, the A in RAIL: least-privilege permissions and maker-checker separation for AI agent actions." },
+    desc: "Enforce identity, delegated scope and exact action approval at execution." },
   "rail-interruptible":{ md: "rail-interruptible.md", out: "rail-interruptible.html",  label: "Interruptible",
     title: "Kill Switches & Interruptible AI Agents (RAIL) · LoopRails",
-    desc: "Interruptible, the I in RAIL: kill switches, monitors, and blame-free stops so anyone can halt an AI agent in time." },
+    desc: "Stop new work, cancel supported operations and reconcile effects already committed." },
   "rail-logged":      { md: "rail-logged.md",         out: "rail-logged.html",         label: "Logged",
     title: "AI Agent Logging, Identity & Provenance (RAIL) · LoopRails",
-    desc: "Logged, the L in RAIL: identity providers, sub-agent provenance, and tamper-evident records that let you prove oversight works." },
+    desc: "Keep privacy-safe evidence of agent decisions, actions, authority and outcomes." },
 };
 
 // long-form SEO articles, generated with Article schema and listed on articles.html
@@ -80,221 +81,222 @@ const ARTICLES = {
   "article-what-is-human-in-the-loop": { md: "article-what-is-human-in-the-loop.md", out: "article-what-is-human-in-the-loop.html",
     label: "What Is Human-in-the-Loop (HITL) in AI?",
     title: "What Is Human-in-the-Loop (HITL) in AI? A Guide · LoopRails",
-    desc: "Human-in-the-loop (HITL) means a person reviews or can intervene in an AI system's actions. A practical guide to HITL for AI agents, what it is, when it works, and when to prevent instead." },
+    desc: "Human-in-the-loop (HITL) means a person contributes to, reviews or can change an AI system’s decisions." },
   "article-hitl-ai-safety": { md: "article-hitl-ai-safety.md", out: "article-hitl-ai-safety.html",
     label: "Does Human-in-the-Loop Improve AI Safety?",
     title: "Does Human-in-the-Loop Improve AI Safety? · LoopRails",
-    desc: "Does keeping a human in the loop actually make AI agents safer? The evidence, when HITL helps, when it's false safety, and what real AI agent safety looks like." },
+    desc: "Human review can improve safety when a reviewer has the evidence, ability, authority and time to catch a consequential error." },
   "article-in-the-loop-vs-on-the-loop": { md: "article-in-the-loop-vs-on-the-loop.md", out: "article-in-the-loop-vs-on-the-loop.html",
     label: "In-the-Loop vs On-the-Loop vs Out-of-the-Loop",
     title: "Human-in-the-Loop vs On-the-Loop vs Out-of-the-Loop · LoopRails",
-    desc: "Human-in-the-loop, human-on-the-loop, and out-of-the-loop explained: definitions, tradeoffs, the sudden-handoff problem, and how to choose oversight for AI agents." },
+    desc: "These terms describe when a person can influence an automated action." },
   "article-ai-agent-approval": { md: "article-ai-agent-approval.md", out: "article-ai-agent-approval.html",
     label: "When Should an AI Agent Ask for Approval?",
     title: "When Should an AI Agent Ask for Human Approval? · LoopRails",
-    desc: "When AI agents should ask for human approval, and how to build approval gates that catch mistakes instead of becoming rubber stamps. Graded examples G0-G3." },
+    desc: "Ask before a consequential action when approval is needed to establish authority or when a reviewer can meaningfully check the effect." },
   "article-lethal-trifecta": { md: "article-lethal-trifecta.md", out: "article-lethal-trifecta.html",
     label: "The Lethal Trifecta: How AI Agents Leak Data",
     title: "The Lethal Trifecta: How AI Agents Leak Data · LoopRails",
-    desc: "The lethal trifecta, private data + untrusted content + an exfiltration channel, lets prompt injection steal data from AI agents. How it works and how to stop it." },
+    desc: "Private data, untrusted content and an outbound channel form a dangerous combination." },
   "article-ai-agent-guardrails": { md: "article-ai-agent-guardrails.md", out: "article-ai-agent-guardrails.html",
     label: "AI Agent Guardrails: A Practical Checklist",
     title: "AI Agent Guardrails: A Practical Checklist · LoopRails",
-    desc: "A practical AI agent guardrails checklist: sandboxing, least privilege, blast-radius caps, kill switches, circuit breakers, logging, and maker-checker, matched to risk." },
+    desc: "Guardrails combine checks on agent behavior with limits on what its tools can do." },
   "article-ai-agent-autonomy-levels": { md: "article-ai-agent-autonomy-levels.md", out: "article-ai-agent-autonomy-levels.html",
     label: "AI Agent Autonomy Levels (L0-L6)",
     title: "AI Agent Autonomy Levels: From Logged to Locked Down · LoopRails",
-    desc: "AI agent autonomy levels explained: the L0-L6 ladder from silent autonomy to escalate-or-forbid, and how to pick the right level for each action by risk." },
+    desc: "Autonomy is permission to act within a scope." },
   "article-prompt-injection-prevention": { md: "article-prompt-injection-prevention.md", out: "article-prompt-injection-prevention.html",
     label: "Prompt Injection Prevention",
     title: "Prompt Injection Prevention: A Defense-in-Depth Guide · LoopRails",
-    desc: "How to prevent prompt injection in AI agents: why filtering fails, and a defense-in-depth approach, least privilege, runtime shields, sandboxing, and removing a lethal-trifecta leg." },
+    desc: "Prompt injection puts malicious instructions inside material an agent treats as task data: web pages, emails, documents, code or tool results." },
   "article-maker-checker-ai": { md: "article-maker-checker-ai.md", out: "article-maker-checker-ai.html",
     label: "Maker-Checker (Four-Eyes) for AI Agents",
     title: "Maker-Checker (Four-Eyes) for AI Agents · LoopRails",
-    desc: "Maker-checker and the four-eyes principle for AI agents: why the proposer shouldn't be the approver, which actions need it, and how to implement it without rubber-stamping." },
+    desc: "Maker–checker separates proposing an action from authorizing it." },
   "article-automation-bias": { md: "article-automation-bias.md", out: "article-automation-bias.html",
     label: "Automation Bias: Why People Rubber-Stamp AI",
     title: "Automation Bias: Why People Rubber-Stamp AI · LoopRails",
-    desc: "Automation bias is why human-in-the-loop oversight of AI fails: people over-trust the system and approve without scrutiny. The evidence, and how to design against it." },
+    desc: "Automation bias is inappropriate reliance on automated advice." },
   "article-ai-kill-switch": { md: "article-ai-kill-switch.md", out: "article-ai-kill-switch.html",
     label: "How to Build an AI Kill Switch",
     title: "How to Build an AI Kill Switch · LoopRails",
-    desc: "What an AI kill switch is, why every agent needs one, and how to design one that stops everything in flight, fast, reachable by anyone, and blame-free." },
+    desc: "A kill switch blocks new work and attempts to stop work already running." },
   "article-llm-agent-skills-credential-leak": { md: "article-llm-agent-skills-credential-leak.md", out: "article-llm-agent-skills-credential-leak.html",
     label: "Study: How AI Agent Skills Leak Credentials",
     title: "Study: How AI Agent \"Skills\" Leak Your Credentials · LoopRails",
-    desc: "A 2026 study analyzed 17,022 AI agent skills and found rampant credential leaks, mostly via debug logging, during routine use. What it found and how to prevent it." },
+    desc: "A 2026 study sampled 17,022 skills from SkillsMP and identified 520 affected skills containing 1,708 security issues." },
   "article-llm-compiler-loop-optimization": { md: "article-llm-compiler-loop-optimization.md", out: "article-llm-compiler-loop-optimization.html",
     label: "Study: A Compiler as the Verifier",
     title: "Study: LLM-Guided Loop Optimization with Compiler Feedback (ComPilot) · LoopRails",
-    desc: "A 2025 study (ComPilot) put an off-the-shelf LLM in a loop with a compiler that checked legality and measured speedup, and the model refined: 2.66x single-run, 3.54x best-of-5, no fine-tuning. A measured proof of loop plus an independent verifier." },
+    desc: "ComPilot uses a language model to propose loop transformations, then receives compiler legality checks and measured performance as feedback." },
   "article-agentic-loops-in-the-wild": { md: "article-agentic-loops-in-the-wild.md", out: "article-agentic-loops-in-the-wild.html",
     label: "Agentic Loops in the Wild: Wins, Failures, Cost",
     title: "Agentic Loops in the Wild: What Works, What Fails, and What It Costs · LoopRails",
-    desc: "Real agentic-loop results woven together: DeepSeek-R1, AlphaCodium, o3 on ARC-AGI, SWE-agent, and the failures (reward hacking, the AI Scientist, GAIA, WebArena). The wins share an ungameable verifier and pay for compute; the failures lack one." },
+    desc: "A reported agent success depends on the task, environment, checks, selection policy and compute budget." },
   "article-ai-agent-sandboxing": { md: "article-ai-agent-sandboxing.md", out: "article-ai-agent-sandboxing.html",
     label: "AI Agent Sandboxing",
     title: "AI Agent Sandboxing: Contain the Blast Radius · LoopRails",
-    desc: "What AI agent sandboxing is and why it beats per-action approval prompts: no-network containers, scoped credentials, resource caps, and disposable environments." },
+    desc: "A sandbox restricts an agent’s execution environment: which files it can access, which processes it can launch, where it can connect and how many resources it…" },
   "article-least-privilege-ai-agents": { md: "article-least-privilege-ai-agents.md", out: "article-least-privilege-ai-agents.html",
     label: "Least Privilege for AI Agents",
     title: "Least Privilege for AI Agents: Grant Only What the Task Needs · LoopRails",
-    desc: "Least privilege for AI agents: give an agent only the tools, data, and credentials it needs, and why removing a capability beats forbidding its use." },
+    desc: "Give an agent only the access needed for the authorized task, for only as long as needed." },
   "article-circuit-breaker-ai-agents": { md: "article-circuit-breaker-ai-agents.md", out: "article-circuit-breaker-ai-agents.html",
     label: "The Circuit Breaker Pattern for AI Agents",
     title: "The Circuit Breaker Pattern for AI Agents · LoopRails",
-    desc: "A circuit breaker auto-pauses an AI agent when error rate, spend, or volume crosses a threshold, and requires human re-authorization to resume. How to build one." },
+    desc: "A circuit breaker stops new work when a measured condition crosses a threshold." },
   "article-what-is-agentic-ai": { md: "article-what-is-agentic-ai.md", out: "article-what-is-agentic-ai.html",
     label: "What Is Agentic AI?",
     title: "What Is Agentic AI? And Why Oversight Has to Change · LoopRails",
-    desc: "Agentic AI explained: how AI agents plan and take actions with tools, what makes them powerful and risky, and why overseeing them means governing actions, not outputs." },
+    desc: "An AI agent uses a model to choose steps and tools toward a goal." },
   "article-hitl-coding-agents": { md: "article-hitl-coding-agents.md", out: "article-hitl-coding-agents.html",
     label: "Human-in-the-Loop for AI Coding Agents",
     title: "How to Build a Good Human-in-the-Loop for AI Coding Agents · LoopRails",
-    desc: "How to build human-in-the-loop oversight for AI coding agents: grade reads, edits, commits, merges, and shell actions G0-G3, and match the right control to each." },
+    desc: "Let a coding agent explore and edit within an isolated workspace." },
   "article-hitl-customer-support": { md: "article-hitl-customer-support.md", out: "article-hitl-customer-support.html",
     label: "Human-in-the-Loop for AI Customer Support",
     title: "How to Build a Good Human-in-the-Loop for AI Customer Support · LoopRails",
-    desc: "How to build human-in-the-loop oversight for AI customer support agents: value-conditional approval for refunds, review for outbound replies, and escalation done right." },
+    desc: "A support agent can answer questions autonomously while account changes, refunds and commitments use separate permissions." },
   "article-hitl-financial-transactions": { md: "article-hitl-financial-transactions.md", out: "article-hitl-financial-transactions.html",
     label: "Human-in-the-Loop for AI Financial Transactions",
     title: "How to Build a Good Human-in-the-Loop for AI Financial Transactions · LoopRails",
-    desc: "How to build human-in-the-loop oversight for AI agents that move money: maker-checker, value thresholds, circuit breakers, and kill switches for irreversible payments." },
+    desc: "Separate a payment proposal from execution." },
   "article-hitl-database-operations": { md: "article-hitl-database-operations.md", out: "article-hitl-database-operations.html",
     label: "Human-in-the-Loop for AI Database Operations",
     title: "How to Build a Good Human-in-the-Loop for AI Database Operations · LoopRails",
-    desc: "How to build human-in-the-loop oversight for AI agents that run SQL: read-only by default, dry-runs, least privilege, backups, and maker-checker for prod schema changes." },
+    desc: "Treat generated SQL as executable code." },
   "article-hitl-email-agents": { md: "article-hitl-email-agents.md", out: "article-hitl-email-agents.html",
     label: "Human-in-the-Loop for AI Email & Messaging",
     title: "How to Build a Good Human-in-the-Loop for AI Email & Outbound Messaging · LoopRails",
-    desc: "How to build human-in-the-loop oversight for AI agents that send email and messages: undo-send windows, previews, rate caps, and approval for external or bulk sends." },
+    desc: "Keep drafting separate from sending." },
   "article-hitl-deployments": { md: "article-hitl-deployments.md", out: "article-hitl-deployments.html",
     label: "Human-in-the-Loop for AI Deployments",
     title: "How to Build a Good Human-in-the-Loop for AI-Driven Deployments · LoopRails",
-    desc: "How to build human-in-the-loop oversight for AI-driven deployments: canary plus automatic rollback, circuit breakers, and a kill switch instead of a rubber-stamp approval." },
+    desc: "A release approval chooses whether to deploy." },
   "article-hitl-content-moderation": { md: "article-hitl-content-moderation.md", out: "article-hitl-content-moderation.html",
     label: "Human-in-the-Loop for AI Content Moderation",
     title: "How to Build a Good Human-in-the-Loop for AI Content Moderation · LoopRails",
-    desc: "How to build human-in-the-loop oversight for AI content moderation: confidence-based routing, reversible removals, appeals as escalation, and avoiding reviewer fatigue." },
+    desc: "Automate routine moderation only where the policy and error costs are understood." },
   "article-hitl-machine-learning": { md: "article-hitl-machine-learning.md", out: "article-hitl-machine-learning.html",
     label: "Human-in-the-Loop for Machine Learning",
     title: "Human-in-the-Loop for Machine Learning (Labeling & Active Learning) · LoopRails",
-    desc: "Human-in-the-loop machine learning explained: labeling, active learning, low-confidence review, and RLHF, how to route human effort by uncertainty and keep label quality high." },
+    desc: "Human-in-the-loop machine learning includes labeling, active learning and preference feedback." },
   "article-hitl-healthcare": { md: "article-hitl-healthcare.md", out: "article-hitl-healthcare.html",
     label: "Human-in-the-Loop for AI in Healthcare",
     title: "How to Build a Good Human-in-the-Loop for AI in Healthcare · LoopRails",
-    desc: "How to design human-in-the-loop oversight for clinical AI: keep a licensed clinician in command, fight alert fatigue, and reserve autonomy for low-stakes actions." },
+    desc: "Grade clinical actions by patient consequences, not by whether they look administrative." },
   "article-hitl-legal-contracts": { md: "article-hitl-legal-contracts.md", out: "article-hitl-legal-contracts.html",
     label: "Human-in-the-Loop for AI Legal Work",
     title: "How to Build a Good Human-in-the-Loop for AI Legal & Contract Work · LoopRails",
-    desc: "How to design human-in-the-loop oversight for AI legal and contract work: verify citations, attorney sign-off, maker-checker for execution, and treating documents as untrusted." },
+    desc: "AI can help extract clauses and draft changes." },
   "article-hitl-hiring": { md: "article-hitl-hiring.md", out: "article-hitl-hiring.html",
     label: "Human-in-the-Loop for AI Hiring",
     title: "How to Build a Good Human-in-the-Loop for AI Hiring & Recruiting · LoopRails",
-    desc: "How to design human-in-the-loop oversight for AI hiring: keep a human deciding advance/reject, audit for bias, and never auto-reject candidates at scale." },
+    desc: "Use AI to organize hiring evidence without letting a ranking silently become the hiring decision." },
   "article-hitl-browser-agents": { md: "article-hitl-browser-agents.md", out: "article-hitl-browser-agents.html",
     label: "Human-in-the-Loop for Browser & Computer-Use Agents",
     title: "How to Build a Good Human-in-the-Loop for Browser & Computer-Use Agents · LoopRails",
-    desc: "How to design human-in-the-loop oversight for browser and computer-use agents: sandboxing, breaking the lethal trifecta, spend caps, and prompt-injection defense." },
+    desc: "A browser agent can read a page, fill a form, or submit a purchase." },
   "article-hitl-voice-agents": { md: "article-hitl-voice-agents.md", out: "article-hitl-voice-agents.html",
     label: "Human-in-the-Loop for AI Voice Agents",
     title: "How to Build a Good Human-in-the-Loop for AI Voice Agents · LoopRails",
-    desc: "How to design human-in-the-loop oversight for real-time AI voice agents: limit capabilities, verbal confirmation, and warm handoff to a human for high-stakes calls." },
+    desc: "A voice agent needs controls that work under real-time pressure." },
   "article-hitl-multi-agent-systems": { md: "article-hitl-multi-agent-systems.md", out: "article-hitl-multi-agent-systems.html",
     label: "Human-in-the-Loop for Multi-Agent Systems",
     title: "How to Build a Good Human-in-the-Loop for Multi-Agent Systems · LoopRails",
-    desc: "How to design human-in-the-loop oversight for multi-agent systems: least privilege per sub-agent, provenance logging, one kill switch, and clear human accountability." },
+    desc: "A team of agents adds handoffs, shared state and parallel actions." },
   "article-loop-engineering-doctrine": { md: "article-loop-engineering-doctrine.md", out: "article-loop-engineering-doctrine.html",
     label: "The LoopRails Doctrine",
     title: "The LoopRails Doctrine: Principles of Loop Engineering · LoopRails",
-    desc: "Ten principles for building agent loops that are fast to build and safe to run: a checkable done-condition, an independent verifier, caps, memory in a file, maker-checker, action grading, and guardrails on by default." },
+    desc: "Build a loop around evidence of useful work, then limit what can happen when that evidence is wrong." },
   "article-loop-engineering": { md: "article-loop-engineering.md", out: "article-loop-engineering.html",
     label: "What Is Loop Engineering?",
     title: "What Is Loop Engineering? From Prompts to Loops · LoopRails",
-    desc: "Loop engineering means building a system that prompts an AI agent, checks its output, and decides the next step until a goal is met. The prompts-to-loops ladder, and why the verifier is the hard part." },
+    desc: "Loop engineering designs the cycle around an AI agent: propose work, execute within bounds, check the result and decide whether to finish, retry or escalate." },
   "article-build-agent-loop": { md: "article-build-agent-loop.md", out: "article-build-agent-loop.html",
     label: "How to Build Your First Agent Loop",
     title: "How to Build Your First Agent Loop · LoopRails",
-    desc: "A practical guide to building your first AI agent loop: goal and done-conditions, the verifier, memory in a file, writer and reviewer subagents, and guardrails on by default." },
+    desc: "Start with one bounded task and a completion check you can run independently." },
   "article-loop-patterns": { md: "article-loop-patterns.md", out: "article-loop-patterns.html",
     label: "Loop Patterns for Engineering & Data Science",
     title: "Loop Patterns for Engineering and Data Science · LoopRails",
-    desc: "Reusable agent-loop recipes for software and data science: test-fixing, refactor, dependency-upgrade, data-cleaning, and experiment loops, each with a goal, a done-condition, and a verifier." },
+    desc: "Choose a loop by its completion check and recovery path." },
   "article-evaluation-driven-development": { md: "article-evaluation-driven-development.md", out: "article-evaluation-driven-development.html",
     label: "Evaluation-Driven Development",
     title: "Evaluation-Driven Development: The Verifier Is the Point · LoopRails",
-    desc: "In an autonomous loop, an automated check, not your gut, decides whether each change improved things. How evaluation-driven development works and how to build a verifier you can trust." },
+    desc: "Build the check alongside the agent." },
   "article-verification-functions": { md: "article-verification-functions.md", out: "article-verification-functions.html",
     label: "What Makes a Verifier Work",
     title: "Verification Functions for AI Agent Loops: What Actually Works · LoopRails",
-    desc: "What the research says about verification functions in agent loops: the verifier-strength spectrum, why verification is the bottleneck, reward hacking and how to harden against it, and whether the verifier replaces a detailed spec. Backed by Codex Part 7." },
+    desc: "A verifier checks a claim about an artifact or state." },
   "article-two-loops": { md: "article-two-loops.md", out: "article-two-loops.html",
     label: "The Two Loops: Intent Clarity & the Delivery Gap",
     title: "The Two Loops: Intent Clarity and the Delivery Gap · LoopRails",
-    desc: "The hard part of building with agents is not generation, it is intent. Loop engineering closes the delivery gap with two loops: an inner loop that converges on the verifier, and an outer loop where a human clarifies intent by sharpening it. Why the spec accretes from failures, not up front." },
+    desc: "An agent loop tries to produce work that passes a check." },
   "article-loop-engineering-oversight": { md: "article-loop-engineering-oversight.md", out: "article-loop-engineering-oversight.html",
     label: "Oversight for Autonomous Loops",
     title: "How to Keep an Autonomous Loop on the Rails · LoopRails",
-    desc: "Loop engineering moves oversight from per-step prompts to the goal, the verifier, and a few human checkpoints. How to grade a loop's actions, cap its blast radius, and stop it when it runs away." },
+    desc: "A loop needs two kinds of checks: whether it completed useful work and whether its actions stayed within authority and risk limits." },
   "article-context-engineering-agent-loops": { md: "article-context-engineering-agent-loops.md", out: "article-context-engineering-agent-loops.html",
     label: "Context Engineering for Agent Loops",
     title: "Context Engineering for Agent Loops: Keep the Loop Effective · LoopRails",
-    desc: "Context engineering means deciding what goes into the model's window each turn: the goal, the done-condition, and what to keep, drop, summarize, and retrieve. How to keep an agent loop effective across many turns instead of drifting." },
+    desc: "Context engineering decides what information the model receives on each turn: goals, constraints, current state, tool definitions, retrieved evidence and recent…" },
   "article-loop-health-monitoring": { md: "article-loop-health-monitoring.md", out: "article-loop-health-monitoring.html",
     label: "Loop Health: What to Monitor in a Running Loop",
     title: "Loop Health: What to Monitor in a Running Agent Loop · LoopRails",
-    desc: "Which signals tell you an agent loop is working, stuck, or burning money: turns, spend per successful outcome, the verifier-score trend, the no-progress streak, and the thresholds that feed the circuit breaker and kill switch." },
+    desc: "Monitor progress, effects and resource use." },
   "article-world-models-agent-loops": { md: "article-world-models-agent-loops.md", out: "article-world-models-agent-loops.html",
     label: "World Models for Agent Loops",
     title: "World Models for Agent Loops: Simulate Before You Act · LoopRails",
-    desc: "A world model predicts what an action will do before the loop runs it. How to use simulation as a consequence preview, a planning aid, and an offline eval, and why a prediction is a claim to verify, not proof." },
+    desc: "A world model predicts how an environment changes after an action." },
   "article-failure-recovery-agent-loops": { md: "article-failure-recovery-agent-loops.md", out: "article-failure-recovery-agent-loops.html",
     label: "Failure Recovery for Agent Loops",
     title: "Failure Recovery for Agent Loops: Retries, Rollback, Resuming a Crashed Run · LoopRails",
-    desc: "How to make an agent loop survive its own failures: durable checkpoints and resume, idempotent retries with backoff, a circuit breaker, verifier-gated retries, and saga-style rollback for irreversible actions." },
+    desc: "Before retrying, determine whether the previous action failed, succeeded or has an unknown outcome." },
   "article-multi-agent-loops": { md: "article-multi-agent-loops.md", out: "article-multi-agent-loops.html",
     label: "Multi-Agent Loops: When More Agents Help",
     title: "Multi-Agent Loops: When More Agents Help, and How They Break · LoopRails",
-    desc: "When splitting a loop across multiple agents helps and when it just adds failure surface: the patterns that work, the MAST failure taxonomy, the reviewer-agent trap, and the oversight each sub-agent needs." },
+    desc: "Several agents can explore independent sources or work on separate artifacts in parallel." },
   "article-mcp-skill-overload": { md: "article-mcp-skill-overload.md", out: "article-mcp-skill-overload.html",
     label: "MCP and Skill Overload",
     title: "MCP and Skill Overload: How the Number of Tools Affects Accuracy · LoopRails",
-    desc: "Every tool, MCP server, and skill you connect spends context and lowers tool-selection accuracy. What the research says about too many tools, how it cuts your useful turns, and how to keep the toolset lean." },
+    desc: "Connected tools and skills can add capabilities, but their descriptions and results also consume context and make selection harder." },
   "article-agent-workflow-patterns": { md: "article-agent-workflow-patterns.md", out: "article-agent-workflow-patterns.html",
     label: "Agent Workflow Patterns",
     title: "Agent Workflow Patterns: Chaining, Routing, Orchestration · LoopRails",
-    desc: "A plain-English recipe book of agent workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer, with the failure modes of each and how to fix them." },
+    desc: "A workflow follows developer-defined control flow." },
   "article-autonomous-agent-patterns": { md: "article-autonomous-agent-patterns.md", out: "article-autonomous-agent-patterns.html",
     label: "Autonomous Agent Patterns",
     title: "Autonomous Agent Patterns: ReAct, Reflection, Tools, Memory · LoopRails",
-    desc: "A plain-English recipe book of autonomous agent patterns: ReAct, reflection, plan-and-execute, tool use, memory, and single vs multi-agent, with the failure modes of each and how to fix them." },
+    desc: "An autonomous agent observes state, chooses an action, uses a tool and checks the result." },
   "article-rag-retrieval-patterns": { md: "article-rag-retrieval-patterns.md", out: "article-rag-retrieval-patterns.html",
     label: "RAG Retrieval Patterns",
     title: "RAG Retrieval Patterns: Chunking, Hybrid Search, Reranking · LoopRails",
-    desc: "A plain-English recipe book for RAG retrieval: chunking, embeddings and vector search, hybrid search, reranking, query transformation, and metadata filtering, with the failure modes of each and how to fix them." },
+    desc: "Retrieval-augmented generation (RAG) supplies external evidence to a model before it answers." },
   "article-advanced-agentic-rag": { md: "article-advanced-agentic-rag.md", out: "article-advanced-agentic-rag.html",
     label: "Advanced and Agentic RAG",
     title: "Advanced and Agentic RAG: Contextual, Corrective, Self-RAG, GraphRAG · LoopRails",
-    desc: "A plain-English recipe book for advanced RAG: contextual retrieval, agentic RAG, corrective RAG, self-RAG, GraphRAG, and how to evaluate a RAG system, with the failure modes of each and how to fix them." },
+    desc: "Add retrieval complexity to fix a measured failure." },
   "article-lora-vs-fine-tuning-vs-pre-training": { md: "article-lora-vs-fine-tuning-vs-pre-training.md", out: "article-lora-vs-fine-tuning-vs-pre-training.html",
     label: "LoRA vs Fine-Tuning vs Pre-Training",
     title: "LoRA vs Fine-Tuning vs Pre-Training: When Each Makes Sense · LoopRails",
-    desc: "What LoRA, full fine-tuning, and pre-training each change in a model, what they cost, and when to reach for each when adapting a model for an agent loop. Plus why retrieval often beats fine-tuning." },
+    desc: "Model adaptation changes learned behavior." },
   "article-adapting-models-you-dont-control": { md: "article-adapting-models-you-dont-control.md", out: "article-adapting-models-you-dont-control.html",
     label: "What You Can & Can't Do With Models You Don't Control",
     title: "What You Can and Can't Do With Models You Don't Control · LoopRails",
-    desc: "Closed API models (Claude, GPT, Gemini) versus open-weight models (Llama, Mistral, Gemma): what each lets you change, what it takes off the table, and how that choice shapes the loop you build." },
+    desc: "A hosted API gives access to inference and sometimes managed fine-tuning." },
 };
 
 const ALL = { ...DOCS, ...ARTICLES };
+const SECTION_ALIASES = require("./content-section-aliases.json");
 
 const ARTICLE_PUB = "2026-06-23";
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const humanDate = (iso) => { const [y, m, d] = iso.split("-").map(Number); return `${MONTHS[m - 1]} ${d}, ${y}`; };
 // inject an author byline directly under the article's <h1>
 function injectByline(html, dateISO) {
-  const byline = `<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="${dateISO}">${humanDate(dateISO)}</time></p>`;
+  const byline = `<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="${dateISO}">${humanDate(dateISO)}</time> · Updated <time datetime="${CONTENT_REVIEW_DATE}">${humanDate(CONTENT_REVIEW_DATE)}</time></p>`;
   return html.replace(/<\/h1>/, (m) => m + "\n" + byline);
 }
 
@@ -359,6 +361,7 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .md strong[id]{scroll-margin-top:64px}
 .md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
 .md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.section-alias{display:block;height:0;scroll-margin-top:64px}
 .gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
 .crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
 .byline{font-size:.92rem;color:var(--muted);margin:-.2em 0 1.6em}
@@ -424,20 +427,20 @@ function relatedReading(currentKey) {
   const all = Object.keys(ARTICLES);
   const idx = all.indexOf(currentKey);
   const pick = [];
-  for (let i = 1; i < all.length && pick.length < 5; i++) pick.push(all[(idx + i) % all.length]);
+  for (let i = 1; i < all.length && pick.length < 3; i++) pick.push(all[(idx + i) % all.length]);
   const items = pick.map(k => `<li><a href="${ARTICLES[k].out}">${esc(ARTICLES[k].label)}</a></li>`).join("");
   return `<aside class="related"><h2>Related reading</h2><ul>${items}</ul><p class="related-all"><a href="articles.html">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>`;
 }
 
 // Cross-link security-relevant articles to BRACE (which secures the agent itself).
 const BRACE_SECURE = {
-  "article-rag-retrieval-patterns": `Retrieved documents are untrusted input. A poisoned, stale, or attacker-controlled page in your index can carry a prompt injection straight into the model, and the index itself is an attack surface worth its own integrity checks. Securing the agent that reads them is a separate job: see the <a href="article-lethal-trifecta.html">lethal trifecta</a> and the <a href="https://braceframework.org">BRACE Framework</a>, which treats all external input as untrusted.`,
-  "article-advanced-agentic-rag": `Agentic RAG fetches from the open web and chooses its own queries, so it pulls untrusted content into the loop on purpose. Pair it with <a href="article-prompt-injection-prevention.html">prompt-injection defense</a> and the <a href="https://braceframework.org">BRACE Framework</a>, which treats retrieved and tool data as untrusted and contains the blast radius.`,
-  "article-autonomous-agent-patterns": `Tool use is where an agent reaches real systems, so it needs least privilege, capability-scoped tokens, and a sandbox, not trust. See <a href="article-least-privilege-ai-agents.html">least privilege for AI agents</a> and the <a href="https://braceframework.org">BRACE Framework</a> (capability-scoped access, a hardened harness, a tested kill switch).`,
-  "article-agent-workflow-patterns": `Even a fixed workflow calls tools and models that touch real systems. Scope what each step can do and contain failures with the <a href="https://braceframework.org">BRACE Framework</a>, the security counterpart that secures the agent's configuration and infrastructure.`,
-  "article-multi-agent-loops": `Every sub-agent is a new identity and a new attack surface, and one agent's output is untrusted input to the next. Give each least privilege, isolate them, and keep sub-agent provenance: see <a href="article-hitl-multi-agent-systems.html">oversight for multi-agent systems</a> and the <a href="https://braceframework.org">BRACE Framework</a>.`,
-  "article-failure-recovery-agent-loops": `Recovery leans on the audit log and checkpoints, so their integrity matters: a tampered log or a non-idempotent replay is its own risk. The <a href="https://braceframework.org">BRACE Framework</a> covers the audit trail and a kill switch that leaves a safe state.`,
-  "article-mcp-skill-overload": `Every MCP server and skill you connect is third-party code and a new attack surface, and a connected tool can carry an injection or leak a secret. Vet and scope what you connect: see <a href="article-llm-agent-skills-credential-leak.html">how agent skills leak credentials</a> and the <a href="https://braceframework.org">BRACE Framework</a> (capability-scoped access, a hardened harness).`,
+  "article-rag-retrieval-patterns": `For security controls, see the <a href="https://braceframework.org">BRACE Framework</a>.`,
+  "article-advanced-agentic-rag": `For security controls, see the <a href="https://braceframework.org">BRACE Framework</a>.`,
+  "article-autonomous-agent-patterns": `For security controls, see the <a href="https://braceframework.org">BRACE Framework</a>.`,
+  "article-agent-workflow-patterns": `For security controls, see the <a href="https://braceframework.org">BRACE Framework</a>.`,
+  "article-multi-agent-loops": `For security controls, see the <a href="https://braceframework.org">BRACE Framework</a>.`,
+  "article-failure-recovery-agent-loops": `For security controls, see the <a href="https://braceframework.org">BRACE Framework</a>.`,
+  "article-mcp-skill-overload": `For security controls, see the <a href="https://braceframework.org">BRACE Framework</a>.`,
 };
 function securingNote(key) {
   if (!BRACE_SECURE[key]) return "";
@@ -449,10 +452,14 @@ function page(key, d, contentHTML, toc) {
   const url = `${SITE}/${cleanHref(d.out)}`;
   const ogimg = `${SITE}/og-${key}.png`;
   const isArticle = key.startsWith("article-");
-  let body = contentHTML;
+  // Removed headings retain zero-height bookmark targets at the start of the document.
+  const currentIds = new Set([...contentHTML.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
+  const aliases = (SECTION_ALIASES[key] || []).filter(id => !currentIds.has(id))
+    .map(id => `<span class="section-alias" id="${esc(id)}" aria-hidden="true"></span>`).join("");
+  let body = aliases + contentHTML;
   if (isArticle) {
     body = injectByline(body, ARTICLE_PUB);
-    body = body.replace(/<h2/, `${INLINE_CTA}\n<h2`); // first section only: after the intro
+    // Keep one download invitation at the foot; the article opens with its content.
   } else if (key === "kit") {
     body = body.replace(/<\/p>/, (m) => `${m}\n${KIT_CAPTURE}`); // after the intro paragraph
   }
@@ -662,7 +669,7 @@ ${styleBlock()}
   <div class="crumb"><a href="index.html">LoopRails</a> · Articles</div>
   <div class="intro">
     <h1>Articles: human-in-the-loop &amp; AI agent safety</h1>
-    <p>Practical, sourced writing on how to oversee AI agents, when a human in the loop helps, when it's just a rubber stamp, and how to design oversight that actually catches mistakes. <a href="feed.xml">Subscribe via RSS ↗</a></p>
+    <p>Short guides to agent decisions, execution controls and evidence. <a href="feed.xml">Subscribe via RSS ↗</a></p>
   </div>
 ${sections}
 </main>
@@ -684,7 +691,7 @@ for (const [key, d] of Object.entries(ALL)) {
   html = injectHeadingIds(html);
   if (key === "codex" || key === "codex-loops") html = injectRefAnchors(html);
   const toc = buildTOC(html);
-  fs.writeFileSync(path.join(__dirname, d.out), stripHtmlHrefs(page(key, d, html, toc)));
+  fs.writeFileSync(path.join(__dirname, d.out), stripHtmlHrefs(page(key, d, html, toc)).replace(/[ \t]+$/gm, ""));
   built.push(d.out);
 }
 

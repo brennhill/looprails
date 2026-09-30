@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Loop Health: What to Monitor in a Running Agent Loop · LoopRails</title>
-<meta name="description" content="Which signals tell you an agent loop is working, stuck, or burning money: turns, spend per successful outcome, the verifier-score trend, the no-progress streak, and the thresholds that feed the circuit breaker and kill switch.">
+<meta name="description" content="Monitor progress, effects and resource use.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="https://looprails.dev/article-loop-health-monitoring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Loop Health: What to Monitor in a Running Agent Loop · LoopRails">
-<meta property="og:description" content="Which signals tell you an agent loop is working, stuck, or burning money: turns, spend per successful outcome, the verifier-score trend, the no-progress streak, and the thresholds that feed the circuit breaker and kill switch.">
+<meta property="og:description" content="Monitor progress, effects and resource use.">
 <meta property="og:url" content="https://looprails.dev/article-loop-health-monitoring">
 <meta property="og:image" content="https://looprails.dev/og-article-loop-health-monitoring.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Loop Health: What to Monitor in a Running Agent Loop · LoopRails">
-<meta name="twitter:description" content="Which signals tell you an agent loop is working, stuck, or burning money: turns, spend per successful outcome, the verifier-score trend, the no-progress streak, and the thresholds that feed the circuit breaker and kill switch.">
+<meta name="twitter:description" content="Monitor progress, effects and resource use.">
 <meta name="twitter:image" content="https://looprails.dev/og-article-loop-health-monitoring.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Loop Health: What to Monitor in a Running Loop","name":"Loop Health: What to Monitor in a Running Agent Loop · LoopRails","description":"Which signals tell you an agent loop is working, stuck, or burning money: turns, spend per successful outcome, the verifier-score trend, the no-progress streak, and the thresholds that feed the circuit breaker and kill switch.","inLanguage":"en-US","url":"https://looprails.dev/article-loop-health-monitoring","mainEntityOfPage":"https://looprails.dev/article-loop-health-monitoring","image":"https://looprails.dev/og-article-loop-health-monitoring.png","datePublished":"2026-06-23","dateModified":"2026-09-03","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"Loop Health: What to Monitor in a Running Loop","item":"https://looprails.dev/article-loop-health-monitoring"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Loop Health: What to Monitor in a Running Loop","name":"Loop Health: What to Monitor in a Running Agent Loop · LoopRails","description":"Monitor progress, effects and resource use.","inLanguage":"en-US","url":"https://looprails.dev/article-loop-health-monitoring","mainEntityOfPage":"https://looprails.dev/article-loop-health-monitoring","image":"https://looprails.dev/og-article-loop-health-monitoring.png","datePublished":"2026-06-23","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"Loop Health: What to Monitor in a Running Loop","item":"https://looprails.dev/article-loop-health-monitoring"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -75,6 +75,7 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .md strong[id]{scroll-margin-top:64px}
 .md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
 .md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.section-alias{display:block;height:0;scroll-margin-top:64px}
 .gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
 .crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
 .byline{font-size:.92rem;color:var(--muted);margin:-.2em 0 1.6em}
@@ -97,72 +98,69 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="article-loop-engineering-doctrine" class="">Doctrine</a><a href="playbook" class="">Playbook</a><a href="framework" class="">Framework</a><a href="kit" class="">Kit</a><a href="cookbook" class="">Cookbook</a><a href="evals" class="">Evals</a><a href="codex" class="">Codex</a><a href="articles" class="">Articles</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-audit-log-is-the-source-of-truth" class="" data-id="the-audit-log-is-the-source-of-truth">The audit log is the source of truth</a><a href="#the-signals-grouped" class="" data-id="the-signals-grouped">The signals, grouped</a><a href="#progress" class="h3" data-id="progress">Progress</a><a href="#cost" class="h3" data-id="cost">Cost</a><a href="#reliability" class="h3" data-id="reliability">Reliability</a><a href="#oversight" class="h3" data-id="oversight">Oversight</a><a href="#what-healthy-versus-sick-looks-like" class="" data-id="what-healthy-versus-sick-looks-like">What healthy versus sick looks like</a><a href="#thresholds-that-feed-the-automatic-controls" class="" data-id="thresholds-that-feed-the-automatic-controls">Thresholds that feed the automatic controls</a><a href="#drift-over-time" class="" data-id="drift-over-time">Drift over time</a><a href="#start-here" class="" data-id="start-here">Start here</a><a href="#see-it-in-practice" class="" data-id="see-it-in-practice">See it in practice</a><a href="#tie-it-back" class="" data-id="tie-it-back">Tie it back</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#use-trustworthy-progress-signals" class="" data-id="use-trustworthy-progress-signals">Use trustworthy progress signals</a><a href="#put-limits-before-effects" class="" data-id="put-limits-before-effects">Put limits before effects</a><a href="#preserve-useful-records" class="" data-id="preserve-useful-records">Preserve useful records</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="/">LoopRails</a> · <a href="articles">Articles</a> · Loop Health: What to Monitor in a Running Loop</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-loop-health-monitoring.md">View article-loop-health-monitoring.md on GitHub ↗</a>
-      <h1 id="loop-health-what-to-monitor-in-a-running-agent-loop">Loop Health: What to Monitor in a Running Agent Loop</h1>
-<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time></p>
-<p>An agent loop runs many turns on its own. It prompts a model, checks the output, decides the next step, and repeats until a goal is met or a cap stops it. While it runs, you are not watching each turn. So you need signals that tell you whether the loop made progress, spun in place, or quietly spent money on the wrong thing. From the outside those three look identical: a process that was busy and then stopped. Monitoring is how you tell them apart.</p>
-<p>This article covers which signals to watch and what each tells you, what healthy versus sick looks like, and which thresholds feed the automatic controls that stop a runaway. It is the Run-and-Learn end of the LoopRails loop lifecycle: the signals you watch become the thresholds that stop a bad run and the evidence that decides whether to trust the next one.</p>
-<aside style="border:1px solid var(--rail);border-left:4px solid var(--rail);background:var(--rail-tint);border-radius:0 12px 12px 0;padding:15px 20px;margin:26px 0"><div style="font-weight:800;color:var(--ink);font-size:1.04rem;margin-bottom:3px">Get the LoopRails Kit, free</div><p style="margin:0;color:var(--ink-2);font-size:.95rem">The five fill-in templates for taking an agent loop from idea to safely running, plus the one-page cheat sheet. <a href="kit" style="font-weight:650">Get the Kit &rarr;</a></p></aside>
-<h2 id="the-audit-log-is-the-source-of-truth">The audit log is the source of truth</h2>
-<p>Before any metric, there is the record. Every turn the loop takes (the action it chose, whether it was allowed, the verifier result, the spend so far) gets written to an append-only audit log. Metrics are derived from that log, not collected separately. This ordering matters. Skip the log and compute metrics directly, and you get a success rate with no trail back to the turns that produced it: a number you cannot explain when a run goes wrong. So one rule before anything else: write the audit log, then read metrics out of it. The LoopRails starter loop does exactly this, and the rest of this article assumes that shape.</p>
-<h2 id="the-signals-grouped">The signals, grouped</h2>
-<p>Four groups are worth tracking. Progress tells you the loop is converging. Cost tells you what convergence is costing. Reliability tells you how often the machinery breaks. Oversight tells you how the loop&#39;s behavior is changing relative to the humans watching it.</p>
-<h3 id="progress">Progress</h3>
-<p><strong>Turns used versus the cap.</strong> The simplest signal: how many iterations this run took against its maximum. A run that finishes well under the cap is a different animal from one that finished on the last allowed turn, even if both passed. The second is one bad turn from the wall.</p>
-<p><strong>Verifier-score trend.</strong> Each turn produces a result, and an independent verifier scores it. The trend across turns is the real progress signal. A score that climbs turn over turn means each iteration is improving the result. A score flat while turns accumulate means the loop is busy but not converging.</p>
-<p><strong>No-progress streak.</strong> Turns since the verifier score last improved: the trend collapsed into one number you can threshold. One or two stale turns is normal; a streak that keeps growing is the loop spinning in place.</p>
-<p><strong>Completion / success rate across runs.</strong> Zoom out from a single run to the population. Of the last N runs, how many reached the done-condition versus stopped for some other reason. A single failed run is noise. A success rate that drifts down over a week is a trend you act on.</p>
-<h3 id="cost">Cost</h3>
-<p><strong>Tokens and spend per run.</strong> What one run costs, in tokens and money. Track it per run, not just in aggregate, so an expensive outlier does not hide inside a monthly total.</p>
-<p><strong>Cost per successful outcome.</strong> This is the number that matters. A loop that costs little per run but rarely finishes is not cheap, because you pay for the failed runs too and get nothing for them. Divide total spend by successful outcomes for the honest unit cost, and watch it above raw spend.</p>
-<p><strong>Latency per turn and per run.</strong> Rising latency can mean the model is working harder per turn, a tool is slow, or retries are piling up. It also sets how fast a kill switch or circuit breaker has to act to matter.</p>
-<h3 id="reliability">Reliability</h3>
-<p><strong>Error and retry rate.</strong> How often turns fail and have to be retried. A low, steady rate is normal. A climbing rate is the earliest sign the loop has lost the plot, before the verifier score reacts.</p>
-<p><strong>Tool-failure rate.</strong> Errors from the tools the loop calls, separated from model errors. A tool that starts failing (an API rate-limiting you, a credential expiring) shows up here first and points at the cause faster than a generic error count.</p>
-<p><strong>Cap-hit rate.</strong> How often runs stop because they hit a cap (timeout, max iterations, max spend) instead of finishing on the done-condition. Hitting a cap is a stop, not a success: a run that finishes is converging, a run that hits a cap ran out of road. A rising share of cap-hits means the loop is finishing less and grinding more.</p>
-<p><strong>Circuit-breaker trips.</strong> How often the breaker fires on its own. An occasional trip is the system working. A rising trip rate means the loop is crossing danger thresholds more often, a behavior change worth investigating.</p>
-<h3 id="oversight">Oversight</h3>
-<p><strong>Human-intervention rate.</strong> How often a human has to step in to approve a gated action, correct the loop, or stop it. This is the cost the loop externalizes onto you. A loop that needs a human on most runs is not running unattended; it is a manual process with extra steps.</p>
-<p><strong>Approval reject rate.</strong> At a human gate, how often the human says no. A reject is a human catching something the loop wanted to do and shouldn&#39;t. A low rate means the loop&#39;s proposals are mostly sound. A rate climbing over time means the loop is increasingly proposing actions a human won&#39;t sign off on, a signal its behavior is drifting.</p>
-<p><strong>The mix of action grades.</strong> LoopRails grades each action by reversibility, blast radius, and stakes, from G0 (trivial) to G3 (critical). Track how often each grade fires. A loop that mostly takes G0 and G1 actions, with the occasional gated G2, has a stable risk profile. A rising share of G2 and G3 actions means the loop is reaching for more consequential moves than it used to, even if every individual action was allowed. Notice that shift while it is happening, not after.</p>
-<h2 id="what-healthy-versus-sick-looks-like">What healthy versus sick looks like</h2>
-<p>A healthy loop has a recognizable shape. The verifier score climbs over the first few turns, then plateaus at &quot;done,&quot; and the run stops on the done-condition with turns to spare. Most runs finish under cap. Spend per successful outcome holds roughly steady run to run. Humans rarely reject a gated action, and the mix of action grades stays where you expect it. Boring, in other words, which is the target.</p>
-<p>A sick loop&#39;s tells mirror the healthy ones. The verifier score goes flat while the turn count climbs: motion without progress. Runs increasingly stop on a cap rather than a finish. Spend per success rises as failed and capped runs drag the unit cost up. The reject rate climbs as humans catch more proposals they don&#39;t like. None of these is a single dramatic event. Each is a trend, which is exactly why a human watching a dashboard misses it and a threshold on the trend does not.</p>
-<h2 id="thresholds-that-feed-the-automatic-controls">Thresholds that feed the automatic controls</h2>
-<p>Monitoring is the input to the brakes, not a screen you glance at. Each signal above earns its keep by feeding a threshold that drives an automatic control. There are three jobs.</p>
-<p><strong>Stop the loop.</strong> No progress for N turns trips the <a href="article-circuit-breaker-ai-agents">circuit breaker</a>: the no-progress streak crosses its limit and the breaker halts the loop and holds it until a human re-authorizes. Spend over budget or turns over the cap stops the run outright. Continuing only spends more to get the same nothing.</p>
-<p><strong>Page a human.</strong> A falling success rate or a climbing reject rate is not an emergency you can wire to a hard stop, but it is a trend a person should see. These feed an alert, not an auto-halt, because the right response is judgment (retune, re-scope, or pull the loop), not a reflex.</p>
-<p><strong>Keep the kill switch ready.</strong> Behind both of the above sits the <a href="article-ai-kill-switch">kill switch</a>, the human-pulled stop for when a signal says something is wrong faster than any threshold caught it. Monitoring tells the human when to reach for it. A no-progress streak is just a number until it trips the breaker; monitoring that feeds no control is a dashboard you admire while the loop keeps going.</p>
-<h2 id="drift-over-time">Drift over time</h2>
-<p>A loop that worked last month can degrade without anyone touching it. The common cause is outside your code entirely: a provider updates the model under you, and the same prompts now behave a little differently. The loop did not change; its substrate did. Without a baseline, this shows up as a confusing run of incidents nobody can trace to a cause.</p>
-<p>The defense is the same evaluation set you use everywhere else, version-pinned and run on a schedule. Pin the behavior you expect, watch the trend, and drift becomes a falling score on a graph rather than a surprise outage: you see the model getting worse at your task before your users do. For the model side of this, see the companion article &quot;What You Can and Can&#39;t Do With Models You Don&#39;t Control.&quot;</p>
-<h2 id="start-here">Start here</h2>
-<p>You do not need every signal from day one. A small set, emitted from the first run, covers most of the value. Write these to a metrics record alongside the audit log so they are queryable:</p>
-<ul>
-<li><strong>Turns used</strong> (and the cap they ran against).</li>
-<li><strong>Spend</strong> (tokens and money).</li>
-<li><strong>Verifier score per turn</strong> (so you have the trend, not just the final number).</li>
-<li><strong>No-progress streak</strong> (turns since the score last improved).</li>
-<li><strong>Stop reason</strong> (done-condition met, cap hit, breaker tripped, human rejected, killed).</li>
-<li><strong>Success / failure</strong> (did the run reach the done-condition).</li>
-</ul>
-<p>The stop reason is the one teams skip and regret. &quot;It stopped&quot; tells you nothing; &quot;it stopped because it hit the iteration cap with a flat verifier score&quot; tells you the loop is spinning. Capture why every run ended and most of the debugging is already done.</p>
-<h2 id="see-it-in-practice">See it in practice</h2>
-<p>LoopRails ships a starter loop that already does this. It writes an append-only audit log every turn and a metrics record ending with a final block: stop reason, whether it passed, the final score, spend, and iterations. Those signals are written to disk on every run, which makes them queryable and makes the circuit-breaker and cap thresholds something you can see firing. The Kit&#39;s Guardrails Checklist turns the same signals into a pre-flight check: caps set, the breaker wired to no-progress, the audit log captured, a named person owning the review. Read one, run the other, and the signals stop being abstract.</p>
-<h2 id="tie-it-back">Tie it back</h2>
-<p>Monitoring closes the loop. It sits at the Run-and-Learn end of the lifecycle and feeds back in two directions. Forward, the signals become thresholds that stop a bad run. Backward, the same signals are the evidence that tells you whether to trust the next run or pull the loop and fix it.</p>
-<p>This pairs with the BRACE Framework&#39;s observability requirements, which harden the agent&#39;s infrastructure underneath. BRACE makes the loop observable at the environment and network level; LoopRails monitoring is what you do with that observability once the loop runs. Watch the right signals, wire them to the breaker and the kill switch, and a loop running unattended at 3 a.m. is a system you can actually leave alone.</p>
+      <span class="section-alias" id="loop-health-what-to-monitor-in-a-running-agent-loop" aria-hidden="true"></span><span class="section-alias" id="the-audit-log-is-the-source-of-truth" aria-hidden="true"></span><span class="section-alias" id="the-signals-grouped" aria-hidden="true"></span><span class="section-alias" id="progress" aria-hidden="true"></span><span class="section-alias" id="cost" aria-hidden="true"></span><span class="section-alias" id="reliability" aria-hidden="true"></span><span class="section-alias" id="oversight" aria-hidden="true"></span><span class="section-alias" id="what-healthy-versus-sick-looks-like" aria-hidden="true"></span><span class="section-alias" id="thresholds-that-feed-the-automatic-controls" aria-hidden="true"></span><span class="section-alias" id="drift-over-time" aria-hidden="true"></span><span class="section-alias" id="start-here" aria-hidden="true"></span><span class="section-alias" id="see-it-in-practice" aria-hidden="true"></span><span class="section-alias" id="tie-it-back" aria-hidden="true"></span><h1 id="what-to-monitor-in-an-agent-loop">What to Monitor in an Agent Loop</h1>
+<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-09-30">September 30, 2026</time></p>
+<p>Monitor progress, effects and resource use. A loop can spend more while accomplishing less, or produce a good-looking answer after changing the wrong state.</p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>What it can reveal</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Turns, elapsed time and spend</td>
+<td>Runaway or unexpectedly expensive work</td>
+<td>Enforce caps</td>
+</tr>
+<tr>
+<td>Tool failures and repeated calls</td>
+<td>Dependency failure or a stuck strategy</td>
+<td>Back off, stop or escalate</td>
+</tr>
+<tr>
+<td>Artifact or verifier changes</td>
+<td>Progress, regression or check gaming</td>
+<td>Inspect evidence</td>
+</tr>
+<tr>
+<td>Affected records and external actions</td>
+<td>Growing cumulative consequences</td>
+<td>Apply aggregate limits</td>
+</tr>
+<tr>
+<td>Context usage and compaction</td>
+<td>Lost constraints or excessive overhead</td>
+<td>Restore relevant state</td>
+</tr>
+<tr>
+<td>Stop latency and orphaned work</td>
+<td>Incomplete cancellation</td>
+<td>Repair execution controls</td>
+</tr>
+</tbody></table>
+<h2 id="use-trustworthy-progress-signals">Use trustworthy progress signals</h2>
+<p>A model’s confidence or fluent status report is weak evidence. Prefer changes in tested state, completed artifacts and verified milestones. If quality is subjective, calibrate the grader and inspect disagreements.</p>
+<p>“No score improvement” can justify a bounded stop, but it is not a universal diagnosis. The task may require intermediate work that does not immediately change the score.</p>
+<h2 id="put-limits-before-effects">Put limits before effects</h2>
+<p>Budget checks belong before execution, including planned expensive calls. A dashboard that reports yesterday’s overspend is not a cap. Share limits across child agents and retries.</p>
+<h2 id="preserve-useful-records">Preserve useful records</h2>
+<p>Log action identity, target, outcome, evidence and remaining budget. Redact secrets and control retention. Distinguish completed, canceled and uncertain external effects.</p>
+<p>Test alerts against realistic failures and measure their false-positive rate. Assign an owner and a safe fallback when nobody responds.</p>
+<p>The <a href="codex-loops#ref-FR-1">durable-execution references</a> cover operational state; the <a href="evals">evals guide</a> covers performance monitoring. Use the <a href="kit#5-the-loop-health-signals">health-signals template</a> to record thresholds.</p>
 
     </div>
-    
-    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-world-models-agent-loops">World Models for Agent Loops</a></li><li><a href="article-failure-recovery-agent-loops">Failure Recovery for Agent Loops</a></li><li><a href="article-multi-agent-loops">Multi-Agent Loops: When More Agents Help</a></li><li><a href="article-mcp-skill-overload">MCP and Skill Overload</a></li><li><a href="article-agent-workflow-patterns">Agent Workflow Patterns</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
+
+    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-world-models-agent-loops">World Models for Agent Loops</a></li><li><a href="article-failure-recovery-agent-loops">Failure Recovery for Agent Loops</a></li><li><a href="article-multi-agent-loops">Multi-Agent Loops: When More Agents Help</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get the 5 templates for shipping a guarded loop</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Enter your email and I'll send the LoopRails Kit: the fill-in templates that take an agent loop from idea to safely running, plus the one-page cheat sheet. New essays on loop engineering after that.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>

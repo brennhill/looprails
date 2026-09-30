@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Loop Patterns for Engineering and Data Science · LoopRails</title>
-<meta name="description" content="Reusable agent-loop recipes for software and data science: test-fixing, refactor, dependency-upgrade, data-cleaning, and experiment loops, each with a goal, a done-condition, and a verifier.">
+<meta name="description" content="Choose a loop by its completion check and recovery path.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="https://looprails.dev/article-loop-patterns">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Loop Patterns for Engineering and Data Science · LoopRails">
-<meta property="og:description" content="Reusable agent-loop recipes for software and data science: test-fixing, refactor, dependency-upgrade, data-cleaning, and experiment loops, each with a goal, a done-condition, and a verifier.">
+<meta property="og:description" content="Choose a loop by its completion check and recovery path.">
 <meta property="og:url" content="https://looprails.dev/article-loop-patterns">
 <meta property="og:image" content="https://looprails.dev/og-article-loop-patterns.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Loop Patterns for Engineering and Data Science · LoopRails">
-<meta name="twitter:description" content="Reusable agent-loop recipes for software and data science: test-fixing, refactor, dependency-upgrade, data-cleaning, and experiment loops, each with a goal, a done-condition, and a verifier.">
+<meta name="twitter:description" content="Choose a loop by its completion check and recovery path.">
 <meta name="twitter:image" content="https://looprails.dev/og-article-loop-patterns.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Loop Patterns for Engineering & Data Science","name":"Loop Patterns for Engineering and Data Science · LoopRails","description":"Reusable agent-loop recipes for software and data science: test-fixing, refactor, dependency-upgrade, data-cleaning, and experiment loops, each with a goal, a done-condition, and a verifier.","inLanguage":"en-US","url":"https://looprails.dev/article-loop-patterns","mainEntityOfPage":"https://looprails.dev/article-loop-patterns","image":"https://looprails.dev/og-article-loop-patterns.png","datePublished":"2026-06-23","dateModified":"2026-09-03","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"Loop Patterns for Engineering & Data Science","item":"https://looprails.dev/article-loop-patterns"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Loop Patterns for Engineering & Data Science","name":"Loop Patterns for Engineering and Data Science · LoopRails","description":"Choose a loop by its completion check and recovery path.","inLanguage":"en-US","url":"https://looprails.dev/article-loop-patterns","mainEntityOfPage":"https://looprails.dev/article-loop-patterns","image":"https://looprails.dev/og-article-loop-patterns.png","datePublished":"2026-06-23","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"Loop Patterns for Engineering & Data Science","item":"https://looprails.dev/article-loop-patterns"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -75,6 +75,7 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .md strong[id]{scroll-margin-top:64px}
 .md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
 .md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.section-alias{display:block;height:0;scroll-margin-top:64px}
 .gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
 .crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
 .byline{font-size:.92rem;color:var(--muted);margin:-.2em 0 1.6em}
@@ -97,66 +98,75 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="article-loop-engineering-doctrine" class="">Doctrine</a><a href="playbook" class="">Playbook</a><a href="framework" class="">Framework</a><a href="kit" class="">Kit</a><a href="cookbook" class="">Cookbook</a><a href="evals" class="">Evals</a><a href="codex" class="">Codex</a><a href="articles" class="">Articles</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#engineering-loops" class="" data-id="engineering-loops">Engineering loops</a><a href="#test-fixing-loop" class="h3" data-id="test-fixing-loop">Test-fixing loop</a><a href="#refactor-loop" class="h3" data-id="refactor-loop">Refactor loop</a><a href="#dependency-upgrade-loop" class="h3" data-id="dependency-upgrade-loop">Dependency-upgrade loop</a><a href="#plan-in-simulation-loop" class="h3" data-id="plan-in-simulation-loop">Plan-in-simulation loop</a><a href="#data-science-loops" class="" data-id="data-science-loops">Data science loops</a><a href="#data-cleaning-loop" class="h3" data-id="data-cleaning-loop">Data-cleaning loop</a><a href="#feature-and-experiment-loop" class="h3" data-id="feature-and-experiment-loop">Feature and experiment loop</a><a href="#labeling-and-active-learning-loop" class="h3" data-id="labeling-and-active-learning-loop">Labeling and active-learning loop</a><a href="#the-pattern-under-the-patterns" class="" data-id="the-pattern-under-the-patterns">The pattern under the patterns</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#a-common-controller" class="" data-id="a-common-controller">A common controller</a><a href="#keep-the-check-honest" class="" data-id="keep-the-check-honest">Keep the check honest</a><a href="#match-autonomy-to-consequences" class="" data-id="match-autonomy-to-consequences">Match autonomy to consequences</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="/">LoopRails</a> · <a href="articles">Articles</a> · Loop Patterns for Engineering &amp; Data Science</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-loop-patterns.md">View article-loop-patterns.md on GitHub ↗</a>
-      <h1 id="loop-patterns-for-engineering-and-data-science">Loop Patterns for Engineering and Data Science</h1>
-<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time></p>
-<p>A loop prompts an agent, checks the output, decides the next step, and runs until a goal and a &quot;done&quot; condition are met. The part that decides whether a loop is worth running is the verifier: an automated check, not a human&#39;s gut, that says whether each iteration improved things. Without it you have an agent making changes fast and you hoping they are good. With it you have a system that can tell on its own whether it is making progress.</p>
-<p>This article is a set of recipes. Each one is a loop I have built or watched work, in the same compact shape: what it does, when it is done, what verifies it, and the guardrail that keeps it honest. Some are software engineering loops, some are data science loops, and they share a spine. If you want the why behind the shape, read <a href="article-loop-engineering">loop engineering</a> first, or <a href="article-build-agent-loop">how to build your first agent loop</a> if you have not built one yet. This piece assumes you have, and you want patterns you can copy.</p>
-<p>Two ideas recur, so I will say them once up front. The done-condition is what makes a loop terminate. The verifier is what makes it trustworthy. And when the agent can see the thing that grades it, it will optimize the grader instead of the work, so the strongest verifiers are the ones the loop cannot reach.</p>
-<aside style="border:1px solid var(--rail);border-left:4px solid var(--rail);background:var(--rail-tint);border-radius:0 12px 12px 0;padding:15px 20px;margin:26px 0"><div style="font-weight:800;color:var(--ink);font-size:1.04rem;margin-bottom:3px">Get the LoopRails Kit, free</div><p style="margin:0;color:var(--ink-2);font-size:.95rem">The five fill-in templates for taking an agent loop from idea to safely running, plus the one-page cheat sheet. <a href="kit" style="font-weight:650">Get the Kit &rarr;</a></p></aside>
-<h2 id="engineering-loops">Engineering loops</h2>
-<h3 id="test-fixing-loop">Test-fixing loop</h3>
-<p><strong>What it does:</strong> takes a suite with failing tests and edits the code until the suite is green.</p>
-<p><strong>Done when:</strong> the full suite passes and no test that passed before now fails.</p>
-<p><strong>Verifier:</strong> the test runner, plus a regression check that compares the current pass set against the pass set from before the loop started. The runner alone is not enough. A bare &quot;make the tests pass&quot; instruction has an obvious shortcut: delete the failing test, or weaken its assertions until nothing fails. The regression check is what closes that door. It says the loop must not reduce the number of passing tests and must not modify the tests at all. If the agent touches a test file, that iteration is rejected regardless of the exit code.</p>
-<p><strong>Guardrail:</strong> the test files are read-only to the loop. Freeze them. The agent fixes product code; it does not get to renegotiate the contract it is graded against. Cap iterations too, because a loop that cannot find a fix will keep rewriting the same three lines forever and burn your budget. On the last failed pass, hand the diff to a human instead of declaring victory.</p>
-<h3 id="refactor-loop">Refactor loop</h3>
-<p><strong>What it does:</strong> restructures code (extract a function, collapse duplication, rename across a module) without changing what the code does.</p>
-<p><strong>Done when:</strong> the existing suite is still green and observable behavior is identical to before.</p>
-<p><strong>Verifier:</strong> the existing test suite catches gross regressions, but a refactor that passes the existing tests can still change behavior the tests never exercised. So before the loop runs, you add characterization tests: tests that pin down the current behavior, including the weird edges, by recording what the code actually does today rather than what it should do. The refactor must leave those green. Together the two suites say the structure changed and the behavior did not.</p>
-<p><strong>Guardrail:</strong> same as the test-fixing loop, and it matters more here, because the loop is being graded by tests and is editing code right next to them. It must not edit the tests it is being graded by. Freeze both the existing suite and the characterization tests. The day you let a refactor loop adjust a test &quot;because the new structure made it cleaner&quot; is the day your verifier stops meaning anything. If a characterization test genuinely encoded a bug, a human pulls it out of the frozen set deliberately, before the run, with a note saying why.</p>
-<h3 id="dependency-upgrade-loop">Dependency-upgrade loop</h3>
-<p><strong>What it does:</strong> bumps a dependency to a newer version and fixes whatever breaks: changed APIs, removed functions, new required arguments.</p>
-<p><strong>Done when:</strong> the project builds and the full test suite passes against the new version.</p>
-<p><strong>Verifier:</strong> CI. The real build, the real test run, in the environment that matters, not a local &quot;works on my machine&quot; pass. Dependency upgrades break in ways that depend on the platform, the lockfile, and transitive versions, so the check has to be the pipeline that gates your merges.</p>
-<p><strong>Guardrail:</strong> one dependency at a time, in an isolated worktree. This is the rule people skip and regret. If you let the loop bump five packages at once and the build breaks, you cannot tell which bump caused it, and neither can the agent, so it flails. One dependency per run gives a clean attribution: this version, this break, this fix, or this version is not viable yet, revert and move on. The isolated worktree keeps a failed upgrade from contaminating your working tree or another run in parallel. Cap the loop on spend, because some upgrades cascade (a major version pulls a peer dependency that pulls another) and you want it to stop and ask rather than chase the chain to the bottom.</p>
-<h3 id="plan-in-simulation-loop">Plan-in-simulation loop</h3>
-<p><strong>What it does:</strong> before it commits to a consequential action, the loop predicts the outcome with a model of the environment (a world model) or a dry-run, compares a few candidate actions, and runs the one with the best predicted result.</p>
-<p><strong>Done when:</strong> the chosen action runs and the real check confirms the predicted outcome held.</p>
-<p><strong>Verifier:</strong> the real environment, after the fact. The prediction only picks the candidate; the actual check still decides whether the step counts. Compare the predicted outcome against the observed one and log the gap, because a widening gap means the predictor is drifting and the preview is getting less trustworthy.</p>
-<p><strong>Guardrail:</strong> the world model is a model, so its prediction is a claim, not a result you can bank. Never let a predicted-good outcome auto-approve an irreversible action. A simulation lowers how often a reversible action needs a human; it does not remove the human at a G3 action. Cap how far ahead the loop plans, since prediction error compounds over a long rollout. For the full treatment see <a href="article-world-models-agent-loops">world models for agent loops</a>.</p>
-<h2 id="data-science-loops">Data science loops</h2>
-<p>The engineering loops above lean on tests most teams already have. Data science loops need verifiers you usually have to build on purpose, and the temptation to skip them is stronger because the work feels exploratory. Resist that. An exploratory loop with no verifier is an expensive way to fool yourself. This is the heart of <a href="article-evaluation-driven-development">evaluation-driven development</a>: the check comes first, and the loop runs against it.</p>
-<h3 id="data-cleaning-loop">Data-cleaning loop</h3>
-<p><strong>What it does:</strong> takes a messy dataset (inconsistent types, nulls where there should not be any, duplicate keys, values out of range) and transforms it until it meets a schema and a quality bar.</p>
-<p><strong>Done when:</strong> every validation rule passes and the row count is still in a sane range relative to the input.</p>
-<p><strong>Verifier:</strong> a data-validation suite that runs after each transform. It checks the schema (column names, types, required fields), value ranges (an age is not negative, a percentage is not 1{,}300), null rates (this column may be at most 2{%} null), uniqueness (the primary key has no duplicates), and referential checks (every foreign key points at a row that exists). The suite returns a pass or fail per rule, and the loop iterates until all of them pass.</p>
-<p><strong>Guardrail:</strong> the row-count check is the one that saves you. The easy way to make every validation rule pass is to drop every row that violates one. A loop told only &quot;satisfy the schema&quot; will happily hand you a clean dataset of forty rows out of a million and report success. So you bound the row count: the output may lose at most some small fraction of the input, and a larger loss fails the run and goes to a human. Clean the data, do not delete the data. Keep a sample of the rows that were dropped or modified too, so a person can spot a transform that is &quot;fixing&quot; values by quietly corrupting them.</p>
-<h3 id="feature-and-experiment-loop">Feature and experiment loop</h3>
-<p><strong>What it does:</strong> tries to improve a model metric by adding features, changing the model, or tuning it, one experiment per iteration.</p>
-<p><strong>Done when:</strong> the evaluation metric beats the baseline on a held-out test set by a margin you decided in advance.</p>
-<p><strong>Verifier:</strong> an eval harness that scores the model on a frozen test set the loop cannot see or touch. This is the rule the whole pattern stands on. If the loop can see the test set, it will overfit to it. Not because it is malicious, but because that is what optimization does: given a target it can observe, it shapes itself to that target, and a test set it can read becomes part of the training signal whether you meant it to or not. You get a number that looks great and a model that fails the moment it meets data it has not memorized. So split the data three ways: train (the loop learns on it), validation (the loop may look at this to decide what to try next), and test (frozen, scored only at the end, never exposed to the loop). The test number is the only one that counts as &quot;done.&quot;</p>
-<p><strong>Guardrail:</strong> hold the test set out, mechanically, not by trusting the loop to behave. Put it behind an interface that returns a score and nothing else, so the loop gets a number and never the rows or the labels. Cap the number of times the loop may score against the test set, too, because even a black-box score, queried a thousand times, leaks enough signal to overfit by selection. A handful of final evaluations, not a tight loop against the held-out number. The validation set is where the loop iterates; the test set is where it is judged once.</p>
-<h3 id="labeling-and-active-learning-loop">Labeling and active-learning loop</h3>
-<p><strong>What it does:</strong> runs a model over unlabeled data, routes the items it is least confident about to a human for labels, folds those labels back in, retrains, and repeats. The human spends their time on exactly the examples that teach the model the most.</p>
-<p><strong>Done when:</strong> agreement or accuracy crosses a threshold you set, or you run out of labeling budget, whichever comes first.</p>
-<p><strong>Verifier:</strong> a held-out gold set, labeled carefully by people, that the loop is measured against after each retrain. You also track inter-rater agreement on the human labels themselves, because if your labelers do not agree with each other, no amount of retraining will push accuracy past the noise in the labels. The gold set tells you whether the model is getting better. The agreement number tells you whether &quot;better&quot; even means anything yet.</p>
-<p><strong>Guardrail:</strong> keep the gold set out of the training data, the same way you keep a test set out of an experiment loop. If gold examples leak into training, your accuracy number is measuring memorization again. And watch the confidence routing: a model can be confidently wrong, so do not let &quot;high confidence&quot; auto-accept its way into the training set without spot-checks from a human. The loop should route uncertain items to people, not quietly teach itself on its own guesses.</p>
-<h2 id="the-pattern-under-the-patterns">The pattern under the patterns</h2>
-<p>Read those six back to back and the shape is the same every time. A done-condition that makes the loop stop. A verifier that makes the result mean something. A guardrail that almost always comes down to one move: keep the thing that grades the loop out of its reach.</p>
-<p>Frozen tests, a held-out test set, a gold set the training never sees, a row-count floor the cleaning cannot dodge. Different names, one idea. An agent optimizes whatever it can observe, so the verifier you can trust is the one it cannot touch, edit, see, or argue with. The done-condition makes the loop terminate. The verifier makes it trustworthy. And the independence of that verifier is why the number it reports is worth believing.</p>
-<p>Build the loop, then build the thing that keeps it honest, and make sure that thing sits where the loop cannot reach it. When you move from one loop to many running unattended, the next concern is keeping them inside their bounds: that is the subject of <a href="article-loop-engineering-oversight">keeping an autonomous loop on the rails</a>. For how the whole approach fits together, including where a human still belongs, start with the <a href="framework">LoopRails framework</a>.</p>
+      <span class="section-alias" id="loop-patterns-for-engineering-and-data-science" aria-hidden="true"></span><span class="section-alias" id="engineering-loops" aria-hidden="true"></span><span class="section-alias" id="test-fixing-loop" aria-hidden="true"></span><span class="section-alias" id="refactor-loop" aria-hidden="true"></span><span class="section-alias" id="dependency-upgrade-loop" aria-hidden="true"></span><span class="section-alias" id="plan-in-simulation-loop" aria-hidden="true"></span><span class="section-alias" id="data-science-loops" aria-hidden="true"></span><span class="section-alias" id="data-cleaning-loop" aria-hidden="true"></span><span class="section-alias" id="feature-and-experiment-loop" aria-hidden="true"></span><span class="section-alias" id="labeling-and-active-learning-loop" aria-hidden="true"></span><span class="section-alias" id="the-pattern-under-the-patterns" aria-hidden="true"></span><h1 id="practical-loop-patterns">Practical Loop Patterns</h1>
+<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-09-30">September 30, 2026</time></p>
+<p>Choose a loop by its completion check and recovery path. The pattern is useful when those are clearer than “keep improving.”</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Done-condition</th>
+<th>Check</th>
+<th>Failure to prevent</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Fix tests</td>
+<td>Required behavior passes without weakened tests</td>
+<td>Trusted suite and diff review</td>
+<td>Deleting assertions to gain a pass</td>
+</tr>
+<tr>
+<td>Refactor</td>
+<td>Behavior preserved and agreed structure improved</td>
+<td>Regression tests and artifact review</td>
+<td>Untested behavior changes</td>
+</tr>
+<tr>
+<td>Clean data</td>
+<td>Defined schema and quality constraints met</td>
+<td>Assertions and sampled source comparisons</td>
+<td>Silently dropping difficult rows</td>
+</tr>
+<tr>
+<td>Run experiments</td>
+<td>Protocol completed within budget</td>
+<td>Versioned data, settings and results</td>
+<td>Leakage or cherry-picking</td>
+</tr>
+<tr>
+<td>Research</td>
+<td>Claims supported by relevant sources</td>
+<td>Citation and evidence review</td>
+<td>Plausible but unsupported synthesis</td>
+</tr>
+<tr>
+<td>Plan in simulation</td>
+<td>Candidate meets modeled constraints</td>
+<td>Simulation plus real-world validation</td>
+<td>Trusting a wrong prediction</td>
+</tr>
+</tbody></table>
+<h2 id="a-common-controller">A common controller</h2>
+<p>Propose a bounded change, execute in an appropriate environment and check the result. Continue only when feedback supports another attempt. Stop on completion, unsafe behavior, budget exhaustion or lack of useful progress.</p>
+<p>Record the initial state, completed steps and unresolved outcomes. A retry after a network timeout needs reconciliation before another effectful call.</p>
+<h2 id="keep-the-check-honest">Keep the check honest</h2>
+<p>Protect evaluation data and critical rules from the agent optimizing against them. Use held-out examples and inspect failure slices. Subjective quality needs calibrated reviewers; executable checks need coverage analysis.</p>
+<h2 id="match-autonomy-to-consequences">Match autonomy to consequences</h2>
+<p>A reversible local artifact can permit more exploration. External disclosure, production changes or payments need stronger authority and execution limits. A successful verifier does not grant permission for an unrelated action.</p>
+<p>The <a href="codex-loops">reliability and agent references</a> provide the underlying patterns. Use the <a href="kit">done-condition template</a>, <a href="article-verification-functions">verification guide</a> and <a href="article-failure-recovery-agent-loops">recovery guide</a> to make a specific loop operational.</p>
 
     </div>
-    
-    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-evaluation-driven-development">Evaluation-Driven Development</a></li><li><a href="article-verification-functions">What Makes a Verifier Work</a></li><li><a href="article-two-loops">The Two Loops: Intent Clarity &amp; the Delivery Gap</a></li><li><a href="article-loop-engineering-oversight">Oversight for Autonomous Loops</a></li><li><a href="article-context-engineering-agent-loops">Context Engineering for Agent Loops</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
+
+    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-evaluation-driven-development">Evaluation-Driven Development</a></li><li><a href="article-verification-functions">What Makes a Verifier Work</a></li><li><a href="article-two-loops">The Two Loops: Intent Clarity &amp; the Delivery Gap</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get the 5 templates for shipping a guarded loop</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Enter your email and I'll send the LoopRails Kit: the fill-in templates that take an agent loop from idea to safely running, plus the one-page cheat sheet. New essays on loop engineering after that.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>

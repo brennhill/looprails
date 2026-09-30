@@ -1,10 +1,28 @@
-# The Loop Engineering Codex
+# Research Codex: Agent Loops
 
-This is the evidence base for building and operating AI agent loops. It collects what is known about two problems a loop runs into once it leaves the demo: how to recover when a run fails or crashes, and how to coordinate several agents without multiplying the chaos. The sources come from three places that rarely get read together: production reliability engineering, classical distributed AI, and recent work on LLM agents.
+Sources on recovery, coordination, retrieval, context and verification. Historical systems and benchmark results illustrate designs; they are not current model rankings or deployment guarantees.
 
-It is a companion to the main [research codex](codex.html), which covers human oversight of AI. This one covers the machinery of the loop itself.
+The September 30, 2026 review updates central interpretations and adds current evidence. It does not independently reverify every archived source. Retain source-specific caveats and check entries marked UNVERIFIED before reuse.
 
-Every entry below points to a real source with a working link. A small number are marked UNVERIFIED where a detail could not be independently confirmed; treat those with caution. Citations are tagged (for example FR-1, MA-1) and are linkable, so an article can point at the exact source behind a claim.
+## Current evidence
+
+**[UP-1] Anthropic (2026). [ENGINEERING GUIDANCE]** *Demystifying evals for AI agents.* [Article](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents).
+Guidance for complete outcomes, trajectories, graders and repeated trials. Adapt the harness to the product’s actual task distribution.
+
+**[UP-2] Anthropic (2026). [ENGINEERING ANALYSIS]** *Quantifying infrastructure noise in agentic coding evals.* [Article](https://www.anthropic.com/engineering/infrastructure-noise).
+Environment and resource settings can influence measured agent performance. Record and control them when comparing changes.
+
+**[UP-3] Shen et al. (2026). [SIMULATED EXPERIMENTS]** *AI Organizations Can Be More Effective but Less Aligned than Individual Agents.* [Research](https://alignment.anthropic.com/2026/ai-organizations/).
+Effectiveness and ethical behavior diverged in the studied team settings. Evaluate group-level policy compliance separately from individual-agent capability.
+
+**[UP-4] Mishra et al. (2026). [SURVEY / FRAMEWORK]** *SoK: Agentic Retrieval-Augmented Generation.* [arXiv](https://arxiv.org/abs/2603.07379).
+Highlights trajectory-level reliability risks in iterative retrieval. It does not establish universal gains from agentic RAG.
+
+**[UP-5] Chen et al. (September 2026). [BENCHMARK PREPRINT]** *World Agent: Can Language Models Keep a World Running?* [arXiv](https://arxiv.org/abs/2609.32692).
+Measures continued state and event organization, with weaker results as pre-built structure is removed. Early benchmark evidence, not a safety validation for deployed simulators.
+
+**[UP-6] Chen et al. (2026). [EMPIRICAL, ASE 2026]** *How Your Credentials Are Leaked by LLM Agent Skills.* [June revision](https://arxiv.org/abs/2604.03070v2).
+The sampled skills exposed credentials through code and context paths, including debug output. Review descriptions, resources and harness data flow together.
 
 ## Part 1: Failure recovery for agent loops
 
@@ -176,7 +194,7 @@ More agents is not automatically better. The modern frameworks show what coopera
 - An evaluator or reviewer agent needs its own guardrails. LLM-as-judge carries position, verbosity, and self-enhancement biases [MA-9], so a reviewer can launder bad output into approval unless you control for them.
 - Make intent explicit and typed. A small, defined message vocabulary [MA-15] [MA-18] makes agent conversations parseable and auditable.
 - Manage commitment deliberately [MA-17] [MA-21] [MA-22], coordinate through shared state when you can [MA-16] [MA-26], communicate selectively and reallocate on failure [MA-23].
-- Do not trust a single agent for a critical decision. Redundancy, quorum voting, one elected coordinator at a time, and a consistent shared log all carry over from distributed systems [MA-24] [MA-25].
+- Distributed-system coordination mechanisms help manage shared state [MA-24] [MA-25]. Quorum agreement among models does not establish independent factual correctness or authority.
 
 ## Part 4: Agent design and RAG patterns
 
@@ -278,9 +296,9 @@ How the number of tools (including MCP servers and agent skills) and the amount 
 - Tool-selection accuracy tends to drop as the candidate set grows, so retrieve a relevant subset per query rather than expose every tool [TOOL-1] [TOOL-2] [TOOL-9] [TOOL-10].
 - Redundant or near-duplicate tools and a fixed maximal candidate count hurt selection; curate for diversity and tune the subset size [TOOL-6] [TOOL-7].
 - Good per-tool documentation is a cheaper context investment than long demonstrations [TOOL-3].
-- Effective usable context is shorter than the advertised window, so do not budget tools plus task against the headline number [TOOL-13].
+- The older models tested in RULER often fell short of advertised context performance [TOOL-13]. Evaluate effective context on the current model and task.
 - Adding tokens, even when the task is unchanged, degrades reasoning and buries middle-of-context material, so every tool or skill definition spends budget that the task then cannot use [TOOL-11] [TOOL-12].
-- Connecting many MCP servers loads many tool definitions that can consume large context before work begins; first-party guidance is to load tools on demand [TOOL-14] [TOOL-15].
+- Clients that load tool definitions eagerly can incur substantial context overhead. Selective loading is an implementation option; connecting a server does not necessarily load every tool [TOOL-14] [TOOL-15].
 - Agent Skills use progressive disclosure so only a name and short description occupy context until the skill is invoked [TOOL-16].
 
 ## Part 6: Case studies, successes and failures
@@ -289,7 +307,7 @@ Real agentic loops, with measured results and, where reported, the cost. The pat
 
 ### 6.1 Successes, and what they cost
 
-**[CS-1]** Agentic Auto-Scheduling: An Experimental Study of LLM-Guided Loop Optimization (ComPilot), Merouani, Kara Bernou, Baghdadi (2025). [arxiv.org/abs/2511.00592](https://arxiv.org/abs/2511.00592). An off-the-shelf LLM in a loop with a compiler that reports legality and measured speedup. On PolyBench, geometric-mean speedups of 2.66x (single run) and 3.54x (best-of-5), competitive with the Pluto optimizer, no fine-tuning. The compiler is a near-ideal verifier; best-of-5 is verifier-gated selection.
+**[CS-1]** Agentic Auto-Scheduling: An Experimental Study of LLM-Guided Loop Optimization (ComPilot), Merouani, Kara Bernou, Baghdadi (2025). [arxiv.org/abs/2511.00592](https://arxiv.org/abs/2511.00592). An off-the-shelf LLM in a loop with a compiler that reports legality and measured speedup within its supported transformation model. On PolyBench, geometric-mean speedups of 2.66x (single run) and 3.54x (best-of-5), competitive with the Pluto optimizer, no fine-tuning. Legality checks and timing are useful within the benchmark setup; best-of-five adds compute for selection.
 
 **[CS-2]** DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning, DeepSeek-AI (2025). [arxiv.org/abs/2501.12948](https://arxiv.org/abs/2501.12948). RL on verifiable math and code rewards; reports 79.8% on AIME 2024, 97.3% on MATH-500, and a Codeforces rating of 2029. DeepSeek-R1-Zero shows the loop effect directly: AIME pass@1 rises from 15.6% to 71.0% over training, and to 86.7% with majority voting. The reward is the verifier; majority voting is test-time sampling.
 
@@ -339,7 +357,7 @@ The verifier is the part of a loop that decides whether the work is actually don
 
 DeepSeek-R1 [CS-2] is the clearest instance and states the design rule outright: it uses rule-based rewards (an accuracy reward plus a format reward) and a compiler running predefined test cases for code, and it explicitly drops neural reward models because they "may suffer from reward hacking in the large-scale reinforcement learning process." When a deterministic oracle exists, a learned verifier is both unnecessary and risky.
 
-### 7.2 Granularity and selection: process beats outcome, and verification is the bottleneck
+### 7.2 Granularity and selection
 
 **[VER-2]** Let's Verify Step by Step, Lightman et al. (2023), OpenAI. [arxiv.org/abs/2305.20050](https://arxiv.org/abs/2305.20050). Process supervision (a verifier that scores each reasoning step) beats outcome supervision (scoring only the final answer). With best-of-N selection on the MATH test set, the process reward model reaches 78.2%, versus 72.4% for the outcome reward model and 69.6% for majority voting. Releases PRM800K, 800,000 step-level human labels. Verifier granularity, not just its presence, drives the gain: a step-level check catches a wrong path an answer-only check would pass.
 
@@ -385,10 +403,8 @@ The fallback oracle is LLM-as-judge, which Zheng et al. [MA-9] show can reach ov
 
 ### 7.7 What this means for your verifier
 
-- A verifier sits on a strength spectrum, and the loop is only as trustworthy as the oracle. Ground-truth checks (a compiler, a test suite, a matched answer, a Lean proof) are strongest and hardest to game [CS-1] [CS-2] [VER-14] [VER-15]; learned reward models and LLM judges are more general and more gameable [VER-7] [MA-9]; unaided self-assessment is the weakest and can make things worse [FR-21].
-- Granularity and selection matter as much as presence. A step-level process verifier beats an outcome-only one [VER-2], and verification, not generation, is the binding constraint once you sample widely: coverage keeps rising but you cannot cash it in without a real verifier to select [VER-3], which is why ensembling weak verifiers helps [VER-4].
-- Any verifier short of ground truth is a proxy with a breaking point. Optimize it too hard and the agent games it [VER-7] [FAIL-3] [FAIL-4]. Harden with independence (the checker is not the maker), ensembles [VER-8], hidden and held-out checks, adversarial hacker-fixer passes [VER-9], and continuous co-evolution as the agent improves [VER-10]. Never train or optimize against the exact signal you grade with [FAIL-4].
-- On the spec question: in a verifiable domain the executable verifier is the spec, and the intense detail you imagined writing into prose belongs in the check instead [VER-1] [CS-2]. What makes the substitution safe is soundness, accepting nothing incorrect, more than coverage [VER-15]. The cost does not vanish, it moves to formalization: writing the tests, the properties, the Lean statement, the rubric.
-- When no cheap oracle exists, manufacture the closest thing to one. Decompose the implicit spec into a rubric or checklist of individually checkable sub-criteria [VER-11] [VER-12], route every item that has a deterministic check to a real verifier, and reserve an LLM judge, rubric-constrained and bias-aware, for the genuinely subjective remainder [MA-9]. That is also where a detailed natural-language spec earns its keep: as the rubric a judge or a human grades against.
+Match each check to the claim it can support. Tests, compiler checks and formal proofs have coverage and assumptions; learned judges and simulations add uncertainty. No single ordering is best for every task.
 
-For how human oversight fits on top of all this, see the [LoopRails framework](framework.html) and the main [research codex](codex.html).
+Protect hidden cases and grading policy from the optimizing agent. Inspect successful traces for shortcuts, report selection cost and test generalization. A passing check does not supply new authorization.
+
+Use the [verification guide](article-verification-functions.html) and [evals guide](evals.html) for implementation.

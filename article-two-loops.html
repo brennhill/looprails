@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Two Loops: Intent Clarity and the Delivery Gap · LoopRails</title>
-<meta name="description" content="The hard part of building with agents is not generation, it is intent. Loop engineering closes the delivery gap with two loops: an inner loop that converges on the verifier, and an outer loop where a human clarifies intent by sharpening it. Why the spec accretes from failures, not up front.">
+<meta name="description" content="An agent loop tries to produce work that passes a check.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="https://looprails.dev/article-two-loops">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Two Loops: Intent Clarity and the Delivery Gap · LoopRails">
-<meta property="og:description" content="The hard part of building with agents is not generation, it is intent. Loop engineering closes the delivery gap with two loops: an inner loop that converges on the verifier, and an outer loop where a human clarifies intent by sharpening it. Why the spec accretes from failures, not up front.">
+<meta property="og:description" content="An agent loop tries to produce work that passes a check.">
 <meta property="og:url" content="https://looprails.dev/article-two-loops">
 <meta property="og:image" content="https://looprails.dev/og-article-two-loops.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Two Loops: Intent Clarity and the Delivery Gap · LoopRails">
-<meta name="twitter:description" content="The hard part of building with agents is not generation, it is intent. Loop engineering closes the delivery gap with two loops: an inner loop that converges on the verifier, and an outer loop where a human clarifies intent by sharpening it. Why the spec accretes from failures, not up front.">
+<meta name="twitter:description" content="An agent loop tries to produce work that passes a check.">
 <meta name="twitter:image" content="https://looprails.dev/og-article-two-loops.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"The Two Loops: Intent Clarity & the Delivery Gap","name":"The Two Loops: Intent Clarity and the Delivery Gap · LoopRails","description":"The hard part of building with agents is not generation, it is intent. Loop engineering closes the delivery gap with two loops: an inner loop that converges on the verifier, and an outer loop where a human clarifies intent by sharpening it. Why the spec accretes from failures, not up front.","inLanguage":"en-US","url":"https://looprails.dev/article-two-loops","mainEntityOfPage":"https://looprails.dev/article-two-loops","image":"https://looprails.dev/og-article-two-loops.png","datePublished":"2026-06-23","dateModified":"2026-09-03","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"The Two Loops: Intent Clarity & the Delivery Gap","item":"https://looprails.dev/article-two-loops"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"The Two Loops: Intent Clarity & the Delivery Gap","name":"The Two Loops: Intent Clarity and the Delivery Gap · LoopRails","description":"An agent loop tries to produce work that passes a check.","inLanguage":"en-US","url":"https://looprails.dev/article-two-loops","mainEntityOfPage":"https://looprails.dev/article-two-loops","image":"https://looprails.dev/og-article-two-loops.png","datePublished":"2026-06-23","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"The Two Loops: Intent Clarity & the Delivery Gap","item":"https://looprails.dev/article-two-loops"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -75,6 +75,7 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .md strong[id]{scroll-margin-top:64px}
 .md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
 .md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.section-alias{display:block;height:0;scroll-margin-top:64px}
 .gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
 .crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
 .byline{font-size:.92rem;color:var(--muted);margin:-.2em 0 1.6em}
@@ -97,47 +98,51 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="article-loop-engineering-doctrine" class="">Doctrine</a><a href="playbook" class="">Playbook</a><a href="framework" class="">Framework</a><a href="kit" class="">Kit</a><a href="cookbook" class="">Cookbook</a><a href="evals" class="">Evals</a><a href="codex" class="">Codex</a><a href="articles" class="">Articles</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-verifier-is-intent-written-down-so-you-can-run-it" class="" data-id="the-verifier-is-intent-written-down-so-you-can-run-it">The verifier is intent, written down so you can run it</a><a href="#the-inner-loop-and-the-outer-loop" class="" data-id="the-inner-loop-and-the-outer-loop">The inner loop and the outer loop</a><a href="#intent-clarity-is-emergent-which-is-why-this-is-not-waterfal" class="" data-id="intent-clarity-is-emergent-which-is-why-this-is-not-waterfal">ntent clarity is emergent, which is why this is not waterfall</a><a href="#what-this-changes-about-how-you-build" class="" data-id="what-this-changes-about-how-you-build">What this changes about how you build</a><a href="#the-bridge-to-the-delivery-gap" class="" data-id="the-bridge-to-the-delivery-gap">The bridge to the delivery gap</a><a href="#where-this-fits" class="" data-id="where-this-fits">Where this fits</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-inner-loop" class="" data-id="the-inner-loop">The inner loop</a><a href="#the-outer-loop" class="" data-id="the-outer-loop">The outer loop</a><a href="#avoid-moving-the-target-invisibly" class="" data-id="avoid-moving-the-target-invisibly">Avoid moving the target invisibly</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="/">LoopRails</a> · <a href="articles">Articles</a> · The Two Loops: Intent Clarity &amp; the Delivery Gap</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-two-loops.md">View article-two-loops.md on GitHub ↗</a>
-      <h1 id="the-two-loops-closing-the-delivery-gap-with-intent-clarity">The Two Loops: Closing the Delivery Gap with Intent Clarity</h1>
-<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time></p>
-<p>There is a gap in every software project between what someone intended and what actually got built. Call it the delivery gap. Most of the pain of shipping lives in that gap, and most of it is not a coding problem. It is an intent problem: nobody stated clearly enough what they wanted, so what came back was not it. Agents do not remove this gap. They make it faster and more visible, because an agent delivers exactly what your instructions and your checks say, and the distance between that and what you meant shows up right away.</p>
-<p>Loop engineering, underneath the mechanics, is a way to close that gap without pretending you can specify everything up front. It does it with two loops.</p>
-<aside style="border:1px solid var(--rail);border-left:4px solid var(--rail);background:var(--rail-tint);border-radius:0 12px 12px 0;padding:15px 20px;margin:26px 0"><div style="font-weight:800;color:var(--ink);font-size:1.04rem;margin-bottom:3px">Get the LoopRails Kit, free</div><p style="margin:0;color:var(--ink-2);font-size:.95rem">The five fill-in templates for taking an agent loop from idea to safely running, plus the one-page cheat sheet. <a href="kit" style="font-weight:650">Get the Kit &rarr;</a></p></aside>
-<h2 id="the-verifier-is-intent-written-down-so-you-can-run-it">The verifier is intent, written down so you can run it</h2>
-<p>In a loop, the verifier is the thing that decides whether a pass met the goal. Look at it from the intent side and it is something more specific: the verifier is the part of your intent you have made explicit enough to execute. Whatever you can encode in the check, the tests, the invariants, the rubric, is intent the loop can act on. Whatever you cannot encode is intent still living in your head, where neither a teammate nor an agent can see it.</p>
-<p>That turns the slogan &quot;the verifier is the spec&quot; into something more useful for building. The verifier is intent made executable, and the delivery gap is the distance between the intent in your head and the intent in the check. Closing the gap means moving intent out of your head and into the check, one piece at a time. For what actually makes a check trustworthy once you write it, see <a href="article-verification-functions">what makes a verifier work</a>.</p>
-<h2 id="the-inner-loop-and-the-outer-loop">The inner loop and the outer loop</h2>
-<p>A working loop is really two loops running at different speeds.</p>
-<p>The inner loop is the agent against a fixed verifier. It proposes, the check grades, it tries again, until the check passes. Fast, automated, able to run unattended. The inner loop closes the gap between the output and the current statement of intent. It is good at this and getting better, which is exactly why generation is no longer the bottleneck.</p>
-<p>The outer loop is you. You look at what the inner loop produced and you sharpen the verifier and the goal. Slow, deliberate, human-in-the-loop. The outer loop closes the gap between the current statement of intent and what you actually meant. It is the loop that does the intent clarity.</p>
-<p>The verifier is the working contract between them. It records intent, gives the agent something testable to work against, and changes when people learn that the old definition was incomplete. The inner loop reads it; the outer loop rewrites it. A loop that has only an inner loop runs fast toward the wrong target. A process that has only an outer loop is a person editing a spec that never runs. You need both, and you need to know which one you are in.</p>
-<h2 id="intent-clarity-is-emergent-which-is-why-this-is-not-waterfal">Intent clarity is emergent, which is why this is not waterfall</h2>
-<p>The objection to &quot;write the verifier first&quot; is that it sounds like waterfall: specify everything before you build. And you cannot, because you do not know exactly what you want until you see what you do not want. That objection is right about people and wrong about the method, because the verifier is not written once up front. It accretes.</p>
-<p>You start the inner loop with a cheap floor: the code compiles, the existing tests pass, one invariant holds. You run it, you look at the output, and every time you notice &quot;that is wrong,&quot; you have just discovered a piece of your own intent. You encode it into the check. The verifier grows the way a regression suite grows from bugs: each failure you catch once becomes a check that catches it forever. The detailed specification you could not write on day one assembles itself, in the outer loop, out of the failures you actually hit.</p>
-<p>So the outer loop is not overhead. It is the intent-discovery engine. Waterfall tries to run it exactly once, completely, before building anything. Loop engineering keeps it running, and banks every pass in the verifier.</p>
-<h2 id="what-this-changes-about-how-you-build">What this changes about how you build</h2>
-<ul>
-<li>Stop trying to write the perfect spec first. Write the floor, the invariants you already know, and start the inner loop against that.</li>
-<li>Treat every outer-loop pass as intent clarification, and store the result in the verifier, not in a doc nobody runs. A clarified intent that lives only in a meeting is gone by the next sprint.</li>
-<li>Spend your effort on the cadence of the outer loop and the quality of the verifier, because that is where the delivery gap actually closes. Generation is cheap now; intent is the constraint.</li>
-<li>Match the investment to repetition. A recurring outcome, booking a meeting, fixing failing tests, a standard refactor, earns a real reusable verifier, because you amortize it over many runs and the target is knowable. A one-off, exploratory task gets a cheap proxy check plus your own eyes, and there the loop buys iteration speed, not autonomy.</li>
-</ul>
-<h2 id="the-bridge-to-the-delivery-gap">The bridge to the delivery gap</h2>
-<p>For a team, the delivery gap is the difference between what the business meant and what shipped, and the team that closes it fastest is the one that clarifies intent fastest. The two loops are how you do that with agents. The inner loop turns intent into working software at machine speed. The outer loop turns observed output back into sharper intent. The verifier is where that intent is stored and compounded, run after run, so the clarity you bought last week is not relearned this week.</p>
-<p>This is the part that does not get automated away. As generation gets cheaper, the scarce skill is not writing the code, it is knowing what you actually want and encoding it well enough to check. Intent clarity is the work now. The two loops are how you get it.</p>
-<h2 id="where-this-fits">Where this fits</h2>
-<p>The two loops are the working shape behind <a href="article-loop-engineering-doctrine">the LoopRails Doctrine</a> and the <a href="framework">framework</a>. Start with <a href="article-loop-engineering">loop engineering</a> for how to write a loop that prompts, checks, and decides; read <a href="article-verification-functions">what makes a verifier work</a> and <a href="article-evaluation-driven-development">evaluation-driven development</a> for how to build the check the whole thing turns on; and use the <a href="kit">Kit</a> to write your done-condition down before you build. Generation is the inner loop. Intent is the outer one. Build for both.</p>
+      <span class="section-alias" id="the-two-loops-closing-the-delivery-gap-with-intent-clarity" aria-hidden="true"></span><span class="section-alias" id="the-verifier-is-intent-written-down-so-you-can-run-it" aria-hidden="true"></span><span class="section-alias" id="the-inner-loop-and-the-outer-loop" aria-hidden="true"></span><span class="section-alias" id="intent-clarity-is-emergent-which-is-why-this-is-not-waterfal" aria-hidden="true"></span><span class="section-alias" id="what-this-changes-about-how-you-build" aria-hidden="true"></span><span class="section-alias" id="the-bridge-to-the-delivery-gap" aria-hidden="true"></span><span class="section-alias" id="where-this-fits" aria-hidden="true"></span><h1 id="the-two-loops">The Two Loops</h1>
+<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-09-30">September 30, 2026</time></p>
+<p>An agent loop tries to produce work that passes a check. A separate improvement loop asks whether that check still represents the user’s needs and operational constraints.</p>
+<p>These loops run at different speeds and have different responsibilities.</p>
+<table>
+<thead>
+<tr>
+<th>Loop</th>
+<th>Question</th>
+<th>Typical evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Inner delivery loop</td>
+<td>Does this artifact meet the current contract?</td>
+<td>Tests, state checks, rubrics and tool results</td>
+</tr>
+<tr>
+<td>Outer improvement loop</td>
+<td>Is the contract measuring the right behavior?</td>
+<td>User feedback, production failures and held-out audits</td>
+</tr>
+</tbody></table>
+<h2 id="the-inner-loop">The inner loop</h2>
+<p>Propose, act within scope, verify and either finish or retry within budget. Keep the goal and rules stable enough to evaluate progress. Passing the check does not authorize unrelated actions.</p>
+<p>Protect trusted tests and hidden cases from the component optimizing against them. Otherwise the quickest route to a pass may be to weaken the check.</p>
+<h2 id="the-outer-loop">The outer loop</h2>
+<p>Inspect actual failures and disagreements. Clarify ambiguous intent, improve cases and graders, and revise permissions or recovery controls. Keep independent audit cases to distinguish general improvement from overfitting.</p>
+<p>An approval of a plan can be part of oversight, but the outer loop is broader: it maintains what “good” means. It should not require a person to inspect every trivial intermediate action.</p>
+<h2 id="avoid-moving-the-target-invisibly">Avoid moving the target invisibly</h2>
+<p>Version the contract, dataset, grader and environment. Record why a criterion changed. Compare baseline and candidate under the same version before shipping.</p>
+<p><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Current agent-evaluation guidance</a> supports this separation between improving capability and protecting regression behavior. LoopRails uses the two-loop model as a design aid, not a standardized taxonomy.</p>
+<p>Use the <a href="evals">eval-building guide</a> to operate the improvement loop and the <a href="kit">done-condition template</a> to define one delivery run.</p>
 
     </div>
-    
-    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-loop-engineering-oversight">Oversight for Autonomous Loops</a></li><li><a href="article-context-engineering-agent-loops">Context Engineering for Agent Loops</a></li><li><a href="article-loop-health-monitoring">Loop Health: What to Monitor in a Running Loop</a></li><li><a href="article-world-models-agent-loops">World Models for Agent Loops</a></li><li><a href="article-failure-recovery-agent-loops">Failure Recovery for Agent Loops</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
+
+    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-loop-engineering-oversight">Oversight for Autonomous Loops</a></li><li><a href="article-context-engineering-agent-loops">Context Engineering for Agent Loops</a></li><li><a href="article-loop-health-monitoring">Loop Health: What to Monitor in a Running Loop</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get the 5 templates for shipping a guarded loop</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Enter your email and I'll send the LoopRails Kit: the fill-in templates that take an agent loop from idea to safely running, plus the one-page cheat sheet. New essays on loop engineering after that.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>

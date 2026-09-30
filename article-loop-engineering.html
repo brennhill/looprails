@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What Is Loop Engineering? From Prompts to Loops · LoopRails</title>
-<meta name="description" content="Loop engineering means building a system that prompts an AI agent, checks its output, and decides the next step until a goal is met. The prompts-to-loops ladder, and why the verifier is the hard part.">
+<meta name="description" content="Loop engineering designs the cycle around an AI agent: propose work, execute within bounds, check the result and decide whether to finish, retry or escalate.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Brenn Hill">
 <link rel="canonical" href="https://looprails.dev/article-loop-engineering">
 <meta property="og:type" content="article">
 <meta property="og:title" content="What Is Loop Engineering? From Prompts to Loops · LoopRails">
-<meta property="og:description" content="Loop engineering means building a system that prompts an AI agent, checks its output, and decides the next step until a goal is met. The prompts-to-loops ladder, and why the verifier is the hard part.">
+<meta property="og:description" content="Loop engineering designs the cycle around an AI agent: propose work, execute within bounds, check the result and decide whether to finish, retry or escalate.">
 <meta property="og:url" content="https://looprails.dev/article-loop-engineering">
 <meta property="og:image" content="https://looprails.dev/og-article-loop-engineering.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="What Is Loop Engineering? From Prompts to Loops · LoopRails">
-<meta name="twitter:description" content="Loop engineering means building a system that prompts an AI agent, checks its output, and decides the next step until a goal is met. The prompts-to-loops ladder, and why the verifier is the hard part.">
+<meta name="twitter:description" content="Loop engineering designs the cycle around an AI agent: propose work, execute within bounds, check the result and decide whether to finish, retry or escalate.">
 <meta name="twitter:image" content="https://looprails.dev/og-article-loop-engineering.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
@@ -23,7 +23,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="LoopRails articles" href="https://looprails.dev/feed.xml">
 <meta name="theme-color" content="#0e7c86">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"What Is Loop Engineering?","name":"What Is Loop Engineering? From Prompts to Loops · LoopRails","description":"Loop engineering means building a system that prompts an AI agent, checks its output, and decides the next step until a goal is met. The prompts-to-loops ladder, and why the verifier is the hard part.","inLanguage":"en-US","url":"https://looprails.dev/article-loop-engineering","mainEntityOfPage":"https://looprails.dev/article-loop-engineering","image":"https://looprails.dev/og-article-loop-engineering.png","datePublished":"2026-06-23","dateModified":"2026-09-03","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"What Is Loop Engineering?","item":"https://looprails.dev/article-loop-engineering"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"What Is Loop Engineering?","name":"What Is Loop Engineering? From Prompts to Loops · LoopRails","description":"Loop engineering designs the cycle around an AI agent: propose work, execute within bounds, check the result and decide whether to finish, retry or escalate.","inLanguage":"en-US","url":"https://looprails.dev/article-loop-engineering","mainEntityOfPage":"https://looprails.dev/article-loop-engineering","image":"https://looprails.dev/og-article-loop-engineering.png","datePublished":"2026-06-23","dateModified":"2026-09-30","author":{"@type":"Person","name":"Brenn Hill","url":"https://www.linkedin.com/in/brennhill/"},"publisher":{"@type":"Person","name":"Brenn Hill"},"isPartOf":{"@type":"WebSite","name":"LoopRails","url":"https://looprails.dev/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LoopRails","item":"https://looprails.dev/"},{"@type":"ListItem","position":2,"name":"Articles","item":"https://looprails.dev/articles"},{"@type":"ListItem","position":3,"name":"What Is Loop Engineering?","item":"https://looprails.dev/article-loop-engineering"}]}]}</script>
 <style>
 :root{
   --ink:#0d1117;--ink-2:#33404d;--muted:#5b6b7a;--line:#e3e6ea;
@@ -75,6 +75,7 @@ a{color:var(--rail);text-decoration:none}a:hover{text-decoration:underline}
 .md strong[id]{scroll-margin-top:64px}
 .md strong[id]:target{background:#fff3bf;border-radius:4px;padding:1px 4px;box-shadow:0 0 0 4px #fff3bf}
 .md h1[id],.md h2[id],.md h3[id]{scroll-margin-top:64px}
+.section-alias{display:block;height:0;scroll-margin-top:64px}
 .gh-link{display:inline-block;margin:8px 0 24px;font-size:.85rem;font-family:var(--mono)}
 .crumb{font-size:.85rem;color:var(--muted);margin:0 0 4px}
 .byline{font-size:.92rem;color:var(--muted);margin:-.2em 0 1.6em}
@@ -97,50 +98,63 @@ footer{border-top:1px solid var(--line);padding:22px;color:var(--muted);font-siz
   <nav class="docpick"><a href="article-loop-engineering-doctrine" class="">Doctrine</a><a href="playbook" class="">Playbook</a><a href="framework" class="">Framework</a><a href="kit" class="">Kit</a><a href="cookbook" class="">Cookbook</a><a href="evals" class="">Evals</a><a href="codex" class="">Codex</a><a href="articles" class="">Articles</a></nav>
 </div>
 <div class="layout">
-  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-term-and-where-it-sits" class="" data-id="the-term-and-where-it-sits">The term and where it sits</a><a href="#why-this-is-happening-now" class="" data-id="why-this-is-happening-now">Why this is happening now</a><a href="#a-loop-does-not-remove-oversight-it-relocates-it" class="" data-id="a-loop-does-not-remove-oversight-it-relocates-it">A loop does not remove oversight, it relocates it</a><a href="#what-changes-for-the-person-building-it" class="" data-id="what-changes-for-the-person-building-it">What changes for the person building it</a><a href="#where-to-go-next" class="" data-id="where-to-go-next">Where to go next</a></div></aside>
+  <aside class="toc"><div class="tt">On this page</div><div id="toc"><a href="#the-pieces-that-matter" class="" data-id="the-pieces-that-matter">The pieces that matter</a><a href="#start-with-a-checkable-task" class="" data-id="start-with-a-checkable-task">Start with a checkable task</a><a href="#keep-improving-the-check" class="" data-id="keep-improving-the-check">Keep improving the check</a></div></aside>
   <main class="content">
     <div class="crumb"><a href="/">LoopRails</a> · <a href="articles">Articles</a> · What Is Loop Engineering?</div>
     <div id="md" class="md">
       <a class="gh-link" href="https://github.com/brennhill/looprails/blob/main/article-loop-engineering.md">View article-loop-engineering.md on GitHub ↗</a>
-      <h1 id="what-is-loop-engineering">What Is Loop Engineering?</h1>
-<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time></p>
-<p>Loop engineering means you build a system that prompts an AI agent, checks its output, and decides the next step, instead of typing every prompt by hand. You define the goal and the conditions for &quot;done,&quot; and the loop runs until it gets there. You stop being the person in the chat box and become the person who designs the machine that runs the chat box.</p>
-<p>That is the short version. The longer version is more interesting, because moving from hand-prompting to loop-building does not get rid of your judgment. It moves it. This article explains what loop engineering is, where it came from, and what it changes about oversight. The change is the part most people miss. For what loop engineering looks like when it works and when it fails, with measured results, see <a href="article-agentic-loops-in-the-wild">agentic loops in the wild</a>.</p>
-<aside style="border:1px solid var(--rail);border-left:4px solid var(--rail);background:var(--rail-tint);border-radius:0 12px 12px 0;padding:15px 20px;margin:26px 0"><div style="font-weight:800;color:var(--ink);font-size:1.04rem;margin-bottom:3px">Get the LoopRails Kit, free</div><p style="margin:0;color:var(--ink-2);font-size:.95rem">The five fill-in templates for taking an agent loop from idea to safely running, plus the one-page cheat sheet. <a href="kit" style="font-weight:650">Get the Kit &rarr;</a></p></aside>
-<h2 id="the-term-and-where-it-sits">The term and where it sits</h2>
-<p>The name is recent. According to a June 2026 LinkedIn post that the LoopRails site owner shared, Google engineer Addy Osmani named &quot;loop engineering&quot; that month, shortly after Boris Cherny, who runs Claude Code at Anthropic, described his own work this way: &quot;My job is to write loops.&quot; Treat the date and the naming as a reported claim rather than settled history. The idea behind it is straightforward enough to stand on its own.</p>
-<p>It helps to see loop engineering as the latest rung on a ladder, because each rung is a response to the one before it.</p>
-<p><strong>Prompts came first.</strong> You wrote a good instruction and got a good answer. The skill was wording.</p>
-<p><strong>Then context engineering.</strong> Andrej Karpathy&#39;s term for filling the model&#39;s context window with the right information: the relevant files, the prior decisions, the examples, the constraints. The skill moved from phrasing one request to assembling everything the model needs to answer well.</p>
-<p><strong>Then harnesses.</strong> A harness is the environment a single agent runs inside: the tools it can call, the files it can read, the commands it can run, the rules it follows. You stopped tuning the words and started building the room the agent works in.</p>
-<p><strong>Then loop engineering.</strong> This puts that room on a schedule and lets it run without you in the chair. In practice that looks like scheduled automations, isolated git worktrees so parallel runs do not collide, reusable skills the agent can pull in, and subagents that split the work (one writes while another reviews). The model itself forgets everything between runs, so memory lives in a file the agent reads at the start of each run. The agent forgets. The repository remembers.</p>
-<p>So the trajectory is: better words, then better context, then a better environment, then that environment running on its own.</p>
-<h2 id="why-this-is-happening-now">Why this is happening now</h2>
-<p>The pressure behind loop engineering is volume. Inside Anthropic, engineers reportedly ship roughly 8x more code per quarter than they did a year ago. Take that as a reported figure, not a measured fact you can lean on, but take the direction seriously, because it explains the rest.</p>
-<p>When one person can produce that much more code, the hard part stops being how fast you write. It becomes how reliably you check. A human reviewing line by line cannot keep up with output at that scale, and a human approving things they did not really read is worse than no review at all. The bottleneck shifts from production to verification.</p>
-<p>That shift has a quieter name than &quot;loop engineering,&quot; and it is the serious half of the movement: evaluation-driven development. The idea is that an automated check, not your gut feeling, decides whether each change actually improved things. You write the check first, the loop runs against it, and the check either passes or it does not. As the LinkedIn post put it: &quot;The verifier is what separates a loop from a vibe.&quot; A loop without a verifier is just an agent making changes quickly and you hoping they are good. A loop with a verifier is a system that can tell, on its own, whether it is making progress.</p>
-<p>That distinction is the whole ballgame, and it leads straight to the part this site cares about.</p>
-<h2 id="a-loop-does-not-remove-oversight-it-relocates-it">A loop does not remove oversight, it relocates it</h2>
-<p>Here is the move that gets misread. People look at loop engineering and see autonomy: the human steps out, the machine takes over, oversight is gone. That is not what happens. When you stop prompting each step by hand, you are not removing your judgment from the system. You are pulling it out of the per-step prompts and pushing it into three places you now have to get right.</p>
-<p><strong>The goal and the done-conditions you define.</strong> When you hand-prompt, you steer continuously, correcting the agent turn by turn as you watch it work. A loop has none of that. It runs against whatever target you wrote down. A vague goal or a sloppy definition of &quot;done&quot; no longer gets caught by you noticing mid-task and redirecting. It just runs to the wrong finish line, fast, and possibly many times. The specification stops being a convenience and becomes a control surface. If the loop does the wrong thing correctly, that is usually a goal you defined badly, not a model that misbehaved.</p>
-<p><strong>The automated verifier.</strong> This is the check that decides whether each pass improved things. In hand-prompting, you are the verifier: you read the diff, run it in your head, and decide. In a loop, that judgment has to be written down as something the loop can run: a test suite, an evaluation, a scorer, a linter, a comparison against expected output. The verifier is doing the job your eyes used to do, on every iteration, at machine speed. If it is weak or measures the wrong thing, the loop will happily optimize toward a number that does not mean what you think it means. A loop is only as trustworthy as the thing checking it.</p>
-<p><strong>A small number of human checkpoints.</strong> Some actions a verifier cannot judge, because the question is not &quot;is this correct&quot; but &quot;should we do this at all.&quot; Sending money, deleting production data, publishing something public, merging to a shared branch, granting access. These are high-consequence and often irreversible, and an automated check has no standing to approve them. This is where a human still belongs in the loop. The trick is to keep that set small and aimed at exactly the actions that need it, so the human is a real reviewer at the moments that matter instead of a rubber stamp on a wall of prompts they cannot read.</p>
-<p>So oversight does not disappear when you build a loop. It concentrates. Three things you used to do implicitly, turn by turn, now have to be designed explicitly and up front. Get them wrong and a loop is a way to make mistakes faster than you can see them. Get them right and a loop is a system you can actually trust to run.</p>
-<p>For a fuller picture of what the agent inside the loop actually is, see <a href="article-what-is-agentic-ai">what agentic AI is</a>. And if you are deciding how much freedom to hand a given loop in the first place, the guide to <a href="article-ai-agent-autonomy-levels">AI agent autonomy levels</a> maps how much room to give an agent to how much damage it can do.</p>
-<h2 id="what-changes-for-the-person-building-it">What changes for the person building it</h2>
-<p>If you are used to driving an agent by hand, the daily work changes shape. You spend less time wording requests and more time writing specifications, building verifiers, and deciding which actions deserve a human checkpoint. The repository carries the memory, so you spend real effort on the file the agent reads at the start of each run, because that file is the difference between an agent that picks up where the last run left off and one that relearns the project every time.</p>
-<p>You also think harder about blast radius. A hand-prompted agent is bounded partly by you watching it. A loop is bounded only by what you set up before it ran: the worktree it is isolated in, the credentials it holds, the network it can reach, whether its actions can be undone. The controls you put in place before the loop starts are the controls you have, because once it is running you are not in the chair.</p>
-<p>None of this is exotic. It is the same engineering discipline you already apply to anything that runs unattended: define the goal precisely, check the result automatically, and put a human gate on the handful of actions that genuinely need one.</p>
-<h2 id="where-to-go-next">Where to go next</h2>
-<p>Loop engineering is the shift from prompting an agent by hand to building a system that prompts it for you. The system needs a clear goal, a check that decides whether each pass actually helped, and a few human gates on the actions a check cannot judge. Those three are where your oversight now lives.</p>
-<p>Two of them deserve their own treatment, and the next pieces cover them. The verifier is the heart of <a href="article-evaluation-driven-development">evaluation-driven development</a>: how to write a check that actually decides progress instead of one that flatters the loop. The human gates are the safety side, covered in <a href="article-loop-engineering-oversight">keeping an autonomous loop on the rails</a>: which actions need a checkpoint, how to keep the set small, and how to make sure a missed step is still recoverable. For how all of this fits together into a method you can apply to your own loops, start with the <a href="framework">LoopRails framework</a>. Build the loop, then build the things that keep it honest.</p>
+      <span class="section-alias" id="the-term-and-where-it-sits" aria-hidden="true"></span><span class="section-alias" id="why-this-is-happening-now" aria-hidden="true"></span><span class="section-alias" id="a-loop-does-not-remove-oversight-it-relocates-it" aria-hidden="true"></span><span class="section-alias" id="what-changes-for-the-person-building-it" aria-hidden="true"></span><span class="section-alias" id="where-to-go-next" aria-hidden="true"></span><h1 id="what-is-loop-engineering">What Is Loop Engineering?</h1>
+<p class="byline">By <a href="https://www.linkedin.com/in/brennhill/" rel="author">Brenn Hill</a> · <time datetime="2026-06-23">June 23, 2026</time> · Updated <time datetime="2026-09-30">September 30, 2026</time></p>
+<p>Loop engineering designs the cycle around an AI agent: propose work, execute within bounds, check the result and decide whether to finish, retry or escalate.</p>
+<p>The term describes a practical engineering pattern. It does not require a new class of model or make repeated prompting reliable by itself.</p>
+<h2 id="the-pieces-that-matter">The pieces that matter</h2>
+<table>
+<thead>
+<tr>
+<th>Piece</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Goal and scope</td>
+<td>Define the desired result and permitted actions</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>Supply relevant state, constraints and evidence</td>
+</tr>
+<tr>
+<td>Tools</td>
+<td>Execute actions through controlled interfaces</td>
+</tr>
+<tr>
+<td>Verifier</td>
+<td>Check specified outcomes and prohibited effects</td>
+</tr>
+<tr>
+<td>Controller</td>
+<td>Choose finish, bounded retry or escalation</td>
+</tr>
+<tr>
+<td>Operational controls</td>
+<td>Enforce budgets, recovery, authorization and stopping</td>
+</tr>
+</tbody></table>
+<p>A verifier is strong evidence only for what it actually checks. A test suite can miss behavior; a judge can be biased; a simulator can predict the wrong outcome.</p>
+<h2 id="start-with-a-checkable-task">Start with a checkable task</h2>
+<p>Choose a small task whose result you can inspect independently. Preserve the starting state, write explicit done-conditions and set time, retry and spending caps. Run in a contained environment before granting external capabilities.</p>
+<p>Use the simplest controller that works. Fixed workflows are often enough. More agents, reflection steps or planning calls need to earn their added cost in an evaluation.</p>
+<h2 id="keep-improving-the-check">Keep improving the check</h2>
+<p>An inner loop improves an artifact against current checks. An outer loop compares those checks with user needs, production failures and independent audits. Protect evaluation data and policy from the component optimizing against them.</p>
+<p><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropic’s current agent-evaluation guidance</a> emphasizes complete outcomes and repeated trials. Apply that discipline to your own task distribution rather than treating a benchmark as a deployment guarantee.</p>
+<p>Start with <a href="article-build-agent-loop">build your first loop</a>, the <a href="kit">templates</a> and the <a href="https://github.com/brennhill/looprails/tree/main/starter">starter</a>.</p>
 
     </div>
-    
-    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-build-agent-loop">How to Build Your First Agent Loop</a></li><li><a href="article-loop-patterns">Loop Patterns for Engineering &amp; Data Science</a></li><li><a href="article-evaluation-driven-development">Evaluation-Driven Development</a></li><li><a href="article-verification-functions">What Makes a Verifier Work</a></li><li><a href="article-two-loops">The Two Loops: Intent Clarity &amp; the Delivery Gap</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
+
+    <aside class="related"><h2>Related reading</h2><ul><li><a href="article-build-agent-loop">How to Build Your First Agent Loop</a></li><li><a href="article-loop-patterns">Loop Patterns for Engineering &amp; Data Science</a></li><li><a href="article-evaluation-driven-development">Evaluation-Driven Development</a></li></ul><p class="related-all"><a href="articles">All articles →</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">Securing the agent itself? See BRACE ↗</a></p></aside>
   </main>
 </div>
-<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get the 5 templates for shipping a guarded loop</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Enter your email and I'll send the LoopRails Kit: the fill-in templates that take an agent loop from idea to safely running, plus the one-page cheat sheet. New essays on loop engineering after that.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
+<section style="border-top:1px solid var(--line);background:var(--bg-2);padding:36px 22px;text-align:center"><div style="max-width:600px;margin:0 auto"><div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rail-2);margin-bottom:8px">Free download · the LoopRails Kit</div><div style="font-weight:800;font-size:1.28rem;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em">Get five project templates</div><p style="color:var(--ink-2);font-size:.95rem;margin:0 0 8px">Get five templates and a one-page checklist by email, followed by new essays on agent loops.</p><p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">Done-Condition Spec · Loop Card · Guardrails Checklist · Model Adaptation Worksheet · Loop Health Signals</p><script async data-uid="26a80d8704" src="https://aiacceleration.kit.com/26a80d8704/index.js"></script><p style="color:var(--muted);font-size:.8rem;margin:14px 0 0">No spam. Unsubscribe anytime.</p></div></section>
 <footer>
   <span>© 2026 <a href="https://www.linkedin.com/in/brennhill/">Brenn Hill</a> · all rights reserved</span>
   <span><a href="/">Home</a> · <a href="https://braceframework.org" title="Security for autonomous AI agents">BRACE Framework ↗</a> · <a href="https://github.com/brennhill/looprails">GitHub</a> · <a href="https://www.linkedin.com/in/brennhill/">LinkedIn</a></span>
